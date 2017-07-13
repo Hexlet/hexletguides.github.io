@@ -1,0 +1,78 @@
+article.post-content .h1, 
+article.post-content .h2, 
+article.post-content .h3, 
+article.post-content .h4, 
+article.post-content .h5, 
+article.post-content .h6, 
+article.post-content h1, 
+article.post-content h2, 
+article.post-content h3, 
+article.post-content h4, 
+article.post-content h5, 
+article.post-content h6 {
+  margin-top: 1.75rem;
+}
+
+.container {
+  max-width: 960px !important;
+}
+
+a.navbar-brand {
+  color: #2B3A67 !important;
+}
+
+blockquote {
+  padding: .5rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-left: .25rem solid #eceeef;
+}
+
+.hexlet_guides_post_header, article.post-content {
+  font-size: 1.13rem;
+}
+.footer {
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: inherit;
+}
+
+.index_card_link {
+  color: #e0e0e0;
+}
+
+.index_card_link, .index_card_link:focus, .index_card_link:active, .index_card_link:hover {
+  text-decoration: none;
+}
+
+.index_card_link .card_guides {
+  border-color: #2B3A67;
+  color: #2B3A67;
+  border-left-width: 5px;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.index_card_link .card_guides:hover {
+  border-left-width: 7px;
+}
+
+.hexlet_guides_source {
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+}
+
+.hexlet_guides_examples {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.075);
+  font-size: 0.9rem;
+}
+
+.hexlet_guides_post_header {
+  border-bottom: 1px dashed #2B3A67;
+}

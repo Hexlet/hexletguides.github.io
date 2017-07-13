@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class="hexlet_guides_post_header pt-3 mb-5">
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.subtitle }}</p>
+</div>
+
+<article class="post-content">
+  {{ content }}
+</article>
+
+{% if site.show_sharing_icons %}
+  {% include share_buttons.html %}
+{% endif %}
+
+{% if site.disqus_shortname %}
+  <div id="disqus_thread"></div>
+  <script>
+  var disqus_config = function () {
+  this.page.url = "{{site.url}}{{page.url}}";
+  this.page.identifier = "{{ page.id }}";
+  this.page.title = "{{ page.title }}";
+  };
+  
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = '//{{site.disqus_shortname}}.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
+
+{% if site.show_related_posts %}
+  <h3 class="related-post-title">Related Posts</h3>
+  {% for post in site.related_posts %}
+    <div class="post ml2">
+      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
+        <h4 class="post-title">{{ post.title }}</h4>
+        <p class="post-summary">{{ post.summary }}</p>
+      </a>
+    </div>
+  {% endfor %}
+{% endif %}

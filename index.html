@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="row">
+  {% for post in paginator.posts %}
+    {% assign minutes = post.content | strip_html | number_of_words | divided_by: 180 %}
+    {% if minutes == 0 %}
+    {% assign minutes = 1 %}
+    {% endif %}
+
+    <div class="col-12 col-lg-6 mb-5">
+
+      <a href="{{ post.url | prepend: site.baseurl }}" class="index_card_link">
+        <div class="card card_guides">
+          <div class="card-block pt-0">
+              <h2 class="card-title">{{ post.title }}</h2>
+              <p class="card-text">{{ post.summary }}</p>
+              <span>
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+                {{ minutes }} мин.
+              </span>
+            </div>
+        </div>
+      </a>
+
+    </div>
+  {% endfor %}
+</div>
