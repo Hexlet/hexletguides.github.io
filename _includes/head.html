@@ -22,9 +22,9 @@
     <meta property="fb:app_id" content="{{ site.facebook_app_id }}" />
     <meta property="og:type" content="article">
     <meta property="og:title" content="{% if page.title %}{{ page.title | xml_escape }}{% else %}{{ site.title | xml_escape }}{% endif %}">
-    {% if page.cover_url %}
-    <meta property="og:image" content="{{ page.cover_url | prepend: site.baseurl | prepend: site.url }}">
-    {% endif %}
+    <meta property="og:image" content="{% if page.cover_url %}{{ page.cover_url | prepend: site.baseurl | prepend: site.url }}{% else %}{{ {{baseurl}}/images/cover.jpg | prepend: site.baseurl | prepend: site.url }}{% endif %}">
+
+
     <meta property="og:description" content="{% if page.summary %}{{ page.summary | xml_escape }}{% else %}{{ site.description | xml_escape }}{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:site_name" content="{{ site.title | xml_escape }}">
@@ -66,8 +66,8 @@
 
     <script src="https://use.fontawesome.com/6d58e09dc1.js"></script>
 
-    <script src="/guides/js/likely.js"></script>
-    <link rel="stylesheet" href="/guides/css/likely.css">
+    <script src="/js/likely.js"></script>
+    <link rel="stylesheet" href="/css/likely.css">
 
     {% if site.google_analytics %}
     <script type="text/javascript">

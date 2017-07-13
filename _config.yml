@@ -9,11 +9,11 @@ url:         "https://hexletguides.github.io"
 date_format: "%-d.%m.%Y"
 
 # Google services
-google_analytics: "UA-1360700-19"
+google_analytics: "UA-1360700-62"
 google_verification:
 
 # Facebook
-facebook_app_id: "125006834268789"
+facebook_app_id: "1414002802233483"
 
 # Optional features
 animated:             false
