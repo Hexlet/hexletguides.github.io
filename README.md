@@ -1,3 +1,3 @@
-# hexlet guides
+# Hexlet Guides
 
-https://hexlet.github.io/guides/
+https://hexletguides.github.io
