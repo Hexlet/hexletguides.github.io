@@ -1,11 +1,11 @@
 # Site settings
 title:       "Hexlet Guides"
-header_title: "Rakh.im"
+header_title: "Hexlet Guides"
 email:       freetonik@gmail.com
 author:      Рахим Давлеткалиев
-description: "Объяснения для начинающих программистов"
+description: "Короткие объяснения для начинающих программистов"
 baseurl:     ""
-url:         "https://guides.hexlet.io"
+url:         "https://hexletguides.github.io"
 date_format: "%-d.%m.%Y"
 
 # Google services
@@ -24,7 +24,7 @@ ajaxify_contact_form: true
 
 # Disqus post comments
 # (leave blank to disable Disqus)
-# disqus_shortname: "rakhim"
+# disqus_shortname:
 
 # Social icons
 github_username:
