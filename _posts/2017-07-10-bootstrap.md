@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bootstrap
+title: Что такое Bootstrap
 subtitle: Набор стилей и скриптов для быстрой верстки.
 summary: Набор CSS-стилей и JavaScirpt-скриптов для быстрого создания сайтов без изобретения велосипедов.
 cover_url: "/images/bootstrap.png"
