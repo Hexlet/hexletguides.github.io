@@ -57,31 +57,4 @@ sitemap:
     </url>
     {% endif %}
   {% endfor %}
-
-  {% for collection in site.collections %}
-    {% if collection[1].output %}
-      {% for doc in collection[1].docs %}
-        <url>
-          <loc>{{ site.url }}{{ doc.url | remove: "index.html" }}</loc>
-          {% if doc.sitemap.lastmod %}
-            <lastmod>{{ doc.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
-          {% elsif doc.date %}
-            <lastmod>{{ doc.date | date_to_xmlschema }}</lastmod>
-          {% else %}
-            <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-          {% endif %}
-          {% if doc.sitemap.changefreq %}
-            <changefreq>{{ doc.sitemap.changefreq }}</changefreq>
-          {% else %}
-            <changefreq>monthly</changefreq>
-          {% endif %}
-          {% if doc.sitemap.priority %}
-            <priority>{{ doc.sitemap.priority }}</priority>
-          {% else %}
-            <priority>0.3</priority>
-          {% endif %}
-        </url>
-      {% endfor %}
-    {% endif %}
-  {% endfor %}
 </urlset>
