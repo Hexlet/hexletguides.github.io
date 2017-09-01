@@ -391,3 +391,7 @@ Flexbox — тема для отдельной статьи (coming soon!). По
 1. [bootsnipp.com](https://bootsnipp.com) — готовые блоки на Bootstrap'е (формы регистрации, элементы лендингов, интерфейсы приложений и пр.)
 2. [fontawesome.io](http://fontawesome.io) — набор иконок, подключаемых через шрифты (используется на Хекслете)
 3. [bootstrap-sass](https://github.com/twbs/bootstrap-sass) — Sass-версия Bootstrap'а
+
+---
+
+*Рахим Давлеткалиев*

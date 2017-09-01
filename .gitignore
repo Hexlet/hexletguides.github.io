@@ -4,3 +4,5 @@ _site/
 _deleted_posts/
 .DS_Store
 .sass-cache
+hexlet_guides.sublime-project
+hexlet_guides.sublime-workspace
