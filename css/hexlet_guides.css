@@ -17,6 +17,10 @@ article.post-content h6 {
   max-width: 960px !important;
 }
 
+.container img {
+  max-width: 100%;
+}
+
 a.navbar-brand {
   color: #2B3A67 !important;
 }
