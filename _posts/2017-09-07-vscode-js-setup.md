@@ -3,7 +3,7 @@ layout: post
 title: Как настроить VS Code для разработки на JavaScript
 subtitle: Создание удобного рабочего окружения.
 summary: VS Code – бесплатный редактор кода от Microsoft. Он быстрее Атома, активно развивается и легко расширяется плагинами.
-cover_url: "/images/atom.jpg"
+cover_url: "/images/vscode_eslint.png"
 ---
 
 **[Visual Studio Code](https://code.visualstudio.com/) – популярный бесплатный редактор кода, созданный Microsoft'ом для программистов. VS Code никак не связан с Visual Studio. VS Code работает быстрее [Атома](/atom-js-setup/), активно развивается и легко расширяется плагинами.**
