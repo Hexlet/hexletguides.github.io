@@ -39,7 +39,7 @@ medium_id:
 bitcoin_url:
 paypal_url:
 flattr_button:
-instagram_username: 
+instagram_username:
 
 # Post sharing icons
 show_sharing_icons: true
@@ -65,4 +65,4 @@ sass:
   compressed: true
 
 # Gems
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
