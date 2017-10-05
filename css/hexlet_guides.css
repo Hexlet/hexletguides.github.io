@@ -52,17 +52,23 @@ blockquote {
 }
 
 .index_card_link .card_guides {
-  border-color: #2B3A67;
+  border: none;
   color: #2B3A67;
-  border-left-width: 5px;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-  border-radius: 0;
 }
 
-.index_card_link .card_guides:hover {
-  border-left-width: 7px;
+.index_card_link .card-block::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0;
+  bottom: 0;
+  border-color: #2B3A67;
+  border-style: solid;
+  border-left-width: 3px;
+}
+
+.index_card_link .card_guides:hover .card-block::before {
+  border-left-width: 5px;
 }
 
 .hexlet_guides_source {
