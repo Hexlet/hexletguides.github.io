@@ -174,7 +174,7 @@ Flexbox — тема для отдельной статьи (coming soon!). По
 
 ### Примеры
 
-Ниже — еше несколько примеров. 
+Ниже — еще несколько примеров. 
 
 <ul class="nav nav-pills mt-3 mb-2 flex-column flex-md-row" role="tablist">
   <li class="nav-item">
