@@ -1,4 +1,4 @@
-JEKYLL_VERSION=3.5
+JEKYLL_VERSION=3.6
 
 server:
 	docker run --rm \
