@@ -56,7 +56,7 @@ cover_url: "/images/bootstrap.png"
   </div>
 </div>
 
-[Подробнее о сетке в документации →](http://v4-alpha.getbootstrap.com/layout/grid/)
+[Подробнее о сетке в документации →](https://getbootstrap.com/docs/4.0/layout/overview/)
 
 ### Брейкпойнты
 
