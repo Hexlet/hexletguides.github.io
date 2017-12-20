@@ -1,6 +1,6 @@
 # Hexlet Guides
 
-https://hexletguides.github.io
+http://guidex.hexlet.io
 
 ## Adding new Guides
 

@@ -2,10 +2,10 @@
 title:       "Hexlet Guides"
 header_title: "Hexlet Guides"
 email:       freetonik@gmail.com
-author:      Рахим Давлеткалиев
+author:      Hexlet
 description: "Короткие объяснения для начинающих программистов"
 baseurl:     ""
-url:         "https://hexletguides.github.io"
+url:         "http://guides.hexlet.io"
 date_format: "%-d.%m.%Y"
 
 # Google services
