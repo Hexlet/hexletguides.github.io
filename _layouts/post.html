@@ -2,12 +2,17 @@
 layout: default
 ---
 
-<div class="hexlet_guides_post_header pt-3 mb-5">
-  <h1>{{ page.title }}</h1>
-  <p>{{ page.subtitle }}</p>
+<div class="mt-3 mb-5">
+  <h1 class="hexlet_guides_post_header pb-3 mb-3">{{ page.title }}</h1>
+  <p class="post-content">{{ page.subtitle }}</p>
 </div>
 
 <article class="post-content">
+  <section class="toc px-3 pt-3 pb-0 mb-4">
+    <h6 class="m-0 mb-2">Содержание</h6>
+    {% include toc.html html=content %}
+  </section>
+
   {{ content }}
 </article>
 
@@ -32,16 +37,4 @@ layout: default
   })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{% endif %}
-
-{% if site.show_related_posts %}
-  <h3 class="related-post-title">Related Posts</h3>
-  {% for post in site.related_posts %}
-    <div class="post ml2">
-      <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
-        <h4 class="post-title">{{ post.title }}</h4>
-        <p class="post-summary">{{ post.summary }}</p>
-      </a>
-    </div>
-  {% endfor %}
 {% endif %}

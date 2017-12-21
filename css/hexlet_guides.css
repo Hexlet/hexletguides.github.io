@@ -32,7 +32,7 @@ blockquote {
   border-left: .25rem solid #eceeef;
 }
 
-.hexlet_guides_post_header, article.post-content {
+.post-content {
   font-size: 1.13rem;
 }
 .footer {
@@ -85,4 +85,15 @@ blockquote {
 
 .hexlet_guides_post_header {
   border-bottom: 1px dashed #2B3A67;
+}
+
+.toc {
+  border: 1px solid #a2a9b1;
+  background-color: #f8f9fa;
+  display: inline-block;
+  font-size: 90%;
+}
+
+.toc li {
+  margin-bottom: 0.2em;
 }
