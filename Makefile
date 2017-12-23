@@ -7,6 +7,13 @@ serve:
 	  -it jekyll/builder:$(JEKYLL_VERSION) \
 	  jekyll server
 
+test:
+	docker run --rm \
+	  --volume=$(PWD):/srv/jekyll \
+	  -p 4000:4000 \
+	  -it jekyll/builder:$(JEKYLL_VERSION) \
+	  jekyll server --drafts
+
 build:
 	docker run --rm \
 	  --volume=$(PWD):/srv/jekyll \
