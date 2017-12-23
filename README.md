@@ -8,6 +8,12 @@ http://guides.hexlet.io
 make serve
 ```
 
+or with drafts
+
+```
+make drafts-start
+```
+
 ## Running without Docker
 
 1. Install [Jekyll](https://jekyllrb.com/) `gem install jekyll`
