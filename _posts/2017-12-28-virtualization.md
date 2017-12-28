@@ -39,7 +39,7 @@ Enter new UNIX username:
 Ссылки на официальную документацию:
 
 * [Ubuntu - Microsoft Store](https://www.microsoft.com/ru-ru/store/p/ubuntu/9nblggh4msv6)
-* [Install the Linux Subsystem on Windows 10 | Microsoft Docs](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* [Install the Linux Subsystem on Windows 10 - Microsoft Docs](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
 ### VirtualBox
 
