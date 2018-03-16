@@ -3,7 +3,8 @@ title:       "Hexlet Guides"
 header_title: "Hexlet Guides"
 email:       freetonik@gmail.com
 author:      Hexlet
-description: "Короткие объяснения для начинающих программистов"
+description_short: "Короткие объяснения для начинающих программистов"
+description: "Короткие и понятные объяснения для начинающих программистов. Руководства по инструментам, процессу обучения и важным навыкам."
 baseurl:     ""
 url:         "http://guides.hexlet.io"
 date_format: "%-d.%m.%Y"
