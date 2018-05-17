@@ -1,12 +1,12 @@
 # Site settings
 title:       "Hexlet Guides"
 header_title: "Hexlet Guides"
-email:       freetonik@gmail.com
+email:       info@hexlet.io
 author:      Hexlet
 description_short: "Короткие объяснения для начинающих программистов"
 description: "Короткие и понятные объяснения для начинающих программистов. Руководства по инструментам, процессу обучения и важным навыкам."
 baseurl:     ""
-url:         "http://guides.hexlet.io"
+url:         "https://guides.hexlet.io"
 date_format: "%-d.%m.%Y"
 
 # Google services
@@ -61,9 +61,5 @@ markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    "/:title/"
-paginate:     50
 sass:
   compressed: true
-
-# Gems
-plugins: [jekyll-paginate]

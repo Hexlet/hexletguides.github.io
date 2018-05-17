@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="row">
-  {% for post in paginator.posts %}
+  {% for post in site.posts %}
     {% assign minutes = post.content | strip_html | number_of_words | divided_by: 180 %}
     {% if minutes == 0 %}
     {% assign minutes = 1 %}
