@@ -61,7 +61,7 @@ markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    "/:title/"
-paginate:     15
+paginate:     50
 sass:
   compressed: true
 
