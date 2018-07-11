@@ -14,16 +14,12 @@ cover_url: "/images/bootstrap/bootstrap.jpeg"
 
 Весь Хекслет, включая этот сайт, создан на Bootstrap'е.
 
-<div class="alert alert-warning mb-4" style="font-size:1rem;" role="alert">
-  <strong>В этом гайде описан Bootstrap 4.</strong> Версия 4 сейчас в стадии «бета».
-</div>
-
 ### Как подключить Bootstrap?
 
 Самый простой способ — добавить такую строку в свой HTML:
 
 ```html
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 ```
 
 Такой же файл можно скачать и разместить на своем сервере. Либо подключить Bootstrap через пакетный менеджер. [Подробнее на официальном сайте](http://getbootstrap.com/getting-started/).
@@ -165,7 +161,7 @@ Flexbox — тема для отдельной статьи (coming soon!). По
 
 Брейкпойнты дают дополнительные возможности для адаптивности. Например, можно скрывать элементы на определенной ширине окна:
 
-- Класс `hidden-lg-up` скроет элемент на экранах `lg` и выше (от 992px и выше). 
+- Класс `hidden-lg-up` скроет элемент на экранах `lg` и выше (от 992px и выше).
 - Класс `hidden-sm-down` скроет элемент на экранах `sm` и ниже (от 768px и ниже).
 
 Также можно указать те элементы, которые следует или не следует выводить при печати страницы.
@@ -174,7 +170,7 @@ Flexbox — тема для отдельной статьи (coming soon!). По
 
 ### Примеры
 
-Ниже — еще несколько примеров. 
+Ниже — еще несколько примеров.
 
 <ul class="nav nav-pills mt-3 mb-2 flex-column flex-md-row" role="tablist">
   <li class="nav-item">
@@ -190,7 +186,6 @@ Flexbox — тема для отдельной статьи (coming soon!). По
     <a class="nav-link" data-toggle="tab" href="#progress" role="tab">Прогресс-бары</a>
   </li>
 </ul>
-
 
 <div class="tab-content hexlet_guides_examples mb-4">
   <div class="tab-pane active" id="forms" role="tabpanel">
@@ -388,10 +383,10 @@ Flexbox — тема для отдельной статьи (coming soon!). По
 
 ### Дополнительные ссылки
 
-1. [bootsnipp.com](https://bootsnipp.com) — готовые блоки на Bootstrap'е (формы регистрации, элементы лендингов, интерфейсы приложений и пр.)
-2. [fontawesome.io](http://fontawesome.io) — набор иконок, подключаемых через шрифты (используется на Хекслете)
-3. [bootstrap-sass](https://github.com/twbs/bootstrap-sass) — Sass-версия Bootstrap'а
+1.  [bootsnipp.com](https://bootsnipp.com) — готовые блоки на Bootstrap'е (формы регистрации, элементы лендингов, интерфейсы приложений и пр.)
+2.  [fontawesome.io](http://fontawesome.io) — набор иконок, подключаемых через шрифты (используется на Хекслете)
+3.  [bootstrap-sass](https://github.com/twbs/bootstrap-sass) — Sass-версия Bootstrap'а
 
 ---
 
-*Рахим Давлеткалиев*
+_Рахим Давлеткалиев_
