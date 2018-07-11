@@ -14,10 +14,6 @@ cover_url: "/images/bootstrap/bootstrap.jpeg"
 
 Весь Хекслет, включая этот сайт, создан на Bootstrap'е.
 
-<div class="alert alert-warning mb-4" style="font-size:1rem;" role="alert">
-  <strong>В этом гайде описан Bootstrap 4.</strong> Версия 4 сейчас в стадии «бета».
-</div>
-
 ### Как подключить Bootstrap?
 
 Самый простой способ — добавить такую строку в свой HTML:
