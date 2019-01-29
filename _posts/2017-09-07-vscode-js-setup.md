@@ -31,18 +31,16 @@ VS Code содержит понятие "сборки проекта". Реда�
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "${workspaceRoot}/node_modules/.bin/babel",
-    "isShellCommand": true,
-    "tasks": [
-        {
-            "args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
-            "taskName": "watch",
-            "suppressTaskName": true,
-            "isBuildCommand": true,
-            "isBackground": true
-        }
-    ]
+  "version": "2.0.0",
+  "type": "shell",
+  "tasks": [
+      {
+          "label": "watch",
+          "command": "${workspaceRoot}/node_modules/.bin/babel src --out-dir dist -w --source-maps",
+          "group": "build",
+          "isBackground": true
+      }
+  ]
 }
 ```
 
