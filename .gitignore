@@ -6,3 +6,4 @@ _deleted_posts/
 .sass-cache
 hexlet_guides.sublime-project
 hexlet_guides.sublime-workspace
+vendor
