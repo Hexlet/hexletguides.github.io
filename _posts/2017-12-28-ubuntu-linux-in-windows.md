@@ -12,7 +12,7 @@ cover_url: "/images/ubuntu-linux-in-windows/virtualization_cover.png"
 
 ### Ubuntu из Microsoft Store
 
-Если вы работаете на Windows версии 10 с архитектурой x64, то можно можно воспользоваться встроенным решением и установить виртуализированную версию Ubuntu Linux через магазин приложений Microsoft Store.
+Если вы работаете на Windows версии 10 с архитектурой x64, то можно можно воспользоваться встроенным решением и установить слой совместимости (Windows Subsystem for Linux) на основе Ubuntu Linux через магазин приложений Microsoft Store.
 
 ![](/images/ubuntu-linux-in-windows/virtualization_1.png)
 
