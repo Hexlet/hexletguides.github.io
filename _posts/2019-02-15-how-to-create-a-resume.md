@@ -167,7 +167,7 @@ _Дисклеймер: Разные люди по-разному смотрят 
 * [How To Write Your Human-Voiced Resume](https://www.forbes.com/sites/lizryan/2014/07/17/how-to-write-your-human-voiced-resume/)
 * [Интервью с техническим директором Авито (вторая часть про найм)](https://www.youtube.com/watch?v=8wurHiUJwUA&t=5s)
 * [Интервью с рекрутером. Как происходит поиск и фильтрация кандидатов?](https://www.youtube.com/watch?v=Zg9iNKaFqSY)
-* [Интервью с техническим директором Григорием Добряковым: как составить резюме мечты и пройти собеседование](https://www.youtube.com/watch?v=lJiWvv5Krbk) ([Текстовая выдержка](https://w96k.com/posts/dobryakov_employment/))
+* [Интервью с техническим директором Григорием Добряковым: как составить резюме мечты и пройти собеседование](https://www.youtube.com/watch?v=lJiWvv5Krbk) ([Текстовая выдержка](https://w96k.com/%D0%B3%D1%80%D0%B8%D0%B3%D0%BE%D1%80%D0%B8%D0%B9-%D0%B4%D0%BE%D0%B1%D1%80%D1%8F%D0%BA%D0%BE%D0%B2-%D0%BE%D0%B1-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B5-%D0%BD%D0%B0-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%83.html))
 * [Собеседования. Взгляд со стороны работодателя](https://www.youtube.com/watch?v=M4WW8-9GwRA)
 * [Публичное собеседование](https://www.youtube.com/watch?v=JERUf-xKU1o)
 
