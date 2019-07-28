@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Как настроить VS Code для разработки на PHP
+title: Как настроить VS Code для разработки на JavaScript
 subtitle: Создание удобного рабочего окружения.
 summary: VS Code – бесплатный редактор кода от Microsoft. Он быстрее Атома, активно развивается и легко расширяется плагинами.
 cover_url: "/images/vscode-js-setup/vscode_eslint.png"
@@ -17,13 +17,37 @@ cover_url: "/images/vscode-js-setup/vscode_eslint.png"
 - умное автодополнение
 - встроенный пакетный менеджер
 
+Пакетный менеджер нужен для установки и удаления пакетов расширений (плагинов). Для удобной разработки на JavaScript для бэкенда и фронтенда нужно установить несколько пакетов.
+
+![install package in vs code](/images/vscode-js-setup/vscode-install.png)
+
 Для установки нового пакета зайдите во вкладку "Extensions", введите название пакета в строке поиска, нажмите кнопку "Install".
 
-### EditorConfig for VS Code
-### Semicolon Insertion Shortcut
-### PHP Debug
-### PHP Intelliphense 
-### PHP Sniffer
+### Babel и ES6
+
+VS Code содержит понятие "сборки проекта". Редактор можно настроить таким образом, чтобы сборка JavaScript-проекта заключалась в конвертации кода из ES6 в читаемый ES5 с Source Maps с помощью Babel. 
+
+Добавьте таск (задание) в файл `tasks.json` в директории `.vscode` в корне вашего проекта:
+
+```json
+{
+  "version": "2.0.0",
+  "type": "shell",
+  "tasks": [
+      {
+          "label": "watch",
+          "command": "${workspaceRoot}/node_modules/.bin/babel src --out-dir dist -w --source-maps",
+          "group": "build",
+          "isBackground": true
+      }
+  ]
+}
+```
+
+Теперь комбинация клавиш `Shift+Ctrl+B` (Windows/Linux) или `Shift+CMD+B`(macOS) запустит сборку. 
+
+Подробнее о tasks можно [узнать на сайте VS Code](https://code.visualstudio.com/docs/editor/tasks).
+
 ### Стандарты кодирования
 
 **Eslint** – это утилита, проверяющая стандарты кодирования на JavaScript. Стандарт де-факто в мире JS. 
@@ -83,4 +107,12 @@ VS Code содержит встроенный отладчик кода. Вы м
 
 Для отладки бэкенд-кода достаточно встроенных возможностей. Для отладки фронтенд-кода нужно установить плагин для соответствующего браузера: 
 
+- [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+- [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug)
+- [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+
 Подробнее об отладке можно узнать [на сайте VS Code](https://code.visualstudio.com/docs/editor/debugging).
+
+---
+
+*Рахим Давлеткалиев*
