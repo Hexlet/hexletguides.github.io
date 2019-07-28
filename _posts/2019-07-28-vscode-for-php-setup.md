@@ -67,3 +67,4 @@ PHP требует разделять инструкции с помощью т�
 - [Indent Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)
 - [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets)
 - [Settings Sync](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Fira Code](https://github.com/tonsky/FiraCode)
