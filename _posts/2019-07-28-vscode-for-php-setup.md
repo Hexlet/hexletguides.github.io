@@ -33,13 +33,13 @@ root = true
 
 # Глобальные настройки, которые будут записаны для всех файлов
 [*]
-charset = utf-8                  
+charset = utf-8
 # на Unix системах используется lf для перевода строки, также это требование PSR
-end_of_line = lf                
-insert_final_newline = true      
-indent_style = space             
-indent_size = 4                   
-trim_trailing_whitespace = true   
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
 
 # Можно настроить индивидуальные настройки для типов файлов, так и отдельных файлов по имени.
 [*.md]
@@ -56,16 +56,6 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 ```
-<blockquote>
-melodyn:unicorn_face: 9:32 PM
-cr - возврат каретки, что пришло с письменных машинок
-lf - перевод строки, пришло оттуда же, но не суть
-поскольку развитие шло от них до компов, а наиболее широкое распространение получила винда, которая наследовалась от печатных машинок (особенно по отказоустойчивости), то там используется  CRLF
-
-А UNIX разрабатывали учёные и с учётом каждого байта, поэтому подумали - а нахрена занимать 4 байта, если можно занимать 2? И утвердили LF
-Поскольку, вероятнее, что код твой будет в nix-совместимых системах, надо брать их стандарт
-</blockquote>
-
 
 ### PHP Intelliphense
 
@@ -76,8 +66,16 @@ lf - перевод строки, пришло оттуда же, но не су
 
 При разработке может возникнуть ситуация, когда недостаточно простых функций отладки и логирования становится недостаточно. Тогда может помочь специальный инструмент - Дебаггер. 
 Для PHP есть специальное расширение [xdedug](https://xdebug.org/) которое позволяет расставить [точки останова](https://ru.wikipedia.org/wiki/Точка_останова) и посмотреть окружение в предполагаемом месте ошибки, выполнить поэтапно, либо до следующей точки.
-Сперва необходимо установить сам XDebug, без него [расширения для редактора](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug) не будет работать. После установки расширения необходимо будет в разделе `Debug` добавить конфигурацию для PHP. Выбираем язык и у нас в корне проекта будет создан файл `.vscode/launch.json` с задачами для Дебаггера. Теперь можно запускать текущий файл с помощью PHP или включить режим дебаггера.
-Для этого требуется добавить в ini-файл php следующее
+Сперва необходимо установить сам XDebug, без него [расширения для редактора](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug) не будет работать. После установки расширения необходимо будет в разделе `Debug` добавить конфигурацию для PHP. Выбираем язык и у нас в корне проекта будет создан файл `.vscode/launch.json` с задачами для Дебаггера. Расширение создаст файл со стандартными параметрами.  Для того, чтобы XDebug общался с нашим дебаггером, необходимо добавить настройки в файл конфигурации php
+Чтобы найти этот файл нужно выполнить в терминале `php --ini` или на запустить веб-сервер с кодом `phpinfo()`
+Для Линукса (в моем случае Ubuntu) PHP подгружает не только основной файл, но и из директории, например по пути `/etc/php/7.3/cli/conf.d/` (это директория конфигурационных файлов для PHP)
+Там я создал файл (требуются root права) и выставил нужные права
+```s
+$ sudo touch /etc/php/7.3/cli/conf.d/99-local.ini
+$ sudo chmod 777 /etc/php/7.3/cli/conf.d/99-local.ini
+``` 
+
+со следующим содержимым
 
 ```ini
 xdebug.remote_enable=1
@@ -86,27 +84,52 @@ xdebug.remote_port=9000 ; Порт, который мы указали в launch
 xdebug.idekey=code
 xdebug.remote_autostart=1
 ```
-Это настройки для локальной разработки, когда php находится на нашем компьютере. Теперь мы можем запустить дебаггер `Listen for XDebug`, расставлять брейкпоинты. При выполнении кода скрипт остановится и появится сообщение.
+Также нужно выставить права
+Это настройки для локальной разработки, когда проект разрабатывается на том же компьютере, что и запускается, например на Вашей рабочей машине.
 
 ![debug vscode](/images/vscode-for-php-setup/xdebug-exception.png)
 
 ### PHP Sniffer
 
-Для проверки стандартов кодирования подходит [PHP Sniffer](https://marketplace.visualstudio.com/items?itemName=wongjn.php-sniffer) 
-В PHP приняты стандарты под названием [PSR-1 PSR-2 PSR-12](https://www.php-fig.org/psr/). 
-Каждый из стандартов включает в себя предыдущий. Для работы линтера требуется установленный [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer#composer)
+В языках программирования есть понятие "стиль кодирования". Но Не все разработчики про это знают. Программа, которая отвечает за проверку стандартам называется линтер. В PHP приняты стандарты под названием [PSR](https://www.php-fig.org/psr/). В нашем случае нас интересуют стандарты PSR-1 и PSR-12. Эти два стандарта касаются стилей кодирования и правил оформления кода.
+
+В PHP повсеместно в качестве линтера используется [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer#composer).
+Для этого необходимо установить глобально `composer global require "squizlabs/php_codesniffer=*"` сам линтер и необходимое расширение [PHP Sniffer](https://marketplace.visualstudio.com/items?itemName=wongjn.php-sniffer) 
+Проверьте, что линтер установился
+```s
+$ phpcs --version 
+PHP_CodeSniffer version 3.4.2 (stable) by Squiz (http://www.squiz.net)
+```
+Выполнить проверку кода в терминале можно командой. Здесь мы указываем явно стандарт, который хотим использовать.
+```s
+$ phpcs --standard=PSR12 <dirname>
+```
+
+![linter info](/images/vscode-for-php-setup/linter.png)
+
+Ниже на скриншоте можно увидеть настройки линтера (`[ctrl] + ,`). Проверка осуществляется при наборе кода.
+![linter settings](/images/vscode-for-php-setup/linter2.png)
+
 
 ### Semicolon Insertion Shortcut
 
-PHP требует разделять инструкции с помощью точки запятой. [Semicolon Insertion Shortcut](https://marketplace.visualstudio.com/items?itemName=chrisvltn.vs-code-semicolon-insertion) ставит в конец строки символ с помощью хоткея.
+PHP требует разделять инструкции с помощью точки запятой. [Semicolon Insertion Shortcut](https://marketplace.visualstudio.com/items?itemName=chrisvltn.vs-code-semicolon-insertion) ставит в конец строки символ с помощью шортката.
+Если при нажатии `[Ctrl] + ;` не вставляется символ, то необходимо проверить горячие клавиши, при необходимости назначить вручную `File -> Preferences -> Keyboard Shortcuts` 
 
-![semicolon-shortcun](/images/vscode-for-php-setup/semicolon.gif)
+![semicolon-shortcut](/images/vscode-for-php-setup/semicolon.png)
+![semicolon-shortcut](/images/vscode-for-php-setup/semicolon.gif)
 
 ### Extra
 
-- [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings)
-- [GitLens](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
-- [Indent Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow)
-- [Rainbow Brackets](https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets)
-- [Settings Sync](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-- [Fira Code](https://github.com/tonsky/FiraCode)
+Неполный список полезных расширений, которыми я пользуюсь. Подходят не только для PHP программиста
+
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - в VScode уже встроена поддержка Git. Но когда базовых возможностей становится недостаточно, на помощь может придти Gitlens. Например одна из полезных фич - git blame на текущей строке
+![gitlens](https://raw.githubusercontent.com/eamodio/vscode-gitlens/master/images/docs/current-line-blame.png)
+- [Indent Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) - разноцветные отступы в коде. Если где-то отступ некорректный, то подсвечивается визуально. Можно вместо радуги установить оттенки серого
+![rainbow](/images/vscode-for-php-setup/intend-rainbow.png)
+- [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) - плагин, позволяющий синхронизировать настройки редактора между разными компьютерами. В качестве облачного хранилища используются Github Gists. Все настройки можно потом скачать, указав нужный файл синхронизации.
+- [Fira Code](https://github.com/tonsky/FiraCode) - Fira code - моноширинный шрифт, в котором используются лигатуры (объединяет несколько символов в один) для общих комбинаций символов в программировании. Это только визуальная надстройка, с которой читать и понимать код быстрее. Символы остаются такими-же, как и были до этого, только выглядят по другому.
+
+![fira1](/images/vscode-for-php-setup/withoutfira.png)
+![fira2](/images/vscode-for-php-setup/withfira.png)
+![fira3](/images/vscode-for-php-setup/fira.gif)
