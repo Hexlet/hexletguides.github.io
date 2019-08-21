@@ -21,7 +21,7 @@ cover_url: "/images/vscode-js-setup/vscode_eslint.png"
 
 ![install package in vs code](/images/vscode-js-setup/vscode-install.png)
 
-Для установки нового пакета зайдите во вкладку "Extensions", введите название пакета в строке поиска, нажмите кнопку "Install".
+Для установки нового пакета зайдите во вкладку "Extensions" которая находится в выпадающем меню "View", и введите название пакета в строке поиска, нажмите кнопку "Install".
 
 ### Babel и ES6
 
