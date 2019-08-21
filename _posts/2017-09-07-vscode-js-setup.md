@@ -113,6 +113,10 @@ VS Code содержит встроенный отладчик кода. Вы м
 
 Подробнее об отладке можно узнать [на сайте VS Code](https://code.visualstudio.com/docs/editor/debugging).
 
+### Ссылки
+
+[Бесплатный курс](https://ru.hexlet.io/courses/js-setup-environment) по настройке окружения для работы в современной экосистеме JavaScript.
+
 ---
 
 *Рахим Давлеткалиев*
