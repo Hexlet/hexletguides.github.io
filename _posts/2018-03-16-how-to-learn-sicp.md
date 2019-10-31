@@ -99,6 +99,8 @@ cover_url: "/images/sicp/sicp.jpg"
 
 * [Курс: Структура и интерпретация компьютерных программ (SICP по-русски)](https://www.youtube.com/watch?v=bFMbqKRjU84&list=PLo6puixMwuSO8eB2uBH5lZy5kjNtdhTfT)
 
+* [Сервис для отслеживания прогресса изучения книги](https://sicp.hexlet.io/)
+
 
 ---
 
