@@ -63,3 +63,9 @@ redcarpet:
 permalink:    "/:title/"
 sass:
   compressed: true
+
+# gems
+gems:
+  - jekyll-redirect-from
+
+
