@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Несколько версий Python на Linux-машине
+redirect_to: https://ru.hexlet.io/blog/posts/ispolzovanie-neskolkih-versiy-python-na-unix-podobnyh-operatsionnyh-sistemah
 subtitle: Использование нескольких версий Python на unix-подобных операционных системах.
 summary: Возможные способы установки нескольких версий среды исполнения Python на одну машину под управлением ОС семейства Unix. Решение проблем с установкой приложений, рассчитанных на использование конкретной версии Python, с применением виртуальных окружений.
 cover_url: "/images/python-2-and-3-logo.png"
