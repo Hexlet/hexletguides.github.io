@@ -1,14 +1,14 @@
-article.post-content .h1, 
-article.post-content .h2, 
-article.post-content .h3, 
-article.post-content .h4, 
-article.post-content .h5, 
-article.post-content .h6, 
-article.post-content h1, 
-article.post-content h2, 
-article.post-content h3, 
-article.post-content h4, 
-article.post-content h5, 
+article.post-content .h1,
+article.post-content .h2,
+article.post-content .h3,
+article.post-content .h4,
+article.post-content .h5,
+article.post-content .h6,
+article.post-content h1,
+article.post-content h2,
+article.post-content h3,
+article.post-content h4,
+article.post-content h5,
 article.post-content h6 {
   margin-top: 1.75rem;
 }
@@ -96,4 +96,8 @@ blockquote {
 
 .toc li {
   margin-bottom: 0.2em;
+}
+
+.word-wrap {
+  word-wrap: break-word;
 }
