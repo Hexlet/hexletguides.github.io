@@ -24,7 +24,7 @@ cover_url: "Путь к файлу-обложке для соц. сетей, н�
     * Мифический человеко-месяц, или Как создаются программные системы
     * Идеальный программист. Как стать профессионалом разработки ПО
     * Цель. Процесс непрерывного совершенствования
-* [Manifesto for Agile Software Development](http://agilemanifesto.org/iso/ru/manifesto.html)
+* [Manifesto for Agile Software Development](https://bit.ly/2NSBRLp)
 * [Bus Factor](https://en.wikipedia.org/wiki/Bus_factor)
 * [Карго культ](https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D0%B3%D0%BE-%D0%BA%D1%83%D0%BB%D1%8C%D1%82)
 

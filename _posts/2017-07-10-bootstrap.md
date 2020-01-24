@@ -22,7 +22,7 @@ cover_url: "/images/bootstrap/bootstrap.jpeg"
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 ```
 
-Такой же файл можно скачать и разместить на своем сервере. Либо подключить Bootstrap через пакетный менеджер. [Подробнее на официальном сайте](http://getbootstrap.com/getting-started/).
+Такой же файл можно скачать и разместить на своем сервере. Либо подключить Bootstrap через пакетный менеджер. [Подробнее на официальном сайте](https://getbootstrap.com/getting-started/).
 
 ### Сетка
 
@@ -368,7 +368,7 @@ Flexbox — тема для отдельной статьи (coming soon!). По
   </div>
 </div>
 
-У Bootstrap'а огромное количество возможностей и хорошая [документация](http://v4-alpha.getbootstrap.com/).
+У Bootstrap'а огромное количество возможностей и хорошая [документация](https://v4-alpha.getbootstrap.com/).
 
 ### Дополнительные ссылки
 
