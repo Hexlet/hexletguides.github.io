@@ -1,6 +1,6 @@
 # Hexlet Guides
 
-http://guides.hexlet.io
+https://guides.hexlet.io
 
 ## Running via Docker
 

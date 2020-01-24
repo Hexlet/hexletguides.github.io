@@ -121,7 +121,7 @@ xdebug.remote_autostart=1
 
 ```shell
 $ phpcs --version 
-PHP_CodeSniffer version 3.4.2 (stable) by Squiz (http://www.squiz.net)
+PHP_CodeSniffer version 3.4.2 (stable) by Squiz (https://www.squiz.net)
 ```
 
 Выполнить проверку кода в терминале можно с помощью команды `phpcs`, явно указав стандарт, который мы хотим использовать, и путь для проверки:
