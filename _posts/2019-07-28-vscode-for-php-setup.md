@@ -130,6 +130,8 @@ PHP_CodeSniffer version 3.4.2 (stable) by Squiz (https://www.squiz.net)
 $ phpcs --standard=PSR12 <dirname>
 ```
 
+![vscode-phpcs](/images/vscode-for-php-setup/phpcs-vscode.png)
+
 ![debug vscode](/images/vscode-for-php-setup/phpcsfixer.gif)
 
 
