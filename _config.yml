@@ -43,7 +43,7 @@ flattr_button:
 instagram_username:
 
 # Post sharing icons
-show_sharing_icons: true
+show_sharing_icons: false
 share_text: 'Share this post!'
 # Change to 'true' to enable individual icons
 share_facebook: true
