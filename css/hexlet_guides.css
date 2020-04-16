@@ -101,3 +101,31 @@ blockquote {
 .word-wrap {
   word-wrap: break-word;
 }
+
+.post-content table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.post-content th,
+.post-content td {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #dfe2e5;
+}
+
+.post-content th {
+  font-weight: 600;
+  text-align: center;
+}
+
+.post-content table tr {
+  background-color: #fff;
+  border-top: 1px solid #a2a9b1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f9fa;
+}
