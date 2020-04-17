@@ -7,3 +7,4 @@ _deleted_posts/
 hexlet_guides.sublime-project
 hexlet_guides.sublime-workspace
 vendor
+.jekyll-cache/
