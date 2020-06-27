@@ -3,7 +3,8 @@ layout: default
 ---
 
 <div class="row">
-  {% for post in site.posts %}
+  {% assign filtered_posts = site.posts | where: 'hidden', empty %}
+  {% for post in filtered_posts %}
     {% assign minutes = post.content | strip_html | number_of_words | divided_by: 180 %}
     {% if minutes == 0 %}
     {% assign minutes = 1 %}
