@@ -64,11 +64,11 @@ blockquote {
   bottom: 0;
   border-color: #2B3A67;
   border-style: solid;
-  border-left-width: 3px;
+  border-left-width: 1px;
 }
 
 .index_card_link .card_guides:hover .card-block::before {
-  border-left-width: 5px;
+  border-left-width: 2px;
 }
 
 .hexlet_guides_source {
