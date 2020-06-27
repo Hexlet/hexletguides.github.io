@@ -1,21 +1,17 @@
-JEKYLL_VERSION=3.8.5
+JEKYLL_VERSION=4.1.0
+RUN=docker run --rm \
+	--volume=$(PWD):/srv/jekyll \
+	-p 4000:4000 \
+	-it jekyll/jekyll:$(JEKYLL_VERSION)
 
 serve:
-	docker run --rm \
-	  --volume=$(PWD):/srv/jekyll \
-	  -p 4000:4000 \
-	  -it jekyll/builder:$(JEKYLL_VERSION) \
-	  jekyll server
+	$(RUN) jekyll server
 
 drafts-start:
-	docker run --rm \
-	  --volume=$(PWD):/srv/jekyll \
-	  -p 4000:4000 \
-	  -it jekyll/builder:$(JEKYLL_VERSION) \
-	  jekyll server --drafts
+	$(RUN) jekyll server --drafts
 
 build:
-	docker run --rm \
-	  --volume=$(PWD):/srv/jekyll \
-	  -it jekyll/builder:$(JEKYLL_VERSION) \
-	  jekyll build
+	$(RUN) jekyll build
+
+bash:
+	$(RUN) bash
