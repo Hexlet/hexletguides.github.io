@@ -68,4 +68,11 @@ sass:
 gems:
   - jekyll-redirect-from
 
+# defaults:
+#   - scope:
+#       path: ""
+#       type: "pages"
+#     values:
+#       hidden: false
+
 
