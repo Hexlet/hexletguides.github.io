@@ -60,7 +60,7 @@ hidden: true
 
 ![tern js](/images/atom-js-setup/tern.png)
 
-Расширение Атома [atom-ternjs](atom-ternjs) не требует установки ничего другого и работает само по себе.
+Расширение Атома [atom-ternjs](https://atom.io/packages/atom-ternjs) не требует установки ничего другого и работает само по себе.
 
 ### Автоматическое дополнение файлов и модулей
 
