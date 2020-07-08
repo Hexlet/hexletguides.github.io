@@ -10,7 +10,7 @@ url:         "https://guides.hexlet.io"
 date_format: "%-d.%m.%Y"
 
 # Google services
-google_analytics: "UA-1360700-62"
+google_tag_manager_id: "GTM-KMJ8HKG"
 google_verification:
 
 # Facebook
