@@ -56,63 +56,63 @@ Enter new UNIX username:
 
 Для начала необходимо установить и запустить приложение VirtualBox.
 
-![VirtualBox main page](/images/ubuntu-linux-in-windows/virtualization_2.png)
+![VirtualBox главная страница](/images/ubuntu-linux-in-windows/virtualization_2.png)
 
 Нажимаем кнопку «Создать», выбираем из списка тип операционной системы «Linux», если нет своих предпочтений по дистрибутиву, то выбираем версию «Ubuntu» 32 или 64 битной архитектуры, а название можно ввести любое. 
 
-![VirtualBox create virtual machine](/images/ubuntu-linux-in-windows/virtualization_3.png)
+![VirtualBox создание виртуальной машины](/images/ubuntu-linux-in-windows/virtualization_3.png)
  
 Указываем объём оперативной памяти выделенной под виртуальную систему. Рекомендованный объём составляет 1024 MB.
 
-![VirtualBox select RAM size](/images/ubuntu-linux-in-windows/virtualization_4.png)
+![VirtualBox выбор размера оперативной памяти](/images/ubuntu-linux-in-windows/virtualization_4.png)
 
 Указываем объём дискового пространства выделенного под виртуальную систему. Рекомендованный объём составляет 10 GB.
 
-![VirtualBox select HARD disk size](/images/ubuntu-linux-in-windows/virtualization_5.png)
+![VirtualBox выбор жесткого диска](/images/ubuntu-linux-in-windows/virtualization_5.png)
 
 Тип виртуального жёсткого диска можно оставить как есть — VDI (VitrualBox Disk Image).
 
-![VirtualBox select HARD disk type](/images/ubuntu-linux-in-windows/virtualization_6.png)
+![VirtualBox выбор типа жесткого диска](/images/ubuntu-linux-in-windows/virtualization_6.png)
 
 Формат хранения данных выберите исходя из личных предпочтений. Динамический виртуальный жёсткий диск растёт по мере заполнения, а фиксированный создаётся сразу того размера, который был указан на предыдущем шаге.
 
-![VirtualBox select HARD disk format](/images/ubuntu-linux-in-windows/virtualization_7.png)
+![VirtualBox выбор формата хранения жесткого диска](/images/ubuntu-linux-in-windows/virtualization_7.png)
 
 Имя и размер файла можно оставить без изменений и сразу нажать на кнопку «Создать».
 
-![VirtualBox select HARD disk name](/images/ubuntu-linux-in-windows/virtualization_8.png)
+![VirtualBox выбор имени и размера жесткого диска](/images/ubuntu-linux-in-windows/virtualization_8.png)
 
 По завершению у вас будет создана виртуальная машина, но она пока без операционной системы. Для того чтобы её установить, нужно скачать Ubuntu Linux (32-bit или 64-bit, в зависимости от того, что было выбрано на шаге, где мы указывали тип ОС).
 
 Нажатие на кнопку «Запустить» должно привести к появлению диалогового окна с предложением указать путь до скаченного ISO образа. Сделайте этого и нажмите кнопку «Продолжить»
 
-![VirtualBox select boot disk](/images/ubuntu-linux-in-windows/virtualization_9.png)
+![VirtualBox выбор загрузочного диска](/images/ubuntu-linux-in-windows/virtualization_9.png)
 
 Виртуальная машина автоматически будет выполнять часть процессов, но в некоторых операциях всё же потребуется участие пользователя.
 
 Выберите языковую поддержку в списке слева и нажмите «Установить Ubuntu».
 
-![ubuntu install select language](/images/ubuntu-linux-in-windows/virtualization_10.png)
+![ubuntu установка - выбор языка](/images/ubuntu-linux-in-windows/virtualization_10.png)
 
 Можно загрузить обновления сразу на этапе установки.
 
-![ubuntu install download update](/images/ubuntu-linux-in-windows/virtualization_11.png)
+![ubuntu установка - загрузка обновлений](/images/ubuntu-linux-in-windows/virtualization_11.png)
 
 Без особых опасений выбираем пункт «Стереть диск и установить Ubuntu» и двигаемся дальше.
 
-![ubuntu install clear disk](/images/ubuntu-linux-in-windows/virtualization_12.png)
+![ubuntu установка - очистка диска](/images/ubuntu-linux-in-windows/virtualization_12.png)
 
 Если вы выбрали русский язык на первом этапе установки, то вам предложат русскую раскладку клавиатуры в качестве дополнительной.
 
-![ubuntu install select keyboard](/images/ubuntu-linux-in-windows/virtualization_13.png)
+![ubuntu установка - выбор раскладки клавиатуры](/images/ubuntu-linux-in-windows/virtualization_13.png)
  
 Заполните поля и выберите режим входа в систему.
 
-![ubuntu install add user info](/images/ubuntu-linux-in-windows/virtualization_14.png)
+![ubuntu установка - ввод информации пользователя](/images/ubuntu-linux-in-windows/virtualization_14.png)
 
 Далее начнётся процедура разметки диска, переноса файлов, установка обновлений и другие процессы, которые не потребуют прямого участия пользователя.
 
-![ubuntu installation](/images/ubuntu-linux-in-windows/virtualization_15.png)
+![ubuntu процесс установки](/images/ubuntu-linux-in-windows/virtualization_15.png)
 
 По завершению виртуальный компьютер перезагрузится и вы попадёте в уже установленную среду Ubuntu Linux.
 
@@ -120,7 +120,7 @@ Enter new UNIX username:
 
 Выберите пункт меню «Устройства» программы VitrualBox, подпункт «Подключить образ диска Дополнений гостевой ОС…» и дождитесь предложение запустить приложение для автоматического запуска с виртуального привода.
 
-![VitrualBox add guest addons](/images/ubuntu-linux-in-windows/virtualization_16.png)
+![VitrualBox подключение образа диска дополнений](/images/ubuntu-linux-in-windows/virtualization_16.png)
 
 Виртуальная ОС Ubuntu Linux установлена и готова к работе.
 
