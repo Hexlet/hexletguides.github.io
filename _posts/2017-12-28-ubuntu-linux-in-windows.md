@@ -11,7 +11,7 @@ hidden: true
 
 Этот вопрос можно решить установкой какого-либо из многочисленных дистрибутивов Linux в качестве основной, либо альтернативной операционной системы. Для новичков есть способ проще и быстрее — технологии виртуализации. Об этом и поговорим.
 
-### Ubuntu из Microsoft Store
+## Ubuntu из Microsoft Store
 
 Если вы работаете на Windows версии 10 с архитектурой x64, то можно можно воспользоваться встроенным решением и установить слой совместимости (Windows Subsystem for Linux) на основе Ubuntu Linux через магазин приложений Microsoft Store.
 
@@ -42,7 +42,7 @@ Enter new UNIX username:
 * [Ubuntu - Microsoft Store](https://www.microsoft.com/ru-ru/store/p/ubuntu/9nblggh4msv6)
 * [Install the Linux Subsystem on Windows 10 - Microsoft Docs](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
-### VirtualBox
+## VirtualBox
 
 Если вы работаете на Windows версии ниже 10 или хотите получить изолированную операционную систему Linux, да ещё и с графическим окружением, то можно воспользоваться сторонним бесплатным программным продуктом под названием VirtualBox.
 
