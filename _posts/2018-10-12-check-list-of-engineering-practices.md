@@ -48,7 +48,7 @@ _Соответствие этим практикам не гарантируе�
 
 **Ссылки**
 
-* [Trunc Based Development](https://trunkbaseddevelopment.com/)
+* [Trunk Based Development](https://trunkbaseddevelopment.com/)
 
 ## Среда разработки
 
