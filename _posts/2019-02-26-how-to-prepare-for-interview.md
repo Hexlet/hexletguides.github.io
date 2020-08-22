@@ -201,6 +201,8 @@ _Учтите, что само интервью может длиться не �
 ### Полезные ссылки
 
 * [Искусство проведения интервью (Джоэль Спольски)](https://bit.ly/2Gwc2gt)
+* [Что руководители и опытные программисты ожидают от джуниора](https://ru.hexlet.io/blog/posts/chego-vy-zhdyote-ot-dzhuniora-otvechayut-rukovoditeli-i-opytnye-razrabotchiki)
+* [Что требуют от джуниоров работодатели: анализ вакансий](https://ru.hexlet.io/blog/posts/chto-trebuyut-ot-dzhuniorov-rabotodateli-analiz-vakansiy-dlya-mladshih-programmistov)
 
 ---
 
