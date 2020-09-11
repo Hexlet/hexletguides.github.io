@@ -4,7 +4,7 @@ layout: default
 
 <div class="mt-3 mb-5">
   <h1 class="hexlet_guides_post_header pb-3 mb-3">{{ page.title }}</h1>
-  <h2 class="post-content">{{ page.subtitle }}</h2>
+  <p class="post-content">{{ page.subtitle }}</p>
 </div>
 
 <article class="post-content word-wrap">
@@ -24,9 +24,9 @@ layout: default
   <div id="disqus_thread"></div>
   <script>
   var disqus_config = function () {
-  this.page.url = "{{site.url}}{{page.url}}";
-  this.page.identifier = "{{ page.id }}";
-  this.page.title = "{{ page.title }}";
+  this.page.url = `{{site.url}}{{page.url}}`;
+  this.page.identifier = `{{ page.id }}`;
+  this.page.title = `{{ page.title }}`;
   };
 
   (function() { // DON'T EDIT BELOW THIS LINE
