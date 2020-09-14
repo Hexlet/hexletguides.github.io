@@ -17,10 +17,6 @@ article.post-content h6 {
   max-width: 960px !important;
 }
 
-.container img {
-  max-width: 100%;
-}
-
 a.navbar-brand {
   color: #2B3A67 !important;
 }
@@ -100,6 +96,27 @@ blockquote {
 
 .word-wrap {
   word-wrap: break-word;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+@media (min-width: 768px) {
+  .post-content img {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .post-content img {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .post-content table {
