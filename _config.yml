@@ -58,6 +58,10 @@ share_hackernews: false
 
 # Build settings
 markdown:     kramdown
+kramdown:
+   syntax_highlighter_opts:
+      disable : true
+highlighter: none
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    "/:title/"
