@@ -81,7 +81,7 @@ PHP и JavaScript мы написали самостоятельно, но уж�
 
 * [Участие в разработке сайта](https://github.com/hexlet-codebattle/codebattle)
 * [Добавление новых соревновательных задач](https://github.com/hexlet-codebattle/battle_asserts)
-* [Участие в разработке Chrome расширения](https://github.com/hexlet-codebattle/battle_chrome_extension)
+* [Участие в разработке Chrome расширения](https://github.com/hexlet-codebattle/chrome_extension)
 
 Общение по проекту происходит в канале #codebattle внутри слак-комьюнити
 
