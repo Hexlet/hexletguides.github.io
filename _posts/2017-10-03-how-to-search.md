@@ -12,8 +12,8 @@ cover_url: "/images/how-to-search/library.jpg"
 
 Основные сайты с ответами на вопросы:
 
-* [github.com](https://github.com)
-* [stackoverflow.com](https://stackoverflow.com)
+* [GitHub](https://github.com)
+* [Stackoverflow](https://stackoverflow.com)
 
 ## Язык
 
@@ -29,7 +29,7 @@ cover_url: "/images/how-to-search/library.jpg"
 
 Каждая поисковая система обладает языком запросов. В него входят специальные операторы, позволяющие более точно указать то, что вы хотите. Вот некоторые важные возможности:
 
-* `site:stackoverflow.com how to test react code` - поиск будет произведен среди страниц сайта `stackoverflow.com`.
+* `site:stackoverflow.com how to test react code` - поиск будет произведен среди страниц сайта [Stackoverflow](https://stackoverflow.com/).
 * `add class to element -jquery` - дефисом обозначаются стоп-слова, другими словами будут найдены все варианты, в которых эти слова не упоминаются.
 * `"immutable js"` - двойные кавычки указывают на то, что нужно искать точное совпадение.
 
