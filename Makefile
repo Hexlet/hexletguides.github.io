@@ -1,4 +1,4 @@
-JEKYLL_VERSION=4.1.0
+JEKYLL_VERSION=4.2.0
 RUN=docker run --rm \
 	--volume=$(PWD):/srv/jekyll \
 	--volume=`pwd`/vendor/bundle:/usr/gem \
@@ -6,7 +6,7 @@ RUN=docker run --rm \
 	-it jekyll/jekyll:$(JEKYLL_VERSION)
 
 serve:
-	$(RUN) jekyll server
+	$(RUN) jekyll server --incremental
 
 drafts-start:
 	$(RUN) jekyll server --drafts

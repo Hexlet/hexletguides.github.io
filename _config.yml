@@ -67,8 +67,7 @@ permalink:    "/:title/"
 sass:
   compressed: true
 
-# gems
-gems:
+plugins:
   - jekyll-redirect-from
 
 # defaults:
