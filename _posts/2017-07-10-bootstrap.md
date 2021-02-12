@@ -1,380 +1,182 @@
 ---
 layout: post
 title: Что такое Bootstrap
-subtitle: Набор стилей и скриптов для быстрой верстки.
-summary: Набор CSS-стилей и JavaScript-скриптов для быстрого создания сайтов без изобретения велосипедов.
+subtitle: Front-End фреймворк для быстрой и простой веб-разработки.
+summary: Фреймворк для создания и проектирования Front-End систем. Преимущественно используется верстальщиками.
 cover_url: "/images/bootstrap/bootstrap.jpeg"
 ---
 
-**Bootstrap — HTML/CSS/JS-фреймворк. Это набор CSS-стилей и JavaScript-скриптов для быстрого создания современных адаптивных сайтов.**
+![Разработка на Bootstrap](/images/bootstrap/bootstrap.jpeg)
 
-## Что это значит?
+Разработка веб-страницы с точки зрения верстальщика — непрерывный процесс доработки и создания новых блоков. Чем больше проект, тем чаще происходит итерация «идея — функционал — вёрстка». Решая задачи бизнеса, стадии должны решаться быстро и качественно. И если качество вёрстки напрямую зависит от верстальщика, то скорость — фактор, который зависит от команды.
 
-Грубо говоря, это большой CSS-файл и большой JavaScript-файл. Вы можете подключить их к своей странице и использовать стили и функции. Самые типичные задачи уже решены в Bootstrap, поэтому вам не придется писать свой код, например, для создания колонок, разных кнопок, адаптивности, форм, вкладок и так далее.
+Для решения проблемы скорости разработчики постоянно придумывают новые инструменты. В среде верстальщиков таким инструментом стали CSS-фреймворки — набор готовых блоков, классов и внутренних функций, которые обеспечивают быструю и удобную разработку.
 
-Весь Хекслет, включая этот сайт, создан на Bootstrap'е.
+В 2010 году в недрах компании Twitter появился проект Twitter Blueprint. Его задачей было создание системы для разработки новых компонентов внутри компании. Twitter Blueprint имел набор базовых блоков с готовым дизайном, который использовался в компании. Это решение обрело популярность внутри компании благодаря своей простоте, так как любой сотрудник, имея минимальный опыт разработки, мог сделать новый концепт блока и предложить его для дальнейшей разработки.
 
-## Как подключить Bootstrap?
+В этом же году на Twitter Hack Week проект обрёл первую популярность. Его заметили не только внутри компании, но и за её пределами. Такое решение не могло оставаться внутренней разработкой и уже в 2011 году проект вышел в открытый доступ под названием Bootstrap. С тех пор Bootstrap удерживает лидерство среди инструментов по созданию сайтов. По разным статистикам, фреймворк используют от 17 до 30% всех сайтов в интернете. Код Bootstrap можно найти на сайтах таких проектов, как:
 
-Самый простой способ — добавить такую строку в свой HTML:
+* Hexlet,
+* GitHub,
+* PayPal,
+* Spotify,
+* Twitter,
+* Duolingo.
 
-```html
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+Это далеко не весь список, который можно привести. Таким образом Bootstrap не является библиотекой для создания админок и прототипов, как о нём говорят.
+
+## Bootstrap как набор готовых элементов
+
+Одной из сторон Bootstrap является то, что его можно использовать исключительно как набор уже готовых элементов. Для это не требуется серьёзных знаний HTML и CSS — достаточно уметь создавать самые простые страницы и прочитать документацию. Например, для создания кнопки используется два класса, один из которых отвечает за структуру кнопки, а другой за оформление. Такой подход называется **OOCSS** — Object Oriented CSS или объектно-ориентированный CSS. Про объектно-ориентированный подход CSS в блоге Hexlet есть [отдельная статья](https://ru.hexlet.io/blog/posts/oocss-basics).
+
+``` html
+<button class="btn btn-primary">Я — синяя кнопка</button>
 ```
 
-Такой же файл можно скачать и разместить на своем сервере. Либо подключить Bootstrap через пакетный менеджер. [Подробнее на официальном сайте](https://getbootstrap.com/getting-started/).
+Второй подход, который используется в Bootstrap — Atomic CSS. На нём построены утилиты во фреймворке. **Atomic CSS** — подход, при котором один класс использует одно свойство.
 
-## Сетка
-
-Главная идея структуризации элементов — сетка. Экран разделен на 12 колонок. Любому элементу можно задать ширину в 1, 2, 3, ..., 12 колонок. Например, если вы делаете сайт с боковой панелью и основной панелью, то можно сделать боковой панели ширину в 3 колонки, а основной — 9 колонок:
-
-```html
-<div class="container">
-  <div class="row">
-    <div class="col-3">
-      Боковая панель
-    </div>
-    <div class="col-9">
-      Основная панель
-    </div>
-  </div>
-</div>
+``` html
+<section class="d-flex bg-white">
+  <!-- HTML вёрстка -->
+</section>
 ```
 
-<div class="container mb-3">
-  <div class="row py-4">
-    <div class="col-3 bg-info py-4">
-      Боковая панель
-    </div>
-    <div class="col-9 bg-danger py-4">
-      Основная панель
-    </div>
-  </div>
-</div>
+В этом примере тег `<section>` получит два свойства:
 
-[Подробнее о сетке в документации →](https://getbootstrap.com/docs/4.0/layout/overview/)
+1. `background-color: #fff;`
+2. `display: flex;`.
 
-## Брейкпойнты
+Использование утилит предполагает более углублённые знания в CSS, так как это будет похоже на использование правил. Только вместо записи в CSS-файле используются классы.
 
-Bootstrap следует принципу "mobile first": верстка изначально делается для мобильных устройств, и адаптируется при увеличении ширины экрана.
+Компоненты и утилиты позволяют очень быстро создать проект различной сложности. Единственное, в чём вы будете ограничены — выбор дизайна. Если не заниматься переписыванием компонентов, то страница будет выглядеть в точности, как в документации. Это не минус, так как Bootstrap современный фреймворк и его дизайн не пугает при первом взгляде. Многие небольшие компании используют такой подход.
 
-Есть несколько брейкпойнтов. Это значения ширины, при которых возможно изменение стиля. Например, пример с двумя колонками выше выглядит не очень хорошо на маленьком экране мобильного телефона. Вот как можно решить это:
+### Плюсы использования Bootstrap, как набора готовых элементов
 
-```html
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-3">
-      Боковая панель
-    </div>
-    <div class="col-12 col-md-9">
-      Основная панель
-    </div>
-  </div>
-</div>
+#### Скорость
+
+Процесс разработки сопровождается непрерывной работой по добавлению или удалению функционала на странице. Чем крупнее проект, тем чаще происходят эти процессы и скорость реализации не в последнюю очередь зависит от того, как скоро функционал «обрастёт» внешним видом. Используя готовые компоненты и утилиты Bootstrap можно быстро ввести новый функционал на сайт и дать его пользователям. Таким образом это решает одну из проблем цикла «идея — функционал — вёрстка».
+
+#### Кроссбраузерность
+
+В веб пространстве множество различных браузеров: Chrome, Firefox, Edge, Opera, Safari и т.д. Они предоставляют пользователям комфортный веб-сёрфинг. Но каждый из этих браузеров может обрабатывать HTML и CSS немного по своему, из-за чего верстальщикам необходимо приводить стандартные элементы к единому виду. Такая задача требует скурпулёзного подхода и знание  частых проблем и отличий браузеров между собой. Компоненты Bootstrap учитывают различия браузеров и оптимизированы таким образом, чтобы минимизировать различия между ними.
+
+#### Адаптивность
+
+Bootstrap имеет готовую 12-колоночную сетку, по которой можно располагать компоненты. Сетка является самым популярным компонентом бутстрап и её используют даже те, кто скептически относится к фреймворку. Сетка использует подход, при котором возможно сразу настроить адаптивность. Используя готовые компоненты можно быть уверенным в том, что они будут хорошо отображаться на разных устройствах.
+
+#### Доступность
+
+Разработчики уделяют внимание на использование страниц с компонентами людьми с ограниченными возможностями. Документация описывает ситуации, как сделать компонент доступным. Но и без этого компоненты имеют базовую доступность. Один из самых полезных классов, связанный с доступностью — `.sr-only`. Он позволяет скрыть элемент для всех устройств, кроме скринридера. Это важно для правильной организации вёрстки форм на сайте.
+
+#### Низкий порог вхождения
+
+Создание страницы по компонентам не требует экспертного знания HTML и CSS. Это позволяет создавать новые блоки не только верстальщику, но и любому работнику компании, который знает базовые основы вёрстки. Таким образом разработчики могут оснастить новое решение готовой вёрсткой с использованием фреймворка. Bootstrap также может пригодиться небольшим компаниям, которые не готовы потратить большие деньги на разработку веб-сайта. В качестве промежуточного решения Bootstrap будет незаменим. В последствии возможно и остановиться на нём, как мы и сделали на Хекслете.
+
+### Минусы использования Bootstrap, как набора готовых элементов
+
+#### Вес проекта
+
+Фреймворк Bootstrap даёт не только набор классов, но и интерактивные компоненты. Для их работы используется несколько JavaScript библиотек, которые увеличивают вес подключаемых файлов на странице. В Bootstrap 4 вместе со библиотеками JavaScript весит ~ 300кб. Это может стать критичной точкой при разработке мобильных приложений, ориентированных на использование при слабом интернет соединении. В качестве таких приложений могут быть материалы для оказания экстренной помощи, вызова спасательных служб и так далее.
+
+#### Дизайн
+
+Стандартные компоненты накладывают ограничения на дизайн. Эти рамки выражены в том, что компоненты возможно расширять только вглубь, вставляя одни компоненты внутрь других. Модификация компонентов потребует знаний в вёрстке, так как даже незначительные изменения необходимо проверить в браузерах и на разных разрешениях. При этом дизайн стандартных компонентов Bootstrap лаконичен и является примером для дизайнера. При своей простоте они функциональны и помогают правильно подать информацию. Даже в таких ограничениях создаются красивые и удобные сайты засчёт грамотной работы с UI.
+
+#### Функционал
+
+Как и в случае с дизайном, функционал блоков определён заранее и изменение приводит к существенным доработкам. Это касается и интерактивных элементов, которые используют JavaScript код. Разработчики для таких элементов внесли классы, которые помогают немного изменить поведение, но этого не всегда бывает достаточно.
+
+## Bootstrap как фреймворк
+
+Помимо средств разработки, таких как набор компонентов и утилит, Bootstrap предлагает широкие возможности по созданию пользовательских компонентов. Это достигается засчёт большой кодовой базы в исходниках.
+
+Что же такое фреймворк? Можно представить это как карскас будущего приложена. Своеобразным фундаментом, на котором мы возведём стены, установим окна и заставим мебелью. Таким фундаментом и является Bootstrap. В нём находится десятки функций и миксинов, которые позволят верстальщику создать свою собственную дизайн-систему. Этот функционал является самым недооценённым среди разработчиков и по этой причине о Bootstrap сформировалось неправильное мнение.
+
+Представьте себе новый компонент, который разработчик добавляет на страницу. Используя бутстрап, зачастую разработка ведётся следующим образом:
+
+* Подбираются похожие компоненты из документации.
+* Подбираются новые классы для создания новых стилей.
+* В дополнительном CSS файле перезаписываются и добавляются новые стили для блока.
+
+При таком подходе, даже получив необходимые блоки, разработчик решит только ближайшую задачу, но может испытать трудности на дистанции. Все они связаны с отсутствием взаимодействия между компонентом и фреймворком:
+
+* Обновление кодовой базы Bootstrap никак не повлияет на поведение компонента. Разработчики постоянно обновляют версии, внося множество улучшений и исправляя ошибки.
+* Изменение настроек не повлияет на компонент. Распространённая ситуация — смена цветовой схемы. Возникает необходимость править цвета у каждого пользовательского компонента вручную.
+* Генерация новых утилит превращается в дублирование кода, без создания системы. Таким образом могут создавать новые утилиты для цвета фона и текста.
+
+Создание утилит, начиная с Bootstrap 5, решается добавлением нового массива, который передаётся в обработчик, отдавая на выходе новые классы. А как создаётся новый компонент? В большинстве случаев достаточно внимательно пройтись по файлу _\_variables.scss_
+
+Что там можно обнаружить? Например, цвета, которые используются в качестве цветовой схемы:
+
+```scss
+$blue:     #0d6efd !default;
+$green:    #198754 !default;
+$cyan:     #0dcaf0 !default;
+$yellow:   #ffc107 !default;
+$red:      #dc3545 !default;
+$gray-100: #f8f9fa !default;
+$gray-600: #6c757d !default;
+$gray-900: #212529 !default;
+
+$primary:       $blue !default;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          $gray-900 !default;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;
 ```
 
-<div class="container mb-3">
-  <div class="row">
-    <div class="col-12 col-md-3 py-4 bg-info">
-      Боковая панель
-    </div>
-    <div class="col-12 col-md-9 py-4 bg-danger">
-      Основная панель
-    </div>
-  </div>
-</div>
+Цветов в файле _\_variables.scss_ намного больше, но именно эти формируют базовую цветовую схему проекта. Вы можете добавить новые цвета, определить их в качестве базовых и после компиляции все компоненты и утилиты получат новые значения. Именно такое поведение отличает фреймворк от простого набора готовых компонентов.
 
-Попробуйте уменьшить ширину окна. Вторая колонка упадет вниз.
+Именно такая работа с Bootstrap позволит создать нечто большее, чем просто прототип, лендинг или панель администратора. На Hexlet, в качестве третьего проекта по вёрстке Bootstrap используется для создания внешнего вида полноценного чата
 
-Классы `col-12 col-md-3` означают:
+![Приложение на Bootstrap](/images/bootstrap/bootstrap-chat.jpg)
 
-- по умолчанию ширина будет **12** колонок
-- при ширине окна **md** и выше ширина будет **3** колонки
+Так как Bootstrap является набором функций и миксинов, то это снимает преграды его использования вместе с другими методологиями. Например, c БЭМ. Это распространённое мнение, что использовать бутстрап вместе с БЭМ невозможно. Взгляните на следующие миксины, которые доступны для создания сетки:
 
-Есть такие точки:
-
-- **xl**: 1200px и больше
-- **lg**: от 992px до 1200px
-- **md**: от 768px до 992px
-- **sm**: от 576px до 768px
-- **xs**: меньше 576px
-
-<div class="alert alert-warning mb-4" style="font-size:1rem;" role="alert">
-  В Bootstrap 4 <code>col-xs</code> заменили на просто <code>col</code>.
-</div>
-
-[Подробнее о брейкпойнтах в документации →](https://getbootstrap.com/docs/4.4/layout/overview/)
-
-## Flexbox
-
-Bootstrap основан на flexbox. Это позволяет быстро и легко делать адаптивные блоки, распределять элементы, группировать и так далее. Пример:
-
-```html
-<div class="d-flex justify-content-start">...</div>
-<div class="d-flex justify-content-end">...</div>
-<div class="d-flex justify-content-center">...</div>
-<div class="d-flex justify-content-between">...</div>
-<div class="d-flex justify-content-around">...</div>
+```scss
+@mixin make-container();
+@mixin make-row();
+@mixin make-col();
 ```
 
-<style>
-  .bd-highlight {
-    background-color: rgba(86,61,124,.15);
-    border: 1px solid rgba(86,61,124,.15);
+Если вы уже работали с Bootstrap, то в этих названиях найдёте привычную схему «Контейнер → строка → колонка». Используя эти миксины можно добавить логику фреймворка в абсолютно любой проект и не привязываться к именованию.
+
+```scss
+.search-form {
+  @include make-container();
+
+  &__content {
+    @include make-row();
   }
-</style>
 
-<div class="bd-example mb-4">
-  <div class="d-flex justify-content-start bd-highlight mb-3">
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-  </div>
-  <div class="d-flex justify-content-end bd-highlight mb-3">
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-  </div>
-  <div class="d-flex justify-content-center bd-highlight mb-3">
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-  </div>
-  <div class="d-flex justify-content-between bd-highlight mb-3">
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-  </div>
-  <div class="d-flex justify-content-around bd-highlight">
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-  </div>
-</div>
+  &__input,
+  &__button {
+    @include make-col-auto();
+  }
+}
+```
 
-Flexbox — тема для отдельной статьи (coming soon!). Пока советуем почитать:
+Таким образом можно добавлять не только элементы сетки, но и доступные компоненты и утилиты. При этом после компиляции не будет необходимости нести за собой множество кода, который не используется.
 
-- [How Flexbox works — explained with big, colorful, animated gifs](https://medium.freecodecamp.org/an-animated-guide-to-flexbox-d280cf6afc35)
-- [Документация Bootstrap](https://getbootstrap.com/docs/4.4/utilities/flex/)
+## Выводы
 
-## Примеры
-
-Ниже — еще несколько примеров.
-
-<ul class="nav nav-pills mt-3 mb-2 flex-column flex-md-row" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#forms" role="tab">Формы</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#menus" role="tab">Кнопка с меню</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#cards" role="tab">Карточки</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#progress" role="tab">Прогресс-бары</a>
-  </li>
-</ul>
-
-<div class="tab-content hexlet_guides_examples mb-4">
-  <div class="tab-pane active" id="forms" role="tabpanel">
-
-  <pre class="hexlet_guides_source"><code class="px-4">
-&lt;div class=&quot;form-group has-success&quot;&gt;
-  &lt;label class=&quot;form-control-label&quot; for=&quot;inputSuccess1&quot;&gt;Input with success&lt;/label&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control form-control-success&quot; id=&quot;inputSuccess1&quot;&gt;
-  &lt;div class=&quot;form-control-feedback&quot;&gt;Success! You've done it.&lt;/div&gt;
-  &lt;small class=&quot;form-text text-muted&quot;&gt;Example help text that remains unchanged.&lt;/small&gt;
-&lt;/div&gt;
-&lt;div class=&quot;form-group has-warning&quot;&gt;
-  &lt;label class=&quot;form-control-label&quot; for=&quot;inputWarning1&quot;&gt;Input with warning&lt;/label&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control form-control-warning&quot; id=&quot;inputWarning1&quot;&gt;
-  &lt;div class=&quot;form-control-feedback&quot;&gt;Shucks, check the formatting of that and try again.&lt;/div&gt;
-  &lt;small class=&quot;form-text text-muted&quot;&gt;Example help text that remains unchanged.&lt;/small&gt;
-&lt;/div&gt;
-&lt;div class=&quot;form-group has-danger&quot;&gt;
-  &lt;label class=&quot;form-control-label&quot; for=&quot;inputDanger1&quot;&gt;Input with danger&lt;/label&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control form-control-danger&quot; id=&quot;inputDanger1&quot;&gt;
-  &lt;div class=&quot;form-control-feedback&quot;&gt;Sorry, that username's taken. Try another?&lt;/div&gt;
-  &lt;small class=&quot;form-text text-muted&quot;&gt;Example help text that remains unchanged.&lt;/small&gt;
-&lt;/div&gt;
-  </code></pre>
-
-  <div class="hexlet_guies_rendered px-4 py-2">
-<div class="form-group has-success">
-  <label class="form-control-label" for="inputSuccess1">Input with success</label>
-  <input type="text" class="form-control form-control-success" id="inputSuccess1">
-  <div class="form-control-feedback">Success! You've done it.</div>
-  <small class="form-text text-muted">Example help text that remains unchanged.</small>
-</div>
-<div class="form-group has-warning">
-  <label class="form-control-label" for="inputWarning1">Input with warning</label>
-  <input type="text" class="form-control form-control-warning" id="inputWarning1">
-  <div class="form-control-feedback">Shucks, check the formatting of that and try again.</div>
-  <small class="form-text text-muted">Example help text that remains unchanged.</small>
-</div>
-<div class="form-group has-danger">
-  <label class="form-control-label" for="inputDanger1">Input with danger</label>
-  <input type="text" class="form-control form-control-danger" id="inputDanger1">
-  <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
-  <small class="form-text text-muted">Example help text that remains unchanged.</small>
-</div>
-  </div>
-  </div>
-
-  <div class="tab-pane" id="menus" role="tabpanel">
-  <pre class="hexlet_guides_source"><code class="px-4">
-&lt;div class=&quot;btn-group&quot;&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Action&lt;/button&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-danger dropdown-toggle dropdown-toggle-split&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;
-    &lt;span class=&quot;sr-only&quot;&gt;Toggle Dropdown&lt;/span&gt;
-  &lt;/button&gt;
-  &lt;div class=&quot;dropdown-menu&quot;&gt;
-    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Action&lt;/a&gt;
-    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Another action&lt;/a&gt;
-    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Something else here&lt;/a&gt;
-    &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
-    &lt;a class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Separated link&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-  </code></pre>
-
-  <div class="hexlet_guies_rendered px-4 py-2 pb-4">
-    <div class="btn-group">
-      <button type="button" class="btn btn-danger">Action</button>
-      <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="sr-only">Toggle Dropdown</span>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
-      </div>
-    </div>
-  </div>
-
-  </div>
-  <div class="tab-pane" id="cards" role="tabpanel">
-
-  <pre class="hexlet_guides_source"><code class="px-4">
-&lt;div class=&quot;card-deck&quot;&gt;
-  &lt;div class=&quot;card&quot;&gt;
-    &lt;img class=&quot;card-img-top&quot; src=&quot;...&quot; alt=&quot;Card image cap&quot;&gt;
-    &lt;div class=&quot;card-block&quot;&gt;
-      &lt;h4 class=&quot;card-title&quot;&gt;Card title&lt;/h4&gt;
-      &lt;p class=&quot;card-text&quot;&gt;This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;card-footer&quot;&gt;
-      &lt;small class=&quot;text-muted&quot;&gt;Last updated 3 mins ago&lt;/small&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;card&quot;&gt;
-    &lt;img class=&quot;card-img-top&quot; src=&quot;...&quot; alt=&quot;Card image cap&quot;&gt;
-    &lt;div class=&quot;card-block&quot;&gt;
-      &lt;h4 class=&quot;card-title&quot;&gt;Card title&lt;/h4&gt;
-      &lt;p class=&quot;card-text&quot;&gt;This card has supporting text below as a natural lead-in to additional content.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;card-footer&quot;&gt;
-      &lt;small class=&quot;text-muted&quot;&gt;Last updated 3 mins ago&lt;/small&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;card&quot;&gt;
-    &lt;img class=&quot;card-img-top&quot; src=&quot;...&quot; alt=&quot;Card image cap&quot;&gt;
-    &lt;div class=&quot;card-block&quot;&gt;
-      &lt;h4 class=&quot;card-title&quot;&gt;Card title&lt;/h4&gt;
-      &lt;p class=&quot;card-text&quot;&gt;This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;card-footer&quot;&gt;
-      &lt;small class=&quot;text-muted&quot;&gt;Last updated 3 mins ago&lt;/small&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-  </code></pre>
-  <div class="hexlet_guies_rendered px-4 py-2 pb-4">
-  <div class="card-deck">
-    <div class="card">
-      <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22235%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20235%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15d31a5390e%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A12pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15d31a5390e%22%3E%3Crect%20width%3D%22235%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2286.8046875%22%20y%3D%2295.4%22%3E235x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title">Card title</h4>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22235%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20235%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15d31a5390e%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A12pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15d31a5390e%22%3E%3Crect%20width%3D%22235%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2286.8046875%22%20y%3D%2295.4%22%3E235x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title">Card title</h4>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22235%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20235%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15d31a5390e%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A12pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15d31a5390e%22%3E%3Crect%20width%3D%22235%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2286.8046875%22%20y%3D%2295.4%22%3E235x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title">Card title</h4>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  </div>
-  <div class="tab-pane" id="progress" role="tabpanel">
-
-  <pre class="hexlet_guides_source"><code class="px-4">
-&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar progress-bar-striped&quot; role=&quot;progressbar&quot; style=&quot;width: 10%&quot; aria-valuenow=&quot;10&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar progress-bar-striped bg-success&quot; role=&quot;progressbar&quot; style=&quot;width: 25%&quot; aria-valuenow=&quot;25&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar progress-bar-striped bg-info&quot; role=&quot;progressbar&quot; style=&quot;width: 50%&quot; aria-valuenow=&quot;50&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar progress-bar-striped bg-warning&quot; role=&quot;progressbar&quot; style=&quot;width: 75%&quot; aria-valuenow=&quot;75&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;progress&quot;&gt;
-  &lt;div class=&quot;progress-bar progress-bar-striped bg-danger&quot; role=&quot;progressbar&quot; style=&quot;width: 100%&quot; aria-valuenow=&quot;100&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-  </code></pre>
-  <div class="hexlet_guies_rendered px-4 py-2">
-  <div class="progress mb-2">
-    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  <div class="progress mb-2">
-    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  <div class="progress mb-2">
-    <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  <div class="progress mb-2">
-    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  <div class="progress mb-2">
-    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  </div>
-
-  </div>
-</div>
-
-У Bootstrap'а огромное количество возможностей и хорошая [документация](https://v4-alpha.getbootstrap.com/).
+Изучение Bootstrap может сильно развить вас как разработчика. Ведь кроме написания кода, можно изучать и чужой, который создан и поддерживается тысячами людьми по всему миру. В коде можно найти интересные решения, грамотное структурирование и множество полезных функций. Благодаря этому Bootstrap можно использовать во множестве сценариев: от создания прототипов, до вёрстки сложных макетов, а возможность использование отдельных частей позволяет добавить частичку Bootstrap в проект без необходимости переделывания структуры.
 
 ## Дополнительные ссылки
 
-1.  [bootsnipp.com](https://bootsnipp.com) — готовые блоки на Bootstrap'е (формы регистрации, элементы лендингов, интерфейсы приложений и пр.)
-2.  [fontawesome.com](https://fontawesome.com) — набор иконок, подключаемых через шрифты (используется на Хекслете)
-
----
-
-_Рахим Давлеткалиев_
+* [Документация Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+* [Репозиторий Bootstrap](https://github.com/twbs/bootstrap)
