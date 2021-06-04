@@ -1,9 +1,8 @@
 ---
-layout: post
 title: Что такое виртуализация
 subtitle: В чем суть этой технологии и какие бывают виды виртуализации.
 summary: Виртуализация — это создание изолированных окружений в рамках одного физического компьютера. 
-cover_url: "/images/virtualization/virtualization_cover.jpg"
+image: "assets/images/virtualization/virtualization_cover.jpg"
 ---
 
 У пользователей Linux или Mac иногда возникает потребность в запуске программ, работающих только в Windows, а у Windows-пользователей, особенно программистов, потребность в запуске Linux или другой версии Windows. Классический пример — игры или Photoshop.

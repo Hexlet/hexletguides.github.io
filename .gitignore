@@ -9,3 +9,5 @@ hexlet_guides.sublime-workspace
 vendor
 .jekyll-cache/
 .idea
+_sass
+node_modules

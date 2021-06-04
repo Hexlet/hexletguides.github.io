@@ -1,15 +1,14 @@
 ---
-layout: post
 title: Как настроить VS Code для разработки на PHP
 subtitle: Создание удобного рабочего окружения.
 summary: VS Code – популярный бесплатный редактор кода. Может с легкостью конкурировать с PHP Storm, ведь он бесплатный и с открытым исходным кодом.
-cover_url: "/images/vscode-for-php-setup/vscode-php-cover.png"
+image: "assets/images/vscode-for-php-setup/vscode-php-cover.png"
 hidden: true
 ---
 
 **[Visual Studio Code](https://code.visualstudio.com/) – популярный бесплатный редактор кода. Может с легкостью конкурировать с PhpStorm, ведь он бесплатный и с открытым исходным кодом**
 
-![Vscode](/images/vscode-for-php-setup/screen.png)
+![Vscode](/assets/images/vscode-for-php-setup/screen.png)
 _Так может выглядеть интерфейс редактора после установки расширений_
 
 ## Основные возможности
@@ -25,7 +24,7 @@ _Так может выглядеть интерфейс редактора по
 
 VS Code имеет большое количество расширений для разработчика. Для установки нового пакета зайдите во вкладку "Extensions", введите название пакета в строке поиска, нажмите кнопку "Install".
 
-![extension list](/images/vscode-for-php-setup/recommended_extensions.png)
+![extension list](/assets/images/vscode-for-php-setup/recommended_extensions.png)
 
 ## EditorConfig for VS Code
 
@@ -71,9 +70,9 @@ indent_size = 2
 
 Чтобы подсказки не дублировались необходимо отключить встроенную в редактор поддержку кода для PHP: `Extensions -> Search @builtin php -> PHP Language Features -> Disable`
 
-![extension list](/images/vscode-for-php-setup/intelliphense.gif)
+![extension list](/assets/images/vscode-for-php-setup/intelliphense.gif)
 
-![extension list](/images/vscode-for-php-setup/intelliphense2.gif)
+![extension list](/assets/images/vscode-for-php-setup/intelliphense2.gif)
 
 ## PHP Debug
 
@@ -105,11 +104,11 @@ xdebug.remote_autostart=1
 
 Это настройки для локальной разработки, когда проект разрабатывается и запускается на одном компьютере, например на вашей рабочей машине
 
-![debug vscode](/images/vscode-for-php-setup/xdebug2.gif)
+![debug vscode](/assets/images/vscode-for-php-setup/xdebug2.gif)
 
-![debug vscode](/images/vscode-for-php-setup/xdebug1.gif)
+![debug vscode](/assets/images/vscode-for-php-setup/xdebug1.gif)
 
-![debug vscode](/images/vscode-for-php-setup/xdebug3.gif)
+![debug vscode](/assets/images/vscode-for-php-setup/xdebug3.gif)
 
 ## PHP Sniffer
 
@@ -131,9 +130,9 @@ PHP_CodeSniffer version 3.4.2 (stable) by Squiz (https://www.squiz.net)
 $ phpcs --standard=PSR12 <dirname>
 ```
 
-![vscode-phpcs](/images/vscode-for-php-setup/phpcs-vscode.png)
+![vscode-phpcs](/assets/images/vscode-for-php-setup/phpcs-vscode.png)
 
-![debug vscode](/images/vscode-for-php-setup/phpcsfixer.gif)
+![debug vscode](/assets/images/vscode-for-php-setup/phpcsfixer.gif)
 
 
 ## Semicolon Insertion Shortcut
@@ -141,9 +140,9 @@ $ phpcs --standard=PSR12 <dirname>
 PHP требует разделять инструкции с помощью точки запятой. Расширение [Semicolon Insertion Shortcut](https://marketplace.visualstudio.com/items?itemName=chrisvltn.vs-code-semicolon-insertion) добавляет необходимый символ в конец строки с помощью шортката.
 Если при нажатии `[Ctrl] + ;` символ не вставляется, то необходимо проверить список горячих клавиш и при необходимости назначить комбинацию вручную: `File -> Preferences -> Keyboard Shortcuts`
 
-![semicolon-shortcut](/images/vscode-for-php-setup/semicolon.png)
+![semicolon-shortcut](/assets/images/vscode-for-php-setup/semicolon.png)
 
-![semicolon-shortcut](/images/vscode-for-php-setup/semicolon.gif)
+![semicolon-shortcut](/assets/images/vscode-for-php-setup/semicolon.gif)
 
 ## Extra
 
@@ -155,10 +154,10 @@ PHP требует разделять инструкции с помощью т�
 
 - [Indent Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) — разноцветные отступы в коде. Подсвечивает некорректный отступ. Можно вместо радуги установить оттенки серого.
 
-    ![rainbow](/images/vscode-for-php-setup/intend-rainbow.png)
+    ![rainbow](/assets/images/vscode-for-php-setup/intend-rainbow.png)
 
 - [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) — плагин, позволяющий синхронизировать настройки редактора между разными компьютерами. В качестве облачного хранилища используется Github Gists. Все настройки можно скачать, указав нужный файл синхронизации.
 
 - [Fira Code](https://github.com/tonsky/FiraCode) — моноширинный шрифт, в котором используются лигатуры (объединяет несколько символов в один) для общих комбинаций символов в программировании. Визуальная надстройка для более удобного чтения кода.
 
-    ![fira](/images/vscode-for-php-setup/fira.gif)
+    ![fira](/assets/images/vscode-for-php-setup/fira.gif)

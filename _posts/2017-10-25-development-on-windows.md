@@ -1,9 +1,8 @@
 ---
-layout: post
 title: Как начать разрабатывать в Windows
 subtitle: Подготовка окружения для современной разработки.
 summary: Базовая настройка MS Windows, приближающая систему по возможностям к другим ОС в контексте разработки.
-cover_url: "/images/development-on-windows/choco.png"
+image: "assets/images/development-on-windows/choco.png"
 ---
 
 **В руководстве приводится пример базовой настройки Windows, приближающей её по возможностям к другим операционным системам.**

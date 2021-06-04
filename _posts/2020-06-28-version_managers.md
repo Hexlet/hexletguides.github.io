@@ -1,9 +1,8 @@
 ---
-layout: post
 title: Что такое "Менеджер версий"
 subtitle: Как управлять версиями языков
 summary: Правильный подход к установке языков программирования и их обновлению. Универсальный менеджер версий asdf.
-cover_url: "/images/version-manager/nvm.png"
+image: "assets/images/version-manager/nvm.png"
 ---
 
 ## Системная установка

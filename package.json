@@ -1,0 +1,22 @@
+{
+  "name": "hexletguides.github.io",
+  "version": "1.0.0",
+  "description": "[Live Demo](https://wowthemesnet.github.io/affiliates-jekyll-theme/) | [Docs & Download](https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/) |  [Buy me a coffee](https://www.wowthemes.net/donate/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hexlet/hexletguides.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hexlet/hexletguides.github.io/issues"
+  },
+  "homepage": "https://github.com/Hexlet/hexletguides.github.io#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.1"
+  }
+}

@@ -1,9 +1,8 @@
 ---
-layout: post
 title: Как настроить Atom для разработки на JavaScript
 subtitle: Создание удобного рабочего окружения.
 summary: Atom – популярный бесплатный редактор кода. Его легко настраивать и расширять под разные задачи и условия.
-cover_url: "/images/atom-js-setup/atom.jpg"
+image: "assets/images/atom-js-setup/atom.jpg"
 hidden: true
 ---
 
@@ -19,7 +18,7 @@ hidden: true
 
 Пакетный менеджер нужен для установки и удаления пакетов расширений (плагинов). Для удобной разработки на JavaScript для бэкенда и фронтенда нужно установить несколько пакетов.
 
-![install package in atom](/images/atom-js-setup/eslint.png)
+![install package in atom](/assets/images/atom-js-setup/eslint.png)
 
 Для установки нового пакета зайдите в настройках во вкладку "Install", введите название пакета в строке поиска, нажмите кнопку "Install".
 
@@ -27,7 +26,7 @@ hidden: true
 
 **Eslint** – это утилита, проверяющая стандарты кодирования на JavaScript. Стандарт де-факто в мире JS. 
 
-![eslint atom](/images/atom-js-setup/eslint-atom.png)
+![eslint atom](/assets/images/atom-js-setup/eslint-atom.png)
 
 Нужно сначала установить eslint в системе, а потом установить расширение Атома, которое будет использовать установленный линтер. Есть разные способы интеграции линтера с расширением. Мы рассмотрим установку линтера глобально в системе.
 
@@ -58,7 +57,7 @@ hidden: true
 - находить определение чего-нибудь
 - проводить автоматический рефакторинг
 
-![tern js](/images/atom-js-setup/tern.png)
+![tern js](/assets/images/atom-js-setup/tern.png)
 
 Расширение Атома [atom-ternjs](https://atom.io/packages/atom-ternjs) не требует установки ничего другого и работает само по себе.
 
@@ -66,13 +65,13 @@ hidden: true
 
 Полезное расширение [autocomplete-modules](https://atom.io/packages/autocomplete-modules) автоматически дополняет название файлов и модулей при импорте.
 
-![autocomplete-modules](/images/atom-js-setup/autocomplete-modules.gif)
+![autocomplete-modules](/assets/images/atom-js-setup/autocomplete-modules.gif)
 
 ## Переход на определения
 
 [js-hyperclick](https://atom.io/packages/js-hyperclick) позволяет быстро перемещаться к определению функции или переменной по клику.
 
-![js-hyperclick](/images/atom-js-setup/js_hyperclick.png)
+![js-hyperclick](/assets/images/atom-js-setup/js_hyperclick.png)
 
 ---
 

@@ -1,18 +1,9 @@
-JEKYLL_VERSION=4.2.0
-RUN=docker run --rm \
-	--volume=$(PWD):/srv/jekyll \
-	--volume=`pwd`/vendor/bundle:/usr/gem \
-	-p 4000:4000 \
-	-it jekyll/jekyll:$(JEKYLL_VERSION)
+install:
+	bundle install
+	npm i
 
 serve:
-	$(RUN) jekyll server --incremental
+	bundle exec jekyll serve --watch
 
-drafts-start:
-	$(RUN) jekyll server --drafts
-
-build:
-	$(RUN) jekyll build
-
-bash:
-	$(RUN) bash
+lint-fix:
+	bundle exec rubocop -A
