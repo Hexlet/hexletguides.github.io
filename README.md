@@ -2,6 +2,12 @@
 
 * Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
 
+## Write posts
+
+```sh
+make serve
+```
+
 ## Development
 
 ```sh
