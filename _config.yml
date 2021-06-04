@@ -1,0 +1,75 @@
+title: "Гайды для программистов"
+email: support@hexlet.io
+timezone: UTC
+baseurl: ""
+permalink: "/:title/"
+logo: 'assets/images/hexlet_logo.png'
+favicon: 'assets/images/favicons/favicon-128.png'
+author: Kirill Mokevnin
+paginate: 30
+disqus: hexlet-guides
+locale: ru_ru
+lang: ru_ru
+feed_items: 10
+feed_update_period: daily
+feed_update_frequency: 1
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  # default_lang: html
+  syntax_highlighter_opts:
+    css_class: 'syntax'
+  #   disable: true
+
+highlighter: rouge
+
+sass:
+  # sass_dir: _sass
+  load_paths:
+    - _sass
+    - node_modules
+  # style: :compressed
+
+ganalytics: GTM-KMJ8HKG
+
+# Authors
+# authors:
+#   sal:
+#     name: Sal
+#     display_name: Sal
+#     avatar: 'assets/images/sal.png'
+#     email: support@hexlet.io
+#     web: https://www.wowthemes.net/category/jekyll-themes/
+#     twitter: https://twitter.com/HexletHQ
+#     description: "Author of Affiliates, a template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
+#   john:
+#     name: John
+#     display_name: John
+#     avatar: 'assets/images/john.png'
+#     email: wowthemesnet@gmail.com
+#     web: https://www.wowthemes.net/category/jekyll-themes/
+#     twitter: https://twitter.com/wowthemesnet
+#     description: "This is the author box. Write a short description of the author here. You are currently previewing Affiliates theme demo, a Jekyll template compatible with Github pages."
+
+# Social
+social:
+  instagram: https://www.instagram.com/hexlethq/
+  facebook: https://www.facebook.com/Hexlet/
+  twitter: https://twitter.com/HexletHQ
+
+# Plugins
+plugins:
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-archives
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts"
+    values:
+      layout: "post"
