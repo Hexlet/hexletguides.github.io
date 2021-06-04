@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+<title>Что такое "Менеджер версий" | Гайды для программистов</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Что такое “Менеджер версий” | Гайды для программистов</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Что такое “Менеджер версий”" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_ru" />
+<meta name="description" content="Системная установка" />
+<meta property="og:description" content="Системная установка" />
+<meta property="og:site_name" content="Гайды для программистов" />
+<meta property="og:image" content="/assets/images/version-manager/nvm.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/version-manager/nvm.png" />
+<meta property="twitter:title" content="Что такое “Менеджер версий”" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"author":{"@type":"Person","name":"Kirill Mokevnin"},"description":"Системная установка","mainEntityOfPage":{"@type":"WebPage","@id":"/version_managers/"},"image":"/assets/images/version-manager/nvm.png","url":"/version_managers/","headline":"Что такое “Менеджер версий”","dateModified":"2020-06-28T00:00:00+00:00","datePublished":"2020-06-28T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+<link href="/assets/css/custom.css" rel="stylesheet">
+<link href="/assets/css/highlight.css" rel="stylesheet">
+<!-- custom CSS end-->
+    
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-KMJ8HKG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GTM-KMJ8HKG');
+</script>
+
+   
+</head>   
+    
+
+<body class="layout-post">
+
+    
+<!-- Menu Navigation
+================================================== -->
+<div class="navigation-wrap start-header start-style">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <a class="navbar-brand text-dark font-weight-bold big d-flex align-items-center" href="/">
+          
+          <img class="mr-2" src="/assets/images/hexlet_logo.png" alt="logo"> 
+          
+          </a> | 
+          
+
+          <div class="d-flex align-items-center">
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://twitter.com/HexletHQ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg> 
+            </a>
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.instagram.com/hexlethq/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+            </a>
+      
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.facebook.com/Hexlet/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
+            </a>
+
+          </div>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            </svg>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto font-weight-bold d-flex align-items-center">
+              
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>  
+
+    
+<!-- Container
+================================================== -->    
+<main class="container">   
+      <!-- Begin Article
+================================================== -->
+
+	<div class="row">
+		
+
+		<!-- Post -->        
+        
+        
+		<div class="col-sm-8 mx-auto">
+            <!-- Post Featured Image -->
+			
+			<!-- End Featured Image -->
+			<div class="mainheading">             
+                
+                <!-- Post Categories -->
+                <div class="after-post-tags">
+                    <ul class="tags">
+                        
+                        
+                    </ul>
+                </div>
+                <!-- End Categories -->
+                
+                <!-- Post Title -->
+				<h1 class="posttitle">Что такое "Менеджер версий"</h1> 
+                
+			</div>
+
+			
+
+			<!-- Post Content -->
+			<div class="article-post serif-font">
+				<h2 id="системная-установка">Системная установка</h2>
+
+<p>Для запуска кода на любом языке, необходимо установить его интерпретатор (или компилятор). В разных операционных системах это делается по-разному: где-то используются пакетные менеджеры, например, <em>apt</em> или <em>yum</em>, где-то скачивается установщик. Некоторые языки бывают предустановленны сразу, например, Python. На него многое завязано в дистрибутивах линукса.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Ubuntu</span>
+<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>nodejs <span class="c"># установит не самую свежую версию</span>
+</code></pre></div></div>
+
+<p>Стандартный способ установки работает хорошо только в самом начале, когда происходит первичная настройка. Затем, с течением времени, начинают всплывать разные проблемы. Например, в какой-то момент выходит новая версия языка, которую нужно подключить к проекту. Обычно, должно пройти какое-то время, перед тем, как язык станет доступным для установки через пакетные менеджеры. И здесь либо придется ждать, что не всегда желательно, либо искать другой способ установки. Последнее нередко превращается в серьёзное испытание, с часами гугления и установкой дополнительных библиотек. Все это в конце концов засоряет систему и иногда ломает её.</p>
+
+<p>Другая серьёзная проблема – установка сразу нескольких версий одного языка. Такое бывает нужно, когда разработчик переключается между разными проектами, требующими разные версии. Насколько часто такое происходит? Крайне часто. Чем дальше в разработку, тем больше вариантов: разные проекты в компании, свои проекты, опенсорс.</p>
+
+<p><em>Здесь нужно упомянуть, что всё это мало касается тех, кто целиком ушел в Docker и Docker Compose. Однако даже в этом случае, нужны языки для работы с опенсорсом.</em></p>
+
+<h2 id="менеджеры-версий">Менеджеры версий</h2>
+
+<p>Для решения этих проблем разработчики придумали менеджеры версий. Менеджер версий – это специальная программа, предназначенная для управления версиями языка. С его помощью устанавливают нужные версии и производят переключение между ними. В отличие от пакетных менеджеров, входящих в операционные системы, менеджеры версий всегда позволяют ставить последние версии языков, как только они выходят (включая установку альфа- и бета-версий).</p>
+
+<p>Например, для Node.js это <a href="https://github.com/nvm-sh/nvm">NVM</a> (Node Version Manager):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Установка NVM</span>
+<span class="nv">$ </span>curl <span class="nt">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+<span class="c"># Установка не означает активацию. После установки активной останется та версия, что и была до установки</span>
+<span class="nv">$ </span>nvm <span class="nb">install </span>node <span class="c"># Установка последней доступной версии ноды</span>
+<span class="nv">$ </span>nvm <span class="nb">install </span>6.14.4 <span class="c"># или 10.10.0, 8.9.1, и т.п.</span>
+<span class="nv">$ </span>nvm ls-remote <span class="c"># список доступных версий</span>
+<span class="nv">$ </span>nvm use node <span class="c"># Активация последней установленной версии ноды</span>
+<span class="nv">$ </span>nvm use node 14.1 <span class="c"># Активация нужной версии</span>
+</code></pre></div></div>
+
+<p>Для упрощения работы менеджеры версий обычно позволяют создать специальный файл внутри проекта, который зафиксирует нужную версию языка. В некоторых случаях менеджеры версий сами отслеживают этот файл и переключают версию автоматически.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"14.1"</span> <span class="o">&gt;</span> .nvmrc
+<span class="c"># Эта команда увидела файл .nvmrc и использовала указанную там версию</span>
+<span class="nv">$ </span>nvm use
+Found <span class="s1">'/path/to/project/.nvmrc'</span> with version &lt;14.1&gt;
+Now using node v14.1
+</code></pre></div></div>
+
+<p>В современном мире сложно представить себе язык, у которого бы не было менеджера версий. Более того некоторые языки, такие как Ruby, имеют множество разных менеджеров версий, которые конкурируют между собой:</p>
+
+<ul>
+  <li>go: gvm, g</li>
+  <li>java: jabba</li>
+  <li>ruby: rbenv, rvm, chruby</li>
+  <li>php: phpenv, phpbrew</li>
+  <li>python: pyenv</li>
+</ul>
+
+<p>Менеджеры версий позволили решить ещё несколько важных задач. Как правило, когда программист взаимодействует с языком, установленным напрямую, то ему приходится использовать <em>sudo</em> при установке глобальных пакетов. Дело в том, что стандартная схема установки языка предназначена для всех пользователей сразу. Поэтому все нужные файлы, включая глобальные пакеты, попадают в общие директории для которых нужны права администратора. С точки зрения безопасности это довольно большая дыра, которой могут воспользоваться (и иногда пользуются) разработчики опенсорс библиотек. Менеджеры версий устанавливают всё в домашнюю директорию текущего пользователя, где у него и так полные права. С одной стороны это позволяет не запускать установку пакетов от имени администратора, а с другой — не засоряется система. Удалить язык и все его пакеты через менеджер версий невероятно просто. Достаточно стереть директорию (правда, лучше это делать средствами самого менеджера версий).</p>
+
+<h2 id="универсальный-менеджер">Универсальный менеджер</h2>
+
+<p>Решив одни проблемы, менеджеры версий добавили другие. Во-первых, их слишком много, и они иногда меняются, сначала популярен один, затем другой. Во-вторых, сам процесс установки менеджера версий может оказаться сложнее установки языка. Проблема в том, что им нужно быть универсальными и работать везде, что крайне проблематично, учитывая разнообразие современных экосистем. Достаточно посмотреть размер документации NVM, чтобы оценить масштаб катастрофы. В-третьих, все эти менеджеры работают по-разному и имеют разные команды. Из-за этого усложняется процесс переключения между ними при работе с разными языками.</p>
+
+<p>Всё это привело к следующему логическому шагу. В конце концов появился универсальный менеджер <a href="https://asdf-vm.com/">asdf</a>, который, благодаря плагинам, способен работать с любыми языками. Неполный список его преимуществ:</p>
+
+<ul>
+  <li>Одна единственная утилита командной строки для работы со всеми языками</li>
+  <li>Единый интерфейс взаимодействия для всех языков</li>
+  <li>Автоматическое переключение на нужную версию языка внутри каждого проекта</li>
+  <li>Простая система плагинов, позволяющая добавить любые языки</li>
+</ul>
+
+<p>Сейчас <em>asdf</em> набрал достаточно большую популярность и постепенно заменяет собой все остальные менеджеры версий (технически под капотом там часто используются менеджеры, специфические для конкретных языков). У него чуть более сложная система команд из-за необходимости поддерживать множество языков, но в остальном он резко упрощает весь процесс.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># У asdf прекрасная документация, где наглядно показано, как его установить,</span>
+<span class="c"># и какие могут понадобится зависимости в разных системах</span>
+
+<span class="c"># Установка</span>
+<span class="nv">$ </span>git clone https://github.com/asdf-vm/asdf.git ~/.asdf <span class="nt">--branch</span> v0.7.8
+
+<span class="c"># Для работы с конкретным языком, сначала нужно подключить соответствующий плагин</span>
+<span class="c"># Список доступных плагинов есть на сайте проекта</span>
+<span class="nv">$ </span>asdf plugin add nodejs
+
+<span class="c"># Установка языка</span>
+<span class="c"># Вместо nodejs нужно подставить название того плагина, с которым работаем</span>
+<span class="nv">$ </span>asdf <span class="nb">install </span>nodejs latest <span class="c"># latest означает последнюю версию указанного языка</span>
+
+<span class="c"># Установка указанной версии</span>
+<span class="nv">$ </span>asdf <span class="nb">install </span>nodejs 14.1
+
+<span class="c"># Установка нужной версии языка версией по умолчанию</span>
+<span class="c"># Здесь нужно всегда указывать конкретную версию</span>
+<span class="nv">$ </span>asdf global nodejs 14.1
+
+<span class="c"># Показывает текущие версии для языков, установленных через asdf</span>
+<span class="nv">$ </span>asdf current
+elixir         1.10.1-otp-22 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+erlang         22.2.7   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+nodejs         14.2.0   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+php            7.4.5    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+python         3.8.2 2.7.16 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+ruby           2.7.0    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="вывод">Вывод</h2>
+
+<p>Работа с разными версиями языков – непростая задача, которую решают менеджеры версий и докер (для продвинутых). Среди всех менеджеров выделяется <em>asdf</em>, который становится универсальным инструментом для управления любыми языками и даже обычными программами.</p>
+
+                <div class="clearfix"></div>
+			</div>
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+              
+                <div class="col-md-6 rightborder pl-0">
+                    <a class="thepostlink" href="/webpack/">&laquo; Зачем нужно собирать фронтенд</a>
+                </div>
+              
+              
+                <div class="col-md-6 text-right pr-0">
+                    <a class="thepostlink" href="/makefile-as-task-runner/">Что такое Makefile и как начать его использовать &raquo;</a>
+                </div>
+              
+            </div>
+            <!-- End Prev/Next -->
+            
+            
+             <!-- Author Box -->
+                
+            
+            
+            <!-- Begin Comments
+            ================================================== -->
+            <section>
+            <div id="comments">                          
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+ 
+            </div>
+            </section>
+            <!--End Comments
+            ================================================== -->
+            
+            
+
+		</div>
+		<!-- End Post -->
+		<!-- Sidebar -->
+	</div>
+
+<!-- End Article
+================================================== -->
+  
+</main>
+
+<!-- Footer
+================================================== -->    
+<footer class="footer container text-center">  
+
+  <ul class="p-0 mb-1 small">
+    
+    <li>
+      <a href="https://ru.hexlet.io/courses" alt="Курсы">Курсы</a>
+    </li>
+    
+    <li>
+      <a href="https://cv.hexlet.io/" alt="Оценка резюме">Оценка резюме</a>
+    </li>
+    
+    <li>
+      <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка">Алгоритмическая прокачка</a>
+    </li>
+    
+    </ul>
+</footer>
+
+<!-- JavaScript
+================================================== -->    
+<script src="/assets/js/jquery.min.js"></script>   
+<script src="/assets/js/bootstrap.min.js"></script>   
+<script src="/assets/js/theme.js"></script>    
+    
+</body>
+    
+</html>

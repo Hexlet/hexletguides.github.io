@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+<title>Что такое логирование? | Гайды для программистов</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Что такое логирование? | Гайды для программистов</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Что такое логирование?" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_ru" />
+<meta name="description" content="Известно, что программисты проводят много времени, отлаживая свои программы, пытаясь разобраться, почему они не работают — или работают неправильно. Когда говорят про отладку, обычно подразумевают либо отладочную печать, либо использование специальных программ – дебагеров. С их помощью отслеживается выполнение кода по шагам, во время которого видно, как меняется содержимое переменных. Эти способы хорошо работают в небольших программах, но в реальных приложениях быстро становятся неэффективными." />
+<meta property="og:description" content="Известно, что программисты проводят много времени, отлаживая свои программы, пытаясь разобраться, почему они не работают — или работают неправильно. Когда говорят про отладку, обычно подразумевают либо отладочную печать, либо использование специальных программ – дебагеров. С их помощью отслеживается выполнение кода по шагам, во время которого видно, как меняется содержимое переменных. Эти способы хорошо работают в небольших программах, но в реальных приложениях быстро становятся неэффективными." />
+<meta property="og:site_name" content="Гайды для программистов" />
+<meta property="og:image" content="/assets/images/logging/cover.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/logging/cover.png" />
+<meta property="twitter:title" content="Что такое логирование?" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"author":{"@type":"Person","name":"Kirill Mokevnin"},"description":"Известно, что программисты проводят много времени, отлаживая свои программы, пытаясь разобраться, почему они не работают — или работают неправильно. Когда говорят про отладку, обычно подразумевают либо отладочную печать, либо использование специальных программ – дебагеров. С их помощью отслеживается выполнение кода по шагам, во время которого видно, как меняется содержимое переменных. Эти способы хорошо работают в небольших программах, но в реальных приложениях быстро становятся неэффективными.","mainEntityOfPage":{"@type":"WebPage","@id":"/logging/"},"image":"/assets/images/logging/cover.png","url":"/logging/","headline":"Что такое логирование?","dateModified":"2021-01-18T00:00:00+00:00","datePublished":"2021-01-18T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+<link href="/assets/css/custom.css" rel="stylesheet">
+<link href="/assets/css/highlight.css" rel="stylesheet">
+<!-- custom CSS end-->
+    
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-KMJ8HKG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GTM-KMJ8HKG');
+</script>
+
+   
+</head>   
+    
+
+<body class="layout-post">
+
+    
+<!-- Menu Navigation
+================================================== -->
+<div class="navigation-wrap start-header start-style">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <a class="navbar-brand text-dark font-weight-bold big d-flex align-items-center" href="/">
+          
+          <img class="mr-2" src="/assets/images/hexlet_logo.png" alt="logo"> 
+          
+          </a> | 
+          
+
+          <div class="d-flex align-items-center">
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://twitter.com/HexletHQ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg> 
+            </a>
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.instagram.com/hexlethq/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+            </a>
+      
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.facebook.com/Hexlet/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
+            </a>
+
+          </div>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            </svg>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto font-weight-bold d-flex align-items-center">
+              
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>  
+
+    
+<!-- Container
+================================================== -->    
+<main class="container">   
+      <!-- Begin Article
+================================================== -->
+
+	<div class="row">
+		
+
+		<!-- Post -->        
+        
+        
+		<div class="col-sm-8 mx-auto">
+            <!-- Post Featured Image -->
+			
+			<!-- End Featured Image -->
+			<div class="mainheading">             
+                
+                <!-- Post Categories -->
+                <div class="after-post-tags">
+                    <ul class="tags">
+                        
+                        
+                    </ul>
+                </div>
+                <!-- End Categories -->
+                
+                <!-- Post Title -->
+				<h1 class="posttitle">Что такое логирование?</h1> 
+                
+			</div>
+
+			
+
+			<!-- Post Content -->
+			<div class="article-post serif-font">
+				<p>Известно, что программисты проводят много времени, отлаживая свои программы, пытаясь разобраться, почему они не работают — или работают неправильно. Когда говорят про отладку, обычно подразумевают либо отладочную печать, либо использование специальных программ – дебагеров. С их помощью отслеживается выполнение кода по шагам, во время которого видно, как меняется содержимое переменных. Эти способы хорошо работают в небольших программах, но в реальных приложениях быстро становятся неэффективными.</p>
+
+<p><img src="/assets/images/logging/debugger.png" alt="Дебагер JavaScript в WebStorm" /></p>
+
+<h2 id="сложность-реальных-приложений">Сложность реальных приложений</h2>
+
+<p>Возьмем для примера типичный сайт. Что он в себя включает?</p>
+
+<ul>
+  <li><a href="https://guides.hexlet.io/dns/">DNS</a>. Система трансляции имени сайта в ip-адрес сервера.</li>
+  <li>Веб-сервер. Программа, обслуживающая входящие запросы, перенаправляет их в код приложения и забирает от приложения данные для пользователей.</li>
+  <li>Физический сервер (или виртуальный) с его окружением. Включает в себя операционную систему, установленные и запущенные обслуживающие программы, например, мониторинг.</li>
+  <li>База данных. Внешнее хранилище, с которым связывается код приложения и обменивается информацией.</li>
+  <li>Само приложение. Помимо кода, который пишут программисты, приложение включает в себя сотни тысяч и миллионы строк кода сторонних библиотек. Кроме этого, код работает внутри фреймворка, у которого свои собственные правила обработки входящих запросов.</li>
+  <li>Фронтенд часть. Код, который выполняется в браузере пользователя. И системы сборки для разработки, например, <a href="https://guides.hexlet.io/webpack/">Webpack</a>.</li>
+</ul>
+
+<p>И это только самый простой случай. Реальность же значительно сложнее: множество разноплановых серверов, системы кеширования (ускорения доступа), асинхронный код, очереди, внешние сервисы, облачные сервисы. Все это выглядит как многослойный пирог, внутри которого где-то работает нами написанный код. И этот код составляет лишь небольшую часть всего происходящего. Как в такой ситуации понять, на каком этапе был сбой, или все пошло не по плану? Для этого, как минимум, нужно определить, в каком слое произошла ошибка. Но даже это не самое сложное. Об ошибках в работающем приложении узнают не сразу, а уже потом, — когда ошибка случилась и, иногда, больше не воспроизводится.</p>
+
+<h2 id="логирование">Логирование</h2>
+
+<p>И для всего этого многообразия систем существует единое решение — логирование. В простейшем случае логирование сводится к файлу на диске, куда разные программы записывают (логируют) свои действия во время работы. Такой файл называют логом или журналом. Как правило, внутри лога одна строчка соответствует одному действию.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Формат: ip-address / date / HTTP-method / uri / response code / body size </span>
+173.245.52.110 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /my HTTP/1.1"</span> 200 46018
+108.162.219.13 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /sockjs-node/244/gdt1vvwa/websocket HTTP/1.1"</span> 0 0
+162.158.62.12 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/css/application.css HTTP/1.1"</span> 304 0
+162.158.62.84 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/runtime-eb0a99abbe8cf813f110.js HTTP/1.1"</span> 304 0
+108.162.219.111 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/application-2cba5619945c4e5946f1.js HTTP/1.1"</span> 304 0
+108.162.219.21 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/0564a7b5d773bab52e53.js HTTP/1.1"</span> 304 0
+108.162.219.243 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/6fb7e908211839fac06e.js HTTP/1.1"</span> 304 0
+</code></pre></div></div>
+
+<p>Выше небольшой кусок лога веб-сервера Хекслета. Из него видно ip-адрес, с которого выполнялся запрос на страницу и какие ресурсы загружались, метод HTTP, ответ бекенда (кода) и размер тела ответа в HTTP. Очень важно наличие даты. Благодаря ей всегда можно найти лог за конкретный период, например на то время, когда возникла ошибка. Для этого логи <a href="https://ru.hexlet.io/courses/cli-basics/lessons/grep/theory_unit">грепают</a>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Выведет 4 минуты логов за 31 марта 2020 года с 19:31 по 19:35</span>
+<span class="nb">grep</span> <span class="s2">"31/Mar/2020:19:3[1-5]"</span> access.log
+</code></pre></div></div>
+
+<p>Когда программисты только начинают свой путь, они, часто не зная причину ошибки, опускают руки и говорят «я не знаю, что случилось, и что делать». Опытный же разработчик всегда первым делом говорит «а что в логах?». Анализировать логи — один из базовых навыков в разработке. В любой непонятной ситуации нужно смотреть логи. Логи пишут все программы без исключения, но делают это по-разному и в разные места. Чтобы точно узнать, куда и как, нужно идти в документацию конкретной программы и читать соответствующий раздел документации. Вот несколько примеров:</p>
+
+<ul>
+  <li><a href="https://guides.rubyonrails.org/debugging_rails_applications.html#the-logger">Ruby On Rails (Ruby)</a></li>
+  <li><a href="https://docs.djangoproject.com/en/3.1/topics/logging/">Django (Python)</a></li>
+  <li><a href="https://laravel.com/docs/8.x/logging">Laravel (PHP)</a></li>
+  <li><a href="https://docs.spring.io/spring-boot/docs/2.1.18.RELEASE/reference/html/boot-features-logging.html">Spring Boot (Java)</a></li>
+  <li><a href="https://www.fastify.io/docs/v2.0.x/Logging/">Fastify (Node.js)</a></li>
+</ul>
+
+<p>Многие программы логируют прямо в консоль, например Webpack показывает процесс и результаты сборки:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Сюда же выводятся ошибки, если они были</span>
+｢wds｣: Project is running at http://hexletdev4.com/
+｢wds｣: webpack output is served from /packs/
+｢wds｣: Content not from webpack is served from /root/hexlet/public/packs
+｢wds｣: 404s will fallback to /index.html
+｢wdm｣: assets by chunk 10.8 MiB <span class="o">(</span>auxiliary name: application<span class="o">)</span> 115 assets
+sets by path js/ 13.8 MiB
+assets by path js/<span class="k">*</span>.js 13.8 MiB 52 assets
+assets by path js/pages/<span class="k">*</span>.js 5.1 KiB
+  asset js/pages/da223d3affe56711f31f.js 2.6 KiB <span class="o">[</span>emitted] <span class="o">[</span>immutable] <span class="o">(</span>name: pages/my_learning<span class="o">)</span> 1 related asset
+  asset js/pages/04adacfdd660803b19f1.js 2.5 KiB <span class="o">[</span>emitted] <span class="o">[</span>immutable] <span class="o">(</span>name: pages/referral<span class="o">)</span> 1 related asset
+sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </span>hint: vendors<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Во фронтенде файлов нет, поэтому логируют либо прямо в консоль, либо к себе в бекенды (что сложно), либо в специализированные сервисы, такие как <a href="https://logrocket.com/">LogRocket</a>.</p>
+
+<h2 id="уровни-логирования">Уровни логирования</h2>
+
+<p>Чем больше информации выводится в логах, тем лучше и проще отладка, но когда данных слишком много, то в них тяжело искать нужное. В особо сложных случаях логи могут генерироваться с огромной скоростью и в гигантских размерах. Работать в такой ситуации нелегко. Чтобы как-то сгладить ситуацию, системы логирования вводят разные уровни. Обычно это:</p>
+
+<ul>
+  <li>debug</li>
+  <li>info</li>
+  <li>warning</li>
+  <li>error</li>
+</ul>
+
+<p>Поддержка уровней осуществляется двумя способами. Во-первых, внутри самой программы расставляют вызовы библиотеки логирования в соответствии с уровнями. Если произошла ошибка, то логируем как <em>error</em>, если это отладочная информация, которая не нужна в обычной ситуации, то уровень <em>debug</em>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1">// Пример логирования внутри программы</span>
+<span class="c1">// Логер: https://github.com/pinojs/pino</span>
+
+<span class="k">import</span> <span class="nx">buildLogger</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">pino</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">logger</span> <span class="o">=</span> <span class="nx">buildLogger</span><span class="p">(</span><span class="cm">/* возможная конфигурация */</span><span class="p">);</span>
+<span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="dl">'</span><span class="s1">тут что то полезное</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Во-вторых, во время запуска программы указывается уровень логирования, необходимый в конкретной ситуации. По умолчанию используется уровень <em>info</em>, который используется для описания каких-то ключевых и важных вещей. При таком уровне будут выводиться и <em>warning</em>, и <em>error</em>. Если поставить уровень <em>error</em>, то будут выводиться только ошибки. А если <em>debug</em>, то мы получим лог, максимально наполненный данными. Обычно <em>debug</em> приводит к многократному росту выводимой информации.</p>
+
+<p>Уровни логирования, обычно, выставляются через переменную окружения во время запуска программы. Например, так:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># https://github.com/fastify/fastify-cli#options</span>
+<span class="nv">FASTIFY_LOG_LEVEL</span><span class="o">=</span>debug fastify-server.js
+</code></pre></div></div>
+
+<p>Существует и другой подход, основанный не на уровнях, а на пространствах имен. Этот подход получил широкое распространение в JS-среде, и является там основным. Фактически, он построен вокруг одной единственной библиотеки <a href="https://github.com/visionmedia/debug">debug</a> для логирования, которой пронизаны практически все JavaScript-библиотеки как на фронтенде, так и на бекенде.</p>
+
+<p><img src="/assets/images/logging/debug.png" alt="Библиотека debug в JavaScript" /></p>
+
+<p>Принцип работы здесь такой. Под нужную ситуацию создается специализированная функция логирования с указанием пространства имен, которая затем используется для всех событий одного процесса. В итоге библиотека позволяет легко отфильтровать только нужные записи, соответствующие нужному пространству.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">import</span> <span class="nx">debug</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">debug</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// Пространство имен http</span>
+<span class="kd">const</span> <span class="nx">logHttp</span> <span class="o">=</span> <span class="nx">debug</span><span class="p">(</span><span class="dl">'</span><span class="s1">http</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">logSomethingElse</span> <span class="o">=</span> <span class="nx">debug</span><span class="p">(</span><span class="dl">'</span><span class="s1">another-namespace</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Где-то в коде</span>
+
+<span class="nx">logHttp</span><span class="p">(</span><span class="cm">/* информация о http запросе */</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Запуск с нужным пространством:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">DEBUG</span><span class="o">=</span>http server.js
+</code></pre></div></div>
+
+<p><img src="/assets/images/logging/debug-http.png" alt="Библиотека debug для логирования http в JavaScript" /></p>
+
+<h2 id="ротация-логов">Ротация логов</h2>
+
+<p>Со временем количество логов становится большим, и с ними нужно что-то делать. Для этого используется ротация логов. Иногда за это отвечает сама программа, но чаще — внешнее приложение, задачей которого является чистка. Эта программа по необходимости разбивает логи на более мелкие файлы, сжимает, перемещает и, если нужно, удаляет. Подобная система встроена в любую операционную систему для работы с логами самой системы и внешних программ, которые могут встраиваться в нее.</p>
+
+<p>С веб-сайтами все еще сложнее. Даже на небольших проектах используется несколько серверов, на каждом из которых свои логи. А в крупных проектах тысячи серверов. Для управления такими системы созданы специализированные программы, которые следят за логами на всех машинах, скачивают их, складывают в заточенные под логи базы данных и предоставляют удобный способ поиска по ним.</p>
+
+<p>Здесь тоже есть несколько путей. Можно воспользоваться готовыми решениями, такими как <a href="https://docs.datadoghq.com/logs/">DataDog Logging</a>, либо устанавливать и настраивать все самостоятельно через, например, <a href="https://www.elastic.co/elastic-stack">ELK Stack</a></p>
+
+                <div class="clearfix"></div>
+			</div>
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+              
+                <div class="col-md-6 rightborder pl-0">
+                    <a class="thepostlink" href="/hosting/">&laquo; Что такое домен и хостинг</a>
+                </div>
+              
+              
+            </div>
+            <!-- End Prev/Next -->
+            
+            
+             <!-- Author Box -->
+                
+            
+            
+            <!-- Begin Comments
+            ================================================== -->
+            <section>
+            <div id="comments">                          
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+ 
+            </div>
+            </section>
+            <!--End Comments
+            ================================================== -->
+            
+            
+
+		</div>
+		<!-- End Post -->
+		<!-- Sidebar -->
+	</div>
+
+<!-- End Article
+================================================== -->
+  
+</main>
+
+<!-- Footer
+================================================== -->    
+<footer class="footer container text-center">  
+
+  <ul class="p-0 mb-1 small">
+    
+    <li>
+      <a href="https://ru.hexlet.io/courses" alt="Курсы">Курсы</a>
+    </li>
+    
+    <li>
+      <a href="https://cv.hexlet.io/" alt="Оценка резюме">Оценка резюме</a>
+    </li>
+    
+    <li>
+      <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка">Алгоритмическая прокачка</a>
+    </li>
+    
+    </ul>
+</footer>
+
+<!-- JavaScript
+================================================== -->    
+<script src="/assets/js/jquery.min.js"></script>   
+<script src="/assets/js/bootstrap.min.js"></script>   
+<script src="/assets/js/theme.js"></script>    
+    
+</body>
+    
+</html>

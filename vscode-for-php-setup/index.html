@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+<title>Как настроить VS Code для разработки на PHP | Гайды для программистов</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Как настроить VS Code для разработки на PHP | Гайды для программистов</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Как настроить VS Code для разработки на PHP" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_ru" />
+<meta name="description" content="Visual Studio Code – популярный бесплатный редактор кода. Может с легкостью конкурировать с PhpStorm, ведь он бесплатный и с открытым исходным кодом" />
+<meta property="og:description" content="Visual Studio Code – популярный бесплатный редактор кода. Может с легкостью конкурировать с PhpStorm, ведь он бесплатный и с открытым исходным кодом" />
+<meta property="og:site_name" content="Гайды для программистов" />
+<meta property="og:image" content="/assets/images/vscode-for-php-setup/vscode-php-cover.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/vscode-for-php-setup/vscode-php-cover.png" />
+<meta property="twitter:title" content="Как настроить VS Code для разработки на PHP" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"author":{"@type":"Person","name":"Kirill Mokevnin"},"description":"Visual Studio Code – популярный бесплатный редактор кода. Может с легкостью конкурировать с PhpStorm, ведь он бесплатный и с открытым исходным кодом","mainEntityOfPage":{"@type":"WebPage","@id":"/vscode-for-php-setup/"},"image":"/assets/images/vscode-for-php-setup/vscode-php-cover.png","url":"/vscode-for-php-setup/","headline":"Как настроить VS Code для разработки на PHP","dateModified":"2019-07-28T00:00:00+00:00","datePublished":"2019-07-28T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+<link href="/assets/css/custom.css" rel="stylesheet">
+<link href="/assets/css/highlight.css" rel="stylesheet">
+<!-- custom CSS end-->
+    
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-KMJ8HKG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GTM-KMJ8HKG');
+</script>
+
+   
+</head>   
+    
+
+<body class="layout-post">
+
+    
+<!-- Menu Navigation
+================================================== -->
+<div class="navigation-wrap start-header start-style">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <a class="navbar-brand text-dark font-weight-bold big d-flex align-items-center" href="/">
+          
+          <img class="mr-2" src="/assets/images/hexlet_logo.png" alt="logo"> 
+          
+          </a> | 
+          
+
+          <div class="d-flex align-items-center">
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://twitter.com/HexletHQ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg> 
+            </a>
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.instagram.com/hexlethq/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+            </a>
+      
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.facebook.com/Hexlet/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
+            </a>
+
+          </div>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            </svg>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto font-weight-bold d-flex align-items-center">
+              
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>  
+
+    
+<!-- Container
+================================================== -->    
+<main class="container">   
+      <!-- Begin Article
+================================================== -->
+
+	<div class="row">
+		
+
+		<!-- Post -->        
+        
+        
+		<div class="col-sm-8 mx-auto">
+            <!-- Post Featured Image -->
+			
+			<!-- End Featured Image -->
+			<div class="mainheading">             
+                
+                <!-- Post Categories -->
+                <div class="after-post-tags">
+                    <ul class="tags">
+                        
+                        
+                    </ul>
+                </div>
+                <!-- End Categories -->
+                
+                <!-- Post Title -->
+				<h1 class="posttitle">Как настроить VS Code для разработки на PHP</h1> 
+                
+			</div>
+
+			
+
+			<!-- Post Content -->
+			<div class="article-post serif-font">
+				<p><strong><a href="https://code.visualstudio.com/">Visual Studio Code</a> – популярный бесплатный редактор кода. Может с легкостью конкурировать с PhpStorm, ведь он бесплатный и с открытым исходным кодом</strong></p>
+
+<p><img src="/assets/images/vscode-for-php-setup/screen.png" alt="Vscode" />
+<em>Так может выглядеть интерфейс редактора после установки расширений</em></p>
+
+<h2 id="основные-возможности">Основные возможности</h2>
+
+<ul>
+  <li>отладчик кода</li>
+  <li>встроенный терминал</li>
+  <li>удобные инструменты для работы с Git</li>
+  <li>подсветка синтаксиса для множества популярных языков и файловых форматов</li>
+  <li>удобная навигация</li>
+  <li>встроенный предпросмотр <a href="/markdown">Markdown</a></li>
+  <li>умное автодополнение</li>
+  <li>встроенный пакетный менеджер</li>
+</ul>
+
+<p>VS Code имеет большое количество расширений для разработчика. Для установки нового пакета зайдите во вкладку “Extensions”, введите название пакета в строке поиска, нажмите кнопку “Install”.</p>
+
+<p><img src="/assets/images/vscode-for-php-setup/recommended_extensions.png" alt="extension list" /></p>
+
+<h2 id="editorconfig-for-vs-code">EditorConfig for VS Code</h2>
+
+<p><a href="https://editorconfig.org/">EditorConfig</a> — это конфигурационный файл и набор расширений к большому количеству редакторов кода. Он подхватывает настройки из файла <code class="language-plaintext highlighter-rouge">.editorconfig</code>, который, как правило, размещается в корне проекта.
+Расширение автоматически настроит отступы и <a href="https://ru.wikipedia.org/wiki/Перевод_строки">перевод строк</a> единообразно для всех разработчиков, использующих его. PHP код чаще всего выполняется на *nix системах, поэтому необходимо использовать стандарт.</p>
+
+<p>Ниже приводится пример файла <code class="language-plaintext highlighter-rouge">.editorconfig</code>, который используется в Laravel:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
+
+<span class="c"># Глобальные настройки, которые будут записаны для всех файлов.
+</span><span class="nn">[*]</span>
+<span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
+<span class="c"># На Unix системах используется lf для перевода строки.
+# Это также требование стандарта PSR.
+</span><span class="py">end_of_line</span> <span class="p">=</span> <span class="s">lf</span>
+<span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+<span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">true</span>
+
+<span class="c"># Можно задать индивидуальные настройки как для типов файлов,
+# так и отдельных файлов по имени.
+</span><span class="nn">[*.md]</span>
+<span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">false</span>
+
+<span class="nn">[*.{yml,vue,js,html}]</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+
+<span class="nn">[{package.json,.travis.yml}]</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+
+<span class="nn">[lib/**.js]</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+</code></pre></div></div>
+
+<h2 id="php-intelephense">PHP Intelephense</h2>
+
+<p>В редакторе уже есть поддержка синтаксиса и подсказок стандартных функций языка. Но без специального дополнения редактор не будет подсказывать пользовательские функции из других частей проекта. Поэтому для поддержки автодополнения, анализа кода, перехода к месту, где создана функция/класс/переменная (с помощью шортката <code class="language-plaintext highlighter-rouge">Alt+Click</code>), используется дополнение <a href="https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client">PHP Intelephense</a></p>
+
+<p>Чтобы подсказки не дублировались необходимо отключить встроенную в редактор поддержку кода для PHP: <code class="language-plaintext highlighter-rouge">Extensions -&gt; Search @builtin php -&gt; PHP Language Features -&gt; Disable</code></p>
+
+<p><img src="/assets/images/vscode-for-php-setup/intelliphense.gif" alt="extension list" /></p>
+
+<p><img src="/assets/images/vscode-for-php-setup/intelliphense2.gif" alt="extension list" /></p>
+
+<h2 id="php-debug">PHP Debug</h2>
+
+<p>При разработке может возникнуть ситуация, когда простых функций отладки и логирования становится недостаточно. Тогда может помочь специальный инструмент — Дебаггер.
+Для PHP есть расширение <a href="https://xdebug.org/">xdebug</a>, которое позволяет расставить <a href="https://ru.wikipedia.org/wiki/Точка_останова">точки останова</a> и посмотреть окружение в предполагаемом месте ошибки, выполняя код поэтапно либо до следующей точки.</p>
+
+<p>Чтобы воспользоваться <a href="https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug">PHP Debug</a>, необходимо установить сам XDebug, без него расширение для редактора работать не будет. Установив расширение, необходимо добавить конфигурацию для PHP в разделе <code class="language-plaintext highlighter-rouge">Debug</code>. После выбора языка в корне проекта будет создан файл <code class="language-plaintext highlighter-rouge">.vscode/launch.json</code> с задачами для Дебаггера. Расширение создаст файл со стандартными параметрами.</p>
+
+<p>Для того, чтобы XDebug общался с нашим дебаггером, необходимо добавить настройки в файл конфигурации php.
+Чтобы найти этот файл выполните в терминале команду <code class="language-plaintext highlighter-rouge">php --ini</code> или запустите веб-сервер с кодом <code class="language-plaintext highlighter-rouge">phpinfo()</code>.</p>
+
+<p>В Linux PHP подгружает не только основной файл, но и файл из этой директории. Например, на Ubuntu путь к директории конфигурационных файлов для PHP может быть таким — <code class="language-plaintext highlighter-rouge">/etc/php/7.3/cli/conf.d/</code>.
+В ней создаём файл с необходимыми правами (требуются root права):</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span><span class="nb">sudo touch</span> /etc/php/7.3/cli/conf.d/99-local.ini
+<span class="nv">$ </span><span class="nb">sudo chmod </span>777 /etc/php/7.3/cli/conf.d/99-local.ini
+</code></pre></div></div>
+
+<p>Содержимое файла:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="py">xdebug.remote_enable</span><span class="p">=</span><span class="s">1</span>
+<span class="py">xdebug.remote_host</span><span class="p">=</span><span class="s">127.0.0.1</span>
+<span class="py">xdebug.remote_port</span><span class="p">=</span><span class="s">9000 ; Порт, который мы указали в launch.json</span>
+<span class="py">xdebug.idekey</span><span class="p">=</span><span class="s">code</span>
+<span class="py">xdebug.remote_autostart</span><span class="p">=</span><span class="s">1</span>
+</code></pre></div></div>
+
+<p>Это настройки для локальной разработки, когда проект разрабатывается и запускается на одном компьютере, например на вашей рабочей машине</p>
+
+<p><img src="/assets/images/vscode-for-php-setup/xdebug2.gif" alt="debug vscode" /></p>
+
+<p><img src="/assets/images/vscode-for-php-setup/xdebug1.gif" alt="debug vscode" /></p>
+
+<p><img src="/assets/images/vscode-for-php-setup/xdebug3.gif" alt="debug vscode" /></p>
+
+<h2 id="php-sniffer">PHP Sniffer</h2>
+
+<p>В языках программирования есть понятие <em>стиль кодирования</em>. Но не все разработчики знают об этом. Программа, которая отвечает за проверку на соответствие стандартам, называется линтер. В PHP приняты стандарты под названием <a href="https://www.php-fig.org/psr/">PSR</a>. Нас интересуют стандарты PSR-1 и PSR-12. Именно эти два стандарта касаются кодирования и правил оформления.</p>
+
+<p>В PHP в качестве линтера используется <a href="https://github.com/squizlabs/PHP_CodeSniffer#composer">PHP_CodeSniffer</a>.
+Для его работы необходимо установить глобально сам линтер <code class="language-plaintext highlighter-rouge">composer global require "squizlabs/php_codesniffer=*"</code> и расширение <a href="https://marketplace.visualstudio.com/items?itemName=wongjn.php-sniffer">PHP Sniffer</a>.</p>
+
+<p>Проверьте, что линтер установился:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>phpcs <span class="nt">--version</span>
+PHP_CodeSniffer version 3.4.2 <span class="o">(</span>stable<span class="o">)</span> by Squiz <span class="o">(</span>https://www.squiz.net<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Выполнить проверку кода в терминале можно с помощью команды <code class="language-plaintext highlighter-rouge">phpcs</code>, явно указав стандарт, который мы хотим использовать, и путь для проверки:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>phpcs <span class="nt">--standard</span><span class="o">=</span>PSR12 &lt;<span class="nb">dirname</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/vscode-for-php-setup/phpcs-vscode.png" alt="vscode-phpcs" /></p>
+
+<p><img src="/assets/images/vscode-for-php-setup/phpcsfixer.gif" alt="debug vscode" /></p>
+
+<h2 id="semicolon-insertion-shortcut">Semicolon Insertion Shortcut</h2>
+
+<p>PHP требует разделять инструкции с помощью точки запятой. Расширение <a href="https://marketplace.visualstudio.com/items?itemName=chrisvltn.vs-code-semicolon-insertion">Semicolon Insertion Shortcut</a> добавляет необходимый символ в конец строки с помощью шортката.
+Если при нажатии <code class="language-plaintext highlighter-rouge">[Ctrl] + ;</code> символ не вставляется, то необходимо проверить список горячих клавиш и при необходимости назначить комбинацию вручную: <code class="language-plaintext highlighter-rouge">File -&gt; Preferences -&gt; Keyboard Shortcuts</code></p>
+
+<p><img src="/assets/images/vscode-for-php-setup/semicolon.png" alt="semicolon-shortcut" /></p>
+
+<p><img src="/assets/images/vscode-for-php-setup/semicolon.gif" alt="semicolon-shortcut" /></p>
+
+<h2 id="extra">Extra</h2>
+
+<p>Список расширений, которые могут быть использованы не только для PHP:</p>
+
+<ul>
+  <li>
+    <p><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> — в VS Code уже встроена поддержка Git. Но когда базовых возможностей становится недостаточно, на помощь может придти Gitlens. Например, одна из полезных фич — <code class="language-plaintext highlighter-rouge">git blame</code> на текущей строке.</p>
+
+    <p><img src="https://raw.githubusercontent.com/eamodio/vscode-gitlens/master/images/docs/current-line-blame.png" alt="gitlens" /></p>
+  </li>
+  <li>
+    <p><a href="https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow">Indent Rainbow</a> — разноцветные отступы в коде. Подсвечивает некорректный отступ. Можно вместо радуги установить оттенки серого.</p>
+
+    <p><img src="/assets/images/vscode-for-php-setup/intend-rainbow.png" alt="rainbow" /></p>
+  </li>
+  <li>
+    <p><a href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync">Settings Sync</a> — плагин, позволяющий синхронизировать настройки редактора между разными компьютерами. В качестве облачного хранилища используется Github Gists. Все настройки можно скачать, указав нужный файл синхронизации.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/tonsky/FiraCode">Fira Code</a> — моноширинный шрифт, в котором используются лигатуры (объединяет несколько символов в один) для общих комбинаций символов в программировании. Визуальная надстройка для более удобного чтения кода.</p>
+
+    <p><img src="/assets/images/vscode-for-php-setup/fira.gif" alt="fira" /></p>
+  </li>
+</ul>
+
+                <div class="clearfix"></div>
+			</div>
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+              
+                <div class="col-md-6 rightborder pl-0">
+                    <a class="thepostlink" href="/git-guide/">&laquo; Зачем нужен Git</a>
+                </div>
+              
+              
+                <div class="col-md-6 text-right pr-0">
+                    <a class="thepostlink" href="/https-yandex-guide/">Что такое протокол HTTPS, и как он защищает вас в интернете &raquo;</a>
+                </div>
+              
+            </div>
+            <!-- End Prev/Next -->
+            
+            
+             <!-- Author Box -->
+                
+            
+            
+            <!-- Begin Comments
+            ================================================== -->
+            <section>
+            <div id="comments">                          
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+ 
+            </div>
+            </section>
+            <!--End Comments
+            ================================================== -->
+            
+            
+
+		</div>
+		<!-- End Post -->
+		<!-- Sidebar -->
+	</div>
+
+<!-- End Article
+================================================== -->
+  
+</main>
+
+<!-- Footer
+================================================== -->    
+<footer class="footer container text-center">  
+
+  <ul class="p-0 mb-1 small">
+    
+    <li>
+      <a href="https://ru.hexlet.io/courses" alt="Курсы">Курсы</a>
+    </li>
+    
+    <li>
+      <a href="https://cv.hexlet.io/" alt="Оценка резюме">Оценка резюме</a>
+    </li>
+    
+    <li>
+      <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка">Алгоритмическая прокачка</a>
+    </li>
+    
+    </ul>
+</footer>
+
+<!-- JavaScript
+================================================== -->    
+<script src="/assets/js/jquery.min.js"></script>   
+<script src="/assets/js/bootstrap.min.js"></script>   
+<script src="/assets/js/theme.js"></script>    
+    
+</body>
+    
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+<title>Что такое Vagrant | Гайды для программистов</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Что такое Vagrant | Гайды для программистов</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Что такое Vagrant" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_ru" />
+<meta name="description" content="Vagrant — продукт компании HashiCorp, специализирующейся на инструментах для автоматизации разработки и эксплуатации. Он позволяет создавать и конфигурировать легковесные, повторяемые и переносимые окружения для разработки." />
+<meta property="og:description" content="Vagrant — продукт компании HashiCorp, специализирующейся на инструментах для автоматизации разработки и эксплуатации. Он позволяет создавать и конфигурировать легковесные, повторяемые и переносимые окружения для разработки." />
+<meta property="og:site_name" content="Гайды для программистов" />
+<meta property="og:image" content="/assets/images/vagrant/vagrant.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/vagrant/vagrant.jpg" />
+<meta property="twitter:title" content="Что такое Vagrant" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"author":{"@type":"Person","name":"Kirill Mokevnin"},"description":"Vagrant — продукт компании HashiCorp, специализирующейся на инструментах для автоматизации разработки и эксплуатации. Он позволяет создавать и конфигурировать легковесные, повторяемые и переносимые окружения для разработки.","mainEntityOfPage":{"@type":"WebPage","@id":"/vagrant/"},"image":"/assets/images/vagrant/vagrant.jpg","url":"/vagrant/","headline":"Что такое Vagrant","dateModified":"2017-12-20T00:00:00+00:00","datePublished":"2017-12-20T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+<link href="/assets/css/custom.css" rel="stylesheet">
+<link href="/assets/css/highlight.css" rel="stylesheet">
+<!-- custom CSS end-->
+    
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-KMJ8HKG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GTM-KMJ8HKG');
+</script>
+
+   
+</head>   
+    
+
+<body class="layout-post">
+
+    
+<!-- Menu Navigation
+================================================== -->
+<div class="navigation-wrap start-header start-style">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <a class="navbar-brand text-dark font-weight-bold big d-flex align-items-center" href="/">
+          
+          <img class="mr-2" src="/assets/images/hexlet_logo.png" alt="logo"> 
+          
+          </a> | 
+          
+
+          <div class="d-flex align-items-center">
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://twitter.com/HexletHQ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg> 
+            </a>
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.instagram.com/hexlethq/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+            </a>
+      
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.facebook.com/Hexlet/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
+            </a>
+
+          </div>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            </svg>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto font-weight-bold d-flex align-items-center">
+              
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>  
+
+    
+<!-- Container
+================================================== -->    
+<main class="container">   
+      <!-- Begin Article
+================================================== -->
+
+	<div class="row">
+		
+
+		<!-- Post -->        
+        
+        
+		<div class="col-sm-8 mx-auto">
+            <!-- Post Featured Image -->
+			
+			<!-- End Featured Image -->
+			<div class="mainheading">             
+                
+                <!-- Post Categories -->
+                <div class="after-post-tags">
+                    <ul class="tags">
+                        
+                        
+                    </ul>
+                </div>
+                <!-- End Categories -->
+                
+                <!-- Post Title -->
+				<h1 class="posttitle">Что такое Vagrant</h1> 
+                
+			</div>
+
+			
+
+			<!-- Post Content -->
+			<div class="article-post serif-font">
+				<p><strong>Vagrant — продукт компании HashiCorp, специализирующейся на инструментах для автоматизации разработки и эксплуатации. Он позволяет создавать и конфигурировать легковесные, повторяемые и переносимые окружения для разработки.</strong></p>
+
+<p>Первая задача любого разработчика на новом проекте - развернуть окружение. Как правило, она сводится к следующим шагам:</p>
+
+<ol>
+  <li>Клонировать репозиторий с проектом.</li>
+  <li>Поставить необходимые пакеты для работы (например, библиотеку для xml).</li>
+  <li>Установить дополнительные программы, такие как базу данных.</li>
+  <li>Правильно настроить конфигурационные параметры.</li>
+</ol>
+
+<p>Без автоматизации подобный процесс может занимать как часы, так и целые дни, в зависимости от сложности проекта. Причем, для каждого человека в команде. Для каждой смены рабочей машины или после переустановки системы. Проблема усугубляется тем, что чем больше разработчиков на проекте, тем более разнообразные машины они используют, включая разные операционные системы. В подобном случае процесс настройки гарантированно будет разным, что является еще одним источником проблем. Весь процесс настройки должен быть где-то описан, но, как правило, эти описания быстро устаревают и их мало кто хочет поддерживать, а любые попытки поддерживать актуальность в конце концов угасают.</p>
+
+<p>После добавления пары таких проектов операционная система становится сильно захламленной. Даже если вы не работаете над проектом, после включения компьютера начнут стартовать сервисы, которые требуются только для разработки.</p>
+
+<p>Еще одна проблема - изменения. Практически любая перенастройка установленной конфигурации потребует ручного вмешательства, доустановки пакетов, программ или изменения конфигов.</p>
+
+<p>И последнее: нередко требуется возможность развернуть проект и для не программистов, например верстальщиков или тестировщиков. Наличие даже хорошо описанного процесса установки мало им поможет.</p>
+
+<p>Теперь можно попробовать сформулировать требования к идеальному окружению:</p>
+
+<ol>
+  <li>Изолированность. Таким образом избегаются возможные конфликты с другими окружениями (например, основной системой) и основная система остается чистой.</li>
+  <li>Повторяемость. Пересоздать рабочую среду можно за считанные минуты набрав буквально одну команду. Любое изменение распространяется сразу для всех.</li>
+  <li>Переносимость. Окружение разворачивается под любой системой одним универсальным способом.</li>
+</ol>
+
+<p>Vagrant создан для решения именно этих задач. Во многом его работа опирается на виртуализацию, для которой, по умолчанию, используется продукт <a href="https://www.virtualbox.org/">VirtualBox</a>. Но в отличие от обычной работы с виртуальной машиной, когда внутри нее стоит система с графической оболочкой, Vagrant создает виртуальную машину доступную только в терминальном режиме (через командную строку), при этом сама разработка продолжается на хост-машине, а вот запуск кода на выполнение происходит внутри машины. Другими словами, редактор ставится на вашу основную систему и код лежит также в ней. Vagrant прозрачно прокидывает код внутрь машины и позволяет его запускать.</p>
+
+<h2 id="подготовка-к-работе">Подготовка к работе</h2>
+
+<p>Использование Vagrant подразумевает некоторую настройку операционной системы и наличие определенных знаний:</p>
+
+<ul>
+  <li>Нужно знать, что такое виртуализация и как работать с виртуальными машинами</li>
+  <li>Командая строка - единственный способ взаимодействия с вагрантом. Если ваша операционная система Windows, то вам необходимо <a href="https://guides.hexlet.io/development-on-windows/">настроить</a> её.</li>
+  <li>Базовое знание сетей, понятие порта.</li>
+  <li>На вашем компьютере должно быть хотя бы 4 гигабайта оперативной памяти, хотя даже с таким объемом, работать проблематично. Минимально комфортный уровень - 8 гигабайт.</li>
+</ul>
+
+<h2 id="установка">Установка</h2>
+
+<p>Первым делом необходимо поставить систему виртуализации, например VirtualBox. Скачать его под вашу операционную систему можно <a href="https://www.virtualbox.org/wiki/Downloads">здесь</a>.</p>
+
+<p>Затем скачайте установщик Vagrant под вашу операционную систему на странице <a href="https://www.vagrantup.com/downloads.html">Download</a>.</p>
+
+<p>Откройте терминал и убедитесь что вагрант работает:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>vagrant <span class="nt">-v</span>
+</code></pre></div></div>
+
+<h2 id="инициализация">Инициализация</h2>
+
+<p>Дизайн Vagrant предполагает, что мы создаем отдельную конфигурацию на каждый проект (а соответственно и виртуальную машину), а не одну на все. Инициализация выполняется в папке соответствующего проекта командой <code class="language-plaintext highlighter-rouge">vagrant init ubuntu/xenial64</code>. В результате выполнения этой команды Vagrant создаст файл Vagrantfile. Внутри файла описана конфигурация виртуальной машины на языке Ruby. Не страшно, если вы не знакомы с ним, содержимое файла интуитивно понятно, а документация вагранта достаточно подробна.</p>
+
+<p>Кроме создания файла, вагрант скачает на вашу машину образ (image) операционной системы, хранящийся под именем <code class="language-plaintext highlighter-rouge">ubuntu/xenial64</code>. В данном случае речь идет про Ubuntu 16.04. Vagrant поддерживает каталог образов, созданных специально под работу с ним. При необходимости можно выбрать другой, посмотрев его имя в <a href="https://app.vagrantup.com/boxes/search">каталоге</a>. Если открыть файл Vagrantfile, то можно увидеть что имя образа прописано внутри конфигурации:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="no">Vagrant</span><span class="p">.</span><span class="nf">configure</span><span class="p">(</span><span class="s1">'2'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">box</span> <span class="o">=</span> <span class="s1">'ubuntu/xenial64'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="рабочий-процесс">Рабочий процесс</h2>
+
+<h3 id="запуск">Запуск</h3>
+
+<p>Старт выполняется командой <code class="language-plaintext highlighter-rouge">vagrant up</code>. Она создает виртуальную машину и запускает ее. Если машина уже была создана (предыдущими запусками), то произойдет только старт.</p>
+
+<p>В этот момент уже можно начинать работать с кодом, лежащим в той же папке, что и Vagrantfile. Все изменения автоматически оказываются внутри запущенной виртуальной машины.</p>
+
+<h3 id="подключение">Подключение</h3>
+
+<p>Для входа внутрь используется команда <code class="language-plaintext highlighter-rouge">vagrant ssh</code>. После выполнения терминал подключается к машине в домашнюю директорию пользователя по умолчанию. Традиционно в вагранте это пользователь с именем <code class="language-plaintext highlighter-rouge">vagrant</code>. Теперь необходимо выполнить переход в папку <code class="language-plaintext highlighter-rouge">/vagrant</code>. Именно в ней окажется код проекта.</p>
+
+<p>Дальше можно действовать по старинке. Поставить все необходимые пакеты и зависимости, а затем запустить проект. Если это веб-сайт, то он запустится на определенном порту. По умолчанию все, что стартует внутри виртуальной машины, доступно только внутри. Для возможности обращаться к сайту с хост машины (через ваш любимый браузер), необходимо прокинуть соответствующий порт наружу. Об этом достаточно подробно рассказано в <a href="https://www.vagrantup.com/docs/networking/basic_usage.html">документации</a>. Предположим, что внутри вагранта сайт стартует на порту 8080, и вы хотите обращаться к нему снаружи. Для этого достаточно добавить в конфигурацию:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="no">Vagrant</span><span class="p">.</span><span class="nf">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="c1"># ...</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">network</span> <span class="s2">"forwarded_port"</span><span class="p">,</span> <span class="ss">guest: </span><span class="mi">8080</span><span class="p">,</span> <span class="ss">host: </span><span class="mi">8080</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Изменения применяются после перезагрузки машины. Для этого достаточно выполнить команду <code class="language-plaintext highlighter-rouge">vagrant reload</code>.</p>
+
+<h3 id="остановка">Остановка</h3>
+
+<p>В конце работы не забудьте выполнить <code class="language-plaintext highlighter-rouge">vagrant halt</code>, иначе машина останется запущенной и будет потреблять ресурсы. Если вы решили, что пора полностью все удалить и поставить заново, воспользуйтесь командой <code class="language-plaintext highlighter-rouge">vagrant destroy</code>.</p>
+
+<h2 id="конфигурация-системы">Конфигурация системы</h2>
+
+<p>Установка необходимых программ внутрь вагранта традиционным способом — не самый лучший способ добиться повторяемости. По сути такой подход ничем не отличается от настройки проекта на основной системе. Для решения задачи настройки используются средства configuration management, подобные Ansible. Вагрант хорошо интегрируется с ними. Подробнее об этом можно прочитать в официальной <a href="https://www.vagrantup.com/docs/provisioning/">документации</a>, а в одном из репозиториев хекслета есть <a href="https://github.com/hexlet-boilerplates/vagrant-ansible">пример</a> такой интеграции.</p>
+
+<h2 id="плагины">Плагины</h2>
+
+<p>Vagrant может расширяться плагинами. Полный список можно найти на <a href="https://github.com/hashicorp/vagrant/wiki/Available-Vagrant-Plugins">wiki</a>.</p>
+
+<p>Самый важный из этих плагинов - <a href="https://github.com/dotless-de/vagrant-vbguest">vagrant-vbguest</a>.</p>
+
+<p>Не вдаваясь в подробности, он делает так, что ваша система всегда остается рабочей при обновлении виртуальной машины. Без него возможна ситуация, когда обновив виртуальную машину вы увидите, что папка с кодом перестала синхронизироваться, и внутри вагранта её нет.</p>
+
+<h2 id="решение-проблем">Решение проблем</h2>
+
+<ul>
+  <li>Убедитесь что в BIOS включены все необходимые параметры для нормального функционирования виртуализации.</li>
+  <li>В Windows используйте имена пользователей, не содержащие кириллицы.</li>
+  <li>Не запускайте вагрант из под суперпользователя или администратора.</li>
+  <li>Если вы испытываете проблемы со скоростью работы, то, возможно, причина в способе синхронизирования папки с проектом. Vagrant <a href="https://www.vagrantup.com/docs/synced-folders/">позволяет</a> настраивать способ синхронизации.</li>
+</ul>
+
+<hr />
+
+<p>Кирилл Мокевнин</p>
+
+                <div class="clearfix"></div>
+			</div>
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+              
+                <div class="col-md-6 rightborder pl-0">
+                    <a class="thepostlink" href="/development-on-windows/">&laquo; Как начать разрабатывать в Windows</a>
+                </div>
+              
+              
+                <div class="col-md-6 text-right pr-0">
+                    <a class="thepostlink" href="/jekyll/">Как завести блог на Jekyll &raquo;</a>
+                </div>
+              
+            </div>
+            <!-- End Prev/Next -->
+            
+            
+             <!-- Author Box -->
+                
+            
+            
+            <!-- Begin Comments
+            ================================================== -->
+            <section>
+            <div id="comments">                          
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+ 
+            </div>
+            </section>
+            <!--End Comments
+            ================================================== -->
+            
+            
+
+		</div>
+		<!-- End Post -->
+		<!-- Sidebar -->
+	</div>
+
+<!-- End Article
+================================================== -->
+  
+</main>
+
+<!-- Footer
+================================================== -->    
+<footer class="footer container text-center">  
+
+  <ul class="p-0 mb-1 small">
+    
+    <li>
+      <a href="https://ru.hexlet.io/courses" alt="Курсы">Курсы</a>
+    </li>
+    
+    <li>
+      <a href="https://cv.hexlet.io/" alt="Оценка резюме">Оценка резюме</a>
+    </li>
+    
+    <li>
+      <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка">Алгоритмическая прокачка</a>
+    </li>
+    
+    </ul>
+</footer>
+
+<!-- JavaScript
+================================================== -->    
+<script src="/assets/js/jquery.min.js"></script>   
+<script src="/assets/js/bootstrap.min.js"></script>   
+<script src="/assets/js/theme.js"></script>    
+    
+</body>
+    
+</html>

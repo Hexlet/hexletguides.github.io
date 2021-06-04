@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+<title>Как начать разрабатывать в Windows | Гайды для программистов</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Как начать разрабатывать в Windows | Гайды для программистов</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Как начать разрабатывать в Windows" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_ru" />
+<meta name="description" content="В руководстве приводится пример базовой настройки Windows, приближающей её по возможностям к другим операционным системам." />
+<meta property="og:description" content="В руководстве приводится пример базовой настройки Windows, приближающей её по возможностям к другим операционным системам." />
+<meta property="og:site_name" content="Гайды для программистов" />
+<meta property="og:image" content="/assets/images/development-on-windows/choco.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-10-25T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/development-on-windows/choco.png" />
+<meta property="twitter:title" content="Как начать разрабатывать в Windows" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"author":{"@type":"Person","name":"Kirill Mokevnin"},"description":"В руководстве приводится пример базовой настройки Windows, приближающей её по возможностям к другим операционным системам.","mainEntityOfPage":{"@type":"WebPage","@id":"/development-on-windows/"},"image":"/assets/images/development-on-windows/choco.png","url":"/development-on-windows/","headline":"Как начать разрабатывать в Windows","dateModified":"2017-10-25T00:00:00+00:00","datePublished":"2017-10-25T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+<link href="/assets/css/custom.css" rel="stylesheet">
+<link href="/assets/css/highlight.css" rel="stylesheet">
+<!-- custom CSS end-->
+    
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-KMJ8HKG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GTM-KMJ8HKG');
+</script>
+
+   
+</head>   
+    
+
+<body class="layout-post">
+
+    
+<!-- Menu Navigation
+================================================== -->
+<div class="navigation-wrap start-header start-style">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <a class="navbar-brand text-dark font-weight-bold big d-flex align-items-center" href="/">
+          
+          <img class="mr-2" src="/assets/images/hexlet_logo.png" alt="logo"> 
+          
+          </a> | 
+          
+
+          <div class="d-flex align-items-center">
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://twitter.com/HexletHQ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg> 
+            </a>
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.instagram.com/hexlethq/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+            </a>
+      
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.facebook.com/Hexlet/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
+            </a>
+
+          </div>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            </svg>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto font-weight-bold d-flex align-items-center">
+              
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>  
+
+    
+<!-- Container
+================================================== -->    
+<main class="container">   
+      <!-- Begin Article
+================================================== -->
+
+	<div class="row">
+		
+
+		<!-- Post -->        
+        
+        
+		<div class="col-sm-8 mx-auto">
+            <!-- Post Featured Image -->
+			
+			<!-- End Featured Image -->
+			<div class="mainheading">             
+                
+                <!-- Post Categories -->
+                <div class="after-post-tags">
+                    <ul class="tags">
+                        
+                        
+                    </ul>
+                </div>
+                <!-- End Categories -->
+                
+                <!-- Post Title -->
+				<h1 class="posttitle">Как начать разрабатывать в Windows</h1> 
+                
+			</div>
+
+			
+
+			<!-- Post Content -->
+			<div class="article-post serif-font">
+				<p><strong>В руководстве приводится пример базовой настройки Windows, приближающей её по возможностям к другим операционным системам.</strong></p>
+
+<p>Среда Windows не очень хорошо подходит для разработки, если вы не пишете под .net. Выражается это во многих аспектах: система не <a href="https://ru.wikipedia.org/wiki/POSIX">POSIX</a>-совместимая (а большинство библиотек пишется именно для таких систем, например linux или mac), в Windows нет примитивных средств, которые необходимы любому разработчику для комфортной работы.</p>
+
+<p>Несмотря на все написанное ниже, наша основная рекомендация — ставить Linux-дистрибутив, например, Ubuntu и полностью погружаться в него. Подавляющее большинство веб-проектов работает под управлением Linux-систем. А постоянное использование такой системы на домашнем и рабочем компьютере равносильно погружению в языковую среду при изучении иностранных языков.</p>
+
+<h2 id="командная-строка">Командная строка</h2>
+
+<p>Первое, к чему сразу нужно привыкать — командная строка. Работа на удаленных серверах, git, пакетные менеджеры и многое другое, всё это делается, в первую очередь, в командной строке. Хотя такой способ и непривычен для обычного пользователя, он имеет множество преимуществ перед использованием мыши. К ним относятся:</p>
+
+<ul>
+  <li>Скорость работы значительно возрастает и намного опережает оконные интерфейсы</li>
+  <li>Легкая возможность автоматизации действий за счет скриптования. Другими словами, любые команды можно записать в файл и использовать его. Никаких специальных средств не требуется</li>
+  <li>Гораздо более хорошее понимание происходящих процессов</li>
+  <li>На серверах оконного интерфейса не бывает в принципе, так что тут без вариантов</li>
+</ul>
+
+<p>Если вы пользуетесь IDE, то, скорее всего, знаете, что они интегрируют внутри себя множество инструментов. И хотя местами такая интеграция удобна (не для всех), не стоит ей злоупотреблять в самом начале пути. Гораздо лучше научиться пользоваться чистыми инструментами для лучшего понимания происходящего. К тому же, вы не будете зависеть от среды и всегда будете ориентироваться на местности.</p>
+
+<p>Под термином “командная строка” скрывается сразу несколько тесно связанных, но все же независимых инструментов: терминал и командная оболочка.</p>
+
+<p><strong>Командная оболочка</strong> (shell, командный интерпретатор) — программа, позволяющая с помощью текстовых команд выполнять функции операционной системы и управлять другими программами. Например с помощью <em>shell</em> можно перемещаться по файловой системе и выполнять операции по созданию и удалению файлов. Сам по себе <em>shell</em> представляет из себя REPL (Read Eval Print Loop). Другими словами после запуска оболочки, появляется строка ввода в которую вводятся команды. После того как команда отработает, <em>shell</em> снова входит в режим ожидания ввода команд. Кстати у многих языков программирования есть свой собственный REPL, позволяющий в таком же стиле запускать код.</p>
+
+<p>В Windows по умолчанию используется <code class="language-plaintext highlighter-rouge">command.com</code>, а в Linux — Bash. Кроме них существует множество других оболочек, но Bash — стандарт де-факто, и его нужно знать.</p>
+
+<p>Чтобы запустить <em>shell</em> нужна еще одна программа — <strong>терминал</strong> (term, Terminal Emulator). Терминал — это и есть то самое окно, внутри которого запускается оболочка. Этот термин изначально использовался для отдельно стоящих монитора и клавиатуры, посредством которых можно было подключиться к мейнфрейму (большим многопользовательским компьютерам древности). Терминалы популярны и сейчас: те же банкоматы и устройства для пополнения денег на счетах всевозможных сервисов. Поэтому тот терминал, который представлен программой на наших компьютерах, называют эмулятором, ведь у него нет железной части.</p>
+
+<p>Терминалов, как и оболочек существует множество. Разница заключается в том, какие возможности для удобной работы они предоставляют. Например, очень важно чтобы терминал поддерживал вкладки. Тогда очень сильно упрощается работа с большим количеством терминалов. Стандартный эмулятор в Windows не умеет работать ни с вкладками, ни с чем либо ещё. По сути, все что он делает — запускает <code class="language-plaintext highlighter-rouge">cmd.exe</code> и больше никак не участвует в процессе.</p>
+
+<p>А вот что могут хорошие терминалы:</p>
+
+<ul>
+  <li>Вкладки</li>
+  <li>Split Panes — разделение рабочей области на части</li>
+  <li>Поиск</li>
+  <li>Профили</li>
+</ul>
+
+<p>и многое другое.</p>
+
+<p>В Windows часто бывает так, что терминал одновременно поставляется с командной оболочкой.</p>
+
+<h2 id="основная-общая-конфигурация">Основная (общая) конфигурация</h2>
+
+<h3 id="chocolatey">Chocolatey</h3>
+
+<p>Пакетные менеджеры в средах, отличных от Windows — это основной способ установки программ и библиотек на компьютер. Если вам понадобится поставить Node.js, то достаточно сделать следующее:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>// mac
+$ brew install node
+
+// ubuntu
+$ apt install node
+</code></pre></div></div>
+
+<p>Удобств в таком способе довольно много. Во-первых, не нужно бродить в поисках необходимого софта по всему интернету и тратить уйму времени. Во-вторых, всё, что можно набрать в командной строке автоматизируется. Другими словами, можно написать скрипт, который сам будет ставить всё, что нужно (подробнее смотрите <a href="https://www.ansible.com/">Ansible</a>).</p>
+
+<p>Для Windows существует несколько пакетных менеджеров, но именно <a href="https://chocolatey.org/">Chocolatey</a> стал стандартом де-факто. Установка <em>choco</em> стоит из нескольких простых шагов, которые хорошо описаны в <a href="https://chocolatey.org/install">соответствующем разделе</a>.</p>
+
+<p>В чем-то Chocolaty справляется даже лучше, чем brew или apt. С его помощью можно ставить не только специализированный софт (например, для программистов), но и любые программы вообще.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>GoogleChrome
+</code></pre></div></div>
+
+<p>или, что тоже самое</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>cinst GoogleChrome
+</code></pre></div></div>
+
+<p>Список того, что можно поставить находится <a href="https://chocolatey.org/packages">здесь</a>.</p>
+
+<p>В тексте ниже подразумевается, что вы установили Chocolatey и знаете как им пользоваться.</p>
+
+<h3 id="терминалы">Терминалы</h3>
+
+<h4 id="cmder-базируется-на-conemu">Cmder (базируется на ConEmu)</h4>
+
+<p>Эмулятор, поставляющийся вместе с командной оболочкой <a href="https://git-for-windows.github.io/">Git Bash</a>. Его установка решает сразу две задачи. С одной стороны вы получаете продвинутый терминал, с другой, из коробки, эмулятор Bash (настоящий bash получить нельзя, он работает только в *NIX системах).</p>
+
+<p>Запустите программу <code class="language-plaintext highlighter-rouge">cmd.exe</code> и выполните там следующую команду:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>cmder
+</code></pre></div></div>
+
+<p>После установки Cmder всё остальное следует делать только из под него.</p>
+
+<h4 id="mobaxterm">MobaXterm</h4>
+
+<p>Альтернативный эмулятор, доступный по ссылке: <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>. Также как и Cmder, из коробки поставляется с командной оболочкой. Бесплатен для домашнего использования.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>mobaxterm
+</code></pre></div></div>
+
+<h4 id="hyperjs">Hyper.js</h4>
+
+<p>Рассмотрен здесь для полноты картины. В отличие от предыдущих предоставляет только терминал. По умолчанию запускает внутри себя <code class="language-plaintext highlighter-rouge">cmd.exe</code>, но можно настроить на любую оболочку.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>hyper
+</code></pre></div></div>
+
+<h2 id="ubuntu-for-windows">Ubuntu for Windows</h2>
+
+<p>Ремарка для владельцев последних версий Windows. Microsoft интегрировала Ubuntu внутрь Windows. Особенности установки и включения этой интеграции зависят от конкретной версии Windows, но в целом это сводится к нажатию нескольких кнопок. Подробности можно найти в нашей <a href="https://guides.hexlet.io/virtualization/">инструкции по установке Ubuntu Linux внутри Windows</a>.</p>
+
+<h2 id="vagrant">Vagrant</h2>
+
+<p><a href="https://www.vagrantup.com/">Vagrant</a> — программа, созданная для разворачивания окружения разработчика, работающая во всех основных операционных системах. Она работает совместно с одной из <a href="https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">систем виртуализации</a> (например <a href="https://www.virtualbox.org/">VirtualBox</a>). Главное преимущество перед другими способами работы в Windows в том, что это не эмуляция, а полноценная виртуальная машина с Linux на борту.</p>
+
+<p>Вагрант, в отличие от прямого использования виртуальной машины, дает множество полезностей для разработчика. Подробнее про преимущества и процесс установки читайте в <a href="https://guides.hexlet.io/vagrant">отдельном руководстве</a>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>choco <span class="nb">install </span>virtualBox
+choco <span class="nb">install </span>vagrant
+</code></pre></div></div>
+
+<h2 id="babun-cygwin">Babun (Cygwin)</h2>
+
+<p>Cygwin — программное обеспечение, эмулирующее среду Linux на Windows. С его помощью можно запускать программы, написанные под Linux. Конечно, у этого способа множество ограничений, но все же он лучше, чем ничего.</p>
+
+<p>С Cygwin работать напрямую не очень удобно, поэтому был создан Babun. Это командная оболочка, построенная на Cygwin. В отличие от других вариантов, Babun поставляется с собственной экосистемой. Например, он включает в себя пакетный менеджер <em>pact</em>, что приводит к конфликту с Chocolatey.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>babun
+</code></pre></div></div>
+
+<hr />
+
+<p><em>Кирилл Мокевнин</em></p>
+
+                <div class="clearfix"></div>
+			</div>
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+              
+                <div class="col-md-6 rightborder pl-0">
+                    <a class="thepostlink" href="/learning/">&laquo; Как учиться и справляться с негативными мыслями</a>
+                </div>
+              
+              
+                <div class="col-md-6 text-right pr-0">
+                    <a class="thepostlink" href="/vagrant/">Что такое Vagrant &raquo;</a>
+                </div>
+              
+            </div>
+            <!-- End Prev/Next -->
+            
+            
+             <!-- Author Box -->
+                
+            
+            
+            <!-- Begin Comments
+            ================================================== -->
+            <section>
+            <div id="comments">                          
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+ 
+            </div>
+            </section>
+            <!--End Comments
+            ================================================== -->
+            
+            
+
+		</div>
+		<!-- End Post -->
+		<!-- Sidebar -->
+	</div>
+
+<!-- End Article
+================================================== -->
+  
+</main>
+
+<!-- Footer
+================================================== -->    
+<footer class="footer container text-center">  
+
+  <ul class="p-0 mb-1 small">
+    
+    <li>
+      <a href="https://ru.hexlet.io/courses" alt="Курсы">Курсы</a>
+    </li>
+    
+    <li>
+      <a href="https://cv.hexlet.io/" alt="Оценка резюме">Оценка резюме</a>
+    </li>
+    
+    <li>
+      <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка">Алгоритмическая прокачка</a>
+    </li>
+    
+    </ul>
+</footer>
+
+<!-- JavaScript
+================================================== -->    
+<script src="/assets/js/jquery.min.js"></script>   
+<script src="/assets/js/bootstrap.min.js"></script>   
+<script src="/assets/js/theme.js"></script>    
+    
+</body>
+    
+</html>

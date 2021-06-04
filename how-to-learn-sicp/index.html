@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+<title>Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP) | Гайды для программистов</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP) | Гайды для программистов</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_ru" />
+<meta name="description" content="СИКП — одноименная книга и легендарный учебный курс в MIT (Массачусетский технологический институт)." />
+<meta property="og:description" content="СИКП — одноименная книга и легендарный учебный курс в MIT (Массачусетский технологический институт)." />
+<meta property="og:site_name" content="Гайды для программистов" />
+<meta property="og:image" content="/assets/images/sicp/sicp.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-16T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/sicp/sicp.jpg" />
+<meta property="twitter:title" content="Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"author":{"@type":"Person","name":"Kirill Mokevnin"},"description":"СИКП — одноименная книга и легендарный учебный курс в MIT (Массачусетский технологический институт).","mainEntityOfPage":{"@type":"WebPage","@id":"/how-to-learn-sicp/"},"image":"/assets/images/sicp/sicp.jpg","url":"/how-to-learn-sicp/","headline":"Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)","dateModified":"2018-03-16T00:00:00+00:00","datePublished":"2018-03-16T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+<link href="/assets/css/custom.css" rel="stylesheet">
+<link href="/assets/css/highlight.css" rel="stylesheet">
+<!-- custom CSS end-->
+    
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-KMJ8HKG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GTM-KMJ8HKG');
+</script>
+
+   
+</head>   
+    
+
+<body class="layout-post">
+
+    
+<!-- Menu Navigation
+================================================== -->
+<div class="navigation-wrap start-header start-style">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <a class="navbar-brand text-dark font-weight-bold big d-flex align-items-center" href="/">
+          
+          <img class="mr-2" src="/assets/images/hexlet_logo.png" alt="logo"> 
+          
+          </a> | 
+          
+
+          <div class="d-flex align-items-center">
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://twitter.com/HexletHQ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg> 
+            </a>
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.instagram.com/hexlethq/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+            </a>
+      
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.facebook.com/Hexlet/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
+            </a>
+
+          </div>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            </svg>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto font-weight-bold d-flex align-items-center">
+              
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>  
+
+    
+<!-- Container
+================================================== -->    
+<main class="container">   
+      <!-- Begin Article
+================================================== -->
+
+	<div class="row">
+		
+
+		<!-- Post -->        
+        
+        
+		<div class="col-sm-8 mx-auto">
+            <!-- Post Featured Image -->
+			
+			<!-- End Featured Image -->
+			<div class="mainheading">             
+                
+                <!-- Post Categories -->
+                <div class="after-post-tags">
+                    <ul class="tags">
+                        
+                        
+                    </ul>
+                </div>
+                <!-- End Categories -->
+                
+                <!-- Post Title -->
+				<h1 class="posttitle">Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</h1> 
+                
+			</div>
+
+			
+
+			<!-- Post Content -->
+			<div class="article-post serif-font">
+				<p><strong>СИКП — одноименная книга и легендарный учебный курс в MIT (Массачусетский технологический институт).</strong></p>
+
+<p>СИКП — не книга про языки программирования или разработку программного обеспечения, не книга по ООП, функциональному программированию или паттернам проектирования.</p>
+
+<p>СИКП — книга об информатике (computer science). Восприятии компьютеров как абстрактных машин, используемых для манипулирования данными. Несмотря на то, что книга впервые опубликована в 1979, она до сих пор не потеряла свою актуальность и не потеряет в будущем. СИКП неизменно находится в топе лучших книг по обучению программированию на протяжении десятков лет.</p>
+
+<blockquote>
+  <p>This is one of the great classics of computer science. I bought my first copy 15 years ago, and I still don’t feel I have learned everything the book has to teach. <em>— Paul Graham</em>.</p>
+</blockquote>
+
+<p>Стоит ли её читать? Однозначно стоит всем разработчикам на любых языках программирования с любым опытом. СИКП — достаточно сложная книга, поэтому появилось руководство, которое вы прямо сейчас читаете.</p>
+
+<h2 id="очень-краткое-содержание">Очень краткое содержание</h2>
+
+<h3 id="абстракция-с-помощью-функций">Абстракция с помощью функций</h3>
+
+<ol>
+  <li>Элементы программ
+    <ul>
+      <li>Выражения</li>
+      <li>Вычислительные стратегии</li>
+      <li>Подстановочная модель вычислений</li>
+    </ul>
+  </li>
+  <li>Функции и процессы порождаемые ими
+    <ul>
+      <li>Линейная рекурсия и итерация</li>
+      <li>Древовидная рекурсия</li>
+    </ul>
+  </li>
+  <li>Функции высшего порядка
+    <ul>
+      <li>Функции как аргументы</li>
+      <li>Функции как обобщения</li>
+      <li>Функции как возвращаемые значения</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="абстракция-с-помощью-данных">Абстракция с помощью данных</h3>
+
+<ol>
+  <li>Введение в абстракцию данных
+    <ul>
+      <li>Барьеры абстракции</li>
+      <li>Что такое данные?</li>
+    </ul>
+  </li>
+  <li>Иерархические данные и свойство замыкания
+    <ul>
+      <li>Представление последовательностей</li>
+      <li>Иерархические структуры</li>
+      <li>Последовательности как стандартные интерфейсы</li>
+    </ul>
+  </li>
+  <li>Символьные данные
+    <ul>
+      <li>Цитирование</li>
+    </ul>
+  </li>
+  <li>Множественные представления абстрактных данных
+    <ul>
+      <li>Тегирование данных</li>
+      <li>Программирование управляемое данными. Аддитивность.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="модульность-объекты-и-состояние">Модульность, Объекты и Состояние</h3>
+
+<ol>
+  <li>Присваивание и локальное состояние
+    <ul>
+      <li>Преимущества присваивания</li>
+      <li>Недостатки присваивания</li>
+    </ul>
+  </li>
+  <li>Модель с окружениями
+    <ul>
+      <li>Правила вычисления</li>
+      <li>Применение</li>
+      <li>Фреймы как репозитории локального состояния</li>
+    </ul>
+  </li>
+  <li>Моделирование с изменяемыми данными
+    <ul>
+      <li>Изменяемый список</li>
+      <li>Представление очереди</li>
+      <li>Представление таблиц</li>
+    </ul>
+  </li>
+  <li>Многозадачность</li>
+  <li>Потоки</li>
+</ol>
+
+<h3 id="метаязыковые-абстракции">Метаязыковые абстракции</h3>
+
+<p>…</p>
+
+<h3 id="вычисление-с-помощью-регистровых-машин">Вычисление с помощью регистровых машин</h3>
+
+<p>…</p>
+
+<hr />
+
+<h2 id="рекомендации">Рекомендации</h2>
+
+<p>Первое, что нужно понимать: СИКП — не просто книга. Это университетский курс, записанный в виде книги. Он сложный и объёмный, его бесполезно проходить без практики. Практику придумывать не придётся. После каждой главы есть блок задач, которые авторы просят выполнить. Некоторые из них сугубо математические (просят что-то доказать), либо подразумевают хорошую математическую базу. Их можно и даже нужно пропускать, иначе вы можете очень быстро потерять мотивацию.</p>
+
+<h3 id="сколько-читать">Сколько читать</h3>
+
+<p>СИКП условно можно разделить на две части. В первую часть входят главы 1, 2 и 3. Во вторую — 4 и 5. Разница в том, что во вторую часть входят главы, копающие очень глубоко, и пройти сквозь них может только по-настоящему увлеченный человек. По этой причине Хекслет рекомендует поставить себе планкой прохождение первых трех глав. Остальное можно с легкостью отложить на потом.</p>
+
+<h3 id="язык">Язык</h3>
+
+<p>Для примеров и практики в книге используется язык Scheme (Ским), созданный авторами курса. Это один из диалектов семейства Lisp. Как и полагается любому Lisp-языку, Scheme имеет примитивный синтаксис, который можно изучить буквально за несколько часов. Он очень необычен для тех, кто имел дело только с широко распространенными языками, но обладает рядом серьезных достоинств, о которых говорится в книге.</p>
+
+<p>Его выбор, в качестве основного языка для курса обоснован тем, что Scheme позволяет сосредоточиться на сути вещей вместо синтаксиса, увидеть чистые концепции в первозданном виде. Scheme как и любой Лисп, обладает невероятно высокой выразительностью благодаря тому, что в языке всё есть выражение, а инструкции отсутствуют вообще.</p>
+
+<p>Вторая причина — гомоиконность. Свойство языков, в которых данные и код — одно и тоже. Этот тезис сложно понять на словах, его нужно прочувствовать на практике. Есть еще и третья причина — макросы, но они в книге не используются.</p>
+
+<p>Сам язык Scheme, это в первую очередь стандарт языка плюс разные реализации этого стандарта. На данный момент один из самых развитых – и продолжающих развиваться – потомков Scheme, это язык <a href="https://racket-lang.org/">Racket</a>. Хекслет рекомендует проходить СИКП именно на Racket. Специально для этого гайда мы подготовили <a href="https://github.com/hexlet-boilerplates/sicp-racket">репозиторий</a>, который можно использовать как основу для кода. В репозиторий стоит заглянуть хотя бы для того, чтобы узнать, как настроить Racket на совместимость именно с тем стандартом Scheme, который используется для примеров кода в книге: немногие существующие реализации Scheme позволяют воссоздать “то самое” окружение, к счастью, Racket может! Не забудьте правильно настроить редактор: Lisp языки относятся к тем языкам, для которых нужна поддержка со стороны редактора для комфортной работы.</p>
+
+<h2 id="оформление">Оформление</h2>
+
+<p>На Гитхабе <a href="https://github.com/search?q=sicp">можно найти</a> множество репозиториев, в которых лежат решения задач из СИКП на всех возможных языках программирования. Мы настоятельно рекомендуем поступать также: создать репозиторий в своем аккаунте и выкладывать в него все свои решения. Идеально, если каждое решение будет сопровождаться <a href="https://docs.racket-lang.org/rackunit/">тестами</a>. Такой подход хорош не только тем, что вы дополнительно прокачиваетесь в git и получаете дополнительную мотивацию, но и тем, что у вас появляется код, который можно показать при поиске работы. Более того, велика вероятность, что собеседовать вас будет человек, знающий про СИКП. Это добавит очков в карму и даст возможность продуктивно пообщаться.</p>
+
+<h2 id="дополнительные-ссылки">Дополнительные ссылки</h2>
+
+<ul>
+  <li>
+    <p><a href="https://www.youtube.com/watch?v=bFMbqKRjU84&amp;list=PLo6puixMwuSO8eB2uBH5lZy5kjNtdhTfT">Курс: Структура и интерпретация компьютерных программ (SICP по-русски)</a></p>
+  </li>
+  <li>
+    <p><a href="https://sicp.hexlet.io/">Сервис для отслеживания прогресса изучения книги</a></p>
+  </li>
+</ul>
+
+<hr />
+
+<p><em>Кирилл Мокевнин</em></p>
+
+                <div class="clearfix"></div>
+			</div>
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+              
+                <div class="col-md-6 rightborder pl-0">
+                    <a class="thepostlink" href="/docker/">&laquo; Как и для чего использовать Docker</a>
+                </div>
+              
+              
+                <div class="col-md-6 text-right pr-0">
+                    <a class="thepostlink" href="/check-list-of-engineering-practices/">Чек-лист хороших инженерных практик в компаниях &raquo;</a>
+                </div>
+              
+            </div>
+            <!-- End Prev/Next -->
+            
+            
+             <!-- Author Box -->
+                
+            
+            
+            <!-- Begin Comments
+            ================================================== -->
+            <section>
+            <div id="comments">                          
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+ 
+            </div>
+            </section>
+            <!--End Comments
+            ================================================== -->
+            
+            
+
+		</div>
+		<!-- End Post -->
+		<!-- Sidebar -->
+	</div>
+
+<!-- End Article
+================================================== -->
+  
+</main>
+
+<!-- Footer
+================================================== -->    
+<footer class="footer container text-center">  
+
+  <ul class="p-0 mb-1 small">
+    
+    <li>
+      <a href="https://ru.hexlet.io/courses" alt="Курсы">Курсы</a>
+    </li>
+    
+    <li>
+      <a href="https://cv.hexlet.io/" alt="Оценка резюме">Оценка резюме</a>
+    </li>
+    
+    <li>
+      <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка">Алгоритмическая прокачка</a>
+    </li>
+    
+    </ul>
+</footer>
+
+<!-- JavaScript
+================================================== -->    
+<script src="/assets/js/jquery.min.js"></script>   
+<script src="/assets/js/bootstrap.min.js"></script>   
+<script src="/assets/js/theme.js"></script>    
+    
+</body>
+    
+</html>

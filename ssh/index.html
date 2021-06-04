@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+<title>Что такое SSH | Гайды для программистов</title>
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Что такое SSH | Гайды для программистов</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Что такое SSH" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_ru" />
+<meta name="description" content="SSH — защищенный протокол для удаленного доступа к компьютерам. Через SSH можно выполнять операции в командной строке компьютера, который физически находится в другом месте." />
+<meta property="og:description" content="SSH — защищенный протокол для удаленного доступа к компьютерам. Через SSH можно выполнять операции в командной строке компьютера, который физически находится в другом месте." />
+<meta property="og:site_name" content="Гайды для программистов" />
+<meta property="og:image" content="/assets/images/ssh/ssh.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-07-10T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/ssh/ssh.jpg" />
+<meta property="twitter:title" content="Что такое SSH" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"author":{"@type":"Person","name":"Kirill Mokevnin"},"description":"SSH — защищенный протокол для удаленного доступа к компьютерам. Через SSH можно выполнять операции в командной строке компьютера, который физически находится в другом месте.","mainEntityOfPage":{"@type":"WebPage","@id":"/ssh/"},"image":"/assets/images/ssh/ssh.jpg","url":"/ssh/","headline":"Что такое SSH","dateModified":"2017-07-10T00:00:00+00:00","datePublished":"2017-07-10T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link href="/assets/css/theme.css" rel="stylesheet">
+
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+<link href="/assets/css/custom.css" rel="stylesheet">
+<link href="/assets/css/highlight.css" rel="stylesheet">
+<!-- custom CSS end-->
+    
+       
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-KMJ8HKG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GTM-KMJ8HKG');
+</script>
+
+   
+</head>   
+    
+
+<body class="layout-post">
+
+    
+<!-- Menu Navigation
+================================================== -->
+<div class="navigation-wrap start-header start-style">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+          <a class="navbar-brand text-dark font-weight-bold big d-flex align-items-center" href="/">
+          
+          <img class="mr-2" src="/assets/images/hexlet_logo.png" alt="logo"> 
+          
+          </a> | 
+          
+
+          <div class="d-flex align-items-center">
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://twitter.com/HexletHQ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg> 
+            </a>
+            
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.instagram.com/hexlethq/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+            </a>
+      
+            <a class="d-inline-block social-icon" target="_blank" href="https://www.facebook.com/Hexlet/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>
+            </a>
+
+          </div>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+            </svg>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto font-weight-bold d-flex align-items-center">
+              
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </div>  
+
+    
+<!-- Container
+================================================== -->    
+<main class="container">   
+      <!-- Begin Article
+================================================== -->
+
+	<div class="row">
+		
+
+		<!-- Post -->        
+        
+        
+		<div class="col-sm-8 mx-auto">
+            <!-- Post Featured Image -->
+			
+			<!-- End Featured Image -->
+			<div class="mainheading">             
+                
+                <!-- Post Categories -->
+                <div class="after-post-tags">
+                    <ul class="tags">
+                        
+                        
+                    </ul>
+                </div>
+                <!-- End Categories -->
+                
+                <!-- Post Title -->
+				<h1 class="posttitle">Что такое SSH</h1> 
+                
+			</div>
+
+			
+
+			<!-- Post Content -->
+			<div class="article-post serif-font">
+				<p><strong>SSH — защищенный протокол для удаленного доступа к компьютерам. Через SSH можно выполнять операции в командной строке компьютера, который физически находится в другом месте.</strong></p>
+
+<p>Иными словами, SSH — это дистанционная командная строка. Визуально вы работаете на своем компьютере, но в реальности — на другом.</p>
+
+<h2 id="что-значит-протокол">Что значит «протокол»?</h2>
+
+<p>Протокол — это набор соглашений, правил, по которым разные программы могут обмениваться информацией. SSH — это набор правил, который известен и вашему компьютеру, и физически отдаленному компьютеру.</p>
+
+<blockquote>
+  <p><strong>Пример</strong>: вы вводите команду удаления файла, и эта команда передается на другой компьютер и выполняется там. Ответ (или сообщение об ошибке) возвращается и показывается на вашем компьютере.</p>
+</blockquote>
+
+<h2 id="что-значит-защищенный">Что значит «защищенный»?</h2>
+
+<p>Вся информация передается в зашифрованном виде. Подобно тому, как некоторые сайты работают по HTTPS, шифруя информацию. Например, ваш онлайн-банкинг обязательно должен работать по защищенному соединению. В таком случае даже если всю информацию перехватывает злоумышленник, он не сможет расшифровать её.</p>
+
+<h2 id="зачем-это-нужно">Зачем это нужно?</h2>
+
+<p>Не всегда есть возможность физически находиться у компьютера, с которым нужно работать. Например, если вы хотите создать свой сайт, то он будет размещен на компьютере хостинг-провайдера. Этот компьютер может находиться на другом конце света. Вам нужен способ запускать команды на этом компьютере не выходя из своего дома.</p>
+
+<h2 id="как-подключаться-по-ssh">Как подключаться по SSH?</h2>
+
+<p>Для подключения к удаленной машине по SSH нужен клиент — специальная программа. В *nix-подобных системах (Linux, macOS) клиент обычно установлен в системе по умолчанию, и достаточно открыть терминал. В Windows нужно скачать сторонний клиент, например, <a href="https://www.putty.org/">Putty</a>.</p>
+
+<p>Для подключения нужно указать адрес сервера и, опционально, имя пользователя и порт. Вот как выглядит команда при использовании консольного клиента (в терминале):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh username@remote_host <span class="nt">-p</span> port
+</code></pre></div></div>
+
+<p>Например, для подключения к серверу <code class="language-plaintext highlighter-rouge">52.307.149.244</code> в аккаунт <code class="language-plaintext highlighter-rouge">ivan</code> нужно ввести:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh ivan@52.307.149.244
+</code></pre></div></div>
+
+<p>Если не указывать порт, то будет использован порт SSH по умолчанию — <code class="language-plaintext highlighter-rouge">22</code>. Используемый порт задается при настройке SSH-сервера, программы, которая запущена на удаленном компьютере и ожидает подключения извне.</p>
+
+<p>В графическом клиенте вроде Putty нужно ввести ту же информацию в соответствующие поля:</p>
+
+<p><img src="/assets/images/ssh/putty.png" alt="Putty - стартовая страница" /></p>
+
+<h3 id="fingerprint">Fingerprint</h3>
+
+<p>При первом подключении появится сообщение:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>The authenticity of host '52.307.149.244 (52.307.149.244)' can't be established.
+ECDSA key fingerprint is fd:fd:d4:f9:77:fe:73:84:e1:55:00:ad:d6:6d:22:fe.
+Are you sure you want to continue connecting (yes/no)? yes
+</code></pre></div></div>
+
+<p>Введите <code class="language-plaintext highlighter-rouge">yes</code> в первый раз.</p>
+
+<p>Это нужно для повышения безопасности. При настройке SSH-сервера создается уникальная комбинация символов — fingerprint («отпечатки пальцев»). Ваш компьютер запоминает эту комбинацию и сверяет ее при каждом новом соединении. Если кто-то переустановит SSH-сервер, или всю операционную систему, или вообще заменит удаленный компьютер, сохранив его адрес, то при следующем соединении вы узнаете об этом, потому что изменится fingerprint.</p>
+
+<p>Если fingerprint не меняется, то такое сообщение не будет появляться.</p>
+
+<h2 id="подключение-по-паролю">Подключение по паролю</h2>
+
+<p>Простейший вариант — подключение по паролю. После ввода команды <code class="language-plaintext highlighter-rouge">ssh</code> система запросит пароль:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ivan@52.307.149.244's password: 
+</code></pre></div></div>
+
+<p>Пароль придется вводить каждый раз.</p>
+
+<h2 id="подключение-по-ключу-без-пароля">Подключение по ключу, без пароля</h2>
+
+<p>Для удобного подключения по SSH (и многим другим сервисам) без ввода пароля можно использовать ключи.</p>
+
+<p>Нужно создать пару ключей: <strong>приватный</strong> (закрытый) ключ и <strong>публичный</strong> (открытый) ключ. Приватный ключ нужно хранить и никогда никому не показывать. Публичный ключ можно показывать всем и распространять свободно.</p>
+
+<p>Эти <em>ключи связаны друг с другом</em> таким образом, что зашифровав информацию одним ключом, расшифровать ее можно только другим. Например, если ваш друг зашифрует письмо вашим публичным ключом, то прочитать его сможете только вы, потому что для этого нужен ваш приватный ключ. И наоборот: если вы зашифруете что-то своим приватным ключом, то расшифровать его можно только вашим публичным ключом. Так как публичный ключ доступен всем, любой может расшифровать это сообщение. Но он может быть уверен, что сообщение пришло именно от вас. В этом заключается идея цифровой подписи.</p>
+
+<h3 id="генерация-ключей">Генерация ключей</h3>
+
+<p>Создадим пару ключей:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh-keygen
+</code></pre></div></div>
+
+<p>Программа запустится и спросит, куда сохранять ключи:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Generating public/private rsa key pair.
+Enter file in which to save the key (/home/demo/.ssh/id_rsa):
+</code></pre></div></div>
+
+<p>Нажмите Enter для сохранения в стандартное место — директорию <code class="language-plaintext highlighter-rouge">.ssh/id_rsa</code> в вашей домашней директории.</p>
+
+<p>Программа запросит passphrase. Это вроде пароля для ключа. Можно просто нажать Enter и пропустить этот шаг. Или ввести passphrase — тогда его нужно будет вводить каждый раз, когда используется ключ.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+</code></pre></div></div>
+
+<p>Ключи созданы:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Your identification has been saved in /home/demo/.ssh/id_rsa.
+Your public key has been saved in /home/demo/.ssh/id_rsa.pub.
+The key fingerprint is:
+8c:e9:7c:fa:bf:c4:e5:9c:c9:b8:60:1f:fe:1c:d3:8a root@here
+The key's randomart image is:
++--[ RSA 2048]----+
+|                 |
+|                 |
+|                 |
+|       +         |
+|      o S   .    |
+|     o   . * +   |
+|      o + = O .  |
+|       + = = +   |
+|      ....Eo+    |
++-----------------+
+</code></pre></div></div>
+
+<p>Теперь у вас есть два файла:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa</code> — приватный ключ. <strong>Никогда никому и никуда не передавайте его!</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa.pub</code> — публичный ключ. Спокойно распространяйте его.</li>
+</ul>
+
+<p>В Windows можно использовать <code class="language-plaintext highlighter-rouge">ssh-gen</code> в подсистеме Ubuntu for Windows или в командной строке Git for Windows. Или создавать ключи графической утилитой вроде <a href="https://winscp.net/eng/docs/ui_puttygen">PuTTYgen</a>.</p>
+
+<h3 id="загрузка-публичного-ключа-на-сервер">Загрузка публичного ключа на сервер</h3>
+
+<p>Нужно добавить публичный ключ на сервер в файл <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code>. Самый простой способ — запустить на локальной машине команду для копирования ключа:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh-copy-id <span class="nt">-i</span> /home/demo/.ssh/id_rsa.pub ivan@52.307.149.244
+</code></pre></div></div>
+
+<p>Другой способ — подключиться по паролю, открыть в редакторе файл <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code> и добавить в конец текст из вашего файла <code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa.pub</code>.</p>
+
+<p>Теперь при подключении пароль запрашиваться не будет<sup>1</sup>.</p>
+
+<p>После включения соединений по ключу <strong>рекомендуется отключить подключение по паролю</strong>.</p>
+
+<h2 id="ssh-agent">ssh-agent</h2>
+
+<p>При работе с ключами возможны две неудобные ситуации:</p>
+
+<ol>
+  <li>Если при создании ключа вы указали passphrase (пароль для ключа), то вам придется вводить пароль при каждом подключении.</li>
+  <li>Если у вас есть несколько ключей для разных целей, то при соединении по <code class="language-plaintext highlighter-rouge">ssh</code> придется указывать нужный ключ вручную</li>
+</ol>
+
+<p>ssh-agent решает эти проблемы. Этот агент аутентификации (authentication agent) работает на фоне в *nix-системах. В зависимости от системы, вам, возможно, придется установить и настроить его автозапуск самостоятельно.</p>
+
+<p>Если добавить ключ к агенту, то:</p>
+
+<ol>
+  <li>для него больше не будет спрашиваться passphrase</li>
+  <li>не нужно будет вводить ключ вручную — он будет автоматически использован при соответствующем подключении</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">ssh-add /home/demo/.ssh/id_rsa</code> добавит ключ <code class="language-plaintext highlighter-rouge">id_rsa</code> в запущенный в системе агент. Если у него есть passphrase, то агент попросит ввести его.</p>
+
+<p>Если запустить <code class="language-plaintext highlighter-rouge">ssh-add</code> без аргументов, то будут добавлены ключи <code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa</code>, <code class="language-plaintext highlighter-rouge">~/.ssh/id_dsa</code>, <code class="language-plaintext highlighter-rouge">~/.ssh/id_ecdsa</code>, <code class="language-plaintext highlighter-rouge">~/.ssh/id_ed25519</code> и <code class="language-plaintext highlighter-rouge">~/.ssh/identity</code>.</p>
+
+<p>Список добавленных в агент ключей можно посмотреть командой <code class="language-plaintext highlighter-rouge">ssh-add -L</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>→ ssh-add <span class="nt">-L</span>
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC91r/+5WEQHcxVMrxpP9jKuONjlrnEHshfG3v/ab2NKDSljdskODOIsdhaaoDoiSADhAaoDISHasoiDiASisjadOHISDdKJDASHSidshIHDSIHDIAsdjasAs7XG/drBhi16zQ2e8VcLD7bVQS1Cpo0O1tP+93YQBvcIE02RltqVKYo7BlgCaJzpdowK8fHSzpfCYsEFjdjosOjfdsjdjkAJOKkKKHJHhaIiAiaihsiIoqkpqdmlnvnuuUSCaAS8aDhajiadiiAahhakKAKDHAKurmD08jnX9HfH/d15pLK/Glo1Su6iEOU3bW8k92QlY54pPFLKiNRPFuUryE5md7T /Users/demo/.ssh/some_key.pem
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUbkp4SnvMHFTHNFFod0FhV0cQcOLvBsZAK/0tUPIXeDDFvYD70r5i0AsQbqA0k7gK3b3MP7tmnPxMHd607TI+1FMO54Yig0vnpZOgKmgCsxWq6tckwyLB91BlPiGxLBZiu5yPDIguEQCSnAwkF0vjqrNGsoHB4+fkj0USfjiifsjihf39hifSIHiJFHSijshfj39jfsjisfiisfiissr893IFsifijfsjSOIiAShadfhssU0q0JpjaDEWcMmYXmuz3xSnbhkueGLBXMU2zXDFDWCDSHq9/oRr29UAfVaHAMw<span class="o">==</span> /Users/demo/.ssh/id_rsa
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ssh-agent</code> привязан к сессии. Поэтому, например, если перезагрузить компьютер, то ключи нужно будет добавлять в агент заново.</p>
+
+<h2 id="форвардинг-проброс-ключей">Форвардинг (проброс) ключей</h2>
+
+<p>Если вы подключились к удаленному серверу <strong>X</strong>, и с него хотите подключиться к другому серверу <strong>Y</strong>, например, чтобы сделать <code class="language-plaintext highlighter-rouge">git pull</code> с GitHub’а, то придется держать копию ваших ключей на сервере <strong>X</strong>.</p>
+
+<p>Утилита <code class="language-plaintext highlighter-rouge">ssh</code> с флагом <code class="language-plaintext highlighter-rouge">-A</code> позволяет «пробросить» ключи с подключаемой машины в удаленную:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh <span class="nt">-A</span> ivan@52.307.149.244
+</code></pre></div></div>
+
+<p>Ключи, добавленные к агенту аутентификации (ssh-agent) станут доступными на удаленном сервере. При этом файлы-ключи физически не будут находиться на сервере.</p>
+
+<h2 id="дополнительные-ссылки">Дополнительные ссылки</h2>
+
+<ol>
+  <li><a href="https://www.youtube.com/watch?v=sbVYRf_6Hvg">Основы SSH / Видео на канале Хекслета</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys">SSH Essentials: Working with SSH Servers, Clients, and Keys</a></li>
+  <li><a href="https://habrahabr.ru/post/122445/">Памятка пользователям ssh</a></li>
+</ol>
+
+<hr />
+
+<ol>
+  <li>Возможность и специфика подключения по ключу зависит от настроек SSH-сервера. Возможно такое, что подключение по ключу запрещено администратором.</li>
+</ol>
+
+<hr />
+
+<p><em>Рахим Давлеткалиев</em></p>
+
+                <div class="clearfix"></div>
+			</div>
+
+            <!-- Prev/Next -->
+            <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+              
+                <div class="col-md-6 rightborder pl-0">
+                    <a class="thepostlink" href="/markdown/">&laquo; Что такое Markdown</a>
+                </div>
+              
+              
+                <div class="col-md-6 text-right pr-0">
+                    <a class="thepostlink" href="/atom-js-setup/">Как настроить Atom для разработки на JavaScript &raquo;</a>
+                </div>
+              
+            </div>
+            <!-- End Prev/Next -->
+            
+            
+             <!-- Author Box -->
+                
+            
+            
+            <!-- Begin Comments
+            ================================================== -->
+            <section>
+            <div id="comments">                          
+                <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+ 
+            </div>
+            </section>
+            <!--End Comments
+            ================================================== -->
+            
+            
+
+		</div>
+		<!-- End Post -->
+		<!-- Sidebar -->
+	</div>
+
+<!-- End Article
+================================================== -->
+  
+</main>
+
+<!-- Footer
+================================================== -->    
+<footer class="footer container text-center">  
+
+  <ul class="p-0 mb-1 small">
+    
+    <li>
+      <a href="https://ru.hexlet.io/courses" alt="Курсы">Курсы</a>
+    </li>
+    
+    <li>
+      <a href="https://cv.hexlet.io/" alt="Оценка резюме">Оценка резюме</a>
+    </li>
+    
+    <li>
+      <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка">Алгоритмическая прокачка</a>
+    </li>
+    
+    </ul>
+</footer>
+
+<!-- JavaScript
+================================================== -->    
+<script src="/assets/js/jquery.min.js"></script>   
+<script src="/assets/js/bootstrap.min.js"></script>   
+<script src="/assets/js/theme.js"></script>    
+    
+</body>
+    
+</html>
