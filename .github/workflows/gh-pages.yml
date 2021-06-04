@@ -19,7 +19,7 @@ jobs:
 
       - run: npm ci
 
-      - name: Setup Node
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3
