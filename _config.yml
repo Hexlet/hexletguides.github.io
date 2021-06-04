@@ -29,11 +29,9 @@ sass:
   load_paths:
     - _sass
     - node_modules
-  style: compressed
+  # style: :compressed
 
 ganalytics: GTM-KMJ8HKG
-
-exclude: []
 
 # Authors
 # authors:
