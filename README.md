@@ -1,5 +1,10 @@
-# Affiliates - Free Jekyll Theme
+# Hexlet Guides
 
-[Live Demo](https://wowthemesnet.github.io/affiliates-jekyll-theme/) | [Docs & Download](https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/) |  [Buy me a coffee](https://www.wowthemes.net/donate/)
+* Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
 
-![jekyll-affiliates-theme](https://bootstrapstarter.com/assets/img/themes/affiliates-jekyll.jpg)
+## Development
+
+```sh
+# generate css for highlighting
+bundle exec rougify style github > assets/css/highlight.css
+```
