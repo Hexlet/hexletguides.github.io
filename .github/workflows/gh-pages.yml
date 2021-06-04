@@ -17,6 +17,16 @@ jobs:
         with:
           node-version: '14'
 
+      - run: npm ci
+
+      - name: Setup Node
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3
+          bundler-cache: true
+
+      - run: make generate-githubpages
+
       # - name: Cache dependencies
       #   uses: actions/cache@v2
       #   with:
@@ -25,13 +35,11 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-node-
 
-      - run: npm ci
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          keep_files: true
+          publish_dir: ./_site
+          # keep_files: true
           cname: guides.hexlet.io
