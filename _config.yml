@@ -2,6 +2,7 @@ title: "Гайды для программистов"
 email: support@hexlet.io
 timezone: UTC
 baseurl: ""
+# url: 'https://guides.hexlet.io'
 permalink: "/:title/"
 logo: 'assets/images/hexlet_logo.png'
 favicon: 'assets/images/favicons/favicon-128.png'
@@ -65,6 +66,7 @@ plugins:
 - jekyll-feed
 - jekyll-seo-tag
 - jekyll-archives
+# - jekyll-target-blank
 
 defaults:
   -

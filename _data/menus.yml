@@ -1,9 +1,9 @@
 # Top Menu
 topmenu:
 
-# - title: Программы обучения
-#   url: https://ru.hexlet.io/programs
-#   external: true
+- title: Программы обучения
+  url: https://ru.hexlet.io/programs
+  external: true
 
 # Footer Menu
 footermenu:
