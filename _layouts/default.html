@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{{ site.baseurl }}/{{site.favicon}}">
+    <link rel="icon" href="{{ site.favicon | relative_url }}">
 
     <title>{{ page.title }} | {{site.title}}</title>
 
     {% seo %}
 
-    <link href="{{ site.baseurl }}/assets/css/theme.css" rel="stylesheet">
+    <link href="{{ "/assets/css/theme.css" | relative_url }}" rel="stylesheet">
 
     <!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
-    <link href="{{ site.baseurl }}/assets/css/custom.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/assets/css/highlight.css" rel="stylesheet">
+    <link href="{{ "/assets/css/custom.css" | relative_url }}" rel="stylesheet">
+    <link href="{{ "/assets/css/highlight.css" | relative_url }}" rel="stylesheet">
     <!-- custom CSS end-->
 
     {% if jekyll.environment == "production" %}
@@ -48,7 +48,7 @@
 
       <div class="container mb-4">
         <div class="d-flex flex-wrap justify-content-center py-3">
-          <a class="navbar-brand me-auto" href="{{ site.baseurl }}"><img width="30" alt="Code Basics logo" src="{{ site.baseurl }}/{{ site.logo }}"></a>
+          <a class="navbar-brand me-auto" href="{{ site.baseurl }}"><img width="30" alt="Code Basics logo" src="{{  site.logo | relative_url }}"></a>
           <ul class="nav nav-pills">
             <li class="nav-item">
               <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs" alt="Программы обучения">Программы обучения</a>
@@ -78,6 +78,6 @@
 
           <!-- JavaScript
             ================================================== -->
-            <script src="{{ site.baseurl }}/assets/js/theme.js"></script>
+            <script src="{{ "/assets/js/theme.js" | relative_url }}"></script>
   </body>
 </html>
