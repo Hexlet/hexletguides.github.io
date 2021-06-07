@@ -10,13 +10,14 @@ source 'https://rubygems.org'
 #
 
 # If you have any plugins, put them here!
-gem 'rubocop'
 gem 'rouge'
+gem 'rubocop'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 group :jekyll_plugins do
   gem 'jekyll-archives'
   gem 'jekyll-feed'
+  gem 'jekyll-github-metadata'
   gem 'jekyll-paginate'
   # gem 'jekyll-target-blank'
   gem 'jekyll-seo-tag'
@@ -25,4 +26,4 @@ group :jekyll_plugins do
   gem 'tzinfo-data'
 end
 
-gem "webrick", "~> 1.7"
+gem 'webrick', '~> 1.7'
