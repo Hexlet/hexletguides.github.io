@@ -2332,6 +2332,8 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 /* add additional CSS rules below */
 html { scroll-behavior: smooth; }
 
+.banner a { box-shadow: none; }
+
 .item-card .categories { position: absolute; top: 10px; left: 30px; font-size: 13px; }
 
 .item-card .categories a { background: #333; color: white; padding: 2px 4px; border-radius: 4px; }
@@ -2404,13 +2406,11 @@ span.post-name a, span.post-read-more a:hover { color: rgba(0, 0, 0, 0.8); }
 
 .link-dark { color: rgba(0, 0, 0, 0.8); }
 
-.article-post > * { margin-bottom: 1.5rem; }
-
 .article-post { font-size: 1.18em; line-height: 1.64; color: rgba(0, 0, 0, 0.8); }
 
 .article-post code { font-size: 15px; }
 
-.article-post a { color: inherit; box-shadow: inset 0 -2px 0 #ffe51f, 0 2px 0 #ffe51f; }
+.article-post p > a { color: inherit; box-shadow: inset 0 -2px 0 #ffe51f, 0 2px 0 #ffe51f; }
 
 .article-post a:hover { box-shadow: inset 0 -30px 0 #ffe51f, 0 2px 0 #ffe51f; text-decoration: none; }
 
