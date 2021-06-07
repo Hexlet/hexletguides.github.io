@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="//assets/images/favicons/favicon-128.png">
+    <link rel="icon" href="/assets/images/favicons/favicon-128.png">
 
     <title>Зачем нужен Git | Гайды для программистов</title>
 
@@ -11,7 +11,7 @@
 <title>Зачем нужен Git | Гайды для программистов</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="Зачем нужен Git" />
-<meta name="author" content="Kirill Mokevnin" />
+<meta name="author" content="Кирилл Мокевнин" />
 <meta property="og:locale" content="ru_ru" />
 <meta name="description" content="В этом руководстве пойдёт речь об основах Git. Вы узнаете, зачем нужен контроль версий, как работают системы контроля версий. В дальнейшем информация позволит успешно освоить практическую работу с Git." />
 <meta property="og:description" content="В этом руководстве пойдёт речь об основах Git. Вы узнаете, зачем нужен контроль версий, как работают системы контроля версий. В дальнейшем информация позволит успешно освоить практическую работу с Git." />
@@ -23,7 +23,7 @@
 <meta property="twitter:image" content="/assets/images/git/6.png" />
 <meta property="twitter:title" content="Зачем нужен Git" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"/assets/images/git/6.png","headline":"Зачем нужен Git","dateModified":"2019-07-22T00:00:00+00:00","datePublished":"2019-07-22T00:00:00+00:00","description":"В этом руководстве пойдёт речь об основах Git. Вы узнаете, зачем нужен контроль версий, как работают системы контроля версий. В дальнейшем информация позволит успешно освоить практическую работу с Git.","mainEntityOfPage":{"@type":"WebPage","@id":"/git-guide/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"url":"/git-guide/","author":{"@type":"Person","name":"Kirill Mokevnin"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","image":"/assets/images/git/6.png","headline":"Зачем нужен Git","dateModified":"2019-07-22T00:00:00+00:00","datePublished":"2019-07-22T00:00:00+00:00","description":"В этом руководстве пойдёт речь об основах Git. Вы узнаете, зачем нужен контроль версий, как работают системы контроля версий. В дальнейшем информация позволит успешно освоить практическую работу с Git.","mainEntityOfPage":{"@type":"WebPage","@id":"/git-guide/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"url":"/git-guide/","author":{"@type":"Person","name":"Кирилл Мокевнин"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -81,37 +81,32 @@
           <!-- Begin Article
 ================================================== -->
 
-	<div class="row">
-		
+<div class="row">
+  <div class="col-sm-8 mx-auto">
+    <!-- Post Featured Image -->
+    
+    <!-- End Featured Image -->
+    <div class="mainheading">             
 
-		<!-- Post -->        
-        
-        
-		<div class="col-sm-8 mx-auto">
-            <!-- Post Featured Image -->
-			
-			<!-- End Featured Image -->
-			<div class="mainheading">             
-                
-                <!-- Post Categories -->
-                <div class="after-post-tags">
-                    <ul class="tags">
-                        
-                        
-                    </ul>
-                </div>
-                <!-- End Categories -->
-                
-                <!-- Post Title -->
-				<h1 class="posttitle">Зачем нужен Git</h1> 
-                
-			</div>
+      <!-- Post Categories -->
+      <div class="after-post-tags">
+        <ul class="tags">
+          
+          
+        </ul>
+      </div>
+      <!-- End Categories -->
 
-			
+      <!-- Post Title -->
+      <h1 class="posttitle">Зачем нужен Git</h1> 
 
-			<!-- Post Content -->
-			<div class="article-post serif-font">
-				<p>В этом руководстве пойдёт речь об основах Git. Вы узнаете, зачем нужен контроль версий, как работают системы контроля версий. В дальнейшем информация позволит успешно освоить практическую работу с Git.</p>
+    </div>
+
+
+
+    <!-- Post Content -->
+    <div class="article-post serif-font">
+      <p>В этом руководстве пойдёт речь об основах Git. Вы узнаете, зачем нужен контроль версий, как работают системы контроля версий. В дальнейшем информация позволит успешно освоить практическую работу с Git.</p>
 
 <h2 id="какие-задачи-решает-контроль-версий">Какие задачи решает контроль версий</h2>
 
@@ -179,21 +174,22 @@
 <p>Между ревизиями можно выявлять различия в случае, если СКВ использует снимки, что демонстрирует нам Microsoft Word на картинке выше. Эту функциональность невозможно переоценить,поскольку посмотреть «а что же изменилось» требуется постоянно не только при работе с кодом. Приведу пример из собственной практики: согласование разных юридических документов (договоров) происходит сквозь череду правок. После того, как юристы поправили договор, хочется увидеть, а что же там изменилось.</p>
 
 <p>Более того, в системах Linux есть команда diff, с помощью которой можно выяснить различия между любыми файлами даже без использования СКВ. Эти изменения можно сохранить в файл, а затем, используя программу patch, применить к исходному файлу.</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>$ diff index.js index2.js &gt; index.patch
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>diff index.js index2.js <span class="o">&gt;</span> index.patch
 
 1c1
 
-&lt; const a = 5;
+&lt; const a <span class="o">=</span> 5<span class="p">;</span>
 
----
+<span class="nt">---</span>
 
-&gt; const a = 8;
+<span class="o">&gt;</span> const a <span class="o">=</span> 8<span class="p">;</span>
 
 3a4
 
-&gt; console.log(a - b);
+<span class="o">&gt;</span> console.log<span class="o">(</span>a - b<span class="o">)</span><span class="p">;</span>
 
-$ patch index.js -i index.patch -o index2.js
+patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span> index2.js
 </code></pre></div></div>
 
 <p>В программах, разобранных выше, создание ревизии привязано к автосохранению, но это не единственная стратегия. Всего используется три способа:</p>
@@ -238,7 +234,7 @@ $ patch index.js -i index.patch -o index2.js
 
 <p>СКВ принято делить на поколения, каждое из которых сильно изменяло подходы к работе.</p>
 
-<h2 id="первое-поколение"><strong>Первое поколение</strong></h2>
+<h2 id="первое-поколение">Первое поколение</h2>
 
 <p>RCS, SCCS</p>
 
@@ -249,7 +245,7 @@ $ patch index.js -i index.patch -o index2.js
 
 <p><img src="/assets/images/git/4.png" alt="системы контроля версий, первое поколение" /></p>
 
-<h2 id="второе-поколение"><strong>Второе поколение</strong></h2>
+<h2 id="второе-поколение">Второе поколение</h2>
 
 <p>CVS, SourceSafe, Subversion</p>
 
@@ -263,7 +259,7 @@ $ patch index.js -i index.patch -o index2.js
 
 <p><img src="/assets/images/git/5.png" alt="системы контроля версий, второе поколение" /></p>
 
-<h2 id="третье-поколение"><strong>Третье поколение</strong></h2>
+<h2 id="третье-поколение">Третье поколение</h2>
 
 <p>Git, Bazaar, Mercurial</p>
 
@@ -278,38 +274,36 @@ $ patch index.js -i index.patch -o index2.js
 
 <p>Вы узнали, для чего используют Git, а также принципы работы систем контроля версий. Эта информация поможет вам осваивать практическую работу с Git в рамках <a href="https://ru.hexlet.io/professions">выбранной профессии</a>. Вопросы задавайте в комментариях.</p>
 
-<hr />
+      <div class="clearfix"></div>
+    </div>
 
-<p><em>Автор: Кирилл Мокевнин</em></p>
+    
+    <div class="lead text-end my-5">
+      <i>Кирилл Мокевнин</i>
+    </div>
+    
 
-                <div class="clearfix"></div>
-			</div>
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+        <div class="col-md-6 rightborder pl-0">
+          <a class="thepostlink" href="/dns/">&laquo; Что такое DNS</a>
+        </div>
+      
+      
+        <div class="col-md-6 text-right pr-0">
+          <a class="thepostlink" href="/vscode-for-php-setup/">Как настроить VS Code для разработки на PHP &raquo;</a>
+        </div>
+      
+    </div>
+    <!-- End Prev/Next -->
 
-            <!-- Prev/Next -->
-            <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
-              
-                <div class="col-md-6 rightborder pl-0">
-                    <a class="thepostlink" href="/dns/">&laquo; Что такое DNS</a>
-                </div>
-              
-              
-                <div class="col-md-6 text-right pr-0">
-                    <a class="thepostlink" href="/vscode-for-php-setup/">Как настроить VS Code для разработки на PHP &raquo;</a>
-                </div>
-              
-            </div>
-            <!-- End Prev/Next -->
-            
-            
-             <!-- Author Box -->
-                
-            
-            
-            <!-- Begin Comments
-            ================================================== -->
-            <section>
-            <div id="comments">                          
-                <section class="disqus">
+
+    <!-- Begin Comments
+      ================================================== -->
+      <section>
+        <div id="comments">
+          <section class="disqus">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'hexlet-guides'; 
@@ -323,21 +317,16 @@ $ patch index.js -i index.patch -o index2.js
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
- 
-            </div>
-            </section>
-            <!--End Comments
-            ================================================== -->
-            
-            
 
-		</div>
-		<!-- End Post -->
-		<!-- Sidebar -->
-	</div>
+        </div>
+      </section>
+  </div>
+  <!-- End Post -->
+  <!-- Sidebar -->
+</div>
 
 <!-- End Article
-================================================== -->
+  ================================================== -->
 
         </main>
 
