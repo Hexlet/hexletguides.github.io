@@ -4,8 +4,8 @@ timezone: UTC
 # baseurl: ""
 # url: 'https://guides.hexlet.io'
 permalink: "/:title/"
-logo: '/assets/images/hexlet_logo.png'
-favicon: '/assets/images/favicons/favicon-128.png'
+logo: 'assets/images/hexlet_logo.png'
+favicon: 'assets/images/favicons/favicon-128.png'
 author: Kirill Mokevnin
 paginate: 30
 disqus: hexlet-guides
