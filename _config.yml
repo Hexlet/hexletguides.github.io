@@ -61,12 +61,12 @@ social:
 
 # Plugins
 plugins:
-- jekyll-paginate
-- jekyll-sitemap
-- jekyll-feed
-- jekyll-seo-tag
-- jekyll-archives
-- jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+  # - jekyll-github-metadata
 
 defaults:
   -
