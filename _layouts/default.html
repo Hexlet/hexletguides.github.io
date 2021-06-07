@@ -1,73 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="icon" href="{{ site.baseurl }}/{{site.favicon}}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{{ site.baseurl }}/{{site.favicon}}">
 
-<title>{{ page.title }} | {{site.title}}</title>
+    <title>{{ page.title }} | {{site.title}}</title>
 
-{% seo %}
+    {% seo %}
 
-<link href="{{ site.baseurl }}/assets/css/theme.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/css/theme.css" rel="stylesheet">
 
-<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
-<link href="{{ site.baseurl }}/assets/css/custom.css" rel="stylesheet">
-<link href="{{ site.baseurl }}/assets/css/highlight.css" rel="stylesheet">
-<!-- custom CSS end-->
-    
-{% if jekyll.environment == "production" %}       
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{site.ganalytics}}"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '{{site.ganalytics}}');
-</script>
-{% endif %}
+    <!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+    <link href="{{ site.baseurl }}/assets/css/custom.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/css/highlight.css" rel="stylesheet">
+    <!-- custom CSS end-->
 
-</head>
+    {% if jekyll.environment == "production" %}
 
-{% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{site.ganalytics}}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{site.ganalytics}}');
+    </script>
 
-<body class="{{ layout }}">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+              m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-<!-- Menu Navigation
-================================================== -->
+            ym(80353567, "init", {
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                  });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/80353567" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
-<div class="container mb-4">
-   <div class="d-flex flex-wrap justify-content-center py-3">
-     <a class="navbar-brand me-auto" href="{{ site.baseurl }}"><img width="30" alt="Code Basics logo" src="{{ site.logo }}"></a>
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs" alt="Программы обучения">Программы обучения</a>
-        </li>
-      </ul>
-   </div>
-</div>
+    {% endif %}
 
-<!-- Container
-================================================== -->    
-<main class="container">
-  {{ content }}
-</main>
+  </head>
 
-<!-- Footer
-================================================== -->    
-<footer class="footer container text-center">  
+  {% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
 
-  <ul class="p-0 mb-1 small">
-    {% for item in site.data.menus.footermenu %}
-    <li>
-      <a href="{% unless item.external %}{{site.baseurl}}/{% endunless %}{{item.url}}" alt="{{item.title}}"{% if item.external %} target="_blank"{% endif %}>{{item.title}}</a>
-    </li>
-    {% endfor %}
-    </ul>
-</footer>
+  <body class="{{ layout }}">
 
-<!-- JavaScript
-================================================== -->
-<script src="{{ site.baseurl }}/assets/js/theme.js"></script>
-</body>
+    <!-- Menu Navigation
+      ================================================== -->
+
+      <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center py-3">
+          <a class="navbar-brand me-auto" href="{{ site.baseurl }}"><img width="30" alt="Code Basics logo" src="{{ site.logo }}"></a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs" alt="Программы обучения">Программы обучения</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Container
+        ================================================== -->
+        <main class="container">
+          {{ content }}
+        </main>
+
+        <!-- Footer
+          ================================================== -->
+          <footer class="footer container text-center">
+
+            <ul class="p-0 mb-1 small">
+              {% for item in site.data.menus.footermenu %}
+              <li>
+                <a href="{% unless item.external %}{{site.baseurl}}/{% endunless %}{{item.url}}" alt="{{item.title}}"{% if item.external %} target="_blank"{% endif %}>{{item.title}}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </footer>
+
+          <!-- JavaScript
+            ================================================== -->
+            <script src="{{ site.baseurl }}/assets/js/theme.js"></script>
+  </body>
 </html>
