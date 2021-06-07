@@ -3,6 +3,7 @@ title: Как правильно составить резюме
 subtitle:
 description: Когда начинать составлять резюме, как его оформлять, что писать об образовании и опыте работы. Эти и другие вопросы подробно рассмотрены в гайде.
 image: "assets/images/resume/resume.jpg"
+author: Кирилл Мокевнин
 ---
 
 Составление резюме для начинающего программиста — процесс не менее сложный, чем обучение программированию. О чем писать, если писать не о чем? Нужно ли указывать нерелевантный опыт? Что писать о себе? Когда стоит писать резюме? Можно ли приукрашивать?
@@ -173,7 +174,3 @@ _Дисклеймер: Разные люди по-разному смотрят 
 * [Hexlet Резюме](https://cv.hexlet.io/)
 * [В резюме не должно быть частой смены работы: рекомендации тимлида Evrone Дмитрия Матвеева](https://ru.hexlet.io/blog/posts/v-rezyume-ne-dolzhno-byt-chastoy-smeny-raboty-ili-o-trebovaniyah-timlida-k-razrabotchikam-intervyu-s-dmitriem-matveevym-evrone)
 * [HR-эксперты рассказывают о трудоустройстве](https://ru.hexlet.io/blog/posts/neprostye-otvety-na-prostye-voprosy-hr-eksperty-rasskazyvayut-o-trudoustroystve)
-
----
-
-*Кирилл Мокевнин (и сообщество Хекслета)*

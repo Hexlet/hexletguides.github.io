@@ -3,6 +3,7 @@ title: Что такое Bootstrap
 subtitle: Front-End фреймворк для быстрой и простой веб-разработки.
 description: Фреймворк для создания и проектирования Front-End систем. Преимущественно используется верстальщиками.
 image: "assets/images/bootstrap/bootstrap.jpeg"
+author: Никита Михайлов
 ---
 
 ![Разработка на Bootstrap](/assets/images/bootstrap/bootstrap.jpeg)

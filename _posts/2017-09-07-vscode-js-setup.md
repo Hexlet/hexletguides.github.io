@@ -4,6 +4,7 @@ subtitle: Создание удобного рабочего окружения.
 description: VS Code – бесплатный редактор кода от Microsoft. Он быстрее Атома, активно развивается и легко расширяется плагинами.
 image: "assets/images/vscode-js-setup/vscode_eslint.png"
 hidden: true
+author: Рахим Давлеткалиев
 ---
 
 **[Visual Studio Code](https://code.visualstudio.com/) – популярный бесплатный редактор кода, созданный Microsoft'ом для программистов. VS Code никак не связан с Visual Studio. VS Code работает быстрее [Атома](/atom-js-setup/), активно развивается и легко расширяется плагинами.**
@@ -116,7 +117,3 @@ VS Code содержит встроенный отладчик кода. Вы м
 ## Ссылки
 
 [Бесплатный курс](https://ru.hexlet.io/courses/js-setup-environment) по настройке окружения для работы в современной экосистеме JavaScript.
-
----
-
-*Рахим Давлеткалиев*
