@@ -1,7 +1,7 @@
 ---
 title: Что такое "управление конфигурацией"?
 # subtitle: Front-End фреймворк для быстрой и простой веб-разработки.
-summary: Настройка серверов в автоматическом режиме
+description: Настройка серверов в автоматическом режиме
 # image: "assets/images/bootstrap/bootstrap.jpeg"
 hidden: true
 ---

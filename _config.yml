@@ -3,14 +3,30 @@ email: support@hexlet.io
 timezone: UTC
 # baseurl: ""
 # url: 'https://guides.hexlet.io'
+
+tagline: Гайды
+description: |
+  Полезные статьи и гайды для разработчиков
+
+twitter:
+  author: HexletHQ
+  card: summary
+
+social:
+  links:
+    - https://www.instagram.com/hexlethq/
+    - https://www.facebook.com/Hexlet/
+    - https://twitter.com/HexletHQ
+
+
 permalink: "/:title/"
 logo: 'assets/images/hexlet_logo.png'
 favicon: 'assets/images/favicons/favicon-128.png'
 author: Kirill Mokevnin
 paginate: 30
 disqus: hexlet-guides
-locale: ru_ru
-lang: ru_ru
+locale: ru_RU
+lang: ru_RU
 feed_items: 10
 feed_update_period: daily
 feed_update_frequency: 1
@@ -33,31 +49,6 @@ sass:
   # style: :compressed
 
 ganalytics: GTM-KMJ8HKG
-
-# Authors
-# authors:
-#   sal:
-#     name: Sal
-#     display_name: Sal
-#     avatar: 'assets/images/sal.png'
-#     email: support@hexlet.io
-#     web: https://www.wowthemes.net/category/jekyll-themes/
-#     twitter: https://twitter.com/HexletHQ
-#     description: "Author of Affiliates, a template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
-#   john:
-#     name: John
-#     display_name: John
-#     avatar: 'assets/images/john.png'
-#     email: wowthemesnet@gmail.com
-#     web: https://www.wowthemes.net/category/jekyll-themes/
-#     twitter: https://twitter.com/wowthemesnet
-#     description: "This is the author box. Write a short description of the author here. You are currently previewing Affiliates theme demo, a Jekyll template compatible with Github pages."
-
-# Social
-social:
-  instagram: https://www.instagram.com/hexlethq/
-  facebook: https://www.facebook.com/Hexlet/
-  twitter: https://twitter.com/HexletHQ
 
 # Plugins
 plugins:

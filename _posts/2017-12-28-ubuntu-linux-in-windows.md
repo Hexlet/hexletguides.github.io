@@ -1,7 +1,7 @@
 ---
 title: Как работать с Linux используя Windows
 subtitle: Инструкция по установке Ubuntu Linux внутри Windows с использованием различных технологий виртуализации. 
-summary: Инструкция по установке Ubuntu Linux внутри Windows с использованием различных технологий виртуализации.
+description: Инструкция по установке Ubuntu Linux внутри Windows с использованием различных технологий виртуализации.
 image: "assets/images/ubuntu-linux-in-windows/virtualization_cover.png"
 hidden: true
 ---

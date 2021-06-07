@@ -6,7 +6,7 @@
     </a>
     <div class="card-block">
         <h2 class="card-title h4 serif-font"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
-        <p class="card-text text-muted">{{ post.summary | strip_html | truncatewords:40 }}</p>
+        <p class="card-text text-muted">{{ post.description | strip_html | truncatewords:40 }}</p>
     </div>
 </div>
 <!-- end post -->
