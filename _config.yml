@@ -8,9 +8,9 @@ tagline: Гайды
 description: |
   Полезные статьи и гайды для разработчиков
 
-twitter:
-  site: HexletHQ
-  card: summary
+# twitter:
+#   username: HexletHQ
+#   card: summary
 
 social:
   links:
