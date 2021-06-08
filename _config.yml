@@ -57,6 +57,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-archives
   - jekyll-github-metadata
+  - amp-jekyll
 
 defaults:
   -

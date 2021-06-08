@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{ site.favicon | relative_url }}">
 
+    {% if page.path contains '_posts' %}
+      <link rel="amphtml" href="{{ page.id | prepend: 'amp' | prepend: site.baseurl | prepend: site.url | append: '.html' }}">
+    {% endif %}
+
+
     <title>{{ page.title }} | {{site.title}}</title>
 
     {% seo %}

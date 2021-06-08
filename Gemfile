@@ -10,6 +10,7 @@ source 'https://rubygems.org'
 #
 
 # If you have any plugins, put them here!
+gem 'amp-jekyll'
 gem 'dotenv'
 gem 'rouge'
 gem 'rubocop'
