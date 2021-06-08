@@ -3,6 +3,7 @@ email: support@hexlet.io
 timezone: UTC
 baseurl: "/"
 # url: 'https://guides.hexlet.io'
+repository: Hexlet/hexletguides.github.io
 
 tagline: Гайды
 description: |
@@ -57,7 +58,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-archives
-  # - jekyll-github-metadata
+  - jekyll-github-metadata
 
 defaults:
   -
