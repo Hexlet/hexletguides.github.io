@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/hexletguides.github.io/assets/images/favicons/favicon-128.png">
+
+    <title>Что такое компилятор? | Гайды для программистов</title>
+
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Что такое компилятор? | Гайды для программистов</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Что такое компилятор?" />
+<meta name="author" content="Татьяна Федорина" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Зачем нужны компиляторы? Как они компилируют программный код? Какие виды компиляторов бывают? На эти вопросы поможет ответить этот гайд." />
+<meta property="og:description" content="Зачем нужны компиляторы? Как они компилируют программный код? Какие виды компиляторов бывают? На эти вопросы поможет ответить этот гайд." />
+<link rel="canonical" href="https://hexlet.github.io/hexletguides.github.io/compiler/" />
+<meta property="og:url" content="https://hexlet.github.io/hexletguides.github.io/compiler/" />
+<meta property="og:site_name" content="Гайды для программистов" />
+<meta property="og:image" content="https://hexlet.github.io/hexletguides.github.io/assets/images/compiler/compiler.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:image" content="https://hexlet.github.io/hexletguides.github.io/assets/images/compiler/compiler.jpg" />
+<meta property="twitter:title" content="Что такое компилятор?" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:creator" content="@Татьяна Федорина" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hexlet.github.io/hexletguides.github.io/compiler/"},"author":{"@type":"Person","name":"Татьяна Федорина"},"description":"Зачем нужны компиляторы? Как они компилируют программный код? Какие виды компиляторов бывают? На эти вопросы поможет ответить этот гайд.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://hexlet.github.io/hexletguides.github.io/assets/images/hexlet_logo.png"},"name":"Татьяна Федорина"},"image":"https://hexlet.github.io/hexletguides.github.io/assets/images/compiler/compiler.jpg","url":"https://hexlet.github.io/hexletguides.github.io/compiler/","headline":"Что такое компилятор?","dateModified":"2020-10-28T00:00:00+00:00","datePublished":"2020-10-28T00:00:00+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <link href="/hexletguides.github.io/assets/css/theme.css" rel="stylesheet">
+
+    <!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+    <link href="/hexletguides.github.io/assets/css/custom.css" rel="stylesheet">
+    <link href="/hexletguides.github.io/assets/css/highlight.css" rel="stylesheet">
+    <!-- custom CSS end-->
+
+    
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KMJ8HKG');</script>
+    <!-- End Google Tag Manager -->
+
+    
+
+  </head>
+
+  
+
+  <body class="layout-post">
+
+    
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMJ8HKG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    
+
+    <!-- Menu Navigation
+      ================================================== -->
+
+      <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center py-3">
+          <a class="navbar-brand me-auto" href="/hexletguides.github.io"><img width="30" alt="Code Basics logo" src="/hexletguides.github.io/assets/images/hexlet_logo.png"></a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs" alt="Программы обучения">Программы обучения</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Container
+        ================================================== -->
+        <main class="container">
+          <!-- Begin Article
+  ================================================== -->
+
+  <div class="row">
+    <div class="col-sm-8 mx-auto">
+      <!-- Post Featured Image -->
+      
+      <!-- End Featured Image -->
+      <div class="mainheading">
+        <h1 class="posttitle">Что такое компилятор?</h1> 
+      </div>
+
+
+
+      <!-- Post Content -->
+      <div class="article-post serif-font">
+        <p>В этом гайде вы узнаете о том, что такое компилятор и как он работает. Мы разберем этапы компиляции и от чего зависит выбор подходящего компилятора. Этот материал поможет лучше понять, как компьютер выполняет программный код и почему иногда код не компилируется.</p>
+
+<h2 id="зачем-нужен-компилятор">Зачем нужен компилятор?</h2>
+
+<p>Процессор — самая важная часть компьютера. Он обрабатывает информацию, выполняет команды пользователя и следит за работой всех подключенных устройств. Но процессор может разобрать только машинный код — набор 0 и 1, которые записаны в определённом порядке.</p>
+
+<p>Почему именно 0 и 1? В процессор поступают электрические сигналы. Сильный сигнал обозначается цифрой 1, а слабый — 0. Набор таких цифр обозначает какую-то команду. Процессор ее распознает и выполняет.</p>
+
+<p>Программы для первых компьютеров выглядели как огромные наборы 0 и 1. Чтобы записать такую программу, инженеры пользовались гибкими картонными карточками — перфокартами. Цифры на перфокарте записывались поочередно, в несколько строк. Чтобы записать 1, программист делал отверстие в карте. Места без отверстия обозначали 0.</p>
+
+<p><img src="/assets/images/compiler/card.png" alt="Изображение перфокарты" /></p>
+
+<p>Компьютер считывал перфокарту специальным устройством и выполнял записанную команду. Для одной программы составляли сотни перфокарт.</p>
+
+<p>Писать их было долго и сложно, поэтому инженеры стали создавать языки программирования, обозначая команды словами и знаками. Для того, чтобы процессор понимал, какие команды записаны в программе, программисты создали <strong>компилятор</strong> — программу, которая преобразует программный код в машинный.</p>
+
+<p><img src="/assets/images/compiler/compiler.jpg" alt="Схема преобразования програмного кода в бинарный" /></p>
+
+<h2 id="как-работает-компилятор">Как работает компилятор?</h2>
+
+<p>Преобразование программного кода в машинный называется <em>компиляцией</em>. Компиляция только преобразует код. Она не запускает его на исполнение. В этот момент он “статически” (то есть без запуска) транслируется в машинный код. Это сложный процесс, в котором сначала текст программы разбирается на части и анализируется, а затем генерируется код, понятный процессору.</p>
+
+<p><img src="/assets/images/compiler/compilation_steps.jpg" alt="Этапы компиляции" /></p>
+
+<p>Разберём этапы компиляции на примере вычисления периметра прямоугольника:</p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="cp">#include &lt;iostream&gt; 
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">P</span><span class="p">;</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Width of the rectangle - %4.1f"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span><span class="c1">// =&gt; Width of the rectangle - 2.5</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Length of the rectangle - %4.1f"</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span><span class="c1">// =&gt; Length of the rectangle - 5.0</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Perimeter of the rectangle is %4.1f"</span><span class="p">,</span> <span class="n">P</span><span class="p">);</span><span class="c1">// =&gt; Perimeter of the rectangle is 15.0</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>После запуска программы компилятору нужно определить, какие команды в ней записаны. Сначала компилятор разделяет программу на слова и знаки — <em>токены</em>, и записывает их в список. Такой процесс называется <strong>лексическим анализом</strong>. Его главная задача — получить токены.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code># include &lt;iostream&gt; int main ( ) { double a = 2.5 , b = 5 , P ;  P = 2 * ( a + b ) ; printf ( " Width of the rectangle - % 4.1 f " , a ) ; printf ( " \ n Length of the rectangle - % 4.1 f " , b ) ; printf ( " \ n Perimeter of the rectangle is % 4.1 f " ,   P ) ; return 0 ; }
+</code></pre></div></div>
+
+<p>Затем компилятор читает список и ищет токен-операторы. Это могут быть оператор присваивания(<code class="language-plaintext highlighter-rouge">=</code>), арифметические операторы(<code class="language-plaintext highlighter-rouge">+</code>,<code class="language-plaintext highlighter-rouge">-</code>,<code class="language-plaintext highlighter-rouge">*</code>,<code class="language-plaintext highlighter-rouge">/</code>), оператор вывода(<code class="language-plaintext highlighter-rouge">printf()</code>) и другие операторы языка программирования. Такие операторы работают с числами, текстом и переменными.</p>
+
+<p>Компилятор должен понять, какие токены в списке связаны с токен-оператором. Чтобы сделать это правильно, для каждого оператора строится специальная структура — <strong>логическое дерево</strong> или <strong>дерево разбора</strong>.</p>
+
+<p>Так операция <code class="language-plaintext highlighter-rouge">P = 2*(a + b)</code> будет преобразована в логическое дерево:</p>
+
+<p><img src="/assets/images/compiler/parse_tree.jpg" alt="Дерево разбора" /></p>
+
+<p>Теперь каждое дерево нужно разобрать на команды, и каждую команду преобразовать в <strong>машинный код</strong>. 
+Компилятор начинает читать дерево снизу вверх и составляет список команд:</p>
+
+<ul>
+  <li>Взять переменную <code class="language-plaintext highlighter-rouge">a</code>, взять переменную <code class="language-plaintext highlighter-rouge">b</code>, сложить их</li>
+  <li>Взять результат сложения, взять число <code class="language-plaintext highlighter-rouge">2</code> и найти их произведение</li>
+  <li>Результат произведения присвоить (записать) в переменную <code class="language-plaintext highlighter-rouge">P</code></li>
+</ul>
+
+<p>Компилятор еще раз проверяет команды, находит ошибки и старается улучшить код. При успешном завершении этого этапа, компилятор переводит каждую команду в набор 0 и 1. Наборы записываются в файл, который сможет прочитать и выполнить процессор.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>10111011 00010001 00000001 10111001 00001101 00000000 10110100 00001110 10001010 00000111 01000011 11001101 00010000 11100010 11111001 11001101 00100000 01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001
+</code></pre></div></div>
+
+<h2 id="на-чем-написан-компилятор">На чем написан компилятор?</h2>
+
+<p>В 1950-е годы группа разработчиков IBM под руководством Джона Бэкуса разработала первый высокоуровневый язык программирования <a href="https://ru.wikipedia.org/wiki/Фортран">Fortran</a>, который позволил писать программы на понятном человеку языке. Помимо языка, инженеры работали и над компилятором. Он представлял собой программу с набором исполняемых команд, которая могла компилировать другие программы на Fortran, в том числе и улучшенную версию себя.</p>
+
+<p>В дальнейшем язык Fortran и его компилятор использовали, чтобы написать компиляторы для новых языков программирования. Такой подход используют программисты и в настоящее время. 
+Писать машинный код долго и неудобно. К тому же, для современных процессоров он может отличаться. Придется писать несколько версий одного и того же компилятора для разных компьютеров. Быстрее и проще написать компилятор на существующем языке программирования. Для этого разработчики выбирают удобный язык и пишут на нем первую версию своего компилятора. Он будет более универсальным для компьютеров и легко скомпилирует улучшенную версию себя.
+<img src="/assets/images/compiler/create_compiler.jpg" alt="Этапы создания компилятора" /></p>
+
+<h2 id="какие-бывают-компиляторы">Какие бывают компиляторы?</h2>
+
+<p>Ни один компилируемый язык программирования не обходится без компилятора. Некоторые компиляторы работают с несколькими языками программирования. Но программист должен учитывать еще и параметры компьютера, на котором программа будет запускаться.</p>
+
+<p>Дело в том, что современные процессоры отличаются друг от друга устройством, поэтому машинный код для одного процессора будет понятен, а для другого нет. Это касается и операционных систем: одна и та же программа будет работать на Windows, но не запустится на Linux или MacOS. Поэтому нужно пользоваться тем компилятором, который работает с нужным процессором и операционной системой.</p>
+
+<p>Если программа будет работать на нескольких операционных системах, то нужен кросс-компилятор — компилятор, который преобразует универсальный машинный код. Например, GNU Compiler Collection(сокращенно GCC) поддерживает C++, Objective-C, Java, Фортран, Ada, Go и поддерживает разную архитектуру процессоров.</p>
+
+<p>Начинающие программисты даже не знают о наличии компилятора на компьютере. Они пишут программы в интегрированной среде разработки, в которую встроен компилятор, а иногда и не один. В этом случае, выбор компилятора делает среда, а не программист. Например, MS Visual Studio поддерживает компиляторы для операционных систем Windows, Linux, Android. Выбирая тип проекта, Visual Studio определяет процессор и операционную систему компьютера, и после этого выбирает подходящий компилятор.</p>
+
+<h2 id="какие-ошибки-может-определить-компилятор">Какие ошибки может определить компилятор?</h2>
+
+<p>Когда компилятор анализирует текст программы, он проверяет, соответствует ли запись оператора стандартам языка. Если найдено несоответствие, то компилятор выводит об этом информацию пользователю в виде <em>ошибки</em>. Когда вся программа разобрана, пользователь видит список ошибок, которые есть в коде, и может их исправить. 
+Пока программист не исправит ошибки, компилятор не перейдет к следующему этапу — генерации машинного кода для процессора.
+Чаще всего компилятор показывает пользователю:</p>
+<ul>
+  <li>ошибки объявления переменных или отсутствие их начальных значений</li>
+  <li>ошибки несоответствия типов</li>
+  <li>ошибки неправильной записи операторов и функций</li>
+</ul>
+
+<p>Иногда компилятор определяет код, который при выполнении дает неправильный результат. Но преобразовать такую программу в машинный код все-таки можно. В этом случае компилятор показывает пользователю <em>предупреждение</em>. Такая реакция компилятора больше похожа на рекомендации, но на них стоит обратить внимание. Программист сам решает оставить код с предупреждением или изменить программу.
+Анализируя текст программы, компилятор не только ищет ошибки, но еще и упрощает ее код. Такой процесс называется оптимизацией.
+Во время оптимизации компилятор изменяет программный код, но функции, которые выполняла программа, остаются прежними.</p>
+
+<h2 id="выводы-и-рекомендации">Выводы и рекомендации</h2>
+
+<p>Компилятор — переводчик между программистом и процессором. Он преобразует текст программы в машинный код, определяет ряд ошибок в программе и оптимизирует ее работу.
+Выбирая, где компилировать программу, важно помнить о том, что машинный код для процессоров и операционных систем будет разным, и подобрать правильный компилятор.
+Чем точнее компилятор определит команды, тем корректнее и быстрее будет работать программа. Для этого следуйте простым рекомендациям:</p>
+<ul>
+  <li>использовать простые, понятные команды;</li>
+  <li>помнить о соответствии типов данных;</li>
+  <li>внимательно набирать код, избегая синтаксических ошибок;</li>
+  <li>избегать повторяющихся действий и бесполезных переменных.</li>
+</ul>
+
+<h2 id="дополнительные-материалы">Дополнительные материалы</h2>
+
+<ul>
+  <li><a href="https://ru.wikipedia.org/wiki/Компилятор">Компилятор</a></li>
+  <li><a href="https://habr.com/ru/company/droider/blog/519732/">ARM против x86: В чем разница между двумя архитектурами процессоров?</a></li>
+</ul>
+
+        <div class="clearfix"></div>
+      </div>
+
+      
+      <div class="lead text-end my-5">
+        <i>Татьяна Федорина</i>
+      </div>
+      
+
+      <!-- Prev/Next -->
+      <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+        
+        <div class="col-md-6 rightborder pl-0">
+          <a class="thepostlink" href="https://hexlet.github.io/hexletguides.github.io/makefile-as-task-runner/">&laquo; Что такое Makefile и как начать его использовать</a>
+        </div>
+        
+        
+        <div class="col-md-6 text-right pr-0">
+          <a class="thepostlink" href="https://hexlet.github.io/hexletguides.github.io/error-tracking/">Что такое трекинг ошибок? &raquo;</a>
+        </div>
+        
+      </div>
+      <!-- End Prev/Next -->
+
+
+      <!-- Begin Comments
+        ================================================== -->
+        <section>
+          <div id="comments">
+            <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+          </div>
+        </section>
+    </div>
+    <!-- End Post -->
+    <!-- Sidebar -->
+  </div>
+
+  <!-- End Article
+    ================================================== -->
+
+        </main>
+
+        <!-- Footer
+          ================================================== -->
+          <footer class="footer container text-center">
+
+            <ul class="p-0 mb-1 small">
+              
+              <li>
+                <a href="https://ru.hexlet.io/courses" alt="Курсы" target="_blank">Курсы</a>
+              </li>
+              
+              <li>
+                <a href="https://cv.hexlet.io/" alt="Оценка резюме" target="_blank">Оценка резюме</a>
+              </li>
+              
+              <li>
+                <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка" target="_blank">Алгоритмическая прокачка</a>
+              </li>
+              
+            </ul>
+          </footer>
+
+          <!-- JavaScript
+            ================================================== -->
+            <script src="/hexletguides.github.io/assets/js/theme.js"></script>
+  </body>
+</html>

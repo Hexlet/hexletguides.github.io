@@ -1,0 +1,15 @@
+/* 
+Don't want to use sass and simply modify the stylesheet in the old css fashion? 
+Just customize your theme here.
+================================================== */
+
+body {}
+
+.highlight {
+  padding: 10px;
+  border: 1px solid #dee2e6;
+}
+
+pre {
+  margin: 0px;
+}
