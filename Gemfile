@@ -10,6 +10,7 @@ source 'https://rubygems.org'
 #
 
 # If you have any plugins, put them here!
+gem 'dotenv'
 gem 'rouge'
 gem 'rubocop'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?

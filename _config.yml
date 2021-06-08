@@ -2,7 +2,6 @@ title: "Гайды для программистов"
 email: support@hexlet.io
 timezone: UTC
 baseurl: "/"
-# url: 'https://guides.hexlet.io'
 repository: Hexlet/hexletguides.github.io
 
 tagline: Гайды
@@ -18,7 +17,6 @@ social:
     - https://www.instagram.com/hexlethq/
     - https://www.facebook.com/Hexlet/
     - https://twitter.com/HexletHQ
-
 
 permalink: "/:title/"
 logo: 'assets/images/hexlet_logo.png'

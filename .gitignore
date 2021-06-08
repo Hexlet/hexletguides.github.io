@@ -11,3 +11,4 @@ vendor
 .idea
 _sass
 node_modules
+.env
