@@ -1,0 +1,147 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Несколько версий Python на Linux-машине</title>
+    <link rel="canonical" href="https://guides.hexlet.io/unix-multipython/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2019-09-01 00:00:00 +0000 - Кирилл Мокевнин
+    </span>
+    <h3 id="использование-нескольких-версий-python-на-unix-подобных-операционных-системах">Использование нескольких версий Python на unix-подобных операционных системах.</h3>
+
+<h4 id="что-и-зачем">Что и зачем?</h4>
+
+<p>Python как язык постоянно развивается. Ветка Py2 скоро будет объявлена неподдерживаемой. Однако до сих пор существуют окружения, где приходится использовать Py2 и даже не свежий 2.7.x, а что-то по-старее. Да и Python 3.x нынче — это большое семейство версий, кое-где несовместимых между собой, в т.ч. и синтаксически! Поэтому практикующий питонист широкого профиля должен понимать, как на одной машине иметь несколько версий среды исполнения. Даже если “в продакшне” и используется какой-нибудь Docker!</p>
+
+<p><amp-img src="/assets/images/python-2-and-3-logo.png" alt="logo" layout="responsive"><noscript><img src="/assets/images/python-2-and-3-logo.png" alt="logo"></noscript></amp-img></p>
+
+<h4 id="установка-python-из-репозиториев-пакетов-операционной-системы">Установка Python из репозиториев пакетов операционной системы.</h4>
+
+<p>Если вам повезло, то в репозитории пакетов ОС будет нужная версия Python и вы сможете её установить с помощью команды вроде <code class="language-plaintext highlighter-rouge">sudo apt-get install python3.5</code>. Однако достаточно старые <a href="https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D1%81%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%B8%D0%B2_Linux">дистрибутивы ОС</a> могут не содержать новых версий Python, а достаточно новые дистрибутивы — старых версий Python. В особых случаях репозиторий вообще может содержать только одну версию среды исполнения.</p>
+
+<h4 id="сборка-из-исходного-кода">Сборка из исходного кода.</h4>
+
+<p>CPython — проект с исходным кодом. Доступ к исходному коду всех версий CPython позволяет собрать нужную версию самостоятельно. Однако это процесс, пусть и достаточно хорошо документирован, но всё же требует понимания того, что вам может потребоваться для компиляции кода под вашу операционную систему.</p>
+
+<p>А ещё сборка из исходного кода — это единственный вариант для тех, кто хочет что-то в этом самом коде изменить или скомпилировать интерпретатор для какой-то экзотической платформы (встраиваемые системы, ретро-железо).</p>
+
+<h4 id="pyenv">pyenv</h4>
+
+<p>Ещё одним из способов получения разных версий среды исполнения на одной машине является <a href="https://github.com/pyenv/pyenv">pyenv</a>. Это “менеджер версий”, выполненный в стиле rbenv для Ruby, nvm для NodeJS и т.п.</p>
+
+<p>Миссия pyenv — управлять установленными версиями Python и делать некую версию “активной”. Активная версия вызывается, если мы выполняем команду <code class="language-plaintext highlighter-rouge">python</code> (а также <code class="language-plaintext highlighter-rouge">pip</code>), при этом разные проекты могут использовать разные активные версии и даже более чем одну одновременно. Последнее свойство полезно авторам библиотек, рассчитанных на широкий круг пользователей — таковые <em>всегда нужно тестировать на разных версиях</em> Python.</p>
+
+<p>Установить pyenv достаточно просто, ведь инструмент представляет собой набор shell scripts. Именно поэтому получился pyenv максимально кроссплатформенным. Но за эту кроссплатформенность приходится платить тем, что каждую версию среды исполнения <em>нужно компилировать из исходного кода</em>! Для компиляции того же CPython потребуется компилятор Си (<code class="language-plaintext highlighter-rouge">gcc</code> на Linux и <code class="language-plaintext highlighter-rouge">clang</code> на MacOS), и <a href="https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BE%D1%87%D0%BD%D1%8B%D0%B9_%D1%84%D0%B0%D0%B9%D0%BB">заголовочные файлы</a> для библиотек, которые использует интерпретатор. Полный список пререквизитов для сборки приходится гуглить.</p>
+
+<h4 id="установка-системным-пакетным-менеджером-из-сторонних-источников">Установка системным пакетным менеджером из сторонних источников.</h4>
+
+<p>Для большинства Unix-like ОС, помимо официальных репозиториев, существуют и неофициальные источники пакетов.</p>
+
+<p>Для Debian-like систем, таких как Ubuntu и её производные, сторонние источники пакетов называются <em>PPA, Personal Package Archives</em>. Подключить любой PPA достаточно просто, но нужно понимать, что вы таким образом соглашаетесь на установку пакетов из стороннего источника, никак не подчиняющегося авторам дистрибутива ОС! Подключайте только хорошо зарекомендовавшие себя PPA, например — от самих авторов ПО, которое вы хотите установить!</p>
+
+<p>Для Ubuntu-based систем существует <a href="https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa">PPA от команды “deadsnakes”</a>. Это проверенный источник пакетов с самыми разными версиями Python как для свежих релизов ОС, так и для релизов “второй свежести”.</p>
+
+<p>Главное преимущество установки пакетов из проверенных PPA состоит в том, что пакеты обычно содержат оптимизированные под конкретный дистрибутив сборки с должным количеством обновлений и исправлений. Такие сборки более безопасны и производительны, чем те, что собраны вручную из исходников.</p>
+
+<p>К тому же в популярных PPA пакеты обновляются своевременно, чего нельзя сказать про пакеты для устаревших релизов ОС, для которых срок поддержки закончился. Конечно, такие релизы лучше вообще не использовать (небезопасно!), но иногда может не быть выбора, а с PPA вы хотя бы будете иметь свежие версии среды исполнения.</p>
+
+<h4 id="псевдонимы-python-python2-python3">Псевдонимы <code class="language-plaintext highlighter-rouge">python</code>, <code class="language-plaintext highlighter-rouge">python2</code>, <code class="language-plaintext highlighter-rouge">python3</code>.</h4>
+
+<p>Исторически сложилось так, что интерпретатор Python запускается командой <code class="language-plaintext highlighter-rouge">python</code>. Но в какой-то момент случились Python3, обратная несовместимость, “разброд и шатания”. Чтобы внести некоторую определённость, был представлен <a href="https://www.python.org/dev/peps/pep-0394/">PEP-394</a>: <em>The “python” Command on Unix-Like Systems</em>. Однако даже этот PEP разрешает разным системам <em>самим выбирать</em>, использовать ли Py2 и Py3 вместе или выбрать что-то одно. Системы должны лишь обеспечить, чтобы</p>
+
+<ul>
+  <li>команда <code class="language-plaintext highlighter-rouge">python2</code> вызывала некую версию Python 2.x, если таковая вообще предоставляется;</li>
+  <li>команда <code class="language-plaintext highlighter-rouge">python3</code> вызывала некую версию Python 3.x, если таковая предоставляется;</li>
+  <li>команда <code class="language-plaintext highlighter-rouge">python</code> соответствовала либо <code class="language-plaintext highlighter-rouge">python2</code>, либо <code class="language-plaintext highlighter-rouge">python3</code> (но не ссылалась на какую-то “третью” версию рантайма).</li>
+</ul>
+
+<p>При этом не гарантируется, что все эти команды будут присутствовать в конкретном случае: где-то будет доступна только команда <code class="language-plaintext highlighter-rouge">python3</code>, где-то — <code class="language-plaintext highlighter-rouge">python2</code>. Псевдоним <code class="language-plaintext highlighter-rouge">python</code> вообще <em>обязан присутствовать лишь в виртуальном окружении</em> и всегда соответствовать той версии интерпретатора, которая <em>была выбрана при создании окружения</em>.</p>
+
+<p>Такое “разнообразие” сильно усложняет жизнь разработчикам ПО, особенно — авторам инструментов разработки! Разработчик может написать скрипт для Py2 и указать в <a href="https://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D0%B1%D0%B0%D0%BD%D0%B3_(Unix)">shebang</a> <code class="language-plaintext highlighter-rouge">#!/usr/bin/env python</code>. Но на одних ОС команда <code class="language-plaintext highlighter-rouge">python</code> вообще не будет доступна и скрипт просто не запустится, а на других <code class="language-plaintext highlighter-rouge">python</code> будет означать какой-нибудь Python 3.8 и скрипт может даже запуститься, но сломается в процессе выполнения.</p>
+
+<p>И даже если автор использует техники, позволяющие писать портируемый код (<a href="https://pypi.org/project/six/">six</a>, <a href="https://pypi.org/project/3to2/">3to2</a>), умеющий выполняться и на Py2, и на Py3, всё равно непонятно что же указать в shebang!</p>
+
+<p>Вышеупомянутый PEP советует</p>
+
+<ul>
+  <li>либо фиксировать версию явно (только Py2 или только Py3),</li>
+  <li>либо требовать использования виртуальных окружений (в ВО всегда будет доступна команда <code class="language-plaintext highlighter-rouge">python</code>)</li>
+  <li>либо не писать shebang руками, а вместо этого использовать средства setuptools или другой системы пакетирования, создающие точки входа в зависимости при установке пакета (у точек входа shebang будет правильный).</li>
+</ul>
+
+<h3 id="установка-poetry-на-системы-с-разными-версиями-python">Установка poetry на системы с разными версиями Python</h3>
+
+<p>На момент написания статьи poetry (это такой менеджер виртуальных окружений, сборщик пакетов и проч — “швейцарский нож” разработчика на Python) страдал от проблем с версиями рантайма: при установке рекомендованными способом скрипт-установщик завершался с ошибкой, либо установка проходила успешно, но затем не работала сама программа.</p>
+
+<p>Дело (было?) в том, что и в скрипте-установщике и в точках входа в программу в shebang прописан <code class="language-plaintext highlighter-rouge">python</code>! Сама программа работает и на Py2, и на Py3, но авторы исходили из предположения, что на целевой системе в любом случае будет присутствовать псевдоним <code class="language-plaintext highlighter-rouge">python</code>, вызывающий тот или иной интерпретатор. На некоторых системах такой команды нет…</p>
+
+<p>Если использовать pyenv, оный всегда предоставляет команду <code class="language-plaintext highlighter-rouge">python</code> и poetry “просто работает”. Нет проблем и на старых дистрибутивах, где ещё не отказались окончательно от <code class="language-plaintext highlighter-rouge">Py2</code>. И конечно всё работает в виртуальном окружении. Рассмотрим этот вариант поподробнее.</p>
+
+<h4 id="установка-в-выделенное-виртуальное-окружение">Установка в выделенное виртуальное окружение</h4>
+
+<p>Для начала нам понадобится само окружение. Предположим, что Python3 вы уже так или иначе поставили. Делаем раз</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>python3 <span class="nt">-m</span> venv <span class="nv">$HOME</span>/.poetry.venv
+</code></pre></div></div>
+
+<p>Делаем два</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ $HOME</span>/.poetry.venv/bin/pip <span class="nb">install </span>poetry
+</code></pre></div></div>
+
+<p>Проверяем</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ $HOME</span>/.poetry.venv/bin/poetry <span class="nt">--version</span>
+Poetry 0.12.17
+</code></pre></div></div>
+
+<p>Программа установлена! Теперь создаём символическую ссылку на точку входа в папке, видимой в <code class="language-plaintext highlighter-rouge">PATH</code>, например, в <code class="language-plaintext highlighter-rouge">$HOME/.local.bin</code>:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span><span class="nb">ln</span> <span class="nt">-s</span> <span class="nv">$HOME</span>/.poetry.venv/bin/poetry <span class="nv">$HOME</span>/.local/bin
+</code></pre></div></div>
+
+<p>Проверяем</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>poetry <span class="nt">--version</span>
+Poetry 0.12.17
+</code></pre></div></div>
+
+<p>Работает! Обновлять программу в будущем можно с помощью того же <code class="language-plaintext highlighter-rouge">pip</code> (который в окружении). А можно и вовсе автоматизировать процесс установки такого вот Python-софта с помощью <a href="https://pipxproject.github.io/pipx/">pipx</a>.</p>
+
+<h4 id="особенности-использования-poetry-установленного-в-виртуальное-окружение">Особенности использования poetry, установленного в виртуальное окружение.</h4>
+
+<p>Poetry построен так, чтобы работать с абстрактной версией python. Поэтому он хорошо сочетается с pyenv: один на себя берёт управление разными пайтонами, а другой — проектами на этих пайтонах.</p>
+
+<p>Но эта привязка к команде <code class="language-plaintext highlighter-rouge">python</code> немного мешает, когда poetry установлен в своём собственном виртуальном окружении: в этом окружении Python уже известен и не может быть изменён. Данная особенность упомянута в документации к poetry, так что это “не баг, а фича”. И всё же есть способ обойти сие ограничение: можно инициализировать окружение вручную с нужной версией Python и настроить poetry на использование этого готового окружения.</p>
+
+<p>Для начала учим poetry создавать окружения не в своём кэше, а в папке с проектом:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>poetry config settings.virtualenvs.in-project <span class="nb">true</span>
+</code></pre></div></div>
+
+<p>С этих пор для каждого проекта виртуальное окружение будет располагаться в поддиректории <code class="language-plaintext highlighter-rouge">.venv</code>.</p>
+
+<p>Уже в конкретном проекте инициализируем окружение командой</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>python3 <span class="nt">-m</span> venv .venv
+</code></pre></div></div>
+
+<p>(для Py2 команда будет другой, т.к. модуль <code class="language-plaintext highlighter-rouge">venv</code> тогда ещё не поставлялся вместе со средой исполнения).</p>
+
+<p>Теперь можно работать с poetry как обычно. Несмотря на то, что Python в проекте, возможно, отличается от рантайма, запускающего poetry!</p>
+
+    
+    
+  </body>
+</html>

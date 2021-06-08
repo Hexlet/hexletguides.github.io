@@ -1,0 +1,205 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Что такое Bootstrap</title>
+    <link rel="canonical" href="https://guides.hexlet.io/bootstrap/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2017-07-10 00:00:00 +0000 - Никита Михайлов
+    </span>
+    <p><amp-img src="/assets/images/bootstrap/bootstrap.jpeg" alt="Разработка на Bootstrap" layout="responsive"><noscript><img src="/assets/images/bootstrap/bootstrap.jpeg" alt="Разработка на Bootstrap"></noscript></amp-img></p>
+
+<p>Разработка веб-страницы с точки зрения верстальщика — непрерывный процесс доработки и создания новых блоков. Чем больше проект, тем чаще происходит итерация «идея — функционал — вёрстка». Решая задачи бизнеса, стадии должны решаться быстро и качественно. И если качество вёрстки напрямую зависит от верстальщика, то скорость — фактор, который зависит от команды.</p>
+
+<p>Для решения проблемы скорости разработчики постоянно придумывают новые инструменты. В среде верстальщиков таким инструментом стали CSS-фреймворки — набор готовых блоков, классов и внутренних функций, которые обеспечивают быструю и удобную разработку.</p>
+
+<p>В 2010 году в недрах компании Twitter появился проект Twitter Blueprint. Его задачей было создание системы для разработки новых компонентов внутри компании. Twitter Blueprint имел набор базовых блоков с готовым дизайном, который использовался в компании. Это решение обрело популярность внутри компании благодаря своей простоте, так как любой сотрудник, имея минимальный опыт разработки, мог сделать новый концепт блока и предложить его для дальнейшей разработки.</p>
+
+<p>В этом же году на Twitter Hack Week проект обрёл первую популярность. Его заметили не только внутри компании, но и за её пределами. Такое решение не могло оставаться внутренней разработкой и уже в 2011 году проект вышел в открытый доступ под названием Bootstrap. С тех пор Bootstrap удерживает лидерство среди инструментов по созданию сайтов. По разным статистикам, фреймворк используют от 17 до 30% всех сайтов в интернете. Код Bootstrap можно найти на сайтах таких проектов, как:</p>
+
+<ul>
+  <li>Hexlet,</li>
+  <li>GitHub,</li>
+  <li>PayPal,</li>
+  <li>Spotify,</li>
+  <li>Twitter,</li>
+  <li>Duolingo.</li>
+</ul>
+
+<p>Это далеко не весь список, который можно привести. Таким образом Bootstrap не является библиотекой для создания админок и прототипов, как о нём говорят.</p>
+
+<h2 id="bootstrap-как-набор-готовых-элементов">Bootstrap как набор готовых элементов</h2>
+
+<p>Одной из сторон Bootstrap является то, что его можно использовать исключительно как набор уже готовых элементов. Для это не требуется серьёзных знаний HTML и CSS — достаточно уметь создавать самые простые страницы и прочитать документацию. Например, для создания кнопки используется два класса, один из которых отвечает за структуру кнопки, а другой за оформление. Такой подход называется <strong>OOCSS</strong> — Object Oriented CSS или объектно-ориентированный CSS. Про объектно-ориентированный подход CSS в блоге Hexlet есть <a href="https://ru.hexlet.io/blog/posts/oocss-basics">отдельная статья</a>.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Я — синяя кнопка<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>Второй подход, который используется в Bootstrap — Atomic CSS. На нём построены утилиты во фреймворке. <strong>Atomic CSS</strong> — подход, при котором один класс использует одно свойство.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"d-flex bg-white"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- HTML вёрстка --&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div></div>
+
+<p>В этом примере тег <code class="language-plaintext highlighter-rouge">&lt;section&gt;</code> получит два свойства:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">background-color: #fff;</code></li>
+  <li>
+<code class="language-plaintext highlighter-rouge">display: flex;</code>.</li>
+</ol>
+
+<p>Использование утилит предполагает более углублённые знания в CSS, так как это будет похоже на использование правил. Только вместо записи в CSS-файле используются классы.</p>
+
+<p>Компоненты и утилиты позволяют очень быстро создать проект различной сложности. Единственное, в чём вы будете ограничены — выбор дизайна. Если не заниматься переписыванием компонентов, то страница будет выглядеть в точности, как в документации. Это не минус, так как Bootstrap современный фреймворк и его дизайн не пугает при первом взгляде. Многие небольшие компании используют такой подход.</p>
+
+<h3 id="плюсы-использования-bootstrap-как-набора-готовых-элементов">Плюсы использования Bootstrap, как набора готовых элементов</h3>
+
+<h4 id="скорость">Скорость</h4>
+
+<p>Процесс разработки сопровождается непрерывной работой по добавлению или удалению функционала на странице. Чем крупнее проект, тем чаще происходят эти процессы и скорость реализации не в последнюю очередь зависит от того, как скоро функционал «обрастёт» внешним видом. Используя готовые компоненты и утилиты Bootstrap можно быстро ввести новый функционал на сайт и дать его пользователям. Таким образом это решает одну из проблем цикла «идея — функционал — вёрстка».</p>
+
+<h4 id="кроссбраузерность">Кроссбраузерность</h4>
+
+<p>В веб пространстве множество различных браузеров: Chrome, Firefox, Edge, Opera, Safari и т.д. Они предоставляют пользователям комфортный веб-сёрфинг. Но каждый из этих браузеров может обрабатывать HTML и CSS немного по своему, из-за чего верстальщикам необходимо приводить стандартные элементы к единому виду. Такая задача требует скурпулёзного подхода и знание  частых проблем и отличий браузеров между собой. Компоненты Bootstrap учитывают различия браузеров и оптимизированы таким образом, чтобы минимизировать различия между ними.</p>
+
+<h4 id="адаптивность">Адаптивность</h4>
+
+<p>Bootstrap имеет готовую 12-колоночную сетку, по которой можно располагать компоненты. Сетка является самым популярным компонентом бутстрап и её используют даже те, кто скептически относится к фреймворку. Сетка использует подход, при котором возможно сразу настроить адаптивность. Используя готовые компоненты можно быть уверенным в том, что они будут хорошо отображаться на разных устройствах.</p>
+
+<h4 id="доступность">Доступность</h4>
+
+<p>Разработчики уделяют внимание на использование страниц с компонентами людьми с ограниченными возможностями. Документация описывает ситуации, как сделать компонент доступным. Но и без этого компоненты имеют базовую доступность. Один из самых полезных классов, связанный с доступностью — <code class="language-plaintext highlighter-rouge">.sr-only</code>. Он позволяет скрыть элемент для всех устройств, кроме скринридера. Это важно для правильной организации вёрстки форм на сайте.</p>
+
+<h4 id="низкий-порог-вхождения">Низкий порог вхождения</h4>
+
+<p>Создание страницы по компонентам не требует экспертного знания HTML и CSS. Это позволяет создавать новые блоки не только верстальщику, но и любому работнику компании, который знает базовые основы вёрстки. Таким образом разработчики могут оснастить новое решение готовой вёрсткой с использованием фреймворка. Bootstrap также может пригодиться небольшим компаниям, которые не готовы потратить большие деньги на разработку веб-сайта. В качестве промежуточного решения Bootstrap будет незаменим. В последствии возможно и остановиться на нём, как мы и сделали на Хекслете.</p>
+
+<h3 id="минусы-использования-bootstrap-как-набора-готовых-элементов">Минусы использования Bootstrap, как набора готовых элементов</h3>
+
+<h4 id="вес-проекта">Вес проекта</h4>
+
+<p>Фреймворк Bootstrap даёт не только набор классов, но и интерактивные компоненты. Для их работы используется несколько JavaScript библиотек, которые увеличивают вес подключаемых файлов на странице. В Bootstrap 4 вместе со библиотеками JavaScript весит ~ 300кб. Это может стать критичной точкой при разработке мобильных приложений, ориентированных на использование при слабом интернет соединении. В качестве таких приложений могут быть материалы для оказания экстренной помощи, вызова спасательных служб и так далее.</p>
+
+<h4 id="дизайн">Дизайн</h4>
+
+<p>Стандартные компоненты накладывают ограничения на дизайн. Эти рамки выражены в том, что компоненты возможно расширять только вглубь, вставляя одни компоненты внутрь других. Модификация компонентов потребует знаний в вёрстке, так как даже незначительные изменения необходимо проверить в браузерах и на разных разрешениях. При этом дизайн стандартных компонентов Bootstrap лаконичен и является примером для дизайнера. При своей простоте они функциональны и помогают правильно подать информацию. Даже в таких ограничениях создаются красивые и удобные сайты засчёт грамотной работы с UI.</p>
+
+<h4 id="функционал">Функционал</h4>
+
+<p>Как и в случае с дизайном, функционал блоков определён заранее и изменение приводит к существенным доработкам. Это касается и интерактивных элементов, которые используют JavaScript код. Разработчики для таких элементов внесли классы, которые помогают немного изменить поведение, но этого не всегда бывает достаточно.</p>
+
+<h2 id="bootstrap-как-фреймворк">Bootstrap как фреймворк</h2>
+
+<p>Помимо средств разработки, таких как набор компонентов и утилит, Bootstrap предлагает широкие возможности по созданию пользовательских компонентов. Это достигается засчёт большой кодовой базы в исходниках.</p>
+
+<p>Что же такое фреймворк? Можно представить это как каркас будущего приложения. Своеобразным фундаментом, на котором мы возведём стены, установим окна и заставим мебелью. Таким фундаментом и является Bootstrap. В нём находится десятки функций и миксинов, которые позволят верстальщику создать свою собственную дизайн-систему. Этот функционал является самым недооценённым среди разработчиков и по этой причине о Bootstrap сформировалось неправильное мнение.</p>
+
+<p>Представьте себе новый компонент, который разработчик добавляет на страницу. Используя бутстрап, зачастую разработка ведётся следующим образом:</p>
+
+<ul>
+  <li>Подбираются похожие компоненты из документации.</li>
+  <li>Подбираются новые классы для создания новых стилей.</li>
+  <li>В дополнительном CSS файле перезаписываются и добавляются новые стили для блока.</li>
+</ul>
+
+<p>При таком подходе, даже получив необходимые блоки, разработчик решит только ближайшую задачу, но может испытать трудности на дистанции. Все они связаны с отсутствием взаимодействия между компонентом и фреймворком:</p>
+
+<ul>
+  <li>Обновление кодовой базы Bootstrap никак не повлияет на поведение компонента. Разработчики постоянно обновляют версии, внося множество улучшений и исправляя ошибки.</li>
+  <li>Изменение настроек не повлияет на компонент. Распространённая ситуация — смена цветовой схемы. Возникает необходимость править цвета у каждого пользовательского компонента вручную.</li>
+  <li>Генерация новых утилит превращается в дублирование кода, без создания системы. Таким образом могут создавать новые утилиты для цвета фона и текста.</li>
+</ul>
+
+<p>Создание утилит, начиная с Bootstrap 5, решается добавлением нового массива, который передаётся в обработчик, отдавая на выходе новые классы. А как создаётся новый компонент? В большинстве случаев достаточно внимательно пройтись по файлу <em>_variables.scss</em></p>
+
+<p>Что там можно обнаружить? Например, цвета, которые используются в качестве цветовой схемы:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$blue</span><span class="p">:</span>     <span class="mh">#0d6efd</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$green</span><span class="p">:</span>    <span class="mh">#198754</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$cyan</span><span class="p">:</span>     <span class="mh">#0dcaf0</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$yellow</span><span class="p">:</span>   <span class="mh">#ffc107</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$red</span><span class="p">:</span>      <span class="mh">#dc3545</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$gray-100</span><span class="p">:</span> <span class="mh">#f8f9fa</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$gray-600</span><span class="p">:</span> <span class="mh">#6c757d</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$gray-900</span><span class="p">:</span> <span class="mh">#212529</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+
+<span class="nv">$primary</span><span class="p">:</span>       <span class="nv">$blue</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$secondary</span><span class="p">:</span>     <span class="nv">$gray-600</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$success</span><span class="p">:</span>       <span class="nv">$green</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$info</span><span class="p">:</span>          <span class="nv">$cyan</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$warning</span><span class="p">:</span>       <span class="nv">$yellow</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$danger</span><span class="p">:</span>        <span class="nv">$red</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$light</span><span class="p">:</span>         <span class="nv">$gray-100</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$dark</span><span class="p">:</span>          <span class="nv">$gray-900</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+
+<span class="nv">$theme-colors</span><span class="p">:</span> <span class="p">(</span>
+  <span class="s2">"primary"</span><span class="o">:</span>    <span class="nv">$primary</span><span class="o">,</span>
+  <span class="s2">"secondary"</span><span class="o">:</span>  <span class="nv">$secondary</span><span class="o">,</span>
+  <span class="s2">"success"</span><span class="o">:</span>    <span class="nv">$success</span><span class="o">,</span>
+  <span class="s2">"info"</span><span class="o">:</span>       <span class="nv">$info</span><span class="o">,</span>
+  <span class="s2">"warning"</span><span class="o">:</span>    <span class="nv">$warning</span><span class="o">,</span>
+  <span class="s2">"danger"</span><span class="o">:</span>     <span class="nv">$danger</span><span class="o">,</span>
+  <span class="s2">"light"</span><span class="o">:</span>      <span class="nv">$light</span><span class="o">,</span>
+  <span class="s2">"dark"</span><span class="o">:</span>       <span class="nv">$dark</span>
+<span class="p">)</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Цветов в файле <em>_variables.scss</em> намного больше, но именно эти формируют базовую цветовую схему проекта. Вы можете добавить новые цвета, определить их в качестве базовых и после компиляции все компоненты и утилиты получат новые значения. Именно такое поведение отличает фреймворк от простого набора готовых компонентов.</p>
+
+<p>Именно такая работа с Bootstrap позволит создать нечто большее, чем просто прототип, лендинг или панель администратора. На Hexlet, в качестве третьего проекта по вёрстке Bootstrap используется для создания внешнего вида полноценного чата</p>
+
+<p><amp-img src="/assets/images/bootstrap/bootstrap-chat.jpg" alt="Приложение на Bootstrap" layout="responsive"><noscript><img src="/assets/images/bootstrap/bootstrap-chat.jpg" alt="Приложение на Bootstrap"></noscript></amp-img></p>
+
+<p>Так как Bootstrap является набором функций и миксинов, то это снимает преграды его использования вместе с другими методологиями. Например, c БЭМ. Это распространённое мнение, что использовать бутстрап вместе с БЭМ невозможно. Взгляните на следующие миксины, которые доступны для создания сетки:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">@mixin</span> <span class="nf">make-container</span><span class="p">();</span>
+<span class="k">@mixin</span> <span class="nf">make-row</span><span class="p">();</span>
+<span class="k">@mixin</span> <span class="nf">make-col</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Если вы уже работали с Bootstrap, то в этих названиях найдёте привычную схему «Контейнер → строка → колонка». Используя эти миксины можно добавить логику фреймворка в абсолютно любой проект и не привязываться к именованию.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nc">.search-form</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">make-container</span><span class="p">();</span>
+
+  <span class="k">&amp;</span><span class="nt">__content</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">make-row</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">&amp;</span><span class="nt">__input</span><span class="o">,</span>
+  <span class="k">&amp;</span><span class="nt">__button</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">make-col-auto</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Таким образом можно добавлять не только элементы сетки, но и доступные компоненты и утилиты. При этом после компиляции не будет необходимости нести за собой множество кода, который не используется.</p>
+
+<h2 id="выводы">Выводы</h2>
+
+<p>Изучение Bootstrap может сильно развить вас как разработчика. Ведь кроме написания кода, можно изучать и чужой, который создан и поддерживается тысячами людьми по всему миру. В коде можно найти интересные решения, грамотное структурирование и множество полезных функций. Благодаря этому Bootstrap можно использовать во множестве сценариев: от создания прототипов, до вёрстки сложных макетов, а возможность использование отдельных частей позволяет добавить частичку Bootstrap в проект без необходимости переделывания структуры.</p>
+
+<h2 id="дополнительные-ссылки">Дополнительные ссылки</h2>
+
+<ul>
+  <li><a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Документация Bootstrap</a></li>
+  <li><a href="https://github.com/twbs/bootstrap">Репозиторий Bootstrap</a></li>
+</ul>
+
+    
+    
+  </body>
+</html>

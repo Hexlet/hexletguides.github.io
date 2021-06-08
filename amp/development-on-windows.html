@@ -1,0 +1,151 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Как начать разрабатывать в Windows</title>
+    <link rel="canonical" href="https://guides.hexlet.io/development-on-windows/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2017-10-25 00:00:00 +0000 - Кирилл Мокевнин
+    </span>
+    <p><strong>В руководстве приводится пример базовой настройки Windows, приближающей её по возможностям к другим операционным системам.</strong></p>
+
+<p>Среда Windows не очень хорошо подходит для разработки, если вы не пишете под .net. Выражается это во многих аспектах: система не <a href="https://ru.wikipedia.org/wiki/POSIX">POSIX</a>-совместимая (а большинство библиотек пишется именно для таких систем, например linux или mac), в Windows нет примитивных средств, которые необходимы любому разработчику для комфортной работы.</p>
+
+<p>Несмотря на все написанное ниже, наша основная рекомендация — ставить Linux-дистрибутив, например, Ubuntu и полностью погружаться в него. Подавляющее большинство веб-проектов работает под управлением Linux-систем. А постоянное использование такой системы на домашнем и рабочем компьютере равносильно погружению в языковую среду при изучении иностранных языков.</p>
+
+<h2 id="командная-строка">Командная строка</h2>
+
+<p>Первое, к чему сразу нужно привыкать — командная строка. Работа на удаленных серверах, git, пакетные менеджеры и многое другое, всё это делается, в первую очередь, в командной строке. Хотя такой способ и непривычен для обычного пользователя, он имеет множество преимуществ перед использованием мыши. К ним относятся:</p>
+
+<ul>
+  <li>Скорость работы значительно возрастает и намного опережает оконные интерфейсы</li>
+  <li>Легкая возможность автоматизации действий за счет скриптования. Другими словами, любые команды можно записать в файл и использовать его. Никаких специальных средств не требуется</li>
+  <li>Гораздо более хорошее понимание происходящих процессов</li>
+  <li>На серверах оконного интерфейса не бывает в принципе, так что тут без вариантов</li>
+</ul>
+
+<p>Если вы пользуетесь IDE, то, скорее всего, знаете, что они интегрируют внутри себя множество инструментов. И хотя местами такая интеграция удобна (не для всех), не стоит ей злоупотреблять в самом начале пути. Гораздо лучше научиться пользоваться чистыми инструментами для лучшего понимания происходящего. К тому же, вы не будете зависеть от среды и всегда будете ориентироваться на местности.</p>
+
+<p>Под термином “командная строка” скрывается сразу несколько тесно связанных, но все же независимых инструментов: терминал и командная оболочка.</p>
+
+<p><strong>Командная оболочка</strong> (shell, командный интерпретатор) — программа, позволяющая с помощью текстовых команд выполнять функции операционной системы и управлять другими программами. Например с помощью <em>shell</em> можно перемещаться по файловой системе и выполнять операции по созданию и удалению файлов. Сам по себе <em>shell</em> представляет из себя REPL (Read Eval Print Loop). Другими словами после запуска оболочки, появляется строка ввода в которую вводятся команды. После того как команда отработает, <em>shell</em> снова входит в режим ожидания ввода команд. Кстати у многих языков программирования есть свой собственный REPL, позволяющий в таком же стиле запускать код.</p>
+
+<p>В Windows по умолчанию используется <code class="language-plaintext highlighter-rouge">command.com</code>, а в Linux — Bash. Кроме них существует множество других оболочек, но Bash — стандарт де-факто, и его нужно знать.</p>
+
+<p>Чтобы запустить <em>shell</em> нужна еще одна программа — <strong>терминал</strong> (term, Terminal Emulator). Терминал — это и есть то самое окно, внутри которого запускается оболочка. Этот термин изначально использовался для отдельно стоящих монитора и клавиатуры, посредством которых можно было подключиться к мейнфрейму (большим многопользовательским компьютерам древности). Терминалы популярны и сейчас: те же банкоматы и устройства для пополнения денег на счетах всевозможных сервисов. Поэтому тот терминал, который представлен программой на наших компьютерах, называют эмулятором, ведь у него нет железной части.</p>
+
+<p>Терминалов, как и оболочек существует множество. Разница заключается в том, какие возможности для удобной работы они предоставляют. Например, очень важно чтобы терминал поддерживал вкладки. Тогда очень сильно упрощается работа с большим количеством терминалов. Стандартный эмулятор в Windows не умеет работать ни с вкладками, ни с чем либо ещё. По сути, все что он делает — запускает <code class="language-plaintext highlighter-rouge">cmd.exe</code> и больше никак не участвует в процессе.</p>
+
+<p>А вот что могут хорошие терминалы:</p>
+
+<ul>
+  <li>Вкладки</li>
+  <li>Split Panes — разделение рабочей области на части</li>
+  <li>Поиск</li>
+  <li>Профили</li>
+</ul>
+
+<p>и многое другое.</p>
+
+<p>В Windows часто бывает так, что терминал одновременно поставляется с командной оболочкой.</p>
+
+<h2 id="основная-общая-конфигурация">Основная (общая) конфигурация</h2>
+
+<h3 id="chocolatey">Chocolatey</h3>
+
+<p>Пакетные менеджеры в средах, отличных от Windows — это основной способ установки программ и библиотек на компьютер. Если вам понадобится поставить Node.js, то достаточно сделать следующее:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>// mac
+$ brew install node
+
+// ubuntu
+$ apt install node
+</code></pre></div></div>
+
+<p>Удобств в таком способе довольно много. Во-первых, не нужно бродить в поисках необходимого софта по всему интернету и тратить уйму времени. Во-вторых, всё, что можно набрать в командной строке автоматизируется. Другими словами, можно написать скрипт, который сам будет ставить всё, что нужно (подробнее смотрите <a href="https://www.ansible.com/">Ansible</a>).</p>
+
+<p>Для Windows существует несколько пакетных менеджеров, но именно <a href="https://chocolatey.org/">Chocolatey</a> стал стандартом де-факто. Установка <em>choco</em> стоит из нескольких простых шагов, которые хорошо описаны в <a href="https://chocolatey.org/install">соответствующем разделе</a>.</p>
+
+<p>В чем-то Chocolaty справляется даже лучше, чем brew или apt. С его помощью можно ставить не только специализированный софт (например, для программистов), но и любые программы вообще.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>GoogleChrome
+</code></pre></div></div>
+
+<p>или, что тоже самое</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>cinst GoogleChrome
+</code></pre></div></div>
+
+<p>Список того, что можно поставить находится <a href="https://chocolatey.org/packages">здесь</a>.</p>
+
+<p>В тексте ниже подразумевается, что вы установили Chocolatey и знаете как им пользоваться.</p>
+
+<h3 id="терминалы">Терминалы</h3>
+
+<h4 id="cmder-базируется-на-conemu">Cmder (базируется на ConEmu)</h4>
+
+<p>Эмулятор, поставляющийся вместе с командной оболочкой <a href="https://git-for-windows.github.io/">Git Bash</a>. Его установка решает сразу две задачи. С одной стороны вы получаете продвинутый терминал, с другой, из коробки, эмулятор Bash (настоящий bash получить нельзя, он работает только в *NIX системах).</p>
+
+<p>Запустите программу <code class="language-plaintext highlighter-rouge">cmd.exe</code> и выполните там следующую команду:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>cmder
+</code></pre></div></div>
+
+<p>После установки Cmder всё остальное следует делать только из под него.</p>
+
+<h4 id="mobaxterm">MobaXterm</h4>
+
+<p>Альтернативный эмулятор, доступный по ссылке: <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>. Также как и Cmder, из коробки поставляется с командной оболочкой. Бесплатен для домашнего использования.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>mobaxterm
+</code></pre></div></div>
+
+<h4 id="hyperjs">Hyper.js</h4>
+
+<p>Рассмотрен здесь для полноты картины. В отличие от предыдущих предоставляет только терминал. По умолчанию запускает внутри себя <code class="language-plaintext highlighter-rouge">cmd.exe</code>, но можно настроить на любую оболочку.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>hyper
+</code></pre></div></div>
+
+<h2 id="ubuntu-for-windows">Ubuntu for Windows</h2>
+
+<p>Ремарка для владельцев последних версий Windows. Microsoft интегрировала Ubuntu внутрь Windows. Особенности установки и включения этой интеграции зависят от конкретной версии Windows, но в целом это сводится к нажатию нескольких кнопок. Подробности можно найти в нашей <a href="https://guides.hexlet.io/virtualization/">инструкции по установке Ubuntu Linux внутри Windows</a>.</p>
+
+<h2 id="vagrant">Vagrant</h2>
+
+<p><a href="https://www.vagrantup.com/">Vagrant</a> — программа, созданная для разворачивания окружения разработчика, работающая во всех основных операционных системах. Она работает совместно с одной из <a href="https://ru.wikipedia.org/wiki/%D0%92%D0%B8%D1%80%D1%82%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">систем виртуализации</a> (например <a href="https://www.virtualbox.org/">VirtualBox</a>). Главное преимущество перед другими способами работы в Windows в том, что это не эмуляция, а полноценная виртуальная машина с Linux на борту.</p>
+
+<p>Вагрант, в отличие от прямого использования виртуальной машины, дает множество полезностей для разработчика. Подробнее про преимущества и процесс установки читайте в <a href="https://guides.hexlet.io/vagrant">отдельном руководстве</a>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>choco <span class="nb">install </span>virtualBox
+choco <span class="nb">install </span>vagrant
+</code></pre></div></div>
+
+<h2 id="babun-cygwin">Babun (Cygwin)</h2>
+
+<p>Cygwin — программное обеспечение, эмулирующее среду Linux на Windows. С его помощью можно запускать программы, написанные под Linux. Конечно, у этого способа множество ограничений, но все же он лучше, чем ничего.</p>
+
+<p>С Cygwin работать напрямую не очень удобно, поэтому был создан Babun. Это командная оболочка, построенная на Cygwin. В отличие от других вариантов, Babun поставляется с собственной экосистемой. Например, он включает в себя пакетный менеджер <em>pact</em>, что приводит к конфликту с Chocolatey.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>babun
+</code></pre></div></div>
+
+<hr>
+
+<p><em>Кирилл Мокевнин</em></p>
+
+    
+    
+  </body>
+</html>

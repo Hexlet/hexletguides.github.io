@@ -1,0 +1,172 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Зачем нужно собирать фронтенд</title>
+    <link rel="canonical" href="https://guides.hexlet.io/webpack/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2020-06-27 00:00:00 +0000 - Кирилл Мокевнин
+    </span>
+    <p>HTML поддерживает два способа работы с JavaScript. Первый – код добавляется прямо на страницу и второй – код загружается из файла указанного в теге <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code>.</p>
+
+<h2 id="инлайновые-скрипты">Инлайновые скрипты</h2>
+
+<p>Первый способ:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;script&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">demo</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello JavaScript!</span><span class="dl">'</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>Он работает только в самых простых ситуациях. Иногда им пользуются для добавления небольших интерактивных элементов, таких как переключатели табов, автокомплиты и т.п.</p>
+
+<h2 id="код-в-файлах">Код в файлах</h2>
+
+<p>Современный фронтенд вышел далеко за пределы этих задач. Количество JavaScript кода во многих проектах достигает десяток и сотен тысяч строк кода. Такую массу кода физически невозможно поддерживать внутри HTML. Потому он располагается в отдельных файлах, которых может быть довольно много. Для их подключения используется второй способ:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c">&lt;!--
+Когда браузер встречает тег `&lt;script&gt;` с указанием `src`,
+он загружает указанный файл и исполняет его.
+Так код получает доступ к содержимому страницы.
+--&gt;</span>
+
+<span class="c">&lt;!-- Все определения внутри становятся глобальны и доступны для всех остальных скриптов --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/script1.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/script2.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>Тег <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> был добавлен в HTML очень давно, задолго до появления современной версии языка с модулями. В те времена не существовало Node.js, пакетного менеджера и понятия “зависимости” (dependencies). Весь код писался в одном файле. Даже если файлов было несколько, они никак не были связаны друг с другом. Если попытаться использовать модули вместе с обычным тегом <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code>, то браузер выдаст ошибку:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Uncaught SyntaxError: Cannot use import statement outside a module
+</code></pre></div></div>
+
+<p>В теории, код можно писать и без использования системы модулей, но этот способ невероятно трудозатратный и основывается на том, что все определения в коде глобальны (а значит, можно легко что-нибудь сломать, перетерев существующие определения). Придётся руками указывать все существующие файлы и загружать их в HTML, в строго определённом порядке. Подобное сейчас встречается только на сайтах, где фронтенд — это jquery с небольшим числом интерактивных элементов.</p>
+
+<p>Отсутствие модулей делает нормальную разработку невозможной. Нельзя работать с зависимостями, нельзя написать тесты, статический анализ кода отсутствует (невозможны переходы по определениям, подсказки).</p>
+
+<h2 id="модули-в-браузере">Модули в браузере</h2>
+
+<p>Проблема отсутствия модулей в браузере настолько важная, что в HTML5 ввели поддержку JavaScript-модулей. Достаточно в теге <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> добавить <code class="language-plaintext highlighter-rouge">type="module"</code>, как браузер начинает их понимать и загружать. Модули понимают практически все современные браузеры.</p>
+
+<p>В HTML:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"/assets/index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>В JavaScript:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1">// index.js</span>
+
+<span class="k">import</span> <span class="nx">app</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./app.js</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">app</span><span class="p">();</span>
+
+<span class="c1">// app.js</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello from module!</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Модули в браузере кардинально всё меняют и позволяют работать с JavaScript так, как это нужно, если бы не одно серьёзное “но”. Система модулей в браузере не умеет работать с зависимостями. Если мы решим установить, например, lodash, то попытка его импортировать завершится с ошибкой. Решить эту проблему на уровне браузеров невозможно. Браузер ничего не знает про файловую систему и того, что там происходит.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Uncaught TypeError: Failed to resolve module specifier "lodash".
+Relative references must start with either "/", "./", or "../".
+</code></pre></div></div>
+
+<h2 id="сборщики-фронтенда">Сборщики фронтенда</h2>
+
+<p>Эти проблемы полностью решают системы сборки. Кроме загрузки файлов, они решают множество других не менее важных задач. Фронтенд-разработка сильно опирается на различные пре- и пост-процессоры. Например, для современного JavaScript (и TypeScript) и многих фреймворков нужен Babel, который получает на вход исходный код проекта, преобразует его в код понятный браузеру. Только после этого его можно отдавать клиенту.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию src</span>
+<span class="c"># И директорию, в которую положить готовый код</span>
+babel src <span class="nt">-o</span> dist
+</code></pre></div></div>
+
+<p>То же самое касается CSS. Всё больше разработчиков используют SASS, который нужно транслировать в чистый CSS.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию stylesheets</span>
+<span class="c"># И директорию, в которую положить готовый CSS</span>
+sass <span class="nt">--update</span> stylesheets dist/stylesheets
+</code></pre></div></div>
+
+<p>Кроме этих задач, сборщики занимаются следующим:</p>
+
+<ul>
+  <li>Предоставляют единую команду для полной сборки фронтенда включая все его части.</li>
+  <li>Автоматически пересобирают фронтенд во время разработки. Делают это очень быстро благодаря использованию инкрементальной сборки (собирают только то, что поменялось).</li>
+  <li>Обеспечивают производительность. Минифицируют и сжимают код (в том числе удаляя неиспользуемый). Разбивают его максимально удобным для кеширования способом.</li>
+  <li>Выполняют любые преобразования, например, TypeScript =&gt; JavaScript. Позволяют подключать пре- и пост-процессоры, настроить порядок их применения к выбранным файлам.</li>
+</ul>
+
+<p>Если выполнять эти задачи вручную, то подготовка кода к запуску в браузере станет занимать больше времени, чем сама разработка.</p>
+
+<h2 id="webpack">Webpack</h2>
+
+<p>Одним из первых сборщиков фронтенда стал Webpack. Сейчас он стандарт де-факто в среде фронтенда, хотя существуют и другие решения. Общий принцип работы вебпака такой. В проекте устанавливается сам вебпак и описывается его конфигурация. Эта конфигурация содержит все правила сборки: какие файлы брать, какие обработчики к ним применять и куда складывать результат. На выходе вебпак формирует файл или набор файлов, готовых для загрузки в браузер. Дальше он не участвует, использование этих файлов – задача программиста.</p>
+
+<p>Webpack поставляется как npm-библиотека и устанавливается в проект, обычно, в dev-зависимости, а для работы удобно использовать cli-утилиту:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir </span>webpack-demo
+<span class="nb">cd </span>webpack-demo
+npm init <span class="nt">-y</span>
+npm i <span class="nt">-D</span> webpack webpack-cli @webpack-cli/init
+</code></pre></div></div>
+
+<p>Теперь можно инициализировать новый вебпак-проект, который автоматически создаст все необходимые файлы и конфигурацию одной командой:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init <span class="nt">--auto</span>
+</code></pre></div></div>
+
+<p>Она предложит перезаписать <em>package.json</em>, добавит в проект несколько зависимостей, создаст HTML и JS-файлы, а также создаст конфигурационный файл. Запуск этой же команды без флага <code class="language-plaintext highlighter-rouge">--auto</code> откроет интерактивный режим, где можно более тонко настроить будущее приложение.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init
+
+Just found a <span class="sb">`</span>.yo-rc.json<span class="sb">`</span> <span class="k">in </span>a parent directory.
+Setting the project root at: /home/hexlet/webpack-demo
+<span class="o">[</span>webpack-cli] 
+ℹ INFO  For more information and a detailed description of each question, have a look at: https://github.com/webpack/webpack-cli/blob/master/INIT.md
+<span class="o">[</span>webpack-cli] ℹ INFO  Alternatively, run <span class="s2">"webpack(-cli) --help"</span> <span class="k">for </span>usage info
+
+? Will your application have multiple bundles? No
+? Which will be your application entry point? src/index
+? In which folder <span class="k">do </span>you want to store your generated bundles? dist
+? Will you use one of the below JS solutions? ES6
+? Will you use one of the below CSS solutions? No
+
+<span class="c"># вывод об установке библиотек</span>
+
+<span class="o">[</span>webpack-cli] 
+Congratulations! Your new webpack configuration file has been created!
+
+You can now run npm run build to bundle your application!
+</code></pre></div></div>
+
+<p>Проект готов и теперь его можно запустить:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack serve
+</code></pre></div></div>
+
+<p>Эта команда соберёт приложение в режиме разработки, откроет браузер и отобразит содержимое HTML-файла, а в консоль выведется сообщение из <em>src/index.js</em>.</p>
+
+<p><amp-img src="/assets/images/webpack/init-app.png" alt="Запущенное в браузере Webpack-приложение" layout="responsive"><noscript><img src="/assets/images/webpack/init-app.png" alt="Запущенное в браузере Webpack-приложение"></noscript></amp-img></p>
+
+<p>Конфигурационный файл <em>webpack.config.js</em> будет содержать несколько плагинов, необходимых для работы с HTML. Всё готово, чтобы написать своё первое фронтенд-приложение, используя Webpack!</p>
+
+<p>Лучший способ продолжить с ним работу — это читать <a href="https://webpack.js.org/guides/getting-started/#basic-setup">официальную документацию</a> и изучить <a href="https://github.com/hexlet-boilerplates/webpack-package">Webpack Boilerplate</a>, созданный Хекслетом.</p>
+
+    
+    
+  </body>
+</html>

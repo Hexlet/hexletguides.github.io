@@ -1,0 +1,373 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Как завести блог на Jekyll</title>
+    <link rel="canonical" href="https://guides.hexlet.io/jekyll/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2017-12-21 00:00:00 +0000 - Кирилл Мокевнин
+    </span>
+    <p><strong>Jekyll — генератор статичных сайтов. Грубо говоря, он просто помогает собрать из шаблонов и текстов набор HTML-файлов, которые можно разместить на любом веб-сервере. Этот сайт — Hexlet Guides — работает на Jekyll.</strong></p>
+
+<p>В отличие от движков для блогов или CMS вроде Wordpress или Ghost,  конечный результат работы Jekyll — это не исполняемые программы на языке программирования, а статичные HTML-файлы. Поэтому для размещения сайта не нужен PHP, Node, базы данных и мощный хостинг. Раздача статических файлов создает минимальную нагрузку на сервер, поэтому чаще всего достаточно самого дешевого хостинга.</p>
+
+<p>Jekyll-сайт можно разместить бесплатно на Github Pages, чем мы и займемся в этом руководстве.</p>
+
+<h2 id="обзор">Обзор</h2>
+
+<p>Рассмотрим схему работы Jekyll и схему публикации сайта вкратце:</p>
+
+<ol>
+  <li>Вы создаёте шаблоны для вашего сайта: как выглядит главная страница, как выглядят страницы постов, категорий, шапки, подвалы и другие блоки сайта.</li>
+  <li>Вы пишете посты в формате <a href="/markdown">Markdown</a> (доступны и другие форматы).</li>
+  <li>Jekyll генерирует конечные HTML-страницы на основе шаблонов и Markdown-файлов.</li>
+  <li>Вы публикуете HTML на веб-сервере и сайт становится доступным в интернете.</li>
+</ol>
+
+<p>GitHub Pages позволяет размещать любые HTML-страницы, но он также поддерживает Jekyll на своей стороне. Это означает, что вы можете не отправлять сгенерированный HTML в Github, а отправлять только папку с вашим Jekyll-проектом и Markdown-файлами, а Github сам запустит генерацию HTML и разместит их у себя.</p>
+
+<h2 id="установка-jekyll-на-локальную-машину">Установка Jekyll на локальную машину</h2>
+
+<p>Есть два способа работы с Jekyll на локальной машине: напрямую или через Docker. Второй способ намного проще и быстрее, но может быть непривычен, если вы никогда раньше не работали с Докером.</p>
+
+<h3 id="прямая-установка-и-запуск-jekyll">Прямая установка и запуск Jekyll</h3>
+
+<p>Jekyll — программа для командной строки, написанная на языке Ruby. Вам не нужно знать этот язык, чтобы работать с Jekyll, но нужно иметь интерпретатор этого языка в системе.</p>
+
+<p>В зависимости от операционной системы, у вас может быть уже установлен Ruby.</p>
+
+<p>В Windows можно использовать <a href="https://rubyinstaller.org/">RubyInstaller</a>. Работать с Jekyll нужно через командную строку. Для подготовки необходимого окружения в Windows используйте наш гайд <a href="/development-on-windows/">Как начать разрабатывать в Windows</a>.</p>
+
+<p>В официальной документации Jekyll есть раздел, <a href="https://jekyllrb.com/docs/windows/">посвященный разным способам установки Ruby и Jekyll на Windows</a>.</p>
+
+<p>В macOS Ruby есть в комплекте. Проверьте его версию:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ruby -v
+ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-darwin16]
+</code></pre></div></div>
+
+<p>Нужна версия 2.0 и выше. Если у вас по какой-то причине более ранняя версия, то обновите Ruby командой <code class="language-plaintext highlighter-rouge">sudo gem install ruby</code>.</p>
+
+<p>Теперь установите Bundler. Это менеджер пакетов, именно через него мы в итоге установим Jekyll и другие необходимые для него пакеты:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>gem install bundler
+</code></pre></div></div>
+
+<p>Теперь установите Jekyll:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>gem install jekyll
+</code></pre></div></div>
+
+<p>Теперь создайте блог:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>jekyll new myblog
+cd myblog
+bundle exec jekyll serve
+</code></pre></div></div>
+
+<p>Откройте в браузере <a href="http://localhost:4000">http://localhost:4000</a>.</p>
+
+<h3 id="установка-и-запуск-jekyll-через-docker">Установка и запуск Jekyll через Docker</h3>
+
+<p>Если вы не знакомы с Докером, то посмотрите наш <a href="https://www.youtube.com/watch?v=dfXuTTV6TVo">вебинар</a>. Для более глубокого ознакомления можно прочитать <a href="https://habrahabr.ru/post/310460/">большой гайд</a> в нашем блоге на Хабре или почитать официальную документацию и поискать другие статьи в интернете.</p>
+
+<p>Официальный Докер-образ Jekyll — <a href="https://hub.docker.com/r/jekyll/jekyll/">jekyll/jekyll</a>.</p>
+
+<p>Самый простой способ начать — использовать <a href="https://github.com/hexlet-boilerplates/jekyll-bootstrap4-docker">наш пакет</a> с готовой темой, основанной на <a href="/bootstrap">Bootstrap 4</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>git clone git@github.com:hexlet-boilerplates/jekyll-bootstrap4-docker.git
+cd 
+make serve
+</code></pre></div></div>
+
+<p>Откройте в браузере <a href="http://localhost:4000">http://localhost:4000</a>.</p>
+
+<h2 id="файловая-структура">Файловая структура</h2>
+
+<p>Базовая структура директории с сайтом выглядит так:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>.
+├── _config.yml
+├── _drafts
+|   ├── begin-with-the-crazy-ideas.md
+|   └── on-simplicity-in-technology.md
+├── _includes
+|   ├── footer.html
+|   └── header.html
+├── _layouts
+|   ├── default.html
+|   └── post.html
+├── _posts
+|   ├── 2007-10-29-hello.md
+|   └── 2009-04-26-good-stuff.md
+├── _sass
+|   ├── _base.scss
+|   └── _layout.scss
+├── _site
+└── index.html
+</code></pre></div></div>
+
+<p>Вкратце:</p>
+
+<ul>
+  <li>ваши посты (например, в формате <a href="/markdown">Markdown</a>) находятся в папке <code class="language-plaintext highlighter-rouge">_posts</code>.</li>
+  <li>шаблоны страниц — в папке <code class="language-plaintext highlighter-rouge">_layouts</code>
+</li>
+  <li>используемые в шаблонах повторяющиеся блоки — в папке <code class="language-plaintext highlighter-rouge">_includes</code>
+</li>
+  <li>главная страница сайта — в <code class="language-plaintext highlighter-rouge">index.html</code>
+</li>
+</ul>
+
+<p>Jekyll берет за основу шаблон, генерирует для каждого поста соответствующие страницы и собирает весь сайт в папке <code class="language-plaintext highlighter-rouge">_site</code>.</p>
+
+<h2 id="конфигурация">Конфигурация</h2>
+
+<h3 id="_configyml">_config.yml</h3>
+
+<p>В файле <code class="language-plaintext highlighter-rouge">_config.yml</code> описана конфигурация сайта.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>title:       "Page title"
+header_title: "Header Title"
+email:       your@ema.il
+author:      Your Name
+description: "My blog description"
+baseurl:     ""
+url:         "https://myblog.com"
+date_format: "%-d.%m.%Y"
+</code></pre></div></div>
+
+<p>Важная деталь: <code class="language-plaintext highlighter-rouge">url</code> — адрес вашего корневого сайта, а <code class="language-plaintext highlighter-rouge">baseurl</code> — путь к Jekyll-сайту.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>https://hello.goo.com/myblog/
+|--------------------|======|
+         |              |
+        url          baseurl
+</code></pre></div></div>
+
+<p>Если ваш сайт находится в корне, то <code class="language-plaintext highlighter-rouge">baseurl</code> будет пустым.</p>
+
+<p>Кроме базовых параметров, вы можете добавлять в этот файл собственные параметры. Они будут доступны в шаблонах. Например, в нашем базовом пакете есть такая строка в конфигурации:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>twitter_username: hexlet
+</code></pre></div></div>
+
+<p>Параметр используется в файле <code class="language-plaintext highlighter-rouge">_includes/header.html</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>{% if site.twitter_username %}
+  &lt;li class="nav-item"&gt;
+    &lt;a class="nav-link" href="https://twitter.com/{{ site.twitter_username }}"&gt;
+      &lt;span class="mr-1 fa fa-twitter"&gt;&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+{% endif %}
+</code></pre></div></div>
+
+<p>Здесь сказано «если в конфигурации есть параметр <code class="language-plaintext highlighter-rouge">twitter_username</code> с непустым значением, то вывести ссылку на Твиттер».</p>
+
+<h3 id="настройка-темы">Настройка темы</h3>
+
+<p>Jekyll идет в комплекте с базовой темой оформления. Наш <a href="https://github.com/hexlet-boilerplates/jekyll-bootstrap4-docker">пакет</a> основан на популярном фреймворке <a href="/bootstrap">Bootstrap 4</a>.</p>
+
+<p>Рассмотрим наш пример поближе:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">_includes</code> — блоки, используемые в нескольких местах
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">head.html</code> — элемент <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>, где подключаются стили, указываются мета-теги и так далее</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">header.html</code> — шапка сайта</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">footer.html</code> — подвал сайта</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">post_footer.html</code> — показывается под постом на странице поста (включается в конфигурации)</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">share_buttons.html</code> — кнопки шеринга в соц. сетях под постом на странице поста (включаются и настраивается в конфигурации)</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">social_links.html</code> — ссылки на соц. сети, показываются в  шапке сайта (включается и настраиваются в конфигурации)</li>
+    </ul>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">_layouts</code> — основные шаблоны сайта
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">default.html</code> — главный шаблон, используется на главной странице</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">post.html</code> — шаблон поста, используется на странице поста</li>
+    </ul>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">css</code> — стили
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">style.css</code> — основной файл стилей сайта</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">likely.css</code> — стили для <a href="https://github.com/ilyabirman/Likely">кнопок</a> шеринга в соц. сетях</li>
+    </ul>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">js</code> — скрипты
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">likely.js</code> — скрипт для <a href="https://github.com/ilyabirman/Likely">кнопок</a> шеринга в соц. сетях</li>
+    </ul>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">images</code> — изображения</li>
+</ul>
+
+<h3 id="front-matter">Front Matter</h3>
+
+<p>Любой файл, содержащий блок Front Matter в формате <a href="https://yaml.org/">YAML</a> будет обработан Jekyll’ом как особый файл. Блок Front Matter должен идти в самом начале файла.</p>
+
+<p>Например, страница <code class="language-plaintext highlighter-rouge">index.html</code> — главная страница сайта — содержит такие строчки в начале:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>---
+layout: default
+---
+</code></pre></div></div>
+
+<p>А так выглядит сам default layout (файл <code class="language-plaintext highlighter-rouge">_layouts/default.html</code>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+{% include head.html %}
+&lt;body&gt;
+  {% include header.html %}
+  &lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col"&gt;{{ content }}&lt;/div&gt;
+    &lt;/div&gt;
+    {% include footer.html %}
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p>Таким образом Jekyll при сборке берет содержание файла <code class="language-plaintext highlighter-rouge">index.html</code>, вставляет в <code class="language-plaintext highlighter-rouge">{{ content }}</code> шаблона и создает конечный <code class="language-plaintext highlighter-rouge">index.html</code>.</p>
+
+<h2 id="создание-постов">Создание постов</h2>
+
+<p>Посты находятся в папке <code class="language-plaintext highlighter-rouge">_posts</code>. Мы используем формат по умолчанию — Markdown. Пример названия файла: <code class="language-plaintext highlighter-rouge">2017-12-18-features.md</code>. Как видно, дата публикации указана в названии файла. После даты идёт название, используемое для URL. Этот пост будет доступен по адресу <code class="language-plaintext highlighter-rouge">mysite.com/features</code>.</p>
+
+<p>Пост также начинается с блока front matter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>---
+layout: post
+title: Features
+cover_url: "/images/tree.jpg"
+---
+</code></pre></div></div>
+
+<p>Здесь могут содержаться как переменные Jekyll’а, так и наши собственные переменные. Здесь мы указали две собственных переменных: <code class="language-plaintext highlighter-rouge">title</code> и <code class="language-plaintext highlighter-rouge">cover_url</code>. Они используются в шаблонах:</p>
+
+<p>В файле <code class="language-plaintext highlighter-rouge">_layouts/post.html</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&lt;h1&gt;{{ page.title }}&lt;/h1&gt;
+</code></pre></div></div>
+
+<p>В файле <code class="language-plaintext highlighter-rouge">_includes/head.html</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&lt;meta property="og:image" content="https://guides.hexlet.io"&gt;
+</code></pre></div></div>
+
+<p>Здесь задаётся полный адрес обложки для социальных сетей. Подробнее об og-тегах можно узнать из урока «<a href="https://ru.hexlet.io/courses/html/lessons/social/theory_unit">Интеграция с соц. сетями и семантический веб</a>» бесплатного курса <a href="https://ru.hexlet.io/courses/html">Основы HTML, CSS и веб-дизайна</a> на Хекслете.</p>
+
+<p>Вы можете помещать картинки в любую директорию и включать их в посты и в front matter по относительному пути.</p>
+
+<h2 id="создание-страниц">Создание страниц</h2>
+
+<p>Вы можете создавать любые директории и HTML-файлы самостоятельно, по аналогии с файлом <code class="language-plaintext highlighter-rouge">index.html</code>.</p>
+
+<p>Например, если создать директорию <code class="language-plaintext highlighter-rouge">works</code> и положить внутрь новый файл <code class="language-plaintext highlighter-rouge">index.html</code> (который может даже не содержать front matter, а быть полностью независимым статическим файлом), то страница будет доступна по адресу вроде <code class="language-plaintext highlighter-rouge">mysite.com/works</code> (в зависимости от значений <code class="language-plaintext highlighter-rouge">url</code> и <code class="language-plaintext highlighter-rouge">baseurl</code> в конфигурации)</p>
+
+<h2 id="публикация-в-интернете">Публикация в интернете</h2>
+
+<h3 id="публикация-html-файлов-на-веб-сервере">Публикация HTML-файлов на веб-сервере</h3>
+
+<p>Файлы из папки <code class="language-plaintext highlighter-rouge">_site</code> достаточно разместить на веб-сервере. Для этого подойдет практически любой хостинг. Подробнее о хостингах можно узнать из бесплатного курса <a href="https://ru.hexlet.io/courses/intro_to_web_development">Введение в веб-разработку</a> на Хекслете.</p>
+
+<h3 id="публикация-на-github-pages-с-поддержкой-jekyll">Публикация на Github Pages с поддержкой Jekyll</h3>
+
+<p>Github — популярный хостинг git-репозиториев — поддерживает Jekyll. Это значит, что вы можете разместить всю папку со своим Jekyll-проектом в репозитории, и Github сам будет генерировать HTML-страницы. При этом вам не нужно включать папку <code class="language-plaintext highlighter-rouge">_site</code> в репозиторий. Конечные HTML-файлы не будут видны в репозитории ни в каком виде. Этот сервис называется <a href="https://pages.github.com/">Github Pages</a>.</p>
+
+<p>Подробнее о Git и работе с Github можно узнать из бесплатного курса <a href="https://ru.hexlet.io/courses/intro_to_git">Системы контроля версий (GIT)</a> на Хекслете.</p>
+
+<ol>
+  <li>Зарегистрируйтесь на <a href="https://github.com/">https://github.com/</a> если еще не сделали этого.</li>
+  <li>
+<a href="https://github.com/new">Создайте новый репозиторий</a> с именем <em>username.github.io</em>, где <em>username</em> — ваш ник на Github.</li>
+  <li>Инициализируйте репозиторий в директории с Jekyll: <code class="language-plaintext highlighter-rouge">git init</code>
+</li>
+  <li>Добавьте remote: <code class="language-plaintext highlighter-rouge">git remote add origin git@github.com:YOUR_USERNAME/YOUR_REPO.git</code>
+</li>
+  <li>
+    <p>Сделайте коммит и отправьте его в github:</p>
+
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="syntax"><code> git add --all
+ git commit -m "Initial commit"
+ git push -u origin master
+</code></pre></div>    </div>
+  </li>
+  <li>Через несколько мгновений страница станет доступна по вашему адресу https://YOUR_USERNAME.github.io</li>
+</ol>
+
+<p>Это удобный способ работы, но так как сборка происходит на стороне Github, вы не можете управлять этим процессом. К примеру, вы не можете устанавливать любые плагины, Github поддерживает лишь небольшой набор <a href="https://pages.github.com/versions/">базовых</a> плагинов.</p>
+
+<h3 id="публикация-на-github-pages-без-поддержки-jekyll">Публикация на Github Pages без поддержки Jekyll</h3>
+
+<p>Github Pages позволяет размещать любые HTML-файлы и не работать с Jekyll на стороне Github. Это означает, что вы можете просто размещать на Github свою папку <code class="language-plaintext highlighter-rouge">_site</code>. Такой способ позволяет вам использовать любые плагины, потому что генерация конечных файлов происходит на вашем компьютере, а Github выступает в роли простого веб-сервера.</p>
+
+<p>Схема работы идентичная, просто храните в репозитории конечные HTML-файлы вместо Jekyll-проекта.</p>
+
+<p>Подробнее о всех вариантах создания размещения сайтов можно узнать на странице <a href="https://pages.github.com/">pages.github.com</a>.</p>
+
+<h3 id="подключение-своего-домена">Подключение своего домена</h3>
+
+<p>Github Pages позволяет подключить сторонний домен. При этом будет работать автоматический редирект 301 с адреса https://YOUR_USERNAME.github.io на ваш домен.</p>
+
+<ol>
+  <li>Добавьте в репозиторий файл <code class="language-plaintext highlighter-rouge">CNAME</code> (без расширения), и внесите в него домен без указания протокола. Например, <code class="language-plaintext highlighter-rouge">myblog.com</code>.</li>
+  <li>Если используете домен второго уровня, то на стороне своего DNS-провайдера выставьте ему запись типа <code class="language-plaintext highlighter-rouge">ALIAS</code> или <code class="language-plaintext highlighter-rouge">ANAME</code> со значением <code class="language-plaintext highlighter-rouge">YOUR_USERNAME.github.io</code>; или две записи типа <code class="language-plaintext highlighter-rouge">A</code> со значениями <code class="language-plaintext highlighter-rouge">192.30.252.153</code> и <code class="language-plaintext highlighter-rouge">192.30.252.154</code>. Если используете домен третьего уровня, то добавьте ему запись типа <code class="language-plaintext highlighter-rouge">CNAME</code> со значением <code class="language-plaintext highlighter-rouge">YOUR_USERNAME.github.io</code>. Подробнее о своих доменах в <a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/">официальной документации</a>.</li>
+</ol>
+
+<h2 id="дополнительные-возможности">Дополнительные возможности</h2>
+
+<p>Всё описанное в этом руководстве касается базовых возможностей и  настроек по умолчанию. <a href="https://jekyllrb.com/docs/home/">Официальная документация</a> описывает множество дополнительных возможностей, таких как:</p>
+
+<ul>
+  <li>создание «коллекций» постов и страниц</li>
+  <li>пагинация</li>
+  <li>миграция из других блог-платформ</li>
+  <li>подсветка кода и поддержка математических формул в постах</li>
+  <li>плагины</li>
+  <li>темы</li>
+  <li>теги</li>
+  <li>парсинг файлов с данными (YAML, JSON, CSV)</li>
+  <li>continuous integration</li>
+</ul>
+
+<p>А <a href="https://jekyllrb.com/docs/plugins/">плагины</a> позволяют еще сильнее расширить возможности системы.</p>
+
+<hr>
+
+<p>Рахим Давлеткалиев</p>
+
+    
+    
+  </body>
+</html>

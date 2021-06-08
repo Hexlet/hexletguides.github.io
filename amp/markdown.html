@@ -1,0 +1,256 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Что такое Markdown</title>
+    <link rel="canonical" href="https://guides.hexlet.io/markdown/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2017-07-10 00:00:00 +0000 - Рахим Давлеткалиев
+    </span>
+    <p><strong>Markdown — язык разметки текстов. Такие тексты легко писать и читать. Их можно без труда сконвертировать в HTML. Большинство программистов предпочитают Markdown для написания документации, описаний своих проектов, написания блогов и так далее.</strong></p>
+
+<h3 id="что-это-значит">Что это значит?</h3>
+
+<p>«Язык разметки» — это просто набор соглашений, правил.</p>
+
+<p>Допустим, что вы общаетесь с другом по СМС. В них нельзя сделать текст жирным или наклонным. Вы договариваетесь с другом: если я пишу <code class="language-plaintext highlighter-rouge">*что-то*</code> вот так между звездочками, то считай, что это наклонный текст. А если я пишу <code class="language-plaintext highlighter-rouge">**что-то**</code> между двумя звездочками, то считай, что это жирный текст. Вы придумали <em>правила</em>.</p>
+
+<p>Markdown — это набор подобных правил.</p>
+
+<p>Правила понятны разным программам и сайтам. Например, «Вопросы и ответы» в уроках на Хекслете поддерживают Markdown. Это значит, что вы можете писать туда тексты по правилам Markdown, а после нажатия «Отправить» разметка станет реальной: текст в одинарных звездочках станет наклонным, текст в двойных звездочках станет жирным и так далее. Это конвертация из Markdown в HTML.</p>
+
+<h3 id="зачем-это-нужно">Зачем это нужно?</h3>
+
+<ol>
+  <li>Для добавления разметки туда, где невозможна реальная разметка. Например, в простом текстовом файле или в тех же СМС, где невозможно выделение жирным, создание заголовков, выделение цитат и пр.</li>
+  <li>Для более удобного написания текстов для последующей конвертации в HTML или другие форматы.</li>
+</ol>
+
+<h3 id="примеры">Примеры</h3>
+
+<ul class="nav nav-pills mt-3 mb-2 flex-column flex-md-row" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#text" role="tab">Текст</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#lists" role="tab">Списки</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#pics" role="tab">Картинки</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#headers" role="tab">Заголовки</a>
+  </li>
+</ul>
+
+<div class="tab-content hexlet_guides_examples">
+  <div class="tab-pane active" id="text" role="tabpanel">
+
+  <pre class="hexlet_guides_source"><code class="px-4">
+Я *считаю*, что это **хороший** пример. [Заходите на Хекслет](https://hexlet.io).
+  </code></pre>
+
+  <div class="hexlet_guies_rendered px-4 py-2">
+    <p>Я <em>считаю</em>, что это <strong>хороший</strong> пример. <a href="https://hexlet.io">Заходите на Хекслет</a>.</p>
+  </div>
+  </div>
+
+  <div class="tab-pane" id="lists" role="tabpanel">
+  <pre class="hexlet_guides_source"><code class="px-4">
+Что нужно знать:
+
+* Git 
+* JavaScript
+  * ES6
+  * Babel
+
+В каком порядке изучать:
+
+1. Английский язык 
+1. Архитектура
+  1. Компьютеры
+  1. Операционные системы
+  </code></pre>
+
+  <div class="hexlet_guies_rendered px-4 py-2">
+    <p>Что нужно знать:</p>
+    <ul>
+    <li>Git </li>
+    <li>JavaScript
+    <ul>
+    <li>ES6</li>
+    <li>Babel</li>
+</ul>
+    </li>
+    </ul>
+    <p>В каком порядке изучать:</p>
+    <ol>
+    <li>Английский язык </li>
+    <li>Архитектура
+    <ol>
+    <li>Компьютеры</li>
+    <li>Операционные системы</li>
+</ol>
+    </li>
+    </ol>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="pics" role="tabpanel">
+
+  <pre class="hexlet_guides_source"><code class="px-4">
+![Логотип Хекслета](https://i.imgur.com/8VvhUMB.jpg)
+  </code></pre>
+  <div class="hexlet_guies_rendered px-4 py-2">
+    <p><amp-img src="https://i.imgur.com/8VvhUMB.jpg" alt="Логотип Хекслета" width="210" height="210" layout="responsive"><noscript><img src="https://i.imgur.com/8VvhUMB.jpg" alt="Логотип Хекслета" width="210" height="210"></noscript></amp-img></p>
+  </div>
+
+  </div>
+  <div class="tab-pane" id="headers" role="tabpanel">
+
+  <pre class="hexlet_guides_source"><code class="px-4">
+# Добро пожаловать!
+
+А тут обычный текст.
+
+## Это второй уровень
+
+Хорошо быть заголовком.
+
+### А это — третий
+#### Любимый четвертый уровень
+##### Жалкий пятый уровень
+###### Смешной шестой уровень
+  </code></pre>
+  <div class="hexlet_guies_rendered px-4 py-2">
+    <h1>Добро пожаловать!</h1>
+
+    <p>А тут обычный текст.</p>
+
+    <h2>Это второй уровень</h2>
+
+    <p>Хорошо быть заголовком.</p>
+
+    <h3>А это — третий</h3>
+
+    <h4>Любимый четвертый уровень</h4>
+
+    <h5>Жалкий пятый уровень</h5>
+
+    <h6>Смешной шестой уровень</h6>
+  </div>
+
+  </div>
+</div>
+
+<h3 id="синтаксис">Синтаксис</h3>
+
+<p>Это краткий справочник основных элементов синтаксиса Markdown. Единого стандарта не существует и разные версии Markdown могут отличаться в деталях. Но базовые элементы из списка ниже поддерживаются во всех стандартах.</p>
+
+<h4 id="выделение-текста">Выделение текста</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="ge">*Этот текст будет наклонным (курсив)*</span>
+<span class="ge">_Этот текст будет наклонным (курсив)_</span>
+
+<span class="gs">**Этот текст будет жирным**</span>
+<span class="gs">__Этот текст будет жирным__</span>
+
+<span class="ge">_Можно **вставлять** один тип в другой_</span>
+</code></pre></div></div>
+
+<h4 id="заголовки">Заголовки</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code># Это самый крупный заголовок, он превращается в тег &lt;h1&gt;
+## &lt;h2&gt;
+### &lt;h3&gt;
+#### &lt;h4&gt;
+##### &lt;h5&gt;
+###### &lt;h6&gt;
+</code></pre></div></div>
+
+<h4 id="ссылки">Ссылки</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code>https://hexlet.io — текст простой ссылки станет кликабельной ссылкой автоматически
+</code></pre></div></div>
+
+<p>Ссылкой можно сделать любой текст:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">[</span><span class="nv">Это ссылка на Хекслет</span><span class="p">](</span><span class="sx">https://hexlet.io</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="цитата">Цитата</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="gt">&gt; Это мудрая цитата</span>
+<span class="gt">&gt; Мудрого человека.</span>
+</code></pre></div></div>
+
+<h4 id="картинки">Картинки</h4>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">![</span><span class="nv">Это опциональный alt-текст</span><span class="p">](</span><span class="sx">https://i.imgur.com/HzsGS7G.png</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="код">Код</h4>
+
+<p>Для выделения кода (или любого неотформатированного текста) используются специальные символы — обратные тики: <code class="language-plaintext highlighter-rouge">`</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Иногда нужно добавить кусок кода `function(12);` в обычную строчку текста.
+</code></pre></div></div>
+
+<pre><code>А иногда нужно вставить целый блок кода:
+
+```javascript
+const func = (num) =&gt; {  
+  if (num &gt; 0) {  
+    return num - 1;  
+  }
+  return num + 1;  
+};  
+```
+</code></pre>
+
+<h4 id="списки">Списки</h4>
+
+<p>Непронумерованный список:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">*</span> Пункт 
+<span class="p">*</span> Еще один пункт
+<span class="p">  *</span> Подпункт
+<span class="p">  *</span> Еще один подпункт
+</code></pre></div></div>
+
+<p>Пронумерованный список:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">1.</span> Пункт 
+<span class="p">1.</span> Еще один пункт
+<span class="p">  1.</span> Подпункт
+<span class="p">  1.</span> Еще один подпункт
+</code></pre></div></div>
+
+<p>В пронумерованном списке можно использовать любые числа — это не важно. При конвертации в HTML или другой формат числа станут правильными и последовательными (1, 2, 3 и т.д.).</p>
+
+<h3 id="дополнительно">Дополнительно</h3>
+
+<ol>
+  <li><a href="https://en.wikipedia.org/wiki/Markdown">Markdown в Википедии</a></li>
+  <li><a href="https://commonmark.org/help/tutorial/">10-минутный интерактивный туториал</a></li>
+</ol>
+
+<hr>
+
+<p><em>Рахим Давлеткалиев</em></p>
+
+    
+    
+  </body>
+</html>

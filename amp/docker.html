@@ -1,0 +1,516 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Как и для чего использовать Docker</title>
+    <link rel="canonical" href="https://guides.hexlet.io/docker/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2018-01-30 00:00:00 +0000 - Кирилл Мокевнин
+    </span>
+    <p><strong>Docker — программа, позволяющая операционной системе запускать процессы в изолированном окружении на базе специально созданных образов. Несмотря на то, что технологии, лежащие в основе Докера появились до него, именно Докер произвел революцию в том, как сегодня создается инфраструктура проектов, собираются и запускаются сервисы.</strong></p>
+
+<p><em>(В статье намеренно опущены многие детали, чтобы не грузить информацией, которая не нужна для ознакомления).</em></p>
+
+<h2 id="установка">Установка</h2>
+
+<p>Докер поставляется в виде Community Edition (CE) и Enterprise Edition (EE). Нас интересует CE. На <a href="https://www.docker.com/community-edition">главной странице</a> этой версии доступны ссылки для скачивания под все популярные платформы. Выберите вашу и установите Докер.</p>
+
+<p>В работе Докера есть одна деталь, которую важно знать при установке на Mac и Linux. По умолчанию Докер работает через unix сокет. В целях безопасности сокет закрыт для пользователей, не входящих в группу <em>docker</em>. И хотя установщик добавляет текущего пользователя в эту группу автоматически, Докер сразу не заработает. Дело в том, что если пользователь меняет группу сам себе, то ничего не изменится до тех пор, пока пользователь не перелогинится. Такова особенность работы ядра. Для проверки того, в какие группы входит ваш пользователь, можно набрать команду <code class="language-plaintext highlighter-rouge">id</code>.</p>
+
+<p>Проверить успешность установки можно командой <code class="language-plaintext highlighter-rouge">docker info</code>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker info
+Containers: 22
+ Running: 2
+ Paused: 0
+ Stopped: 20
+Images: 72
+Server Version: 17.12.0-ce
+Storage Driver: overlay2
+ Backing Filesystem: extfs
+ Supports d_type: <span class="nb">true
+ </span>Native Overlay Diff: <span class="nb">true
+</span>Logging Driver: json-file
+Cgroup Driver: cgroupfs
+...
+</code></pre></div></div>
+
+<p>Она выдает довольно много информации о конфигурации самого Докера и статистику работы.</p>
+
+<h2 id="запуск">Запуск</h2>
+
+<p>На этом этапе команды на выполнение даются “как есть” без объяснения деталей. Подробнее о том, как их формировать и
+что в них входит разбирается позже.</p>
+
+<p>Начнем с самого простого варианта:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> nginx bash
+root@a6c26812d23b:/#
+</code></pre></div></div>
+
+<p>При первом вызове данная команда начнет скачивать образ (image) <em>nginx</em>, поэтому придется немного подождать. После того, как образ скачается, запустится <em>bash</em>, и вы окажетесь <strong>внутри контейнера</strong> (container).</p>
+
+<p>Побродите по файловой системе, посмотрите директорию <em>/etc/nginx</em>. Как видите, её содержимое не совпадает с тем, что находится у вас на компьютере. Эта файловая система появилась из образа <em>nginx</em>. Всё, что вы сделаете здесь внутри, никак не затронет вашу основную файловую систему. Вернуться в родные скрепы можно командой <code class="language-plaintext highlighter-rouge">exit</code>.</p>
+
+<p>Теперь посмотрим вариант вызова команды <code class="language-plaintext highlighter-rouge">cat</code>, выполненной уже в другом контейнере, но тоже запущенном из образа <em>nginx</em>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run nginx <span class="nb">cat</span> /etc/nginx/nginx.conf
+
+user  nginx<span class="p">;</span>
+worker_processes  1<span class="p">;</span>
+
+error_log  /var/log/nginx/error.log warn<span class="p">;</span>
+pid        /var/run/nginx.pid<span class="p">;</span>
+...
+<span class="err">$</span>
+</code></pre></div></div>
+
+<p>Команда выполняется практически мгновенно, так как образ уже загружен. В отличие от предыдущего старта, где запускается баш и начинается интерактивная сессия внутри контейнера, запуск команды <code class="language-plaintext highlighter-rouge">cat /etc/nginx/nginx.conf</code> для образа <em>nginx</em> выведет на экран содержимое указанного файла (взяв его из файловой системы запущенного контейнера) и вернет управление в то место, где вы были. Вы не окажетесь внутри контейнера.</p>
+
+<p>Последний вариант запуска будет таким:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Обратите внимание на то, что после имени образа не указана никакая команда.</span>
+<span class="c"># Такой подход работает в случае если команда на запуск прописана в самом образе</span>
+<span class="nv">$ </span>docker run <span class="nt">-p</span> 8080:80 nginx
+</code></pre></div></div>
+
+<p>Данная команда не возвращает управление, потому что стартует nginx. Откройте браузер и наберите <code class="language-plaintext highlighter-rouge">localhost:8080</code>. Вы увидите как загрузилась страница <em>Welcome to nginx!</em>. Если в этот момент снова посмотреть в консоль, где был запущен контейнер, то можно увидеть, что туда выводится лог запросов к <code class="language-plaintext highlighter-rouge">localhost:8080</code>. Остановить nginx можно командой <kbd>Ctrl + C</kbd>.</p>
+
+<p>Несмотря на то, что все запуски выполнялись по-разному и приводили к разным результатам, общая схема их работы — одна. Докер при необходимости автоматически скачивает образ (первый аргумент после <code class="language-plaintext highlighter-rouge">docker run</code>) и на основе него стартует контейнер с указанной командой.</p>
+
+<p><strong>Образ — самостоятельная файловая система</strong>. Пока мы используем готовые образы, но потом научимся создавать их самостоятельно.</p>
+
+<p><strong>Контейнер — запущенный процесс операционной системы в изолированном окружении</strong> с подключенной файловой системой из образа.</p>
+
+<p>Повторюсь, что контейнер — всего лишь обычный процесс вашей операционной системы. Разница лишь в том, что благодаря возможностям ядра (о них в конце) Докер стартует процесс в изолированном окружении. Контейнер видит свой собственный список процессов, свою собственную сеть, свою собственную файловую систему и так далее. Пока ему не укажут явно, он не может взаимодействовать с вашей основной операционной системой и всем, что в ней хранится или запущено.</p>
+
+<p>Попробуйте выполнить команду <code class="language-plaintext highlighter-rouge">docker run -it ubuntu bash</code> и наберите <code class="language-plaintext highlighter-rouge">ps auxf</code> внутри запущенного контейнера. Вывод будет таким:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.1  0.1  18240  3300 pts/0    Ss   15:39   0:00 /bin/bash
+root        12  0.0  0.1  34424  2808 pts/0    R+   15:40   0:00 ps aux
+</code></pre></div></div>
+
+<p>Как видно, процесса всего два, и у Bash PID равен 1. Заодно можно посмотреть в директорию <em>/home</em> командой <code class="language-plaintext highlighter-rouge">ls /home</code> и убедиться, что она пустая. Также обратите внимание, что внутри контейнера по умолчанию используется пользователь <code class="language-plaintext highlighter-rouge">root</code>.</p>
+
+<h2 id="зачем-все-это">Зачем все это?</h2>
+
+<p><strong>Докер — универсальный способ доставки приложений на машины (локальный компьютер или удаленные сервера) и их запуска в изолированном окружении.</strong></p>
+
+<p>Вспомните, когда вам приходилось собирать программы из исходников. Этот процесс включает в себя следующие шаги:</p>
+
+<ul>
+  <li>Установить все необходимые зависимости под вашу операционную систему (их список еще надо найти).</li>
+  <li>Скачать архив, распаковать.</li>
+  <li>Запустить конфигурирование <code class="language-plaintext highlighter-rouge">make configure</code>.</li>
+  <li>Запустить компиляцию <code class="language-plaintext highlighter-rouge">make compile</code>.</li>
+  <li>Установить <code class="language-plaintext highlighter-rouge">make install</code>.</li>
+</ul>
+
+<p>Как видите, процесс нетривиальный и далеко не всегда быстрый. Иногда даже невыполнимый из-за непонятных ошибок. И это не говоря про загрязнение операционной системы.</p>
+
+<p>Докер позволяет упростить эту процедуру до запуска одной команды причем с почти 100% гарантией успеха. Посмотрите на вымышленный пример, в котором происходит установка программы Tunnel на локальный компьютер в директорию <em>/usr/local/bin</em> используя образ <em>tunnel</em>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker run <span class="nt">-v</span> /usr/local/bin:/out tunnel
+</code></pre></div></div>
+
+<p>Запуск этой команды приводит к тому, что в основной системе в директории <em>/usr/local/bin</em> оказывается исполняемый файл программы, находящейся внутри образа <em>tunnel</em>. Команда <code class="language-plaintext highlighter-rouge">docker run</code> запускает контейнер из образа <em>tunnel</em>, внутри происходит компиляция программы и, в конечном итоге, она оказывается в директории <em>/usr/local/bin</em> основной файловой системы. Теперь можно стартовать программу, просто набрав <code class="language-plaintext highlighter-rouge">tunnel</code> в терминале.</p>
+
+<p>А что если программа, которую мы устанавливаем таким способом, имеет зависимости? Весь фокус в том, что образ, из которого был запущен контейнер, полностью укомплектован. Внутри него установлены все необходимые зависимости, и его запуск практически гарантирует 100% работоспособность независимо от состояния основной ОС.</p>
+
+<p>Часто даже не обязательно копировать программу из контейнера на вашу основную систему. Достаточно запускать сам контейнер, когда в этом возникнет необходимость. Предположим, что мы решили разработать статический сайт на основе Jekyll. Jekyll — популярный генератор статических сайтов, написанный на Ruby. Например, гайд который вы читаете прямо сейчас, находится на статическом сайте, сгенерированном с его помощью. И при его генерации использовался Докер (об этом можно прочитать в гайде: <a href="https://guides.hexlet.io/jekyll/">как делать блог на Jekyll</a>).</p>
+
+<p>Старый способ использования Jekyll требовал установки на вашу основную систему как минимум Ruby и самого Jekyll в виде гема (gem — название пакетов в Ruby). Причем, как и всегда в подобных вещах, Jekyll работает только с определенными версиями Ruby, что вносит свои проблемы при настройке.</p>
+
+<p>С Докером запуск Jekyll сводится к одной команде, выполняемой в директории с блогом (подробнее можно посмотреть в <a href="https://github.com/hexletguides/hexletguides.github.io">репозитории</a> наших гайдов):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker run <span class="nt">--rm</span> <span class="nt">--volume</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">:/srv/jekyll"</span> <span class="nt">-it</span> jekyll/jekyll jekyll server
+</code></pre></div></div>
+
+<p>Точно таким же образом сейчас запускается огромное количество различного софта. Чем дальше, тем больше подобный способ захватывает мир. На этом месте можно немного окунуться в происхождение названия Docker.</p>
+
+<p><amp-img src="/assets/images/docker/docker_logo.png" alt="docker logo" layout="responsive"><noscript><img src="/assets/images/docker/docker_logo.png" alt="docker logo"></noscript></amp-img></p>
+
+<p>Как вы знаете, основной способ распространения товаров по миру — корабли. Раньше стоимость перевозки была довольно большая, по причине того, что каждый груз имел собственную форму и тип материала.</p>
+
+<p><amp-img src="/assets/images/docker/cargo.jpg" alt="loading cargo onto a ship" layout="responsive"><noscript><img src="/assets/images/docker/cargo.jpg" alt="loading cargo onto a ship"></noscript></amp-img></p>
+
+<p>Загрузить на корабль мешок с рыбой или машину — разные задачи, требующие разных процессов и инструментов. Возникали проблемы со способами погрузки, требовались разнообразные краны и инструменты. А эффективно упаковать груз на самом корабле, с учетом его хрупкости — задача нетривиальная.</p>
+
+<p>Но в какой-то момент все изменилось. Картинка стоит тысячи слов:</p>
+
+<p><amp-img src="/assets/images/docker/container_terminal.jpg" alt="shipping container terminal" layout="responsive"><noscript><img src="/assets/images/docker/container_terminal.jpg" alt="shipping container terminal"></noscript></amp-img></p>
+
+<p>Контейнеры уравняли все виды грузов и стандартизировали инструменты погрузки и разгрузки во всем мире. Что в свою очередь привело к упрощению процессов, ускорению и, следовательно, уменьшению стоимости перевозок.</p>
+
+<p>То же самое произошло и в разработке ПО. Docker стал универсальным средством доставки софта независимо от его структуры, зависимостей и способа установки. Всё, что нужно программам, распространяемым через Докер, находится внутри образа и не пересекается с основной системой и другими контейнерами. Важность этого факта невозможно переоценить. Теперь обновление версий программ никак не задействует ни саму систему, ни другие программы. Сломаться больше ничего не может. Всё, что нужно сделать, это скачать новый образ той программы, которую требуется обновить. Другими словами, Докер убрал проблему <a href="https://ru.wikipedia.org/wiki/Dependency_hell">dependency hell</a> и сделал инфраструктуру <a href="https://martinfowler.com/bliki/ImmutableServer.html">immutable</a> (неизменяемой).</p>
+
+<p>Больше всего Docker повлиял именно на серверную инфраструктуру. До эры Докера управление серверами было очень болезненным мероприятием даже несмотря на наличие программ по управлению конфигурацией (chef, puppet, ansible). Основная причина всех проблем — изменяемое состояние. Программы ставятся, обновляются, удаляются. Происходит это в разное время на разных серверах и немного по-разному. Например, обновить версию таких языков, как PHP, Ruby или Python могло стать целым приключением с потерей работоспособности. Проще поставить рядом новый сервер и переключиться на него. Идейно Докер позволяет сделать именно такое переключение. Забыть про старое и поставить новое, ведь каждый запущенный контейнер живет в своем окружении. Причем, откат в такой системе тривиален: всё что нужно — остановить новый контейнер и поднять старый, на базе предыдущего образа.</p>
+
+<h2 id="приложение-в-контейнере">Приложение в контейнере</h2>
+
+<p>Теперь поговорим о том, как приложение отображается на контейнеры. Возможны два подхода:</p>
+
+<ol>
+  <li>Всё приложение — один контейнер, внутри которого поднимается дерево процессов: приложение, веб сервер, база данных и всё в этом духе.</li>
+  <li>Каждый запущенный контейнер — атомарный сервис. Другими словами каждый контейнер представляет из себя ровно одну программу, будь то веб-сервер или приложение.</li>
+</ol>
+
+<p>На практике все преимущества Docker достигаются только со вторым подходом. Во-первых, сервисы, как правило, разнесены по разным машинам и нередко перемещаются по ним (например, в случае выхода из строя сервера), во-вторых, обновление одного сервиса не должно приводить к остановке остальных.</p>
+
+<p>Первый подход крайне редко, но бывает нужен. Например, Хекслет работает в двух режимах. Сам сайт с его сервисами использует вторую модель, когда каждый сервис отдельно, но вот практика, выполняемая в браузере, стартует по принципу “один пользователь — один контейнер”. Внутри контейнера может оказаться всё что угодно в зависимости от практики. Как минимум, там всегда стартует сама среда Хекслет IDE, а она в свою очередь порождает терминалы (процессы). В курсе по базам данных в этом же контейнере стартует и база данных, в курсе, связанном с вебом, стартует веб-сервер. Такой подход позволяет создать иллюзию работы на настоящей машине и резко снижает сложность в поддержке упражнений. Повторюсь, что такой вариант использования очень специфичен и вам вряд ли понадобится.</p>
+
+<p>Другой важный аспект при работе с контейнерами касается состояния. Например, если база запускается в контейнере, то ее данные ни в коем случае не должны храниться там же, внутри контейнера. Контейнер как процесс операционной системы, может быть легко уничтожен, его наличие всегда временно. Docker содержит механизмы, для хранения и использования данных лежащих в основной файловой системе. О них будет позже.</p>
+
+<h2 id="работа-с-образами">Работа с образами</h2>
+
+<p>Docker — больше, чем просто программа. Это целая экосистема со множеством проектов и сервисов. Главный сервис, с которым вам придется иметь дело — Registry. Хранилище образов.</p>
+
+<p>Концептуально оно работает так же, как и репозиторий пакетов любого пакетного менеджера. Посмотреть его содержимое можно на сайте <a href="https://store.docker.com/">https://store.docker.com/</a> (либо по старому адресу <a href="https://hub.docker.com/">https://hub.docker.com/</a>), кликнув по ссылке Containers.</p>
+
+<p>Когда мы выполняем команду <em>run</em> <code class="language-plaintext highlighter-rouge">docker run &lt;image name&gt;</code>, то Docker проверяет наличие указанного образа на локальной машине и скачивает его по необходимости. Список образов, уже скачанных на компьютер, можно посмотреть командой <code class="language-plaintext highlighter-rouge">docker images</code>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker images
+REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
+workshopdevops_web                   latest              cfd7771b4b3a        2 days ago          817MB
+hexletbasics_app                     latest              8e34a5f631ea        2 days ago          1.3GB
+mokevnin/rails                       latest              96487c602a9b        2 days ago          743MB
+ubuntu                               latest              2a4cca5ac898        3 days ago          111MB
+Ruby                                 2.4                 713da53688a6        3 weeks ago         687MB
+Ruby                                 2.5                 4c7885e3f2bb        3 weeks ago         881MB
+nginx                                latest              3f8a4339aadd        3 weeks ago         108MB
+elixir                               latest              93617745963c        4 weeks ago         889MB
+postgres                             latest              ec61d13c8566        5 weeks ago         287MB
+</code></pre></div></div>
+
+<p>Разберемся с тем, как формируется имя образа, и что оно в себя включает.</p>
+
+<p>Вторая колонка в выводе выше называется TAG. Когда мы выполняли команду <code class="language-plaintext highlighter-rouge">docker run nginx</code>, то на самом деле выполнялась команда <code class="language-plaintext highlighter-rouge">docker run nginx:latest</code>. То есть мы не просто скачиваем образ <em>nginx</em>, а скачиваем его конкретную версию. Latest — тег по умолчанию. Несложно догадаться, что он означает последнюю версию образа.</p>
+
+<p>Важно понимать, что это всего лишь соглашение, а не правило. Конкретный образ вообще может не иметь тега <em>latest</em>, либо иметь, но он не будет содержать последние изменения, просто потому, что никто их не публикует. Впрочем, популярные образы следуют соглашению. Как понятно из контекста, теги в Докере изменяемы, другими словами, вам никто не гарантирует, что скачав образ с одним и тем же тегом на разных компьютерах в разное время вы получите одно и то же. Такой подход может показаться странным и ненадежным, ведь нет гарантий, но на практике есть определенные соглашения, которым следуют все популярные образы. Тег latest действительно всегда содержит последнюю версию и постоянно обновляется, но кроме этого тега активно используется <a href="https://semver.org/">семантическое версионирование</a>. Рассмотрим https://store.docker.com/images/nginx</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>1.13.8, mainline, 1, 1.13, latest
+1.13.8-perl, mainline-perl, 1-perl, 1.13-perl, perl
+1.13.8-alpine, mainline-alpine, 1-alpine, 1.13-alpine, alpine
+1.13.8-alpine-perl, mainline-alpine-perl, 1-alpine-perl, 1.13-alpine-perl, alpine-perl
+1.12.2, stable, 1.12
+1.12.2-perl, stable-perl, 1.12-perl
+1.12.2-alpine, stable-alpine, 1.12-alpine
+1.12.2-alpine-perl, stable-alpine-perl, 1.12-alpine-perl
+</code></pre></div></div>
+
+<p>Теги, в которых присутствует полная семантическая версия (x.x.x) всегда неизменяемы, даже если в них встречается что-то еще, например, <em>1.12.2-alphine</em>. Такую версию смело нужно брать для продакшен-окружения. Теги, подобные такому <em>1.12</em>, обновляются при изменении path версии. То есть внутри образа может оказаться и версия <em>1.12.2</em>, и в будущем <em>1.12.8</em>. Точно такая же схема и с версиями, в которых указана только мажорная версия, например, <em>1</em>. Только в данном случае обновление идет не только по патчу, но и по минорной версии.</p>
+
+<p>Как вы помните, команда <code class="language-plaintext highlighter-rouge">docker run</code> скачивает образ, если его нет локально, но эта проверка не связана с обновлением содержимого. Другими словами, если <em>nginx:latest</em> обновился, то <code class="language-plaintext highlighter-rouge">docker run</code> его не будет скачивать, он использует тот <em>latest</em>, который прямо сейчас уже загружен. Для гарантированного обновления образа существует другая команда: <code class="language-plaintext highlighter-rouge">docker pull</code>. Вот она всегда проверяет, обновился ли образ для определенного тега.</p>
+
+<p>Кроме тегов имя образа может содержать префикс: например, <code class="language-plaintext highlighter-rouge">etsy/chef</code>. Этот префикс является именем аккаунта на сайте, через который создаются образы, попадающие в Registry. Большинство образов как раз такие, с префиксом. И есть небольшой набор, буквально сотня образов, которые не имеют префикса. Их особенность в том, что эти образы поддерживает сам Docker. Поэтому если вы видите, что в имени образа нет префикса, значит это официальный образ. Список таких образов можно увидеть здесь: https://github.com/docker-library/official-images/tree/master/library</p>
+
+<p>Удаляются образы командой <code class="language-plaintext highlighter-rouge">docker rmi &lt;imagename&gt;</code>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker rmi Ruby:2.4
+Untagged: Ruby:2.4
+Untagged: Ruby@sha256:d973c59b89f3c5c9bb330e3350ef8c529753ba9004dcd1bfbcaa4e9c0acb0c82
+</code></pre></div></div>
+
+<p>Если в Докере присутствует хоть один контейнер из удаляемого образа, то Докер не даст его удалить по понятным причинам. Если вы всё же хотите удалить и образ, и все контейнеры, связанные с ним, используйте флаг <code class="language-plaintext highlighter-rouge">-f</code>.</p>
+
+<h2 id="управление-контейнерами">Управление контейнерами</h2>
+
+<p><amp-img src="/assets/images/docker/docker-container-lifecycle.png" alt="Docker Container LifeCycle" layout="responsive"><noscript><img src="/assets/images/docker/docker-container-lifecycle.png" alt="Docker Container LifeCycle"></noscript></amp-img></p>
+
+<p>Картинка описывает жизненный цикл (конечный автомат) контейнера. Кружками на нём изображены состояния, жирным выделены консольные команды, а квадратиками показывается то, что в реальности выполняется.</p>
+
+<p>Проследите путь команды <code class="language-plaintext highlighter-rouge">docker run</code>. Несмотря на то, что команда одна, с точки зрения работы Докера выполняется два действия: создание контейнера и запуск. Существуют и более сложные варианты исполнения, но в этом разделе мы рассмотрим только базовые команды.</p>
+
+<p>Запустим nginx так, чтобы он работал в фоне. Для этого после слова <em>run</em> добавляется флаг <code class="language-plaintext highlighter-rouge">-d</code>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 8080:80 nginx
+431a3b3fc24bf8440efe2bca5bbb837944d5ae5c3b23b9b33a5575cb3566444e
+</code></pre></div></div>
+
+<p>После выполнения команды Докер выводит идентификатор контейнера и возвращает управление. Убедитесь в том, что nginx работает, открыв в браузере ссылку <code class="language-plaintext highlighter-rouge">localhost:8080</code>. В отличие от предыдущего запуска, наш nginx работает в фоне, а значит не видно его вывода (логов). Посмотреть его можно командой <code class="language-plaintext highlighter-rouge">docker logs</code>, которой нужно передать идентификатор контейнера:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker logs 431a3b3fc24bf8440efe2bca5bbb837944d5ae5c3b23b9b33a5575cb3566444e
+
+172.17.0.1 - - <span class="o">[</span>19/Jan/2018:07:38:55 +0000] <span class="s2">"GET / HTTP/1.1"</span> 200 612 <span class="s2">"-"</span> <span class="s2">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36"</span> <span class="s2">"-"</span>
+</code></pre></div></div>
+
+<p>Вы также можете подсоединиться к выводу лога в стиле <code class="language-plaintext highlighter-rouge">tail -f</code>. Для этого запустите <code class="language-plaintext highlighter-rouge">docker logs -f 431a3b3fc24bf8440efe2bca5bbb837944d5ae5c3b23b9b33a5575cb3566444e</code>. Теперь лог будет обновляться каждый раз, когда вы обновляете страницу в браузере. Выйти из этого режима можно набрав <kbd>Ctrl + C</kbd>, при этом сам контейнер остановлен не будет.</p>
+
+<p>Теперь выведем информацию о запущенных контейнерах командой <code class="language-plaintext highlighter-rouge">docker ps</code>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS              PORTS                                          NAMES
+431a3b3fc24b        nginx                            <span class="s2">"nginx -g 'daemon of…"</span>   2 minutes ago       Up 2 minutes        80/tcp                                         wizardly_rosalind
+</code></pre></div></div>
+
+<p>Расшифровка столбиков:</p>
+
+<ul>
+  <li>CONTAINER_ID — идентификатор контейнера. Так же, как и в git, используется сокращенная запись хеша.</li>
+  <li>IMAGE — имя образа, из которого был поднят контейнер. Если не указан тег, то подразумевается <em>latest</em>.</li>
+  <li>COMMAND — команда, которая выполнилась на самом деле при старте контейнера.</li>
+  <li>CREATED — время создания контейнера</li>
+  <li>STATUS — текущее состояние.</li>
+  <li>PORTS — проброс портов.</li>
+  <li>NAMES — алиас. Докер позволяет кроме идентификатора иметь имя. Так гораздо проще обращаться с контейнером. Если при создании контейнера имя не указано, то Докер самостоятельно его придумывает. В выводе выше как раз такое имя у nginx.</li>
+</ul>
+
+<p>(<em>Команда <code class="language-plaintext highlighter-rouge">docker stats</code> выводит информацию о том, сколько ресурсов потребляют запущенные контейнеры).</em></p>
+
+<p>Теперь попробуем остановить контейнер. Выполним команду:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Вместо CONTAINER_ID можно указывать имя</span>
+<span class="nv">$ </span>docker <span class="nb">kill </span>431a3b3fc24b <span class="c"># docker kill wizardly_rosalind</span>
+431a3b3fc24b
+</code></pre></div></div>
+
+<p>Если попробовать набрать <code class="language-plaintext highlighter-rouge">docker ps</code>, то там этого контейнера больше нет. Он удален.</p>
+
+<p>Команда <code class="language-plaintext highlighter-rouge">docker ps</code> выводит только запущенные контейнеры. Но кроме них могут быть и остановленные. Причем, остановка может происходить как и по успешному завершению, так и в случае ошибок. Попробуйте набрать <code class="language-plaintext highlighter-rouge">docker run ubuntu ls</code>, а затем <code class="language-plaintext highlighter-rouge">docker run ubuntu bash -c "unknown"</code>. Эти команды не запускают долгоживущий процесс, они завершаются сразу после выполнения, причем вторая с ошибкой, так как такой команды не существует.</p>
+
+<p>Теперь выведем все контейнеры командой <code class="language-plaintext highlighter-rouge">docker ps -a</code>. Первыми тремя строчками вывода окажутся:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>CONTAINER ID        IMAGE                            COMMAND                  CREATED                  STATUS                       PORTS                                          NAMES
+85fb81250406        ubuntu                           <span class="s2">"bash -c unkown"</span>         Less than a second ago   Exited <span class="o">(</span>127<span class="o">)</span> 3 seconds ago                                                  loving_bose
+c379040bce42        ubuntu                           <span class="s2">"ls"</span>                     Less than a second ago   Exited <span class="o">(</span>0<span class="o">)</span> 9 seconds ago                                                    determined_tereshkova
+</code></pre></div></div>
+
+<p>Здесь как раз два последних наших запуска. Если посмотреть на колонку STATUS, то видно, что оба контейнера находятся в состоянии Exited. То есть запущенная команда внутри них выполнилась, и они остановились. Разница лишь в том, что один завершился успешно (0), а второй с ошибкой (127). После остановки контейнер можно даже перезапустить:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker start determined_tereshkova <span class="c"># В вашем случае будет другое имя</span>
+</code></pre></div></div>
+
+<p>Только в этот раз вы не увидите вывод. Чтобы его посмотреть, воспользуйтесь командой <code class="language-plaintext highlighter-rouge">docker logs determined_tereshkova</code>.</p>
+
+<h2 id="взаимодействие-с-другими-частями-системы">Взаимодействие с другими частями системы</h2>
+
+<p>Запускать изолированный контейнер, который живет весь внутри себя — малополезно. Как правило, контейнеру нужно взаимодействовать с внешним миром, принимать входящие запросы на определенный порт, выполнять запросы на другие сервисы, читать общие файлы и писать в них. Все эти возможности настраиваются при создании контейнера.</p>
+
+<h3 id="interactive-mode">Interactive mode</h3>
+
+<p>Самый простой вариант использования Докера, как мы уже убедились — поднять контейнер и выполнить внутри него какую-либо команду:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run ubuntu <span class="nb">ls</span> /usr
+bin
+games
+include
+lib
+<span class="nb">local
+</span>sbin
+share
+src
+<span class="err">$</span>
+</code></pre></div></div>
+
+<p>После выполнения команды Docker возвращает управление, и мы снова находимся вне контейнера. Если попробовать точно так же запустить баш, то мы получим не то, что хотим:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run ubuntu bash
+<span class="err">$</span>
+</code></pre></div></div>
+
+<p>Дело в том, что <code class="language-plaintext highlighter-rouge">bash</code> запускает интерактивную сессию внутри контейнера. Для взаимодействия с ней нужно оставить открытым поток STDIN и запустить TTY (псевдо-терминал). Поэтому для запуска интерактивных сессий нужно не забыть добавить опции <code class="language-plaintext highlighter-rouge">-i</code> и <code class="language-plaintext highlighter-rouge">-t</code>. Как правило их добавляют сразу вместе как <code class="language-plaintext highlighter-rouge">-it</code>. Поэтому правильный способ запуска баша выглядит так: <code class="language-plaintext highlighter-rouge">docker run -it ubuntu bash</code>.</p>
+
+<h3 id="ports">Ports</h3>
+
+<p>Если запустить nginx такой командой <code class="language-plaintext highlighter-rouge">docker run nginx</code>, то nginx не сможет принять ни один запрос, несмотря на то, что внутри контейнера он слушает <em>80</em> порт (напомню, что каждый контейнер по умолчанию живет в своей собственной сети). Но если запустить его так <code class="language-plaintext highlighter-rouge">docker run -p 8080:80 nginx</code>, то nginx начнет отвечать на порту <em>8080</em>.</p>
+
+<p>Флаг <code class="language-plaintext highlighter-rouge">-p</code> позволяет описывать как и какой порт выставить наружу. Формат записи <code class="language-plaintext highlighter-rouge">8080:80</code> расшифровывается так: пробросить порт <em>8080</em> снаружи контейнера в контейнер на порт <em>80</em>. Причем, по умолчанию, порт <em>8080</em> слушается на <code class="language-plaintext highlighter-rouge">0.0.0.0</code>, то есть на всех доступных интерфейсах. Поэтому запущенный таким образом контейнер доступен не только через <code class="language-plaintext highlighter-rouge">localhost:8080</code>, но и снаружи машины (если доступ не запрещен как-нибудь еще). Если нужно выполнить проброс только на <em>loopback</em>, то команда меняется на такую: <code class="language-plaintext highlighter-rouge">docker run -p 127.0.0.1:8080:80 nginx</code>.</p>
+
+<p>Docker позволяет пробрасывать столько портов, сколько нужно. Например, в случае nginx часто требуется использовать и <code class="language-plaintext highlighter-rouge">80</code> порт, и <code class="language-plaintext highlighter-rouge">443</code> для HTTPS. Сделать это можно так: <code class="language-plaintext highlighter-rouge">docker run -p 80:80 -p 443:443 nginx</code> Про остальные способы пробрасывать порты  можно прочитать в официальной документации.</p>
+
+<h3 id="volumes">Volumes</h3>
+
+<p>Другая частая задача связана с доступом к основной файловой системе. Например, при старте nginx-контейнера ему можно указать конфигурацию, лежащую на основной фс. Докер прокинет её во внутреннюю фс, и nginx сможет её читать и использовать.</p>
+
+<p>Проброс осуществляется с помощью опции <code class="language-plaintext highlighter-rouge">-v</code>. Вот как можно запустить баш сессию из образа Ubuntu, подключив туда историю команд с основной файловой системы: <code class="language-plaintext highlighter-rouge">docker run -it -v ~/.bash_history:/root/.bash_history ubuntu bash</code>. Если в открытом баше понажимать стрелку вверх, то отобразится история. Пробрасывать можно как файлы, так и директории. Любые изменения производимые внутри volume меняются как внутри контейнера, так и снаружи, причем по умолчанию доступны любые операции. Как и в случае портов, количество пробрасываемых файлов и директорий может быть любым.</p>
+
+<p>При работе с Volumes есть несколько важных правил, которые надо знать:</p>
+
+<ul>
+  <li>Путь до файла во внешней системе должен быть абсолютным.</li>
+  <li>Если внутренний путь (то, что идет после <code class="language-plaintext highlighter-rouge">:</code>) не существует, то Докер создаст все необходимые директории и файлы. Если существует, то заменит старое тем, что было проброшено.</li>
+</ul>
+
+<p>Кроме пробрасывания части фс снаружи, Докер предоставляет еще несколько вариантов создания и использования Volumes. Подробнее — в официальной документации.</p>
+
+<h3 id="переменные-окружения">Переменные окружения</h3>
+
+<p>Конфигурирование приложения внутри контейнера, как правило, осуществляется с помощью переменных окружения в соответствии с <a href="https://12factor.net/ru/">12factors</a>. Существует два способа их установки:</p>
+
+<ul>
+  <li>Флаг <code class="language-plaintext highlighter-rouge">-e</code>. Используется он так: <code class="language-plaintext highlighter-rouge">docker run -it -e "HOME=/tmp" ubuntu bash</code>
+</li>
+  <li>Специальный файл, содержащий определения переменных окружения, который пробрасывается внутрь контейнера опцией <code class="language-plaintext highlighter-rouge">--env-file</code>.</li>
+</ul>
+
+<h2 id="подготовка-собственного-образа">Подготовка собственного образа</h2>
+
+<p>Создание и публикация собственного образа не сложнее его использования. Весь процесс делится на три шага:</p>
+
+<ul>
+  <li>Создается файл <code class="language-plaintext highlighter-rouge">Dockerfile</code> в корне проекта. Внутри описывается процесс создания образа.</li>
+  <li>Выполняется сборка образа командой <code class="language-plaintext highlighter-rouge">docker build</code>
+</li>
+  <li>Выполняется публикация образа в Registry командой <code class="language-plaintext highlighter-rouge">docker push</code>
+</li>
+</ul>
+
+<p>Рассмотрим процесс создания образа на примере упаковки линтера <code class="language-plaintext highlighter-rouge">eslint</code> (не забудьте повторить его самостоятельно). В результате сборки, мы получим образ, который можно использовать так:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> <span class="nt">-v</span> /path/to/js/files:/app my_account_name/eslint
+
+/app/index.js
+  3:6  error  Parsing error: Unexpected token
+
+  1 | import path from <span class="s1">'path'</span><span class="p">;</span>
+  2 |
+<span class="o">&gt;</span> 3 | path<span class="o">(</span><span class="p">;</span><span class="o">)</span>
+    |      ^
+  4 |
+
+✖ 1 problem <span class="o">(</span>1 error, 0 warnings<span class="o">)</span>
+</code></pre></div></div>
+
+<p>То есть достаточно запустить контейнер из этого образа, подключив каталог с файлами js для проверки как Volume во внутреннюю директорию <em>/app</em>.</p>
+
+<h3 id="1-конечная-структура-директории-на-основе-файлов-которой-соберется-образ-выглядит-так">1. Конечная структура директории, на основе файлов которой соберется образ, выглядит так:</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>eslint-docker/
+    Dockerfile
+    eslintrc.yml
+</code></pre></div></div>
+
+<p>Файл <em>eslintrc.yml</em> содержит конфигурацию линтера. Он автоматически прочитывается, если лежит в домашней директории под именем <em>.eslintrc.yml</em>. То есть этот файл должен попасть под таким именем в директорию <em>/root</em> внутрь образа.</p>
+
+<h3 id="2-создание-dockerfile">2. Создание Dockerfile</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code># Dockerfile
+FROM node:9.3
+
+WORKDIR /usr/src
+
+RUN npm install -g eslint babel-eslint
+RUN npm install -g eslint-config-airbnb-base eslint-plugin-import
+
+COPY eslintrc.yml /root/.eslintrc.yml
+
+CMD ["eslint", "/app"]
+</code></pre></div></div>
+
+<p>Dockerfile имеет довольно простой формат. На каждой строчке указывается инструкция (директива) и её описание.</p>
+
+<h4 id="from">FROM</h4>
+
+<p>Инструкция FROM нужна для указания образа, от которого происходит наследование. Здесь необходимо оговориться, что образы строятся на базе друг друга и все вместе образуют большое дерево.</p>
+
+<p>В корне этого дерева находится образ <em>busybox</em>. В прикладных задачах напрямую его не используют, так как Докером предоставляются подготовленные образы под каждую экосистему и стек.</p>
+
+<h4 id="run">RUN</h4>
+
+<p>Основная инструкция в Dockerfile. Фактически здесь указывается <em>sh</em> команда, которая будет выполнена в рамках окружения, указанного во FROM при сборке образа. Так как по умолчанию всё выполняется от пользователя <em>root</em>, то использовать <em>sudo</em> не нужно (и скорее всего его нет в базовом образе). К тому же учтите, что сборка образа — процесс не интерактивный. В тех ситуациях, когда вы используете команду, которая может запросить что-то от пользователя, необходимо подавлять этот вывод. Например, в случае пакетных менеджеров делают так: <code class="language-plaintext highlighter-rouge">apt-get install -y curl</code>. Флаг <code class="language-plaintext highlighter-rouge">-y</code> как раз говорит о том что нужно производиться установку без дополнительных вопросов.</p>
+
+<p>Технически образ Докера — это не один файл, а набор так называемых <em>слоев</em>. Каждый вызов RUN формирует новый слой, который можно представить как набор файлов, созданных и измененных (в том числе удаленных) командой, указанной в RUN. Такой подход позволяет значительно улучшить производительность системы, задействовав кеширование слоев, которые не поменялись. С другой стороны, Докер переиспользует слои в разных образах если они идентичны, что сокращает и скорость загрузки и занимаемое пространство на диске. Тема кеширования слоев довольно важная при активном использовании Докера. Для её эффективной работы нужно понимать как она устроена и как правильно описывать инструкции <code class="language-plaintext highlighter-rouge">RUN</code> для максимальной утилизации.</p>
+
+<h4 id="copy">COPY</h4>
+
+<p>В соответствии со своим названием команда COPY берет файл или директорию из основной файловой системы и копирует её внутрь образа. У команды есть ограничение. То, что копируется, должно лежать в той же директории, где и Dockerfile. Именно эту команду используют при разработке когда необходимо упаковать приложение внутрь образа.</p>
+
+<h4 id="workdir">WORKDIR</h4>
+
+<p>Инструкция, устанавливающая рабочую директорию. Все последующие инструкции будут считать, что они выполняются именно внутри неё. По инструкция <code class="language-plaintext highlighter-rouge">WORKDIR</code> действует, как команда <code class="language-plaintext highlighter-rouge">cd</code>. Кроме того, когда мы запускаем контейнер, то он также стартует из рабочей директории. Например, запустив bash, вы окажетесь внутри неё.</p>
+
+<h4 id="cmd">CMD</h4>
+
+<p>Та самая инструкция, определяющая действие по умолчанию при использовании <code class="language-plaintext highlighter-rouge">docker run</code>. Она используется только в том случае, если контейнер был запущен без указания команды, иначе она игнорируется.</p>
+
+<h3 id="3-сборка">3. Сборка</h3>
+
+<p>Для сборки образа используется команда <code class="language-plaintext highlighter-rouge">docker build</code>. С помощью флага <code class="language-plaintext highlighter-rouge">-t</code> передается имя образа, включая имя аккаунта и тег. Как обычно, если не указывать тег, то подставляется <em>latest</em>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker build <span class="nt">-t</span> my_account_name/eslint <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>После выполнения данной команды вы можете увидеть текущий образ в списке <code class="language-plaintext highlighter-rouge">docker images</code>. Вы даже можете начать его использовать без необходимости публикации в Registry. Напомню, что команда <code class="language-plaintext highlighter-rouge">docker run</code> не пытается искать обновленную версию образа, если локально есть образ с таким именем и тегом.</p>
+
+<h3 id="4-публикация">4. Публикация</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker push my_account_name/eslint
+</code></pre></div></div>
+
+<p>Для успешного выполнения публикации нужно соблюсти два условия:</p>
+
+<ul>
+  <li>Зарегистрироваться на Docker Cloud и создать там репозиторий для образа.</li>
+  <li>Залогиниться в cli интерфейсе используя команду <code class="language-plaintext highlighter-rouge">docker login</code>.</li>
+</ul>
+
+<h2 id="docker-compose">Docker Compose</h2>
+
+<p>Docker Compose — продукт, позволяющий разрабатывать проект локально, используя Докер. По решаемым задачам его можно сравнивать с Vagrant.</p>
+
+<p>Docker Compose позволяет управлять набором контейнеров, каждый из которых представляет из себя один сервис проекта. Управление включает в себя сборку, запуск с учетом зависимостей и конфигурацию. Конфигурация Docker Compose описывается в файле <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>, лежащем в корне проекта, и выглядит примерно так:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># https://github.com/hexlet-basics/hexlet_basics</span>
+
+<span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.3'</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">db</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres</span>
+  <span class="na">app</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span>
+      <span class="na">context</span><span class="pi">:</span> <span class="s">services/app</span>
+      <span class="na">dockerfile</span><span class="pi">:</span> <span class="s">Dockerfile</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">mix phx.server</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">${PORT}:${PORT}"</span>
+    <span class="na">env_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">.env'</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">./services/app:/app:cached"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">~/.bash_history:/root/.bash_history:cached"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">.bashrc:/root/.bashrc:cached"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">/var/tmp:/var/tmp:cached"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">/tmp:/tmp:cached"</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">db</span>
+</code></pre></div></div>
+
+<h2 id="в-бою">В бою</h2>
+
+<p>При использовании Докера настройка машин проекта, как правило, сводится к установке Докера. Дальше нужно только деплоить. Простейший процесс выкладки выглядит так:</p>
+
+<ol>
+  <li>Скачать новый образ.</li>
+  <li>Остановить старый контейнер.</li>
+  <li>Поднять новый контейнер.</li>
+</ol>
+
+<p>Причем, данный порядок действий не зависит от стека технологий. Выполнять деплой можно (как и настройку машин) с помощью <a href="https://docs.ansible.com/ansible/2.5/modules/docker_container_module.html">Ansible</a>.</p>
+
+<p>Другой вариант, подходящий для нетривиальных проектов, основан на использовании специальных систем оркестрации типа <a href="https://kubernetes.io/">Kubernetes</a>. Данный вариант требует от вас довольно серьезной подготовки, включающий понимание принципов работы распределенных систем.</p>
+
+<h2 id="докер-под-капотом">Докер под капотом</h2>
+
+<p>Изоляция, которую предоставляет Докер, достигается благодаря возможностям ядра <a href="https://en.wikipedia.org/wiki/Cgroups">Cgroups</a> и <a href="https://en.wikipedia.org/wiki/Linux_namespaces">Namespaces</a>. Они позволяют запускать процесс операционной системы не только в изолированном окружении, но и с ограничением по использованию физических ресурсов, таких как память или процессор.</p>
+
+<h2 id="дополнительные-ссылки">Дополнительные ссылки</h2>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=dfXuTTV6TVo">Вебинар: Введение в докер</a></li>
+</ul>
+
+    
+    
+  </body>
+</html>

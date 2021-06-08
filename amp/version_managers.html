@@ -1,0 +1,126 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Что такое "Менеджер версий"</title>
+    <link rel="canonical" href="https://guides.hexlet.io/version_managers/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2020-06-28 00:00:00 +0000 - Кирилл Мокевнин
+    </span>
+    <h2 id="системная-установка">Системная установка</h2>
+
+<p>Для запуска кода на любом языке, необходимо установить его интерпретатор (или компилятор). В разных операционных системах это делается по-разному: где-то используются пакетные менеджеры, например, <em>apt</em> или <em>yum</em>, где-то скачивается установщик. Некоторые языки бывают предустановленны сразу, например, Python. На него многое завязано в дистрибутивах линукса.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Ubuntu</span>
+<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>nodejs <span class="c"># установит не самую свежую версию</span>
+</code></pre></div></div>
+
+<p>Стандартный способ установки работает хорошо только в самом начале, когда происходит первичная настройка. Затем, с течением времени, начинают всплывать разные проблемы. Например, в какой-то момент выходит новая версия языка, которую нужно подключить к проекту. Обычно, должно пройти какое-то время, перед тем, как язык станет доступным для установки через пакетные менеджеры. И здесь либо придется ждать, что не всегда желательно, либо искать другой способ установки. Последнее нередко превращается в серьёзное испытание, с часами гугления и установкой дополнительных библиотек. Все это в конце концов засоряет систему и иногда ломает её.</p>
+
+<p>Другая серьёзная проблема – установка сразу нескольких версий одного языка. Такое бывает нужно, когда разработчик переключается между разными проектами, требующими разные версии. Насколько часто такое происходит? Крайне часто. Чем дальше в разработку, тем больше вариантов: разные проекты в компании, свои проекты, опенсорс.</p>
+
+<p><em>Здесь нужно упомянуть, что всё это мало касается тех, кто целиком ушел в Docker и Docker Compose. Однако даже в этом случае, нужны языки для работы с опенсорсом.</em></p>
+
+<h2 id="менеджеры-версий">Менеджеры версий</h2>
+
+<p>Для решения этих проблем разработчики придумали менеджеры версий. Менеджер версий – это специальная программа, предназначенная для управления версиями языка. С его помощью устанавливают нужные версии и производят переключение между ними. В отличие от пакетных менеджеров, входящих в операционные системы, менеджеры версий всегда позволяют ставить последние версии языков, как только они выходят (включая установку альфа- и бета-версий).</p>
+
+<p>Например, для Node.js это <a href="https://github.com/nvm-sh/nvm">NVM</a> (Node Version Manager):</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Установка NVM</span>
+<span class="nv">$ </span>curl <span class="nt">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+<span class="c"># Установка не означает активацию. После установки активной останется та версия, что и была до установки</span>
+<span class="nv">$ </span>nvm <span class="nb">install </span>node <span class="c"># Установка последней доступной версии ноды</span>
+<span class="nv">$ </span>nvm <span class="nb">install </span>6.14.4 <span class="c"># или 10.10.0, 8.9.1, и т.п.</span>
+<span class="nv">$ </span>nvm ls-remote <span class="c"># список доступных версий</span>
+<span class="nv">$ </span>nvm use node <span class="c"># Активация последней установленной версии ноды</span>
+<span class="nv">$ </span>nvm use node 14.1 <span class="c"># Активация нужной версии</span>
+</code></pre></div></div>
+
+<p>Для упрощения работы менеджеры версий обычно позволяют создать специальный файл внутри проекта, который зафиксирует нужную версию языка. В некоторых случаях менеджеры версий сами отслеживают этот файл и переключают версию автоматически.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"14.1"</span> <span class="o">&gt;</span> .nvmrc
+<span class="c"># Эта команда увидела файл .nvmrc и использовала указанную там версию</span>
+<span class="nv">$ </span>nvm use
+Found <span class="s1">'/path/to/project/.nvmrc'</span> with version &lt;14.1&gt;
+Now using node v14.1
+</code></pre></div></div>
+
+<p>В современном мире сложно представить себе язык, у которого бы не было менеджера версий. Более того некоторые языки, такие как Ruby, имеют множество разных менеджеров версий, которые конкурируют между собой:</p>
+
+<ul>
+  <li>go: gvm, g</li>
+  <li>java: jabba</li>
+  <li>ruby: rbenv, rvm, chruby</li>
+  <li>php: phpenv, phpbrew</li>
+  <li>python: pyenv</li>
+</ul>
+
+<p>Менеджеры версий позволили решить ещё несколько важных задач. Как правило, когда программист взаимодействует с языком, установленным напрямую, то ему приходится использовать <em>sudo</em> при установке глобальных пакетов. Дело в том, что стандартная схема установки языка предназначена для всех пользователей сразу. Поэтому все нужные файлы, включая глобальные пакеты, попадают в общие директории для которых нужны права администратора. С точки зрения безопасности это довольно большая дыра, которой могут воспользоваться (и иногда пользуются) разработчики опенсорс библиотек. Менеджеры версий устанавливают всё в домашнюю директорию текущего пользователя, где у него и так полные права. С одной стороны это позволяет не запускать установку пакетов от имени администратора, а с другой — не засоряется система. Удалить язык и все его пакеты через менеджер версий невероятно просто. Достаточно стереть директорию (правда, лучше это делать средствами самого менеджера версий).</p>
+
+<h2 id="универсальный-менеджер">Универсальный менеджер</h2>
+
+<p>Решив одни проблемы, менеджеры версий добавили другие. Во-первых, их слишком много, и они иногда меняются, сначала популярен один, затем другой. Во-вторых, сам процесс установки менеджера версий может оказаться сложнее установки языка. Проблема в том, что им нужно быть универсальными и работать везде, что крайне проблематично, учитывая разнообразие современных экосистем. Достаточно посмотреть размер документации NVM, чтобы оценить масштаб катастрофы. В-третьих, все эти менеджеры работают по-разному и имеют разные команды. Из-за этого усложняется процесс переключения между ними при работе с разными языками.</p>
+
+<p>Всё это привело к следующему логическому шагу. В конце концов появился универсальный менеджер <a href="https://asdf-vm.com/">asdf</a>, который, благодаря плагинам, способен работать с любыми языками. Неполный список его преимуществ:</p>
+
+<ul>
+  <li>Одна единственная утилита командной строки для работы со всеми языками</li>
+  <li>Единый интерфейс взаимодействия для всех языков</li>
+  <li>Автоматическое переключение на нужную версию языка внутри каждого проекта</li>
+  <li>Простая система плагинов, позволяющая добавить любые языки</li>
+</ul>
+
+<p>Сейчас <em>asdf</em> набрал достаточно большую популярность и постепенно заменяет собой все остальные менеджеры версий (технически под капотом там часто используются менеджеры, специфические для конкретных языков). У него чуть более сложная система команд из-за необходимости поддерживать множество языков, но в остальном он резко упрощает весь процесс.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># У asdf прекрасная документация, где наглядно показано, как его установить,</span>
+<span class="c"># и какие могут понадобится зависимости в разных системах</span>
+
+<span class="c"># Установка</span>
+<span class="nv">$ </span>git clone https://github.com/asdf-vm/asdf.git ~/.asdf <span class="nt">--branch</span> v0.7.8
+
+<span class="c"># Для работы с конкретным языком, сначала нужно подключить соответствующий плагин</span>
+<span class="c"># Список доступных плагинов есть на сайте проекта</span>
+<span class="nv">$ </span>asdf plugin add nodejs
+
+<span class="c"># Установка языка</span>
+<span class="c"># Вместо nodejs нужно подставить название того плагина, с которым работаем</span>
+<span class="nv">$ </span>asdf <span class="nb">install </span>nodejs latest <span class="c"># latest означает последнюю версию указанного языка</span>
+
+<span class="c"># Установка указанной версии</span>
+<span class="nv">$ </span>asdf <span class="nb">install </span>nodejs 14.1
+
+<span class="c"># Установка нужной версии языка версией по умолчанию</span>
+<span class="c"># Здесь нужно всегда указывать конкретную версию</span>
+<span class="nv">$ </span>asdf global nodejs 14.1
+
+<span class="c"># Показывает текущие версии для языков, установленных через asdf</span>
+<span class="nv">$ </span>asdf current
+elixir         1.10.1-otp-22 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+erlang         22.2.7   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+nodejs         14.2.0   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+php            7.4.5    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+python         3.8.2 2.7.16 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+ruby           2.7.0    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="вывод">Вывод</h2>
+
+<p>Работа с разными версиями языков – непростая задача, которую решают менеджеры версий и докер (для продвинутых). Среди всех менеджеров выделяется <em>asdf</em>, который становится универсальным инструментом для управления любыми языками и даже обычными программами.</p>
+
+    
+    
+  </body>
+</html>

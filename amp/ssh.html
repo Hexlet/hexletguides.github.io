@@ -1,0 +1,222 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Что такое SSH</title>
+    <link rel="canonical" href="https://guides.hexlet.io/ssh/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2017-07-10 00:00:00 +0000 - Рахим Давлеткалиев
+    </span>
+    <p><strong>SSH — защищенный протокол для удаленного доступа к компьютерам. Через SSH можно выполнять операции в командной строке компьютера, который физически находится в другом месте.</strong></p>
+
+<p>Иными словами, SSH — это дистанционная командная строка. Визуально вы работаете на своем компьютере, но в реальности — на другом.</p>
+
+<h2 id="что-значит-протокол">Что значит «протокол»?</h2>
+
+<p>Протокол — это набор соглашений, правил, по которым разные программы могут обмениваться информацией. SSH — это набор правил, который известен и вашему компьютеру, и физически отдаленному компьютеру.</p>
+
+<blockquote>
+  <p><strong>Пример</strong>: вы вводите команду удаления файла, и эта команда передается на другой компьютер и выполняется там. Ответ (или сообщение об ошибке) возвращается и показывается на вашем компьютере.</p>
+</blockquote>
+
+<h2 id="что-значит-защищенный">Что значит «защищенный»?</h2>
+
+<p>Вся информация передается в зашифрованном виде. Подобно тому, как некоторые сайты работают по HTTPS, шифруя информацию. Например, ваш онлайн-банкинг обязательно должен работать по защищенному соединению. В таком случае даже если всю информацию перехватывает злоумышленник, он не сможет расшифровать её.</p>
+
+<h2 id="зачем-это-нужно">Зачем это нужно?</h2>
+
+<p>Не всегда есть возможность физически находиться у компьютера, с которым нужно работать. Например, если вы хотите создать свой сайт, то он будет размещен на компьютере хостинг-провайдера. Этот компьютер может находиться на другом конце света. Вам нужен способ запускать команды на этом компьютере не выходя из своего дома.</p>
+
+<h2 id="как-подключаться-по-ssh">Как подключаться по SSH?</h2>
+
+<p>Для подключения к удаленной машине по SSH нужен клиент — специальная программа. В *nix-подобных системах (Linux, macOS) клиент обычно установлен в системе по умолчанию, и достаточно открыть терминал. В Windows нужно скачать сторонний клиент, например, <a href="https://www.putty.org/">Putty</a>.</p>
+
+<p>Для подключения нужно указать адрес сервера и, опционально, имя пользователя и порт. Вот как выглядит команда при использовании консольного клиента (в терминале):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh username@remote_host <span class="nt">-p</span> port
+</code></pre></div></div>
+
+<p>Например, для подключения к серверу <code class="language-plaintext highlighter-rouge">52.307.149.244</code> в аккаунт <code class="language-plaintext highlighter-rouge">ivan</code> нужно ввести:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh ivan@52.307.149.244
+</code></pre></div></div>
+
+<p>Если не указывать порт, то будет использован порт SSH по умолчанию — <code class="language-plaintext highlighter-rouge">22</code>. Используемый порт задается при настройке SSH-сервера, программы, которая запущена на удаленном компьютере и ожидает подключения извне.</p>
+
+<p>В графическом клиенте вроде Putty нужно ввести ту же информацию в соответствующие поля:</p>
+
+<p><amp-img src="/assets/images/ssh/putty.png" alt="Putty - стартовая страница" layout="responsive"><noscript><img src="/assets/images/ssh/putty.png" alt="Putty - стартовая страница"></noscript></amp-img></p>
+
+<h3 id="fingerprint">Fingerprint</h3>
+
+<p>При первом подключении появится сообщение:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>The authenticity of host '52.307.149.244 (52.307.149.244)' can't be established.
+ECDSA key fingerprint is fd:fd:d4:f9:77:fe:73:84:e1:55:00:ad:d6:6d:22:fe.
+Are you sure you want to continue connecting (yes/no)? yes
+</code></pre></div></div>
+
+<p>Введите <code class="language-plaintext highlighter-rouge">yes</code> в первый раз.</p>
+
+<p>Это нужно для повышения безопасности. При настройке SSH-сервера создается уникальная комбинация символов — fingerprint («отпечатки пальцев»). Ваш компьютер запоминает эту комбинацию и сверяет ее при каждом новом соединении. Если кто-то переустановит SSH-сервер, или всю операционную систему, или вообще заменит удаленный компьютер, сохранив его адрес, то при следующем соединении вы узнаете об этом, потому что изменится fingerprint.</p>
+
+<p>Если fingerprint не меняется, то такое сообщение не будет появляться.</p>
+
+<h2 id="подключение-по-паролю">Подключение по паролю</h2>
+
+<p>Простейший вариант — подключение по паролю. После ввода команды <code class="language-plaintext highlighter-rouge">ssh</code> система запросит пароль:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ivan@52.307.149.244's password: 
+</code></pre></div></div>
+
+<p>Пароль придется вводить каждый раз.</p>
+
+<h2 id="подключение-по-ключу-без-пароля">Подключение по ключу, без пароля</h2>
+
+<p>Для удобного подключения по SSH (и многим другим сервисам) без ввода пароля можно использовать ключи.</p>
+
+<p>Нужно создать пару ключей: <strong>приватный</strong> (закрытый) ключ и <strong>публичный</strong> (открытый) ключ. Приватный ключ нужно хранить и никогда никому не показывать. Публичный ключ можно показывать всем и распространять свободно.</p>
+
+<p>Эти <em>ключи связаны друг с другом</em> таким образом, что зашифровав информацию одним ключом, расшифровать ее можно только другим. Например, если ваш друг зашифрует письмо вашим публичным ключом, то прочитать его сможете только вы, потому что для этого нужен ваш приватный ключ. И наоборот: если вы зашифруете что-то своим приватным ключом, то расшифровать его можно только вашим публичным ключом. Так как публичный ключ доступен всем, любой может расшифровать это сообщение. Но он может быть уверен, что сообщение пришло именно от вас. В этом заключается идея цифровой подписи.</p>
+
+<h3 id="генерация-ключей">Генерация ключей</h3>
+
+<p>Создадим пару ключей:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh-keygen
+</code></pre></div></div>
+
+<p>Программа запустится и спросит, куда сохранять ключи:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Generating public/private rsa key pair.
+Enter file in which to save the key (/home/demo/.ssh/id_rsa):
+</code></pre></div></div>
+
+<p>Нажмите Enter для сохранения в стандартное место — директорию <code class="language-plaintext highlighter-rouge">.ssh/id_rsa</code> в вашей домашней директории.</p>
+
+<p>Программа запросит passphrase. Это вроде пароля для ключа. Можно просто нажать Enter и пропустить этот шаг. Или ввести passphrase — тогда его нужно будет вводить каждый раз, когда используется ключ.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+</code></pre></div></div>
+
+<p>Ключи созданы:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Your identification has been saved in /home/demo/.ssh/id_rsa.
+Your public key has been saved in /home/demo/.ssh/id_rsa.pub.
+The key fingerprint is:
+8c:e9:7c:fa:bf:c4:e5:9c:c9:b8:60:1f:fe:1c:d3:8a root@here
+The key's randomart image is:
++--[ RSA 2048]----+
+|                 |
+|                 |
+|                 |
+|       +         |
+|      o S   .    |
+|     o   . * +   |
+|      o + = O .  |
+|       + = = +   |
+|      ....Eo+    |
++-----------------+
+</code></pre></div></div>
+
+<p>Теперь у вас есть два файла:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa</code> — приватный ключ. <strong>Никогда никому и никуда не передавайте его!</strong>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa.pub</code> — публичный ключ. Спокойно распространяйте его.</li>
+</ul>
+
+<p>В Windows можно использовать <code class="language-plaintext highlighter-rouge">ssh-gen</code> в подсистеме Ubuntu for Windows или в командной строке Git for Windows. Или создавать ключи графической утилитой вроде <a href="https://winscp.net/eng/docs/ui_puttygen">PuTTYgen</a>.</p>
+
+<h3 id="загрузка-публичного-ключа-на-сервер">Загрузка публичного ключа на сервер</h3>
+
+<p>Нужно добавить публичный ключ на сервер в файл <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code>. Самый простой способ — запустить на локальной машине команду для копирования ключа:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh-copy-id <span class="nt">-i</span> /home/demo/.ssh/id_rsa.pub ivan@52.307.149.244
+</code></pre></div></div>
+
+<p>Другой способ — подключиться по паролю, открыть в редакторе файл <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code> и добавить в конец текст из вашего файла <code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa.pub</code>.</p>
+
+<p>Теперь при подключении пароль запрашиваться не будет<sup>1</sup>.</p>
+
+<p>После включения соединений по ключу <strong>рекомендуется отключить подключение по паролю</strong>.</p>
+
+<h2 id="ssh-agent">ssh-agent</h2>
+
+<p>При работе с ключами возможны две неудобные ситуации:</p>
+
+<ol>
+  <li>Если при создании ключа вы указали passphrase (пароль для ключа), то вам придется вводить пароль при каждом подключении.</li>
+  <li>Если у вас есть несколько ключей для разных целей, то при соединении по <code class="language-plaintext highlighter-rouge">ssh</code> придется указывать нужный ключ вручную</li>
+</ol>
+
+<p>ssh-agent решает эти проблемы. Этот агент аутентификации (authentication agent) работает на фоне в *nix-системах. В зависимости от системы, вам, возможно, придется установить и настроить его автозапуск самостоятельно.</p>
+
+<p>Если добавить ключ к агенту, то:</p>
+
+<ol>
+  <li>для него больше не будет спрашиваться passphrase</li>
+  <li>не нужно будет вводить ключ вручную — он будет автоматически использован при соответствующем подключении</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">ssh-add /home/demo/.ssh/id_rsa</code> добавит ключ <code class="language-plaintext highlighter-rouge">id_rsa</code> в запущенный в системе агент. Если у него есть passphrase, то агент попросит ввести его.</p>
+
+<p>Если запустить <code class="language-plaintext highlighter-rouge">ssh-add</code> без аргументов, то будут добавлены ключи <code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa</code>, <code class="language-plaintext highlighter-rouge">~/.ssh/id_dsa</code>, <code class="language-plaintext highlighter-rouge">~/.ssh/id_ecdsa</code>, <code class="language-plaintext highlighter-rouge">~/.ssh/id_ed25519</code> и <code class="language-plaintext highlighter-rouge">~/.ssh/identity</code>.</p>
+
+<p>Список добавленных в агент ключей можно посмотреть командой <code class="language-plaintext highlighter-rouge">ssh-add -L</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>→ ssh-add <span class="nt">-L</span>
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC91r/+5WEQHcxVMrxpP9jKuONjlrnEHshfG3v/ab2NKDSljdskODOIsdhaaoDoiSADhAaoDISHasoiDiASisjadOHISDdKJDASHSidshIHDSIHDIAsdjasAs7XG/drBhi16zQ2e8VcLD7bVQS1Cpo0O1tP+93YQBvcIE02RltqVKYo7BlgCaJzpdowK8fHSzpfCYsEFjdjosOjfdsjdjkAJOKkKKHJHhaIiAiaihsiIoqkpqdmlnvnuuUSCaAS8aDhajiadiiAahhakKAKDHAKurmD08jnX9HfH/d15pLK/Glo1Su6iEOU3bW8k92QlY54pPFLKiNRPFuUryE5md7T /Users/demo/.ssh/some_key.pem
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUbkp4SnvMHFTHNFFod0FhV0cQcOLvBsZAK/0tUPIXeDDFvYD70r5i0AsQbqA0k7gK3b3MP7tmnPxMHd607TI+1FMO54Yig0vnpZOgKmgCsxWq6tckwyLB91BlPiGxLBZiu5yPDIguEQCSnAwkF0vjqrNGsoHB4+fkj0USfjiifsjihf39hifSIHiJFHSijshfj39jfsjisfiisfiissr893IFsifijfsjSOIiAShadfhssU0q0JpjaDEWcMmYXmuz3xSnbhkueGLBXMU2zXDFDWCDSHq9/oRr29UAfVaHAMw<span class="o">==</span> /Users/demo/.ssh/id_rsa
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">ssh-agent</code> привязан к сессии. Поэтому, например, если перезагрузить компьютер, то ключи нужно будет добавлять в агент заново.</p>
+
+<h2 id="форвардинг-проброс-ключей">Форвардинг (проброс) ключей</h2>
+
+<p>Если вы подключились к удаленному серверу <strong>X</strong>, и с него хотите подключиться к другому серверу <strong>Y</strong>, например, чтобы сделать <code class="language-plaintext highlighter-rouge">git pull</code> с GitHub’а, то придется держать копию ваших ключей на сервере <strong>X</strong>.</p>
+
+<p>Утилита <code class="language-plaintext highlighter-rouge">ssh</code> с флагом <code class="language-plaintext highlighter-rouge">-A</code> позволяет «пробросить» ключи с подключаемой машины в удаленную:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh <span class="nt">-A</span> ivan@52.307.149.244
+</code></pre></div></div>
+
+<p>Ключи, добавленные к агенту аутентификации (ssh-agent) станут доступными на удаленном сервере. При этом файлы-ключи физически не будут находиться на сервере.</p>
+
+<h2 id="дополнительные-ссылки">Дополнительные ссылки</h2>
+
+<ol>
+  <li><a href="https://www.youtube.com/watch?v=sbVYRf_6Hvg">Основы SSH / Видео на канале Хекслета</a></li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys">SSH Essentials: Working with SSH Servers, Clients, and Keys</a></li>
+  <li><a href="https://habrahabr.ru/post/122445/">Памятка пользователям ssh</a></li>
+</ol>
+
+<hr>
+
+<ol>
+  <li>Возможность и специфика подключения по ключу зависит от настроек SSH-сервера. Возможно такое, что подключение по ключу запрещено администратором.</li>
+</ol>
+
+<hr>
+
+<p><em>Рахим Давлеткалиев</em></p>
+
+    
+    
+  </body>
+</html>

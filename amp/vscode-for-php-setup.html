@@ -1,0 +1,188 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Как настроить VS Code для разработки на PHP</title>
+    <link rel="canonical" href="https://guides.hexlet.io/vscode-for-php-setup/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2019-07-28 00:00:00 +0000 - Кирилл Мокевнин
+    </span>
+    <p><strong><a href="https://code.visualstudio.com/">Visual Studio Code</a> – популярный бесплатный редактор кода. Может с легкостью конкурировать с PhpStorm, ведь он бесплатный и с открытым исходным кодом</strong></p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/screen.png" alt="Vscode" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/screen.png" alt="Vscode"></noscript></amp-img>
+<em>Так может выглядеть интерфейс редактора после установки расширений</em></p>
+
+<h2 id="основные-возможности">Основные возможности</h2>
+
+<ul>
+  <li>отладчик кода</li>
+  <li>встроенный терминал</li>
+  <li>удобные инструменты для работы с Git</li>
+  <li>подсветка синтаксиса для множества популярных языков и файловых форматов</li>
+  <li>удобная навигация</li>
+  <li>встроенный предпросмотр <a href="/markdown">Markdown</a>
+</li>
+  <li>умное автодополнение</li>
+  <li>встроенный пакетный менеджер</li>
+</ul>
+
+<p>VS Code имеет большое количество расширений для разработчика. Для установки нового пакета зайдите во вкладку “Extensions”, введите название пакета в строке поиска, нажмите кнопку “Install”.</p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/recommended_extensions.png" alt="extension list" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/recommended_extensions.png" alt="extension list"></noscript></amp-img></p>
+
+<h2 id="editorconfig-for-vs-code">EditorConfig for VS Code</h2>
+
+<p><a href="https://editorconfig.org/">EditorConfig</a> — это конфигурационный файл и набор расширений к большому количеству редакторов кода. Он подхватывает настройки из файла <code class="language-plaintext highlighter-rouge">.editorconfig</code>, который, как правило, размещается в корне проекта.
+Расширение автоматически настроит отступы и <a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4_%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B8">перевод строк</a> единообразно для всех разработчиков, использующих его. PHP код чаще всего выполняется на *nix системах, поэтому необходимо использовать стандарт.</p>
+
+<p>Ниже приводится пример файла <code class="language-plaintext highlighter-rouge">.editorconfig</code>, который используется в Laravel:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="py">root</span> <span class="p">=</span> <span class="s">true</span>
+
+<span class="c"># Глобальные настройки, которые будут записаны для всех файлов.
+</span><span class="nn">[*]</span>
+<span class="py">charset</span> <span class="p">=</span> <span class="s">utf-8</span>
+<span class="c"># На Unix системах используется lf для перевода строки.
+# Это также требование стандарта PSR.
+</span><span class="py">end_of_line</span> <span class="p">=</span> <span class="s">lf</span>
+<span class="py">insert_final_newline</span> <span class="p">=</span> <span class="s">true</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">4</span>
+<span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">true</span>
+
+<span class="c"># Можно задать индивидуальные настройки как для типов файлов,
+# так и отдельных файлов по имени.
+</span><span class="nn">[*.md]</span>
+<span class="py">trim_trailing_whitespace</span> <span class="p">=</span> <span class="s">false</span>
+
+<span class="nn">[*.{yml,vue,js,html}]</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+
+<span class="nn">[{package.json,.travis.yml}]</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+
+<span class="nn">[lib/**.js]</span>
+<span class="py">indent_style</span> <span class="p">=</span> <span class="s">space</span>
+<span class="py">indent_size</span> <span class="p">=</span> <span class="s">2</span>
+</code></pre></div></div>
+
+<h2 id="php-intelephense">PHP Intelephense</h2>
+
+<p>В редакторе уже есть поддержка синтаксиса и подсказок стандартных функций языка. Но без специального дополнения редактор не будет подсказывать пользовательские функции из других частей проекта. Поэтому для поддержки автодополнения, анализа кода, перехода к месту, где создана функция/класс/переменная (с помощью шортката <code class="language-plaintext highlighter-rouge">Alt+Click</code>), используется дополнение <a href="https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client">PHP Intelephense</a></p>
+
+<p>Чтобы подсказки не дублировались необходимо отключить встроенную в редактор поддержку кода для PHP: <code class="language-plaintext highlighter-rouge">Extensions -&gt; Search @builtin php -&gt; PHP Language Features -&gt; Disable</code></p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/intelliphense.gif" alt="extension list" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/intelliphense.gif" alt="extension list"></noscript></amp-img></p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/intelliphense2.gif" alt="extension list" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/intelliphense2.gif" alt="extension list"></noscript></amp-img></p>
+
+<h2 id="php-debug">PHP Debug</h2>
+
+<p>При разработке может возникнуть ситуация, когда простых функций отладки и логирования становится недостаточно. Тогда может помочь специальный инструмент — Дебаггер.
+Для PHP есть расширение <a href="https://xdebug.org/">xdebug</a>, которое позволяет расставить <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%BE%D1%87%D0%BA%D0%B0_%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0">точки останова</a> и посмотреть окружение в предполагаемом месте ошибки, выполняя код поэтапно либо до следующей точки.</p>
+
+<p>Чтобы воспользоваться <a href="https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug">PHP Debug</a>, необходимо установить сам XDebug, без него расширение для редактора работать не будет. Установив расширение, необходимо добавить конфигурацию для PHP в разделе <code class="language-plaintext highlighter-rouge">Debug</code>. После выбора языка в корне проекта будет создан файл <code class="language-plaintext highlighter-rouge">.vscode/launch.json</code> с задачами для Дебаггера. Расширение создаст файл со стандартными параметрами.</p>
+
+<p>Для того, чтобы XDebug общался с нашим дебаггером, необходимо добавить настройки в файл конфигурации php.
+Чтобы найти этот файл выполните в терминале команду <code class="language-plaintext highlighter-rouge">php --ini</code> или запустите веб-сервер с кодом <code class="language-plaintext highlighter-rouge">phpinfo()</code>.</p>
+
+<p>В Linux PHP подгружает не только основной файл, но и файл из этой директории. Например, на Ubuntu путь к директории конфигурационных файлов для PHP может быть таким — <code class="language-plaintext highlighter-rouge">/etc/php/7.3/cli/conf.d/</code>.
+В ней создаём файл с необходимыми правами (требуются root права):</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span><span class="nb">sudo touch</span> /etc/php/7.3/cli/conf.d/99-local.ini
+<span class="nv">$ </span><span class="nb">sudo chmod </span>777 /etc/php/7.3/cli/conf.d/99-local.ini
+</code></pre></div></div>
+
+<p>Содержимое файла:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="py">xdebug.remote_enable</span><span class="p">=</span><span class="s">1</span>
+<span class="py">xdebug.remote_host</span><span class="p">=</span><span class="s">127.0.0.1</span>
+<span class="py">xdebug.remote_port</span><span class="p">=</span><span class="s">9000 ; Порт, который мы указали в launch.json</span>
+<span class="py">xdebug.idekey</span><span class="p">=</span><span class="s">code</span>
+<span class="py">xdebug.remote_autostart</span><span class="p">=</span><span class="s">1</span>
+</code></pre></div></div>
+
+<p>Это настройки для локальной разработки, когда проект разрабатывается и запускается на одном компьютере, например на вашей рабочей машине</p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/xdebug2.gif" alt="debug vscode" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/xdebug2.gif" alt="debug vscode"></noscript></amp-img></p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/xdebug1.gif" alt="debug vscode" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/xdebug1.gif" alt="debug vscode"></noscript></amp-img></p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/xdebug3.gif" alt="debug vscode" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/xdebug3.gif" alt="debug vscode"></noscript></amp-img></p>
+
+<h2 id="php-sniffer">PHP Sniffer</h2>
+
+<p>В языках программирования есть понятие <em>стиль кодирования</em>. Но не все разработчики знают об этом. Программа, которая отвечает за проверку на соответствие стандартам, называется линтер. В PHP приняты стандарты под названием <a href="https://www.php-fig.org/psr/">PSR</a>. Нас интересуют стандарты PSR-1 и PSR-12. Именно эти два стандарта касаются кодирования и правил оформления.</p>
+
+<p>В PHP в качестве линтера используется <a href="https://github.com/squizlabs/PHP_CodeSniffer#composer">PHP_CodeSniffer</a>.
+Для его работы необходимо установить глобально сам линтер <code class="language-plaintext highlighter-rouge">composer global require "squizlabs/php_codesniffer=*"</code> и расширение <a href="https://marketplace.visualstudio.com/items?itemName=wongjn.php-sniffer">PHP Sniffer</a>.</p>
+
+<p>Проверьте, что линтер установился:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>phpcs <span class="nt">--version</span>
+PHP_CodeSniffer version 3.4.2 <span class="o">(</span>stable<span class="o">)</span> by Squiz <span class="o">(</span>https://www.squiz.net<span class="o">)</span>
+</code></pre></div></div>
+
+<p>Выполнить проверку кода в терминале можно с помощью команды <code class="language-plaintext highlighter-rouge">phpcs</code>, явно указав стандарт, который мы хотим использовать, и путь для проверки:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>phpcs <span class="nt">--standard</span><span class="o">=</span>PSR12 &lt;<span class="nb">dirname</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/phpcs-vscode.png" alt="vscode-phpcs" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/phpcs-vscode.png" alt="vscode-phpcs"></noscript></amp-img></p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/phpcsfixer.gif" alt="debug vscode" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/phpcsfixer.gif" alt="debug vscode"></noscript></amp-img></p>
+
+<h2 id="semicolon-insertion-shortcut">Semicolon Insertion Shortcut</h2>
+
+<p>PHP требует разделять инструкции с помощью точки запятой. Расширение <a href="https://marketplace.visualstudio.com/items?itemName=chrisvltn.vs-code-semicolon-insertion">Semicolon Insertion Shortcut</a> добавляет необходимый символ в конец строки с помощью шортката.
+Если при нажатии <code class="language-plaintext highlighter-rouge">[Ctrl] + ;</code> символ не вставляется, то необходимо проверить список горячих клавиш и при необходимости назначить комбинацию вручную: <code class="language-plaintext highlighter-rouge">File -&gt; Preferences -&gt; Keyboard Shortcuts</code></p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/semicolon.png" alt="semicolon-shortcut" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/semicolon.png" alt="semicolon-shortcut"></noscript></amp-img></p>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/semicolon.gif" alt="semicolon-shortcut" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/semicolon.gif" alt="semicolon-shortcut"></noscript></amp-img></p>
+
+<h2 id="extra">Extra</h2>
+
+<p>Список расширений, которые могут быть использованы не только для PHP:</p>
+
+<ul>
+  <li>
+<a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens</a> — в VS Code уже встроена поддержка Git. Но когда базовых возможностей становится недостаточно, на помощь может придти Gitlens. Например, одна из полезных фич — <code class="language-plaintext highlighter-rouge">git blame</code> на текущей строке.</li>
+</ul>
+
+<p><amp-img src="https://raw.githubusercontent.com/eamodio/vscode-gitlens/master/images/docs/current-line-blame.png" alt="gitlens" width="610" height="216" layout="responsive"><noscript><img src="https://raw.githubusercontent.com/eamodio/vscode-gitlens/master/images/docs/current-line-blame.png" alt="gitlens" width="610" height="216"></noscript></amp-img></p>
+
+<ul>
+  <li>
+<a href="https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow">Indent Rainbow</a> — разноцветные отступы в коде. Подсвечивает некорректный отступ. Можно вместо радуги установить оттенки серого.</li>
+</ul>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/intend-rainbow.png" alt="rainbow" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/intend-rainbow.png" alt="rainbow"></noscript></amp-img></p>
+
+<ul>
+  <li>
+    <p><a href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync">Settings Sync</a> — плагин, позволяющий синхронизировать настройки редактора между разными компьютерами. В качестве облачного хранилища используется Github Gists. Все настройки можно скачать, указав нужный файл синхронизации.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/tonsky/FiraCode">Fira Code</a> — моноширинный шрифт, в котором используются лигатуры (объединяет несколько символов в один) для общих комбинаций символов в программировании. Визуальная надстройка для более удобного чтения кода.</p>
+  </li>
+</ul>
+
+<p><amp-img src="/assets/images/vscode-for-php-setup/fira.gif" alt="fira" layout="responsive"><noscript><img src="/assets/images/vscode-for-php-setup/fira.gif" alt="fira"></noscript></amp-img></p>
+
+    
+    
+  </body>
+</html>

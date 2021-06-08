@@ -1,0 +1,284 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Что такое Makefile и как начать его использовать</title>
+    <link rel="canonical" href="https://guides.hexlet.io/makefile-as-task-runner/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2020-07-30 00:00:00 +0000 - Кирилл Мокевнин
+    </span>
+    <h2 id="введение">Введение</h2>
+
+<p>В жизни многих разработчиков найдётся история про первый рабочий день с новым проектом. После клонирования основного репозитория проекта наступает этап, когда приходится вводить множество команд с определёнными флагами и в заданной последовательности. Без описания команд, в большинстве случаев, невозможно понять что происходит, например:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nb">touch</span> ~/.bash_history
+ufw allow 3035/tcp <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'cant configure ufw'</span>
+ufw allow http <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'cant configure ufw'</span>
+docker run <span class="se">\</span>
+  <span class="nt">-v</span> /root/:/root/ <span class="se">\</span>
+  <span class="nt">-v</span> /etc:/etc <span class="se">\</span>
+  <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="se">\</span>
+  <span class="nt">-v</span> /var/tmp:/var/tmp <span class="se">\</span>
+  <span class="nt">-v</span> /tmp:/tmp <span class="se">\</span>
+  <span class="nt">-v</span> <span class="nv">$PWD</span>:/app <span class="se">\</span>
+  <span class="nt">--network</span> host <span class="se">\</span>
+  <span class="nt">-w</span> /app <span class="se">\</span>
+  <span class="nt">--env-file</span> .env <span class="se">\</span>
+  ansible ansible-playbook ansible/development.yml <span class="nt">-i</span> ansible/development <span class="nt">--limit</span><span class="o">=</span>localhost <span class="nt">-vv</span>
+<span class="nb">grep</span> <span class="nt">-qxF</span> <span class="s1">'fs.inotify.max_user_watches=524288'</span> /etc/sysctl.conf <span class="o">||</span> <span class="nb">echo </span>fs.inotify.max_user_watches<span class="o">=</span>524288 | <span class="nb">tee</span> <span class="nt">-a</span> /etc/sysctl.conf <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'cant set max_user_watches'</span> <span class="o">&amp;&amp;</span> sysctl <span class="nt">-p</span>
+<span class="nb">sudo </span>systemctl daemon-reload <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>systemctl restart docker
+</code></pre></div></div>
+
+<p>Эти команды являются лишь частью того, что необходимо выполнить при разворачивании проекта. В приведённом примере видно, что команды сами по себе длинные, содержат много флагов, а значит, их трудно не только запомнить, но и вводить вручную. Постоянно вести документацию становится сложнее с ростом проекта, она неизбежно устаревает, а порог входа для новичков становится выше, ведь уже никто не в состоянии вспомнить всех деталей проекта. Некоторые такие команды необходимо использовать каждый день, и даже не один раз в день.</p>
+
+<p>Со временем становится понятно, что нужен инструмент, способный объединить в себе подобные команды, предоставить к ним удобные шорткаты (<em>более короткие и простые команды</em>) и обеспечить самодокументацию проекта. Именно таким инструментом стал <em>Makefile</em> и утилита <code class="language-plaintext highlighter-rouge">make</code>. Этот гайд расскажет, как использование этих инструментов позволит свести процесс разворачивания проекта к нескольким коротким и понятным командам:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+make setup
+make start
+make <span class="nb">test</span>
+</code></pre></div></div>
+
+<h2 id="что-такое-make-и-makefile">Что такое <code class="language-plaintext highlighter-rouge">make</code> и <em>Makefile</em>
+</h2>
+
+<p><em>Makefile</em> — это файл, который хранится вместе с кодом в репозитории. Его обычно помещают в корень проекта. Он выступает и как документация, и как исполняемый код. Мейкфайл скрывает за собой детали реализации и раскладывает “по полочкам” команды, а утилита <code class="language-plaintext highlighter-rouge">make</code> запускает их из того мейкфайла, который находится в текущей директории.</p>
+
+<p>Изначально <code class="language-plaintext highlighter-rouge">make</code> предназначалась для автоматизации сборки исполняемых программ и библиотек из исходного кода. Она поставлялась по умолчанию в большинство *nix дистрибутивов, что и привело к её широкому распространению и повсеместному использованию. Позже оказалось что данный инструмент удобно использовать и при разработке любых других проектов, потому что процесс в большинстве своём сводится к тем же задачам — автоматизация и сборка приложений.</p>
+
+<p>Применение мейка в проектах стало стандартом для многих разработчиков, включая крупные проекты. Примеры мейкфайла можно найти у таких проектов, как <a href="https://github.com/kubernetes/kubernetes/blob/master/build/root/Makefile">Kubernetes</a>, <a href="https://github.com/babel/babel/blob/main/Makefile">Babel</a>, <a href="https://github.com/ansible/ansible/blob/devel/Makefile">Ansible</a> и, конечно же, повсеместно на <a href="https://github.com/Hexlet">Хекслете</a>.</p>
+
+<h3 id="синтаксис-makefile">Синтаксис <em>Makefile</em>
+</h3>
+
+<p><code class="language-plaintext highlighter-rouge">make</code> запускает цели из <em>Makefile</em>, которые состоят из команд:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">цель1</span><span class="o">:</span> <span class="c">#</span><span class="nf"> имя цели</span><span class="p">,</span><span class="nf"> поддерживается kebab-case и snake_case</span>
+	команда1 <span class="c"># для отступа используется табуляция, это важная деталь </span>
+	команда2 <span class="c"># команды будут выполняться последовательно и только в случае успеха предыдущей</span>
+</code></pre></div></div>
+
+<p>Но недостаточно просто начать использовать мейкфайл в проекте. Чтобы получить эффект от его внедрения, понадобится поработать над разделением команд на цели, а целям дать семантически подходящие имена. Поначалу, перенос команд в Makefile может привести к свалке всех команд в одну цель с «размытым» названием:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">up</span><span class="o">:</span> <span class="c">#</span><span class="nf"> разворачивание и запуск</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env
+	<span class="nb">touch </span>database/database.sqlite
+	composer <span class="nb">install</span>
+	npm <span class="nb">install</span>
+	php artisan key:generate
+	php artisan migrate <span class="nt">--seed</span>
+	heroku <span class="nb">local</span> <span class="nt">-f</span> Procfile.dev <span class="c"># запуск проекта</span>
+</code></pre></div></div>
+
+<p>Здесь происходит сразу несколько действий: создание файла с переменными окружения, подготовка базы данных, генерация ключей, установка зависимостей и запуск проекта. Это невозможно понять из комментариев и названия цели, поэтому будет правильно разделить эти независимые команды на разные цели:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">env-prepare</span><span class="o">:</span> <span class="c">#</span><span class="nf"> создать .env-файл для секретов</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env
+
+<span class="nl">sqlite-prepare</span><span class="o">:</span> <span class="c">#</span><span class="nf"> подготовить локальную БД</span>
+	<span class="nb">touch </span>database/database.sqlite
+
+<span class="nl">install</span><span class="o">:</span> <span class="c">#</span><span class="nf"> установить зависимости</span>
+	composer <span class="nb">install</span>
+	npm <span class="nb">install</span>
+
+<span class="nl">key</span><span class="o">:</span> <span class="c">#</span><span class="nf"> сгенерировать ключи</span>
+	php artisan key:generate
+
+<span class="nl">db-prepare</span><span class="o">:</span> <span class="c">#</span><span class="nf"> загрузить данные в БД</span>
+	php artisan migrate <span class="nt">--seed</span>
+
+<span class="nl">start</span><span class="o">:</span> <span class="c">#</span><span class="nf"> запустить приложение</span>
+	heroku <span class="nb">local</span> <span class="nt">-f</span> Procfile.dev
+</code></pre></div></div>
+
+<p>Теперь, когда команды разбиты на цели, можно отдельно установить зависимости командой <code class="language-plaintext highlighter-rouge">make install</code> или запустить приложение через <code class="language-plaintext highlighter-rouge">make start</code>. Но остальные цели нужны только при первом разворачивании проекта и выполнять их нужно в определённой последовательности. Говоря языком мейкфайла, цель имеет пререквизиты:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">цель1</span><span class="o">:</span> <span class="nf">цель2 </span><span class="c">#</span><span class="nf"> такой синтаксис указывает на зависимость задач — цель1 зависит от цель2</span>
+	команда2 <span class="c"># команда2 выполнится только в случае успеха команды из цель2</span>
+
+<span class="nl">цель2</span><span class="o">:</span>
+	команда1
+</code></pre></div></div>
+
+<p>Задачи будут выполняться только в указанной последовательности и только в случае успеха предыдущей задачи. Значит, можно добавить цель <code class="language-plaintext highlighter-rouge">setup</code>, чтобы объединить в себе все необходимые действия:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">setup</span><span class="o">:</span> <span class="nf">env-prepare sqlite-prepare install key db-prepare </span><span class="c">#</span><span class="nf"> можно ссылаться на цели</span><span class="p">,</span><span class="nf"> описанные ниже</span>
+
+<span class="nl">env-prepare</span><span class="o">:</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env
+
+<span class="nl">sqlite-prepare</span><span class="o">:</span>
+	<span class="nb">touch </span>database/database.sqlite
+
+<span class="nl">install</span><span class="o">:</span>
+	composer <span class="nb">install</span>
+	npm <span class="nb">install</span>
+
+<span class="nl">key</span><span class="o">:</span>
+	php artisan key:generate
+
+<span class="nl">db-prepare</span><span class="o">:</span>
+	php artisan migrate <span class="nt">--seed</span>
+
+<span class="nl">start</span><span class="o">:</span>
+	heroku <span class="nb">local</span> <span class="nt">-f</span> Procfile.dev
+</code></pre></div></div>
+
+<p>Теперь развернуть и запустить проект достаточно двумя командами:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+make setup <span class="c"># выполнит последовательно: env-prepare sqlite-prepare install key db-prepare</span>
+make start
+</code></pre></div></div>
+
+<p>Благодаря проделанной работе <em>Makefile</em>, команды проекта вместе с флагами сведены в <em>Makefile</em>. Он обеспечивает правильный порядок выполнения и не важно, какие при этом задействованы языки и технологии.</p>
+
+<h2 id="продвинутое-использование">Продвинутое использование</h2>
+
+<h3 id="фальшивая-цель">Фальшивая цель</h3>
+
+<p>Использование <code class="language-plaintext highlighter-rouge">make</code> в проекте однажды может привести к появлению ошибки <code class="language-plaintext highlighter-rouge">make: &lt;имя-цели&gt; is up to date.</code>, хотя всё написано правильно. Зачастую, её появление связано с наличием каталога или файла, совпадающего с именем цели. Например:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">test</span><span class="o">:</span> <span class="c">#</span><span class="nf"> цель в мейкфайле</span>
+	php artisan <span class="nb">test</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span><span class="nb">ls
+</span>Makefile
+<span class="nb">test</span> <span class="c"># в файловой системе находится каталог с именем, как у цели в мейкфайле</span>
+
+<span class="nv">$ </span>make <span class="nb">test</span> <span class="c"># попытка запустить тесты</span>
+make: <span class="sb">`</span><span class="nb">test</span><span class="sb">`</span> is up to date.
+</code></pre></div></div>
+
+<p>Как уже говорилось ранее, изначально <code class="language-plaintext highlighter-rouge">make</code> предназначалась для сборок из исходного кода. Поэтому она ищет каталог или файл с указанным именем, и пытается собрать из него проект. Чтобы изменить это поведение, необходимо в конце мейкфайла добавить <code class="language-plaintext highlighter-rouge">.PHONY</code> указатель на цель:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">test</span><span class="o">:</span>
+	php artisan <span class="nb">test</span>
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">test</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span>make <span class="nb">test</span>
+✓ All tests passed!
+</code></pre></div></div>
+
+<h3 id="последовательный-запуск-команд-и-игнорирование-ошибок">Последовательный запуск команд и игнорирование ошибок</h3>
+
+<p>Запуск команд можно производить по одной: <code class="language-plaintext highlighter-rouge">make setup</code>, <code class="language-plaintext highlighter-rouge">make start</code>, <code class="language-plaintext highlighter-rouge">make test</code> или указывать цепочкой через пробел: <code class="language-plaintext highlighter-rouge">make setup start test</code>. Последний способ работает как зависимость между задачами, но без описания её в мейкфайле. Сложности могут возникнуть, если одна из команд возвращает ошибку, которую нужно игнорировать. В примерах ранее такой командой было создание .env-файла при разворачивании проекта:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">env-prepare</span><span class="o">:</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env <span class="c"># если файл уже создан, то повторный запуск этой команды вернёт ошибку</span>
+</code></pre></div></div>
+
+<p>Самый простой (<em>но не единственный</em>) способ «заглушить» ошибку — это сделать логическое ИЛИ прямо в мейкфайле:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">env-prepare</span><span class="o">:</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env <span class="o">||</span> <span class="nb">true</span> <span class="c"># теперь любой исход выполнения команды будет считаться успешным</span>
+</code></pre></div></div>
+
+<p>Добавлять такие хаки стоит с осторожностью, чтобы не «выстрелить себе в ногу» в более сложных случаях.</p>
+
+<h3 id="переменные">Переменные</h3>
+
+<p>Зачастую в команды подставляют параметры для конфигурации, указания путей, переменные окружения и <code class="language-plaintext highlighter-rouge">make</code> тоже позволяет этим управлять. Переменные можно прописать прямо в команде внутри мейкфайла и передавать их при вызове:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">say</span><span class="o">:</span>
+	<span class="nb">echo</span> <span class="s2">"Hello, </span><span class="nv">$(HELLO)</span><span class="s2">!"</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span>make say <span class="nv">HELLO</span><span class="o">=</span>World
+<span class="nb">echo</span> <span class="s2">"Hello, World!"</span>
+Hello, World!
+
+<span class="nv">$ </span>make say <span class="nv">HELLO</span><span class="o">=</span>Kitty
+<span class="nb">echo</span> <span class="s2">"Hello, Kitty!"</span>
+Hello, Kitty!
+</code></pre></div></div>
+
+<p>Переменные могут быть необязательными и содержать значение по умолчанию. Обычно их объявляют в начале мейкфайла.</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nv">HELLO</span><span class="o">?=</span>World <span class="c"># знак вопроса указывает, что переменная опциональна. Значение после присвоения можно не указывать.</span>
+
+<span class="nl">say</span><span class="o">:</span>
+	<span class="nb">echo</span> <span class="s2">"Hello, </span><span class="nv">$(HELLO)</span><span class="s2">!"</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span>make say
+<span class="nb">echo</span> <span class="s2">"Hello, World!"</span>
+Hello, World!
+
+<span class="nv">$ </span>make say <span class="nv">HELLO</span><span class="o">=</span>Kitty
+<span class="nb">echo</span> <span class="s2">"Hello, Kitty!"</span>
+Hello, Kitty!
+</code></pre></div></div>
+
+<p>Некоторые переменные в <em>Makefile</em> имеют названия отличные от системных. Например, <code class="language-plaintext highlighter-rouge">$PWD</code> называется <code class="language-plaintext highlighter-rouge">$CURDIR</code> в <a href="https://github.com/hexlet-basics/hexlet_basics/blob/3f4635bf629e2676efe547c9a01c22a2573eaebd/Makefile#L35-L39">мейкфайле</a>:</p>
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">project-env-generate</span><span class="o">:</span>
+	docker run <span class="nt">--rm</span> <span class="nt">-e</span> <span class="nv">RUNNER_PLAYBOOK</span><span class="o">=</span>ansible/development.yml <span class="se">\</span>
+		<span class="nt">-v</span> <span class="nv">$(CURDIR)</span>/ansible/development:/runner/inventory <span class="se">\ </span><span class="c"># </span><span class="nv">$(CURDIR)</span> - то же самое, что <span class="nv">$PWD</span> в терминале
+		<span class="p">-</span>v <span class="nv">$(CURDIR)</span>:/runner/project <span class="se">\</span>
+		ansible/ansible-runner
+</code></pre></div></div>
+
+<h2 id="заключение">Заключение</h2>
+
+<p>В рамках данного гайда было рассказано об основных возможностях <em>Makefile</em> и утилиты <code class="language-plaintext highlighter-rouge">make</code>. Более плотное знакомство с данным инструментом откроет множество других его полезных возможностей: условия, циклы, подключение файлов. В компаниях, где имеется множество проектов, написанных разными командами в разное время, мейкфайл станет отличным подспорьем в стандартизации типовых команд: <code class="language-plaintext highlighter-rouge">setup start test deploy ...</code>.</p>
+
+<p>Возможность описывать в мейкфале последовательно многострочные команды позволяет использовать его как «универсальный клей» между менеджерами языков и другими утилитами. Широкая распространённость этого инструмента и общая простота позволяют внедрить его в свой проект достаточно легко, без необходимости доработок. Но мейкфайл может быть по-настоящему большим и сложным, это можно увидеть на примере реальных проектов:</p>
+
+<ul>
+  <li><a href="https://github.com/hexlet-codebattle/codebattle/blob/master/Makefile">Codebattle</a></li>
+  <li><a href="https://github.com/babel/babel/blob/main/Makefile">Babel</a></li>
+  <li><a href="https://github.com/kubernetes/kubernetes/blob/master/build/root/Makefile">Kubernetes</a></li>
+</ul>
+
+<h3 id="дополнительные-материалы">Дополнительные материалы</h3>
+
+<ul>
+  <li>
+<a href="https://ru.makefile.site/">Руководство по современному Make</a> — «выжимка» из документации на русском языке;</li>
+  <li>
+<a href="https://www.youtube.com/watch?v=pK9mF5aK05Q">Утилита make: полезный универсальный инструмент программиста</a> — видео-версия данного гайда.</li>
+</ul>
+
+<p>Мейкфайлы, использованные при составлении гайда:</p>
+
+<ul>
+  <li><a href="https://github.com/Hexlet/hexlet-sicp/blob/master/Makefile">Hexlet SICP</a></li>
+  <li><a href="https://github.com/hexlet-basics/hexlet_basics/blob/master/Makefile">Hexlet Basics</a></li>
+</ul>
+
+    
+    
+  </body>
+</html>

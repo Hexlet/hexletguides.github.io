@@ -1,0 +1,101 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Как настроить Atom для разработки на JavaScript</title>
+    <link rel="canonical" href="https://guides.hexlet.io/atom-js-setup/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+  </head>
+  <body>
+    
+    <h1 class="post-title">
+      
+    </h1>
+    <span>
+      2017-09-01 00:00:00 +0000 - Рахим Давлеткалиев
+    </span>
+    <p><strong><a href="https://atom.io/">Атом</a> – популярный бесплатный редактор кода, созданный разработчиками GitHub’а для программистов. Он активно развивается, для него есть сотни плагинов, его легко настраивать под свои нужды.</strong></p>
+
+<p>Атом построен на технологии <a href="https://electron.atom.io/">Electron</a>, поэтому он работает на Windows, Linux и macOS. Среди базовых возможностей редактора, доступных сразу после установки:</p>
+
+<ul>
+  <li>подсветка синтаксиса для множества популярных языков и файловых форматов</li>
+  <li>удобная навигация</li>
+  <li>встроенный предпросмотр <a href="/markdown">Markdown</a>
+</li>
+  <li>умное автодополнение</li>
+  <li>встроенный пакетный менеджер</li>
+</ul>
+
+<p>Пакетный менеджер нужен для установки и удаления пакетов расширений (плагинов). Для удобной разработки на JavaScript для бэкенда и фронтенда нужно установить несколько пакетов.</p>
+
+<p><amp-img src="/assets/images/atom-js-setup/eslint.png" alt="install package in atom" layout="responsive"><noscript><img src="/assets/images/atom-js-setup/eslint.png" alt="install package in atom"></noscript></amp-img></p>
+
+<p>Для установки нового пакета зайдите в настройках во вкладку “Install”, введите название пакета в строке поиска, нажмите кнопку “Install”.</p>
+
+<h2 id="стандарты-кодирования">Стандарты кодирования</h2>
+
+<p><strong>Eslint</strong> – это утилита, проверяющая стандарты кодирования на JavaScript. Стандарт де-факто в мире JS.</p>
+
+<p><amp-img src="/assets/images/atom-js-setup/eslint-atom.png" alt="eslint atom" layout="responsive"><noscript><img src="/assets/images/atom-js-setup/eslint-atom.png" alt="eslint atom"></noscript></amp-img></p>
+
+<p>Нужно сначала установить eslint в системе, а потом установить расширение Атома, которое будет использовать установленный линтер. Есть разные способы интеграции линтера с расширением. Мы рассмотрим установку линтера глобально в системе.</p>
+
+<ol>
+  <li>Установите Node.js используя <a href="https://nodejs.org/en/download/package-manager/">пакетный менеджер вашей операционной системы</a>.</li>
+  <li>Установите eslint командой <code class="language-plaintext highlighter-rouge">npm install -g eslint</code>. Вероятно, вам понадобится использовать <code class="language-plaintext highlighter-rouge">sudo</code>.</li>
+  <li>Установите плагины, которые конфигурируют <code class="language-plaintext highlighter-rouge">eslint</code>. Без них (по умолчанию) <code class="language-plaintext highlighter-rouge">eslint</code> ничего не проверяет.
+    <div class="language-shell highlighter-rouge">
+<div class="highlight"><pre class="syntax"><code> npm <span class="nb">install</span> <span class="nt">-g</span> eslint-config-airbnb-base eslint-plugin-import
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>eslint требует наличия конфигурационного файла. Создайте в корне вашего проекта файл <code class="language-plaintext highlighter-rouge">.eslintrc.yml</code> со следующим содержанием:</p>
+
+    <div class="language-yml highlighter-rouge">
+<div class="highlight"><pre class="syntax"><code> <span class="na">extends</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s1">'</span><span class="s">airbnb-base'</span>
+ <span class="na">env</span><span class="pi">:</span>
+   <span class="na">node</span><span class="pi">:</span> <span class="no">true</span>
+   <span class="na">browser</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Установите расширение “<a href="https://atom.io/packages/linter-eslint">linter-eslint</a>” в Атоме.</li>
+  <li>Отметьте галочку <em>Use Global Eslint</em> в настройках расширения (Settings -&gt; Packages -&gt; Linter Eslint).</li>
+</ol>
+
+<h2 id="автоматическое-дополнение">Автоматическое дополнение</h2>
+
+<p>Встроенное автодополнение в редакторе работает по самой примитивной схеме, анализируя содержимое файлов. С помощью сторонней утилиты “tern” можно добиться более продвинутого поведения. “tern” умеет:</p>
+
+<ul>
+  <li>подсказывать аргументы функции</li>
+  <li>определять тип выражения</li>
+  <li>находить определение чего-нибудь</li>
+  <li>проводить автоматический рефакторинг</li>
+</ul>
+
+<p><amp-img src="/assets/images/atom-js-setup/tern.png" alt="tern js" layout="responsive"><noscript><img src="/assets/images/atom-js-setup/tern.png" alt="tern js"></noscript></amp-img></p>
+
+<p>Расширение Атома <a href="https://atom.io/packages/atom-ternjs">atom-ternjs</a> не требует установки ничего другого и работает само по себе.</p>
+
+<h2 id="автоматическое-дополнение-файлов-и-модулей">Автоматическое дополнение файлов и модулей</h2>
+
+<p>Полезное расширение <a href="https://atom.io/packages/autocomplete-modules">autocomplete-modules</a> автоматически дополняет название файлов и модулей при импорте.</p>
+
+<p><amp-img src="/assets/images/atom-js-setup/autocomplete-modules.gif" alt="autocomplete-modules" layout="responsive"><noscript><img src="/assets/images/atom-js-setup/autocomplete-modules.gif" alt="autocomplete-modules"></noscript></amp-img></p>
+
+<h2 id="переход-на-определения">Переход на определения</h2>
+
+<p><a href="https://atom.io/packages/js-hyperclick">js-hyperclick</a> позволяет быстро перемещаться к определению функции или переменной по клику.</p>
+
+<p><amp-img src="/assets/images/atom-js-setup/js_hyperclick.png" alt="js-hyperclick" layout="responsive"><noscript><img src="/assets/images/atom-js-setup/js_hyperclick.png" alt="js-hyperclick"></noscript></amp-img></p>
+
+    
+    
+  </body>
+</html>
