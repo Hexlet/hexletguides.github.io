@@ -60,9 +60,14 @@ plugins:
   - amp-jekyll
 
 defaults:
-  -
-    scope:
+
+  - scope:
       path: "" # an empty string here means all files in the project
       type: "posts"
     values:
       layout: "post"
+
+  - scope:
+      path: yandex_d1b9fafe78d3bf70.html
+    values:
+      sitemap: false

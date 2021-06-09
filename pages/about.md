@@ -3,6 +3,7 @@ layout: page
 title: About
 permalink: "/about/"
 image: assets/images/screenshot.png
+sitemap: false
 ---
 
 This website is a demonstration to see **Affiliates Jekyll theme** in action. 
