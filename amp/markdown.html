@@ -2412,7 +2412,7 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>«Язык разметки» — это просто набор соглашений, правил.</p>
 
-<p>Допустим, что вы общаетесь с другом по СМС. В них нельзя сделать текст жирным или наклонным. Вы договариваетесь с другом: если я пишу <code>*что-то*</code> вот так между звездочками, то считай, что это наклонный текст. А если я пишу <code>**что-то**</code> между двумя звездочками, то считай, что это жирный текст. Вы придумали <em>правила</em>.</p>
+<p>Допустим, что вы общаетесь с другом по СМС. В них нельзя сделать текст жирным или наклонным. Вы договариваетесь с другом: если я пишу <code class="language-plaintext highlighter-rouge">*что-то*</code> вот так между звездочками, то считай, что это наклонный текст. А если я пишу <code class="language-plaintext highlighter-rouge">**что-то**</code> между двумя звездочками, то считай, что это жирный текст. Вы придумали <em>правила</em>.</p>
 
 <p>Markdown — это набор подобных правил.</p>
 
@@ -2431,52 +2431,52 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <h4 id="выделение-текста">Выделение текста</h4>
 
-<pre><code class="language-markdown">*Этот текст будет наклонным (курсив)*
-_Этот текст будет наклонным (курсив)_
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="ge">*Этот текст будет наклонным (курсив)*</span>
+<span class="ge">_Этот текст будет наклонным (курсив)_</span>
 
-**Этот текст будет жирным**
-__Этот текст будет жирным__
+<span class="gs">**Этот текст будет жирным**</span>
+<span class="gs">__Этот текст будет жирным__</span>
 
-_Можно **вставлять** один тип в другой_
-</code></pre>
+<span class="ge">_Можно **вставлять** один тип в другой_</span>
+</code></pre></div></div>
 
 <h4 id="заголовки">Заголовки</h4>
 
-<pre><code># Это самый крупный заголовок, он превращается в тег &lt;h1&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code># Это самый крупный заголовок, он превращается в тег &lt;h1&gt;
 ## &lt;h2&gt;
 ### &lt;h3&gt;
 #### &lt;h4&gt;
 ##### &lt;h5&gt;
 ###### &lt;h6&gt;
-</code></pre>
+</code></pre></div></div>
 
 <h4 id="ссылки">Ссылки</h4>
 
-<pre><code class="language-markdown">https://hexlet.io — текст простой ссылки станет кликабельной ссылкой автоматически
-</code></pre>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code>https://hexlet.io — текст простой ссылки станет кликабельной ссылкой автоматически
+</code></pre></div></div>
 
 <p>Ссылкой можно сделать любой текст:</p>
 
-<pre><code class="language-markdown">[Это ссылка на Хекслет](https://hexlet.io)
-</code></pre>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">[</span><span class="nv">Это ссылка на Хекслет</span><span class="p">](</span><span class="sx">https://hexlet.io</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h4 id="цитата">Цитата</h4>
 
-<pre><code class="language-markdown">&gt; Это мудрая цитата
-&gt; Мудрого человека.
-</code></pre>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="gt">&gt; Это мудрая цитата</span>
+<span class="gt">&gt; Мудрого человека.</span>
+</code></pre></div></div>
 
 <h4 id="картинки">Картинки</h4>
 
-<pre><code class="language-markdown">![Это опциональный alt-текст](/assets/images/markdown/markdown.png)
-</code></pre>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">![</span><span class="nv">Это опциональный alt-текст</span><span class="p">](</span><span class="sx">/assets/images/markdown/markdown.png</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h4 id="код">Код</h4>
 
-<p>Для выделения кода (или любого неотформатированного текста) используются специальные символы — обратные тики: <code>`</code></p>
+<p>Для выделения кода (или любого неотформатированного текста) используются специальные символы — обратные тики: <code class="language-plaintext highlighter-rouge">`</code></p>
 
-<pre><code>Иногда нужно добавить кусок кода `function(12);` в обычную строчку текста.
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Иногда нужно добавить кусок кода `function(12);` в обычную строчку текста.
+</code></pre></div></div>
 
 <pre><code>А иногда нужно вставить целый блок кода:
 
@@ -2494,19 +2494,19 @@ const func = (num) =&gt; {
 
 <p>Непронумерованный список:</p>
 
-<pre><code class="language-markdown">* Пункт
-* Еще один пункт
-  * Подпункт
-  * Еще один подпункт
-</code></pre>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">*</span> Пункт
+<span class="p">*</span> Еще один пункт
+<span class="p">  *</span> Подпункт
+<span class="p">  *</span> Еще один подпункт
+</code></pre></div></div>
 
 <p>Пронумерованный список:</p>
 
-<pre><code class="language-markdown">1. Пункт
-1. Еще один пункт
-  1. Подпункт
-  1. Еще один подпункт
-</code></pre>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">1.</span> Пункт
+<span class="p">1.</span> Еще один пункт
+<span class="p">  1.</span> Подпункт
+<span class="p">  1.</span> Еще один подпункт
+</code></pre></div></div>
 
 <p>В пронумерованном списке можно использовать любые числа — это не важно. При конвертации в HTML или другой формат числа станут правильными и последовательными (1, 2, 3 и т.д.).</p>
 

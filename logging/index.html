@@ -123,21 +123,21 @@
 
 <p>И для всего этого многообразия систем существует единое решение — логирование. В простейшем случае логирование сводится к файлу на диске, куда разные программы записывают (логируют) свои действия во время работы. Такой файл называют логом или журналом. Как правило, внутри лога одна строчка соответствует одному действию.</p>
 
-<pre><code class="language-sh"># Формат: ip-address / date / HTTP-method / uri / response code / body size 
-173.245.52.110 - [19/Jan/2021:01:54:20 +0000] "GET /my HTTP/1.1" 200 46018
-108.162.219.13 - [19/Jan/2021:01:54:20 +0000] "GET /sockjs-node/244/gdt1vvwa/websocket HTTP/1.1" 0 0
-162.158.62.12 - [19/Jan/2021:01:54:20 +0000] "GET /packs/css/application.css HTTP/1.1" 304 0
-162.158.62.84 - [19/Jan/2021:01:54:20 +0000] "GET /packs/js/runtime-eb0a99abbe8cf813f110.js HTTP/1.1" 304 0
-108.162.219.111 - [19/Jan/2021:01:54:20 +0000] "GET /packs/js/application-2cba5619945c4e5946f1.js HTTP/1.1" 304 0
-108.162.219.21 - [19/Jan/2021:01:54:20 +0000] "GET /packs/js/0564a7b5d773bab52e53.js HTTP/1.1" 304 0
-108.162.219.243 - [19/Jan/2021:01:54:20 +0000] "GET /packs/js/6fb7e908211839fac06e.js HTTP/1.1" 304 0
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Формат: ip-address / date / HTTP-method / uri / response code / body size </span>
+173.245.52.110 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /my HTTP/1.1"</span> 200 46018
+108.162.219.13 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /sockjs-node/244/gdt1vvwa/websocket HTTP/1.1"</span> 0 0
+162.158.62.12 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/css/application.css HTTP/1.1"</span> 304 0
+162.158.62.84 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/runtime-eb0a99abbe8cf813f110.js HTTP/1.1"</span> 304 0
+108.162.219.111 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/application-2cba5619945c4e5946f1.js HTTP/1.1"</span> 304 0
+108.162.219.21 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/0564a7b5d773bab52e53.js HTTP/1.1"</span> 304 0
+108.162.219.243 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/6fb7e908211839fac06e.js HTTP/1.1"</span> 304 0
+</code></pre></div></div>
 
 <p>Выше небольшой кусок лога веб-сервера Хекслета. Из него видно ip-адрес, с которого выполнялся запрос на страницу и какие ресурсы загружались, метод HTTP, ответ бекенда (кода) и размер тела ответа в HTTP. Очень важно наличие даты. Благодаря ей всегда можно найти лог за конкретный период, например на то время, когда возникла ошибка. Для этого логи <a href="https://ru.hexlet.io/courses/cli-basics/lessons/grep/theory_unit">грепают</a>:</p>
 
-<pre><code class="language-sh"># Выведет 4 минуты логов за 31 марта 2020 года с 19:31 по 19:35
-grep "31/Mar/2020:19:3[1-5]" access.log
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Выведет 4 минуты логов за 31 марта 2020 года с 19:31 по 19:35</span>
+<span class="nb">grep</span> <span class="s2">"31/Mar/2020:19:3[1-5]"</span> access.log
+</code></pre></div></div>
 
 <p>Когда программисты только начинают свой путь, они, часто не зная причину ошибки, опускают руки и говорят «я не знаю, что случилось, и что делать». Опытный же разработчик всегда первым делом говорит «а что в логах?». Анализировать логи — один из базовых навыков в разработке. В любой непонятной ситуации нужно смотреть логи. Логи пишут все программы без исключения, но делают это по-разному и в разные места. Чтобы точно узнать, куда и как, нужно идти в документацию конкретной программы и читать соответствующий раздел документации. Вот несколько примеров:</p>
 
@@ -151,19 +151,19 @@ grep "31/Mar/2020:19:3[1-5]" access.log
 
 <p>Многие программы логируют прямо в консоль, например Webpack показывает процесс и результаты сборки:</p>
 
-<pre><code class="language-sh"># Сюда же выводятся ошибки, если они были
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Сюда же выводятся ошибки, если они были</span>
 ｢wds｣: Project is running at http://hexletdev4.com/
 ｢wds｣: webpack output is served from /packs/
 ｢wds｣: Content not from webpack is served from /root/hexlet/public/packs
 ｢wds｣: 404s will fallback to /index.html
-｢wdm｣: assets by chunk 10.8 MiB (auxiliary name: application) 115 assets
+｢wdm｣: assets by chunk 10.8 MiB <span class="o">(</span>auxiliary name: application<span class="o">)</span> 115 assets
 sets by path js/ 13.8 MiB
-assets by path js/*.js 13.8 MiB 52 assets
-assets by path js/pages/*.js 5.1 KiB
-  asset js/pages/da223d3affe56711f31f.js 2.6 KiB [emitted] [immutable] (name: pages/my_learning) 1 related asset
-  asset js/pages/04adacfdd660803b19f1.js 2.5 KiB [emitted] [immutable] (name: pages/referral) 1 related asset
-sets by chunk 9.14 KiB (auxiliary id hint: vendors)
-</code></pre>
+assets by path js/<span class="k">*</span>.js 13.8 MiB 52 assets
+assets by path js/pages/<span class="k">*</span>.js 5.1 KiB
+  asset js/pages/da223d3affe56711f31f.js 2.6 KiB <span class="o">[</span>emitted] <span class="o">[</span>immutable] <span class="o">(</span>name: pages/my_learning<span class="o">)</span> 1 related asset
+  asset js/pages/04adacfdd660803b19f1.js 2.5 KiB <span class="o">[</span>emitted] <span class="o">[</span>immutable] <span class="o">(</span>name: pages/referral<span class="o">)</span> 1 related asset
+sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </span>hint: vendors<span class="o">)</span>
+</code></pre></div></div>
 
 <p>Во фронтенде файлов нет, поэтому логируют либо прямо в консоль, либо к себе в бекенды (что сложно), либо в специализированные сервисы, такие как <a href="https://logrocket.com/">LogRocket</a>.</p>
 
@@ -180,22 +180,22 @@ sets by chunk 9.14 KiB (auxiliary id hint: vendors)
 
 <p>Поддержка уровней осуществляется двумя способами. Во-первых, внутри самой программы расставляют вызовы библиотеки логирования в соответствии с уровнями. Если произошла ошибка, то логируем как <em>error</em>, если это отладочная информация, которая не нужна в обычной ситуации, то уровень <em>debug</em>.</p>
 
-<pre><code class="language-javascript">// Пример логирования внутри программы
-// Логер: https://github.com/pinojs/pino
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1">// Пример логирования внутри программы</span>
+<span class="c1">// Логер: https://github.com/pinojs/pino</span>
 
-import buildLogger from 'pino';
+<span class="k">import</span> <span class="nx">buildLogger</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">pino</span><span class="dl">'</span><span class="p">;</span>
 
-const logger = buildLogger(/* возможная конфигурация */);
-logger.info('тут что то полезное');
-</code></pre>
+<span class="kd">const</span> <span class="nx">logger</span> <span class="o">=</span> <span class="nx">buildLogger</span><span class="p">(</span><span class="cm">/* возможная конфигурация */</span><span class="p">);</span>
+<span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="dl">'</span><span class="s1">тут что то полезное</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Во-вторых, во время запуска программы указывается уровень логирования, необходимый в конкретной ситуации. По умолчанию используется уровень <em>info</em>, который используется для описания каких-то ключевых и важных вещей. При таком уровне будут выводиться и <em>warning</em>, и <em>error</em>. Если поставить уровень <em>error</em>, то будут выводиться только ошибки. А если <em>debug</em>, то мы получим лог, максимально наполненный данными. Обычно <em>debug</em> приводит к многократному росту выводимой информации.</p>
 
 <p>Уровни логирования, обычно, выставляются через переменную окружения во время запуска программы. Например, так:</p>
 
-<pre><code class="language-sh"># https://github.com/fastify/fastify-cli#options
-FASTIFY_LOG_LEVEL=debug fastify-server.js
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># https://github.com/fastify/fastify-cli#options</span>
+<span class="nv">FASTIFY_LOG_LEVEL</span><span class="o">=</span>debug fastify-server.js
+</code></pre></div></div>
 
 <p>Существует и другой подход, основанный не на уровнях, а на пространствах имен. Этот подход получил широкое распространение в JS-среде, и является там основным. Фактически, он построен вокруг одной единственной библиотеки <a href="https://github.com/visionmedia/debug">debug</a> для логирования, которой пронизаны практически все JavaScript-библиотеки как на фронтенде, так и на бекенде.</p>
 
@@ -203,21 +203,21 @@ FASTIFY_LOG_LEVEL=debug fastify-server.js
 
 <p>Принцип работы здесь такой. Под нужную ситуацию создается специализированная функция логирования с указанием пространства имен, которая затем используется для всех событий одного процесса. В итоге библиотека позволяет легко отфильтровать только нужные записи, соответствующие нужному пространству.</p>
 
-<pre><code class="language-javascript">import debug from 'debug';
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">import</span> <span class="nx">debug</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">debug</span><span class="dl">'</span><span class="p">;</span>
 
-// Пространство имен http
-const logHttp = debug('http');
-const logSomethingElse = debug('another-namespace');
+<span class="c1">// Пространство имен http</span>
+<span class="kd">const</span> <span class="nx">logHttp</span> <span class="o">=</span> <span class="nx">debug</span><span class="p">(</span><span class="dl">'</span><span class="s1">http</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">logSomethingElse</span> <span class="o">=</span> <span class="nx">debug</span><span class="p">(</span><span class="dl">'</span><span class="s1">another-namespace</span><span class="dl">'</span><span class="p">);</span>
 
-// Где-то в коде
+<span class="c1">// Где-то в коде</span>
 
-logHttp(/* информация о http запросе */);
-</code></pre>
+<span class="nx">logHttp</span><span class="p">(</span><span class="cm">/* информация о http запросе */</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Запуск с нужным пространством:</p>
 
-<pre><code class="language-sh">DEBUG=http server.js
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">DEBUG</span><span class="o">=</span>http server.js
+</code></pre></div></div>
 
 <p><img src="/assets/images/logging/debug-http.png" alt="Библиотека debug для логирования http в JavaScript" /></p>
 

@@ -126,28 +126,28 @@
 
 <p>Разберём этапы компиляции на примере вычисления периметра прямоугольника:</p>
 
-<pre><code class="language-c++">#include &lt;iostream&gt; 
-
-int main()
-{
-    double a=2.5, b=5, P;
-    P = 2 * (a + b);
-    printf("Width of the rectangle - %4.1f", a);// =&gt; Width of the rectangle - 2.5
-    printf("\nLength of the rectangle - %4.1f", b);// =&gt; Length of the rectangle - 5.0
-    printf("\nPerimeter of the rectangle is %4.1f", P);// =&gt; Perimeter of the rectangle is 15.0
-    return 0;
-}
-</code></pre>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="cp">#include &lt;iostream&gt; 
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">P</span><span class="p">;</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Width of the rectangle - %4.1f"</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span><span class="c1">// =&gt; Width of the rectangle - 2.5</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Length of the rectangle - %4.1f"</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span><span class="c1">// =&gt; Length of the rectangle - 5.0</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Perimeter of the rectangle is %4.1f"</span><span class="p">,</span> <span class="n">P</span><span class="p">);</span><span class="c1">// =&gt; Perimeter of the rectangle is 15.0</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>После запуска программы компилятору нужно определить, какие команды в ней записаны. Сначала компилятор разделяет программу на слова и знаки — <em>токены</em>, и записывает их в список. Такой процесс называется <strong>лексическим анализом</strong>. Его главная задача — получить токены.</p>
-<pre><code># include &lt;iostream&gt; int main ( ) { double a = 2.5 , b = 5 , P ;  P = 2 * ( a + b ) ; printf ( " Width of the rectangle - % 4.1 f " , a ) ; printf ( " \ n Length of the rectangle - % 4.1 f " , b ) ; printf ( " \ n Perimeter of the rectangle is % 4.1 f " ,   P ) ; return 0 ; }
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code># include &lt;iostream&gt; int main ( ) { double a = 2.5 , b = 5 , P ;  P = 2 * ( a + b ) ; printf ( " Width of the rectangle - % 4.1 f " , a ) ; printf ( " \ n Length of the rectangle - % 4.1 f " , b ) ; printf ( " \ n Perimeter of the rectangle is % 4.1 f " ,   P ) ; return 0 ; }
+</code></pre></div></div>
 
-<p>Затем компилятор читает список и ищет токен-операторы. Это могут быть оператор присваивания(<code>=</code>), арифметические операторы(<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>), оператор вывода(<code>printf()</code>) и другие операторы языка программирования. Такие операторы работают с числами, текстом и переменными.</p>
+<p>Затем компилятор читает список и ищет токен-операторы. Это могут быть оператор присваивания(<code class="language-plaintext highlighter-rouge">=</code>), арифметические операторы(<code class="language-plaintext highlighter-rouge">+</code>,<code class="language-plaintext highlighter-rouge">-</code>,<code class="language-plaintext highlighter-rouge">*</code>,<code class="language-plaintext highlighter-rouge">/</code>), оператор вывода(<code class="language-plaintext highlighter-rouge">printf()</code>) и другие операторы языка программирования. Такие операторы работают с числами, текстом и переменными.</p>
 
 <p>Компилятор должен понять, какие токены в списке связаны с токен-оператором. Чтобы сделать это правильно, для каждого оператора строится специальная структура — <strong>логическое дерево</strong> или <strong>дерево разбора</strong>.</p>
 
-<p>Так операция <code>P = 2*(a + b)</code> будет преобразована в логическое дерево:</p>
+<p>Так операция <code class="language-plaintext highlighter-rouge">P = 2*(a + b)</code> будет преобразована в логическое дерево:</p>
 
 <p><img src="/assets/images/compiler/parse_tree.jpg" alt="Дерево разбора" /></p>
 
@@ -155,15 +155,15 @@ int main()
 Компилятор начинает читать дерево снизу вверх и составляет список команд:</p>
 
 <ul>
-  <li>Взять переменную <code>a</code>, взять переменную <code>b</code>, сложить их</li>
-  <li>Взять результат сложения, взять число <code>2</code> и найти их произведение</li>
-  <li>Результат произведения присвоить (записать) в переменную <code>P</code></li>
+  <li>Взять переменную <code class="language-plaintext highlighter-rouge">a</code>, взять переменную <code class="language-plaintext highlighter-rouge">b</code>, сложить их</li>
+  <li>Взять результат сложения, взять число <code class="language-plaintext highlighter-rouge">2</code> и найти их произведение</li>
+  <li>Результат произведения присвоить (записать) в переменную <code class="language-plaintext highlighter-rouge">P</code></li>
 </ul>
 
 <p>Компилятор еще раз проверяет команды, находит ошибки и старается улучшить код. При успешном завершении этого этапа, компилятор переводит каждую команду в набор 0 и 1. Наборы записываются в файл, который сможет прочитать и выполнить процессор.</p>
 
-<pre><code>10111011 00010001 00000001 10111001 00001101 00000000 10110100 00001110 10001010 00000111 01000011 11001101 00010000 11100010 11111001 11001101 00100000 01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>10111011 00010001 00000001 10111001 00001101 00000000 10110100 00001110 10001010 00000111 01000011 11001101 00010000 11100010 11111001 11001101 00100000 01001000 01100101 01101100 01101100 01101111 00101100 00100000 01010111 01101111 01110010 01101100 01100100 00100001
+</code></pre></div></div>
 
 <h2 id="на-чем-написан-компилятор">На чем написан компилятор?</h2>
 

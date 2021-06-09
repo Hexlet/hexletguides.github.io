@@ -2454,45 +2454,45 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>Откройте терминал и убедитесь что вагрант работает:</p>
 
-<pre><code class="language-sh">$ vagrant -v
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>vagrant <span class="nt">-v</span>
+</code></pre></div></div>
 
 <h2 id="инициализация">Инициализация</h2>
 
-<p>Дизайн Vagrant предполагает, что мы создаем отдельную конфигурацию на каждый проект (а соответственно и виртуальную машину), а не одну на все. Инициализация выполняется в папке соответствующего проекта командой <code>vagrant init ubuntu/xenial64</code>. В результате выполнения этой команды Vagrant создаст файл Vagrantfile. Внутри файла описана конфигурация виртуальной машины на языке Ruby. Не страшно, если вы не знакомы с ним, содержимое файла интуитивно понятно, а документация вагранта достаточно подробна.</p>
+<p>Дизайн Vagrant предполагает, что мы создаем отдельную конфигурацию на каждый проект (а соответственно и виртуальную машину), а не одну на все. Инициализация выполняется в папке соответствующего проекта командой <code class="language-plaintext highlighter-rouge">vagrant init ubuntu/xenial64</code>. В результате выполнения этой команды Vagrant создаст файл Vagrantfile. Внутри файла описана конфигурация виртуальной машины на языке Ruby. Не страшно, если вы не знакомы с ним, содержимое файла интуитивно понятно, а документация вагранта достаточно подробна.</p>
 
-<p>Кроме создания файла, вагрант скачает на вашу машину образ (image) операционной системы, хранящийся под именем <code>ubuntu/xenial64</code>. В данном случае речь идет про Ubuntu 16.04. Vagrant поддерживает каталог образов, созданных специально под работу с ним. При необходимости можно выбрать другой, посмотрев его имя в <a href="https://app.vagrantup.com/boxes/search">каталоге</a>. Если открыть файл Vagrantfile, то можно увидеть что имя образа прописано внутри конфигурации:</p>
+<p>Кроме создания файла, вагрант скачает на вашу машину образ (image) операционной системы, хранящийся под именем <code class="language-plaintext highlighter-rouge">ubuntu/xenial64</code>. В данном случае речь идет про Ubuntu 16.04. Vagrant поддерживает каталог образов, созданных специально под работу с ним. При необходимости можно выбрать другой, посмотрев его имя в <a href="https://app.vagrantup.com/boxes/search">каталоге</a>. Если открыть файл Vagrantfile, то можно увидеть что имя образа прописано внутри конфигурации:</p>
 
-<pre><code class="language-ruby">Vagrant.configure('2') do |config|
-  config.vm.box = 'ubuntu/xenial64'
-end
-</code></pre>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="no">Vagrant</span><span class="p">.</span><span class="nf">configure</span><span class="p">(</span><span class="s1">'2'</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">box</span> <span class="o">=</span> <span class="s1">'ubuntu/xenial64'</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
 <h2 id="рабочий-процесс">Рабочий процесс</h2>
 
 <h3 id="запуск">Запуск</h3>
 
-<p>Старт выполняется командой <code>vagrant up</code>. Она создает виртуальную машину и запускает ее. Если машина уже была создана (предыдущими запусками), то произойдет только старт.</p>
+<p>Старт выполняется командой <code class="language-plaintext highlighter-rouge">vagrant up</code>. Она создает виртуальную машину и запускает ее. Если машина уже была создана (предыдущими запусками), то произойдет только старт.</p>
 
 <p>В этот момент уже можно начинать работать с кодом, лежащим в той же папке, что и Vagrantfile. Все изменения автоматически оказываются внутри запущенной виртуальной машины.</p>
 
 <h3 id="подключение">Подключение</h3>
 
-<p>Для входа внутрь используется команда <code>vagrant ssh</code>. После выполнения терминал подключается к машине в домашнюю директорию пользователя по умолчанию. Традиционно в вагранте это пользователь с именем <code>vagrant</code>. Теперь необходимо выполнить переход в папку <code>/vagrant</code>. Именно в ней окажется код проекта.</p>
+<p>Для входа внутрь используется команда <code class="language-plaintext highlighter-rouge">vagrant ssh</code>. После выполнения терминал подключается к машине в домашнюю директорию пользователя по умолчанию. Традиционно в вагранте это пользователь с именем <code class="language-plaintext highlighter-rouge">vagrant</code>. Теперь необходимо выполнить переход в папку <code class="language-plaintext highlighter-rouge">/vagrant</code>. Именно в ней окажется код проекта.</p>
 
 <p>Дальше можно действовать по старинке. Поставить все необходимые пакеты и зависимости, а затем запустить проект. Если это веб-сайт, то он запустится на определенном порту. По умолчанию все, что стартует внутри виртуальной машины, доступно только внутри. Для возможности обращаться к сайту с хост машины (через ваш любимый браузер), необходимо прокинуть соответствующий порт наружу. Об этом достаточно подробно рассказано в <a href="https://www.vagrantup.com/docs/networking/basic_usage.html">документации</a>. Предположим, что внутри вагранта сайт стартует на порту 8080, и вы хотите обращаться к нему снаружи. Для этого достаточно добавить в конфигурацию:</p>
 
-<pre><code class="language-ruby">Vagrant.configure("2") do |config|
-  # ...
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
-end
-</code></pre>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="no">Vagrant</span><span class="p">.</span><span class="nf">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="c1"># ...</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">network</span> <span class="s2">"forwarded_port"</span><span class="p">,</span> <span class="ss">guest: </span><span class="mi">8080</span><span class="p">,</span> <span class="ss">host: </span><span class="mi">8080</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
-<p>Изменения применяются после перезагрузки машины. Для этого достаточно выполнить команду <code>vagrant reload</code>.</p>
+<p>Изменения применяются после перезагрузки машины. Для этого достаточно выполнить команду <code class="language-plaintext highlighter-rouge">vagrant reload</code>.</p>
 
 <h3 id="остановка">Остановка</h3>
 
-<p>В конце работы не забудьте выполнить <code>vagrant halt</code>, иначе машина останется запущенной и будет потреблять ресурсы. Если вы решили, что пора полностью все удалить и поставить заново, воспользуйтесь командой <code>vagrant destroy</code>.</p>
+<p>В конце работы не забудьте выполнить <code class="language-plaintext highlighter-rouge">vagrant halt</code>, иначе машина останется запущенной и будет потреблять ресурсы. Если вы решили, что пора полностью все удалить и поставить заново, воспользуйтесь командой <code class="language-plaintext highlighter-rouge">vagrant destroy</code>.</p>
 
 <h2 id="конфигурация-системы">Конфигурация системы</h2>
 
@@ -2514,10 +2514,6 @@ end
   <li>Не запускайте вагрант из под суперпользователя или администратора.</li>
   <li>Если вы испытываете проблемы со скоростью работы, то, возможно, причина в способе синхронизирования папки с проектом. Vagrant <a href="https://www.vagrantup.com/docs/synced-folders/">позволяет</a> настраивать способ синхронизации.</li>
 </ul>
-
-<hr>
-
-<p>Кирилл Мокевнин</p>
 
       
       

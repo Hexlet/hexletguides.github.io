@@ -2479,22 +2479,22 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>Более того, в системах Linux есть команда diff, с помощью которой можно выяснить различия между любыми файлами даже без использования СКВ. Эти изменения можно сохранить в файл, а затем, используя программу patch, применить к исходному файлу.</p>
 
-<pre><code class="language-sh">diff index.js index2.js &gt; index.patch
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>diff index.js index2.js <span class="o">&gt;</span> index.patch
 
 1c1
 
-&lt; const a = 5;
+&lt; const a <span class="o">=</span> 5<span class="p">;</span>
 
----
+<span class="nt">---</span>
 
-&gt; const a = 8;
+<span class="o">&gt;</span> const a <span class="o">=</span> 8<span class="p">;</span>
 
 3a4
 
-&gt; console.log(a - b);
+<span class="o">&gt;</span> console.log<span class="o">(</span>a - b<span class="o">)</span><span class="p">;</span>
 
-patch index.js -i index.patch -o index2.js
-</code></pre>
+patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span> index2.js
+</code></pre></div></div>
 
 <p>В программах, разобранных выше, создание ревизии привязано к автосохранению, но это не единственная стратегия. Всего используется три способа:</p>
 

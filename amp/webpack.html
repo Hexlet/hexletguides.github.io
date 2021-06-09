@@ -2406,16 +2406,16 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
       
       
       
-      <p>HTML поддерживает два способа работы с JavaScript. Первый – код добавляется прямо на страницу и второй – код загружается из файла указанного в теге <code>&lt;script&gt;</code>.</p>
+      <p>HTML поддерживает два способа работы с JavaScript. Первый – код добавляется прямо на страницу и второй – код загружается из файла указанного в теге <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code>.</p>
 
 <h2 id="инлайновые-скрипты">Инлайновые скрипты</h2>
 
 <p>Первый способ:</p>
 
-<pre><code class="language-html">&lt;script&gt;
-  document.getElementById('demo').innerHTML = 'Hello JavaScript!';
-&lt;/script&gt;
-</code></pre>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;script&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">demo</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello JavaScript!</span><span class="dl">'</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
 
 <p>Он работает только в самых простых ситуациях. Иногда им пользуются для добавления небольших интерактивных элементов, таких как переключатели табов, автокомплиты и т.п.</p>
 
@@ -2423,21 +2423,21 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>Современный фронтенд вышел далеко за пределы этих задач. Количество JavaScript кода во многих проектах достигает десяток и сотен тысяч строк кода. Такую массу кода физически невозможно поддерживать внутри HTML. Потому он располагается в отдельных файлах, которых может быть довольно много. Для их подключения используется второй способ:</p>
 
-<pre><code class="language-html">&lt;!--
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c">&lt;!--
 Когда браузер встречает тег `&lt;script&gt;` с указанием `src`,
 он загружает указанный файл и исполняет его.
 Так код получает доступ к содержимому страницы.
---&gt;
+--&gt;</span>
 
-&lt;!-- Все определения внутри становятся глобальны и доступны для всех остальных скриптов --&gt;
-&lt;script src="/assets/script1.js"&gt;&lt;/script&gt;
-&lt;script src="/assets/script2.js"&gt;&lt;/script&gt;
-</code></pre>
+<span class="c">&lt;!-- Все определения внутри становятся глобальны и доступны для всех остальных скриптов --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/script1.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/script2.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
 
-<p>Тег <code>&lt;script&gt;</code> был добавлен в HTML очень давно, задолго до появления современной версии языка с модулями. В те времена не существовало Node.js, пакетного менеджера и понятия “зависимости” (dependencies). Весь код писался в одном файле. Даже если файлов было несколько, они никак не были связаны друг с другом. Если попытаться использовать модули вместе с обычным тегом <code>&lt;script&gt;</code>, то браузер выдаст ошибку:</p>
+<p>Тег <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> был добавлен в HTML очень давно, задолго до появления современной версии языка с модулями. В те времена не существовало Node.js, пакетного менеджера и понятия “зависимости” (dependencies). Весь код писался в одном файле. Даже если файлов было несколько, они никак не были связаны друг с другом. Если попытаться использовать модули вместе с обычным тегом <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code>, то браузер выдаст ошибку:</p>
 
-<pre><code>Uncaught SyntaxError: Cannot use import statement outside a module
-</code></pre>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Uncaught SyntaxError: Cannot use import statement outside a module
+</code></pre></div></div>
 
 <p>В теории, код можно писать и без использования системы модулей, но этот способ невероятно трудозатратный и основывается на том, что все определения в коде глобальны (а значит, можно легко что-нибудь сломать, перетерев существующие определения). Придётся руками указывать все существующие файлы и загружать их в HTML, в строго определённом порядке. Подобное сейчас встречается только на сайтах, где фронтенд — это jquery с небольшим числом интерактивных элементов.</p>
 
@@ -2445,49 +2445,49 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <h2 id="модули-в-браузере">Модули в браузере</h2>
 
-<p>Проблема отсутствия модулей в браузере настолько важная, что в HTML5 ввели поддержку JavaScript-модулей. Достаточно в теге <code>&lt;script&gt;</code> добавить <code>type="module"</code>, как браузер начинает их понимать и загружать. Модули понимают практически все современные браузеры.</p>
+<p>Проблема отсутствия модулей в браузере настолько важная, что в HTML5 ввели поддержку JavaScript-модулей. Достаточно в теге <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> добавить <code class="language-plaintext highlighter-rouge">type="module"</code>, как браузер начинает их понимать и загружать. Модули понимают практически все современные браузеры.</p>
 
 <p>В HTML:</p>
 
-<pre><code class="language-html">&lt;script type="module" src="/assets/index.js"&gt;&lt;/script&gt;
-</code></pre>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"/assets/index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
 
 <p>В JavaScript:</p>
 
-<pre><code class="language-javascript">// index.js
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1">// index.js</span>
 
-import app from './app.js';
+<span class="k">import</span> <span class="nx">app</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./app.js</span><span class="dl">'</span><span class="p">;</span>
 
-app();
+<span class="nx">app</span><span class="p">();</span>
 
-// app.js
+<span class="c1">// app.js</span>
 
-export default () =&gt; {
-  console.log('Hello from module!');
-};
-</code></pre>
+<span class="k">export</span> <span class="k">default</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello from module!</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
 
 <p>Модули в браузере кардинально всё меняют и позволяют работать с JavaScript так, как это нужно, если бы не одно серьёзное “но”. Система модулей в браузере не умеет работать с зависимостями. Если мы решим установить, например, lodash, то попытка его импортировать завершится с ошибкой. Решить эту проблему на уровне браузеров невозможно. Браузер ничего не знает про файловую систему и того, что там происходит.</p>
 
-<pre><code>Uncaught TypeError: Failed to resolve module specifier "lodash".
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Uncaught TypeError: Failed to resolve module specifier "lodash".
 Relative references must start with either "/", "./", or "../".
-</code></pre>
+</code></pre></div></div>
 
 <h2 id="сборщики-фронтенда">Сборщики фронтенда</h2>
 
 <p>Эти проблемы полностью решают системы сборки. Кроме загрузки файлов, они решают множество других не менее важных задач. Фронтенд-разработка сильно опирается на различные пре- и пост-процессоры. Например, для современного JavaScript (и TypeScript) и многих фреймворков нужен Babel, который получает на вход исходный код проекта, преобразует его в код понятный браузеру. Только после этого его можно отдавать клиенту.</p>
 
-<pre><code class="language-sh"># Указываем исходную директорию src
-# И директорию, в которую положить готовый код
-babel src -o dist
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию src</span>
+<span class="c"># И директорию, в которую положить готовый код</span>
+babel src <span class="nt">-o</span> dist
+</code></pre></div></div>
 
 <p>То же самое касается CSS. Всё больше разработчиков используют SASS, который нужно транслировать в чистый CSS.</p>
 
-<pre><code class="language-sh"># Указываем исходную директорию stylesheets
-# И директорию, в которую положить готовый CSS
-sass --update stylesheets dist/stylesheets
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию stylesheets</span>
+<span class="c"># И директорию, в которую положить готовый CSS</span>
+sass <span class="nt">--update</span> stylesheets dist/stylesheets
+</code></pre></div></div>
 
 <p>Кроме этих задач, сборщики занимаются следующим:</p>
 
@@ -2506,45 +2506,45 @@ sass --update stylesheets dist/stylesheets
 
 <p>Webpack поставляется как npm-библиотека и устанавливается в проект, обычно, в dev-зависимости, а для работы удобно использовать cli-утилиту:</p>
 
-<pre><code class="language-sh">mkdir webpack-demo
-cd webpack-demo
-npm init -y
-npm i -D webpack webpack-cli @webpack-cli/init
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir </span>webpack-demo
+<span class="nb">cd </span>webpack-demo
+npm init <span class="nt">-y</span>
+npm i <span class="nt">-D</span> webpack webpack-cli @webpack-cli/init
+</code></pre></div></div>
 
 <p>Теперь можно инициализировать новый вебпак-проект, который автоматически создаст все необходимые файлы и конфигурацию одной командой:</p>
 
-<pre><code class="language-sh">npx webpack init --auto
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init <span class="nt">--auto</span>
+</code></pre></div></div>
 
-<p>Она предложит перезаписать <em>package.json</em>, добавит в проект несколько зависимостей, создаст HTML и JS-файлы, а также создаст конфигурационный файл. Запуск этой же команды без флага <code>--auto</code> откроет интерактивный режим, где можно более тонко настроить будущее приложение.</p>
+<p>Она предложит перезаписать <em>package.json</em>, добавит в проект несколько зависимостей, создаст HTML и JS-файлы, а также создаст конфигурационный файл. Запуск этой же команды без флага <code class="language-plaintext highlighter-rouge">--auto</code> откроет интерактивный режим, где можно более тонко настроить будущее приложение.</p>
 
-<pre><code class="language-sh">npx webpack init
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init
 
-Just found a `.yo-rc.json` in a parent directory.
+Just found a <span class="sb">`</span>.yo-rc.json<span class="sb">`</span> <span class="k">in </span>a parent directory.
 Setting the project root at: /home/hexlet/webpack-demo
-[webpack-cli] 
+<span class="o">[</span>webpack-cli] 
 ℹ INFO  For more information and a detailed description of each question, have a look at: https://github.com/webpack/webpack-cli/blob/master/INIT.md
-[webpack-cli] ℹ INFO  Alternatively, run "webpack(-cli) --help" for usage info
+<span class="o">[</span>webpack-cli] ℹ INFO  Alternatively, run <span class="s2">"webpack(-cli) --help"</span> <span class="k">for </span>usage info
 
 ? Will your application have multiple bundles? No
 ? Which will be your application entry point? src/index
-? In which folder do you want to store your generated bundles? dist
+? In which folder <span class="k">do </span>you want to store your generated bundles? dist
 ? Will you use one of the below JS solutions? ES6
 ? Will you use one of the below CSS solutions? No
 
-# вывод об установке библиотек
+<span class="c"># вывод об установке библиотек</span>
 
-[webpack-cli] 
+<span class="o">[</span>webpack-cli] 
 Congratulations! Your new webpack configuration file has been created!
 
 You can now run npm run build to bundle your application!
-</code></pre>
+</code></pre></div></div>
 
 <p>Проект готов и теперь его можно запустить:</p>
 
-<pre><code class="language-sh">npx webpack serve
-</code></pre>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack serve
+</code></pre></div></div>
 
 <p>Эта команда соберёт приложение в режиме разработки, откроет браузер и отобразит содержимое HTML-файла, а в консоль выведется сообщение из <em>src/index.js</em>.</p>
 
