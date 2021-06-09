@@ -6,7 +6,7 @@
     <link rel="icon" href="/assets/images/favicons/favicon-128.png">
 
     
-      <link rel="amphtml" href="https://guides.hexlet.io/amp/logging.html">
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/logging">
     
 
 
@@ -30,9 +30,10 @@
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/logging/cover.png" />
 <meta property="twitter:title" content="Что такое логирование?" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://guides.hexlet.io/assets/images/logging/cover.png","description":"Журнал логов – специальное место, куда записывается информация о происходящих процессах в работающем коде. Приложение «логирует» туда информацию, которая, потенциально, может понадобиться для анализа различных ситуаций, возникающих в рабочем приложении: ошибках, задержках, сбоях.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"headline":"Что такое логирование?","dateModified":"2021-01-18T00:00:00+00:00","datePublished":"2021-01-18T00:00:00+00:00","url":"https://guides.hexlet.io/logging/","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/logging/"},"author":{"@type":"Person","name":"Кирилл Мокевнин"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","author":{"@type":"Person","name":"Кирилл Мокевнин"},"description":"Журнал логов – специальное место, куда записывается информация о происходящих процессах в работающем коде. Приложение «логирует» туда информацию, которая, потенциально, может понадобиться для анализа различных ситуаций, возникающих в рабочем приложении: ошибках, задержках, сбоях.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/logging/"},"image":"https://guides.hexlet.io/assets/images/logging/cover.png","url":"https://guides.hexlet.io/logging/","headline":"Что такое логирование?","dateModified":"2021-01-18T00:00:00+00:00","datePublished":"2021-01-18T00:00:00+00:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
+    
 
     <link href="/assets/css/theme.css" rel="stylesheet">
 
@@ -76,7 +77,10 @@
           <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral" alt="Программы обучения">Программы обучения</a>
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
             </li>
           </ul>
         </div>
@@ -85,23 +89,18 @@
       <!-- Container
         ================================================== -->
         <main class="container">
-          <!-- Begin Article
-  ================================================== -->
+          <div class="row">
+  <div class="col-sm-8 mx-auto">
+    <!-- Post Featured Image -->
+    
+    <!-- End Featured Image -->
+    <div class="mainheading">
+      <h1 class="posttitle">Что такое логирование?</h1>
+    </div>
 
-  <div class="row">
-    <div class="col-sm-8 mx-auto">
-      <!-- Post Featured Image -->
-      
-      <!-- End Featured Image -->
-      <div class="mainheading">
-        <h1 class="posttitle">Что такое логирование?</h1> 
-      </div>
-
-
-
-      <!-- Post Content -->
-      <div class="article-post serif-font">
-        <p>Известно, что программисты проводят много времени, отлаживая свои программы, пытаясь разобраться, почему они не работают — или работают неправильно. Когда говорят про отладку, обычно подразумевают либо отладочную печать, либо использование специальных программ – дебагеров. С их помощью отслеживается выполнение кода по шагам, во время которого видно, как меняется содержимое переменных. Эти способы хорошо работают в небольших программах, но в реальных приложениях быстро становятся неэффективными.</p>
+    <!-- Post Content -->
+    <div class="article-post">
+      <p>Известно, что программисты проводят много времени, отлаживая свои программы, пытаясь разобраться, почему они не работают — или работают неправильно. Когда говорят про отладку, обычно подразумевают либо отладочную печать, либо использование специальных программ – дебагеров. С их помощью отслеживается выполнение кода по шагам, во время которого видно, как меняется содержимое переменных. Эти способы хорошо работают в небольших программах, но в реальных приложениях быстро становятся неэффективными.</p>
 
 <p><img src="/assets/images/logging/debugger.png" alt="Дебагер JavaScript в WebStorm" /></p>
 
@@ -124,21 +123,21 @@
 
 <p>И для всего этого многообразия систем существует единое решение — логирование. В простейшем случае логирование сводится к файлу на диске, куда разные программы записывают (логируют) свои действия во время работы. Такой файл называют логом или журналом. Как правило, внутри лога одна строчка соответствует одному действию.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Формат: ip-address / date / HTTP-method / uri / response code / body size </span>
-173.245.52.110 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /my HTTP/1.1"</span> 200 46018
-108.162.219.13 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /sockjs-node/244/gdt1vvwa/websocket HTTP/1.1"</span> 0 0
-162.158.62.12 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/css/application.css HTTP/1.1"</span> 304 0
-162.158.62.84 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/runtime-eb0a99abbe8cf813f110.js HTTP/1.1"</span> 304 0
-108.162.219.111 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/application-2cba5619945c4e5946f1.js HTTP/1.1"</span> 304 0
-108.162.219.21 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/0564a7b5d773bab52e53.js HTTP/1.1"</span> 304 0
-108.162.219.243 - <span class="o">[</span>19/Jan/2021:01:54:20 +0000] <span class="s2">"GET /packs/js/6fb7e908211839fac06e.js HTTP/1.1"</span> 304 0
-</code></pre></div></div>
+<pre><code class="language-sh"># Формат: ip-address / date / HTTP-method / uri / response code / body size 
+173.245.52.110 - [19/Jan/2021:01:54:20 +0000] "GET /my HTTP/1.1" 200 46018
+108.162.219.13 - [19/Jan/2021:01:54:20 +0000] "GET /sockjs-node/244/gdt1vvwa/websocket HTTP/1.1" 0 0
+162.158.62.12 - [19/Jan/2021:01:54:20 +0000] "GET /packs/css/application.css HTTP/1.1" 304 0
+162.158.62.84 - [19/Jan/2021:01:54:20 +0000] "GET /packs/js/runtime-eb0a99abbe8cf813f110.js HTTP/1.1" 304 0
+108.162.219.111 - [19/Jan/2021:01:54:20 +0000] "GET /packs/js/application-2cba5619945c4e5946f1.js HTTP/1.1" 304 0
+108.162.219.21 - [19/Jan/2021:01:54:20 +0000] "GET /packs/js/0564a7b5d773bab52e53.js HTTP/1.1" 304 0
+108.162.219.243 - [19/Jan/2021:01:54:20 +0000] "GET /packs/js/6fb7e908211839fac06e.js HTTP/1.1" 304 0
+</code></pre>
 
 <p>Выше небольшой кусок лога веб-сервера Хекслета. Из него видно ip-адрес, с которого выполнялся запрос на страницу и какие ресурсы загружались, метод HTTP, ответ бекенда (кода) и размер тела ответа в HTTP. Очень важно наличие даты. Благодаря ей всегда можно найти лог за конкретный период, например на то время, когда возникла ошибка. Для этого логи <a href="https://ru.hexlet.io/courses/cli-basics/lessons/grep/theory_unit">грепают</a>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Выведет 4 минуты логов за 31 марта 2020 года с 19:31 по 19:35</span>
-<span class="nb">grep</span> <span class="s2">"31/Mar/2020:19:3[1-5]"</span> access.log
-</code></pre></div></div>
+<pre><code class="language-sh"># Выведет 4 минуты логов за 31 марта 2020 года с 19:31 по 19:35
+grep "31/Mar/2020:19:3[1-5]" access.log
+</code></pre>
 
 <p>Когда программисты только начинают свой путь, они, часто не зная причину ошибки, опускают руки и говорят «я не знаю, что случилось, и что делать». Опытный же разработчик всегда первым делом говорит «а что в логах?». Анализировать логи — один из базовых навыков в разработке. В любой непонятной ситуации нужно смотреть логи. Логи пишут все программы без исключения, но делают это по-разному и в разные места. Чтобы точно узнать, куда и как, нужно идти в документацию конкретной программы и читать соответствующий раздел документации. Вот несколько примеров:</p>
 
@@ -152,19 +151,19 @@
 
 <p>Многие программы логируют прямо в консоль, например Webpack показывает процесс и результаты сборки:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Сюда же выводятся ошибки, если они были</span>
+<pre><code class="language-sh"># Сюда же выводятся ошибки, если они были
 ｢wds｣: Project is running at http://hexletdev4.com/
 ｢wds｣: webpack output is served from /packs/
 ｢wds｣: Content not from webpack is served from /root/hexlet/public/packs
 ｢wds｣: 404s will fallback to /index.html
-｢wdm｣: assets by chunk 10.8 MiB <span class="o">(</span>auxiliary name: application<span class="o">)</span> 115 assets
+｢wdm｣: assets by chunk 10.8 MiB (auxiliary name: application) 115 assets
 sets by path js/ 13.8 MiB
-assets by path js/<span class="k">*</span>.js 13.8 MiB 52 assets
-assets by path js/pages/<span class="k">*</span>.js 5.1 KiB
-  asset js/pages/da223d3affe56711f31f.js 2.6 KiB <span class="o">[</span>emitted] <span class="o">[</span>immutable] <span class="o">(</span>name: pages/my_learning<span class="o">)</span> 1 related asset
-  asset js/pages/04adacfdd660803b19f1.js 2.5 KiB <span class="o">[</span>emitted] <span class="o">[</span>immutable] <span class="o">(</span>name: pages/referral<span class="o">)</span> 1 related asset
-sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </span>hint: vendors<span class="o">)</span>
-</code></pre></div></div>
+assets by path js/*.js 13.8 MiB 52 assets
+assets by path js/pages/*.js 5.1 KiB
+  asset js/pages/da223d3affe56711f31f.js 2.6 KiB [emitted] [immutable] (name: pages/my_learning) 1 related asset
+  asset js/pages/04adacfdd660803b19f1.js 2.5 KiB [emitted] [immutable] (name: pages/referral) 1 related asset
+sets by chunk 9.14 KiB (auxiliary id hint: vendors)
+</code></pre>
 
 <p>Во фронтенде файлов нет, поэтому логируют либо прямо в консоль, либо к себе в бекенды (что сложно), либо в специализированные сервисы, такие как <a href="https://logrocket.com/">LogRocket</a>.</p>
 
@@ -181,22 +180,22 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
 
 <p>Поддержка уровней осуществляется двумя способами. Во-первых, внутри самой программы расставляют вызовы библиотеки логирования в соответствии с уровнями. Если произошла ошибка, то логируем как <em>error</em>, если это отладочная информация, которая не нужна в обычной ситуации, то уровень <em>debug</em>.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1">// Пример логирования внутри программы</span>
-<span class="c1">// Логер: https://github.com/pinojs/pino</span>
+<pre><code class="language-javascript">// Пример логирования внутри программы
+// Логер: https://github.com/pinojs/pino
 
-<span class="k">import</span> <span class="nx">buildLogger</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">pino</span><span class="dl">'</span><span class="p">;</span>
+import buildLogger from 'pino';
 
-<span class="kd">const</span> <span class="nx">logger</span> <span class="o">=</span> <span class="nx">buildLogger</span><span class="p">(</span><span class="cm">/* возможная конфигурация */</span><span class="p">);</span>
-<span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="dl">'</span><span class="s1">тут что то полезное</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div></div>
+const logger = buildLogger(/* возможная конфигурация */);
+logger.info('тут что то полезное');
+</code></pre>
 
 <p>Во-вторых, во время запуска программы указывается уровень логирования, необходимый в конкретной ситуации. По умолчанию используется уровень <em>info</em>, который используется для описания каких-то ключевых и важных вещей. При таком уровне будут выводиться и <em>warning</em>, и <em>error</em>. Если поставить уровень <em>error</em>, то будут выводиться только ошибки. А если <em>debug</em>, то мы получим лог, максимально наполненный данными. Обычно <em>debug</em> приводит к многократному росту выводимой информации.</p>
 
 <p>Уровни логирования, обычно, выставляются через переменную окружения во время запуска программы. Например, так:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># https://github.com/fastify/fastify-cli#options</span>
-<span class="nv">FASTIFY_LOG_LEVEL</span><span class="o">=</span>debug fastify-server.js
-</code></pre></div></div>
+<pre><code class="language-sh"># https://github.com/fastify/fastify-cli#options
+FASTIFY_LOG_LEVEL=debug fastify-server.js
+</code></pre>
 
 <p>Существует и другой подход, основанный не на уровнях, а на пространствах имен. Этот подход получил широкое распространение в JS-среде, и является там основным. Фактически, он построен вокруг одной единственной библиотеки <a href="https://github.com/visionmedia/debug">debug</a> для логирования, которой пронизаны практически все JavaScript-библиотеки как на фронтенде, так и на бекенде.</p>
 
@@ -204,21 +203,21 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
 
 <p>Принцип работы здесь такой. Под нужную ситуацию создается специализированная функция логирования с указанием пространства имен, которая затем используется для всех событий одного процесса. В итоге библиотека позволяет легко отфильтровать только нужные записи, соответствующие нужному пространству.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">import</span> <span class="nx">debug</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">debug</span><span class="dl">'</span><span class="p">;</span>
+<pre><code class="language-javascript">import debug from 'debug';
 
-<span class="c1">// Пространство имен http</span>
-<span class="kd">const</span> <span class="nx">logHttp</span> <span class="o">=</span> <span class="nx">debug</span><span class="p">(</span><span class="dl">'</span><span class="s1">http</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">logSomethingElse</span> <span class="o">=</span> <span class="nx">debug</span><span class="p">(</span><span class="dl">'</span><span class="s1">another-namespace</span><span class="dl">'</span><span class="p">);</span>
+// Пространство имен http
+const logHttp = debug('http');
+const logSomethingElse = debug('another-namespace');
 
-<span class="c1">// Где-то в коде</span>
+// Где-то в коде
 
-<span class="nx">logHttp</span><span class="p">(</span><span class="cm">/* информация о http запросе */</span><span class="p">);</span>
-</code></pre></div></div>
+logHttp(/* информация о http запросе */);
+</code></pre>
 
 <p>Запуск с нужным пространством:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">DEBUG</span><span class="o">=</span>http server.js
-</code></pre></div></div>
+<pre><code class="language-sh">DEBUG=http server.js
+</code></pre>
 
 <p><img src="/assets/images/logging/debug-http.png" alt="Библиотека debug для логирования http в JavaScript" /></p>
 
@@ -230,36 +229,37 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
 
 <p>Здесь тоже есть несколько путей. Можно воспользоваться готовыми решениями, такими как <a href="https://docs.datadoghq.com/logs/">DataDog Logging</a>, либо устанавливать и настраивать все самостоятельно через, например, <a href="https://www.elastic.co/elastic-stack">ELK Stack</a></p>
 
-        <div class="clearfix"></div>
-      </div>
+    </div>
 
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/master/_posts/2021-01-18-logging.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
       
-      <div class="lead text-end my-5">
         <i>Кирилл Мокевнин</i>
+      
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/hosting/">&laquo; Что такое домен и хостинг?</a>
       </div>
       
-
-      <!-- Prev/Next -->
-      <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
-        
-        <div class="col-md-6 rightborder pl-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/hosting/">&laquo; Что такое домен и хостинг?</a>
-        </div>
-        
-        
-        <div class="col-md-6 text-right pr-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/configuration-management/">Что такое "управление конфигурацией"? &raquo;</a>
-        </div>
-        
+      
+      <div class="col-md-6 text-right pr-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/configuration-management/">Что такое "управление конфигурацией"? &raquo;</a>
       </div>
-      <!-- End Prev/Next -->
+      
+    </div>
+    <!-- End Prev/Next -->
 
-
-      <!-- Begin Comments
-        ================================================== -->
-        <section>
-          <div id="comments">
-            <section class="disqus">
+    <section>
+      <div id="comments">
+        <section class="disqus">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'hexlet-guides'; 
@@ -274,15 +274,10 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
 
-          </div>
-        </section>
-    </div>
-    <!-- End Post -->
-    <!-- Sidebar -->
+      </div>
+    </section>
   </div>
-
-  <!-- End Article
-    ================================================== -->
+</div>
 
         </main>
 

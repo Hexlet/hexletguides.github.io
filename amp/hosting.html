@@ -18,7 +18,7 @@
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/hosting/servers.png" />
 <meta property="twitter:title" content="Что такое домен и хостинг?" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://guides.hexlet.io/assets/images/hosting/servers.png","description":"Какие виды хостингов бывают и как сделать ваш сайт, доступным в интернете по собственному адресу.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"headline":"Что такое домен и хостинг?","dateModified":"2021-01-18T00:00:00+00:00","datePublished":"2021-01-18T00:00:00+00:00","url":"/hosting/","mainEntityOfPage":{"@type":"WebPage","@id":"/hosting/"},"author":{"@type":"Person","name":"Кирилл Мокевнин"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","author":{"@type":"Person","name":"Кирилл Мокевнин"},"description":"Какие виды хостингов бывают и как сделать ваш сайт, доступным в интернете по собственному адресу.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"mainEntityOfPage":{"@type":"WebPage","@id":"/hosting/"},"image":"https://guides.hexlet.io/assets/images/hosting/servers.png","url":"/hosting/","headline":"Что такое домен и хостинг?","dateModified":"2021-01-18T00:00:00+00:00","datePublished":"2021-01-18T00:00:00+00:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <meta charset="utf-8">
     <title>Что такое домен и хостинг?</title>
@@ -2412,14 +2412,14 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>Первым решением стал специальный файл <em>hosts</em>, расположенный на каждой машине, с которой происходил доступ к сайтам. Он содержит сопоставление между IP-адресом и именем, удобным для запоминания. Этот файл существует до сих пор и часто используется программистами во время разработки. Формат файла:</p>
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="syntax"><code># Формат файла: &lt;ip-адрес&gt; &lt;имена сайта&gt;
+<pre><code class="language-text"># Формат файла: &lt;ip-адрес&gt; &lt;имена сайта&gt;
 34.117.253.138 hexlet.io
 172.10.11.200 facebook.com m.facebook.com
-</code></pre></div></div>
+</code></pre>
 
-<p>Когда происходит запрос по адресу, например, hexlet.io, то сначала проверяется файл <em>hosts</em>, и если домен найден (как в примере выше), то браузер устанавливает соединение с сервером. В нашем примере он пойдёт по адресу <code class="language-plaintext highlighter-rouge">34.117.253.138</code>.</p>
+<p>Когда происходит запрос по адресу, например, hexlet.io, то сначала проверяется файл <em>hosts</em>, и если домен найден (как в примере выше), то браузер устанавливает соединение с сервером. В нашем примере он пойдёт по адресу <code>34.117.253.138</code>.</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Пример обращения к DNS с помощью утилиты host</span>
+<pre><code class="language-shell"># Пример обращения к DNS с помощью утилиты host
 host hexlet.io
 hexlet.io has address 34.117.253.138
 hexlet.io mail is handled by 10 alt4.aspmx.l.google.com.
@@ -2427,7 +2427,7 @@ hexlet.io mail is handled by 1 aspmx.l.google.com.
 hexlet.io mail is handled by 10 alt3.aspmx.l.google.com.
 hexlet.io mail is handled by 5 alt1.aspmx.l.google.com.
 hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
-</code></pre></div></div>
+</code></pre>
 
 <p>Такой подход оказался очень неэффективен. В каждой подсети использовался собственный файл hosts, который рассылался на все компьютеры, входящие в подсеть. Кроме того, если появляется новый сайт, то всех нужно оповестить. Да и самих сайтов становилось слишком много. Для решения этих проблем создали Domain Name System (DNS). Основное предназначение этой системы заключается в сопоставлении имени домена конкретному IP-адресу, на котором находится сайт. Другими словами, любой сервис может обратиться к DNS и спросить «какой IP-адрес у домена hexlet.io?».</p>
 
@@ -2439,7 +2439,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
 
 <p>Интернет — это глобальная сеть, объединяющая огромное число устройств. К устройствам относятся далеко не только стационарные компьютеры и ноутбуки, но также и мобильные устройства, камеры, различные электронные и бытовые приборы. Хотя все эти устройства совершенно разные, они без проблем общаются друг с другом с помощью единого языка. Таким языком в мире машин стал стек протоколов <a href="https://ru.wikipedia.org/wiki/TCP/IP">TCP/IP</a>. Не вдаваясь в детали, скажем, что протокол — это правила, по которым происходит общение. При этом природа общающихся устройств не важна.</p>
 
-<p>Главным элементом в TCP/IP является IP-адрес. В версии IPv4 он выглядит так: <code class="language-plaintext highlighter-rouge">10.123.23.1</code>. Четыре числа, разделённые точкой. У всех устройств, подключенных к сети напрямую, этот адрес уникальный. Фактически, любой запрос в интернете всегда обращается к какому-то IP-адресу, даже если вы этого не видите.</p>
+<p>Главным элементом в TCP/IP является IP-адрес. В версии IPv4 он выглядит так: <code>10.123.23.1</code>. Четыре числа, разделённые точкой. У всех устройств, подключенных к сети напрямую, этот адрес уникальный. Фактически, любой запрос в интернете всегда обращается к какому-то IP-адресу, даже если вы этого не видите.</p>
 
 <p>Среди компьютеров, подключённых к интернету, выделяется класс машин, которые выполняют роль серверов. Эти сервера, как правило, располагаются у хостеров, и именно они обслуживают многочисленные интернет сайты.</p>
 

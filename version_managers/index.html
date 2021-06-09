@@ -6,7 +6,7 @@
     <link rel="icon" href="/assets/images/favicons/favicon-128.png">
 
     
-      <link rel="amphtml" href="https://guides.hexlet.io/amp/version_managers.html">
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/version_managers">
     
 
 
@@ -30,9 +30,10 @@
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/version-manager/nvm.png" />
 <meta property="twitter:title" content="Что такое “Менеджер версий”" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://guides.hexlet.io/assets/images/version-manager/nvm.png","description":"Правильный подход к установке языков программирования и их обновлению. Универсальный менеджер версий asdf.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"headline":"Что такое “Менеджер версий”","dateModified":"2020-06-28T00:00:00+00:00","datePublished":"2020-06-28T00:00:00+00:00","url":"https://guides.hexlet.io/version_managers/","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/version_managers/"},"author":{"@type":"Person","name":"Кирилл Мокевнин"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","author":{"@type":"Person","name":"Кирилл Мокевнин"},"description":"Правильный подход к установке языков программирования и их обновлению. Универсальный менеджер версий asdf.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/version_managers/"},"image":"https://guides.hexlet.io/assets/images/version-manager/nvm.png","url":"https://guides.hexlet.io/version_managers/","headline":"Что такое “Менеджер версий”","dateModified":"2020-06-28T00:00:00+00:00","datePublished":"2020-06-28T00:00:00+00:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
+    
 
     <link href="/assets/css/theme.css" rel="stylesheet">
 
@@ -76,7 +77,10 @@
           <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral" alt="Программы обучения">Программы обучения</a>
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
             </li>
           </ul>
         </div>
@@ -85,29 +89,24 @@
       <!-- Container
         ================================================== -->
         <main class="container">
-          <!-- Begin Article
-  ================================================== -->
+          <div class="row">
+  <div class="col-sm-8 mx-auto">
+    <!-- Post Featured Image -->
+    
+    <!-- End Featured Image -->
+    <div class="mainheading">
+      <h1 class="posttitle">Что такое "Менеджер версий"</h1>
+    </div>
 
-  <div class="row">
-    <div class="col-sm-8 mx-auto">
-      <!-- Post Featured Image -->
-      
-      <!-- End Featured Image -->
-      <div class="mainheading">
-        <h1 class="posttitle">Что такое "Менеджер версий"</h1> 
-      </div>
-
-
-
-      <!-- Post Content -->
-      <div class="article-post serif-font">
-        <h2 id="системная-установка">Системная установка</h2>
+    <!-- Post Content -->
+    <div class="article-post">
+      <h2 id="системная-установка">Системная установка</h2>
 
 <p>Для запуска кода на любом языке, необходимо установить его интерпретатор (или компилятор). В разных операционных системах это делается по-разному: где-то используются пакетные менеджеры, например, <em>apt</em> или <em>yum</em>, где-то скачивается установщик. Некоторые языки бывают предустановленны сразу, например, Python. На него многое завязано в дистрибутивах линукса.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Ubuntu</span>
-<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>nodejs <span class="c"># установит не самую свежую версию</span>
-</code></pre></div></div>
+<pre><code class="language-sh"># Ubuntu
+$ sudo apt install nodejs # установит не самую свежую версию
+</code></pre>
 
 <p>Стандартный способ установки работает хорошо только в самом начале, когда происходит первичная настройка. Затем, с течением времени, начинают всплывать разные проблемы. Например, в какой-то момент выходит новая версия языка, которую нужно подключить к проекту. Обычно, должно пройти какое-то время, перед тем, как язык станет доступным для установки через пакетные менеджеры. И здесь либо придется ждать, что не всегда желательно, либо искать другой способ установки. Последнее нередко превращается в серьёзное испытание, с часами гугления и установкой дополнительных библиотек. Все это в конце концов засоряет систему и иногда ломает её.</p>
 
@@ -121,24 +120,24 @@
 
 <p>Например, для Node.js это <a href="https://github.com/nvm-sh/nvm">NVM</a> (Node Version Manager):</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Установка NVM</span>
-<span class="nv">$ </span>curl <span class="nt">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-<span class="c"># Установка не означает активацию. После установки активной останется та версия, что и была до установки</span>
-<span class="nv">$ </span>nvm <span class="nb">install </span>node <span class="c"># Установка последней доступной версии ноды</span>
-<span class="nv">$ </span>nvm <span class="nb">install </span>6.14.4 <span class="c"># или 10.10.0, 8.9.1, и т.п.</span>
-<span class="nv">$ </span>nvm ls-remote <span class="c"># список доступных версий</span>
-<span class="nv">$ </span>nvm use node <span class="c"># Активация последней установленной версии ноды</span>
-<span class="nv">$ </span>nvm use node 14.1 <span class="c"># Активация нужной версии</span>
-</code></pre></div></div>
+<pre><code class="language-sh"># Установка NVM
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+# Установка не означает активацию. После установки активной останется та версия, что и была до установки
+$ nvm install node # Установка последней доступной версии ноды
+$ nvm install 6.14.4 # или 10.10.0, 8.9.1, и т.п.
+$ nvm ls-remote # список доступных версий
+$ nvm use node # Активация последней установленной версии ноды
+$ nvm use node 14.1 # Активация нужной версии
+</code></pre>
 
 <p>Для упрощения работы менеджеры версий обычно позволяют создать специальный файл внутри проекта, который зафиксирует нужную версию языка. В некоторых случаях менеджеры версий сами отслеживают этот файл и переключают версию автоматически.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"14.1"</span> <span class="o">&gt;</span> .nvmrc
-<span class="c"># Эта команда увидела файл .nvmrc и использовала указанную там версию</span>
-<span class="nv">$ </span>nvm use
-Found <span class="s1">'/path/to/project/.nvmrc'</span> with version &lt;14.1&gt;
+<pre><code class="language-sh">$ echo "14.1" &gt; .nvmrc
+# Эта команда увидела файл .nvmrc и использовала указанную там версию
+$ nvm use
+Found '/path/to/project/.nvmrc' with version &lt;14.1&gt;
 Now using node v14.1
-</code></pre></div></div>
+</code></pre>
 
 <p>В современном мире сложно представить себе язык, у которого бы не было менеджера версий. Более того некоторые языки, такие как Ruby, имеют множество разных менеджеров версий, которые конкурируют между собой:</p>
 
@@ -167,72 +166,73 @@ Now using node v14.1
 
 <p>Сейчас <em>asdf</em> набрал достаточно большую популярность и постепенно заменяет собой все остальные менеджеры версий (технически под капотом там часто используются менеджеры, специфические для конкретных языков). У него чуть более сложная система команд из-за необходимости поддерживать множество языков, но в остальном он резко упрощает весь процесс.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># У asdf прекрасная документация, где наглядно показано, как его установить,</span>
-<span class="c"># и какие могут понадобится зависимости в разных системах</span>
+<pre><code class="language-sh"># У asdf прекрасная документация, где наглядно показано, как его установить,
+# и какие могут понадобится зависимости в разных системах
 
-<span class="c"># Установка</span>
-<span class="nv">$ </span>git clone https://github.com/asdf-vm/asdf.git ~/.asdf <span class="nt">--branch</span> v0.7.8
+# Установка
+$ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.8
 
-<span class="c"># Для работы с конкретным языком, сначала нужно подключить соответствующий плагин</span>
-<span class="c"># Список доступных плагинов есть на сайте проекта</span>
-<span class="nv">$ </span>asdf plugin add nodejs
+# Для работы с конкретным языком, сначала нужно подключить соответствующий плагин
+# Список доступных плагинов есть на сайте проекта
+$ asdf plugin add nodejs
 
-<span class="c"># Установка языка</span>
-<span class="c"># Вместо nodejs нужно подставить название того плагина, с которым работаем</span>
-<span class="nv">$ </span>asdf <span class="nb">install </span>nodejs latest <span class="c"># latest означает последнюю версию указанного языка</span>
+# Установка языка
+# Вместо nodejs нужно подставить название того плагина, с которым работаем
+$ asdf install nodejs latest # latest означает последнюю версию указанного языка
 
-<span class="c"># Установка указанной версии</span>
-<span class="nv">$ </span>asdf <span class="nb">install </span>nodejs 14.1
+# Установка указанной версии
+$ asdf install nodejs 14.1
 
-<span class="c"># Установка нужной версии языка версией по умолчанию</span>
-<span class="c"># Здесь нужно всегда указывать конкретную версию</span>
-<span class="nv">$ </span>asdf global nodejs 14.1
+# Установка нужной версии языка версией по умолчанию
+# Здесь нужно всегда указывать конкретную версию
+$ asdf global nodejs 14.1
 
-<span class="c"># Показывает текущие версии для языков, установленных через asdf</span>
-<span class="nv">$ </span>asdf current
-elixir         1.10.1-otp-22 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
-erlang         22.2.7   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
-nodejs         14.2.0   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
-php            7.4.5    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
-python         3.8.2 2.7.16 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
-ruby           2.7.0    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
-yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
-</code></pre></div></div>
+# Показывает текущие версии для языков, установленных через asdf
+$ asdf current
+elixir         1.10.1-otp-22 (set by /Users/user/.tool-versions)
+erlang         22.2.7   (set by /Users/user/.tool-versions)
+nodejs         14.2.0   (set by /Users/user/.tool-versions)
+php            7.4.5    (set by /Users/user/.tool-versions)
+python         3.8.2 2.7.16 (set by /Users/user/.tool-versions)
+ruby           2.7.0    (set by /Users/user/.tool-versions)
+yarn           1.22.4   (set by /Users/user/.tool-versions)
+</code></pre>
 
 <h2 id="вывод">Вывод</h2>
 
 <p>Работа с разными версиями языков – непростая задача, которую решают менеджеры версий и докер (для продвинутых). Среди всех менеджеров выделяется <em>asdf</em>, который становится универсальным инструментом для управления любыми языками и даже обычными программами.</p>
 
-        <div class="clearfix"></div>
-      </div>
+    </div>
 
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/master/_posts/2020-06-28-version_managers.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
       
-      <div class="lead text-end my-5">
         <i>Кирилл Мокевнин</i>
+      
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/webpack/">&laquo; Зачем нужно собирать фронтенд</a>
       </div>
       
-
-      <!-- Prev/Next -->
-      <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
-        
-        <div class="col-md-6 rightborder pl-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/webpack/">&laquo; Зачем нужно собирать фронтенд</a>
-        </div>
-        
-        
-        <div class="col-md-6 text-right pr-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/makefile-as-task-runner/">Что такое Makefile и как начать его использовать &raquo;</a>
-        </div>
-        
+      
+      <div class="col-md-6 text-right pr-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/makefile-as-task-runner/">Что такое Makefile и как начать его использовать &raquo;</a>
       </div>
-      <!-- End Prev/Next -->
+      
+    </div>
+    <!-- End Prev/Next -->
 
-
-      <!-- Begin Comments
-        ================================================== -->
-        <section>
-          <div id="comments">
-            <section class="disqus">
+    <section>
+      <div id="comments">
+        <section class="disqus">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'hexlet-guides'; 
@@ -247,15 +247,10 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
 
-          </div>
-        </section>
-    </div>
-    <!-- End Post -->
-    <!-- Sidebar -->
+      </div>
+    </section>
   </div>
-
-  <!-- End Article
-    ================================================== -->
+</div>
 
         </main>
 

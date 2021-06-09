@@ -18,7 +18,7 @@
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/git/6.png" />
 <meta property="twitter:title" content="Зачем нужен Git" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://guides.hexlet.io/assets/images/git/6.png","description":"Информация о задачах, которые решает контроль версий, а также о принципах работы Git","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"headline":"Зачем нужен Git","dateModified":"2019-07-22T00:00:00+00:00","datePublished":"2019-07-22T00:00:00+00:00","url":"/git-guide/","mainEntityOfPage":{"@type":"WebPage","@id":"/git-guide/"},"author":{"@type":"Person","name":"Кирилл Мокевнин"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","author":{"@type":"Person","name":"Кирилл Мокевнин"},"description":"Информация о задачах, которые решает контроль версий, а также о принципах работы Git","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"mainEntityOfPage":{"@type":"WebPage","@id":"/git-guide/"},"image":"https://guides.hexlet.io/assets/images/git/6.png","url":"/git-guide/","headline":"Зачем нужен Git","dateModified":"2019-07-22T00:00:00+00:00","datePublished":"2019-07-22T00:00:00+00:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <meta charset="utf-8">
     <title>Зачем нужен Git</title>
@@ -2479,22 +2479,22 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>Более того, в системах Linux есть команда diff, с помощью которой можно выяснить различия между любыми файлами даже без использования СКВ. Эти изменения можно сохранить в файл, а затем, используя программу patch, применить к исходному файлу.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>diff index.js index2.js <span class="o">&gt;</span> index.patch
+<pre><code class="language-sh">diff index.js index2.js &gt; index.patch
 
 1c1
 
-&lt; const a <span class="o">=</span> 5<span class="p">;</span>
+&lt; const a = 5;
 
-<span class="nt">---</span>
+---
 
-<span class="o">&gt;</span> const a <span class="o">=</span> 8<span class="p">;</span>
+&gt; const a = 8;
 
 3a4
 
-<span class="o">&gt;</span> console.log<span class="o">(</span>a - b<span class="o">)</span><span class="p">;</span>
+&gt; console.log(a - b);
 
-patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span> index2.js
-</code></pre></div></div>
+patch index.js -i index.patch -o index2.js
+</code></pre>
 
 <p>В программах, разобранных выше, создание ревизии привязано к автосохранению, но это не единственная стратегия. Всего используется три способа:</p>
 

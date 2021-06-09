@@ -6,7 +6,7 @@
     <link rel="icon" href="/assets/images/favicons/favicon-128.png">
 
     
-      <link rel="amphtml" href="https://guides.hexlet.io/amp/ubuntu-linux-in-windows.html">
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/ubuntu-linux-in-windows">
     
 
 
@@ -30,9 +30,10 @@
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/ubuntu-linux-in-windows/virtualization_cover.png" />
 <meta property="twitter:title" content="Как работать с Linux используя Windows" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://guides.hexlet.io/assets/images/ubuntu-linux-in-windows/virtualization_cover.png","description":"Инструкция по установке Ubuntu Linux внутри Windows с использованием различных технологий виртуализации.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"headline":"Как работать с Linux используя Windows","dateModified":"2017-12-28T00:00:00+00:00","datePublished":"2017-12-28T00:00:00+00:00","url":"https://guides.hexlet.io/ubuntu-linux-in-windows/","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/ubuntu-linux-in-windows/"},"author":{"@type":"Person","name":"Кирилл Мокевнин"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","author":{"@type":"Person","name":"Кирилл Мокевнин"},"description":"Инструкция по установке Ubuntu Linux внутри Windows с использованием различных технологий виртуализации.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/ubuntu-linux-in-windows/"},"image":"https://guides.hexlet.io/assets/images/ubuntu-linux-in-windows/virtualization_cover.png","url":"https://guides.hexlet.io/ubuntu-linux-in-windows/","headline":"Как работать с Linux используя Windows","dateModified":"2017-12-28T00:00:00+00:00","datePublished":"2017-12-28T00:00:00+00:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
+    
 
     <link href="/assets/css/theme.css" rel="stylesheet">
 
@@ -76,7 +77,10 @@
           <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral" alt="Программы обучения">Программы обучения</a>
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
             </li>
           </ul>
         </div>
@@ -85,23 +89,18 @@
       <!-- Container
         ================================================== -->
         <main class="container">
-          <!-- Begin Article
-  ================================================== -->
+          <div class="row">
+  <div class="col-sm-8 mx-auto">
+    <!-- Post Featured Image -->
+    
+    <!-- End Featured Image -->
+    <div class="mainheading">
+      <h1 class="posttitle">Как работать с Linux используя Windows</h1>
+    </div>
 
-  <div class="row">
-    <div class="col-sm-8 mx-auto">
-      <!-- Post Featured Image -->
-      
-      <!-- End Featured Image -->
-      <div class="mainheading">
-        <h1 class="posttitle">Как работать с Linux используя Windows</h1> 
-      </div>
-
-
-
-      <!-- Post Content -->
-      <div class="article-post serif-font">
-        <p>Если вы только начали свой путь разработчика и до сих используете операционную систему семейства Microsoft Windows, то уже наверняка столкнулись с ситуацией, когда ваш инструментарий отличается от того, что установлено у большинства людей из этой профессии. Чаще всего проблемы начинаются при работе в командной строке. Дело в том, что Windows не является <a href="https://ru.wikipedia.org/wiki/POSIX">POSIX</a>-совместимой операционной системой, поэтому в ней отсутсвует базовый набор прикладных программ, который необходим для разработки.</p>
+    <!-- Post Content -->
+    <div class="article-post">
+      <p>Если вы только начали свой путь разработчика и до сих используете операционную систему семейства Microsoft Windows, то уже наверняка столкнулись с ситуацией, когда ваш инструментарий отличается от того, что установлено у большинства людей из этой профессии. Чаще всего проблемы начинаются при работе в командной строке. Дело в том, что Windows не является <a href="https://ru.wikipedia.org/wiki/POSIX">POSIX</a>-совместимой операционной системой, поэтому в ней отсутсвует базовый набор прикладных программ, который необходим для разработки.</p>
 
 <p>Этот вопрос можно решить установкой какого-либо из многочисленных дистрибутивов Linux в качестве основной, либо альтернативной операционной системы. Для новичков есть способ проще и быстрее — технологии виртуализации. Об этом и поговорим.</p>
 
@@ -113,21 +112,21 @@
 
 <p>Перед тем как начать, необходимо убедиться, что системные требования соответствуют рекомендованным. Для этого запустите приложение Microsoft Store, введите в графе поиска Ubuntu и перейдите по найденной ссылке. Если ранее Windows не обновлялся, то вероятней всего вы получите соответствующее указание сделать это до начала установки Ubuntu.  Если всё OK, то нажимайте на кнопку «Получить» и через несколько минут (в зависимости от скорости интернет соединения) вы получите сигнал об успешной установке приложения.</p>
 
-<p>Первый запуск может вызвать ошибку <code class="language-plaintext highlighter-rouge">Error: 0x8007007e</code> и предложение прочитать инструкцию по её решению <a href="https://aka.ms/wslinstall">https://aka.ms/wslinstall</a>. Если хотите сэкономить время, то просто запустите <code class="language-plaintext highlighter-rouge">PowerShell</code> (не путать с <code class="language-plaintext highlighter-rouge">cmd</code>) от имени администратора и выполните следующую команду:</p>
+<p>Первый запуск может вызвать ошибку <code>Error: 0x8007007e</code> и предложение прочитать инструкцию по её решению <a href="https://aka.ms/wslinstall">https://aka.ms/wslinstall</a>. Если хотите сэкономить время, то просто запустите <code>PowerShell</code> (не путать с <code>cmd</code>) от имени администратора и выполните следующую команду:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-</code></pre></div></div>
+<pre><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+</code></pre>
 
 <p>После этого компьютер попросит перегрузиться, а потом нужно снова запустить приложение Ubuntu.   В случае удачной установки откроется интерпретатор командной строки с предложением ввести имя пользователя и пароль. Выглядеть это будет вот так:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Installing, this may take a few minutes...
+<pre><code>Installing, this may take a few minutes...
 Installation successful!
 Please create a default UNIX user account. The username does not need to match your Windows username.
 For more information visit: https://aka.ms/wslusers
 Enter new UNIX username:
-</code></pre></div></div>
+</code></pre>
 
-<p>Преимущество такого способа установки позволяют стереть грань между операционными системами и получить доступ ко всему инструментарию Linux (<code class="language-plaintext highlighter-rouge">bash</code>, <code class="language-plaintext highlighter-rouge">ssh</code>, <code class="language-plaintext highlighter-rouge">git</code>, <code class="language-plaintext highlighter-rouge">apt</code> и так далее) из стандартной командной строки Windows не теряя привычное окружение и оставаясь на одном файловом уровне.</p>
+<p>Преимущество такого способа установки позволяют стереть грань между операционными системами и получить доступ ко всему инструментарию Linux (<code>bash</code>, <code>ssh</code>, <code>git</code>, <code>apt</code> и так далее) из стандартной командной строки Windows не теряя привычное окружение и оставаясь на одном файловом уровне.</p>
 
 <p>Ссылки на официальную документацию:</p>
 
@@ -229,36 +228,37 @@ Enter new UNIX username:
 
 <p><em>Дмитрий Храпонов</em></p>
 
-        <div class="clearfix"></div>
-      </div>
+    </div>
 
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/master/_posts/2017-12-28-ubuntu-linux-in-windows.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
       
-      <div class="lead text-end my-5">
         <i>Кирилл Мокевнин</i>
+      
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/vim/">&laquo; Зачем использовать vim</a>
       </div>
       
-
-      <!-- Prev/Next -->
-      <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
-        
-        <div class="col-md-6 rightborder pl-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/vim/">&laquo; Зачем использовать vim</a>
-        </div>
-        
-        
-        <div class="col-md-6 text-right pr-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/virtualization/">Что такое виртуализация &raquo;</a>
-        </div>
-        
+      
+      <div class="col-md-6 text-right pr-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/virtualization/">Что такое виртуализация &raquo;</a>
       </div>
-      <!-- End Prev/Next -->
+      
+    </div>
+    <!-- End Prev/Next -->
 
-
-      <!-- Begin Comments
-        ================================================== -->
-        <section>
-          <div id="comments">
-            <section class="disqus">
+    <section>
+      <div id="comments">
+        <section class="disqus">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'hexlet-guides'; 
@@ -273,15 +273,10 @@ Enter new UNIX username:
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
 
-          </div>
-        </section>
-    </div>
-    <!-- End Post -->
-    <!-- Sidebar -->
+      </div>
+    </section>
   </div>
-
-  <!-- End Article
-    ================================================== -->
+</div>
 
         </main>
 

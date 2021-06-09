@@ -6,7 +6,7 @@
     <link rel="icon" href="/assets/images/favicons/favicon-128.png">
 
     
-      <link rel="amphtml" href="https://guides.hexlet.io/amp/atom-js-setup.html">
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/atom-js-setup">
     
 
 
@@ -30,9 +30,10 @@
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/atom-js-setup/atom.jpg" />
 <meta property="twitter:title" content="Как настроить Atom для разработки на JavaScript" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://guides.hexlet.io/assets/images/atom-js-setup/atom.jpg","description":"Atom – популярный бесплатный редактор кода. Его легко настраивать и расширять под разные задачи и условия.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Рахим Давлеткалиев"},"headline":"Как настроить Atom для разработки на JavaScript","dateModified":"2017-09-01T00:00:00+00:00","datePublished":"2017-09-01T00:00:00+00:00","url":"https://guides.hexlet.io/atom-js-setup/","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/atom-js-setup/"},"author":{"@type":"Person","name":"Рахим Давлеткалиев"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","author":{"@type":"Person","name":"Рахим Давлеткалиев"},"description":"Atom – популярный бесплатный редактор кода. Его легко настраивать и расширять под разные задачи и условия.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Рахим Давлеткалиев"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/atom-js-setup/"},"image":"https://guides.hexlet.io/assets/images/atom-js-setup/atom.jpg","url":"https://guides.hexlet.io/atom-js-setup/","headline":"Как настроить Atom для разработки на JavaScript","dateModified":"2017-09-01T00:00:00+00:00","datePublished":"2017-09-01T00:00:00+00:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
+    
 
     <link href="/assets/css/theme.css" rel="stylesheet">
 
@@ -76,7 +77,10 @@
           <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral" alt="Программы обучения">Программы обучения</a>
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
             </li>
           </ul>
         </div>
@@ -85,23 +89,18 @@
       <!-- Container
         ================================================== -->
         <main class="container">
-          <!-- Begin Article
-  ================================================== -->
+          <div class="row">
+  <div class="col-sm-8 mx-auto">
+    <!-- Post Featured Image -->
+    
+    <!-- End Featured Image -->
+    <div class="mainheading">
+      <h1 class="posttitle">Как настроить Atom для разработки на JavaScript</h1>
+    </div>
 
-  <div class="row">
-    <div class="col-sm-8 mx-auto">
-      <!-- Post Featured Image -->
-      
-      <!-- End Featured Image -->
-      <div class="mainheading">
-        <h1 class="posttitle">Как настроить Atom для разработки на JavaScript</h1> 
-      </div>
-
-
-
-      <!-- Post Content -->
-      <div class="article-post serif-font">
-        <p><strong><a href="https://atom.io/">Атом</a> – популярный бесплатный редактор кода, созданный разработчиками GitHub’а для программистов. Он активно развивается, для него есть сотни плагинов, его легко настраивать под свои нужды.</strong></p>
+    <!-- Post Content -->
+    <div class="article-post">
+      <p><strong><a href="https://atom.io/">Атом</a> – популярный бесплатный редактор кода, созданный разработчиками GitHub’а для программистов. Он активно развивается, для него есть сотни плагинов, его легко настраивать под свои нужды.</strong></p>
 
 <p>Атом построен на технологии <a href="https://electron.atom.io/">Electron</a>, поэтому он работает на Windows, Linux и macOS. Среди базовых возможностей редактора, доступных сразу после установки:</p>
 
@@ -129,20 +128,20 @@
 
 <ol>
   <li>Установите Node.js используя <a href="https://nodejs.org/en/download/package-manager/">пакетный менеджер вашей операционной системы</a>.</li>
-  <li>Установите eslint командой <code class="language-plaintext highlighter-rouge">npm install -g eslint</code>. Вероятно, вам понадобится использовать <code class="language-plaintext highlighter-rouge">sudo</code>.</li>
-  <li>Установите плагины, которые конфигурируют <code class="language-plaintext highlighter-rouge">eslint</code>. Без них (по умолчанию) <code class="language-plaintext highlighter-rouge">eslint</code> ничего не проверяет.
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code> npm <span class="nb">install</span> <span class="nt">-g</span> eslint-config-airbnb-base eslint-plugin-import
-</code></pre></div>    </div>
+  <li>Установите eslint командой <code>npm install -g eslint</code>. Вероятно, вам понадобится использовать <code>sudo</code>.</li>
+  <li>Установите плагины, которые конфигурируют <code>eslint</code>. Без них (по умолчанию) <code>eslint</code> ничего не проверяет.
+    <pre><code class="language-shell"> npm install -g eslint-config-airbnb-base eslint-plugin-import
+</code></pre>
   </li>
   <li>
-    <p>eslint требует наличия конфигурационного файла. Создайте в корне вашего проекта файл <code class="language-plaintext highlighter-rouge">.eslintrc.yml</code> со следующим содержанием:</p>
+    <p>eslint требует наличия конфигурационного файла. Создайте в корне вашего проекта файл <code>.eslintrc.yml</code> со следующим содержанием:</p>
 
-    <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="syntax"><code> <span class="na">extends</span><span class="pi">:</span>
-   <span class="pi">-</span> <span class="s1">'</span><span class="s">airbnb-base'</span>
- <span class="na">env</span><span class="pi">:</span>
-   <span class="na">node</span><span class="pi">:</span> <span class="no">true</span>
-   <span class="na">browser</span><span class="pi">:</span> <span class="no">true</span>
-</code></pre></div>    </div>
+    <pre><code class="language-yml"> extends:
+   - 'airbnb-base'
+ env:
+   node: true
+   browser: true
+</code></pre>
   </li>
   <li>Установите расширение “<a href="https://atom.io/packages/linter-eslint">linter-eslint</a>” в Атоме.</li>
   <li>Отметьте галочку <em>Use Global Eslint</em> в настройках расширения (Settings -&gt; Packages -&gt; Linter Eslint).</li>
@@ -175,36 +174,37 @@
 
 <p><img src="/assets/images/atom-js-setup/js_hyperclick.png" alt="js-hyperclick" /></p>
 
-        <div class="clearfix"></div>
-      </div>
+    </div>
 
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/master/_posts/2017-09-01-atom-js-setup.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
       
-      <div class="lead text-end my-5">
         <i>Рахим Давлеткалиев</i>
+      
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/ssh/">&laquo; Что такое SSH</a>
       </div>
       
-
-      <!-- Prev/Next -->
-      <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
-        
-        <div class="col-md-6 rightborder pl-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/ssh/">&laquo; Что такое SSH</a>
-        </div>
-        
-        
-        <div class="col-md-6 text-right pr-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/vscode-js-setup/">Как настроить VS Code для разработки на JavaScript &raquo;</a>
-        </div>
-        
+      
+      <div class="col-md-6 text-right pr-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/vscode-js-setup/">Как настроить VS Code для разработки на JavaScript &raquo;</a>
       </div>
-      <!-- End Prev/Next -->
+      
+    </div>
+    <!-- End Prev/Next -->
 
-
-      <!-- Begin Comments
-        ================================================== -->
-        <section>
-          <div id="comments">
-            <section class="disqus">
+    <section>
+      <div id="comments">
+        <section class="disqus">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'hexlet-guides'; 
@@ -219,15 +219,10 @@
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
 
-          </div>
-        </section>
-    </div>
-    <!-- End Post -->
-    <!-- Sidebar -->
+      </div>
+    </section>
   </div>
-
-  <!-- End Article
-    ================================================== -->
+</div>
 
         </main>
 

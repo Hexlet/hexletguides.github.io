@@ -6,7 +6,7 @@
     <link rel="icon" href="/assets/images/favicons/favicon-128.png">
 
     
-      <link rel="amphtml" href="https://guides.hexlet.io/amp/development-on-windows.html">
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/development-on-windows">
     
 
 
@@ -30,9 +30,10 @@
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/development-on-windows/choco.png" />
 <meta property="twitter:title" content="Как начать разрабатывать в Windows" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://guides.hexlet.io/assets/images/development-on-windows/choco.png","description":"Базовая настройка MS Windows, приближающая систему по возможностям к другим ОС в контексте разработки.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"headline":"Как начать разрабатывать в Windows","dateModified":"2017-10-25T00:00:00+00:00","datePublished":"2017-10-25T00:00:00+00:00","url":"https://guides.hexlet.io/development-on-windows/","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/development-on-windows/"},"author":{"@type":"Person","name":"Кирилл Мокевнин"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","author":{"@type":"Person","name":"Кирилл Мокевнин"},"description":"Базовая настройка MS Windows, приближающая систему по возможностям к другим ОС в контексте разработки.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/development-on-windows/"},"image":"https://guides.hexlet.io/assets/images/development-on-windows/choco.png","url":"https://guides.hexlet.io/development-on-windows/","headline":"Как начать разрабатывать в Windows","dateModified":"2017-10-25T00:00:00+00:00","datePublished":"2017-10-25T00:00:00+00:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
+    
 
     <link href="/assets/css/theme.css" rel="stylesheet">
 
@@ -76,7 +77,10 @@
           <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral" alt="Программы обучения">Программы обучения</a>
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
             </li>
           </ul>
         </div>
@@ -85,23 +89,18 @@
       <!-- Container
         ================================================== -->
         <main class="container">
-          <!-- Begin Article
-  ================================================== -->
+          <div class="row">
+  <div class="col-sm-8 mx-auto">
+    <!-- Post Featured Image -->
+    
+    <!-- End Featured Image -->
+    <div class="mainheading">
+      <h1 class="posttitle">Как начать разрабатывать в Windows</h1>
+    </div>
 
-  <div class="row">
-    <div class="col-sm-8 mx-auto">
-      <!-- Post Featured Image -->
-      
-      <!-- End Featured Image -->
-      <div class="mainheading">
-        <h1 class="posttitle">Как начать разрабатывать в Windows</h1> 
-      </div>
-
-
-
-      <!-- Post Content -->
-      <div class="article-post serif-font">
-        <p><strong>В руководстве приводится пример базовой настройки Windows, приближающей её по возможностям к другим операционным системам.</strong></p>
+    <!-- Post Content -->
+    <div class="article-post">
+      <p><strong>В руководстве приводится пример базовой настройки Windows, приближающей её по возможностям к другим операционным системам.</strong></p>
 
 <p>Среда Windows не очень хорошо подходит для разработки, если вы не пишете под .net. Выражается это во многих аспектах: система не <a href="https://ru.wikipedia.org/wiki/POSIX">POSIX</a>-совместимая (а большинство библиотек пишется именно для таких систем, например linux или mac), в Windows нет примитивных средств, которые необходимы любому разработчику для комфортной работы.</p>
 
@@ -124,11 +123,11 @@
 
 <p><strong>Командная оболочка</strong> (shell, командный интерпретатор) — программа, позволяющая с помощью текстовых команд выполнять функции операционной системы и управлять другими программами. Например с помощью <em>shell</em> можно перемещаться по файловой системе и выполнять операции по созданию и удалению файлов. Сам по себе <em>shell</em> представляет из себя REPL (Read Eval Print Loop). Другими словами после запуска оболочки, появляется строка ввода в которую вводятся команды. После того как команда отработает, <em>shell</em> снова входит в режим ожидания ввода команд. Кстати у многих языков программирования есть свой собственный REPL, позволяющий в таком же стиле запускать код.</p>
 
-<p>В Windows по умолчанию используется <code class="language-plaintext highlighter-rouge">command.com</code>, а в Linux — Bash. Кроме них существует множество других оболочек, но Bash — стандарт де-факто, и его нужно знать.</p>
+<p>В Windows по умолчанию используется <code>command.com</code>, а в Linux — Bash. Кроме них существует множество других оболочек, но Bash — стандарт де-факто, и его нужно знать.</p>
 
 <p>Чтобы запустить <em>shell</em> нужна еще одна программа — <strong>терминал</strong> (term, Terminal Emulator). Терминал — это и есть то самое окно, внутри которого запускается оболочка. Этот термин изначально использовался для отдельно стоящих монитора и клавиатуры, посредством которых можно было подключиться к мейнфрейму (большим многопользовательским компьютерам древности). Терминалы популярны и сейчас: те же банкоматы и устройства для пополнения денег на счетах всевозможных сервисов. Поэтому тот терминал, который представлен программой на наших компьютерах, называют эмулятором, ведь у него нет железной части.</p>
 
-<p>Терминалов, как и оболочек существует множество. Разница заключается в том, какие возможности для удобной работы они предоставляют. Например, очень важно чтобы терминал поддерживал вкладки. Тогда очень сильно упрощается работа с большим количеством терминалов. Стандартный эмулятор в Windows не умеет работать ни с вкладками, ни с чем либо ещё. По сути, все что он делает — запускает <code class="language-plaintext highlighter-rouge">cmd.exe</code> и больше никак не участвует в процессе.</p>
+<p>Терминалов, как и оболочек существует множество. Разница заключается в том, какие возможности для удобной работы они предоставляют. Например, очень важно чтобы терминал поддерживал вкладки. Тогда очень сильно упрощается работа с большим количеством терминалов. Стандартный эмулятор в Windows не умеет работать ни с вкладками, ни с чем либо ещё. По сути, все что он делает — запускает <code>cmd.exe</code> и больше никак не участвует в процессе.</p>
 
 <p>А вот что могут хорошие терминалы:</p>
 
@@ -149,12 +148,12 @@
 
 <p>Пакетные менеджеры в средах, отличных от Windows — это основной способ установки программ и библиотек на компьютер. Если вам понадобится поставить Node.js, то достаточно сделать следующее:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>// mac
+<pre><code>// mac
 $ brew install node
 
 // ubuntu
 $ apt install node
-</code></pre></div></div>
+</code></pre>
 
 <p>Удобств в таком способе довольно много. Во-первых, не нужно бродить в поисках необходимого софта по всему интернету и тратить уйму времени. Во-вторых, всё, что можно набрать в командной строке автоматизируется. Другими словами, можно написать скрипт, который сам будет ставить всё, что нужно (подробнее смотрите <a href="https://www.ansible.com/">Ansible</a>).</p>
 
@@ -162,13 +161,13 @@ $ apt install node
 
 <p>В чем-то Chocolaty справляется даже лучше, чем brew или apt. С его помощью можно ставить не только специализированный софт (например, для программистов), но и любые программы вообще.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>GoogleChrome
-</code></pre></div></div>
+<pre><code class="language-sh">$ choco install GoogleChrome
+</code></pre>
 
 <p>или, что тоже самое</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>cinst GoogleChrome
-</code></pre></div></div>
+<pre><code class="language-sh">$ cinst GoogleChrome
+</code></pre>
 
 <p>Список того, что можно поставить находится <a href="https://chocolatey.org/packages">здесь</a>.</p>
 
@@ -180,10 +179,10 @@ $ apt install node
 
 <p>Эмулятор, поставляющийся вместе с командной оболочкой <a href="https://git-for-windows.github.io/">Git Bash</a>. Его установка решает сразу две задачи. С одной стороны вы получаете продвинутый терминал, с другой, из коробки, эмулятор Bash (настоящий bash получить нельзя, он работает только в *NIX системах).</p>
 
-<p>Запустите программу <code class="language-plaintext highlighter-rouge">cmd.exe</code> и выполните там следующую команду:</p>
+<p>Запустите программу <code>cmd.exe</code> и выполните там следующую команду:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>cmder
-</code></pre></div></div>
+<pre><code class="language-sh">$ choco install cmder
+</code></pre>
 
 <p>После установки Cmder всё остальное следует делать только из под него.</p>
 
@@ -191,15 +190,15 @@ $ apt install node
 
 <p>Альтернативный эмулятор, доступный по ссылке: <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>. Также как и Cmder, из коробки поставляется с командной оболочкой. Бесплатен для домашнего использования.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>mobaxterm
-</code></pre></div></div>
+<pre><code class="language-sh">$ choco install mobaxterm
+</code></pre>
 
 <h4 id="hyperjs">Hyper.js</h4>
 
-<p>Рассмотрен здесь для полноты картины. В отличие от предыдущих предоставляет только терминал. По умолчанию запускает внутри себя <code class="language-plaintext highlighter-rouge">cmd.exe</code>, но можно настроить на любую оболочку.</p>
+<p>Рассмотрен здесь для полноты картины. В отличие от предыдущих предоставляет только терминал. По умолчанию запускает внутри себя <code>cmd.exe</code>, но можно настроить на любую оболочку.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>hyper
-</code></pre></div></div>
+<pre><code class="language-sh">$ choco install hyper
+</code></pre>
 
 <h2 id="ubuntu-for-windows">Ubuntu for Windows</h2>
 
@@ -211,9 +210,9 @@ $ apt install node
 
 <p>Вагрант, в отличие от прямого использования виртуальной машины, дает множество полезностей для разработчика. Подробнее про преимущества и процесс установки читайте в <a href="https://guides.hexlet.io/vagrant">отдельном руководстве</a>.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>choco <span class="nb">install </span>virtualBox
-choco <span class="nb">install </span>vagrant
-</code></pre></div></div>
+<pre><code class="language-sh">choco install virtualBox
+choco install vagrant
+</code></pre>
 
 <h2 id="babun-cygwin">Babun (Cygwin)</h2>
 
@@ -221,43 +220,44 @@ choco <span class="nb">install </span>vagrant
 
 <p>С Cygwin работать напрямую не очень удобно, поэтому был создан Babun. Это командная оболочка, построенная на Cygwin. В отличие от других вариантов, Babun поставляется с собственной экосистемой. Например, он включает в себя пакетный менеджер <em>pact</em>, что приводит к конфликту с Chocolatey.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>babun
-</code></pre></div></div>
+<pre><code class="language-sh">$ choco install babun
+</code></pre>
 
 <hr />
 
 <p><em>Кирилл Мокевнин</em></p>
 
-        <div class="clearfix"></div>
-      </div>
+    </div>
 
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/master/_posts/2017-10-25-development-on-windows.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
       
-      <div class="lead text-end my-5">
         <i>Кирилл Мокевнин</i>
+      
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/learning/">&laquo; Как учиться и справляться с негативными мыслями</a>
       </div>
       
-
-      <!-- Prev/Next -->
-      <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
-        
-        <div class="col-md-6 rightborder pl-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/learning/">&laquo; Как учиться и справляться с негативными мыслями</a>
-        </div>
-        
-        
-        <div class="col-md-6 text-right pr-0">
-          <a class="thepostlink" href="https://guides.hexlet.io/vagrant/">Что такое Vagrant &raquo;</a>
-        </div>
-        
+      
+      <div class="col-md-6 text-right pr-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/vagrant/">Что такое Vagrant &raquo;</a>
       </div>
-      <!-- End Prev/Next -->
+      
+    </div>
+    <!-- End Prev/Next -->
 
-
-      <!-- Begin Comments
-        ================================================== -->
-        <section>
-          <div id="comments">
-            <section class="disqus">
+    <section>
+      <div id="comments">
+        <section class="disqus">
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_shortname = 'hexlet-guides'; 
@@ -272,15 +272,10 @@ choco <span class="nb">install </span>vagrant
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
 
-          </div>
-        </section>
-    </div>
-    <!-- End Post -->
-    <!-- Sidebar -->
+      </div>
+    </section>
   </div>
-
-  <!-- End Article
-    ================================================== -->
+</div>
 
         </main>
 

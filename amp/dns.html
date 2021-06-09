@@ -18,7 +18,7 @@
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/dns/structure.jpg" />
 <meta property="twitter:title" content="Что такое DNS" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://guides.hexlet.io/assets/images/dns/structure.jpg","description":"Что такое DNS, как он работает в сети интернет, какие бывают ресурсные записи (объяснение и примеры).","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Никита Михайлов"},"headline":"Что такое DNS","dateModified":"2019-04-11T00:00:00+00:00","datePublished":"2019-04-11T00:00:00+00:00","url":"/dns/","mainEntityOfPage":{"@type":"WebPage","@id":"/dns/"},"author":{"@type":"Person","name":"Никита Михайлов"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","author":{"@type":"Person","name":"Никита Михайлов"},"description":"Что такое DNS, как он работает в сети интернет, какие бывают ресурсные записи (объяснение и примеры).","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Никита Михайлов"},"mainEntityOfPage":{"@type":"WebPage","@id":"/dns/"},"image":"https://guides.hexlet.io/assets/images/dns/structure.jpg","url":"/dns/","headline":"Что такое DNS","dateModified":"2019-04-11T00:00:00+00:00","datePublished":"2019-04-11T00:00:00+00:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <meta charset="utf-8">
     <title>Что такое DNS</title>
@@ -2431,18 +2431,18 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>Выглядел hosts.txt тогда (да и сейчас) таким образом:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>192.168.10.36         MIKE-STRATE-PC
+<pre><code>192.168.10.36         MIKE-STRATE-PC
 Сетевой (IP) адрес    Имя компьютера
-</code></pre></div></div>
+</code></pre>
 
 <p>При наличии такого файла на компьютере пользователя для связи с компьютером Майка, можно было не запоминать цифры, а использовать понятное латинское имя «MIKE-STRATE-PC».</p>
 
 <p>Посмотрим, как выглядит файл и попробуем добавить туда новое имя, чтобы подключиться к компьютеру с использованием данного имени. Для этого отредактируем файл hosts. Вы можете найти его на своём компьютере по следующему адресу:</p>
 
 <ul>
-  <li>В Unix-системах: <code class="language-plaintext highlighter-rouge">/etc/hosts</code>
+  <li>В Unix-системах: <code>/etc/hosts</code>
 </li>
-  <li>В Windows-системах: <code class="language-plaintext highlighter-rouge">%Путь до папки Windows%/system32/drivers/etc/hosts</code>
+  <li>В Windows-системах: <code>%Путь до папки Windows%/system32/drivers/etc/hosts</code>
 </li>
 </ul>
 
@@ -2496,16 +2496,16 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>Необходимо понимать, что доменное имя — это всего лишь абстракция для людей. Сам компьютер и приложения (например, браузер) обращается к сервисам внутри сети интернет только по IP-адресам.</p>
 
-<p>Рассмотрим процесс получения IP-адреса по доменному имени на примере домена <code class="language-plaintext highlighter-rouge">ru.hexlet.io</code>.</p>
+<p>Рассмотрим процесс получения IP-адреса по доменному имени на примере домена <code>ru.hexlet.io</code>.</p>
 
 <p>Возможны два варианта событий:</p>
 
 <ol>
   <li>
-    <p>Компьютер посылает запрос на известный ему DNS-сервер. Чаще всего им является DNS-сервер поставщика интернет-услуг (провайдера): <em>какой IP-адрес у домена ru.hexlet.io?</em>. DNS-сервер провайдера находит в своей базе информацию о том, что домен <code class="language-plaintext highlighter-rouge">ru.hexlet.io</code> расположен по IP-адресу 104.25.238.104 и возвращает значение нашему компьютеру. Этот процесс похож на то, как использовался файл <code class="language-plaintext highlighter-rouge">hosts.txt</code>.</p>
+    <p>Компьютер посылает запрос на известный ему DNS-сервер. Чаще всего им является DNS-сервер поставщика интернет-услуг (провайдера): <em>какой IP-адрес у домена ru.hexlet.io?</em>. DNS-сервер провайдера находит в своей базе информацию о том, что домен <code>ru.hexlet.io</code> расположен по IP-адресу 104.25.238.104 и возвращает значение нашему компьютеру. Этот процесс похож на то, как использовался файл <code>hosts.txt</code>.</p>
   </li>
   <li>
-    <p>Ближайший известный DNS-сервер не имеет записи о том, по какому IP-адресу располагается домен <code class="language-plaintext highlighter-rouge">ru.hexlet.io</code>. В таком случае запускается цепочка процессов, благодаря которым наш компьютер получит IP-адрес домена:</p>
+    <p>Ближайший известный DNS-сервер не имеет записи о том, по какому IP-адресу располагается домен <code>ru.hexlet.io</code>. В таком случае запускается цепочка процессов, благодаря которым наш компьютер получит IP-адрес домена:</p>
 
     <ul>
       <li>
@@ -2555,8 +2555,8 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>Ресурсные записи почти всегда одинаковые, но для некоторых записей могут появляться другие поля, например в MX-записях также присутствует значение приоритета. В основном ресурсные записи имеют следующую структуру:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Имя записи   TTL   Класс   Тип записи  Значение
-</code></pre></div></div>
+<pre><code>Имя записи   TTL   Класс   Тип записи  Значение
+</code></pre>
 
 <p>Разберём подробнее:</p>
 
@@ -2593,19 +2593,19 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p><strong>Шапка запроса</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>; &lt;&lt;&gt;&gt; Net::DNS::Dig 0.12 &lt;&lt;&gt;&gt; -t any ya.ru.
+<pre><code>; &lt;&lt;&gt;&gt; Net::DNS::Dig 0.12 &lt;&lt;&gt;&gt; -t any ya.ru.
 ;;
 ;; Got answer.
 ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 52109
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 13, AUTHORITY: 0, ADDITIONAL: 0
-</code></pre></div></div>
+</code></pre>
 <p>Здесь указывается проставленные флаги нашего запроса, количество запросов и ответов, а также другая служебная информация.</p>
 
 <p><strong>Секция запроса</strong></p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>;; QUESTION SECTION:
+<pre><code>;; QUESTION SECTION:
 ;ya.ru.   IN    ANY
-</code></pre></div></div>
+</code></pre>
 
 <p>В секции запроса указывается домен, к которому происходит обращение, класс записи и те записи, которые мы хотим получить. ANY указывает на то, что нужно вывести все доступные ресурсные записи, но если вы хотите поэкспериментировать с утилитой сами, то можете с помощью специального ключа получить вывод только конкретных записей, которые интересуют в настоящий момент.</p>
 
@@ -2613,23 +2613,23 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 <p>Секция ответа достаточно большая, поэтому для удобства разобьём её по типам ресурсных записей.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>;; ANSWER SECTION:
+<pre><code>;; ANSWER SECTION:
 ya.ru. 	7199	IN	NS	 ns1.yandex.ru.
 ya.ru. 	7199	IN	NS	 ns2.yandex.ru.
 
 ya.ru.	599	IN	A	 87.250.250.242
 ya.ru.	599	IN	AAAA	 2A02:6B8:0:0:0:0:2:242
-</code></pre></div></div>
+</code></pre>
 
 <p>Как запись A, так и AAAA-запись указывают на IP-адрес, который привязан к нашему домену. A-запись указывает IP в формате IPv4, а запись AAAA — в формате IPv6.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ya.ru.	7199	IN	MX	 10 mx.yandex.ru.
-</code></pre></div></div>
+<pre><code>ya.ru.	7199	IN	MX	 10 mx.yandex.ru.
+</code></pre>
 
 <p>MX-запись также имеет параметр приоритета. Так как серверов для отправки почты может быть несколько, то и записей может быть много, поэтому для определения основного сервера указывается приоритет записи. Чем меньше число, тем выше приоритет.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ya.ru.	3599	IN	SOA	 ns1.yandex.ru. sysadmin.yandex.ru. 2019021800 900 600 2592000 900
-</code></pre></div></div>
+<pre><code>ya.ru.	3599	IN	SOA	 ns1.yandex.ru. sysadmin.yandex.ru. 2019021800 900 600 2592000 900
+</code></pre>
 
 <p><strong>Запись SOA</strong> <em>(Start of Authority)</em> указывает на несколько различных параметров:</p>
 
