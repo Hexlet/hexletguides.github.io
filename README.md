@@ -7,6 +7,7 @@
 ```sh
 make install
 make serve
+# open localhost:4000
 ```
 
 ## Development
