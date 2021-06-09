@@ -10,7 +10,7 @@ layout: amp
     <link rel="canonical" href="{{ page.canonical_url | prepend: site.baseurl | prepend: site.url }}" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     {% capture styles %}
-    {% include amp.scss %}
+    {% include_cached amp.scss %}
     {% endcapture %}
     <style amp-custom>
 {{ styles | scssify }}

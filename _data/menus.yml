@@ -5,6 +5,10 @@ topmenu:
   url: https://ru.hexlet.io/programs
   external: true
 
+- title: Исходный код
+  url: https://github.com/Hexlet/hexletguides.github.io
+  external: true
+
 # Footer Menu
 footermenu:
 

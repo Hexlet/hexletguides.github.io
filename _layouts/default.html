@@ -6,13 +6,14 @@
     <link rel="icon" href="{{ site.favicon | relative_url }}">
 
     {% if page.path contains '_posts' %}
-      <link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url | append: '.html' }}">
+      <link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">
     {% endif %}
 
 
     <title>{{ page.title }} | {{site.title}}</title>
 
     {% seo %}
+    {% comment %} {% feed_meta %} {% endcomment %}
 
     <link href="{{ "/assets/css/theme.css" | relative_url }}" rel="stylesheet">
 
@@ -56,7 +57,10 @@
           <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="{{  site.logo | relative_url }}"></a>
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral" alt="Программы обучения">Программы обучения</a>
+              <a class="nav-link" target="_blank" href="{{ site.github.repository_url }}">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
             </li>
           </ul>
         </div>

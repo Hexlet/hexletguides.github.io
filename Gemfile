@@ -10,23 +10,26 @@ source 'https://rubygems.org'
 #
 
 # If you have any plugins, put them here!
-gem 'amp-jekyll'
 gem 'dotenv'
+gem 'jekyll'
 gem 'kramdown-parser-gfm'
 gem 'rouge'
 gem 'rubocop'
+gem 'tzinfo'
+gem 'tzinfo-data'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 group :jekyll_plugins do
-  gem 'jekyll-archives'
-  gem 'jekyll-feed'
+  gem 'amp-jekyll'
+  # gem 'jekyll-archives'
+  # gem 'jekyll-feed'
+  # gem 'jekyll-commonmark'
   gem 'jekyll-github-metadata'
-  gem 'jekyll-paginate'
+  gem 'jekyll-include-cache'
+  # gem 'jekyll-paginate'
   # gem 'jekyll-target-blank'
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
-  gem 'tzinfo'
-  gem 'tzinfo-data'
 end
 
-gem 'webrick', '~> 1.7'
+gem 'webrick'

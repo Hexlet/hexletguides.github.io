@@ -11,7 +11,7 @@ permalink: "/categories.html"
 {% if post.title != null %}
 {% if group == null or group == post.group %}
 <div class="col-md-4 mb-5">
-{% include postbox.html %}
+{% include_cached postbox.html %}
 </div>
 {% endif %}
 {% endif %}

@@ -22,21 +22,25 @@ permalink: "/:title/"
 logo: 'assets/images/hexlet_logo.png'
 favicon: 'assets/images/favicons/favicon-128.png'
 author: Kirill Mokevnin
-paginate: 30
+# paginate: 30
 disqus: hexlet-guides
 locale: ru_RU
 lang: ru_RU
-feed_items: 10
-feed_update_period: daily
-feed_update_frequency: 1
+
+# feed_items: 10
+# feed_update_period: daily
+# feed_update_frequency: 1
 
 markdown: kramdown
+# commonmark:
+#   options: ["SMART", "FOOTNOTES"]
+#   extensions: ["strikethrough", "autolink", "table"]
 kramdown:
   input: GFM
-  # default_lang: html
+  default_lang: html
   syntax_highlighter_opts:
     css_class: 'syntax'
-  #   disable: true
+    disable: true
 
 highlighter: rouge
 
@@ -51,11 +55,13 @@ ganalytics: GTM-KMJ8HKG
 
 # Plugins
 plugins:
-  - jekyll-paginate
+  # - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-feed
+  # - jekyll-commonmark
+  - jekyll-include-cache
+  # - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-archives
+  # - jekyll-archives
   - jekyll-github-metadata
   - amp-jekyll
 

@@ -12,3 +12,4 @@ vendor
 _sass
 node_modules
 .env
+.jekyll-metadata

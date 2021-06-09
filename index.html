@@ -22,15 +22,15 @@ background: '/img/bg-index.jpg'
 {% endif %}
 
 <div class="row mx-lg-5">
-  {% for post in paginator.posts %}
+  {% for post in site.posts %}
   <div class="col-md-6 mb-5">
-    {% include postbox.html %}
+    {% include_cached postbox.html %}
   </div>
   {% endfor %}
 </div>
 <!-- Pagination -->
-<div class="bottompagination">
-  <span class="navigation" role="navigation">
-      {% include pagination.html %}
-  </span>
-</div>
+{% comment %} <div class="bottompagination"> {% endcomment %}
+{% comment %}   <span class="navigation" role="navigation"> {% endcomment %}
+{% comment %}       {% include pagination.html %} {% endcomment %}
+{% comment %}   </span> {% endcomment %}
+{% comment %} </div> {% endcomment %}
