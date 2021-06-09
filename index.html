@@ -22,7 +22,8 @@ background: '/img/bg-index.jpg'
 {% endif %}
 
 <div class="row mx-lg-5">
-  {% for post in site.posts %}
+  {% assign published_posts = site.posts | where: 'hidden', empty %}
+  {% for post in published_posts %}
   <div class="col-md-6 mb-5">
     {% include postbox.html %}
   </div>
