@@ -1,6 +1,6 @@
 install:
 	bundle install
-	npm i
+	npm ci
 
 serve:
 	bundle exec jekyll serve --watch
@@ -10,4 +10,3 @@ lint-fix:
 
 generate-githubpages:
 	SSL=true bundle exec jekyll build
-
