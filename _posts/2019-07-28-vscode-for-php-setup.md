@@ -151,7 +151,7 @@ PHP требует разделять инструкции с помощью т�
 
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) — в VS Code уже встроена поддержка Git. Но когда базовых возможностей становится недостаточно, на помощь может придти Gitlens. Например, одна из полезных фич — `git blame` на текущей строке.
 
-![gitlens](https://raw.githubusercontent.com/eamodio/vscode-gitlens/master/images/docs/current-line-blame.png)
+![gitlens](/assets/images/vscode-for-php-setup/current-line-blame.png)
 
 - [Indent Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) — разноцветные отступы в коде. Подсвечивает некорректный отступ. Можно вместо радуги установить оттенки серого.
 
