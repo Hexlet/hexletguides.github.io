@@ -2,9 +2,10 @@
 
 * Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
 
-## Write posts
+## Run
 
 ```sh
+make install
 make serve
 ```
 
