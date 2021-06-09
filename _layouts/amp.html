@@ -9,6 +9,9 @@ layout: amp
     <title>{{ page.title }}</title>
     <link rel="canonical" href="{{ page.canonical_url | prepend: site.baseurl | prepend: site.url }}" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    {% include counters.html %}
+
     {% capture styles %}
     {% include_cached amp.scss %}
     {% endcapture %}
@@ -19,6 +22,7 @@ layout: amp
       <script async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
   <body>
+    {% include noscript_counters.html %}
     {% comment %} {% capture header %}{% include header.html %}{% endcapture %} {% endcomment %}
     <div class="container">
       <h1 class="post-title">

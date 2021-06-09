@@ -9,11 +9,12 @@
       <link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">
     {% endif %}
 
-
     <title>{{ page.title }} | {{site.title}}</title>
 
     {% seo %}
+
     {% comment %} {% feed_meta %} {% endcomment %}
+    {% include counters.html %}
 
     <link href="{{ "/assets/css/theme.css" | relative_url }}" rel="stylesheet">
 
@@ -22,33 +23,13 @@
     <link href="{{ "/assets/css/highlight.css" | relative_url }}" rel="stylesheet">
     <!-- custom CSS end-->
 
-    {% if jekyll.environment == "production" %}
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KMJ8HKG');</script>
-    <!-- End Google Tag Manager -->
-
-    {% endif %}
-
   </head>
 
   {% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
 
   <body class="{{ layout }}">
 
-    {% if jekyll.environment == "production" %}
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMJ8HKG"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    {% endif %}
-
+    {% include noscript_counters.html %}
     <!-- Menu Navigation
       ================================================== -->
 
