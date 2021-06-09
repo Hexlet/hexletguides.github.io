@@ -8,8 +8,9 @@ body {}
 .highlight {
   padding: 10px;
   border: 1px solid #dee2e6;
+  margin-bottom: 1rem;
 }
 
-/* pre { */
-/*   margin: 0px; */
-/* } */
+pre {
+  margin-bottom: 0px;
+}
