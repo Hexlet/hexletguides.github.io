@@ -2508,11 +2508,89 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n] <sp
 <span class="nb">mkdir</span> <span class="nt">-p</span> /hexlet <span class="c"># ошибки не будет</span>
 </code></pre></div></div>
 
-<p>Но, к сожалению не все команды поддерживают такую возможность. Для многих ситуаций, идемпотентность нужно обеспечивать самостоятельно, что резко усложнит скрипт. Из простого набора команд он превратиться в реальный код с условными конструкциями. И в какой-то момент разбираться в нем станет крайне сложно. Через это проходили многие, особенно раньше.</p>
+<p>Но, к сожалению не все команды поддерживают такую возможность. Для многих ситуаций, идемпотентность нужно обеспечивать самостоятельно, что резко усложнит скрипт. Из простого набора команд он превратиться в реальный код с условными конструкциями. И в какой-то момент разбираться в нем станет крайне сложно. Через это проходили многие, особенно раньше, когда не было альтернативы.</p>
+
+<p>Но дело не только в идемпотентности. Часть задач, которые легко делались руками, становятся сложными в автоматизации. Представьте, что для изменения конфигурации нужно поправить конкретную строчку внутри файла. Как это легко сделать с помощью bash? Никак, придется либо полностью заменять файл копируя всего содержимое в bash-скрипт (или рядом с ним), либо использовать, что-то вроде sed для точечной замены строки.</p>
+
+<p>И последнее, но очень важное ограничение. Bash-скрипт нужно доставить на сервер самостоятельно. И если для одного сервера это еще как-то можно автоматизировать, то для нескольких “раскатка” скрипта становится проблемой. Становится важно делать это параллельно иначе настройка растягивается на часы даже в случае полной автоматизации. Добавьте сюда разные сервера со своими скриптами, которые отличаются от других.</p>
 
 <p>На этом этапе bash-скрипты перестают помогать, нужно придумывать что-то еще. Так стали появляться специализированные инструменты для конфигурирования серверов. Одними из первых были проекты Chef и Puppet. Сейчас же, наибольшую популярность приобрел Ansible, который значительно проще в освоении и использовании.</p>
 
 <h2 id="ansible">Ansible</h2>
+
+<p>Система управления конфигурацией (серверов), которая решает все проблемы описанные выше и, даже больше, может использоваться не только для настройки, но и для деплоя, то есть установки и запуска сервиса. Для установки Ansible воспользуйтесь одним из <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">предложенных способов</a></p>
+
+<p>В минимальном виде, Ansible конфигурация выглядит как два файла, один – описание серверов, второй – команды, которые мы хотим выполнить. Ansible сам подключается к удаленным серверам и выполняет необходимые команды. Главное дать доступ к этим серверам, например с помощью ssh-ключей.</p>
+
+<p>Описание серверов хранится в файле <em>inventory</em>. Ansible использует его для определения машин, на которые нужно выполнить установку.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c">; адрес машины, которую настраиваем
+; для простоты говорим Ansible использовать локальный компьютер
+</span><span class="err">127.0.0.1</span> <span class="py">ansible_connection</span><span class="p">=</span><span class="s">local</span>
+</code></pre></div></div>
+
+<p>Команды настройки сервера записываются в файлы называемые плейбуками. Плейбуки создаются в формате yaml под любым именем. Например playbook.yaml:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># hosts – означает группу машин, на которой нужно выполниться</span>
+<span class="c1"># all – означает все описанные в inventory</span>
+<span class="pi">-</span> <span class="na">hosts</span><span class="pi">:</span> <span class="s">all</span>
+  <span class="na">tasks</span><span class="pi">:</span> <span class="c1"># набор команд которые нужно выполнить</span>
+    <span class="pi">-</span> <span class="s">ansible.builtin.file</span><span class="pi">:</span> <span class="c1"># file – управляет файлами и директориями</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">/tmp/ansible_was_here</span>
+        <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span> <span class="c1"># выполнит команду touch если файла не существует. И – идемпотентность</span>
+</code></pre></div></div>
+
+<p>Файловая структура может выглядеть так:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>tree <span class="c"># вывод содержимого директории</span>
+<span class="nb">.</span>
+├── inventory
+└── playbook.yaml
+</code></pre></div></div>
+
+<p>Теперь запускаем:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Запуск Ansible идет на локальной машине!</span>
+<span class="c"># Запускать нужно в той же директории, где созданы файлы</span>
+<span class="c"># -i означает inventory</span>
+<span class="c"># https://github.com/hexlet-boilerplates/ansible</span>
+ansible-playbook <span class="nt">-i</span> inventory playbook.yaml
+
+PLAY <span class="o">[</span>Server Setup] <span class="k">***********************************************************************************************************</span>
+
+TASK <span class="o">[</span>Gathering Facts] <span class="k">********************************************************************************************************</span>
+ok: <span class="o">[</span>127.0.0.1]
+
+TASK <span class="o">[</span>file] <span class="k">*******************************************************************************************************************</span>
+changed: <span class="o">[</span>127.0.0.1]
+
+PLAY RECAP <span class="k">********************************************************************************************************************</span>
+127.0.0.1                  : <span class="nv">ok</span><span class="o">=</span>2    <span class="nv">changed</span><span class="o">=</span>1    <span class="nv">unreachable</span><span class="o">=</span>0    <span class="nv">failed</span><span class="o">=</span>0    <span class="nv">skipped</span><span class="o">=</span>0    <span class="nv">rescued</span><span class="o">=</span>0    <span class="nv">ignored</span><span class="o">=</span>0
+
+</code></pre></div></div>
+
+<p>Вывод говорит о том, что плейбук успешно выполнен. В результате в директории <em>/tmp</em> окажется файл <em>ansible_was_here</em>. Повторный запуск плейбука тоже закончится успешно, но из вывода будет видно, что он не сделает никаких изменений, так как Ansijble сам обеспечивает идемпотентность. В данном случае, он проверит наличие файла и пропустит команду если файл существует. Если в inventory указать несколько ip-адресов, то Ansible выполнит плейбук на каждом из них, причем сделает это параллельно. Единственное о чем нужно не забыть – добавить ssh-ключи на эти машины, иначе Ansible не сможет до них достучаться.</p>
+
+<p>Что из себя представляет плейбук? Главное внутри него – набор задач (tasks), которые мы хотим выполнить. В отличии от bash-скрипта, задачи это не просто bash-команды. На каждую задачу в Ansible встроен модуль для работы с определенной частью системы. Например внутри Ansible есть модули для работы с git, пакетными менеджерами, файлами и тому подобным. Всего их сотни на все случаи жизни. Именно благодаря готовым интеграциям, Ansible знает как работают те или иные части системы, что позволяет добавить нужные проверки для обеспечения идемпотентности. Пара примеров:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="na">tasks</span><span class="pi">:</span>
+  <span class="c1"># Установка postgresql</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Ensure postgresql is at the latest version</span>
+    <span class="s">ansible.builtin.yum</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">postgresql</span>
+      <span class="na">state</span><span class="pi">:</span> <span class="s">latest</span>
+  <span class="c1"># Запуск postgresql</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Ensure that postgresql is started</span>
+    <span class="s">ansible.builtin.service</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">postgresql</span>
+      <span class="na">state</span><span class="pi">:</span> <span class="s">started</span>
+</code></pre></div></div>
+
+<h2 id="дополнительные-ссылки">Дополнительные ссылки</h2>
+
+<ul>
+  <li>https://github.com/hexlet-boilerplates/ansible</li>
+</ul>
 
       
       
