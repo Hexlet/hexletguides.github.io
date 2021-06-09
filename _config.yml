@@ -37,10 +37,10 @@ markdown: kramdown
 #   extensions: ["strikethrough", "autolink", "table"]
 kramdown:
   input: GFM
-  default_lang: html
+  # default_lang: html
   syntax_highlighter_opts:
     css_class: 'syntax'
-    disable: true
+    # disable: true
 
 highlighter: rouge
 
