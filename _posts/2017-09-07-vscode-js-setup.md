@@ -18,6 +18,8 @@ author: Рахим Давлеткалиев
 - умное автодополнение
 - встроенный пакетный менеджер
 
+{% include banner.html name="profession-frontend" %}
+
 Пакетный менеджер нужен для установки и удаления пакетов расширений (плагинов). Для удобной разработки на JavaScript для бэкенда и фронтенда нужно установить несколько пакетов.
 
 ![install package in vs code](/assets/images/vscode-js-setup/vscode-install.png)
