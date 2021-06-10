@@ -108,6 +108,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Докер поставляется в виде Community Edition (CE) и Enterprise Edition (EE). Нас интересует CE. На <a href="https://www.docker.com/community-edition">главной странице</a> этой версии доступны ссылки для скачивания под все популярные платформы. Выберите вашу и установите Докер.</p>
 
+<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+</a>
+</div>
+
 <p>В работе Докера есть одна деталь, которую важно знать при установке на Mac и Linux. По умолчанию Докер работает через unix сокет. В целях безопасности сокет закрыт для пользователей, не входящих в группу <em>docker</em>. И хотя установщик добавляет текущего пользователя в эту группу автоматически, Докер сразу не заработает. Дело в том, что если пользователь меняет группу сам себе, то ничего не изменится до тех пор, пока пользователь не перелогинится. Такова особенность работы ядра. Для проверки того, в какие группы входит ваш пользователь, можно набрать команду <code class="language-plaintext highlighter-rouge">id</code>.</p>
 
 <p>Проверить успешность установки можно командой <code class="language-plaintext highlighter-rouge">docker info</code>:</p>
