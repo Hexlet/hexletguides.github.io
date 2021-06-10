@@ -1,8 +1,7 @@
-# Top Menu
 topmenu:
 
 - title: Программы обучения
-  url: https://ru.hexlet.io/programs
+  url: https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral
   external: true
 
 - title: Исходный код
@@ -13,7 +12,7 @@ topmenu:
 footermenu:
 
 - title: Курсы
-  url: https://ru.hexlet.io/courses
+  url: https://ru.hexlet.io/courses?utm_source=hexlet-guides&utm_medium=referral
   external: true
 
 - title: Оценка резюме
