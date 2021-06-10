@@ -11,32 +11,32 @@ intensive-devops:
 
 profession-java:
   content: |
-    Профессия Java-разработчик с нуля и до трудоустройства
+    Профессия «Java-разработчик» с нуля и до трудоустройства
   link: "https://ru.hexlet.io/programs/java"
 
 profession-frontend:
   content: |
-    Интенсив: Профессия Фронтенд-разработчик с нуля и до трудоустройства
+    Интенсив: Профессия «Фронтенд-разработчик» с нуля и до трудоустройства
   link: "https://ru.hexlet.io/programs/frontend"
 
 profession-php:
   content: |
-    Интенсив: Профессия PHP-разработчик с нуля и до трудоустройства
+    Интенсив: Профессия «PHP-разработчик» с нуля и до трудоустройства
   link: "https://ru.hexlet.io/programs/php"
 
 course-git:
   content: |
-    Бесплатный курс "Основы Git" с практикой в браузере
+    Бесплатный курс «Основы Git» с практикой в браузере
   link: "https://ru.hexlet.io/courses/intro_to_git"
 
 course-employment:
   content: |
-    Курс помогающий новичкам эффективно составить резюме, попасть на собеседование и пройти его
+    Курс, помогающий новичкам эффективно составить резюме, попасть на собеседование и пройти его
   link: "https://ru.hexlet.io/courses/employment"
 
 course-os:
   content: |
-    Курс: "Введение в операционные системы". Бесплатно
+    Курс: «Введение в операционные системы». Бесплатно
   link: "https://ru.hexlet.io/courses/operating_systems"
 
 course-http:
@@ -51,10 +51,10 @@ course-cli:
 
 intensive-rails:
   content: |
-    Интенсив: Rails-разработчик. Программа для знакомых с программированием
+    Интенсив: «Rails-разработчик». Программа для знакомых с программированием
   link: "https://ru.hexlet.io/programs/rails"
 
 intensive-markup:
   content: |
-    Интенсив: Верстка веб-приложений. Вся база за 2 месяца
+    Интенсив: «Верстка веб-приложений». Вся база за 2 месяца
   link: "https://ru.hexlet.io/programs/layout-designer-basics"
