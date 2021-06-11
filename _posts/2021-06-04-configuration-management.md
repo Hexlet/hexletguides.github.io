@@ -170,14 +170,15 @@ PLAY RECAP *********************************************************************
 tasks:
   # Установка postgresql
   - name: Ensure postgresql is at the latest version
-    ansible.builtin.yum:
+    ansible.builtin.apt: # модуль apt
       name: postgresql
       state: latest
+
   # Запуск postgresql
   - name: Ensure that postgresql is started
-    ansible.builtin.service:
+    ansible.builtin.service: # модуль service
       name: postgresql
-      state: started
+      state: started # запускаем если не запущен
 ```
 
 Как видите, Ansible достаточно прост для начала, при этом у него много возможностей, которые можно изучать по мере погружения и усложнения инфраструктуры.
