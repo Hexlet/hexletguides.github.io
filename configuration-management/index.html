@@ -196,7 +196,7 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n] <sp
 
 <p>В минимальном виде, Ansible конфигурация выглядит как два файла, один – описание серверов, второй – команды, которые мы хотим выполнить. Ansible сам подключается к удаленным серверам и выполняет необходимые команды. Главное дать доступ к этим серверам, например с помощью ssh-ключей.</p>
 
-<p>Описание серверов хранится в файле <em>inventory</em>. Ansible использует его для определения машин, на которые нужно выполнить установку.</p>
+<p>Описание серверов хранится в файле <em>inventory.ini</em>. Ansible использует его для определения машин, на которые нужно выполнить установку.</p>
 
 <div class="language-ini highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c">; адрес машины, которую настраиваем
 ; для простоты говорим Ansible использовать локальный компьютер
@@ -206,7 +206,7 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n] <sp
 <p>Команды настройки сервера записываются в файлы называемые плейбуками. Плейбуки создаются в формате yaml под любым именем. Например playbook.yaml:</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># hosts – означает группу машин, на которой нужно выполниться</span>
-<span class="c1"># all – означает все описанные в inventory</span>
+<span class="c1"># all – означает все описанные в inventory.ini</span>
 <span class="pi">-</span> <span class="na">hosts</span><span class="pi">:</span> <span class="s">all</span>
   <span class="na">tasks</span><span class="pi">:</span> <span class="c1"># набор команд которые нужно выполнить</span>
     <span class="pi">-</span> <span class="s">ansible.builtin.file</span><span class="pi">:</span> <span class="c1"># file – управляет файлами и директориями</span>
@@ -218,7 +218,7 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n] <sp
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>tree <span class="c"># вывод содержимого директории</span>
 <span class="nb">.</span>
-├── inventory
+├── inventory.ini
 └── playbook.yaml
 </code></pre></div></div>
 
@@ -226,9 +226,9 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n] <sp
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Запуск Ansible идет на локальной машине!</span>
 <span class="c"># Запускать нужно в той же директории, где созданы файлы</span>
-<span class="c"># -i означает inventory</span>
+<span class="c"># -i означает inventory.ini</span>
 <span class="c"># https://github.com/hexlet-boilerplates/ansible</span>
-ansible-playbook <span class="nt">-i</span> inventory playbook.yaml
+ansible-playbook <span class="nt">-i</span> inventory.ini playbook.yaml
 
 PLAY <span class="o">[</span>Server Setup] <span class="k">***********************************************************************************************************</span>
 
@@ -243,7 +243,7 @@ PLAY RECAP <span class="k">*****************************************************
 
 </code></pre></div></div>
 
-<p>Вывод говорит о том, что плейбук успешно выполнен. В результате в директории <em>/tmp</em> окажется файл <em>ansible_was_here</em>. Повторный запуск плейбука тоже закончится успешно, но из вывода будет видно, что он не сделает никаких изменений, так как Ansijble сам обеспечивает идемпотентность. В данном случае, он проверит наличие файла и пропустит команду если файл существует. Если в inventory указать несколько ip-адресов, то Ansible выполнит плейбук на каждом из них, причем сделает это параллельно. Единственное о чем нужно не забыть – добавить ssh-ключи на эти машины, иначе Ansible не сможет до них достучаться.</p>
+<p>Вывод говорит о том, что плейбук успешно выполнен. В результате в директории <em>/tmp</em> окажется файл <em>ansible_was_here</em>. Повторный запуск плейбука тоже закончится успешно, но из вывода будет видно, что он не сделает никаких изменений, так как Ansijble сам обеспечивает идемпотентность. В данном случае, он проверит наличие файла и пропустит команду если файл существует. Если в <em>inventory.ini</em> указать несколько ip-адресов, то Ansible выполнит плейбук на каждом из них, причем сделает это параллельно. Единственное о чем нужно не забыть – добавить ssh-ключи на эти машины, иначе Ansible не сможет до них достучаться.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
     <a href="https://ru.hexlet.io/courses/ansible?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс по Ansible с практикой прямо в браузере</a>
