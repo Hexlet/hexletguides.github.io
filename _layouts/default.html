@@ -9,6 +9,7 @@
       <link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">
     {% endif %}
 
+    {% feed_meta %}
     {% seo %}
 
     {% comment %} {% feed_meta %} {% endcomment %}

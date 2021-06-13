@@ -21,8 +21,9 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 group :jekyll_plugins do
   gem 'amp-jekyll'
+  # gem 'jekyll-toc'
   # gem 'jekyll-archives'
-  # gem 'jekyll-feed'
+  gem 'jekyll-feed'
   # gem 'jekyll-commonmark'
   gem 'jekyll-github-metadata'
   gem 'jekyll-include-cache'

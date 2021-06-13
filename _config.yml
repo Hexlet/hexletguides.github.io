@@ -27,6 +27,11 @@ disqus: hexlet-guides
 locale: ru_RU
 lang: ru_RU
 
+# toc:
+#   min_level: 1
+#   max_level: 1
+#   list_class: 'list-unstyled p-3 bg-light'
+
 # feed_items: 10
 # feed_update_period: daily
 # feed_update_frequency: 1
@@ -59,7 +64,8 @@ plugins:
   - jekyll-sitemap
   # - jekyll-commonmark
   - jekyll-include-cache
-  # - jekyll-feed
+  - jekyll-feed
+  # - jekyll-toc
   - jekyll-seo-tag
   # - jekyll-archives
   - jekyll-github-metadata
@@ -72,6 +78,12 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+  # - scope:
+  #     path: ""
+  #     type: "posts"
+  #   values:
+  #     toc: true
 
   - scope:
       path: yandex_d1b9fafe78d3bf70.html
