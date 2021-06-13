@@ -9,6 +9,7 @@
       <link rel="amphtml" href="https://guides.hexlet.io/amp/logging">
     
 
+    <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Гайды для программистов" />
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Что такое логирование? | Гайды для программистов</title>
 <meta name="generator" content="Jekyll v4.2.0" />
@@ -27,7 +28,7 @@
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/logging/cover.png" />
 <meta property="twitter:title" content="Что такое логирование?" />
 <script type="application/ld+json">
-{"datePublished":"2021-01-18T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/logging/"},"description":"Журнал логов – специальное место, куда записывается информация о происходящих процессах в работающем коде. Приложение «логирует» туда информацию, которая, потенциально, может понадобиться для анализа различных ситуаций, возникающих в рабочем приложении: ошибках, задержках, сбоях.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"dateModified":"2021-01-18T00:00:00+00:00","url":"https://guides.hexlet.io/logging/","image":"https://guides.hexlet.io/assets/images/logging/cover.png","author":{"@type":"Person","name":"Кирилл Мокевнин"},"headline":"Что такое логирование?","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Журнал логов – специальное место, куда записывается информация о происходящих процессах в работающем коде. Приложение «логирует» туда информацию, которая, потенциально, может понадобиться для анализа различных ситуаций, возникающих в рабочем приложении: ошибках, задержках, сбоях.","headline":"Что такое логирование?","dateModified":"2021-01-18T00:00:00+00:00","datePublished":"2021-01-18T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/logging/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"url":"https://guides.hexlet.io/logging/","image":"https://guides.hexlet.io/assets/images/logging/cover.png","author":{"@type":"Person","name":"Кирилл Мокевнин"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -91,14 +92,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="col-sm-8 mx-auto">
     <!-- Post Featured Image -->
     
-    <!-- End Featured Image -->
-    <div class="mainheading">
-      <h1 class="posttitle">Что такое логирование?</h1>
-    </div>
 
-    <!-- Post Content -->
-    <div class="article-post">
-      <p>Известно, что программисты проводят много времени, отлаживая свои программы, пытаясь разобраться, почему они не работают — или работают неправильно. Когда говорят про отладку, обычно подразумевают либо отладочную печать, либо использование специальных программ – дебагеров. С их помощью отслеживается выполнение кода по шагам, во время которого видно, как меняется содержимое переменных. Эти способы хорошо работают в небольших программах, но в реальных приложениях быстро становятся неэффективными.</p>
+    <h1>Что такое логирование?</h1>
+
+    <p>Известно, что программисты проводят много времени, отлаживая свои программы, пытаясь разобраться, почему они не работают — или работают неправильно. Когда говорят про отладку, обычно подразумевают либо отладочную печать, либо использование специальных программ – дебагеров. С их помощью отслеживается выполнение кода по шагам, во время которого видно, как меняется содержимое переменных. Эти способы хорошо работают в небольших программах, но в реальных приложениях быстро становятся неэффективными.</p>
 
 <p><img src="/assets/images/logging/debugger.png" alt="Дебагер JavaScript в WebStorm" /></p>
 
@@ -232,7 +229,6 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
 
 <p>Здесь тоже есть несколько путей. Можно воспользоваться готовыми решениями, такими как <a href="https://docs.datadoghq.com/logs/">DataDog Logging</a>, либо устанавливать и настраивать все самостоятельно через, например, <a href="https://www.elastic.co/elastic-stack">ELK Stack</a></p>
 
-    </div>
 
     <div class="lead d-flex my-5">
       <span class="me-auto">
