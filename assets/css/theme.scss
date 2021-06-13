@@ -258,7 +258,7 @@ span.post-name a,span.post-read-more a:hover {
         font-size:15px;
     }
 
-    p > a {
+    p > a, li > a {
         color:inherit;
         box-shadow:inset 0 -2px 0 rgba(255, 229, 31,1), 0 2px 0 rgba(255, 229, 31,1);
     }
