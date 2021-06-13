@@ -155,6 +155,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Но даже если автоматизация выполнена, все равно остается задача “запустить деплой”. Запуск тоже автоматизируется. Существует целый подход, который называется <a href="https://ru.wikipedia.org/wiki/Непрерывная_доставка">Непрерывная доставка</a>(continuous delivery). Его сложно внедрить и он не везде подходит, но если получилось, то про деплой забывают. Он выполняется полностью сам без участия людей. Главное, в таком варианте, хороший мониторинг и система оповещения (алертинг) для реакции на ошибки.</p>
 
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html#examples</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Initialize the deploy root and gather facts</span>
+  <span class="s">community.general.deploy_helper</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">/path/to/root</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Clone the project to the new release folder</span>
+  <span class="s">ansible.builtin.git</span><span class="pi">:</span>
+    <span class="na">repo</span><span class="pi">:</span> <span class="s">ansible.builtin.git://foosball.example.org/path/to/repo.git</span>
+    <span class="na">dest</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">v1.1.1</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Add an unfinished file, to allow cleanup on successful finalize</span>
+  <span class="s">ansible.builtin.file</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/'</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span>
+</code></pre></div></div>
+
 <h2 id="zero-downtime-deployment">Zero Downtime Deployment</h2>
 
 <p>Если не предпринимать специальных шагов, то каждый деплой будет приводить к остановке (возможно частичной) сервиса. В это время пользователи либо увидят ошибку, либо сообщение о происходящем обновлении. Но такого не происходит на большинстве крупных сервисов в интернете. Почему? Из-за реализации подхода “деплой без даунтайма” (downtime – простои в работе сервиса).</p>
@@ -167,6 +182,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <li>Кода. Обеспечить безостановочную работу невозможно без определенной культуры написания кода. Чтобы старая и новая версия могли работать одновременно, нужно следить за всеми интерфейсами. Важно соблюдение обратной совместимости (работа с api, базой, очередьми и, в целом, любыми хранилищами)</li>
   <li>База данных. Она должна быть обратна совместима между старой и новой версией. Все миграции только вперед (их нельзя откатывать!) и только на добавление. Нельзя удалять и обновлять (переименовывать, менять тип) колонки и таблицы</li>
 </ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">extensions/v1beta1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">tomcat-deployment-${TARGET_ROLE}</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">2</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">tomcat</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">${TARGET_ROLE}</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">tomcat-container</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">tomcat:${TOMCAT_VERSION}</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+        <span class="na">readinessProbe</span><span class="pi">:</span>
+          <span class="na">httpGet</span><span class="pi">:</span>
+            <span class="na">path</span><span class="pi">:</span> <span class="s">/</span>
+            <span class="na">port</span><span class="pi">:</span> <span class="m">8080</span>
+</code></pre></div></div>
 
 <h1 id="дополнительная-литература">Дополнительная литература</h1>
 
