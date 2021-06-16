@@ -41,6 +41,8 @@
 }
 
 .markdown ol {
+  list-style: none;
+  padding: 0;
   counter-reset: list-counter;
   margin-top: 1.25em;
   margin-bottom: 1.25em;
@@ -275,6 +277,8 @@
 .markdown ul {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
+  list-style: none;
+  padding: 0;
 }
 
 .markdown li {
