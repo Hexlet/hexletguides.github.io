@@ -6,7 +6,7 @@
     <link rel="icon" href="{{ site.favicon | relative_url }}">
 
     {% if page.path contains '_posts' %}
-      <link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url }}">
+      <link rel="amphtml" href="{{ page.id | prepend: '/amp' | prepend: site.baseurl | prepend: site.url | append: '/' }}">
     {% endif %}
 
     {% feed_meta %}
