@@ -18,7 +18,7 @@ social:
     - https://www.facebook.com/Hexlet/
     - https://twitter.com/HexletHQ
 
-permalink: "/:title/"
+permalink: "/:title"
 logo: 'assets/images/hexlet_logo.png'
 favicon: 'assets/images/favicons/favicon-128.png'
 author: Kirill Mokevnin
