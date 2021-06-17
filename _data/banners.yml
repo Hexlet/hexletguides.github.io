@@ -16,12 +16,17 @@ profession-java:
 
 profession-frontend:
   content: |
-    Интенсив: Профессия «Фронтенд-разработчик» с нуля и до трудоустройства
+    Профессия «Фронтенд-разработчик» с нуля и до трудоустройства
   link: "https://ru.hexlet.io/programs/frontend"
+
+profession-markup:
+  content: |
+    Профессия «Верстальщик» на Хекслете
+  link: "https://ru.hexlet.io/programs/layout-designer"
 
 profession-php:
   content: |
-    Интенсив: Профессия «PHP-разработчик» с нуля и до трудоустройства
+    Профессия «PHP-разработчик» с нуля и до трудоустройства
   link: "https://ru.hexlet.io/programs/php"
 
 course-git:
@@ -58,3 +63,13 @@ intensive-markup:
   content: |
     Интенсив: «Верстка веб-приложений». Вся база за 2 месяца
   link: "https://ru.hexlet.io/programs/layout-designer-basics"
+
+site-code-basics:
+  content: |
+    Code Basics: бесплатные курсы программирования
+  link: "https://https://ru.code-basics.com/"
+
+course-racket:
+  content: |
+    Бесплатный курс «Racket как второй язык»
+  link: "https://ru.code-basics.com/languages/racket"
