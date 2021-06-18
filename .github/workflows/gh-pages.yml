@@ -30,6 +30,11 @@ jobs:
           JEKYLL_ENV: production
           JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - run: make generate-githubpages
+        env:
+          JEKYLL_ENV: production
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # - name: Cache dependencies
       #   uses: actions/cache@v2
       #   with:
