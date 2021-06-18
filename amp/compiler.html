@@ -365,19 +365,19 @@
 
 <p>Программы для первых компьютеров выглядели как огромные наборы 0 и 1. Чтобы записать такую программу, инженеры пользовались гибкими картонными карточками — перфокартами. Цифры на перфокарте записывались поочередно, в несколько строк. Чтобы записать 1, программист делал отверстие в карте. Места без отверстия обозначали 0.</p>
 
-<p><amp-img src="/assets/images/compiler/card.png" alt="Изображение перфокарты" layout="responsive"><noscript><img src="/assets/images/compiler/card.png" alt="Изображение перфокарты"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/compiler/card.png" alt="Изображение перфокарты" width="1920" height="1080" layout="responsive"><noscript><img src="/assets/images/compiler/card.png" alt="Изображение перфокарты" width="1920" height="1080"></noscript></amp-img></p>
 
 <p>Компьютер считывал перфокарту специальным устройством и выполнял записанную команду. Для одной программы составляли сотни перфокарт.</p>
 
 <p>Писать их было долго и сложно, поэтому инженеры стали создавать языки программирования, обозначая команды словами и знаками. Для того, чтобы процессор понимал, какие команды записаны в программе, программисты создали <strong>компилятор</strong> — программу, которая преобразует программный код в машинный.</p>
 
-<p><amp-img src="/assets/images/compiler/compiler.jpg" alt="Схема преобразования програмного кода в бинарный" layout="responsive"><noscript><img src="/assets/images/compiler/compiler.jpg" alt="Схема преобразования програмного кода в бинарный"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/compiler/compiler.jpg" alt="Схема преобразования програмного кода в бинарный" width="1335" height="994" layout="responsive"><noscript><img src="/assets/images/compiler/compiler.jpg" alt="Схема преобразования програмного кода в бинарный" width="1335" height="994"></noscript></amp-img></p>
 
 <h2 id="как-работает-компилятор">Как работает компилятор?</h2>
 
 <p>Преобразование программного кода в машинный называется <em>компиляцией</em>. Компиляция только преобразует код. Она не запускает его на исполнение. В этот момент он “статически” (то есть без запуска) транслируется в машинный код. Это сложный процесс, в котором сначала текст программы разбирается на части и анализируется, а затем генерируется код, понятный процессору.</p>
 
-<p><amp-img src="/assets/images/compiler/compilation_steps.jpg" alt="Этапы компиляции" layout="responsive"><noscript><img src="/assets/images/compiler/compilation_steps.jpg" alt="Этапы компиляции"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/compiler/compilation_steps.jpg" alt="Этапы компиляции" width="1434" height="618" layout="responsive"><noscript><img src="/assets/images/compiler/compilation_steps.jpg" alt="Этапы компиляции" width="1434" height="618"></noscript></amp-img></p>
 
 <p>Разберём этапы компиляции на примере вычисления периметра прямоугольника:</p>
 
@@ -404,7 +404,7 @@
 
 <p>Так операция <code class="language-plaintext highlighter-rouge">P = 2*(a + b)</code> будет преобразована в логическое дерево:</p>
 
-<p><amp-img src="/assets/images/compiler/parse_tree.jpg" alt="Дерево разбора" layout="responsive"><noscript><img src="/assets/images/compiler/parse_tree.jpg" alt="Дерево разбора"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/compiler/parse_tree.jpg" alt="Дерево разбора" width="673" height="770" layout="responsive"><noscript><img src="/assets/images/compiler/parse_tree.jpg" alt="Дерево разбора" width="673" height="770"></noscript></amp-img></p>
 
 <p>Теперь каждое дерево нужно разобрать на команды, и каждую команду преобразовать в <strong>машинный код</strong>. 
 Компилятор начинает читать дерево снизу вверх и составляет список команд:</p>
@@ -427,7 +427,7 @@
 
 <p>В дальнейшем язык Fortran и его компилятор использовали, чтобы написать компиляторы для новых языков программирования. Такой подход используют программисты и в настоящее время. 
 Писать машинный код долго и неудобно. К тому же, для современных процессоров он может отличаться. Придется писать несколько версий одного и того же компилятора для разных компьютеров. Быстрее и проще написать компилятор на существующем языке программирования. Для этого разработчики выбирают удобный язык и пишут на нем первую версию своего компилятора. Он будет более универсальным для компьютеров и легко скомпилирует улучшенную версию себя.
-<amp-img src="/assets/images/compiler/create_compiler.jpg" alt="Этапы создания компилятора" layout="responsive"><noscript><img src="/assets/images/compiler/create_compiler.jpg" alt="Этапы создания компилятора"></noscript></amp-img></p>
+<amp-img src="/assets/images/compiler/create_compiler.jpg" alt="Этапы создания компилятора" width="1103" height="932" layout="responsive"><noscript><img src="/assets/images/compiler/create_compiler.jpg" alt="Этапы создания компилятора" width="1103" height="932"></noscript></amp-img></p>
 
 <h2 id="какие-бывают-компиляторы">Какие бывают компиляторы?</h2>
 

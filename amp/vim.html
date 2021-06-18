@@ -352,7 +352,7 @@
       
       <p><strong>VI(M) — текстовый редактор, который появился в далеком 1991 году, но до сих пор пользуется огромной популярностью (наряду с Emacs). Как правило, на него переходят после других редакторов уже состоявшиеся разработчики. Нередко, переходят с полноценных IDE. Почему?</strong></p>
 
-<p><amp-img src="/assets/images/vim/vim.png" alt="vim, linter, fzf" layout="responsive"><noscript><img src="/assets/images/vim/vim.png" alt="vim, linter, fzf"></noscript></amp-img>
+<p><amp-img src="/assets/images/vim/vim.png" alt="vim, linter, fzf" width="1854" height="1294" layout="responsive"><noscript><img src="/assets/images/vim/vim.png" alt="vim, linter, fzf" width="1854" height="1294"></noscript></amp-img>
 <small>vim с настроенным линтером, файловым деревом NERDTree и нечетким поиском с fzf</small></p>
 
 <p>В этом гайде не будет пошагового обучения виму. Цель — объяснить философию vim и причины его популярности, а также дать направление для дальнейшего обучения.</p>
@@ -361,7 +361,7 @@
 
 <p>В современном мире есть из чего выбрать среди редакторов: Sublime Text, Atom, VS Code, Brackets. И это не считая IDE.</p>
 
-<p><amp-img src="/assets/images/vscode-js-setup/vscode_eslint.png" alt="eslint vscode" layout="responsive"><noscript><img src="/assets/images/vscode-js-setup/vscode_eslint.png" alt="eslint vscode"></noscript></amp-img>
+<p><amp-img src="/assets/images/vscode-js-setup/vscode_eslint.png" alt="eslint vscode" width="1293" height="650" layout="responsive"><noscript><img src="/assets/images/vscode-js-setup/vscode_eslint.png" alt="eslint vscode" width="1293" height="650"></noscript></amp-img>
 <small>Visual Studio Code</small></p>
 
 <p>Все они не лишены недостатков, но с точки зрения возможностей наворочены по максимуму. Между собой редакторы сравнивают по следующим характеристикам:</p>
@@ -382,7 +382,7 @@
 
 <p>И завершает картину кривая обучения. У вима она даже круче, чем у emacs. Чтобы научиться им пользоваться, придется в буквальном смысле страдать (но недолго если правильно учиться).</p>
 
-<p><amp-img src="/assets/images/vim/vim_learning.png" alt="learning curve" layout="responsive"><noscript><img src="/assets/images/vim/vim_learning.png" alt="learning curve"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/vim/vim_learning.png" alt="learning curve" width="2048" height="1536" layout="responsive"><noscript><img src="/assets/images/vim/vim_learning.png" alt="learning curve" width="2048" height="1536"></noscript></amp-img></p>
 
 <h2 id="чужой-среди-своих">Чужой среди своих</h2>
 
@@ -425,7 +425,7 @@
 
 <p>Ключевое место в этой структуре имеет клавиша под названием Leader. Это не какая-то конкретная клавиша, она разная у разных пользователей, хотя сейчас, как правило, все используют пробел. Дело в том что большая часть пользовательских комбинаций (и тех, кто предоставляют плагины), делаются как раз через лидер. В конфигурации она обозначается как <code class="language-plaintext highlighter-rouge">&lt;Leader&gt;</code>.</p>
 
-<p><amp-img src="/assets/images/vim/vim_cheat_sheet.jpg" alt="vim cheat sheet" layout="responsive"><noscript><img src="/assets/images/vim/vim_cheat_sheet.jpg" alt="vim cheat sheet"></noscript></amp-img>
+<p><amp-img src="/assets/images/vim/vim_cheat_sheet.jpg" alt="vim cheat sheet" width="1979" height="1346" layout="responsive"><noscript><img src="/assets/images/vim/vim_cheat_sheet.jpg" alt="vim cheat sheet" width="1979" height="1346"></noscript></amp-img>
 <small>vim cheat sheet by Max Cantor</small></p>
 
 <p>Но для полноценной работы одного режима <em>normal</em> недостаточно. Для перехода в режим редактирования <em>insert</em>, существует более 6 способов! Например ввод команды <kbd>i</kbd> приводит к тому, что ввод начинается прямо в том месте, где стоит курсор, а <kbd>shift + a</kbd> перемещает курсор в конец строки (требуется довольно часто), в свою очередь <kbd>cc</kbd> стирает ту строчку, где находится курсор и входит в режим редактирования.</p>
@@ -446,7 +446,7 @@
 
 <p>Еще одно внезапное преимущество появляется из-за текстовой природы самого редактора. Так как он открывается прямо во вкладках терминала, а продвинутые терминалы имеют такую возможность как split окна, то интеграция терминала внутрь vim особо не нужна и с помощью комбинации вкладок терминалов и вима можно очень удобно настроить рабочий процесс.</p>
 
-<p><amp-img src="/assets/images/vim/vim_iterm_split.png" alt="iterm2 with vim and split" layout="responsive"><noscript><img src="/assets/images/vim/vim_iterm_split.png" alt="iterm2 with vim and split"></noscript></amp-img>
+<p><amp-img src="/assets/images/vim/vim_iterm_split.png" alt="iterm2 with vim and split" width="1651" height="1063" layout="responsive"><noscript><img src="/assets/images/vim/vim_iterm_split.png" alt="iterm2 with vim and split" width="1651" height="1063"></noscript></amp-img>
 <br><small>Терминал iTerm 2 со split-окнами</small></p>
 
 <h2 id="цена">Цена</h2>
@@ -457,12 +457,12 @@
 
 <p>Но и здесь есть подводные камни. В те времена когда появился vim, клавиатура выглядела иначе. И в том месте где сейчас caps lock и tab, были ctrl и esc. Последние используются в виме на полную катушку. Если ничего дополнительно не предпринимать, то придется очень серьезно выламывать себе руки (попутно зарабатывая <a href="https://ru.hexlet.io/blog/posts/carpal-tunnel-syndrome">туннельный синдром</a>). Поэтому, первое что делают вимеры, переключают <kbd>ctrl</kbd> на caps lock, а для <kbd>esc</kbd> пользуются либо стандартной кобминацией <kbd>ctrl + [</kbd>, которая легко дается с перемещенным ctrl для тех кто хорошо владеет слепым десятипальцевым методом, либо используют комбинацию <kbd>jj</kbd>, которую определяют самостоятельно.</p>
 
-<p><amp-img src="/assets/images/vim/lsi-adm3a-full-keyboard.jpg" alt="vim keyboard" layout="responsive"><noscript><img src="/assets/images/vim/lsi-adm3a-full-keyboard.jpg" alt="vim keyboard"></noscript></amp-img>
+<p><amp-img src="/assets/images/vim/lsi-adm3a-full-keyboard.jpg" alt="vim keyboard" width="600" height="210" layout="responsive"><noscript><img src="/assets/images/vim/lsi-adm3a-full-keyboard.jpg" alt="vim keyboard" width="600" height="210"></noscript></amp-img>
 <br><small>Клавиатура терминала ADM-3A</small></p>
 
 <p>В мире вима есть одна деталь, серьезно влияющая на количество его пользователей. В отличие от современных редакторов, в которых настройка выполняется переключением галочек либо изменением значений в json-файле, вим требует поддержки своего файла конфигурации и ручном управлении буквально всем. В виме нет механизма для просмотра и установки плагинов прямо из редактора. Каждый плагин необходимо самостоятельно найти на гитхабе и вписать в этот файл. Если нужна дополнительная конфигурация, то в этом же файле её и нужно сделать. Сам конфигурационный файл использует язык программирования VimL, тот же, на котором написан сам редактор. К сожалению, не получается один раз настроить его и забыть. Несмотря на то, что в сети огромное число примеров этих конфигурационных файлов, постоянно приходится что-то подкручивать, заменять плагины и дописывать новые горячие клавиши.</p>
 
-<p><amp-img src="/assets/images/vim/vimrc.png" alt="vimrc" layout="responsive"><noscript><img src="/assets/images/vim/vimrc.png" alt="vimrc"></noscript></amp-img>
+<p><amp-img src="/assets/images/vim/vimrc.png" alt="vimrc" width="1216" height="730" layout="responsive"><noscript><img src="/assets/images/vim/vimrc.png" alt="vimrc" width="1216" height="730"></noscript></amp-img>
 <br><small>Фрагмент файла конфигурации vim</small></p>
 
 <h2 id="когда-не-стоит-учить-вим">Когда не стоит учить вим</h2>

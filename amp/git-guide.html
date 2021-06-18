@@ -396,7 +396,7 @@
 
 <p>Сервисы синхронизации файлов между устройствами, такие как Dropbox, используются практически всеми. И все они отслеживают версии файлов, с которыми работают. Происходит это так: периодически программа синхронизирует локальные файлы с теми, которые находятся в хранилище сервиса. Если локальный файл отличается, и время его изменения – позже файла, находящегося на сервере, то файл на сервере становится частью истории изменений, а текущим становится последний изменённый файл.</p>
 
-<p><amp-img src="/assets/images/git/1.png" alt="dropbox, история версий" layout="responsive"><noscript><img src="/assets/images/git/1.png" alt="dropbox, история версий"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/git/1.png" alt="dropbox, история версий" width="913" height="519" layout="responsive"><noscript><img src="/assets/images/git/1.png" alt="dropbox, история версий" width="913" height="519"></noscript></amp-img></p>
 
 <p>На картинке выше текущая версия файла обозначена как current. Всё остальное – это предыдущие версии текущего файла. Как видно, Dropbox позволяет восстановить любую версию файла.</p>
 
@@ -412,7 +412,7 @@
 
 <p>Другим хорошим примером использования контроля версий являются текстовые редакторы, в первую очередь онлайновые.</p>
 
-<p><amp-img src="/assets/images/git/2.png" alt="google docs, история версий" layout="responsive"><noscript><img src="/assets/images/git/2.png" alt="google docs, история версий"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/git/2.png" alt="google docs, история версий" width="1504" height="906" layout="responsive"><noscript><img src="/assets/images/git/2.png" alt="google docs, история версий" width="1504" height="906"></noscript></amp-img></p>
 
 <p>Сервис Google Docs автоматически делает снимки после каждого автосохранения (примерно раз в 5 секунд). Если документ за это время не изменился, то, естественно, новая версия не появляется. Множество таких версий образуют историю изменений.</p>
 
@@ -422,7 +422,7 @@
 
 <p>Кстати, процесс переключения между ревизиями также имеет своё название. Когда мы загружаем конкретную ревизию, то говорят, что переключаемся на неё (checkout).</p>
 
-<p><amp-img src="/assets/images/git/3.png" alt="редактор, схема ревизий" layout="responsive"><noscript><img src="/assets/images/git/3.png" alt="редактор, схема ревизий"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/git/3.png" alt="редактор, схема ревизий" width="1365" height="726" layout="responsive"><noscript><img src="/assets/images/git/3.png" alt="редактор, схема ревизий" width="1365" height="726"></noscript></amp-img></p>
 
 <p>Между ревизиями можно выявлять различия в случае, если СКВ использует снимки, что демонстрирует нам Microsoft Word на картинке выше. Эту функциональность невозможно переоценить,поскольку посмотреть «а что же изменилось» требуется постоянно не только при работе с кодом. Приведу пример из собственной практики: согласование разных юридических документов (договоров) происходит сквозь череду правок. После того, как юристы поправили договор, хочется увидеть, а что же там изменилось.</p>
 
@@ -496,7 +496,7 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
   <li>Только локальная работа.</li>
 </ul>
 
-<p><amp-img src="/assets/images/git/4.png" alt="системы контроля версий, первое поколение" layout="responsive"><noscript><img src="/assets/images/git/4.png" alt="системы контроля версий, первое поколение"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/git/4.png" alt="системы контроля версий, первое поколение" width="2048" height="1536" layout="responsive"><noscript><img src="/assets/images/git/4.png" alt="системы контроля версий, первое поколение" width="2048" height="1536"></noscript></amp-img></p>
 
 <h2 id="второе-поколение">Второе поколение</h2>
 
@@ -510,7 +510,7 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
 
 <p>Работать в этих системах без доступа к серверу нельзя. Вы не сможете буквально ничего. Посмотреть историю, сделать коммит, откатиться на другую версию, всё это становится невозможно сделать без интернета.</p>
 
-<p><amp-img src="/assets/images/git/5.png" alt="системы контроля версий, второе поколение" layout="responsive"><noscript><img src="/assets/images/git/5.png" alt="системы контроля версий, второе поколение"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/git/5.png" alt="системы контроля версий, второе поколение" width="2048" height="1536" layout="responsive"><noscript><img src="/assets/images/git/5.png" alt="системы контроля версий, второе поколение" width="2048" height="1536"></noscript></amp-img></p>
 
 <h2 id="третье-поколение">Третье поколение</h2>
 
@@ -521,7 +521,7 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
   <li>У каждого свой полноценный репозиторий.</li>
 </ul>
 
-<p><amp-img src="/assets/images/git/6.png" alt="системы контроля версий, третье поколение" layout="responsive"><noscript><img src="/assets/images/git/6.png" alt="системы контроля версий, третье поколение"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/git/6.png" alt="системы контроля версий, третье поколение" width="2048" height="1536" layout="responsive"><noscript><img src="/assets/images/git/6.png" alt="системы контроля версий, третье поколение" width="2048" height="1536"></noscript></amp-img></p>
 
 <h2 id="заключение">Заключение</h2>
 

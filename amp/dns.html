@@ -411,7 +411,7 @@
 
 <p>DNS является <a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D1%91%D0%BD%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0">распределённой системой</a>, а значит она имеет множество узлов, каждый из которых ответственен за свою зону. Такое возможно благодаря тому, что сама по себе структура DNS является иерархической, то есть выделяет зоны ответственности, где каждый родитель знает о расположении своего дочернего сервера, и знает зону его ответственности.</p>
 
-<p><amp-img src="/assets/images/dns/hierarchy.jpg" alt="dns, hierarchy" layout="responsive"><noscript><img src="/assets/images/dns/hierarchy.jpg" alt="dns, hierarchy"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/dns/hierarchy.jpg" alt="dns, hierarchy" width="930" height="379" layout="responsive"><noscript><img src="/assets/images/dns/hierarchy.jpg" alt="dns, hierarchy" width="930" height="379"></noscript></amp-img></p>
 
 <p>Рассмотрим работу DNS и её составных частей поближе.</p>
 
@@ -477,7 +477,7 @@
 
 <p>Можно заметить, что оба описанных выше варианта сильно различаются: в первом случае мы просто послали запрос и получили ответ, а во втором — возникла необходимость идти от самого корневого домена в процессе поиска нужной нам записи. Такой процесс является рекурсивным, потому что ближайший DNS-сервер непрерывно посылает запросы к другим DNS-серверам до тех пор, пока не получит необходимые ресурсные записи. Данный процесс можно визуализировать следующим образом:</p>
 
-<p><amp-img src="/assets/images/dns/structure.jpg" alt="dns, structure" layout="responsive"><noscript><img src="/assets/images/dns/structure.jpg" alt="dns, structure"></noscript></amp-img>
+<p><amp-img src="/assets/images/dns/structure.jpg" alt="dns, structure" width="930" height="420" layout="responsive"><noscript><img src="/assets/images/dns/structure.jpg" alt="dns, structure" width="930" height="420"></noscript></amp-img>
 <small>При запросах 1 и 2 ближайший сервер будет получать информацию о местонахождении DNS-серверов, которые входят в зону ответственности того сервера, на который был послан запрос. При запросе 3 будут получены необходимые ресурсные записи домена hexlet и его поддоменов.</small></p>
 
 <p>Рекурсивный поиск — это достаточно долгая операция, которая к тому же сильно нагружает сеть и сами DNS-сервера. Именно для того, чтобы избавиться от рекурсии каждый DNS-сервер <a href="https://ru.wikipedia.org/wiki/%D0%9A%D1%8D%D1%88">кеширует</a> информацию о записях, которые получает, для быстрой отдачи этой информации пользователю.</p>
@@ -527,7 +527,7 @@
 
 <h2 id="пример-реальных-записей-dns">Пример реальных записей DNS</h2>
 
-<p><amp-img src="/assets/images/dns/output.png" alt="dns, output" layout="responsive"><noscript><img src="/assets/images/dns/output.png" alt="dns, output"></noscript></amp-img></p>
+<p><amp-img src="/assets/images/dns/output.png" alt="dns, output" width="1526" height="833" layout="responsive"><noscript><img src="/assets/images/dns/output.png" alt="dns, output" width="1526" height="833"></noscript></amp-img></p>
 
 <p>Не пугайтесь такого длинного вывода. Уже сейчас можно понять почти всё, что тут указано. Разберём вывод каждой секции более детально.</p>
 
