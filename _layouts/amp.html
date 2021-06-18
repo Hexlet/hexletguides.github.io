@@ -29,7 +29,7 @@ sitemap: false
       {% comment %}   {{ page.date }} - {{ page.author }} {% endcomment %}
       {% comment %} </span> {% endcomment %}
 
-      <a href="{{ page.canonical_url | prepend: site.baseurl | prepend: site.url }}">Читать в полной версии</a>
+      <a class="full_post_link" href="{{ page.canonical_url | prepend: site.baseurl | prepend: site.url }}">Читать в полной версии →</a>
 
       {{ content | markdownify | amp_images }}
       {% comment %} {% capture footer %}{% include footer.html %}{% endcapture %} {% endcomment %}
