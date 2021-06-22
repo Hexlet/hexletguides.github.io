@@ -20,6 +20,7 @@ layout: null
             <link>{{ post.url | absolute_url }}</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>{{ post.title }}</turbo:topic> -->
+            <title>{{ post.title }}</title>
             <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
             <author>{{ post.author }}</author>
             <!-- <metrics>
@@ -35,7 +36,6 @@ layout: null
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
-                <h1>{{ post.title }}</h1>
                 {{ post.content }}
               ]]>
             </turbo:content>
