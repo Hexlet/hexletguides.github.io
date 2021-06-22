@@ -18,8 +18,8 @@ layout: null
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>{{ post.url | absolute_url }}</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>{{ post.title }}</turbo:topic>
             <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
             <author>{{ post.author }}</author>
             <!-- <metrics>
