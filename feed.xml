@@ -1,0 +1,44 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:yandex="http://news.yandex.ru"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:turbo="http://turbo.yandex.ru"
+     version="2.0">
+    <channel>
+        <title>{{ site.title | xml_escape }}</title>
+        <link>{{ '' | absolute_url }}</link>
+        <description>{{ site.description | xml_escape }}</description>
+        <language>ru</language>
+        <!-- <turbo:analytics></turbo:analytics> -->
+        <!-- <turbo:adNetwork></turbo:adNetwork> -->
+        {% assign published_posts = site.posts | where: 'hidden', empty %}
+        {% for post in published_posts %}
+        <item turbo="true">
+            <turbo:extendedHtml>true</turbo:extendedHtml>
+            <link>{{ post.url | absolute_url }}</link>
+            <turbo:source></turbo:source>
+            <turbo:topic></turbo:topic>
+            <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+            <author>{{ post.author }}</author>
+            <!-- <metrics>
+                <yandex schema_identifier="Идентификатор">
+                    <breadcrumblist>
+                        <breadcrumb url="http://example.com/" text="Домашняя"/>
+                        <breadcrumb url="http://example.com/category/" text="Категория"/>
+                        <breadcrumb url="http://example.com/category/sub-category/" text="Подкатегория"/>
+                        <breadcrumb url="http://example.com/category/sub-category/page1.html" text="Пример страницы"/>
+                    </breadcrumblist>
+                </yandex>
+            </metrics> -->
+            <!-- <yandex:related></yandex:related> -->
+            <turbo:content>
+              <![CDATA[
+                {{ post.content }}
+              ]]>
+            </turbo:content>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>
