@@ -16,8 +16,8 @@
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/deploy/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое деплой?</turbo:topic>
             <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -165,8 +165,8 @@
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/usefull-twitter-threads/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Полезные треды в твиттере</turbo:topic>
             <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -222,8 +222,8 @@
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/configuration-management/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое "управление конфигурацией"?</turbo:topic>
             <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -427,8 +427,8 @@ PLAY RECAP <span class="k">*****************************************************
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/logging/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое логирование?</turbo:topic>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -585,8 +585,8 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/hosting/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое домен и хостинг?</turbo:topic>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -686,8 +686,8 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/error-tracking/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое трекинг ошибок?</turbo:topic>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -749,8 +749,8 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/compiler/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое компилятор?</turbo:topic>
             <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
             <author>Татьяна Федорина</author>
             <!-- <metrics>
@@ -895,8 +895,8 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/makefile-as-task-runner/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое Makefile и как начать его использовать</turbo:topic>
             <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -1180,8 +1180,8 @@ Hello, Kitty!
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/version_managers/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое "Менеджер версий"</turbo:topic>
             <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -1311,8 +1311,8 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/webpack/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Зачем нужно собирать фронтенд</turbo:topic>
             <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -1488,8 +1488,8 @@ You can now run npm run build to bundle your application!
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/encoding/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое кодировки?</turbo:topic>
             <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
             <author>Ильнар Шафигуллин</author>
             <!-- <metrics>
@@ -1663,8 +1663,8 @@ You can now run npm run build to bundle your application!
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/https-yandex-guide/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое протокол HTTPS, и как он защищает вас в интернете</turbo:topic>
             <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -1740,8 +1740,8 @@ You can now run npm run build to bundle your application!
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/git-guide/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Зачем нужен Git</turbo:topic>
             <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -1941,8 +1941,8 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/dns/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое DNS</turbo:topic>
             <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
             <author>Никита Михайлов</author>
             <!-- <metrics>
@@ -2213,8 +2213,8 @@ ya.ru.	599	IN	AAAA	 2A02:6B8:0:0:0:0:2:242
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/how-to-pass-the-interview/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как проходить интервью</turbo:topic>
             <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -2314,8 +2314,8 @@ c: Тогда я бы воспользовался встроенной функ
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/how-to-prepare-for-interview/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как подготовиться к интервью</turbo:topic>
             <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -2586,8 +2586,8 @@ c: Тогда я бы воспользовался встроенной функ
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/how-to-be-a-helpful-for-the-hexlet-community/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как участвовать в жизни Хекслета</turbo:topic>
             <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -2977,8 +2977,8 @@ c: Тогда я бы воспользовался встроенной функ
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/how-to-create-a-resume/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как правильно составить резюме</turbo:topic>
             <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -3195,8 +3195,8 @@ c: Тогда я бы воспользовался встроенной функ
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/check-list-of-engineering-practices/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Чек-лист хороших инженерных практик в компаниях</turbo:topic>
             <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -3403,8 +3403,8 @@ c: Тогда я бы воспользовался встроенной функ
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/how-to-learn-sicp/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</turbo:topic>
             <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -3570,8 +3570,8 @@ c: Тогда я бы воспользовался встроенной функ
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/docker/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как и для чего использовать Docker</turbo:topic>
             <pubDate>Tue, 30 Jan 2018 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -4088,8 +4088,8 @@ CMD ["eslint", "/app"]
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/virtualization/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое виртуализация</turbo:topic>
             <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -4160,8 +4160,8 @@ CMD ["eslint", "/app"]
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/vim/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Зачем использовать vim</turbo:topic>
             <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -4404,8 +4404,8 @@ CMD ["eslint", "/app"]
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/vagrant/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое Vagrant</turbo:topic>
             <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -4542,8 +4542,8 @@ CMD ["eslint", "/app"]
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/development-on-windows/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как начать разрабатывать в Windows</turbo:topic>
             <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -4698,8 +4698,8 @@ choco <span class="nb">install </span>vagrant
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/learning/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как учиться и справляться с негативными мыслями</turbo:topic>
             <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
             <author>Рахим Давлеткалиев</author>
             <!-- <metrics>
@@ -4837,8 +4837,8 @@ choco <span class="nb">install </span>vagrant
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/how-to-search/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как искать техническую информацию</turbo:topic>
             <pubDate>Tue, 03 Oct 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -4946,8 +4946,8 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/typing/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Как научиться слепой печати</turbo:topic>
             <pubDate>Fri, 22 Sep 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <metrics>
@@ -5027,8 +5027,8 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ssh/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое SSH</turbo:topic>
             <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
             <author>Рахим Давлеткалиев</author>
             <!-- <metrics>
@@ -5251,8 +5251,8 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/markdown/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое Markdown</turbo:topic>
             <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
             <author>Рахим Давлеткалиев</author>
             <!-- <metrics>
@@ -5395,8 +5395,8 @@ const func = (num) =&gt; {
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/bootstrap/</link>
-            <turbo:source></turbo:source>
-            <turbo:topic></turbo:topic>
+            <!-- <turbo:source></turbo:source> -->
+            <turbo:topic>Что такое Bootstrap</turbo:topic>
             <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
             <author>Никита Михайлов</author>
             <!-- <metrics>
