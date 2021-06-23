@@ -24,7 +24,7 @@
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/deploy/" text="Что такое деплой?"/>
                     </breadcrumblist>
                 </yandex>
@@ -172,7 +172,7 @@
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/usefull-twitter-threads/" text="Полезные треды в твиттере"/>
                     </breadcrumblist>
                 </yandex>
@@ -228,7 +228,7 @@
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/configuration-management/" text="Что такое "управление конфигурацией"?"/>
                     </breadcrumblist>
                 </yandex>
@@ -432,7 +432,7 @@ PLAY RECAP <span class="k">*****************************************************
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/logging/" text="Что такое логирование?"/>
                     </breadcrumblist>
                 </yandex>
@@ -589,7 +589,7 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/hosting/" text="Что такое домен и хостинг?"/>
                     </breadcrumblist>
                 </yandex>
@@ -689,7 +689,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/error-tracking/" text="Что такое трекинг ошибок?"/>
                     </breadcrumblist>
                 </yandex>
@@ -751,7 +751,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/compiler/" text="Что такое компилятор?"/>
                     </breadcrumblist>
                 </yandex>
@@ -896,7 +896,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/makefile-as-task-runner/" text="Что такое Makefile и как начать его использовать"/>
                     </breadcrumblist>
                 </yandex>
@@ -1180,7 +1180,7 @@ Hello, Kitty!
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/version_managers/" text="Что такое "Менеджер версий""/>
                     </breadcrumblist>
                 </yandex>
@@ -1310,7 +1310,7 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/webpack/" text="Зачем нужно собирать фронтенд"/>
                     </breadcrumblist>
                 </yandex>
@@ -1486,7 +1486,7 @@ You can now run npm run build to bundle your application!
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/encoding/" text="Что такое кодировки?"/>
                     </breadcrumblist>
                 </yandex>
@@ -1660,7 +1660,7 @@ You can now run npm run build to bundle your application!
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/https-yandex-guide/" text="Что такое протокол HTTPS, и как он защищает вас в интернете"/>
                     </breadcrumblist>
                 </yandex>
@@ -1736,7 +1736,7 @@ You can now run npm run build to bundle your application!
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/git-guide/" text="Зачем нужен Git"/>
                     </breadcrumblist>
                 </yandex>
@@ -1936,7 +1936,7 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/dns/" text="Что такое DNS"/>
                     </breadcrumblist>
                 </yandex>
@@ -2207,7 +2207,7 @@ ya.ru.	599	IN	AAAA	 2A02:6B8:0:0:0:0:2:242
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/how-to-pass-the-interview/" text="Как проходить интервью"/>
                     </breadcrumblist>
                 </yandex>
@@ -2307,7 +2307,7 @@ c: Тогда я бы воспользовался встроенной функ
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/how-to-prepare-for-interview/" text="Как подготовиться к интервью"/>
                     </breadcrumblist>
                 </yandex>
@@ -2578,7 +2578,7 @@ c: Тогда я бы воспользовался встроенной функ
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/how-to-be-a-helpful-for-the-hexlet-community/" text="Как участвовать в жизни Хекслета"/>
                     </breadcrumblist>
                 </yandex>
@@ -2968,7 +2968,7 @@ c: Тогда я бы воспользовался встроенной функ
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/how-to-create-a-resume/" text="Как правильно составить резюме"/>
                     </breadcrumblist>
                 </yandex>
@@ -3185,7 +3185,7 @@ c: Тогда я бы воспользовался встроенной функ
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/check-list-of-engineering-practices/" text="Чек-лист хороших инженерных практик в компаниях"/>
                     </breadcrumblist>
                 </yandex>
@@ -3392,7 +3392,7 @@ c: Тогда я бы воспользовался встроенной функ
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/how-to-learn-sicp/" text="Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)"/>
                     </breadcrumblist>
                 </yandex>
@@ -3558,7 +3558,7 @@ c: Тогда я бы воспользовался встроенной функ
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/docker/" text="Как и для чего использовать Docker"/>
                     </breadcrumblist>
                 </yandex>
@@ -4075,7 +4075,7 @@ CMD ["eslint", "/app"]
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/virtualization/" text="Что такое виртуализация"/>
                     </breadcrumblist>
                 </yandex>
@@ -4146,7 +4146,7 @@ CMD ["eslint", "/app"]
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/vim/" text="Зачем использовать vim"/>
                     </breadcrumblist>
                 </yandex>
@@ -4389,7 +4389,7 @@ CMD ["eslint", "/app"]
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/vagrant/" text="Что такое Vagrant"/>
                     </breadcrumblist>
                 </yandex>
@@ -4526,7 +4526,7 @@ CMD ["eslint", "/app"]
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/development-on-windows/" text="Как начать разрабатывать в Windows"/>
                     </breadcrumblist>
                 </yandex>
@@ -4681,7 +4681,7 @@ choco <span class="nb">install </span>vagrant
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/learning/" text="Как учиться и справляться с негативными мыслями"/>
                     </breadcrumblist>
                 </yandex>
@@ -4819,7 +4819,7 @@ choco <span class="nb">install </span>vagrant
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/how-to-search/" text="Как искать техническую информацию"/>
                     </breadcrumblist>
                 </yandex>
@@ -4927,7 +4927,7 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/typing/" text="Как научиться слепой печати"/>
                     </breadcrumblist>
                 </yandex>
@@ -5007,7 +5007,7 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/ssh/" text="Что такое SSH"/>
                     </breadcrumblist>
                 </yandex>
@@ -5230,7 +5230,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/markdown/" text="Что такое Markdown"/>
                     </breadcrumblist>
                 </yandex>
@@ -5373,7 +5373,7 @@ const func = (num) =&gt; {
             <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text=""/>
+                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
                         <breadcrumb url="https://guides.hexlet.io/bootstrap/" text="Что такое Bootstrap"/>
                     </breadcrumblist>
                 </yandex>
