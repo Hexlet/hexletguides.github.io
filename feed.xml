@@ -23,14 +23,6 @@ layout: null
             <title>{{ post.title }}</title>
             <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
             <author>{{ post.author }}</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="{{ '' | absolute_url }}" text="{{ site.title }}"/>
-                        <breadcrumb url="{{ post.url | absolute_url }}" text="{{ post.title }}"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
