@@ -26,6 +26,10 @@ layout: null
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
+                <div data-block="breadcrumblist">
+                  <a href="{{ '' | absolute_url }}">{{ site.title }}</a>
+                  <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
+                </div>
                 {{ post.content }}
               ]]>
             </turbo:content>
