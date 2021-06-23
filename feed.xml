@@ -23,16 +23,14 @@ layout: null
             <title>{{ post.title }}</title>
             <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
             <author>{{ post.author }}</author>
-            <!-- <metrics>
+            <metrics>
                 <yandex schema_identifier="Идентификатор">
                     <breadcrumblist>
-                        <breadcrumb url="http://example.com/" text="Домашняя"/>
-                        <breadcrumb url="http://example.com/category/" text="Категория"/>
-                        <breadcrumb url="http://example.com/category/sub-category/" text="Подкатегория"/>
-                        <breadcrumb url="http://example.com/category/sub-category/page1.html" text="Пример страницы"/>
+                        <breadcrumb url="{{ '' | absolute_url }}" text="{{ title }}"/>
+                        <breadcrumb url="{{ post.url | absolute_url }}" text="{{ post.title }}"/>
                     </breadcrumblist>
                 </yandex>
-            </metrics> -->
+            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
