@@ -21,14 +21,6 @@
             <title>Что такое деплой?</title>
             <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/deploy/" text="Что такое деплой?"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -169,14 +161,6 @@
             <title>Полезные треды в твиттере</title>
             <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/usefull-twitter-threads/" text="Полезные треды в твиттере"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -225,14 +209,6 @@
             <title>Что такое "управление конфигурацией"?</title>
             <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/configuration-management/" text="Что такое "управление конфигурацией"?"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -429,14 +405,6 @@ PLAY RECAP <span class="k">*****************************************************
             <title>Что такое логирование?</title>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/logging/" text="Что такое логирование?"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -586,14 +554,6 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
             <title>Что такое домен и хостинг?</title>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/hosting/" text="Что такое домен и хостинг?"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -686,14 +646,6 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
             <title>Что такое трекинг ошибок?</title>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/error-tracking/" text="Что такое трекинг ошибок?"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -748,14 +700,6 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
             <title>Что такое компилятор?</title>
             <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
             <author>Татьяна Федорина</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/compiler/" text="Что такое компилятор?"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -893,14 +837,6 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
             <title>Что такое Makefile и как начать его использовать</title>
             <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/makefile-as-task-runner/" text="Что такое Makefile и как начать его использовать"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -1177,14 +1113,6 @@ Hello, Kitty!
             <title>Что такое "Менеджер версий"</title>
             <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/version_managers/" text="Что такое "Менеджер версий""/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -1307,14 +1235,6 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
             <title>Зачем нужно собирать фронтенд</title>
             <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/webpack/" text="Зачем нужно собирать фронтенд"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -1483,14 +1403,6 @@ You can now run npm run build to bundle your application!
             <title>Что такое кодировки?</title>
             <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
             <author>Ильнар Шафигуллин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/encoding/" text="Что такое кодировки?"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -1657,14 +1569,6 @@ You can now run npm run build to bundle your application!
             <title>Что такое протокол HTTPS, и как он защищает вас в интернете</title>
             <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/https-yandex-guide/" text="Что такое протокол HTTPS, и как он защищает вас в интернете"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -1733,14 +1637,6 @@ You can now run npm run build to bundle your application!
             <title>Зачем нужен Git</title>
             <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/git-guide/" text="Зачем нужен Git"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -1933,14 +1829,6 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
             <title>Что такое DNS</title>
             <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
             <author>Никита Михайлов</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/dns/" text="Что такое DNS"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -2204,14 +2092,6 @@ ya.ru.	599	IN	AAAA	 2A02:6B8:0:0:0:0:2:242
             <title>Как проходить интервью</title>
             <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/how-to-pass-the-interview/" text="Как проходить интервью"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -2304,14 +2184,6 @@ c: Тогда я бы воспользовался встроенной функ
             <title>Как подготовиться к интервью</title>
             <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/how-to-prepare-for-interview/" text="Как подготовиться к интервью"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -2575,14 +2447,6 @@ c: Тогда я бы воспользовался встроенной функ
             <title>Как участвовать в жизни Хекслета</title>
             <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/how-to-be-a-helpful-for-the-hexlet-community/" text="Как участвовать в жизни Хекслета"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -2965,14 +2829,6 @@ c: Тогда я бы воспользовался встроенной функ
             <title>Как правильно составить резюме</title>
             <pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/how-to-create-a-resume/" text="Как правильно составить резюме"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -3182,14 +3038,6 @@ c: Тогда я бы воспользовался встроенной функ
             <title>Чек-лист хороших инженерных практик в компаниях</title>
             <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/check-list-of-engineering-practices/" text="Чек-лист хороших инженерных практик в компаниях"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -3389,14 +3237,6 @@ c: Тогда я бы воспользовался встроенной функ
             <title>Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</title>
             <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/how-to-learn-sicp/" text="Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -3555,14 +3395,6 @@ c: Тогда я бы воспользовался встроенной функ
             <title>Как и для чего использовать Docker</title>
             <pubDate>Tue, 30 Jan 2018 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/docker/" text="Как и для чего использовать Docker"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -4072,14 +3904,6 @@ CMD ["eslint", "/app"]
             <title>Что такое виртуализация</title>
             <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/virtualization/" text="Что такое виртуализация"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -4143,14 +3967,6 @@ CMD ["eslint", "/app"]
             <title>Зачем использовать vim</title>
             <pubDate>Wed, 27 Dec 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/vim/" text="Зачем использовать vim"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -4386,14 +4202,6 @@ CMD ["eslint", "/app"]
             <title>Что такое Vagrant</title>
             <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/vagrant/" text="Что такое Vagrant"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -4523,14 +4331,6 @@ CMD ["eslint", "/app"]
             <title>Как начать разрабатывать в Windows</title>
             <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/development-on-windows/" text="Как начать разрабатывать в Windows"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -4678,14 +4478,6 @@ choco <span class="nb">install </span>vagrant
             <title>Как учиться и справляться с негативными мыслями</title>
             <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
             <author>Рахим Давлеткалиев</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/learning/" text="Как учиться и справляться с негативными мыслями"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -4816,14 +4608,6 @@ choco <span class="nb">install </span>vagrant
             <title>Как искать техническую информацию</title>
             <pubDate>Tue, 03 Oct 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/how-to-search/" text="Как искать техническую информацию"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -4924,14 +4708,6 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
             <title>Как научиться слепой печати</title>
             <pubDate>Fri, 22 Sep 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/typing/" text="Как научиться слепой печати"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -5004,14 +4780,6 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
             <title>Что такое SSH</title>
             <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
             <author>Рахим Давлеткалиев</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/ssh/" text="Что такое SSH"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -5227,14 +4995,6 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
             <title>Что такое Markdown</title>
             <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
             <author>Рахим Давлеткалиев</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/markdown/" text="Что такое Markdown"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
@@ -5370,14 +5130,6 @@ const func = (num) =&gt; {
             <title>Что такое Bootstrap</title>
             <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
             <author>Никита Михайлов</author>
-            <metrics>
-                <yandex schema_identifier="Идентификатор">
-                    <breadcrumblist>
-                        <breadcrumb url="https://guides.hexlet.io/" text="Hexlet Guides"/>
-                        <breadcrumb url="https://guides.hexlet.io/bootstrap/" text="Что такое Bootstrap"/>
-                    </breadcrumblist>
-                </yandex>
-            </metrics>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
