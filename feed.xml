@@ -30,6 +30,15 @@ layout: null
                   <a href="{{ '' | absolute_url }}">{{ site.title }}</a>
                   <a href="{{ post.url | absolute_url }}">{{ post.title }}</a>
                 </div>
+                <button
+                  formaction="{{ post.url | absolute_url }}"
+                  data-background-color="#eee"
+                  data-color="dark"
+                  data-turbo="false"
+                  data-primary="false"
+                >
+                  Читать полную версию на сайте
+                </button>
                 {{ post.content }}
               ]]>
             </turbo:content>
