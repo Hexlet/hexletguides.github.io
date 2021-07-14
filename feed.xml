@@ -602,8 +602,8 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/hosting/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое домен и хостинг?</turbo:topic> -->
-            <title>Что такое домен и хостинг?</title>
+            <!-- <turbo:topic>Что такое хостинг и домен сайта простыми словами?</turbo:topic> -->
+            <title>Что такое хостинг и домен сайта простыми словами?</title>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -611,7 +611,7 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/hosting/">Что такое домен и хостинг?</a>
+                  <a href="https://guides.hexlet.io/hosting/">Что такое хостинг и домен сайта простыми словами?</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/hosting/"
@@ -1789,8 +1789,8 @@ You can now run npm run build to bundle your application!
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/git-guide/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Зачем нужен Git</turbo:topic> -->
-            <title>Зачем нужен Git</title>
+            <!-- <turbo:topic>Что такое Git и для чего он нужен</turbo:topic> -->
+            <title>Что такое Git и для чего он нужен</title>
             <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -1798,7 +1798,7 @@ You can now run npm run build to bundle your application!
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/git-guide/">Зачем нужен Git</a>
+                  <a href="https://guides.hexlet.io/git-guide/">Что такое Git и для чего он нужен</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/git-guide/"
@@ -1994,8 +1994,8 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/dns/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое DNS</turbo:topic> -->
-            <title>Что такое DNS</title>
+            <!-- <turbo:topic>Что такое DNS-сервер простыми словами</turbo:topic> -->
+            <title>Что такое DNS-сервер простыми словами</title>
             <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
             <author>Никита Михайлов</author>
             <!-- <yandex:related></yandex:related> -->
@@ -2003,7 +2003,7 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/dns/">Что такое DNS</a>
+                  <a href="https://guides.hexlet.io/dns/">Что такое DNS-сервер простыми словами</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/dns/"
@@ -5519,8 +5519,8 @@ const func = (num) =&gt; {
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/bootstrap/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое Bootstrap</turbo:topic> -->
-            <title>Что такое Bootstrap</title>
+            <!-- <turbo:topic>Что такое Bootstrap и как он работает</turbo:topic> -->
+            <title>Что такое Bootstrap и как он работает</title>
             <pubDate>Mon, 10 Jul 2017 00:00:00 +0000</pubDate>
             <author>Никита Михайлов</author>
             <!-- <yandex:related></yandex:related> -->
@@ -5528,7 +5528,7 @@ const func = (num) =&gt; {
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/bootstrap/">Что такое Bootstrap</a>
+                  <a href="https://guides.hexlet.io/bootstrap/">Что такое Bootstrap и как он работает</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/bootstrap/"
