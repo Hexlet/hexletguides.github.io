@@ -602,8 +602,8 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/hosting/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое хостинг и домен сайта простыми словами?</turbo:topic> -->
-            <title>Что такое хостинг и домен сайта простыми словами?</title>
+            <!-- <turbo:topic>Что такое домен и хостинг?</turbo:topic> -->
+            <title>Что такое домен и хостинг?</title>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -611,7 +611,7 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/hosting/">Что такое хостинг и домен сайта простыми словами?</a>
+                  <a href="https://guides.hexlet.io/hosting/">Что такое домен и хостинг?</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/hosting/"
