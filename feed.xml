@@ -602,8 +602,8 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/hosting/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое домен и хостинг?</turbo:topic> -->
-            <title>Что такое домен и хостинг?</title>
+            <!-- <turbo:topic>Что такое хостинг и домен сайта простыми словами?</turbo:topic> -->
+            <title>Что такое хостинг и домен сайта простыми словами?</title>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -611,7 +611,7 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/hosting/">Что такое домен и хостинг?</a>
+                  <a href="https://guides.hexlet.io/hosting/">Что такое хостинг и домен сайта простыми словами?</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/hosting/"
@@ -2378,8 +2378,8 @@ c: Тогда я бы воспользовался встроенной функ
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/how-to-prepare-for-interview/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Как подготовиться к интервью</turbo:topic> -->
-            <title>Как подготовиться к интервью</title>
+            <!-- <turbo:topic>Как проходит собеседование у программистов, что спрпшивают</turbo:topic> -->
+            <title>Как проходит собеседование у программистов, что спрпшивают</title>
             <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -2387,7 +2387,7 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/how-to-prepare-for-interview/">Как подготовиться к интервью</a>
+                  <a href="https://guides.hexlet.io/how-to-prepare-for-interview/">Как проходит собеседование у программистов, что спрпшивают</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/how-to-prepare-for-interview/"
@@ -5058,8 +5058,8 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/typing/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Как научиться слепой печати</turbo:topic> -->
-            <title>Как научиться слепой печати</title>
+            <!-- <turbo:topic>Как научиться слепой печати на клавиатуре</turbo:topic> -->
+            <title>Как научиться слепой печати на клавиатуре</title>
             <pubDate>Fri, 22 Sep 2017 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -5067,7 +5067,7 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/typing/">Как научиться слепой печати</a>
+                  <a href="https://guides.hexlet.io/typing/">Как научиться слепой печати на клавиатуре</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/typing/"
@@ -5080,7 +5080,7 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
                 </button>
                 <p><strong>Слепой метод набора — способ эффективно набирать текст десятью пальцами не глядя на клавиатуру.</strong></p>
 
-<h2 id="зачем">Зачем?</h2>
+<h2 id="зачем-нужна-слепая-печать">Зачем нужна слепая печать?</h2>
 
 <p>Слепой набор позволяет не думать о процессе печати и сосредоточиться на тексте и своих мыслях. Также:</p>
 
