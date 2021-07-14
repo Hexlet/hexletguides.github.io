@@ -1789,8 +1789,8 @@ You can now run npm run build to bundle your application!
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/git-guide/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое Git и для чего он нужен</turbo:topic> -->
-            <title>Что такое Git и для чего он нужен</title>
+            <!-- <turbo:topic>Зачем нужен Git</turbo:topic> -->
+            <title>Зачем нужен Git</title>
             <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -1798,7 +1798,7 @@ You can now run npm run build to bundle your application!
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/git-guide/">Что такое Git и для чего он нужен</a>
+                  <a href="https://guides.hexlet.io/git-guide/">Зачем нужен Git</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/git-guide/"
