@@ -19,7 +19,7 @@
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic></turbo:topic> -->
             <title></title>
-            <pubDate>Thu, 15 Jul 2021 10:08:52 +0000</pubDate>
+            <pubDate>Thu, 15 Jul 2021 10:09:00 +0000</pubDate>
             <author></author>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
@@ -4318,8 +4318,8 @@ CMD ["eslint", "/app"]
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/virtualization/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое виртуализация</turbo:topic> -->
-            <title>Что такое виртуализация</title>
+            <!-- <turbo:topic>Что такое виртуализация и для чего она нужна</turbo:topic> -->
+            <title>Что такое виртуализация и для чего она нужна</title>
             <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -4327,7 +4327,7 @@ CMD ["eslint", "/app"]
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/virtualization/">Что такое виртуализация</a>
+                  <a href="https://guides.hexlet.io/virtualization/">Что такое виртуализация и для чего она нужна</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/virtualization/"
