@@ -37,10 +37,6 @@
 <lastmod>2017-10-25T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>https://guides.hexlet.io/vagrant/</loc>
-<lastmod>2017-12-20T00:00:00+00:00</lastmod>
-</url>
-<url>
 <loc>https://guides.hexlet.io/jekyll/</loc>
 <lastmod>2017-12-21T00:00:00+00:00</lastmod>
 </url>
@@ -147,6 +143,10 @@
 <url>
 <loc>https://guides.hexlet.io/deploy/</loc>
 <lastmod>2021-06-11T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://guides.hexlet.io/2017-12-20-vagrant/</loc>
+<lastmod>2021-07-15T10:08:52+00:00</lastmod>
 </url>
 <url>
 <loc>https://guides.hexlet.io/</loc>
