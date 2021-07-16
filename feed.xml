@@ -2378,8 +2378,8 @@ c: Тогда я бы воспользовался встроенной функ
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/how-to-prepare-for-interview/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Как проходит собеседование у программистов, что спрпшивают</turbo:topic> -->
-            <title>Как проходит собеседование у программистов, что спрпшивают</title>
+            <!-- <turbo:topic>Как проходит собеседование у программистов, что спрашивают</turbo:topic> -->
+            <title>Как проходит собеседование у программистов, что спрашивают</title>
             <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -2387,7 +2387,7 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/how-to-prepare-for-interview/">Как проходит собеседование у программистов, что спрпшивают</a>
+                  <a href="https://guides.hexlet.io/how-to-prepare-for-interview/">Как проходит собеседование у программистов, что спрашивают</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/how-to-prepare-for-interview/"
