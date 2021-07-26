@@ -12,9 +12,13 @@ post_class: post-template
     <img class="featured-image img-fluid rounded" src="{{  page.image | relative_url }}" alt="{{ page.title }}">
     {% endif %}
 
-    <h1 class="mb-4">{{ page.title }}</h1>
+    <div class="mainheading">
+      <h1 class="posttitle">{{ page.title }}</h1>
+    </div>
 
-    {{ content }}
+    <div class="article-post">
+      {{ content }}
+    </div>
 
     <div class="lead d-flex my-5">
       <span class="me-auto">
