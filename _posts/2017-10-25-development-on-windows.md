@@ -112,7 +112,7 @@ $ choco install hyper
 
 ## Ubuntu for Windows
 
-Ремарка для владельцев последних версий Windows. Microsoft интегрировала Ubuntu внутрь Windows. Особенности установки и включения этой интеграции зависят от конкретной версии Windows, но в целом это сводится к нажатию нескольких кнопок. Подробности можно найти в нашей [инструкции по установке Ubuntu Linux внутри Windows](https://guides.hexlet.io/virtualization/).
+Ремарка для владельцев последних версий Windows. Microsoft интегрировала Ubuntu внутрь Windows. Особенности установки и включения этой интеграции зависят от конкретной версии Windows, но в целом это сводится к нажатию нескольких кнопок. Подробности можно найти в нашей [инструкции по установке Ubuntu Linux внутри Windows](https://guides.hexlet.io/ubuntu-linux-in-windows/).
 
 ## Vagrant
 
