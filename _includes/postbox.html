@@ -6,7 +6,14 @@
     </a>
     <div class="card-block">
         <h2 class="card-title h4 serif-font"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
-        <p class="card-text text-muted">{{ post.summary | default post.description | strip_html | truncatewords:40 }}</p>
+        {% assign description = post.summary || post.description %}
+        <p class="card-text text-muted">
+            {% if post.summary %}
+                {{ post.summary | strip_html | truncatewords:40 }}
+            {% else %}
+                {{ post.description | strip_html | truncatewords:40 }}
+            {% endif %}
+        </p>
     </div>
 </div>
 <!-- end post -->

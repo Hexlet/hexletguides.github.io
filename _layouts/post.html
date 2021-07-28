@@ -13,7 +13,13 @@ post_class: post-template
     {% endif %}
 
     <div class="mainheading">
-      <h1 class="posttitle">{{ page.header | default page.title }}</h1>
+      <h1 class="posttitle">
+          {% if page.header %}
+            {{ page.header }}
+          {% else %}
+            {{ page.title }}
+          {% endif %}
+      </h1>
     </div>
 
     <div class="article-post">
