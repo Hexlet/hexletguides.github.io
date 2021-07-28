@@ -5,7 +5,7 @@
 ## Run
 
 ```sh
-make install
+make setup
 make serve
 # open localhost:4000
 ```

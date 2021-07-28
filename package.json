@@ -1,6 +1,9 @@
 {
   "name": "hexletguides.github.io",
   "version": "1.0.0",
+  "simple-git-hooks": {
+    "pre-push": "make lint"
+  },
   "description": "[Live Demo](https://wowthemesnet.github.io/affiliates-jekyll-theme/) | [Docs & Download](https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/) |  [Buy me a coffee](https://www.wowthemes.net/donate/)",
   "main": "index.js",
   "scripts": {
@@ -18,5 +21,8 @@
   "homepage": "https://github.com/Hexlet/hexletguides.github.io#readme",
   "dependencies": {
     "bootstrap": "^5.0.1"
+  },
+  "devDependencies": {
+    "simple-git-hooks": "^2.5.1"
   }
 }

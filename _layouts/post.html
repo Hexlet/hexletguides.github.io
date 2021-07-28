@@ -13,7 +13,7 @@ post_class: post-template
     {% endif %}
 
     <div class="mainheading">
-      <h1 class="posttitle">{{ page.title }}</h1>
+      <h1 class="posttitle">{{ page.header || page.title }}</h1>
     </div>
 
     <div class="article-post">
