@@ -1260,7 +1260,7 @@
 //   margin-bottom: 0;
 // }
 
-// @media (min-width: 640px) {
+@media (min-width: 640px) {
 //   .sm\:markdown {
 //     color: #4a5568;
 //     max-width: 65ch;
@@ -2487,9 +2487,9 @@
 //   .sm\:markdown-2xl > :last-child {
 //     margin-bottom: 0;
 //   }
-// }
+}
 
-// @media (min-width: 768px) {
+@media (min-width: 768px) {
 //   .md\:markdown {
 //     color: #4a5568;
 //     max-width: 65ch;
@@ -3716,9 +3716,9 @@
 //   .md\:markdown-2xl > :last-child {
 //     margin-bottom: 0;
 //   }
-// }
+}
 
-// @media (min-width: 1024px) {
+@media (min-width: 1024px) {
 //   .lg\:markdown {
 //     color: #4a5568;
 //     max-width: 65ch;
@@ -4945,9 +4945,9 @@
 //   .lg\:markdown-2xl > :last-child {
 //     margin-bottom: 0;
 //   }
-// }
+}
 
-// @media (min-width: 1280px) {
+@media (min-width: 1280px) {
 //   .xl\:markdown {
 //     color: #4a5568;
 //     max-width: 65ch;
@@ -6174,4 +6174,4 @@
 //   .xl\:markdown-2xl > :last-child {
 //     margin-bottom: 0;
 //   }
-// }
+}
