@@ -11,8 +11,8 @@ topmenu:
 # Footer Menu
 footermenu:
 
-- title: Курсы
-  url: https://ru.hexlet.io/courses?utm_source=hexlet-guides&utm_medium=referral
+- title: Бесплатные курсы и вебинары
+  url: https://ru.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral
   external: true
 
 - title: Оценка резюме
