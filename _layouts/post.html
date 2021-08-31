@@ -23,6 +23,7 @@ post_class: post-template
     </div>
 
     <div class="article-post">
+      {% include toc.html html=content %}
       {{ content }}
     </div>
 
