@@ -11,6 +11,10 @@ topmenu:
 # Footer Menu
 footermenu:
 
+
+- title: О проекте
+  url: /about/
+
 - title: Бесплатные курсы и вебинары
   url: https://ru.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral
   external: true
