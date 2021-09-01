@@ -19,9 +19,12 @@ post_class: post-template
       </h1>
     </div>
 
+    
   <!-- Post Featured Image -->
     {% if page.image %}
-    <img class="featured-image img-fluid rounded" src="{{  page.image | relative_url }}" alt="{{ page.title }}">
+      <div class="text-center mx-auto mb-5">
+        <img class="featured-image text-center mx-auto rounded" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">
+      </div>
     {% endif %}
   <!-- End Featured Image -->
     
