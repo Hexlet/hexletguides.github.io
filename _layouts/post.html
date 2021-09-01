@@ -7,10 +7,7 @@ post_class: post-template
 
 <div class="row">
   <div class="col-sm-8 mx-auto">
-    <!-- Post Featured Image -->
-    {% if page.image_closed %}
-    <img class="featured-image img-fluid rounded" src="{{  page.image | relative_url }}" alt="{{ page.title }}">
-    {% endif %}
+
 
     <div class="mainheading">
       <h1 class="posttitle">
@@ -22,6 +19,12 @@ post_class: post-template
       </h1>
     </div>
 
+  <!-- Post Featured Image -->
+    {% if page.image %}
+    <img class="featured-image img-fluid rounded" src="{{  page.image | relative_url }}" alt="{{ page.title }}">
+    {% endif %}
+  <!-- End Featured Image -->
+    
     <div class="article-post">
       {% include toc.html html=content %}
       {{ content }}
