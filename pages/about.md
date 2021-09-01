@@ -1,16 +1,11 @@
 ---
 layout: page
-title: About
+title: О проекте
 permalink: "/about/"
 image: assets/images/screenshot.png
-sitemap: false
 ---
 
-This website is a demonstration to see **Affiliates Jekyll theme** in action. 
+Hexlet Guides (Гайды и статьи для программистов) - это проект с открытым исходным кодом, созданный и поддерживаемый сообществом Hexlet. Присоединяйтесь к сообществу, публикуйте свои гайды, исправляйте неточности. Расскажите о сайте коллегам и друзьям! Исходный код платформы проекта Hexlet Guides доступен на GitHub. Вы можете поучаствовать в процессе разработки.
 
-The theme is compatible with Github pages. This demo is created with Github Pages and hosted with Github. 
-
-Everything is ready for your quick setup: Blog, Categories, About, Privacy Policy, Terms of Use, Contact form, Mailchimp
-
-[Get it here](https://bootstrapstarter.com/jekyll-theme-memoirs/)
+[Исходный код проекта](https://github.com/Hexlet/hexletguides.github.io)
 
