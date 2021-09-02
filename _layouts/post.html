@@ -39,8 +39,22 @@ post_class: post-template
           Исходный код (github)
         </a>
       </span>
+      
       {% if page.author %}
-        <i>{{ page.author }}</i>
+        
+        {% if page.urlauthor %}
+        <i>
+          <a href="{{ page.urlauthor }}" target="_blank">
+                {{ page.author }}
+          </a></i>
+        {% else %}		
+          <i>
+            <a href="#">
+                {{ page.author }}
+            </a>
+          </i>		
+        {% endif %}
+      
       {% endif %}
     </div>
 
