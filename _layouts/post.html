@@ -40,22 +40,16 @@ post_class: post-template
         </a>
       </span>
       
-      {% if page.author %}
-        
-        {% if page.url-author %}
-        <i>
-          <a href="{{ page.url-author }}" target="_blank">
-                {{ page.author }}
-          </a></i>
-        {% else %}		
-          <i>
-            <a href="#">
-                {{ page.author }}
-            </a>
-          </i>		
+      {% if page.author) %}
+        {% if page.author_url) %}
+          <a href="{{ page.author_url }}" target="_blank" class="fst-italic">
+            {{ page.author }}
+          </a>
+        {% else %}
+          <div class="fst-italic">{{ page.author }}</div>
         {% endif %}
-      
       {% endif %}
+      
     </div>
 
     <!-- Prev/Next -->
