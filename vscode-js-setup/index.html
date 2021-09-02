@@ -169,9 +169,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Нужно сначала установить eslint в системе, а потом установить расширение VS Code, которое будет использовать установленный линтер. Есть разные способы интеграции линтера с расширением. Мы рассмотрим установку линтера глобально в системе.</p>
 
 <ol>
-  <li>Установите Node.js используя <a href="https://nodejs.org/en/download/package-manager/">пакетный менеджер вашей операционной системы</a>.</li>
+  <li>Установите Node.js, используя <a href="https://nodejs.org/en/download/package-manager/">пакетный менеджер вашей операционной системы</a>.</li>
   <li>Установите eslint командой <code class="language-plaintext highlighter-rouge">npm install -g eslint</code>. Вероятно, вам понадобится использовать <code class="language-plaintext highlighter-rouge">sudo</code>.</li>
-  <li>Установите плагины, которые конфигурируют <code class="language-plaintext highlighter-rouge">eslint</code>. Без них (по умолчанию) <code class="language-plaintext highlighter-rouge">eslint</code> ничего не проверяет.
+  <li>
+    <p>Установите плагины, которые конфигурируют <code class="language-plaintext highlighter-rouge">eslint</code>. Без них (по умолчанию) <code class="language-plaintext highlighter-rouge">eslint</code> ничего не проверяет.</p>
+
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code> npm <span class="nb">install</span> <span class="nt">-g</span> eslint-config-airbnb-base eslint-plugin-import
 </code></pre></div>    </div>
   </li>
@@ -179,10 +181,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>eslint требует наличия конфигурационного файла. Создайте в корне вашего проекта файл <code class="language-plaintext highlighter-rouge">.eslintrc.yml</code> со следующим содержанием:</p>
 
     <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="syntax"><code> <span class="na">extends</span><span class="pi">:</span>
-   <span class="pi">-</span> <span class="s1">'</span><span class="s">airbnb-base'</span>
+ <span class="pi">-</span> <span class="s1">'</span><span class="s">airbnb-base'</span>
  <span class="na">env</span><span class="pi">:</span>
-   <span class="na">node</span><span class="pi">:</span> <span class="no">true</span>
-   <span class="na">browser</span><span class="pi">:</span> <span class="no">true</span>
+ <span class="na">node</span><span class="pi">:</span> <span class="no">true</span>
+ <span class="na">browser</span><span class="pi">:</span> <span class="no">true</span>
 </code></pre></div>    </div>
   </li>
   <li>Установите расширение “<a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">linter-eslint</a>” в VS Code.</li>
@@ -231,7 +233,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2 id="ссылки">Ссылки</h2>
 
-<p><a href="https://ru.hexlet.io/courses/js-setup-environment">Бесплатный курс</a> по настройке окружения для работы в современной экосистеме JavaScript.</p>
+<p><a href="https://ru.hexlet.io/courses/js-setup-environment">Курс</a> по настройке окружения для работы в современной экосистеме JavaScript.</p>
 
     </div>
 
