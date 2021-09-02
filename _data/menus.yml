@@ -12,7 +12,7 @@ topmenu:
 footermenu:
 
 - title: О проекте
-  url: https://guides.hexlet.io/about/
+  url: about/
   external: false
 
 - title: Бесплатные курсы и вебинары
