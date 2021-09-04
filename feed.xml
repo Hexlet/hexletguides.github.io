@@ -3703,7 +3703,7 @@ c: Тогда я бы воспользовался встроенной функ
 
 <h2 id="установка">Установка</h2>
 
-<p>Докер поставляется в виде Community Edition (CE) и Enterprise Edition (EE). Нас интересует CE. На <a href="https://www.docker.com/community-edition">главной странице</a> этой версии доступны ссылки для скачивания под все популярные платформы. Выберите вашу и установите Докер.</p>
+<p>Чтобы начать пользоваться Докером, необходимо установить движок — Docker Engine. На странице https://docs.docker.com/engine/install/ доступны ссылки для скачивания под все популярные платформы. Выберите вашу и установите Докер.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
     <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
@@ -3730,7 +3730,7 @@ Cgroup Driver: cgroupfs
 ...
 </code></pre></div></div>
 
-<p>Она выдает довольно много информации о конфигурации самого Докера и статистику работы.</p>
+<p>Она выдаёт довольно много информации о конфигурации самого Докера и статистику работы.</p>
 
 <h2 id="запуск">Запуск</h2>
 
