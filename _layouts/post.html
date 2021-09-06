@@ -19,7 +19,7 @@ post_class: post-template
       </h1>
     </div>
 
-    
+
   <!-- Post Featured Image -->
     {% if page.image %}
       <div class="text-center mx-auto mb-5">
@@ -27,7 +27,7 @@ post_class: post-template
       </div>
     {% endif %}
   <!-- End Featured Image -->
-    
+
     <div class="article-post">
       {% include toc.html html=content %}
       {{ content }}
@@ -39,9 +39,9 @@ post_class: post-template
           Исходный код (github)
         </a>
       </span>
-      
-      {% if page.author) %}
-        {% if page.author_url) %}
+
+      {% if page.author %}
+        {% if page.author_url %}
           <a href="{{ page.author_url }}" target="_blank" class="fst-italic">
             {{ page.author }}
           </a>
@@ -49,7 +49,7 @@ post_class: post-template
           <div class="fst-italic">{{ page.author }}</div>
         {% endif %}
       {% endif %}
-      
+
     </div>
 
     <!-- Prev/Next -->
