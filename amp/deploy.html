@@ -252,15 +252,15 @@
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html#examples</span>
 <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Initialize the deploy root and gather facts</span>
-  <span class="s">community.general.deploy_helper</span><span class="pi">:</span>
+  <span class="na">community.general.deploy_helper</span><span class="pi">:</span>
     <span class="na">path</span><span class="pi">:</span> <span class="s">/path/to/root</span>
 <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Clone the project to the new release folder</span>
-  <span class="s">ansible.builtin.git</span><span class="pi">:</span>
+  <span class="na">ansible.builtin.git</span><span class="pi">:</span>
     <span class="na">repo</span><span class="pi">:</span> <span class="s">ansible.builtin.git://foosball.example.org/path/to/repo.git</span>
     <span class="na">dest</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
     <span class="na">version</span><span class="pi">:</span> <span class="s">v1.1.1</span>
 <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Add an unfinished file, to allow cleanup on successful finalize</span>
-  <span class="s">ansible.builtin.file</span><span class="pi">:</span>
+  <span class="na">ansible.builtin.file</span><span class="pi">:</span>
     <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/'</span>
     <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span>
 </code></pre></div></div>

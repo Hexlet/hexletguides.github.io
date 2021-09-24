@@ -103,15 +103,15 @@
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html#examples</span>
 <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Initialize the deploy root and gather facts</span>
-  <span class="s">community.general.deploy_helper</span><span class="pi">:</span>
+  <span class="na">community.general.deploy_helper</span><span class="pi">:</span>
     <span class="na">path</span><span class="pi">:</span> <span class="s">/path/to/root</span>
 <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Clone the project to the new release folder</span>
-  <span class="s">ansible.builtin.git</span><span class="pi">:</span>
+  <span class="na">ansible.builtin.git</span><span class="pi">:</span>
     <span class="na">repo</span><span class="pi">:</span> <span class="s">ansible.builtin.git://foosball.example.org/path/to/repo.git</span>
     <span class="na">dest</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
     <span class="na">version</span><span class="pi">:</span> <span class="s">v1.1.1</span>
 <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Add an unfinished file, to allow cleanup on successful finalize</span>
-  <span class="s">ansible.builtin.file</span><span class="pi">:</span>
+  <span class="na">ansible.builtin.file</span><span class="pi">:</span>
     <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/'</span>
     <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span>
 </code></pre></div></div>
@@ -387,7 +387,7 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n] <sp
 <span class="c1"># all – означает все описанные в inventory.ini</span>
 <span class="pi">-</span> <span class="na">hosts</span><span class="pi">:</span> <span class="s">all</span>
   <span class="na">tasks</span><span class="pi">:</span> <span class="c1"># набор команд которые нужно выполнить</span>
-    <span class="pi">-</span> <span class="s">ansible.builtin.file</span><span class="pi">:</span> <span class="c1"># file – управляет файлами и директориями</span>
+    <span class="pi">-</span> <span class="na">ansible.builtin.file</span><span class="pi">:</span> <span class="c1"># file – управляет файлами и директориями</span>
         <span class="na">name</span><span class="pi">:</span> <span class="s">/tmp/ansible_was_here</span>
         <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span> <span class="c1"># выполнит команду touch если файла не существует. И – идемпотентность</span>
 </code></pre></div></div>
@@ -432,13 +432,13 @@ PLAY RECAP <span class="k">*****************************************************
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="na">tasks</span><span class="pi">:</span>
   <span class="c1"># Установка postgresql</span>
   <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Ensure postgresql is at the latest version</span>
-    <span class="s">ansible.builtin.apt</span><span class="pi">:</span> <span class="c1"># модуль apt</span>
+    <span class="na">ansible.builtin.apt</span><span class="pi">:</span> <span class="c1"># модуль apt</span>
       <span class="na">name</span><span class="pi">:</span> <span class="s">postgresql</span>
       <span class="na">state</span><span class="pi">:</span> <span class="s">latest</span>
 
   <span class="c1"># Запуск postgresql</span>
   <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Ensure that postgresql is started</span>
-    <span class="s">ansible.builtin.service</span><span class="pi">:</span> <span class="c1"># модуль service</span>
+    <span class="na">ansible.builtin.service</span><span class="pi">:</span> <span class="c1"># модуль service</span>
       <span class="na">name</span><span class="pi">:</span> <span class="s">postgresql</span>
       <span class="na">state</span><span class="pi">:</span> <span class="s">started</span> <span class="c1"># запускаем если не запущен</span>
 </code></pre></div></div>
