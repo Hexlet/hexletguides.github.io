@@ -1,187 +1,110 @@
-<!doctype html>
-<html amp lang="ru_RU">
+<!DOCTYPE html>
+<html lang="ru_RU">
   <head>
     <meta charset="utf-8">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>Что такое Bootstrap и как он работает</title>
-    <link rel="canonical" href="https://guides.hexlet.io/bootstrap/" />
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/assets/images/favicons/favicon-128.png">
 
     
-    <style amp-custom>
-      .banner { background-color: #f8f9fa; border-left: 3px solid #0dcaf0; padding: 1rem; }
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/2017-07-10-bootstrap">
+    
 
-.markdown .banner a { text-decoration: none; }
+    <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Hexlet Guides" />
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Hexlet Guides | Гайды</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Hexlet Guides" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Полезные статьи и гайды для разработчиков" />
+<meta property="og:description" content="Полезные статьи и гайды для разработчиков" />
+<link rel="canonical" href="https://guides.hexlet.io/2017-07-10-bootstrap/" />
+<meta property="og:url" content="https://guides.hexlet.io/2017-07-10-bootstrap/" />
+<meta property="og:site_name" content="Hexlet Guides" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-28T21:11:46+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hexlet Guides" />
+<script type="application/ld+json">
+{"headline":"Hexlet Guides","dateModified":"2021-09-28T21:11:46+00:00","datePublished":"2021-09-28T21:11:46+00:00","description":"Полезные статьи и гайды для разработчиков","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/2017-07-10-bootstrap/"},"url":"https://guides.hexlet.io/2017-07-10-bootstrap/","author":{"@type":"Person","name":"Kirill Mokevnin"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-.full_post_link.full_post_link { padding: .7rem 1rem; display: block; border: 1px solid #212529; border-radius: 2px; text-align: center; text-decoration: none; font-size: 1rem; }
 
-.markdown { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; color: #4a5568; margin-left: auto; margin-right: auto; max-width: 65ch; padding: 3rem 1.5rem; }
+    
+    
 
-.markdown [class~="lead"] { color: #4a5568; font-size: 1.25em; line-height: 1.6; margin-top: 1.2em; margin-bottom: 1.2em; }
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMJ8HKG');</script>
+<!-- End Google Tag Manager -->
 
-.markdown a { color: #1a202c; text-decoration: underline; }
 
-.markdown strong { color: #1a202c; font-weight: 600; }
 
-.markdown ol { list-style: none; padding: 0; counter-reset: list-counter; margin-top: 1.25em; margin-bottom: 1.25em; }
 
-.markdown ol > li { position: relative; counter-increment: list-counter; padding-left: 1.75em; }
+    <link href="/assets/css/theme.css" rel="stylesheet">
 
-.markdown ol > li::before { content: counter(list-counter) "."; position: absolute; font-weight: 400; color: #718096; }
+    <!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="/assets/css/highlight.css" rel="stylesheet">
+    <!-- custom CSS end-->
 
-.markdown ul > li { position: relative; padding-left: 1.75em; }
-
-.markdown ul > li::before { content: ""; position: absolute; background-color: #cbd5e0; border-radius: 50%; width: 0.375em; height: 0.375em; top: calc(0.875em - 0.1875em); left: 0.25em; }
-
-.markdown hr { border-color: #e2e8f0; border-top-width: 1px; margin-top: 3em; margin-bottom: 3em; }
-
-.markdown blockquote { font-weight: 500; font-style: italic; color: #1a202c; border-left-width: 0.25rem; border-left-color: #e2e8f0; margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1em; }
-
-.markdown blockquote p:first-of-type::before { content: open-quote; }
-
-.markdown blockquote p:last-of-type::after { content: close-quote; }
-
-.markdown h1 { color: #1a202c; font-weight: 800; font-size: 2.25em; margin-top: 0; margin-bottom: 0.8888889em; line-height: 1.1111111; }
-
-.markdown h2 { color: #1a202c; font-weight: 700; font-size: 1.5em; margin-top: 2em; margin-bottom: 1em; line-height: 1.3333333; }
-
-.markdown h3 { color: #1a202c; font-weight: 600; font-size: 1.25em; margin-top: 1.6em; margin-bottom: 0.6em; line-height: 1.6; }
-
-.markdown h4 { color: #1a202c; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.5; }
-
-.markdown figure figcaption { color: #718096; font-size: 0.875em; line-height: 1.4285714; margin-top: 0.8571429em; }
-
-.markdown code { color: #1a202c; font-weight: 600; font-size: 0.875em; }
-
-.markdown code::before { content: "`"; }
-
-.markdown code::after { content: "`"; }
-
-.markdown pre { color: #e2e8f0; background-color: #2d3748; overflow-x: auto; font-size: 0.875em; line-height: 1.7142857; margin-top: 1.7142857em; margin-bottom: 1.7142857em; border-radius: 0.375rem; padding-top: 0.8571429em; padding-right: 1.1428571em; padding-bottom: 0.8571429em; padding-left: 1.1428571em; }
-
-.markdown pre code { background-color: transparent; border-width: 0; border-radius: 0; padding: 0; font-weight: 400; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
-
-.markdown pre code::before { content: ""; }
-
-.markdown pre code::after { content: ""; }
-
-.markdown table { width: 100%; table-layout: auto; text-align: left; margin-top: 2em; margin-bottom: 2em; font-size: 0.875em; line-height: 1.7142857; }
-
-.markdown thead { color: #1a202c; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #cbd5e0; }
-
-.markdown thead th { vertical-align: bottom; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
-
-.markdown tbody tr { border-bottom-width: 1px; border-bottom-color: #e2e8f0; }
-
-.markdown tbody tr:last-child { border-bottom-width: 0; }
-
-.markdown tbody td { vertical-align: top; padding-top: 0.5714286em; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
-
-.markdown { font-size: 1rem; line-height: 1.75; }
-
-.markdown p { margin-top: 1.25em; margin-bottom: 1.25em; }
-
-.markdown img { margin-top: 2em; margin-bottom: 2em; }
-
-.markdown video { margin-top: 2em; margin-bottom: 2em; }
-
-.markdown figure { margin-top: 2em; margin-bottom: 2em; }
-
-.markdown figure > * { margin-top: 0; margin-bottom: 0; }
-
-.markdown h2 code { font-size: 0.875em; }
-
-.markdown h3 code { font-size: 0.9em; }
-
-.markdown ul { margin-top: 1.25em; margin-bottom: 1.25em; list-style: none; padding: 0; }
-
-.markdown li { margin-top: 0.5em; margin-bottom: 0.5em; }
-
-.markdown ol > li:before { left: 0; }
-
-.markdown > ul > li p { margin-top: 0.75em; margin-bottom: 0.75em; }
-
-.markdown > ul > li > *:first-child { margin-top: 1.25em; }
-
-.markdown > ul > li > *:last-child { margin-bottom: 1.25em; }
-
-.markdown > ol > li > *:first-child { margin-top: 1.25em; }
-
-.markdown > ol > li > *:last-child { margin-bottom: 1.25em; }
-
-.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol { margin-top: 0.75em; margin-bottom: 0.75em; }
-
-.markdown hr + * { margin-top: 0; }
-
-.markdown h2 + * { margin-top: 0; }
-
-.markdown h3 + * { margin-top: 0; }
-
-.markdown h4 + * { margin-top: 0; }
-
-.markdown thead th:first-child { padding-left: 0; }
-
-.markdown thead th:last-child { padding-right: 0; }
-
-.markdown tbody td:first-child { padding-left: 0; }
-
-.markdown tbody td:last-child { padding-right: 0; }
-
-.markdown > :first-child { margin-top: 0; }
-
-.markdown > :last-child { margin-bottom: 0; }
-
-@media (min-width: 768px) { .md\:markdown-lg { font-size: 1.125rem; line-height: 1.7777778; } .md\:markdown-lg p { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg [class~="lead"] { font-size: 1.2222222em; line-height: 1.4545455; margin-top: 1.0909091em; margin-bottom: 1.0909091em; } .md\:markdown-lg blockquote { margin-top: 1.6666667em; margin-bottom: 1.6666667em; padding-left: 1em; } .md\:markdown-lg h1 { font-size: 2.6666667em; margin-top: 0; margin-bottom: 0.8333333em; line-height: 1; } .md\:markdown-lg h2 { font-size: 1.6666667em; margin-top: 1.8666667em; margin-bottom: 1.0666667em; line-height: 1.3333333; } .md\:markdown-lg h3 { font-size: 1.3333333em; margin-top: 1.6666667em; margin-bottom: 0.6666667em; line-height: 1.5; } .md\:markdown-lg h4 { margin-top: 1.7777778em; margin-bottom: 0.4444444em; line-height: 1.5555556; } .md\:markdown-lg img { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg video { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure > * { margin-top: 0; margin-bottom: 0; } .md\:markdown-lg figure figcaption { font-size: 0.8888889em; line-height: 1.5; margin-top: 1em; } .md\:markdown-lg code { font-size: 0.8888889em; } .md\:markdown-lg h2 code { font-size: 0.8666667em; } .md\:markdown-lg h3 code { font-size: 0.875em; } .md\:markdown-lg pre { font-size: 0.8888889em; line-height: 1.75; margin-top: 2em; margin-bottom: 2em; border-radius: 0.375rem; padding-top: 1em; padding-right: 1.5em; padding-bottom: 1em; padding-left: 1.5em; } .md\:markdown-lg ol { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg ul { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg li { margin-top: 0.6666667em; margin-bottom: 0.6666667em; } .md\:markdown-lg ol > li { padding-left: 1.6666667em; } .md\:markdown-lg ol > li:before { left: 0; } .md\:markdown-lg ul > li { padding-left: 1.6666667em; } .md\:markdown-lg ul > li::before { width: 0.3333333em; height: 0.3333333em; top: calc(0.8888889em - 0.1666667em); left: 0.2222222em; } .md\:markdown-lg > ul > li p { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg > ul > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ul > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg > ol > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ol > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg ul ul, .md\:markdown-lg ul ol, .md\:markdown-lg ol ul, .md\:markdown-lg ol ol { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg hr { margin-top: 3.1111111em; margin-bottom: 3.1111111em; } .md\:markdown-lg hr + * { margin-top: 0; } .md\:markdown-lg h2 + * { margin-top: 0; } .md\:markdown-lg h3 + * { margin-top: 0; } .md\:markdown-lg h4 + * { margin-top: 0; } .md\:markdown-lg table { font-size: 0.8888889em; line-height: 1.5; } .md\:markdown-lg thead th { padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg thead th:first-child { padding-left: 0; } .md\:markdown-lg thead th:last-child { padding-right: 0; } .md\:markdown-lg tbody td { padding-top: 0.75em; padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg tbody td:first-child { padding-left: 0; } .md\:markdown-lg tbody td:last-child { padding-right: 0; } .md\:markdown-lg > :first-child { margin-top: 0; } .md\:markdown-lg > :last-child { margin-bottom: 0; } }
-
-@media (min-width: 1024px) { .lg\:markdown-xl { font-size: 1.25rem; line-height: 1.8; } .lg\:markdown-xl p { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl [class~="lead"] { font-size: 1.2em; line-height: 1.5; margin-top: 1em; margin-bottom: 1em; } .lg\:markdown-xl blockquote { margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1.0666667em; } .lg\:markdown-xl h1 { font-size: 2.8em; margin-top: 0; margin-bottom: 0.8571429em; line-height: 1; } .lg\:markdown-xl h2 { font-size: 1.8em; margin-top: 1.5555556em; margin-bottom: 0.8888889em; line-height: 1.1111111; } .lg\:markdown-xl h3 { font-size: 1.5em; margin-top: 1.6em; margin-bottom: 0.6666667em; line-height: 1.3333333; } .lg\:markdown-xl h4 { margin-top: 1.8em; margin-bottom: 0.6em; line-height: 1.6; } .lg\:markdown-xl img { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl video { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure > * { margin-top: 0; margin-bottom: 0; } .lg\:markdown-xl figure figcaption { font-size: 0.9em; line-height: 1.5555556; margin-top: 1em; } .lg\:markdown-xl code { font-size: 0.9em; } .lg\:markdown-xl h2 code { font-size: 0.8611111em; } .lg\:markdown-xl h3 code { font-size: 0.9em; } .lg\:markdown-xl pre { font-size: 0.9em; line-height: 1.7777778; margin-top: 2em; margin-bottom: 2em; border-radius: 0.5rem; padding-top: 1.1111111em; padding-right: 1.3333333em; padding-bottom: 1.1111111em; padding-left: 1.3333333em; } .lg\:markdown-xl ol { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl ul { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl li { margin-top: 0.6em; margin-bottom: 0.6em; } .lg\:markdown-xl ol > li { padding-left: 1.8em; } .lg\:markdown-xl ol > li:before { left: 0; } .lg\:markdown-xl ul > li { padding-left: 1.8em; } .lg\:markdown-xl ul > li::before { width: 0.35em; height: 0.35em; top: calc(0.9em - 0.175em); left: 0.25em; } .lg\:markdown-xl > ul > li p { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl > ul > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ul > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl > ol > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ol > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl ul ul, .lg\:markdown-xl ul ol, .lg\:markdown-xl ol ul, .lg\:markdown-xl ol ol { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl hr { margin-top: 2.8em; margin-bottom: 2.8em; } .lg\:markdown-xl hr + * { margin-top: 0; } .lg\:markdown-xl h2 + * { margin-top: 0; } .lg\:markdown-xl h3 + * { margin-top: 0; } .lg\:markdown-xl h4 + * { margin-top: 0; } .lg\:markdown-xl table { font-size: 0.9em; line-height: 1.5555556; } .lg\:markdown-xl thead th { padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl thead th:first-child { padding-left: 0; } .lg\:markdown-xl thead th:last-child { padding-right: 0; } .lg\:markdown-xl tbody td { padding-top: 0.8888889em; padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl tbody td:first-child { padding-left: 0; } .lg\:markdown-xl tbody td:last-child { padding-right: 0; } .lg\:markdown-xl > :first-child { margin-top: 0; } .lg\:markdown-xl > :last-child { margin-bottom: 0; } }
-
-    </style>
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
   </head>
-  <body>
-    <amp-analytics type="gtag" data-credentials="include">
-<script type="application/json">
-{
-  "vars" : {
-    "gtag_id": "UA-1360700-62",
-    "config" : {
-      "UA-1360700-62": { "groups": "default" }
-    }
-  }
-}
-</script>
-</amp-analytics>
 
-<amp-analytics type="metrika">
-<script type="application/json">
-{
-    "vars": {
-      "counterId": "65474386"
-            },
-   "triggers": {
-        "notBounce": {
-            "on": "timer",
-            "timerSpec": {
-                "immediate": false,
-                "interval": 15,
-                "maxTimerLength": 14
-            },
-            "request": "notBounce"
-        }
-    }
-}
-</script>
-</amp-analytics>
+  
+
+  <body class="layout-post">
 
     
-    <div class="markdown md:markdown-lg lg:markdown-xl">
-      <h1>Что такое Bootstrap и как он работает</h1>
-      
-      
-      
 
-      <a class="full_post_link" href="https://guides.hexlet.io/bootstrap/">Читать в полной версии →</a>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMJ8HKG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+    <!-- Menu Navigation
+      ================================================== -->
+
+      <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center py-3">
+          <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Container
+        ================================================== -->
+        <main class="container">
+          <div class="row">
+  <div class="col-sm-8 mx-auto">
+
+
+    <div class="mainheading">
+      <h1 class="posttitle">
+          
+            
+          
+      </h1>
+    </div>
+
+
+  <!-- Post Featured Image -->
+    
+  <!-- End Featured Image -->
+
+    <div class="article-post">
+      <ul><li><a href="#bootstrap-как-набор-готовых-элементов">Bootstrap как набор готовых элементов</a><ul><li><a href="#плюсы-использования-bootstrap-как-набора-готовых-элементов">Плюсы использования Bootstrap, как набора готовых элементов</a><ul><li><a href="#скорость">Скорость</a></li><li><a href="#кроссбраузерность">Кроссбраузерность</a></li><li><a href="#адаптивность">Адаптивность</a></li><li><a href="#доступность">Доступность</a></li><li><a href="#низкий-порог-вхождения">Низкий порог вхождения</a></li></ul></li><li><a href="#минусы-использования-bootstrap-как-набора-готовых-элементов">Минусы использования Bootstrap, как набора готовых элементов</a><ul><li><a href="#вес-проекта">Вес проекта</a></li><li><a href="#дизайн">Дизайн</a></li><li><a href="#функционал">Функционал</a></li></ul></li></ul></li><li><a href="#bootstrap-как-фреймворк">Bootstrap как фреймворк</a></li><li><a href="#выводы">Выводы</a></li><li><a href="#дополнительные-ссылки">Дополнительные ссылки</a></li></ul>
 
       <p>Разработка веб-страницы с точки зрения верстальщика — непрерывный процесс доработки и создания новых блоков. Чем больше проект, тем чаще происходит итерация «идея — функционал — вёрстка». Решая задачи бизнеса, стадии должны решаться быстро и качественно. И если качество вёрстки напрямую зависит от верстальщика, то скорость — фактор, который зависит от команды.</p>
 
@@ -225,8 +148,7 @@
 
 <ol>
   <li><code class="language-plaintext highlighter-rouge">background-color: #fff;</code></li>
-  <li>
-<code class="language-plaintext highlighter-rouge">display: flex;</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">display: flex;</code>.</li>
 </ol>
 
 <p>Использование утилит предполагает более углублённые знания в CSS, так как это будет похоже на использование правил. Только вместо записи в CSS-файле используются классы.</p>
@@ -329,7 +251,7 @@
 
 <p>Именно такая работа с Bootstrap позволит создать нечто большее, чем просто прототип, лендинг или панель администратора. На Hexlet, в качестве третьего проекта по вёрстке Bootstrap используется для создания внешнего вида полноценного чата</p>
 
-<p><amp-img src="/assets/images/bootstrap/bootstrap-chat.jpg" alt="Приложение на Bootstrap" width="1200" height="980" layout="responsive"><noscript><img src="/assets/images/bootstrap/bootstrap-chat.jpg" alt="Приложение на Bootstrap" width="1200" height="980"></noscript></amp-img></p>
+<p><img src="/assets/images/bootstrap/bootstrap-chat.jpg" alt="Приложение на Bootstrap" /></p>
 
 <p>Так как Bootstrap является набором функций и миксинов, то это снимает преграды его использования вместе с другими методологиями. Например, c БЭМ. Это распространённое мнение, что использовать бутстрап вместе с БЭМ невозможно. Взгляните на следующие миксины, которые доступны для создания сетки:</p>
 
@@ -367,8 +289,82 @@
   <li><a href="https://github.com/twbs/bootstrap">Репозиторий Bootstrap</a></li>
 </ul>
 
+    </div>
+
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/master/_posts/2017-07-10-bootstrap.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
+
+      
+
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/deploy/">&laquo; Deploy (деплой) - что значит «задеплоить на сервер» простыми словами 
+</a>
+      </div>
       
       
     </div>
+    <!-- End Prev/Next -->
+
+    <section>
+      <div id="comments">
+        <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+        </main>
+
+        <!-- Footer
+          ================================================== -->
+          <footer class="footer container text-center">
+
+            <ul class="p-0 mb-1 small">
+              
+              <li>
+                <a href="/about/" alt="О проекте">О проекте</a>
+              </li>
+              
+              <li>
+                <a href="https://ru.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral" alt="Бесплатные курсы и вебинары" target="_blank">Бесплатные курсы и вебинары</a>
+              </li>
+              
+              <li>
+                <a href="https://cv.hexlet.io/" alt="Оценка резюме" target="_blank">Оценка резюме</a>
+              </li>
+              
+              <li>
+                <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка" target="_blank">Алгоритмическая прокачка</a>
+              </li>
+              
+            </ul>
+          </footer>
+
+          <!-- JavaScript
+            ================================================== -->
+            <script src="/assets/js/theme.js"></script>
   </body>
 </html>
