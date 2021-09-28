@@ -17,8 +17,10 @@
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/deploy/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое деплой?</turbo:topic> -->
-            <title>Что такое деплой?</title>
+            <!-- <turbo:topic>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами 
+</turbo:topic> -->
+            <title>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами 
+</title>
             <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -26,7 +28,8 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/deploy/">Что такое деплой?</a>
+                  <a href="https://guides.hexlet.io/deploy/">Deploy (деплой) - что значит «задеплоить на сервер» простыми словами 
+</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/deploy/"
