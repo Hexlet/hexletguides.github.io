@@ -5,7 +5,15 @@
         {% if post.image_closed %} <img class="rounded mb-4" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}"> {% endif %}
     </a>
     <div class="card-block">
-        <div class="card-title h4 serif-font"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></div>
+        <div class="card-title h4 serif-font">
+            <a href="{{ post.url | absolute_url }}">
+                {% if post.header %}
+                    {{ post.header }}
+                {% else %}
+                    {{ post.title }}
+                {% endif %}
+            </a>
+        </div>
         <p class="card-text text-muted">
             {% if post.summary %}
                 {{ post.summary | strip_html | truncatewords:40 }}
