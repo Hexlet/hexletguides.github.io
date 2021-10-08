@@ -2,7 +2,7 @@
 title: Что такое виртуализация и для чего она нужна
 subtitle: В чем суть этой технологии и какие бывают виды виртуализации.
 description: Технология виртуализации, что это простыми словами. Виртуализация — это создание изолированных окружений в рамках одного физического компьютера.
-image: "assets/images/virtualization/virtualization_cover.jpg"
+image: "assets/images/virtualization/virtualization.png"
 author: Кирилл Мокевнин
 ---
 
