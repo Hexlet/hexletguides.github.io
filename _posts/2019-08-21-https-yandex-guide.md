@@ -2,7 +2,7 @@
 title: Что такое протокол HTTPS, и как он защищает вас в интернете
 subtitle: Руководство по HTTPS
 description: Информация о протоколе https, его распространении и сферах применения
-image: "assets/images/https/1.png"
+image: "assets/images/https/https-superhero.png"
 author: Кирилл Мокевнин
 ---
 
