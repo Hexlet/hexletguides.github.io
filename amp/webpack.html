@@ -291,15 +291,15 @@ sass <span class="nt">--update</span> stylesheets dist/stylesheets
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir </span>webpack-demo
 <span class="nb">cd </span>webpack-demo
 npm init <span class="nt">-y</span>
-npm i <span class="nt">-D</span> webpack webpack-cli @webpack-cli/init
+npm i <span class="nt">-D</span> webpack webpack-cli
 </code></pre></div></div>
 
 <p>Теперь можно инициализировать новый вебпак-проект, который автоматически создаст все необходимые файлы и конфигурацию одной командой:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init <span class="nt">--auto</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init <span class="nt">--force</span>
 </code></pre></div></div>
 
-<p>Она предложит перезаписать <em>package.json</em>, добавит в проект несколько зависимостей, создаст HTML и JS-файлы, а также создаст конфигурационный файл. Запуск этой же команды без флага <code class="language-plaintext highlighter-rouge">--auto</code> откроет интерактивный режим, где можно более тонко настроить будущее приложение.</p>
+<p>Она предложит перезаписать <em>package.json</em>, добавит в проект несколько зависимостей, создаст HTML и JS-файлы, а также создаст конфигурационный файл. Запуск этой же команды без флага <code class="language-plaintext highlighter-rouge">--force</code> откроет интерактивный режим, где можно более тонко настроить будущее приложение.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init
 
