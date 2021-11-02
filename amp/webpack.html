@@ -302,25 +302,27 @@ npm i <span class="nt">-D</span> webpack webpack-cli
 <p>Она предложит перезаписать <em>package.json</em>, добавит в проект несколько зависимостей, создаст HTML и JS-файлы, а также создаст конфигурационный файл. Запуск этой же команды без флага <code class="language-plaintext highlighter-rouge">--force</code> откроет интерактивный режим, где можно более тонко настроить будущее приложение.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init
-
-Just found a <span class="sb">`</span>.yo-rc.json<span class="sb">`</span> <span class="k">in </span>a parent directory.
-Setting the project root at: /home/hexlet/webpack-demo
-<span class="o">[</span>webpack-cli] 
-ℹ INFO  For more information and a detailed description of each question, have a look at: https://github.com/webpack/webpack-cli/blob/master/INIT.md
-<span class="o">[</span>webpack-cli] ℹ INFO  Alternatively, run <span class="s2">"webpack(-cli) --help"</span> <span class="k">for </span>usage info
-
-? Will your application have multiple bundles? No
-? Which will be your application entry point? src/index
-? In which folder <span class="k">do </span>you want to store your generated bundles? dist
-? Will you use one of the below JS solutions? ES6
-? Will you use one of the below CSS solutions? No
+? Which of the following JS solutions <span class="k">do </span>you want to use? ES6
+? Do you want to use webpack-dev-server? Yes
+? Do you want to simplify the creation of HTML files <span class="k">for </span>your bundle? Yes
+? Do you want to add PWA support? No
+? Which of the following CSS solutions <span class="k">do </span>you want to use? none
+? Do you like to <span class="nb">install </span>prettier to format generated configuration? No
+? Pick a package manager: npm
+<span class="o">[</span>webpack-cli] ℹ INFO  Initialising project...
+ conflict package.json
+? Overwrite package.json? overwrite
+    force package.json
+   create src/index.js
+   create README.md
+   create index.html
+   create webpack.config.js
+   create .babelrc
 
 <span class="c"># вывод об установке библиотек</span>
 
-<span class="o">[</span>webpack-cli] 
-Congratulations! Your new webpack configuration file has been created!
-
-You can now run npm run build to bundle your application!
+<span class="o">[</span>webpack-cli] ⚠ Generated configuration may not be properly formatted as prettier is not installed.
+<span class="o">[</span>webpack-cli] Project has been initialised with webpack!
 </code></pre></div></div>
 
 <p>Проект готов и теперь его можно запустить:</p>
