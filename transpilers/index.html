@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru_RU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+    
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/transpilers">
+    
+
+    <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Hexlet Guides" />
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Что такое транспиляция? | Hexlet Guides</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Что такое транспиляция?" />
+<meta name="author" content="Казанцев Игорь" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Базовые понятия о транспиляции, разбор проблем, которые она решает и краткий обзор ее реализаций." />
+<meta property="og:description" content="Базовые понятия о транспиляции, разбор проблем, которые она решает и краткий обзор ее реализаций." />
+<link rel="canonical" href="https://guides.hexlet.io/transpilers/" />
+<meta property="og:url" content="https://guides.hexlet.io/transpilers/" />
+<meta property="og:site_name" content="Hexlet Guides" />
+<meta property="og:image" content="https://guides.hexlet.io/assets/images/transpilers/cover.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-29T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://guides.hexlet.io/assets/images/transpilers/cover.png" />
+<meta property="twitter:title" content="Что такое транспиляция?" />
+<script type="application/ld+json">
+{"image":"https://guides.hexlet.io/assets/images/transpilers/cover.png","description":"Базовые понятия о транспиляции, разбор проблем, которые она решает и краткий обзор ее реализаций.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Казанцев Игорь"},"author":{"@type":"Person","name":"Казанцев Игорь"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/transpilers/"},"url":"https://guides.hexlet.io/transpilers/","headline":"Что такое транспиляция?","dateModified":"2021-11-29T00:00:00+00:00","datePublished":"2021-11-29T00:00:00+00:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMJ8HKG');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+    <link href="/assets/css/theme.css" rel="stylesheet">
+
+    <!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="/assets/css/highlight.css" rel="stylesheet">
+    <!-- custom CSS end-->
+
+  </head>
+
+  
+
+  <body class="layout-post">
+
+    
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMJ8HKG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+    <!-- Menu Navigation
+      ================================================== -->
+
+      <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center py-3">
+          <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Container
+        ================================================== -->
+        <main class="container">
+          <div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto text-break">
+
+
+    <div class="mainheading">
+      <h1 class="posttitle">
+          
+            Что такое транспиляция?
+          
+      </h1>
+    </div>
+
+
+  <!-- Post Featured Image -->
+    
+      <div class="text-center mx-auto mb-5">
+        <img class="featured-image text-center mx-auto rounded" src="/assets/images/transpilers/cover.png" alt="Что такое транспиляция?">
+      </div>
+    
+  <!-- End Featured Image -->
+
+    <div class="article-post">
+      <ul><li><a href="#когда-нужна-транспиляция">Когда нужна транспиляция?</a></li><li><a href="#как-используют-транспайлеры">Как используют транспайлеры?</a></li><li><a href="#как-работают-транспайлеры">Как работают транспайлеры?</a><ul><li><a href="#преобразование-исходного-кода-в-абстрактною-форму">Преобразование исходного кода в абстрактною форму</a></li><li><a href="#трансформация-ast">Трансформация AST</a></li><li><a href="#генерация-конечного-кода">Генерация конечного кода</a></li><li><a href="#обратная-связь">Обратная связь</a></li></ul></li><li><a href="#инструменты-реализации-транспиляции-кода">Инструменты (реализации) транспиляции кода</a></li><li><a href="#итого">Итого</a></li><li><a href="#дополнительные-материалы">Дополнительные материалы</a></li></ul>
+
+      <p>Понять, что такое транспайлеры и какова их роль в программировании, поможет следующий пример. Представим, что вы разрабатываете софт для TV-приставок и вам нужно добавить калькулятор на все приставики определенной фирмы. Но есть одно препятствие - некоторые из приставок не обновлялись уже 7 лет и могут работать только со старой версией вашего языка. Тут появляется выбор:</p>
+
+<ul>
+  <li>Разрабатывать на старой версии языка для старых приставок и на новой для остальных, следовательно, писать как минимум 2 программы(а бывают ситуации, когда нужно поддержить множество версий языка)</li>
+  <li>Использовать “переводчик” с версии языка, которую используете вы, на версии работающие на всех устройствах</li>
+</ul>
+
+<p>Роль такого переводчика и выполняют транспайлеры: они преобразуют один код, на котором мы пишем, в другой, который может применяться и работать у конечного пользователя на любых устройствах с любыми версиям языка разработки.</p>
+
+<p><strong>Транспиляция</strong> — преобразование программы, написанной на одном языке программирования в качестве исходных данных, в эквивалентный код другой версии этого языка или в другогой язык программирования того же уровня абстракции.</p>
+
+<h2 id="когда-нужна-транспиляция">Когда нужна транспиляция?</h2>
+
+<p>Перейдем к реальному случаю, в котором пригодится использование транспайлера.</p>
+
+<p>Продолжим пример выше, но дополним его деталями. Калькулятор запускается на встроеном браузере TV-приставки, а писать его мы будем на JavaScript последней версии. Также учтем, что приставки выпускались каждый год с ограниченным сроком поддержки и сейчас мы имеем множество устройств с разными версиями браузера (а, следовательно, и отличающиеся версии поддерживаемого JS-кода). Вспомним, что браузер пользователя давно не обновлялся и код JS который может там работать, сильно отличается от текущих версий языка.</p>
+
+<p>Именно в такой ситуации чаще всего может пригодиться транспиляция кода. Транспайлеры помогут преобразовать написанный на последней версии JavaScript код в тот, который будет работать у всех пользователей независимо от того, как давно они обновлялись.</p>
+
+<h2 id="как-используют-транспайлеры">Как используют транспайлеры?</h2>
+
+<p>Тринспайлеры нашли широкое применение во многих областях программирования, в общем случае можем выделить 2 цели их использования, которые вытекают из определения:</p>
+
+<ul>
+  <li>
+    <p>Транспиляция одной версии языка в другую. Так как языки программирования постоянно обновляются и улучшается, возникают ситуации, когда разработчик уже пишет на новой версии языка, а среда, где код используется, поддерживает и работает только с предыдущими версиями. Например, для переходов между версиями стандарта ECMAScript используется Babel. Также возможно и преобразование в другую сторону, когда необходимо перевести проект на более новую версию языка, а делать это вручную - долго и больно. Например, для транспиляции кода на Python 2.x в код на Python 3 есть 2to3</p>
+  </li>
+  <li>
+    <p>Транспиляция между разными языками. Например преобразование TypeScript в JS. Больше об этом можно найти ниже.</p>
+  </li>
+</ul>
+
+<h2 id="как-работают-транспайлеры">Как работают транспайлеры?</h2>
+
+<p>В качестве примера рассмотрим работу транспайлера над возведением в квадрат на JS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>a ** b
+</code></pre></div></div>
+
+<p>в такое же возведение в квадрат, но с помощью встроенного объекта Math (в старых версиях JS был только этот вариант):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Math.pow(a, b)
+</code></pre></div></div>
+
+<p>Итак, у нас есть начальное состояние и желаемое конечное. Как мы знаем, для транспайлера не составит труда провести преобразование одного в другое. Пока для нас это выглядит как черный ящик, который выполняет полезную работу. Рассмотрим подробнее, как именно происходит транспиляция.</p>
+
+<h3 id="преобразование-исходного-кода-в-абстрактною-форму">Преобразование исходного кода в абстрактною форму</h3>
+
+<p>В начале транспайлер берет сырой код и создаёт его более абстрактное представление.</p>
+
+<p>В общем случае, такое преобразование делится на два этапа: лексический анализ и синтаксический анализ.</p>
+
+<ul>
+  <li>Лексический анализ берёт “сырой” код и разбивает его на изолированные части кода, которые называются токенами. Это могут быть цифры, пунктуация, метки, операторы: всё, что угодно. В нашем случае токенами будут бинарный оператор (применяется к двум операндам, например 2 + 2) и его операнды:</li>
+</ul>
+
+<p><img src="/assets/images/transpilers/tokens.png" alt="transpilers, tokens" /></p>
+
+<ul>
+  <li>Синтаксический анализ строит объект, который описывает все токены и их связи между собой. Это называется AST (Abstract Syntax Tree, Абстрактное Синтаксическое Дерево). Оператор возведения в квадрат будет являться бинарным выражением (в нашем случае единственным) внутри программы, а операнды станут идентификаторами в этом выражении:</li>
+</ul>
+
+<p><img src="/assets/images/transpilers/AST.png" alt="transpilers, AST" /></p>
+
+<h3 id="трансформация-ast">Трансформация AST</h3>
+
+<p>После преобразования в абстрактную модель происходит трансформация, которая производит все необходимые для дальнейшей работы изменения в AST.</p>
+
+<p>Здесь берётся дерево из прошлого шага и изменяется. Трансформация будет изменять наш код в рамках того же языка, но разных его версий. Давайте посмотрим, как мы будем трансформировать AST. Оператор умножения заменяется на вызов выражения, при этом его операнды становятся аргументами выражения (Math.pow).</p>
+
+<p><img src="/assets/images/transpilers/transformed_AST.png" alt="transpilers, transformedAST" /></p>
+
+<h3 id="генерация-конечного-кода">Генерация конечного кода</h3>
+
+<p>Когда все изменения сделаны, транспайлер берёт трансформированное AST кода и на его основе генерирует новый код. В нашем случае транспайлер преобразует дерево из прошлого шага и вернет конечный код, который можно использовать по месту назначения.</p>
+
+<p><img src="/assets/images/transpilers/generate_result.png" alt="transpilers, generate" /></p>
+
+<p>В итоге код из начального состояния проходит ряд преобразований (анализ -&gt; трансформация -&gt; генерация) до конечного состояния - этот процесс и называется транспиляцией.</p>
+
+<h3 id="обратная-связь">Обратная связь</h3>
+
+<p>После всех преобразований мы получили конечный код, который работает на нужной нам версии языка. Но представим, что в нашей программе оказались ошибки, которые всплыли при запуске транспилированного кода. Как нам понять, где именно находится ошибка, если она ссылается какое-то место в трансипилированном коде (который может значительно отличаться от того, что мы писали изначально)?</p>
+
+<p>Использование транспайлеров может затруднить отладку, когда нам нужно найти точное место поломки в исходном коде по коду конечному. В таких случаях используются различные утилиты, позволяющие сопоставить результат транспиляции с оригинальным кодом. Для JS есть утилита SourceMap, которая в процессе создания конечного кода создает файл-маппер, по которому можно связать исходный и конечный код.</p>
+
+<h2 id="инструменты-реализации-транспиляции-кода">Инструменты (реализации) транспиляции кода</h2>
+
+<p>В рамках Front-end разработки основным инструментом транспиляции является Babel. Он позволяет не только выполнять транспиляцию между версиями, которую мы рассмотрели выше, но и:</p>
+
+<ul>
+  <li>преобразовывать JSX-код в JavaScript при разработке на React</li>
+  <li>трансформировать LESS/SCSS в CSS при использовании CSS препроцессоров</li>
+  <li>транспилировать TypeScript в JS, когда мы хотим использовать типизацию</li>
+</ul>
+
+<p>Также популярными являются транспайлеры, трансформирующие Back-end языки программирования в другие, например:</p>
+
+<ul>
+  <li>Haxe предназначен для транспилирования во Flash, JavaScript и Neko. Со временем Haxe разросся до мощного набора инструментов, поддерживающих транспиляцию на разные языки и платформы, включая JavaScript, C++, C#, Java, JVM, Python, Lua, PHP и Flash.</li>
+  <li>Lombok — интересное решение для тех, кому хочется расширить возможности Java. Это плагин, добавляющий в Java новые «ключевые слова» и превращающий аннотации в Java-код, сокращая усилия на разработку и обеспечивая дополнительную функциональность.</li>
+  <li>Bridge.NET позволяет использовать в JavaScript производительность C#, а также мощные VisualStudio IDE и стандартные инструменты .NET.</li>
+  <li>Grumpy обеспечивает трансляцию кода на языке Python в представление на языке Go и позволяет бесшовно запускать Python-программы в runtime-окружении Go.</li>
+</ul>
+
+<h2 id="итого">Итого</h2>
+
+<p>В мире, где есть огромное количество языков программирования, а сами языки имеют множество версий, транспайлеры выполняют крайне важную работу — повышают удобство разработки. Разработчики могут писать код на языке или версии языка, которая удобна им или имеет нужные функции, а транспайлеры выполнят работу по доставке этого кода до среды исполнения в нужном виде.</p>
+
+<p>На данный момент реализовано множество различных транспайлеров (Babel, Vala, Typescript transpiler, Bridge и другие), каждый из них решает свою задачу по-своему, но общий принцип работы транспайлеров похож у всех.</p>
+
+<p><img src="/assets/images/transpilers/scheme.png" alt="transpilers, scheme" /></p>
+
+<p>Исходный код преобразуется в абстрактное синтаксическое дерево, далее AST трансформируется в структуру, которая соотносится с конечным кодом, и из этой структуры генерируется необходимый нам код.</p>
+
+<h2 id="дополнительные-материалы">Дополнительные материалы</h2>
+
+<ul>
+  <li><a href="https://astexplorer.net/">Сайт для построения AST</a></li>
+  <li><a href="https://github.com/VladReshet/the-super-tiny-compiler-rus">Перевод проекта The Super Tiny Compiler! (Супер Маленького Компилятора)</a></li>
+</ul>
+
+    </div>
+
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/main/_posts/2021-11-29-transpilers.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
+
+      
+        
+          <div class="fst-italic">Казанцев Игорь</div>
+        
+      
+
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/http-api/">&laquo; Что такое API?</a>
+      </div>
+      
+      
+    </div>
+    <!-- End Prev/Next -->
+
+    <section>
+      <div id="comments">
+        <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+        </main>
+
+        <!-- Footer
+          ================================================== -->
+          <footer class="footer container text-center">
+
+            <ul class="p-0 mb-1 small">
+              
+              <li>
+                <a href="/about/" alt="О проекте">О проекте</a>
+              </li>
+              
+              <li>
+                <a href="https://ru.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral" alt="Бесплатные курсы и вебинары" target="_blank">Бесплатные курсы и вебинары</a>
+              </li>
+              
+              <li>
+                <a href="https://cv.hexlet.io/" alt="Оценка резюме" target="_blank">Оценка резюме</a>
+              </li>
+              
+              <li>
+                <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка" target="_blank">Алгоритмическая прокачка</a>
+              </li>
+              
+            </ul>
+          </footer>
+
+          <!-- JavaScript
+            ================================================== -->
+            <script src="/assets/js/theme.js"></script>
+  </body>
+</html>
