@@ -114,7 +114,7 @@ small, .small {
 
 .google-auto-placed {
     margin-bottom:2rem;
-} 
+}
 .comma:last-child {
     display:none;
 }
@@ -158,7 +158,7 @@ small, .small {
 }
 .layout-page .section-title h2:before {top:17px;}
 .article-post ol, .article-post ul { margin-bottom:1.5rem;}
-.article-post ol ol, .article-post ul ul {   
+.article-post ol ol, .article-post ul ul {
     list-style: disc;
     margin-bottom:0rem;
 }
@@ -270,6 +270,12 @@ span.post-name a,span.post-read-more a:hover {
     img, iframe {
         border-radius: 0.25rem !important;
     }
+
+    table {
+        @extend .table;
+        @extend .w-auto;
+        @extend .mb-4;
+    }
 }
 
 blockquote {
@@ -306,7 +312,7 @@ blockquote {
 }
 
 
-.card {	
+.card {
     border:0;
 }
 .card .img-thumb {
@@ -328,7 +334,7 @@ ul.tags li a {
     border-radius: 3px;
     font-weight: 500;
     background:#eee;
-    text-transform: capitalize;    
+    text-transform: capitalize;
     box-shadow: 0 6px 10px 0 rgba(169, 169, 169, 0.1);
 }
 ul.tags li a:hover {
@@ -469,7 +475,7 @@ background-color: #fff;
     padding-bottom: 7px;
     padding-top: 7px;
 }
-.sidebar-section {     
+.sidebar-section {
     margin-bottom: 2rem;
     box-shadow:0 0px 1px 0 rgba(0, 0, 0, 0.44);
     padding: 30px;
@@ -488,7 +494,7 @@ background-color: #fff;
     font-weight: 400;
     font-size: 15px;
     color: #999;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
     line-height: 1.5;
     text-align: center;
 }
