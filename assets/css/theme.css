@@ -324,15 +324,15 @@ progress { vertical-align: baseline; }
 
 @media (min-width: 1400px) { .col-xxl { flex: 1 0 0%; } .row-cols-xxl-auto > * { flex: 0 0 auto; width: auto; } .row-cols-xxl-1 > * { flex: 0 0 auto; width: 100%; } .row-cols-xxl-2 > * { flex: 0 0 auto; width: 50%; } .row-cols-xxl-3 > * { flex: 0 0 auto; width: 33.3333333333%; } .row-cols-xxl-4 > * { flex: 0 0 auto; width: 25%; } .row-cols-xxl-5 > * { flex: 0 0 auto; width: 20%; } .row-cols-xxl-6 > * { flex: 0 0 auto; width: 16.6666666667%; } .col-xxl-auto { flex: 0 0 auto; width: auto; } .col-xxl-1 { flex: 0 0 auto; width: 8.3333333333%; } .col-xxl-2 { flex: 0 0 auto; width: 16.6666666667%; } .col-xxl-3 { flex: 0 0 auto; width: 25%; } .col-xxl-4 { flex: 0 0 auto; width: 33.3333333333%; } .col-xxl-5 { flex: 0 0 auto; width: 41.6666666667%; } .col-xxl-6 { flex: 0 0 auto; width: 50%; } .col-xxl-7 { flex: 0 0 auto; width: 58.3333333333%; } .col-xxl-8 { flex: 0 0 auto; width: 66.6666666667%; } .col-xxl-9 { flex: 0 0 auto; width: 75%; } .col-xxl-10 { flex: 0 0 auto; width: 83.3333333333%; } .col-xxl-11 { flex: 0 0 auto; width: 91.6666666667%; } .col-xxl-12 { flex: 0 0 auto; width: 100%; } .offset-xxl-0 { margin-left: 0; } .offset-xxl-1 { margin-left: 8.3333333333%; } .offset-xxl-2 { margin-left: 16.6666666667%; } .offset-xxl-3 { margin-left: 25%; } .offset-xxl-4 { margin-left: 33.3333333333%; } .offset-xxl-5 { margin-left: 41.6666666667%; } .offset-xxl-6 { margin-left: 50%; } .offset-xxl-7 { margin-left: 58.3333333333%; } .offset-xxl-8 { margin-left: 66.6666666667%; } .offset-xxl-9 { margin-left: 75%; } .offset-xxl-10 { margin-left: 83.3333333333%; } .offset-xxl-11 { margin-left: 91.6666666667%; } .g-xxl-0, .gx-xxl-0 { --bs-gutter-x: 0; } .g-xxl-0, .gy-xxl-0 { --bs-gutter-y: 0; } .g-xxl-1, .gx-xxl-1 { --bs-gutter-x: 0.25rem; } .g-xxl-1, .gy-xxl-1 { --bs-gutter-y: 0.25rem; } .g-xxl-2, .gx-xxl-2 { --bs-gutter-x: 0.5rem; } .g-xxl-2, .gy-xxl-2 { --bs-gutter-y: 0.5rem; } .g-xxl-3, .gx-xxl-3 { --bs-gutter-x: 1rem; } .g-xxl-3, .gy-xxl-3 { --bs-gutter-y: 1rem; } .g-xxl-4, .gx-xxl-4 { --bs-gutter-x: 1.5rem; } .g-xxl-4, .gy-xxl-4 { --bs-gutter-y: 1.5rem; } .g-xxl-5, .gx-xxl-5 { --bs-gutter-x: 3rem; } .g-xxl-5, .gy-xxl-5 { --bs-gutter-y: 3rem; } }
 
-.table { --bs-table-bg: transparent; --bs-table-accent-bg: transparent; --bs-table-striped-color: #212529; --bs-table-striped-bg: rgba(0, 0, 0, 0.05); --bs-table-active-color: #212529; --bs-table-active-bg: rgba(0, 0, 0, 0.1); --bs-table-hover-color: #212529; --bs-table-hover-bg: rgba(0, 0, 0, 0.075); width: 100%; margin-bottom: 1rem; color: #212529; vertical-align: top; border-color: #dee2e6; }
+.table, .article-post table { --bs-table-bg: transparent; --bs-table-accent-bg: transparent; --bs-table-striped-color: #212529; --bs-table-striped-bg: rgba(0, 0, 0, 0.05); --bs-table-active-color: #212529; --bs-table-active-bg: rgba(0, 0, 0, 0.1); --bs-table-hover-color: #212529; --bs-table-hover-bg: rgba(0, 0, 0, 0.075); width: 100%; margin-bottom: 1rem; color: #212529; vertical-align: top; border-color: #dee2e6; }
 
-.table > :not(caption) > * > * { padding: 0.5rem 0.5rem; background-color: var(--bs-table-bg); border-bottom-width: 1px; box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg); }
+.table > :not(caption) > * > *, .article-post table > :not(caption) > * > * { padding: 0.5rem 0.5rem; background-color: var(--bs-table-bg); border-bottom-width: 1px; box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg); }
 
-.table > tbody { vertical-align: inherit; }
+.table > tbody, .article-post table > tbody { vertical-align: inherit; }
 
-.table > thead { vertical-align: bottom; }
+.table > thead, .article-post table > thead { vertical-align: bottom; }
 
-.table > :not(:last-child) > :last-child > * { border-bottom-color: currentColor; }
+.table > :not(:last-child) > :last-child > *, .article-post table > :not(:last-child) > :last-child > * { border-bottom-color: currentColor; }
 
 .caption-top { caption-side: top; }
 
@@ -1861,7 +1861,7 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 .w-100 { width: 100% !important; }
 
-.w-auto { width: auto !important; }
+.w-auto, .article-post table { width: auto !important; }
 
 .mw-100 { max-width: 100% !important; }
 
@@ -2061,7 +2061,7 @@ textarea.form-control-lg { min-height: calc(1.5em + 1rem + 2px); }
 
 .mb-3 { margin-bottom: 1rem !important; }
 
-.mb-4 { margin-bottom: 1.5rem !important; }
+.mb-4, .article-post table { margin-bottom: 1.5rem !important; }
 
 .mb-5 { margin-bottom: 3rem !important; }
 
