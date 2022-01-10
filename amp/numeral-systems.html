@@ -236,8 +236,6 @@
 
 <p><amp-img src="/assets/images/numeral-systems/ring-counter.png" alt="Кольцевой регистр" width="960" height="500" layout="responsive"><noscript><img src="/assets/images/numeral-systems/ring-counter.png" alt="Кольцевой регистр" width="960" height="500"></noscript></amp-img></p>
 
-<p>(Фото из журнала <a href="https://www.dos4ever.com/ring/ELIL.pdf">Electronics Illustrated от 1966 года</a>).</p>
-
 <p>Инженеры заметили, что если бы они кодировали числа в <em>двоичной</em> системе, то для хранения таких же больших чисел им бы потребовалось всего двадцать радиоламп — в три раза меньше!</p>
 
 <p>Так что первое преимущество двоичных чисел — простота схем. Второе, и не менее важное — быстродействие. Сложение чисел, хранящихся в кольцевом регистре требует до десяти тактов процессора на каждую операцию. Сложение двоичных чисел можно выполнить за один такт, в десять раз быстрее!</p>
@@ -463,43 +461,26 @@
 </table>
 
 <p>Обратим внимание вот на какую закономерность: все чётные числа 2, 4, 6 и 8 — в двоичной записи заканчиваются на 0. Все нечётные числа 1, 3, 5, 7 и 9 — на 1. Этому есть простое объяснение — в двоичной записи число 2 это как 10 в десятичной. Если двоичное число делится на два, оно круглое.
-Математики говорят, что чётные числа делятся на 2 без остатка (или с остатком 0), а нечётные — с остатком 1.</p>
+Математики говорят, что чётные числа делятся на 2 без остатка (или с остатком 0), а нечётные — с остатком 1:</p>
 
-<p><amp-img src="/assets/images/numeral-systems/example15.png" alt="4 mod 2 = 0, 5 mod 2 = 1, 6 mod 2 = 0, 9 mod 2 = 1" width="960" height="614" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example15.png" alt="4 mod 2 = 0, 5 mod 2 = 1, 6 mod 2 = 0, 9 mod 2 = 1" width="960" height="614"></noscript></amp-img></p>
+<ul>
+  <li>при делении 4 на 2 остаток 0;</li>
+  <li>при делении 5 на 2 остаток 1;</li>
+  <li>при делении 6 на 2 остаток 0;</li>
+  <li>при делении 9 на 2 остаток 1.</li>
+</ul>
 
-<p>Запись <strong><em>a</em></strong> <strong>mod</strong> <strong><em>b</em></strong> означает остаток от деления <strong><em>a</em></strong> на <strong><em>b</em></strong>.</p>
+<p>Попробуем перевести десятичное число 26 в двоичную систему. Для этого используем деление уголком на число 2.</p>
 
-<p>Таким образом мы всегда можем узнать последнюю двоичную цифру числа.</p>
+<p><amp-img src="/assets/images/numeral-systems/example24.png" alt="Перевод десятичного числа в двоичное" width="960" height="614" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example24.png" alt="Перевод десятичного числа в двоичное" width="960" height="614"></noscript></amp-img></p>
 
-<p><amp-img src="/assets/images/numeral-systems/example17.png" alt="26 mod 2 = 0" width="482" height="60" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example17.png" alt="26 mod 2 = 0" width="482" height="60"></noscript></amp-img></p>
-
-<p>А что делать, чтобы узнать предпоследнюю цифру? Нам надо как-то избавиться от последней цифры, которая равна 0. В десятичной системе мы бы разделили число на 10, а в двоичной нам надо разделить его на 2.</p>
-
-<p><amp-img src="/assets/images/numeral-systems/example18.png" alt="26/2 = 13" width="353" height="84" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example18.png" alt="26/2 = 13" width="353" height="84"></noscript></amp-img></p>
-
-<p>Мы получили новое число, и его последняя цифра — та, которую мы хотим узнать. А мы уже умеем это делать.</p>
-
-<p><amp-img src="/assets/images/numeral-systems/example19.png" alt="13 mod 2 = 1" width="475" height="60" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example19.png" alt="13 mod 2 = 1" width="475" height="60"></noscript></amp-img></p>
-
-<p>Далее нам нужна пред-предпоследняя цифра. В прошлый раз мы поделили число на 2, но тогда речь шла о чётном числе 26, а сейчас — о нечётном 13. Решение будет простым: если на очередном шаге мы получили остаток 1 (нечётное число), мы вычтем его перед делением.</p>
-
-<p><amp-img src="/assets/images/numeral-systems/example20.png" alt="(13 - 1)/2 = 6" width="515" height="84" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example20.png" alt="(13 - 1)/2 = 6" width="515" height="84"></noscript></amp-img></p>
-
-<p>На следующем шаге у нас получилось число 6. Снова вычисляем остаток и делим число на 2.</p>
-
-<p><amp-img src="/assets/images/numeral-systems/example21.png" alt="6 mod 2 = 0, 6/2 = 3" width="441" height="204" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example21.png" alt="6 mod 2 = 0, 6/2 = 3" width="441" height="204"></noscript></amp-img></p>
-
-<p>Повторяем.</p>
-
-<p><amp-img src="/assets/images/numeral-systems/example22.png" alt="3 mod 2 = 1, (3 - 1)/2 = 1" width="470" height="204" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example22.png" alt="3 mod 2 = 1, (3 - 1)/2 = 1" width="470" height="204"></noscript></amp-img></p>
-
-<p>И ещё раз повторяем.</p>
-
-<p><amp-img src="/assets/images/numeral-systems/example23.png" alt="1 mod 2 = 1, (1 - 1)/2 = 0" width="474" height="204" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example23.png" alt="1 mod 2 = 1, (1 - 1)/2 = 0" width="474" height="204"></noscript></amp-img></p>
-
-<p>Мы получили 0 в результате деления, а это значит, что мы «перебрали» все двоичные цифры в записи числа. Ещё раз вспомним, что это остатки от деления на 2 — нули и единицы, записанные в обратном порядке, то есть снизу вверх.</p>
-
-<p><amp-img src="/assets/images/numeral-systems/example24.png" alt="26 mod 2 = 0, 13 mod 2 = 1, 6 mod 2 = 0, 3 mod 2 = 1, 1 mod 2 = 1" width="960" height="614" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example24.png" alt="26 mod 2 = 0, 13 mod 2 = 1, 6 mod 2 = 0, 3 mod 2 = 1, 1 mod 2 = 1" width="960" height="614"></noscript></amp-img></p>
+<p>Если 26 разделить на 2, то в результате получится 13, остаток от деления 0. Продолжаем дальше:</p>
+<ul>
+  <li>13 разделить на 2, в результате получится 6, остаток от деления 1;</li>
+  <li>6 разделить на 2, в результате получится 3, остаток от деления 0;</li>
+  <li>3 разделить на 2, в результате получится 1, остаток от деления 1;</li>
+  <li>1 разделить на 2, в результате получится 0, остаток от деления 1;</li>
+</ul>
 
 <p>Из остатков 1, 1, 0, 1 и 0 складывается нужная нам двоичная запись.</p>
 
