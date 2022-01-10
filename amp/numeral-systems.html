@@ -1,0 +1,866 @@
+<!doctype html>
+<html amp lang="ru_RU">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Системы счисления</title>
+    <link rel="canonical" href="https://guides.hexlet.io/numeral-systems/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+    
+    <style amp-custom>
+      .banner { background-color: #f8f9fa; border-left: 3px solid #0dcaf0; padding: 1rem; }
+
+.markdown .banner a { text-decoration: none; }
+
+.full_post_link.full_post_link { padding: .7rem 1rem; display: block; border: 1px solid #212529; border-radius: 2px; text-align: center; text-decoration: none; font-size: 1rem; }
+
+.markdown { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; color: #4a5568; margin-left: auto; margin-right: auto; max-width: 65ch; padding: 3rem 1.5rem; }
+
+.markdown [class~="lead"] { color: #4a5568; font-size: 1.25em; line-height: 1.6; margin-top: 1.2em; margin-bottom: 1.2em; }
+
+.markdown a { color: #1a202c; text-decoration: underline; }
+
+.markdown strong { color: #1a202c; font-weight: 600; }
+
+.markdown ol { list-style: none; padding: 0; counter-reset: list-counter; margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown ol > li { position: relative; counter-increment: list-counter; padding-left: 1.75em; }
+
+.markdown ol > li::before { content: counter(list-counter) "."; position: absolute; font-weight: 400; color: #718096; }
+
+.markdown ul > li { position: relative; padding-left: 1.75em; }
+
+.markdown ul > li::before { content: ""; position: absolute; background-color: #cbd5e0; border-radius: 50%; width: 0.375em; height: 0.375em; top: calc(0.875em - 0.1875em); left: 0.25em; }
+
+.markdown hr { border-color: #e2e8f0; border-top-width: 1px; margin-top: 3em; margin-bottom: 3em; }
+
+.markdown blockquote { font-weight: 500; font-style: italic; color: #1a202c; border-left-width: 0.25rem; border-left-color: #e2e8f0; margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1em; }
+
+.markdown blockquote p:first-of-type::before { content: open-quote; }
+
+.markdown blockquote p:last-of-type::after { content: close-quote; }
+
+.markdown h1 { color: #1a202c; font-weight: 800; font-size: 2.25em; margin-top: 0; margin-bottom: 0.8888889em; line-height: 1.1111111; }
+
+.markdown h2 { color: #1a202c; font-weight: 700; font-size: 1.5em; margin-top: 2em; margin-bottom: 1em; line-height: 1.3333333; }
+
+.markdown h3 { color: #1a202c; font-weight: 600; font-size: 1.25em; margin-top: 1.6em; margin-bottom: 0.6em; line-height: 1.6; }
+
+.markdown h4 { color: #1a202c; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.5; }
+
+.markdown figure figcaption { color: #718096; font-size: 0.875em; line-height: 1.4285714; margin-top: 0.8571429em; }
+
+.markdown code { color: #1a202c; font-weight: 600; font-size: 0.875em; }
+
+.markdown code::before { content: "`"; }
+
+.markdown code::after { content: "`"; }
+
+.markdown pre { color: #e2e8f0; background-color: #2d3748; overflow-x: auto; font-size: 0.875em; line-height: 1.7142857; margin-top: 1.7142857em; margin-bottom: 1.7142857em; border-radius: 0.375rem; padding-top: 0.8571429em; padding-right: 1.1428571em; padding-bottom: 0.8571429em; padding-left: 1.1428571em; }
+
+.markdown pre code { background-color: transparent; border-width: 0; border-radius: 0; padding: 0; font-weight: 400; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
+
+.markdown pre code::before { content: ""; }
+
+.markdown pre code::after { content: ""; }
+
+.markdown table { width: 100%; table-layout: auto; text-align: left; margin-top: 2em; margin-bottom: 2em; font-size: 0.875em; line-height: 1.7142857; }
+
+.markdown thead { color: #1a202c; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #cbd5e0; }
+
+.markdown thead th { vertical-align: bottom; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown tbody tr { border-bottom-width: 1px; border-bottom-color: #e2e8f0; }
+
+.markdown tbody tr:last-child { border-bottom-width: 0; }
+
+.markdown tbody td { vertical-align: top; padding-top: 0.5714286em; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown { font-size: 1rem; line-height: 1.75; }
+
+.markdown p { margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown img { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown video { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure > * { margin-top: 0; margin-bottom: 0; }
+
+.markdown h2 code { font-size: 0.875em; }
+
+.markdown h3 code { font-size: 0.9em; }
+
+.markdown ul { margin-top: 1.25em; margin-bottom: 1.25em; list-style: none; padding: 0; }
+
+.markdown li { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+.markdown ol > li:before { left: 0; }
+
+.markdown > ul > li p { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown > ul > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ul > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown > ol > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ol > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown hr + * { margin-top: 0; }
+
+.markdown h2 + * { margin-top: 0; }
+
+.markdown h3 + * { margin-top: 0; }
+
+.markdown h4 + * { margin-top: 0; }
+
+.markdown thead th:first-child { padding-left: 0; }
+
+.markdown thead th:last-child { padding-right: 0; }
+
+.markdown tbody td:first-child { padding-left: 0; }
+
+.markdown tbody td:last-child { padding-right: 0; }
+
+.markdown > :first-child { margin-top: 0; }
+
+.markdown > :last-child { margin-bottom: 0; }
+
+@media (min-width: 768px) { .md\:markdown-lg { font-size: 1.125rem; line-height: 1.7777778; } .md\:markdown-lg p { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg [class~="lead"] { font-size: 1.2222222em; line-height: 1.4545455; margin-top: 1.0909091em; margin-bottom: 1.0909091em; } .md\:markdown-lg blockquote { margin-top: 1.6666667em; margin-bottom: 1.6666667em; padding-left: 1em; } .md\:markdown-lg h1 { font-size: 2.6666667em; margin-top: 0; margin-bottom: 0.8333333em; line-height: 1; } .md\:markdown-lg h2 { font-size: 1.6666667em; margin-top: 1.8666667em; margin-bottom: 1.0666667em; line-height: 1.3333333; } .md\:markdown-lg h3 { font-size: 1.3333333em; margin-top: 1.6666667em; margin-bottom: 0.6666667em; line-height: 1.5; } .md\:markdown-lg h4 { margin-top: 1.7777778em; margin-bottom: 0.4444444em; line-height: 1.5555556; } .md\:markdown-lg img { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg video { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure > * { margin-top: 0; margin-bottom: 0; } .md\:markdown-lg figure figcaption { font-size: 0.8888889em; line-height: 1.5; margin-top: 1em; } .md\:markdown-lg code { font-size: 0.8888889em; } .md\:markdown-lg h2 code { font-size: 0.8666667em; } .md\:markdown-lg h3 code { font-size: 0.875em; } .md\:markdown-lg pre { font-size: 0.8888889em; line-height: 1.75; margin-top: 2em; margin-bottom: 2em; border-radius: 0.375rem; padding-top: 1em; padding-right: 1.5em; padding-bottom: 1em; padding-left: 1.5em; } .md\:markdown-lg ol { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg ul { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg li { margin-top: 0.6666667em; margin-bottom: 0.6666667em; } .md\:markdown-lg ol > li { padding-left: 1.6666667em; } .md\:markdown-lg ol > li:before { left: 0; } .md\:markdown-lg ul > li { padding-left: 1.6666667em; } .md\:markdown-lg ul > li::before { width: 0.3333333em; height: 0.3333333em; top: calc(0.8888889em - 0.1666667em); left: 0.2222222em; } .md\:markdown-lg > ul > li p { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg > ul > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ul > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg > ol > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ol > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg ul ul, .md\:markdown-lg ul ol, .md\:markdown-lg ol ul, .md\:markdown-lg ol ol { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg hr { margin-top: 3.1111111em; margin-bottom: 3.1111111em; } .md\:markdown-lg hr + * { margin-top: 0; } .md\:markdown-lg h2 + * { margin-top: 0; } .md\:markdown-lg h3 + * { margin-top: 0; } .md\:markdown-lg h4 + * { margin-top: 0; } .md\:markdown-lg table { font-size: 0.8888889em; line-height: 1.5; } .md\:markdown-lg thead th { padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg thead th:first-child { padding-left: 0; } .md\:markdown-lg thead th:last-child { padding-right: 0; } .md\:markdown-lg tbody td { padding-top: 0.75em; padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg tbody td:first-child { padding-left: 0; } .md\:markdown-lg tbody td:last-child { padding-right: 0; } .md\:markdown-lg > :first-child { margin-top: 0; } .md\:markdown-lg > :last-child { margin-bottom: 0; } }
+
+@media (min-width: 1024px) { .lg\:markdown-xl { font-size: 1.25rem; line-height: 1.8; } .lg\:markdown-xl p { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl [class~="lead"] { font-size: 1.2em; line-height: 1.5; margin-top: 1em; margin-bottom: 1em; } .lg\:markdown-xl blockquote { margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1.0666667em; } .lg\:markdown-xl h1 { font-size: 2.8em; margin-top: 0; margin-bottom: 0.8571429em; line-height: 1; } .lg\:markdown-xl h2 { font-size: 1.8em; margin-top: 1.5555556em; margin-bottom: 0.8888889em; line-height: 1.1111111; } .lg\:markdown-xl h3 { font-size: 1.5em; margin-top: 1.6em; margin-bottom: 0.6666667em; line-height: 1.3333333; } .lg\:markdown-xl h4 { margin-top: 1.8em; margin-bottom: 0.6em; line-height: 1.6; } .lg\:markdown-xl img { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl video { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure > * { margin-top: 0; margin-bottom: 0; } .lg\:markdown-xl figure figcaption { font-size: 0.9em; line-height: 1.5555556; margin-top: 1em; } .lg\:markdown-xl code { font-size: 0.9em; } .lg\:markdown-xl h2 code { font-size: 0.8611111em; } .lg\:markdown-xl h3 code { font-size: 0.9em; } .lg\:markdown-xl pre { font-size: 0.9em; line-height: 1.7777778; margin-top: 2em; margin-bottom: 2em; border-radius: 0.5rem; padding-top: 1.1111111em; padding-right: 1.3333333em; padding-bottom: 1.1111111em; padding-left: 1.3333333em; } .lg\:markdown-xl ol { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl ul { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl li { margin-top: 0.6em; margin-bottom: 0.6em; } .lg\:markdown-xl ol > li { padding-left: 1.8em; } .lg\:markdown-xl ol > li:before { left: 0; } .lg\:markdown-xl ul > li { padding-left: 1.8em; } .lg\:markdown-xl ul > li::before { width: 0.35em; height: 0.35em; top: calc(0.9em - 0.175em); left: 0.25em; } .lg\:markdown-xl > ul > li p { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl > ul > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ul > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl > ol > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ol > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl ul ul, .lg\:markdown-xl ul ol, .lg\:markdown-xl ol ul, .lg\:markdown-xl ol ol { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl hr { margin-top: 2.8em; margin-bottom: 2.8em; } .lg\:markdown-xl hr + * { margin-top: 0; } .lg\:markdown-xl h2 + * { margin-top: 0; } .lg\:markdown-xl h3 + * { margin-top: 0; } .lg\:markdown-xl h4 + * { margin-top: 0; } .lg\:markdown-xl table { font-size: 0.9em; line-height: 1.5555556; } .lg\:markdown-xl thead th { padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl thead th:first-child { padding-left: 0; } .lg\:markdown-xl thead th:last-child { padding-right: 0; } .lg\:markdown-xl tbody td { padding-top: 0.8888889em; padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl tbody td:first-child { padding-left: 0; } .lg\:markdown-xl tbody td:last-child { padding-right: 0; } .lg\:markdown-xl > :first-child { margin-top: 0; } .lg\:markdown-xl > :last-child { margin-bottom: 0; } }
+
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+    <amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{
+  "vars" : {
+    "gtag_id": "UA-1360700-62",
+    "config" : {
+      "UA-1360700-62": { "groups": "default" }
+    }
+  }
+}
+</script>
+</amp-analytics>
+
+<amp-analytics type="metrika">
+<script type="application/json">
+{
+    "vars": {
+      "counterId": "65474386"
+            },
+   "triggers": {
+        "notBounce": {
+            "on": "timer",
+            "timerSpec": {
+                "immediate": false,
+                "interval": 15,
+                "maxTimerLength": 14
+            },
+            "request": "notBounce"
+        }
+    }
+}
+</script>
+</amp-analytics>
+
+    
+    <div class="markdown md:markdown-lg lg:markdown-xl">
+      <h1>Системы счисления</h1>
+      
+      
+      
+
+      <a class="full_post_link" href="https://guides.hexlet.io/numeral-systems/">Читать в полной версии →</a>
+
+      <p>В этом гайде мы узнаем, что такое системы счисления, и почему они важны. Этот материал поможет разобраться, для чего программисты используют непривычные способы для записи чисел и как их понимать.</p>
+
+<h2 id="что-такое-системы-счисления">Что такое системы счисления</h2>
+
+<p>С давних пор человечество ощутило необходимость в записи чисел. В торговле числа нужны, чтобы знать, сколько товаров есть на складе, и сколько денег принесла сделка. Записи о положении небесных тел помогли шумерам составить первый календарь, а календарь, в свою очередь, пригодился, чтобы заранее готовится к посевным и сбору урожая. Строительные сметы, переписи населения, распределение наследства — числа оказались очень востребованными даже в самых древних государствах.</p>
+
+<p>Так что люди научились записывать числа в незапамятные времена. Небольшие числа легко записывались зарубками или насечками, но когда речь заходила о больших числах, людям пришлось придумать разные способы, чтобы их записывать. И конечно, в разных странах этот вопрос решали по разному.</p>
+
+<p>Сейчас мы называем разные способы записи чисел <em>системами счисления</em>.</p>
+
+<p>Систем счисления было придумано довольно много и даже в наши дни мы используем две системы, возникшие в далёкой древности. Из Древнего Рима к нам пришла <em>римская система счисления</em>, где цифры обозначаются буквами латинского алфавита. Как это часто бывало в древности, за основу римляне взяли количество пальцев на одной руке — 5, и на двух руках — 10. Числа 1, 5 и 10 в римской системе обозначаются буквами I, V и X, и с помощью них можно записать любое число от 1 до 49. Например, VII это 7, а XIX — 19.</p>
+
+<p>От Древних Шумеров мы научились делить дроби на шестьдесят частей. Именно из-за них в нашем часе 60 минут, а в минуте 60 секунд. Шумерская система счисления так и называется — <em>шестидесятеричная</em>.
+Но, конечно, привычнее всего для нас запись в системе, которую придумали в Древней Индии, и которую мы сейчас называем арабской или <em>десятичной системой счисления</em>.</p>
+
+<h2 id="от-десятичных-чисел-к-двоичным">От десятичных чисел к двоичным</h2>
+
+<p>Чтобы разобраться с тем, как устроена десятичная система, нам потребуется какое-нибудь достаточно большое число.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example01.png" alt="1072" width="960" height="244" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example01.png" alt="1072" width="960" height="244"></noscript></amp-img></p>
+
+<p>Это четырехзначное число, потому что оно состоит из четырёх цифр. И, поскольку речь идёт о десятичной системе, мы можем использовать десять различных цифр.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example02.png" alt="0123456789" width="960" height="244" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example02.png" alt="0123456789" width="960" height="244"></noscript></amp-img></p>
+
+<p>Величина, которая скрывается за каждой цифрой, зависит от её позиции, поэтому такую систему счисления называют также и <em>позиционной</em>. Справа мы записываем самые младшие значения — <em>единицы</em>, слева от них <em>десятки</em>, затем <em>сотни</em>, и так далее. Запись 1702 означает буквально следующее.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example03.png" alt="1×1000+7×100+0×10+2×1" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example03.png" alt="1×1000+7×100+0×10+2×1" width="960" height="355"></noscript></amp-img></p>
+
+<p>Цифры, записанные в соседних позициях, различаются в десять раз — это и есть десятичная система.
+Однако, как мы говорили ранее, привычная нам десятичная система — далеко не единственная. В то же время, опираясь на неё, нам будет проще понять принципы работы других систем счисления. Например, для записи того же самого числа 1702 в двоичной системе, надо придерживаться тех же правил. Только вместо десяти цифр нам потребуется всего две — 0 и 1. Цифры, записанные в соседних позициях, будут различаться не в десять раз, а в два.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example04.png" alt="1×1024+1×512+0×256+ +1×128+0×64+1×32+0×16+ +0×8+1×4+1×2+0×1" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example04.png" alt="1×1024+1×512+0×256+ +1×128+0×64+1×32+0×16+ +0×8+1×4+1×2+0×1" width="960" height="355"></noscript></amp-img></p>
+
+<p>Это очень большое двоичное число. Давайте запишем его в привычной форме:
+<amp-img src="/assets/images/numeral-systems/example05.png" alt="1 1 0 1 0 1 0 0 1 1 0 1024 512 256 128 64 32 16 8 4 2 1" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example05.png" alt="1 1 0 1 0 1 0 0 1 1 0 1024 512 256 128 64 32 16 8 4 2 1" width="960" height="355"></noscript></amp-img></p>
+
+<p>Это число могло бы быть очень большим десятичным числом, потому что состоит из тех же цифр. Чтобы отличать двоичные числа от десятичных, в качестве индекса у них указывают основание системы счисления, то есть 2.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example06.png" alt="11010100110₂" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example06.png" alt="11010100110₂" width="960" height="355"></noscript></amp-img></p>
+
+<p>Это особенно важно, когда в одном тексте у нас встречаются одновременно десятичные и двоичные числа.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example07.png" alt="11010100110₂ = 1702" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example07.png" alt="11010100110₂ = 1702" width="960" height="355"></noscript></amp-img></p>
+
+<h2 id="зачем-нужна-двоичная-система">Зачем нужна двоичная система</h2>
+
+<p>Двоичная система выглядит очень непривычно и числа, записанные в двоичной системе, получаются огромными. Зачем она вообще нужна? Разве компьютеры не могут работать с привычной нам десятичной системой?</p>
+
+<p>Оказывается, когда-то они именно так и работали. Самый первый компьютер ENIAC, разработанный в 1945 году, хранил числа в десятичной системе счисления. Для хранения одной цифры применялась схема, которая называется <em>кольцевым регистром</em>, состоящая из десяти радиоламп. Для хранения чисел от одного до миллиона нужно было 60 ламп.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/ring-counter.png" alt="Кольцевой регистр" width="960" height="500" layout="responsive"><noscript><img src="/assets/images/numeral-systems/ring-counter.png" alt="Кольцевой регистр" width="960" height="500"></noscript></amp-img></p>
+
+<p>(Фото из журнала <a href="https://www.dos4ever.com/ring/ELIL.pdf">Electronics Illustrated от 1966 года</a>).</p>
+
+<p>Инженеры заметили, что если бы они кодировали числа в <em>двоичной</em> системе, то для хранения таких же больших чисел им бы потребовалось всего двадцать радиоламп — в три раза меньше!</p>
+
+<p>Так что первое преимущество двоичных чисел — простота схем. Второе, и не менее важное — быстродействие. Сложение чисел, хранящихся в кольцевом регистре требует до десяти тактов процессора на каждую операцию. Сложение двоичных чисел можно выполнить за один такт, в десять раз быстрее!</p>
+
+<p>Группа инженеров, создавших первый компьютер, в 1946 году опубликовала статью, где обосновала преимущество двоичной системы для представления чисел в компьютерах. Первой среди авторов была указана фамилия американского математика Джона фон Неймана, поэтому сейчас принципы проектирования компьютеров называются <em>архитектурой фон Неймана</em>. Это не совсем справедливо по отношению к другим изобретателям компьютера, но сейчас уже ничего не исправить.</p>
+
+<p>При разработке программы вы, скорее всего, не сталкивались с двоичной записью. Компьютеры — это мощные устройства, которые с лёгкостью переводят двоичные числа в десятичные, и обратно. Можно долго писать код, даже не подозревая, что в компьютере данные хранятся каким-то особым образом.</p>
+
+<p>Зачем же нам нужно изучать двоичную систему, если компьютер делает всю работу за нас? Ответ заключается в том, что иногда программистам приходится писать программы, которые работают напрямую с оборудованием. Разработчики игр разбираются в том, как работают видеокарты, чтобы делать быструю компьютерную графику. Разработчики операционных систем понимают, как устроены диски, чтобы надёжно сохранять данные. Такие программы называют системными или низкоуровневыми. При написании системных программ разработчик должен понимать, как устроен компьютер. Изучение систем счисления позволяет программисту расширить свой профессиональный диапазон и стать специалистом широкого профиля.</p>
+
+<p>Итак, благодаря двоичной системе компьютеры стали проще и быстрее. Нам нужно научиться понимать двоичную систему, если мы хотим писать сложные программы.</p>
+
+<h2 id="как-переводить-двоичные-числа-в-десятичные">Как переводить двоичные числа в десятичные</h2>
+
+<p>Сейчас мы узнаем способ быстро переводить двоичные числа в десятичные. Нам потребуется какое-то двоичное число для примера. Пусть оно будет достаточно большим, чтобы мы не могли вычислить его на пальцах.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example08.png" alt="11010" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example08.png" alt="11010" width="960" height="355"></noscript></amp-img></p>
+
+<p>Запишем его в математической записи, помня, что вместо основания 10, мы используем основание 2.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example09.png" alt="1×16+1×8+0×4+1×2+0×1" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example09.png" alt="1×16+1×8+0×4+1×2+0×1" width="960" height="355"></noscript></amp-img></p>
+
+<p>Мы видим, что у всех слагаемых только два множителя — 0 и 1. Слагаемые с множителем 0 равны нулю, поэтому мы можем их отбросить, оставив только слагаемые с множителем 1.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example10.png" alt="1×16+1×8+1×2" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example10.png" alt="1×16+1×8+1×2" width="960" height="355"></noscript></amp-img></p>
+
+<p>У слагаемых с множителем 1 этот множитель можно не записывать.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example11.png" alt="16+8+2" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example11.png" alt="16+8+2" width="960" height="355"></noscript></amp-img></p>
+
+<p>Теперь нетрудно посчитать сумму.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example12.png" alt="26" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example12.png" alt="26" width="960" height="355"></noscript></amp-img></p>
+
+<p>Вывод: число 11010 в двоичной записи — то же самое, что 26 в десятичной.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example13.png" alt="11010₂=26" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example13.png" alt="11010₂=26" width="960" height="355"></noscript></amp-img></p>
+
+<p>Ещё раз повторим, как перевести двоичное число в десятичное.</p>
+
+<ul>
+  <li>Записать число в математическом виде</li>
+  <li>Отбросить слагаемые с множителем 0</li>
+  <li>Сложить</li>
+</ul>
+
+<p>Программисты иногда запоминают некоторые степени числа два, чтобы уметь оценивать порядок двоичных чисел. Вы можете подглядывать в эту таблицу.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Двоичное число</th>
+      <th style="text-align: right">Степень 2</th>
+      <th style="text-align: right">Десятичное число</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>0<sup></sup></sup>
+</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">10<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>1<sup></sup></sup>
+</td>
+      <td style="text-align: right">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">100<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>2<sup></sup></sup>
+</td>
+      <td style="text-align: right">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>3<sup></sup></sup>
+</td>
+      <td style="text-align: right">8</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>4<sup></sup></sup>
+</td>
+      <td style="text-align: right">16</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">10 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>5<sup></sup></sup>
+</td>
+      <td style="text-align: right">32</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">100 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>6<sup></sup></sup>
+</td>
+      <td style="text-align: right">64</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1000 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>7<sup></sup></sup>
+</td>
+      <td style="text-align: right">128</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1 0000 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>8<sup></sup></sup>
+</td>
+      <td style="text-align: right">256</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">10 0000 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>9<sup></sup></sup>
+</td>
+      <td style="text-align: right">512</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">100 0000 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>10<sup></sup></sup>
+</td>
+      <td style="text-align: right">1 024</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1 0000 0000 0000 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>16<sup></sup></sup>
+</td>
+      <td style="text-align: right">65 536</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1 0000 0000 0000 0000 0000 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>24<sup></sup></sup>
+</td>
+      <td style="text-align: right">16 777 216</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1 0000 0000 0000 0000 0000 0000 0000 0000<sub>2</sub>
+</td>
+      <td style="text-align: right">2<sup>32<sup></sup></sup>
+</td>
+      <td style="text-align: right">4 294 967 296</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Пользуясь такой таблицей, можно переводить числа из двоичной системы в десятичную практически «в уме».</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example14.png" alt="11010₂=10000₂+1000₂+10₂=16+8+2=26" width="960" height="614" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example14.png" alt="11010₂=10000₂+1000₂+10₂=16+8+2=26" width="960" height="614"></noscript></amp-img></p>
+
+<h2 id="как-переводить-десятичные-числа-в-двоичные">Как переводить десятичные числа в двоичные</h2>
+
+<p>Эта задача похожа на математическую загадку, и её вполне можно было бы встретить на олимпиаде для школьников.</p>
+
+<p>Чтобы научиться её решать, давайте ещё раз посмотрим на первые натуральные числа в двоичной и десятичной записи.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Десятичное число</th>
+      <th style="text-align: right">Двоичное число</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">1<sub>2</sub>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">10<sub>2</sub>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">11<sub>2</sub>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">100<sub>2</sub>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">101<sub>2</sub>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">110<sub>2</sub>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">7</td>
+      <td style="text-align: right">111<sub>2</sub>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">8</td>
+      <td style="text-align: right">1000<sub>2</sub>
+</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">1001<sub>2</sub>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Обратим внимание вот на какую закономерность: все чётные числа 2, 4, 6 и 8 — в двоичной записи заканчиваются на 0. Все нечётные числа 1, 3, 5, 7 и 9 — на 1. Этому есть простое объяснение — в двоичной записи число 2 это как 10 в десятичной. Если двоичное число делится на два, оно круглое.
+Математики говорят, что чётные числа делятся на 2 без остатка (или с остатком 0), а нечётные — с остатком 1.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example15.png" alt="4 mod 2 = 0, 5 mod 2 = 1, 6 mod 2 = 0, 9 mod 2 = 1" width="960" height="614" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example15.png" alt="4 mod 2 = 0, 5 mod 2 = 1, 6 mod 2 = 0, 9 mod 2 = 1" width="960" height="614"></noscript></amp-img></p>
+
+<p>Запись <strong><em>a</em></strong> <strong>mod</strong> <strong><em>b</em></strong> означает остаток от деления <strong><em>a</em></strong> на <strong><em>b</em></strong>.</p>
+
+<p>Таким образом мы всегда можем узнать последнюю двоичную цифру числа.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example17.png" alt="26 mod 2 = 0" width="482" height="60" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example17.png" alt="26 mod 2 = 0" width="482" height="60"></noscript></amp-img></p>
+
+<p>А что делать, чтобы узнать предпоследнюю цифру? Нам надо как-то избавиться от последней цифры, которая равна 0. В десятичной системе мы бы разделили число на 10, а в двоичной нам надо разделить его на 2.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example18.png" alt="26/2 = 13" width="353" height="84" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example18.png" alt="26/2 = 13" width="353" height="84"></noscript></amp-img></p>
+
+<p>Мы получили новое число, и его последняя цифра — та, которую мы хотим узнать. А мы уже умеем это делать.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example19.png" alt="13 mod 2 = 1" width="475" height="60" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example19.png" alt="13 mod 2 = 1" width="475" height="60"></noscript></amp-img></p>
+
+<p>Далее нам нужна пред-предпоследняя цифра. В прошлый раз мы поделили число на 2, но тогда речь шла о чётном числе 26, а сейчас — о нечётном 13. Решение будет простым: если на очередном шаге мы получили остаток 1 (нечётное число), мы вычтем его перед делением.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example20.png" alt="(13 - 1)/2 = 6" width="515" height="84" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example20.png" alt="(13 - 1)/2 = 6" width="515" height="84"></noscript></amp-img></p>
+
+<p>На следующем шаге у нас получилось число 6. Снова вычисляем остаток и делим число на 2.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example21.png" alt="6 mod 2 = 0, 6/2 = 3" width="441" height="204" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example21.png" alt="6 mod 2 = 0, 6/2 = 3" width="441" height="204"></noscript></amp-img></p>
+
+<p>Повторяем.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example22.png" alt="3 mod 2 = 1, (3 - 1)/2 = 1" width="470" height="204" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example22.png" alt="3 mod 2 = 1, (3 - 1)/2 = 1" width="470" height="204"></noscript></amp-img></p>
+
+<p>И ещё раз повторяем.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example23.png" alt="1 mod 2 = 1, (1 - 1)/2 = 0" width="474" height="204" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example23.png" alt="1 mod 2 = 1, (1 - 1)/2 = 0" width="474" height="204"></noscript></amp-img></p>
+
+<p>Мы получили 0 в результате деления, а это значит, что мы «перебрали» все двоичные цифры в записи числа. Ещё раз вспомним, что это остатки от деления на 2 — нули и единицы, записанные в обратном порядке, то есть снизу вверх.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example24.png" alt="26 mod 2 = 0, 13 mod 2 = 1, 6 mod 2 = 0, 3 mod 2 = 1, 1 mod 2 = 1" width="960" height="614" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example24.png" alt="26 mod 2 = 0, 13 mod 2 = 1, 6 mod 2 = 0, 3 mod 2 = 1, 1 mod 2 = 1" width="960" height="614"></noscript></amp-img></p>
+
+<p>Из остатков 1, 1, 0, 1 и 0 складывается нужная нам двоичная запись.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example08.png" alt="11010" width="960" height="355" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example08.png" alt="11010" width="960" height="355"></noscript></amp-img></p>
+
+<h2 id="шестнадцатеричная-система-счисления">Шестнадцатеричная система счисления</h2>
+
+<p>Мы знаем, что компьютер использует числа для представления любой информации. Например, компьютер хранит цвета в виде трёх чисел — яркости красной, зелёной и синей компонентов цвета.
+На каждый компонент отводится восемь двоичных позиций, поэтому максимальная яркость компонента равна 11111111₂ или 255. Цвет целиком описывается большим 24-х разрядным двоичным числом, например, 11111010 10000000 01110010. Это цвет Salmon из таблицы цветов HTML, он же <em>лососевый</em> цвет.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/salmon-color.png" alt="Лососевый цвет" width="960" height="307" layout="responsive"><noscript><img src="/assets/images/numeral-systems/salmon-color.png" alt="Лососевый цвет" width="960" height="307"></noscript></amp-img></p>
+
+<p>Старшие восемь позиций отводятся для хранения красного компонента, средние восемь — зелёного, и младшие восемь — синего. Мы видим, что такая запись очень громоздка и неудобна.</p>
+
+<p>Может быть, цвет было бы удобно записать как десятичное число 16416882? Да, оно занимает меньше места, но теперь нам трудно понять, какова яркость каждого компонента.</p>
+
+<p>Чтобы записывать большие двоичные числа, программисты придумали использовать шестнадцатеричную систему счисления.</p>
+
+<ul>
+  <li>В десятичной системе десять цифр, а в шестнадцатеричной — шестнадцать</li>
+  <li>В десятичной системе соседние позиции отличаются в десять раз, а в шестнадцатеричной — в шестнадцать раз</li>
+</ul>
+
+<p>Как и в случае с двоичной системой, мы заимствуем цифры 0, 1, 2, 3, 4, 5, 6, 7, 8 и 9 из десятичной системы. Но этих цифр не хватает, ведь нам надо ещё шесть! Недостающие шесть шестнадцатеричных цифр принято обозначать первыми буквами английского алфавита.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Основание 16</th>
+      <th style="text-align: right">Основание 10</th>
+      <th style="text-align: right">Основание 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">11</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">100</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">5</td>
+      <td style="text-align: right">101</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">110</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">7</td>
+      <td style="text-align: right">7</td>
+      <td style="text-align: right">111</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">8</td>
+      <td style="text-align: right">8</td>
+      <td style="text-align: right">1000</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">9</td>
+      <td style="text-align: right">1001</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">A</td>
+      <td style="text-align: right">10</td>
+      <td style="text-align: right">1010</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">B</td>
+      <td style="text-align: right">11</td>
+      <td style="text-align: right">1011</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">C</td>
+      <td style="text-align: right">12</td>
+      <td style="text-align: right">1100</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">D</td>
+      <td style="text-align: right">13</td>
+      <td style="text-align: right">1101</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">E</td>
+      <td style="text-align: right">14</td>
+      <td style="text-align: right">1110</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">F</td>
+      <td style="text-align: right">15</td>
+      <td style="text-align: right">1111</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Шестнадцатеричная система счисления хороша тем, что группа из четырёх двоичных цифр кодируется одной шестнадцатеричной цифрой. Таким образом, лососевый цвет</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example25.png" alt="1111 1010 1000 0000 0111 0010" width="960" height="307" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example25.png" alt="1111 1010 1000 0000 0111 0010" width="960" height="307"></noscript></amp-img></p>
+
+<p>В шестнадцатеричной системе счисления записывается так:</p>
+
+<p><amp-img src="/assets/images/numeral-systems/example26.png" alt="FA 80 72" width="960" height="307" layout="responsive"><noscript><img src="/assets/images/numeral-systems/example26.png" alt="FA 80 72" width="960" height="307"></noscript></amp-img></p>
+
+<p>Конечно, вначале трудно понять, каков порядок у шестнадцатеричного числа FA. Много это или мало, и насколько отличается от шестнадцатеричных чисел 80 и 72? Как и в случае с двоичными числами, программисты обычно помнят порядки круглых шестнадцатеричных чисел. Но можно не запоминать, а подглядывать в эту таблицу.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Шестнадцатеричное число</th>
+      <th style="text-align: right">Десятичное число</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">10<sub>16</sub>
+</td>
+      <td style="text-align: right">16</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">20<sub>16</sub>
+</td>
+      <td style="text-align: right">32</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">30<sub>16</sub>
+</td>
+      <td style="text-align: right">48</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">40<sub>16</sub>
+</td>
+      <td style="text-align: right">64</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">50<sub>16</sub>
+</td>
+      <td style="text-align: right">80</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">60<sub>16</sub>
+</td>
+      <td style="text-align: right">96</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">70<sub>16</sub>
+</td>
+      <td style="text-align: right">112</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">80<sub>16</sub>
+</td>
+      <td style="text-align: right">128</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">90<sub>16</sub>
+</td>
+      <td style="text-align: right">144</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">A0<sub>16</sub>
+</td>
+      <td style="text-align: right">160</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">B0<sub>16</sub>
+</td>
+      <td style="text-align: right">176</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">C0<sub>16</sub>
+</td>
+      <td style="text-align: right">192</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">D0<sub>16</sub>
+</td>
+      <td style="text-align: right">208</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">E0<sub>16</sub>
+</td>
+      <td style="text-align: right">224</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">F0<sub>16</sub>
+</td>
+      <td style="text-align: right">240</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">100<sub>16</sub>
+</td>
+      <td style="text-align: right">256</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1000<sub>16</sub>
+</td>
+      <td style="text-align: right">4 096</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1 0000<sub>16</sub>
+</td>
+      <td style="text-align: right">65 536</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">10 0000<sub>16</sub>
+</td>
+      <td style="text-align: right">1 048 576</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">100 0000<sub>16</sub>
+</td>
+      <td style="text-align: right">16 777 216</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1000 0000<sub>16</sub>
+</td>
+      <td style="text-align: right">268 435 456</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1 0000 0000<sub>16</sub>
+</td>
+      <td style="text-align: right">4 294 967 296</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Чтобы переводить числа из десятичной системы в шестнадцатеричную и обратно, мы можем использовать двоичное представление как промежуточное. Часто это самый простой способ, потому что двоичное и шестнадцатеричное представления без труда переводятся друг в друга.</p>
+
+<h2 id="восьмеричная-система-счисления">Восьмеричная система счисления</h2>
+
+<p>Восьмеричная система когда-то использовалась наравне с шестнадцатеричной. Из названия понятно, что она использует всего восемь цифр: 0, 1, 2, 3, 4, 5, 6 и 7.
+Восьмеричная система подходит для представления шести-, девяти- и двенадцатиразрядных двоичных чисел.</p>
+
+<p>Такие числа встречаются нечасто. Один из самых известных примеров использования восьмеричных чисел — права доступа в операционной системе UNIX. Права доступа записываются девятизначным двоичным числом, таким как 110100100 или 111101100. Запоминать и передавать такие числа неудобно, поэтому программисты предпочитают восьмеричную систему счисления, и записывают права доступа в виде 644 или 754.</p>
+
+<p>Популярные операционные системы Linux и MacOS берут своё начало в UNIX, поэтому там права доступа также задаются восьмеричным числом.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/stat-chmod.jpg" alt="stat и chmod" width="767" height="517" layout="responsive"><noscript><img src="/assets/images/numeral-systems/stat-chmod.jpg" alt="stat и chmod" width="767" height="517"></noscript></amp-img></p>
+
+<p>Пользователи UNIX используют команду <em>stat</em>, чтобы узнать права доступа, и команду <em>chmod</em>, чтобы изменить их. На рисунке вы видите, что команды <em>stat</em> и <em>chmod</em> используют восьмеричные числа. Подробный рассказ об этих командах выходит за рамки нашей статьи. Вы больше узнаете о правах доступа, и о том, что означают эти числа, изучив командную строку Linux.</p>
+
+<p>Как мы уже говорили, восьмеричные числа сейчас используются редко. В подавляющем большинстве случаев программисты используют шестнадцатеричную запись.</p>
+
+<h2 id="конвертация-чисел-в-программах">Конвертация чисел в программах</h2>
+
+<p>Языки программирования понимают числа, записанные в разных системах счисления и умеют переводить их из системы в систему. Давайте посмотрим, как это делается на популярных языках Python и JavaScript.</p>
+
+<h3 id="python">Python</h3>
+
+<p>Чтобы записать в Python двоичное число, добавьте перед ним <em>префикс</em> <strong>0b</strong>. Десятичное число 26 можно записать в виде 0b11010. У шестнадцатеричных чисел префикс <strong>0x</strong>, а у восьмеричных — <strong>0o</strong>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">print</span><span class="p">(</span><span class="mb">0b11010</span><span class="p">)</span> <span class="c1"># =&gt; 26
+</span><span class="k">print</span><span class="p">(</span><span class="mh">0x1a</span><span class="p">)</span> <span class="c1"># =&gt; 26
+</span><span class="k">print</span><span class="p">(</span><span class="mo">0o32</span><span class="p">)</span> <span class="c1"># =&gt; 26
+</span></code></pre></div></div>
+
+<p>Во всех случаях, чтобы записать число, мы пишем сначала цифру ноль «0», а затем букву, которая определяет систему счисления. Буква «b» — первая в слове binary (двоичный), а буква «o» — в слове octal (восьмеричный). Буква «x» выбивается из общего правила — это третья буква в слове hexadecimal (шестнадцатеричный).</p>
+
+<p>Функции <code class="language-plaintext highlighter-rouge">bin()</code>, <code class="language-plaintext highlighter-rouge">hex()</code> и <code class="language-plaintext highlighter-rouge">oct()</code> преобразуют число в двоичную, шестнадцатеричную и восьмеричную системы.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span> <span class="c1"># =&gt; '0b11010'
+</span><span class="k">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span> <span class="c1"># =&gt; '0x1a'
+</span><span class="k">print</span><span class="p">(</span><span class="nb">oct</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span> <span class="c1"># =&gt; '0o32'
+</span></code></pre></div></div>
+
+<p>Благодаря префиксной записи и функциям <code class="language-plaintext highlighter-rouge">bin()</code>, <code class="language-plaintext highlighter-rouge">hex()</code> и <code class="language-plaintext highlighter-rouge">oct()</code>, мы можем преобразовывать числа из любой системы в любую.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="mo">0o32</span><span class="p">))</span> <span class="o">//</span> <span class="o">&gt;=</span> <span class="s">'0x1a'</span>
+</code></pre></div></div>
+
+<h3 id="javascript">JavaScript</h3>
+
+<p>В JavaScript для представления чисел используются те же самые префиксы, что и в Python. 0b11010, 0x1a и 0o32 — записи числа 26 в двоичной, шестнадцатеричной и восьмеричной системах счисления.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mb">0b11010</span><span class="p">)</span> <span class="c1">// =&gt; 26</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mh">0x1a</span><span class="p">)</span> <span class="c1">// =&gt; 26</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mo">0o32</span><span class="p">)</span> <span class="c1">// =&gt; 26</span>
+</code></pre></div></div>
+
+<p>Для преобразования чисел в другую систему счисления нужно вызывать метод <code class="language-plaintext highlighter-rouge">toString()</code>, передав в качестве параметра основание системы.</p>
+
+<p>Обычно в JavaScript мы можем вызвать метод у объекта с помощью точки. Например, если мы сохранили число в переменной <code class="language-plaintext highlighter-rouge">i</code>, мы можем узнать его шестнадцатеричное представление, вызвав метод <code class="language-plaintext highlighter-rouge">i.toString(16)</code>. Но мы не можем вызывать метод у числа 2 — <code class="language-plaintext highlighter-rouge">2.toString(16)</code> — потому что в JavaScript точка в записи чисел разделяет целую и дробную части. Если дробная часть равна нулю, её можно не записывать, поэтому «2.» означает то же самое, что и «2.0».</p>
+
+<p>В примере вы видите три корректных способа обойти эту проблему, и вызвать метод <code class="language-plaintext highlighter-rouge">toString()</code> у числа 26.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="mi">26</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="c1">// =&gt; '11010'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">26</span><span class="p">..</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span> <span class="c1">// =&gt; '1a'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">26</span> <span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span> <span class="c1">// =&gt; '32'</span>
+</code></pre></div></div>
+
+<h2 id="сервисы-для-перевода-из-системы-в-систему">Сервисы для перевода из системы в систему</h2>
+
+<p>Существует множество сервисов для перевода чисел из системы в систему. Это умеет даже Google.
+Чтобы перевести двоичное число, например, 11010 в десятичную систему, надо ввести запрос <strong>0b11010 decimal</strong>.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/google01.png" alt="0b11010 decimal" width="1069" height="713" layout="responsive"><noscript><img src="/assets/images/numeral-systems/google01.png" alt="0b11010 decimal" width="1069" height="713"></noscript></amp-img></p>
+
+<p>Чтобы перевести десятичное число, например, 26 в двоичную систему, надо ввести запрос <strong>26 binary</strong>.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/google02.png" alt="26 binary" width="1046" height="420" layout="responsive"><noscript><img src="/assets/images/numeral-systems/google02.png" alt="26 binary" width="1046" height="420"></noscript></amp-img></p>
+
+<p>Обратите внимание, что Google использует префикс 0b, чтобы отличать двоичные числа от десятичных.</p>
+
+<p>Чтобы перевести десятичное число 137 в шестнадцатеричную систему, введите запрос <strong>137 hex</strong>.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/google03.png" alt="137 hex" width="1052" height="423" layout="responsive"><noscript><img src="/assets/images/numeral-systems/google03.png" alt="137 hex" width="1052" height="423"></noscript></amp-img></p>
+
+<p>Чтобы перевести шестнадцатеричное число 2BAD в десятичную систему, введите запрос <strong>0x2BAD decimal</strong>.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/google04.png" alt="0x2BAD decimal" width="1053" height="717" layout="responsive"><noscript><img src="/assets/images/numeral-systems/google04.png" alt="0x2BAD decimal" width="1053" height="717"></noscript></amp-img></p>
+
+<p>Google использует префикс 0x для того, чтобы отличать шестнадцатеричные числа от всех прочих.
+Чтобы перевести число 121 в восьмеричную систему, введите запрос <strong>121 octal</strong>.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/google05.png" alt="121 octal" width="1046" height="414" layout="responsive"><noscript><img src="/assets/images/numeral-systems/google05.png" alt="121 octal" width="1046" height="414"></noscript></amp-img></p>
+
+<p>Чтобы перевести число обратно, введите в строке поиска запрос <strong>0o171 decimal</strong>.</p>
+
+<p><amp-img src="/assets/images/numeral-systems/google06.png" alt="0o171 decimal" width="1053" height="725" layout="responsive"><noscript><img src="/assets/images/numeral-systems/google06.png" alt="0o171 decimal" width="1053" height="725"></noscript></amp-img></p>
+
+<p>Мы видим, что Google для представления чисел в двоичной, шестнадцатеричной и восьмеричной системах счисления использует такие же префиксы, которые мы видели в примерах на Python и JavaScript.</p>
+
+<h2 id="заключение">Заключение</h2>
+
+<p>Люди изобрели разные способы записывать числа. Мы называем их системами счисления.
+Привычный для нас способ записи называется десятичной системой счисления.</p>
+
+<p>Компьютеры, которые работали в десятичной системе, оказались сложными и медленными. Хранение чисел в двоичной системе позволило упростить схемы и ускорить работу компьютеров.</p>
+
+<p>Обычно нам не нужно знать, как именно компьютер хранит числа, потому что он умеет переводить их в привычную нам форму. Но если мы хотим разрабатывать программы, которые работают с оборудованием — системные утилиты или компьютерные игры — нам надо разобраться, как устроены двоичная и шестнадцатеричная системы.</p>
+
+<p>Есть несколько алгоритмов, которые помогают перевести число из одной системы в другую, они достаточно запутанные. Мы можем использовать Google, чтобы перевести число из системы в систему.</p>
+
+<p>Двоичная запись чисел очень громоздкая, поэтому программисты предпочитают записывать числа в шестнадцатеричной системе счисления. Восьмеричная запись чисел сейчас используется очень редко.</p>
+
+<p>Вы можете конвертировать числа из системы в систему на своём любимом языке программирования.</p>
+
+      
+      
+    </div>
+  </body>
+</html>
