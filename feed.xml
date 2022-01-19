@@ -15,1496 +15,10 @@
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/numeral-systems/</link>
+            <link>https://guides.hexlet.io/rest/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Системы счисления</turbo:topic> -->
-            <title>Системы счисления</title>
-            <pubDate>Wed, 19 Jan 2022 00:00:00 +0000</pubDate>
-            <author>Марк Шевченко</author>
-            <!-- <yandex:related></yandex:related> -->
-            <turbo:content>
-              <![CDATA[
-                <div data-block="breadcrumblist">
-                  <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/numeral-systems/">Системы счисления</a>
-                </div>
-                <button
-                  formaction="https://guides.hexlet.io/numeral-systems/"
-                  data-background-color="#eee"
-                  data-color="dark"
-                  data-turbo="false"
-                  data-primary="false"
-                >
-                  Читать полную версию на сайте
-                </button>
-                <p>В этом гайде разберемся, что такое системы счисления, для чего программисты используют непривычные способы для записи чисел и как их понимать.</p>
-
-<h2 id="что-такое-системы-счисления">Что такое системы счисления</h2>
-
-<p>С давних пор людям нужно было записывать числа. В торговле числа нужны, чтобы знать, сколько товаров есть на складе и сколько денег принесла сделка. Записи о положении небесных тел помогли шумерам составить первый календарь, а календарь, в свою очередь, пригодился, чтобы заранее готовиться к посевным и сбору урожая. Строительные сметы, переписи населения, распределение наследства — числа оказались очень востребованными даже в самых древних государствах.</p>
-
-<p>Так что люди научились записывать числа в незапамятные времена. Небольшие числа легко записывались зарубками или насечками, но если в числе несколько знаков, требуется иная система записи. Эту проблему в разных странах решали по-разному.</p>
-
-<p>Сейчас разные способы записи чисел называются <em>системами счисления</em>.</p>
-
-<p>Систем счисления было придумано довольно много, и даже в наши дни мы используем две системы, возникшие в далёкой древности. Из Древнего Рима к нам пришла <em>римская система счисления</em>, где цифры обозначаются буквами латинского алфавита. За основу римляне взяли количество пальцев на одной руке — 5, и на двух руках — 10. Числа 1, 5 и 10 в римской системе обозначаются буквами I, V и X, и с помощью них можно записать любое число от 1 до 49. Например, VII это 7, а XIX — 19.</p>
-
-<p>От Древних Шумеров мы научились делить дроби на шестьдесят частей. Именно из-за них в нашем часе 60 минут, а в минуте 60 секунд. Шумерская система счисления так и называется — <em>шестидесятеричная</em>. Но, конечно, наиболее привычной выглядит численная запись в системе, которую придумали в Древней Индии. Сейчас ее называют арабской или <em>десятичной системой счисления</em>.</p>
-
-<h2 id="от-десятичных-чисел-к-двоичным">От десятичных чисел к двоичным</h2>
-
-<p>Разберемся, как устроена десятичная система, на примере произвольного большого числа.</p>
-
-<p><img src="/assets/images/numeral-systems/example01.png" alt="1072" /></p>
-
-<p>Это четырехзначное число, потому что оно состоит из четырёх цифр. И, поскольку речь идёт о десятичной системе, мы можем использовать десять различных цифр.</p>
-
-<p><img src="/assets/images/numeral-systems/example02.png" alt="0123456789" /></p>
-
-<p>Величина, которая скрывается за каждой цифрой, зависит от её позиции, поэтому такую систему счисления называют также и позиционной. Справа мы записываем самые младшие значения — <em>единицы</em>, слева от них <em>десятки</em>, затем <em>сотни</em>, и так далее. Запись 1702 означает буквально следующее.</p>
-
-<p><img src="/assets/images/numeral-systems/example03.png" alt="1×1000+7×100+0×10+2×1" /></p>
-
-<p>Цифры, записанные в соседних позициях, различаются в десять раз — это и есть десятичная система. Однако, как мы говорили ранее, привычная нам десятичная система — далеко не единственная. Однако, опираясь на неё, нам будет проще понять принципы работы других систем счисления. Например, для записи того же самого числа 1702 в двоичной системе надо придерживаться тех же правил, но вместо десяти цифр нам потребуется всего две — 0 и 1. Цифры, записанные в соседних позициях, будут различаться не в десять раз, а в два.</p>
-
-<p><img src="/assets/images/numeral-systems/example04.png" alt="1×1024+1×512+0×256+ +1×128+0×64+1×32+0×16+ +0×8+1×4+1×2+0×1" /></p>
-
-<p>Это очень большое двоичное число. Давайте запишем его в привычной форме:</p>
-
-<p><img src="/assets/images/numeral-systems/example05.png" alt="1 1 0 1 0 1 0 0 1 1 0 1024 512 256 128 64 32 16 8 4 2 1" /></p>
-
-<p>Это число могло бы быть очень большим десятичным числом, потому что состоит из тех же цифр. Чтобы отличать двоичные числа от десятичных, в качестве индекса у них указывают основание системы счисления, то есть 2.</p>
-
-<p><img src="/assets/images/numeral-systems/example06.png" alt="11010100110₂" /></p>
-
-<p>Это особенно важно, когда в тексте одновременно встречаются десятичные и двоичные числа.</p>
-
-<p><img src="/assets/images/numeral-systems/example07.png" alt="11010100110₂ = 1702" /></p>
-
-<h2 id="зачем-нужна-двоичная-система">Зачем нужна двоичная система</h2>
-
-<p>Двоичная система выглядит очень непривычно и числа, записанные в ней, получаются огромными. Зачем она вообще нужна? Разве компьютеры не могут работать с привычной нам десятичной системой?</p>
-
-<p>Оказывается, когда-то они именно так и работали. Самый первый компьютер ENIAC, разработанный в 1945 году, хранил числа в десятичной системе счисления. Для хранения одной цифры применялась схема, которая называется кольцевым регистром: она состояла из десяти радиоламп. Для хранения чисел от одного до миллиона нужно было 60 ламп.</p>
-
-<p><img src="/assets/images/numeral-systems/ring-counter.png" alt="Кольцевой регистр" /></p>
-
-<p>Инженеры заметили, что если бы они кодировали числа в двоичной системе, то для хранения таких же больших чисел им бы потребовалось всего двадцать радиоламп — в три раза меньше!</p>
-
-<p>Первое преимущество двоичных чисел — простота схем. Второе, и не менее важное — быстродействие. Сложение чисел, хранящихся в кольцевом регистре, требует до десяти тактов процессора на каждую операцию. Сложение двоичных чисел можно выполнить за один такт — то есть в десять раз быстрее.</p>
-
-<p>Группа инженеров, создавших первый компьютер, в 1946 году опубликовала статью, где обосновала преимущество двоичной системы для представления чисел в компьютерах. Первой среди авторов была указана фамилия американского математика Джона фон Неймана. Поэтому сейчас принципы проектирования компьютеров называются архитектурой фон Неймана, хотя это не совсем справедливо по отношению к другим изобретателям компьютера.</p>
-
-<p>При разработке программы с двоичной записью столкнуться довольно сложно: компьютер в подавляющем большинстве случаев сам переводит двоичные числа в десятичные и обратно. Можно долго писать код, даже не подозревая, что внутри компьютера данные хранятся каким-то особым образом.</p>
-
-<p>Зачем изучать двоичную систему, если компьютер делает всю работу за нас? Иногда программистам приходится писать программы, которые работают напрямую с оборудованием. Например, разработчики игр должны знать, как работают видеокарты, что сделать компьютерную графику быстрее. А разработчики операционных систем понимают, как устроены диски, чтобы надежно хранить данные.</p>
-
-<p>Программы, которые работают с железом напрямую, называются системными или низкоуровневыми. Для их создания разработчик должен понимать, как устроен компьютер. Поэтому изучение систем счисления позволяет программисту расширить свой профессиональный диапазон и стать специалистом широкого профиля.</p>
-
-<p>Поэтому для того, чтобы писать сложные системные программы, нужно понимать, как устроена двоичная система счисления.</p>
-
-<h2 id="как-переводить-двоичные-числа-в-десятичные">Как переводить двоичные числа в десятичные</h2>
-
-<p>Разберемся, как быстро переводить двоичные числа в десятичные. Для примера потребуется достаточно большое двоичное число, чтобы мы не могли вычислить его на пальцах.</p>
-
-<p><img src="/assets/images/numeral-systems/example08.png" alt="11010" /></p>
-
-<p>Запишем его в математической записи, помня, что вместо основания 10, мы используем основание 2.</p>
-
-<p><img src="/assets/images/numeral-systems/example09.png" alt="1×16+1×8+0×4+1×2+0×1" /></p>
-
-<p>Из этого примера видно, что у всех слагаемых только два множителя — 0 и 1. Слагаемые с множителем 0 равны нулю, поэтому их можно отбросить, оставив только слагаемые с множителем 1.</p>
-
-<p><img src="/assets/images/numeral-systems/example10.png" alt="1×16+1×8+1×2" /></p>
-
-<p>У слагаемых с множителем 1 этот множитель можно не записывать.</p>
-
-<p><img src="/assets/images/numeral-systems/example11.png" alt="16+8+2" /></p>
-
-<p>Теперь нетрудно посчитать сумму.</p>
-
-<p><img src="/assets/images/numeral-systems/example12.png" alt="26" /></p>
-
-<p>Вывод: число 11010 в двоичной записи — то же самое, что 26 в десятичной.</p>
-
-<p><img src="/assets/images/numeral-systems/example13.png" alt="11010₂=26" /></p>
-
-<p>Ещё раз повторим, как перевести двоичное число в десятичное.</p>
-
-<ul>
-  <li>Записать число в математическом виде</li>
-  <li>Отбросить слагаемые с множителем 0</li>
-  <li>Сложить результат</li>
-</ul>
-
-<p>Программисты иногда запоминают некоторые степени числа два, чтобы уметь оценивать порядок двоичных чисел. Вы можете подглядывать в эту таблицу:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: right">Двоичное число</th>
-      <th style="text-align: right">Степень 2</th>
-      <th style="text-align: right">Десятичное число</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: right">1<sub>2</sub></td>
-      <td style="text-align: right">2<sup>0<sup></sup></sup></td>
-      <td style="text-align: right">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">10<sub>2</sub></td>
-      <td style="text-align: right">2<sup>1<sup></sup></sup></td>
-      <td style="text-align: right">2</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">100<sub>2</sub></td>
-      <td style="text-align: right">2<sup>2<sup></sup></sup></td>
-      <td style="text-align: right">4</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>3<sup></sup></sup></td>
-      <td style="text-align: right">8</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>4<sup></sup></sup></td>
-      <td style="text-align: right">16</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">10 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>5<sup></sup></sup></td>
-      <td style="text-align: right">32</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">100 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>6<sup></sup></sup></td>
-      <td style="text-align: right">64</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1000 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>7<sup></sup></sup></td>
-      <td style="text-align: right">128</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1 0000 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>8<sup></sup></sup></td>
-      <td style="text-align: right">256</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">10 0000 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>9<sup></sup></sup></td>
-      <td style="text-align: right">512</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">100 0000 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>10<sup></sup></sup></td>
-      <td style="text-align: right">1 024</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1 0000 0000 0000 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>16<sup></sup></sup></td>
-      <td style="text-align: right">65 536</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1 0000 0000 0000 0000 0000 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>24<sup></sup></sup></td>
-      <td style="text-align: right">16 777 216</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1 0000 0000 0000 0000 0000 0000 0000 0000<sub>2</sub></td>
-      <td style="text-align: right">2<sup>32<sup></sup></sup></td>
-      <td style="text-align: right">4 294 967 296</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>С помощью этой таблицы можно переводить числа из двоичной системы в десятичную практически «в уме».</p>
-
-<p><img src="/assets/images/numeral-systems/example14.png" alt="11010₂=10000₂+1000₂+10₂=16+8+2=26" /></p>
-
-<h2 id="как-переводить-десятичные-числа-в-двоичные">Как переводить десятичные числа в двоичные</h2>
-
-<p>Эта задача похожа на математическую загадку, и её можно встретить на олимпиаде для школьников.</p>
-
-<p>Чтобы научиться её решать, давайте ещё раз посмотрим на первые натуральные числа в двоичной и десятичной записи.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: right">Десятичное число</th>
-      <th style="text-align: right">Двоичное число</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">1<sub>2</sub></td>
-    </tr>
-    <tr>
-      <td style="text-align: right">2</td>
-      <td style="text-align: right">10<sub>2</sub></td>
-    </tr>
-    <tr>
-      <td style="text-align: right">3</td>
-      <td style="text-align: right">11<sub>2</sub></td>
-    </tr>
-    <tr>
-      <td style="text-align: right">4</td>
-      <td style="text-align: right">100<sub>2</sub></td>
-    </tr>
-    <tr>
-      <td style="text-align: right">5</td>
-      <td style="text-align: right">101<sub>2</sub></td>
-    </tr>
-    <tr>
-      <td style="text-align: right">6</td>
-      <td style="text-align: right">110<sub>2</sub></td>
-    </tr>
-    <tr>
-      <td style="text-align: right">7</td>
-      <td style="text-align: right">111<sub>2</sub></td>
-    </tr>
-    <tr>
-      <td style="text-align: right">8</td>
-      <td style="text-align: right">1000<sub>2</sub></td>
-    </tr>
-    <tr>
-      <td style="text-align: right">9</td>
-      <td style="text-align: right">1001<sub>2</sub></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Обратим внимание на следующую закономерность: все чётные числа — 2, 4, 6 и 8 — в двоичной записи заканчиваются на 0. Все нечётные числа 1, 3, 5, 7 и 9 — на 1. Этому есть простое объяснение — в двоичной записи число 2 это как 10 в десятичной. Если двоичное число делится на два, оно круглое. Математики говорят, что чётные числа делятся на 2 без остатка (или с остатком 0), а нечётные — с остатком 1:</p>
-
-<ul>
-  <li>при делении 4 на 2 остаток 0;</li>
-  <li>при делении 5 на 2 остаток 1;</li>
-  <li>при делении 6 на 2 остаток 0;</li>
-  <li>при делении 9 на 2 остаток 1.</li>
-</ul>
-
-<p>Попробуем перевести десятичное число 26 в двоичную систему. Для этого используем деление уголком на 2.</p>
-
-<p><img src="/assets/images/numeral-systems/example24.png" alt="Перевод десятичного числа в двоичное" /></p>
-
-<p>Если 26 разделить на 2, то в результате получится 13, остаток от деления 0. Продолжаем дальше:</p>
-<ul>
-  <li>13 разделить на 2, в результате получится 6, остаток от деления 1;</li>
-  <li>6 разделить на 2, в результате получится 3, остаток от деления 0;</li>
-  <li>3 разделить на 2, в результате получится 1, остаток от деления 1;</li>
-  <li>1 разделить на 2, в результате получится 0, остаток от деления 1;</li>
-</ul>
-
-<p>Из остатков 1, 1, 0, 1 и 0 складывается нужная нам двоичная запись.</p>
-
-<p><img src="/assets/images/numeral-systems/example08.png" alt="11010" /></p>
-
-<h2 id="шестнадцатеричная-система-счисления">Шестнадцатеричная система счисления</h2>
-
-<p>Мы знаем, что компьютер использует числа для представления любой информации. Например, цвета хранятся в виде трёх чисел — яркости красной, зелёной и синей компонентов цвета. На каждый компонент отводится восемь двоичных позиций, поэтому максимальная яркость компонента равна 11111111₂ или 255. Цвет целиком описывается большим 24-х разрядным двоичным числом, например, 11111010 10000000 01110010. Это цвет Salmon из таблицы цветов HTML, он же <em>лососевый цвет</em>.</p>
-
-<p><img src="/assets/images/numeral-systems/salmon-color.png" alt="Лососевый цвет" /></p>
-
-<p>Старшие восемь позиций отводятся для хранения красного компонента, средние восемь — зелёного, и младшие восемь — синего. Мы видим, что такая запись очень громоздка и неудобна.</p>
-
-<p>Кажется, что цвет удобнее записать как десятичное число 16416882. Хотя оно занимает меньше места, по нему трудно понять, какова яркость каждого компонента.</p>
-
-<p>Чтобы записывать большие двоичные числа, программисты придумали использовать шестнадцатеричную систему счисления:</p>
-
-<ul>
-  <li>В десятичной системе десять цифр, а в шестнадцатеричной — шестнадцать</li>
-  <li>В десятичной системе соседние позиции отличаются в десять раз, а в шестнадцатеричной — в шестнадцать раз</li>
-</ul>
-
-<p>Как и в случае с двоичной системой, цифры 0, 1, 2, 3, 4, 5, 6, 7, 8 и 9 заимствуются из десятичной системы. Но в данном случае этих цифр не хватает: нужно ещё шесть. Их в шестнадцатеричной системе принято обозначать первыми буквами английского алфавита:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: right">Основание 16</th>
-      <th style="text-align: right">Основание 10</th>
-      <th style="text-align: right">Основание 2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: right">0</td>
-      <td style="text-align: right">0</td>
-      <td style="text-align: right">0</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">1</td>
-      <td style="text-align: right">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">2</td>
-      <td style="text-align: right">2</td>
-      <td style="text-align: right">10</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">3</td>
-      <td style="text-align: right">3</td>
-      <td style="text-align: right">11</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">4</td>
-      <td style="text-align: right">4</td>
-      <td style="text-align: right">100</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">5</td>
-      <td style="text-align: right">5</td>
-      <td style="text-align: right">101</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">6</td>
-      <td style="text-align: right">6</td>
-      <td style="text-align: right">110</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">7</td>
-      <td style="text-align: right">7</td>
-      <td style="text-align: right">111</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">8</td>
-      <td style="text-align: right">8</td>
-      <td style="text-align: right">1000</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">9</td>
-      <td style="text-align: right">9</td>
-      <td style="text-align: right">1001</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">A</td>
-      <td style="text-align: right">10</td>
-      <td style="text-align: right">1010</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">B</td>
-      <td style="text-align: right">11</td>
-      <td style="text-align: right">1011</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">C</td>
-      <td style="text-align: right">12</td>
-      <td style="text-align: right">1100</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">D</td>
-      <td style="text-align: right">13</td>
-      <td style="text-align: right">1101</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">E</td>
-      <td style="text-align: right">14</td>
-      <td style="text-align: right">1110</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">F</td>
-      <td style="text-align: right">15</td>
-      <td style="text-align: right">1111</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Шестнадцатеричная система счисления хороша тем, что группа из четырёх двоичных цифр кодируется одной шестнадцатеричной цифрой. Таким образом, лососевый цвет выглядит как:</p>
-
-<p><img src="/assets/images/numeral-systems/example25.png" alt="1111 1010 1000 0000 0111 0010" /></p>
-
-<p>В шестнадцатеричной системе счисления он записывается так:</p>
-
-<p><img src="/assets/images/numeral-systems/example26.png" alt="FA 80 72" /></p>
-
-<p>Вначале трудно понять, каков порядок у шестнадцатеричного числа FA. Как и в случае с двоичными числами, программисты обычно помнят порядки круглых шестнадцатеричных чисел. Но можно не запоминать, а подглядывать в эту таблицу:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: right">Шестнадцатеричное число</th>
-      <th style="text-align: right">Десятичное число</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: right">10<sub>16</sub></td>
-      <td style="text-align: right">16</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">20<sub>16</sub></td>
-      <td style="text-align: right">32</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">30<sub>16</sub></td>
-      <td style="text-align: right">48</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">40<sub>16</sub></td>
-      <td style="text-align: right">64</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">50<sub>16</sub></td>
-      <td style="text-align: right">80</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">60<sub>16</sub></td>
-      <td style="text-align: right">96</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">70<sub>16</sub></td>
-      <td style="text-align: right">112</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">80<sub>16</sub></td>
-      <td style="text-align: right">128</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">90<sub>16</sub></td>
-      <td style="text-align: right">144</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">A0<sub>16</sub></td>
-      <td style="text-align: right">160</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">B0<sub>16</sub></td>
-      <td style="text-align: right">176</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">C0<sub>16</sub></td>
-      <td style="text-align: right">192</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">D0<sub>16</sub></td>
-      <td style="text-align: right">208</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">E0<sub>16</sub></td>
-      <td style="text-align: right">224</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">F0<sub>16</sub></td>
-      <td style="text-align: right">240</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">100<sub>16</sub></td>
-      <td style="text-align: right">256</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1000<sub>16</sub></td>
-      <td style="text-align: right">4 096</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1 0000<sub>16</sub></td>
-      <td style="text-align: right">65 536</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">10 0000<sub>16</sub></td>
-      <td style="text-align: right">1 048 576</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">100 0000<sub>16</sub></td>
-      <td style="text-align: right">16 777 216</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1000 0000<sub>16</sub></td>
-      <td style="text-align: right">268 435 456</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1 0000 0000<sub>16</sub></td>
-      <td style="text-align: right">4 294 967 296</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Чтобы переводить числа из десятичной системы в шестнадцатеричную и обратно, двоичное представление можно использовать как промежуточное. Часто это самый простой способ: двоичное и шестнадцатеричное представления без труда переводятся друг в друга.</p>
-
-<h2 id="восьмеричная-система-счисления">Восьмеричная система счисления</h2>
-
-<p>Восьмеричная система когда-то использовалась наравне с шестнадцатеричной. Из названия понятно, что она использует всего восемь цифр: 0, 1, 2, 3, 4, 5, 6 и 7. Восьмеричная система подходит для представления шести-, девяти- и двенадцатиразрядных двоичных чисел.</p>
-
-<p>Такие числа встречаются нечасто. Один из самых известных примеров использования восьмеричных чисел — права доступа в операционной системе UNIX. Они записываются девятизначным двоичным числом, например 110100100 или 111101100. Запоминать и передавать такие числа неудобно, поэтому программисты предпочитают восьмеричную систему счисления, и записывают права доступа в виде 644 или 754.</p>
-
-<p>Популярные операционные системы Linux и MacOS берут своё начало в UNIX, поэтому там права доступа также задаются восьмеричным числом.</p>
-
-<p><img src="/assets/images/numeral-systems/stat-chmod.jpg" alt="stat и chmod" /></p>
-
-<p>Пользователи UNIX используют команду stat, чтобы узнать права доступа, и команду chmod, чтобы изменить их. На рисунке вы видите, что команды stat и chmod используют восьмеричные числа. Подробный рассказ об этих командах выходит за рамки нашей статьи. Узнаете больше о правах доступа, и о том, что означают эти числа, можно изучив командную строку Linux.</p>
-
-<p>Подводя итог, можно сказать, что восьмеричные числа сейчас используются редко. В подавляющем большинстве случаев программисты используют шестнадцатеричную запись.</p>
-
-<h2 id="конвертация-чисел-в-программах">Конвертация чисел в программах</h2>
-
-<p>Языки программирования умеют работать с числами, записанными в разных системах счисления, и переводить их из одной системы в другую. Для примера рассмотрим работу с разными системами счисления на Python и JavaScript.</p>
-
-<h3 id="python">Python</h3>
-
-<p>Чтобы записать в Python двоичное число, добавьте перед ним <em>префикс</em> <strong>0b</strong>. Десятичное число 26 можно записать в виде 0b11010. У шестнадцатеричных чисел префикс <strong>0x</strong>, а у восьмеричных — <strong>0o</strong>.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">print</span><span class="p">(</span><span class="mb">0b11010</span><span class="p">)</span> <span class="c1"># =&gt; 26
-</span><span class="k">print</span><span class="p">(</span><span class="mh">0x1a</span><span class="p">)</span> <span class="c1"># =&gt; 26
-</span><span class="k">print</span><span class="p">(</span><span class="mo">0o32</span><span class="p">)</span> <span class="c1"># =&gt; 26
-</span></code></pre></div></div>
-
-<p>Во всех случаях, чтобы записать число, мы пишем сначала цифру ноль «0», а затем букву, которая определяет систему счисления. Буква «b» — первая в слове binary (двоичный), а буква «o» — в слове octal (восьмеричный). Буква «x» выбивается из общего правила — это третья буква в слове hexadecimal (шестнадцатеричный).</p>
-
-<p>Функции <code class="language-plaintext highlighter-rouge">bin()</code>, <code class="language-plaintext highlighter-rouge">hex()</code> и <code class="language-plaintext highlighter-rouge">oct()</code> преобразуют число в двоичную, шестнадцатеричную и восьмеричную системы.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span> <span class="c1"># =&gt; '0b11010'
-</span><span class="k">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span> <span class="c1"># =&gt; '0x1a'
-</span><span class="k">print</span><span class="p">(</span><span class="nb">oct</span><span class="p">(</span><span class="mi">26</span><span class="p">))</span> <span class="c1"># =&gt; '0o32'
-</span></code></pre></div></div>
-
-<p>Благодаря префиксной записи и функциям <code class="language-plaintext highlighter-rouge">bin()</code>, <code class="language-plaintext highlighter-rouge">hex()</code> и <code class="language-plaintext highlighter-rouge">oct()</code>, мы можем преобразовывать числа из любой системы в любую.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="mo">0o32</span><span class="p">))</span> <span class="o">//</span> <span class="o">&gt;=</span> <span class="s">'0x1a'</span>
-</code></pre></div></div>
-
-<h3 id="javascript">JavaScript</h3>
-
-<p>В JavaScript для представления чисел используются те же самые префиксы, что и в Python. 0b11010, 0x1a и 0o32 — записи числа 26 в двоичной, шестнадцатеричной и восьмеричной системах счисления.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mb">0b11010</span><span class="p">)</span> <span class="c1">// =&gt; 26</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mh">0x1a</span><span class="p">)</span> <span class="c1">// =&gt; 26</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mo">0o32</span><span class="p">)</span> <span class="c1">// =&gt; 26</span>
-</code></pre></div></div>
-
-<p>Для преобразования чисел в другую систему счисления нужно вызывать метод <code class="language-plaintext highlighter-rouge">toString()</code>, передав в качестве параметра основание системы.</p>
-
-<p>Обычно в JavaScript мы можем вызвать метод у объекта с помощью точки. Например, если мы сохранили число в переменной <code class="language-plaintext highlighter-rouge">i</code>, мы можем узнать его шестнадцатеричное представление, вызвав метод <code class="language-plaintext highlighter-rouge">i.toString(16)</code>. Но мы не можем вызывать метод у числа 2 — <code class="language-plaintext highlighter-rouge">2.toString(16)</code> — потому что в JavaScript точка в записи чисел разделяет целую и дробную части. Если дробная часть равна нулю, её можно не записывать, поэтому «2.» означает то же самое, что и «2.0».</p>
-
-<p>В примере вы видите три корректных способа обойти эту проблему, и вызвать метод <code class="language-plaintext highlighter-rouge">toString()</code> у числа 26.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="mi">26</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="c1">// =&gt; '11010'</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">26</span><span class="p">..</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span> <span class="c1">// =&gt; '1a'</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">26</span> <span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span> <span class="c1">// =&gt; '32'</span>
-</code></pre></div></div>
-
-<h2 id="сервисы-для-перевода-из-системы-в-систему">Сервисы для перевода из системы в систему</h2>
-
-<p>Существует множество сервисов для перевода чисел из системы в систему. Это умеет даже Google.
-Чтобы перевести двоичное число, например, 11010 в десятичную систему, надо ввести запрос <strong>0b11010 decimal</strong>.</p>
-
-<p><img src="/assets/images/numeral-systems/google01.png" alt="0b11010 decimal" /></p>
-
-<p>Чтобы перевести десятичное число, например, 26 в двоичную систему, надо ввести запрос <strong>26 binary</strong>.</p>
-
-<p><img src="/assets/images/numeral-systems/google02.png" alt="26 binary" /></p>
-
-<p>Обратите внимание, что Google использует префикс 0b, чтобы отличать двоичные числа от десятичных.</p>
-
-<p>Чтобы перевести десятичное число 137 в шестнадцатеричную систему, введите запрос <strong>137 hex</strong>.</p>
-
-<p><img src="/assets/images/numeral-systems/google03.png" alt="137 hex" /></p>
-
-<p>Чтобы перевести шестнадцатеричное число 2BAD в десятичную систему, введите запрос <strong>0x2BAD decimal</strong>.</p>
-
-<p><img src="/assets/images/numeral-systems/google04.png" alt="0x2BAD decimal" /></p>
-
-<p>Google использует префикс 0x для того, чтобы отличать шестнадцатеричные числа от всех прочих.
-Чтобы перевести число 121 в восьмеричную систему, введите запрос <strong>121 octal</strong>.</p>
-
-<p><img src="/assets/images/numeral-systems/google05.png" alt="121 octal" /></p>
-
-<p>Чтобы перевести число обратно, введите в строке поиска запрос <strong>0o171 decimal</strong>.</p>
-
-<p><img src="/assets/images/numeral-systems/google06.png" alt="0o171 decimal" /></p>
-
-<p>Мы видим, что Google для представления чисел в двоичной, шестнадцатеричной и восьмеричной системах счисления использует такие же префиксы, которые мы видели в примерах на Python и JavaScript.</p>
-
-<h2 id="заключение">Заключение</h2>
-
-<p>Люди изобрели разные способы записывать числа. Мы называем их системами счисления. Привычный для нас способ записи называется десятичной системой счисления.</p>
-
-<p>Компьютеры, которые работали в десятичной системе, оказались сложными и медленными. Хранение чисел в двоичной системе позволило упростить схемы и ускорить работу компьютеров.</p>
-
-<p>Обычно нам не нужно знать, как именно компьютер хранит числа, потому что он умеет переводить их в привычную нам форму. Но если мы хотим разрабатывать программы, которые работают с оборудованием напрямую — системные утилиты или компьютерные игры, — нужно разобраться, как устроены двоичная и шестнадцатеричная системы.</p>
-
-<p>Существует ряд алгоритмов, которые помогают перевести число из одной системы в другую, но они достаточно запутанные. Проще использовать Google.</p>
-
-<p>Двоичная запись чисел очень громоздкая, поэтому программисты предпочитают записывать числа в шестнадцатеричной системе счисления. Восьмеричная запись чисел сейчас используется очень редко.</p>
-
-<p>Вы можете конвертировать числа из системы в систему на своём любимом языке программирования.</p>
-
-              ]]>
-            </turbo:content>
-        </item>
-        
-        <item turbo="true">
-            <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/transpilers/</link>
-            <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое транспиляция?</turbo:topic> -->
-            <title>Что такое транспиляция?</title>
-            <pubDate>Mon, 29 Nov 2021 00:00:00 +0000</pubDate>
-            <author>Казанцев Игорь</author>
-            <!-- <yandex:related></yandex:related> -->
-            <turbo:content>
-              <![CDATA[
-                <div data-block="breadcrumblist">
-                  <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/transpilers/">Что такое транспиляция?</a>
-                </div>
-                <button
-                  formaction="https://guides.hexlet.io/transpilers/"
-                  data-background-color="#eee"
-                  data-color="dark"
-                  data-turbo="false"
-                  data-primary="false"
-                >
-                  Читать полную версию на сайте
-                </button>
-                <p>Понять, что такое транспайлеры и какова их роль в программировании, поможет следующий пример. Представим, что вы разрабатываете софт для TV-приставок и вам нужно добавить калькулятор на все приставки определенной фирмы. Есть одно но — некоторые приставки не обновлялись уже 7 лет и могут работать только со старой версией языка, на котором написан калькулятор. Тут появляется выбор:</p>
-
-<ul>
-  <li>Разрабатывать программу для двух типов приставок: на старой версии языка для тех, которые давно не обновлялись, и на новой — для современных.</li>
-</ul>
-
-<p><img src="/assets/images/transpilers/cover.png" alt="transpilers, cover" /></p>
-
-<ul>
-  <li>Использовать «переводчик» с версии языка, которую используете вы, на версии, работающие на всех устройствах</li>
-</ul>
-
-<p>Роль такого переводчика выполняют транспайлеры: они преобразуют код, на котором мы пишем, в другой, который может применяться и работать у конечного пользователя на любых устройствах с любыми версиям языка разработки.</p>
-
-<p><strong>Транспиляция</strong> — преобразование программы, написанной на одном языке программирования в качестве исходных данных, в эквивалентный код другой версии этого языка или в другой язык программирования того же уровня абстракции.</p>
-
-<h2 id="когда-нужна-транспиляция">Когда нужна транспиляция?</h2>
-
-<p>Рассмотрим практический пример, в котором пригодится транспайлер. За основу возьмем кейс с обновлением софта в TV-приставках, но дополним его деталями.</p>
-
-<p>Калькулятор запускается на встроенном браузере TV-приставки и написан на JavaScript последней версии. Также учтем, что приставки выпускались каждый год с ограниченным сроком поддержки и сейчас мы имеем множество устройств с разными версиями браузера (а, следовательно, и отличающиеся версии поддерживаемого JS-кода). Кроме того, браузер пользователя давно не обновлялся и код на JS, который может там работать, сильно отличается от текущих версий языка.</p>
-
-<p>В такой ситуации чаще всего может пригодиться транспиляция кода. Транспайлеры помогут преобразовать код, написанный на последней версии JavaScript, в тот, который будет работать у всех пользователей независимо от времени, прошедшего с последнего обновления.</p>
-
-<h2 id="как-используют-транспайлеры">Как используют транспайлеры?</h2>
-
-<p>Тринспайлеры широко используются во многих областях программирования. В целом можно выделить две основных области применения:</p>
-
-<ul>
-  <li>
-    <p>Транспиляция одной версии языка в другую. Поскольку языки программирования постоянно обновляются, возникают ситуации, когда разработчик уже пишет на новой версии языка, а среда, где используется код, поддерживает и работает только с предыдущими версиями. Например, для переходов между версиями стандарта ECMAScript используется Babel. Транспайлеры позволяют преобразовывать код и в другую сторону: например, помогают перевести проект на более новую версию языка. Делать это вручную долго и больно. Например,  если проект написан на Python 2.x, перевести его на Python 3 можно с помощью трансплайнера 2to3</p>
-  </li>
-  <li>
-    <p>Транспиляция между разными языками. Например преобразование TypeScript в JS. Подробнее об этом расскажем ниже</p>
-  </li>
-</ul>
-
-<h2 id="как-работают-транспайлеры">Как работают транспайлеры?</h2>
-
-<p>В качестве примера рассмотрим работу транспайлера над возведением в квадрат кода на JS:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>a ** b
-</code></pre></div></div>
-
-<p>Вот как выглядит то же преобразование, проведенное с помощью объекта Math — он и использовался для операций по возведению в квадрат в старых версиях языка:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Math.pow(a, b)
-</code></pre></div></div>
-
-<p>В данном случае у нас есть начальное и желаемое конечное состояния. Мы уже знаем, что для транспайлера не составит труда провести такое преобразование. Однако для нас механизм его работы пока выглядит как черный ящик. Пора в деталях разобраться, как происходит транспиляция.</p>
-
-<h3 id="преобразование-исходного-кода-в-абстрактною-форму">Преобразование исходного кода в абстрактною форму</h3>
-
-<p>На первом этапе транспайлер создает на основе кода абстрактное представление. В общем случае такое преобразование происходить в два этапа — сначала программа проводит лексический, а затем синтаксический анализ.</p>
-
-<ul>
-  <li>Лексический анализ берёт «сырой» код и разбивает его на изолированные части, которые называются токенами. Это могут быть цифры, пунктуация, метки, операторы: всё, что угодно. В нашем случае токенами будут бинарный оператор (применяется к двум операндам, например 2 + 2) и его операнды:</li>
-</ul>
-
-<p><img src="/assets/images/transpilers/tokens.png" alt="transpilers, tokens" /></p>
-
-<ul>
-  <li>Синтаксический анализ строит объект, который описывает все токены и их связи между собой. Он называется AST (abstract syntax tree или абстрактное синтаксическое дерево). Оператор возведения в квадрат является бинарным выражением внутри программы (в нашем случае — единственным), а операнды станут идентификаторами в этом выражении:</li>
-</ul>
-
-<p><img src="/assets/images/transpilers/AST.png" alt="transpilers, AST" /></p>
-
-<h3 id="трансформация-ast">Трансформация AST</h3>
-
-<p>После преобразования в абстрактную модель происходит трансформация, которая производит все необходимые для дальнейшей работы изменения в AST.</p>
-
-<p>На этом этапе дерево из предыдущего шага изменяется: трансформация меняет текущий код на код на предыдущей версии языка. В данном случае оператор умножения заменяется на вызов выражения, при этом его операнды становятся аргументами выражения (Math.pow):</p>
-
-<p><img src="/assets/images/transpilers/transformed_AST.png" alt="transpilers, transformedAST" /></p>
-
-<h3 id="генерация-конечного-кода">Генерация конечного кода</h3>
-
-<p>Когда все изменения внесены, транспайлер берёт трансформированное AST кода и на его основе генерирует новый код.</p>
-
-<p><img src="/assets/images/transpilers/generate_result.png" alt="transpilers, generate" /></p>
-
-<p>В итоге код из начального состояния проходит ряд преобразований (анализ -&gt; трансформация -&gt; генерация) до конечного состояния — этот процесс и называется транспиляцией.</p>
-
-<h3 id="обратная-связь">Обратная связь</h3>
-
-<p>После всех преобразований мы получили конечный код, который работает на нужной нам версии языка. Но представим, что после трансилиляции в нашей программе появились  ошибки. Как понять, где именно находится ошибка, если она ссылается какое-то место в трансипилированном коде (который может значительно отличаться от того, что мы писали изначально)?</p>
-
-<p>Использование транспайлеров может затруднить отладку, когда нам нужно найти точное место поломки в исходном коде по транспилированному коду. В таких случаях используются различные утилиты, позволяющие сопоставить результат транспиляции с оригинальным кодом. Например, в JS есть утилита SourceMap, которая в процессе создания конечного кода создает файл-маппер — с его помощью можно связать исходный и конечный код.</p>
-
-<h2 id="инструменты-реализации-транспиляции-кода">Инструменты (реализации) транспиляции кода</h2>
-
-<p>Для фронтенд-разработки основной инструмент транспиляции — Babel. Он позволяет не только выполнять транспиляцию между версиями, которую мы рассмотрели выше, но и:</p>
-
-<ul>
-  <li>преобразовывать JSX-код в JavaScript при разработке на React</li>
-  <li>трансформировать LESS/SCSS в CSS при использовании CSS препроцессоров</li>
-  <li>транспилировать TypeScript в JS, когда нужно использовать типизацию</li>
-</ul>
-
-<p>Среди транспиляторов, которые трансформируют код на бэкэнд языках программирования в код на других языках, популярностью пользуются:</p>
-
-<ul>
-  <li>Haxe предназначен для транспилирования во Flash, JavaScript и Neko. Со временем Haxe разросся до набора инструментов, поддерживающих транспиляцию на разные языки и платформы, включая JavaScript, C++, C#, Java, JVM, Python, Lua, PHP и Flash.</li>
-  <li>Lombok — решение для тех, кому хочется расширить возможности Java. Это плагин, добавляющий в Java новые «ключевые слова» и превращающий аннотации в Java-код. Он сокращает время на разработку и обеспечивает дополнительную функциональность.</li>
-  <li>Bridge.NET позволяет использовать в JavaScript производительность C#, а также мощные VisualStudio IDE и стандартные инструменты .NET.
-Grumpy обеспечивает трансляцию кода на языке Python в представление на языке Go и позволяет бесшовно запускать Python-программы в runtime-окружении Go.</li>
-</ul>
-
-<h2 id="итого">Итого</h2>
-
-<p>В мире, где есть огромное количество языков программирования, а сами языки имеют множество версий, транспайлеры выполняют крайне важную работу — делают разработку удобнее. Программисты могут писать код на языке или версии языка, которая им удобна или имеет нужные функции, а транспайлеры выполнят работу по доставке этого кода до среды исполнения в нужном виде.</p>
-
-<p>На данный момент реализовано множество различных транспайлеров (Babel, Vala, Typescript transpiler, Bridge и другие), каждый из них решает свою задачу по-своему, но общий принцип работы транспайлеров похож у всех.</p>
-
-<p><img src="/assets/images/transpilers/scheme.png" alt="transpilers, scheme" /></p>
-
-<p>Исходный код преобразуется в абстрактное синтаксическое дерево, далее AST трансформируется в структуру, которая соотносится с конечным кодом, и из этой структуры генерируется необходимый нам код.</p>
-
-<h2 id="дополнительные-материалы">Дополнительные материалы</h2>
-
-<ul>
-  <li><a href="https://astexplorer.net/">Сайт для построения AST</a></li>
-  <li><a href="https://github.com/VladReshet/the-super-tiny-compiler-rus">Перевод проекта The Super Tiny Compiler! (Супер Маленького Компилятора)</a></li>
-</ul>
-
-              ]]>
-            </turbo:content>
-        </item>
-        
-        <item turbo="true">
-            <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/http-api/</link>
-            <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое API?</turbo:topic> -->
-            <title>Что такое API?</title>
-            <pubDate>Fri, 26 Nov 2021 00:00:00 +0000</pubDate>
-            <author>Кирилл Мокевнин</author>
-            <!-- <yandex:related></yandex:related> -->
-            <turbo:content>
-              <![CDATA[
-                <div data-block="breadcrumblist">
-                  <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/http-api/">Что такое API?</a>
-                </div>
-                <button
-                  formaction="https://guides.hexlet.io/http-api/"
-                  data-background-color="#eee"
-                  data-color="dark"
-                  data-turbo="false"
-                  data-primary="false"
-                >
-                  Читать полную версию на сайте
-                </button>
-                <p>В двух словах: Под API, обычно, подразумевают способ, с помощью которого программы или сервисы могут запрашивать данные у других сервисов.</p>
-
-<h2 id="пример-twitter-api">Пример Twitter API</h2>
-
-<p>Пример. У твиттера есть сайт, на котором мы можем просматривать твиты. Кликая по ссылкам мы попадаем на разные адреса, по которым доступна разная информация: лента твитов, страница твита, личный кабинет, сброс пароля, рекламный кабинет и так далее.</p>
-
-<ul>
-  <li>https://twitter.com/mokevnin – страница конкретного пользователя</li>
-  <li>https://twitter.com/mokevnin/status/1446464250499710976 – страница конкретного твита</li>
-</ul>
-
-<p>Каждая из этих страниц возвращает HTML, в котором информация представлена в том виде, в котором мы ее видим, со всеми элементами дизайна. Сайт твиттера адаптирован под небольшие экраны, поэтому открывается с любого устройства где есть браузер. Но кроме сайта у твиттера есть и мобильное приложение, которое показывает ту же самую информацию, но с другим, более удобным интерфейсом, адаптированным под конкретный телефон.</p>
-
-<p>Мобильное приложение, в отличии от сайта, физически хранится и запускается прямо на телефоне. И весь внешний вид тоже описывается внутри приложения. Для работы такого приложения нужны чистые данные, которых на телефоне нет, они есть на серверах твиттера. Как загрузить их на телефон? Обычные адрес страниц нам не подходят, так как они возвращают не данные, а готовые html-страницы.</p>
-
-<p>Именно здесь на помощь приходит API. Твиттер предоставляет специальные http-адреса, по которым доступны чистые данные, а не конкретные интернет-страницы с готовым внешним видом. Данные по таким адресам отдаются в структурированном формате, чаще всего JSON. Один сервис “упаковывает” данные в JSON формат, другой, который ходит за данными, “распаковывает” их из JSON и использует внутри себя для отображения. Пример запроса пользователя:</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Адрес, по которому возвращается список указанных пользователей</span>
-<span class="c"># В данном случае запрашивается один пользователь</span>
-https://api.twitter.com/2/users/by?usernames<span class="o">=</span>hexletHQ
-
-<span class="c"># В ответ приходит JSON такой структуры:</span>
-<span class="o">{</span>
-  <span class="s2">"data"</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"created_at"</span>: <span class="s2">"2013-12-14T04:35:55.000Z"</span>,
-      <span class="s2">"id"</span>: <span class="s2">"2244994945"</span>,
-      <span class="s2">"name"</span>: <span class="s2">"HexletHQ"</span>,
-      <span class="s2">"description"</span>: <span class="s2">"Хекслет - курсы программирования"</span>,
-      <span class="s2">"pinned_tweet_id"</span>: <span class="s2">"1464165859761573893"</span>,
-      <span class="s2">"username"</span>: <span class="s2">"hexlethq"</span>
-    <span class="o">}</span>,
-  <span class="o">]</span>,
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Задача этого API дать удобный доступ к данным твиттера. Причем это API используется как самим твиттером в мобильных приложениях, так и сторонними сервисами, которые управляют твиттером. Например маркетологи используют сервисы, которые автоматически публикуют твиты по расписанию.</p>
-
-<p>Кстати, сам твиттер использует свое API, в том числе для виджетов, которые можно встраивать на любой сайт для отображения конкретного твита или ленты твитов, хороший пример – <a href="https://ru.hexlet.io">главная Хекслета</a>. И, если говорить откровенно, то сам сайт твиттера работает по API. В браузер грузится JS-код, который реализует логику вывода и ходит за данными на сервер (по API).</p>
-
-<p>У твиттера есть <a href="https://developer.twitter.com/en/docs/twitter-api">специальный сайт</a> для разработчиков, на котором подробно описано их API, адреса, параметры, которые можно передавать и форматы ответов. Подобное описание есть у любого сервиса с публичным API, то есть доступным для использования в интернете. Правда публичное не означает бесплатное, API может быть и часто бывает платным.</p>
-
-<p><img src="/assets/twitter-api.png" alt="Twitter API" /></p>
-
-<h2 id="http-api">HTTP API</h2>
-
-<p>Twitter API – это пример HTTP API, оно работает по протоколу HTTP, через который браузеры загружают и показывают сайты. HTTP наиболее распространенный и удобный способ делать API для публичных интернет-сервисов. На него заточен весь интернет, у него хорошая поддержка в любом языке программирования. В конце-концов это простой протокол, который так или иначе знают все веб-программисты.</p>
-
-<p>Но не все HTTP API одинаковые. HTTP оставляет многое на откуп разработчикам, поэтому разные HTTP API могут отличаться друг от друга кардинально, например, форматом данных. Самый популярный формат JSON, но кроме него используется и XML. XML и HTML очень похожи по внешнему виду, но XML описывает данные, а не то как они расположены и выглядят:</p>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c">&lt;!-- Просто пример API из интернета --&gt;</span>
-<span class="nt">&lt;Contents&gt;</span>
-    <span class="nt">&lt;Key&gt;</span>europe/france/cannes.jpg<span class="nt">&lt;/Key&gt;</span>
-    <span class="nt">&lt;LastModified&gt;</span>2010-02-17T22:11:12.487Z<span class="nt">&lt;/LastModified&gt;</span>
-    <span class="nt">&lt;ETag&gt;</span>"53fc311c15eda0a031809982ccf92aac"<span class="nt">&lt;/ETag&gt;</span>
-    <span class="nt">&lt;Size&gt;</span>5061631<span class="nt">&lt;/Size&gt;</span>
-    <span class="nt">&lt;StorageClass&gt;</span>STANDARD<span class="nt">&lt;/StorageClass&gt;</span>
-<span class="nt">&lt;/Contents&gt;</span>
-</code></pre></div></div>
-
-<p>Существуют и другие форматы, но их используют значительно реже. В целом, HTTP никак не ограничивает формат, можно придумать и использовать свой собственный.</p>
-
-<p>Кроме форматов, HTTP API отличаются тем как у них структурированы адреса. Например у <a href="https://ru.code-basics.com">code-basics</a> на каждый вид данных есть свой адрес:</p>
-
-<ul>
-  <li>https://code-basics.com/api/languages.json – список языков, по которым есть курсы</li>
-  <li>https://code-basics.com/api/languages/12.json – информация о курсе</li>
-  <li>https://code-basics.com/api/languages/12/lessons.json – список уроков курса по языку</li>
-</ul>
-
-<p>Подобное API часто называют REST API. Подробнее о нем в другой статье. Иногда API выглядит так, что адрес всегда один, но на него отправляются разные параметры запроса. У данного способа есть множество разновидностей, например, json-rpc, graphql и другое:</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Все запросы идут только на этот адрес</span>
-https://some-site.com/api/rpc
-https://some-site.com/api/rpc?param<span class="o">=</span>value
-</code></pre></div></div>
-
-<p>Ну и наконец Websocket API, когда взаимодействие идет в режиме реального времени в обе стороны, в отличии от примеров выше, где клиент (тот кто использует API), должен запрашивать данные сам. С помощью Websocket делаются приложения реального времени, например чаты или игры. В этих приложениях данные измененные на сервере, должны максимально быстро уходить всем заинтересованным клиентам.</p>
-
-<h2 id="не-http-api">Не HTTP API</h2>
-
-<p>API бывает не только HTTP. Обычно, такие API встречаются внутри сервиса, для взаимодействия его компонентов, каждый из которых ведет себя как маленький сервис. Такие API могут использовать как другой протокол, например TCP, так и строиться вообще поверх других подходов, например с помощью систем очередей или потоков. Ключевые слова: grpc, rabbitmq, kafka.</p>
-
-              ]]>
-            </turbo:content>
-        </item>
-        
-        <item turbo="true">
-            <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/interpreter/</link>
-            <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое интерпретатор?</turbo:topic> -->
-            <title>Что такое интерпретатор?</title>
-            <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
-            <author>Марк Шевченко</author>
-            <!-- <yandex:related></yandex:related> -->
-            <turbo:content>
-              <![CDATA[
-                <div data-block="breadcrumblist">
-                  <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/interpreter/">Что такое интерпретатор?</a>
-                </div>
-                <button
-                  formaction="https://guides.hexlet.io/interpreter/"
-                  data-background-color="#eee"
-                  data-color="dark"
-                  data-turbo="false"
-                  data-primary="false"
-                >
-                  Читать полную версию на сайте
-                </button>
-                <p>В этом гайде разберемся, что такое интерпретатор, для чего он нужен и как работает. Этот материал поможет понять, как компьютер выполняет программы.</p>
-
-<h2 id="зачем-нужен-интерпретатор">Зачем нужен интерпретатор</h2>
-
-<p>В переводе с английского языка компьютер — <em>вычислитель</em>. Мы привыкли пользоваться компьютером для подготовки документы, чтения новостей и просмотра фильмов. В повседневной жизни производить вычисления приходится крайне редко, поэтому такое определение может показаться странным.</p>
-
-<p>Вместе с тем, это название очень точно отражает природу компьютера. Мы этого не видим, но на самом деле компьютер умеет работать только с числами: документы, и новости, и фильмы выглядят для компьютера как наборы чисел. То же самое касается программ, которые он выполняет.</p>
-
-<p>Каждая команда имеет свой числовой — машинный — код: благодаря ему компьютер без труда понимает, что нужно делать. Человеку трудно писать программы в машинных кодах, однако на заре компьютерной эры программисты писали именно так. Вот так выглядели их программы:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>102 184 0 0
-102 185 100 0
-102 1 200
-102 73
-102 131 249 0
-117 245
-</code></pre></div></div>
-
-<!--
-https://defuse.ca/online-x86-assembler.htm
-
-0:  66 b8 00 00             mov    ax,0x0
-4:  66 b9 64 00             mov    cx,100
-00000008 <loop>:
-8:  66 01 c8                add    ax,cx
-b:  66 49                   dec    cx
-d:  66 83 f9 00             cmp    cx,0
-11: 75 f5     
--->
-
-<p>Пытаясь облегчить себе работу, программисты придумали языки программирования: они понятнее человеку, поэтому писать программы на них проще. На этом этапе возникла проблема: если компьютер понимает команды только в виде чисел, как он будет выполнять команды, написанные на языке программирования?</p>
-
-<p>Есть два вида программ, которые помогают решить эту проблему — <em>интерпретаторы</em> и <em>компиляторы</em>. Про компилятор <a href="/compiler/">можно почитать здесь</a>, в этом тексте мы остановимся только на интерпретаторах.</p>
-
-<p>Вкратце, <em>интерпретатор</em> — это программа, которая выполняет команды, написанные на каком-то языке программирования. Например, интерпретатор Python понимает команды языка Python, а интерпретатор JavaScript — команды языка JavaScript.</p>
-
-<h2 id="экскурс-в-историю">Экскурс в историю</h2>
-
-<p>Lisp оказался удачным изобретением. За прошедшие годы люди изобрели множество языков, которые оказались никому не нужны. Этого нельзя сказать о Lisp, который развивается до сих пор. Уточню, что разработкой интерпретаторов Lisp занимались разные команды, поэтому у них получались разные версии языка. Такие версии языка называют <em>диалектами</em>. Кроме Emacs Lisp, вы могли слышать о <a href="https://ru.code-basics.com/languages/clojure">ClojureScript</a> — диалекте LISP, который иногда используют вместо JavaScript при разработке фронтенда</p>
-
-<p>Рассмотрим пример программы на Lisp для понимания разницы между машинным кодом и «почти человеческим языком»:</p>
-
-<div class="language-lisp highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">sum</span> <span class="p">(</span><span class="nv">n</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">n</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="mi">0</span>
-        <span class="p">(</span><span class="nb">+</span> <span class="nv">n</span> <span class="p">(</span><span class="nv">sum</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n</span> <span class="mi">1</span><span class="p">)))))</span>
-
-<span class="p">(</span><span class="nv">sum</span> <span class="mi">100</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Необязательно знать Lisp, чтобы увидеть, что в программе есть структура, и понять отдельные ее части. Доступность для понимания — выгодное преимущество языков программирования перед машинным кодом.</p>
-
-<p>Есть интерпретаторы для таких популярных языков программирования, как Python и JavaScript. Они хорошо подходят и для работы, и для изучения программирования. Важную роль в этом играет то, что для них существует интерпретаторы, и чуть позже мы узнаем, почему это так.</p>
-
-<h2 id="пример-интерпретатора-python">Пример интерпретатора Python</h2>
-
-<p>Разберем в деталях работу интерпретатора — для этого напишем несложную программу, которая будет вычислять суммы чисел от 1 до 100:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
-  <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">i</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span> <span class="c1"># =&gt; 5050
-</span></code></pre></div></div>
-
-<p>Запустим интерпретатор <em>python</em> и построчно введем программу.</p>
-
-<p><img src="/assets/images/interpreter/example.png" alt="Пример работы интерпретатора Python" /></p>
-
-<p>Мы видим, что начале каждой строки интерпретатор выводит подсказку <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code>. Когда мы вводим команду <code class="language-plaintext highlighter-rouge">for</code>, состоящую из двух строк, подсказка меняется на троеточие <code class="language-plaintext highlighter-rouge">...</code>.</p>
-
-<p>Выполняя команду <code class="language-plaintext highlighter-rouge">print(sum)</code>, интерпретатор печатает результат — число 5050. Если мы допустим ошибку, интерпретатор подскажет нам, где она находится.</p>
-
-<p><img src="/assets/images/interpreter/error.png" alt="Пример ошибки в программе" /></p>
-
-<p>В примере выше мы забыли поставить двоеточие после инструкции <code class="language-plaintext highlighter-rouge">for</code>, о чем интерпретатор и сообщает.</p>
-
-<p>Немедленный отклик интерпретатора очень важен при изучении языка. Новички, видя сообщениях об ошибках и пробуя разные варианты, быстро осваивают незнакомый синтаксис. Именно поэтому Python и JavaScript часто используют для обучения.</p>
-
-<p>Опытные программисты также ценят такой — <em>интерактивный</em> — способ разработки, потому что он помогает быстро проверять свои идеи.</p>
-
-<p>Кроме того, интерпретируемые языки часто используют для разработки прототипов больших программ. В интерактивном режиме он постоянно выполняет одни и те же действия: читает команду программиста, выполняет ее и печатает результат. Такой режим называют <em>Циклом Чтения-Выполнения-Печати</em>, или, по-английски <em>Read-Evaluate-Print Loop</em>. Обычно это название сокращают до аббревиатуры REPL.</p>
-
-<p><img src="/assets/images/interpreter/repl.png" alt="Цикл Чтения-Выполнения-Печати" /></p>
-
-<h2 id="пример-интерпретатора-javascript">Пример интерпретатора JavaScript</h2>
-
-<p>Интерпретатор JavaScript встроен прямо в браузер. Посмотрим, как он работает, на примере браузера Chrome.</p>
-
-<p>В правом верхнем углу есть три вертикальные точки, которые вызывают меню браузера. Нажмите и выберите пункт меню <em>Дополнительные инструменты</em>, а затем <em>Инструменты разработчика</em>.</p>
-
-<p><img src="/assets/images/interpreter/chrome-dev-tools.png" alt="Инструменты разработчика Chrome" /></p>
-
-<p>Вы увидите новое окно, заполненное вкладками. Все эти инструменты полезны и их стоит освоить. Но сейчас нам нужна одна вкладка — <em>Console</em>. В консоли мы можем набирать команды языка JavaScript и сразу видеть отклик интерпретатора.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// =&gt; 1</span>
-<span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// =&gt; 2</span>
-<span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// =&gt; 9</span>
-</code></pre></div></div>
-
-<p>Интерпретатор сохранит переменные <code class="language-plaintext highlighter-rouge">a</code> и <code class="language-plaintext highlighter-rouge">b</code> со значениями 1 и 2, затем вычислит значение <code class="language-plaintext highlighter-rouge">3 * (a + b)</code> и напечатает результат 9.</p>
-
-<p><img src="/assets/images/interpreter/chrome-console.png" alt="Консоль Chrome" /></p>
-
-<h2 id="выполнение-программы">Выполнение программы</h2>
-
-<p>Цикл REPL помогает разрабатывать программу, но вводить каждую команду по отдельности не удобно: куда быстрее ввести их один раз, а затем запустить готовую программу. Для этого создадим текстовый файл <em>sum<span>.</span>py</em> и запишем там команды:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
-  <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">i</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Чтобы выполнить программу, достаточно запустить интерпретатор Python, указав имя файла в параметрах:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&gt; python sum.py
-5050
-</code></pre></div></div>
-
-<p>Интерпретатор выполняет команды одну за одной и в конце завершает свою работу. Такой режим работы интерпретатора называют <em>пакетным</em>.</p>
-
-<p>Таким образом, интерпретатор может работать в двух режимах. Интерактивный режим (REPL) помогает нам проверять идеи и придумывать решение задач. Пакетный режим выполняет готовую программу.</p>
-
-<h2 id="устройство-интерпретатора">Устройство интерпретатора</h2>
-
-<p>Есть много способов написать интерпретатор. Не будем рассматривать все возможные варианты, а остановимся на устройстве интерпретаторов в целом. Обычный язык программирования содержит несколько десятков команд.</p>
-
-<p>В программе на Python, которую мы обсуждали выше есть операторы присваивания, цикл <code class="language-plaintext highlighter-rouge">for</code> и вызов функции <code class="language-plaintext highlighter-rouge">print</code>. Все это — команды, которые понимает интерпретатор Python.
-Для каждой команды в интерпретаторе есть блок кода, который умеет такую команду исполнять.</p>
-
-<p>Вторая важная составляющая интерпретатора — анализатор текста. Когда программист вводит текст, анализатор разбирает его на составные части и понимает, о какой команде идет речь. После этого он передает управление блоку, отвечающему за выполнение этой команды.</p>
-
-<p>Так — в цикле — интерпретатор и работает. Анализирует введенную команду, затем выполняет, снова анализирует и снова выполняет. Анализ текста это, конечно, не тривиальная задача, но и не слишком трудная, так что интерпретаторы на самом деле не такие сложные программы.</p>
-
-<p><img src="/assets/images/interpreter/how-it-works.png" alt="Как работает интерпретатор" /></p>
-
-<h2 id="достоинства-и-недостатки">Достоинства и недостатки</h2>
-
-<p>Достоинства интерпретаторов:</p>
-
-<ul>
-  <li>
-    <p><strong>Простота изучения.</strong> REPL помогает проверять, как работают незнакомые конструкции и быстро осваивать синтаксис языка.</p>
-  </li>
-  <li>
-    <p><strong>Простота программирования.</strong> Как и компилятор, интерпретатор избавляет от необходимости писать программы в машинных кодах.</p>
-  </li>
-  <li>
-    <p><strong>Кроссплатформенность.</strong> Интерпретаторы разработаны для разных платформ — Mac, Windows, Linux, поэтому написанная нами программа будет работать на всех платформах.</p>
-  </li>
-  <li>
-    <p><strong>Улучшение программы за счет интерпретатора.</strong> Скорость программ зависит не только от качества кода, но и от того, насколько быстро работает интерпретатор. Например, программисты Google постоянно улучшают интерпретатор JavaScript, который работает в браузере Chrome. Если мы написали программу на JavaScript, с каждой новой версией Chrome она работает быстрее, даже если мы ничего в ней не меняем.</p>
-  </li>
-</ul>
-
-<p>Недостатки интерпретаторов:</p>
-
-<ul>
-  <li>
-    <p><strong>Низкая скорость.</strong> Интерпретируемые программы работают медленнее, чем программы в машинных кодах. Это происходит потому, что интерпретатор должен сначала проанализировать текст команды, и лишь потом выполнить ее. Программа в машинных кодах сразу понятна компьютеру.</p>
-  </li>
-  <li>
-    <p><strong>Зависимость от интерпретатора.</strong> Интерпретируемой программе нужен интерпретатор. В Windows программы в машинных кодах имеют расширение <em>.exe</em>. Такую программу, скажем, архиватор 7-zip можно просто запустить. А для того, чтобы выполнить программу на языке Python, нужен интерпретатор <em>python</em>.</p>
-  </li>
-  <li>
-    <p><strong>Доступность исходного кода.</strong> Исходный код на интерпретируемом языке доступен пользователю программы. Пользователь может подсмотреть в программе то, что ее автор хотел бы скрыть, например, способ шифрования пароля или уникальный алгоритм.</p>
-  </li>
-  <li>
-    <p><strong>Позднее обнаружение ошибок.</strong> Интерпретаторы выполняют программы по одной команде. Если в синтаксисе команды допущена ошибка, интерпретатор не сможет об этом узнать, пока не приступит к ее анализу. В больших программах есть куски, которые выполняются реже других и, возможно, там есть ошибки, про которые программист не знает. Чтобы избежать ошибок, которые увидит пользователь программы, приходится тестировать её гораздо тщательней.</p>
-  </li>
-</ul>
-
-<h2 id="выводы-и-рекомендации">Выводы и рекомендации</h2>
-
-<p>Интерпретатор языка программирования — это программа, выполняющая команды, написанные на этом языке. Мы, например, говорим <em>интерпретатор Python</em> или <em>интерпретатор JavaScript</em>.</p>
-
-<p>Интерактивный режим (REPL) помогает программистам изучать синтаксис языка и проверять свои идеи.</p>
-
-<p>Интерпретатор состоит из анализатора текста и исполнителей отдельных команд языка, таких как цикл <code class="language-plaintext highlighter-rouge">for</code>, проверка <code class="language-plaintext highlighter-rouge">if</code>, вызов функции <code class="language-plaintext highlighter-rouge">print</code>, и других.</p>
-
-<p>К достоинствам интерпретируемых языков относят простоту изучения. Именно поэтому программирование начинают изучать с таких языков, как Python и JavaScript.</p>
-
-              ]]>
-            </turbo:content>
-        </item>
-        
-        <item turbo="true">
-            <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/time/</link>
-            <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое время</turbo:topic> -->
-            <title>Что такое время</title>
-            <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
-            <author>Александр Вериго</author>
-            <!-- <yandex:related></yandex:related> -->
-            <turbo:content>
-              <![CDATA[
-                <div data-block="breadcrumblist">
-                  <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/time/">Что такое время</a>
-                </div>
-                <button
-                  formaction="https://guides.hexlet.io/time/"
-                  data-background-color="#eee"
-                  data-color="dark"
-                  data-turbo="false"
-                  data-primary="false"
-                >
-                  Читать полную версию на сайте
-                </button>
-                <h2 id="как-компьютер-определяет-человеческое-время">Как компьютер определяет человеческое время?</h2>
-
-<p>Представим ситуацию: Вы нашли в кладовой старый компьютер и решили попробовать
-его включить. Компьютер запускается, хотя стоял без дела 10 лет, но есть
-проблема: система уверена, что сегодня 1 января 1970 года. Эта ситуация поможет
-разобраться, как компьютеры хранят текущее время: ведь у них нет внутри пружин
-или маятников, как в часах, которые могли бы отсчитывать секунды. Каким образом
-они показывают верное время, если отключить их на несколько часов, и почему тот
-же принцип не работает, если компьютер простоял в кладовке 10 лет?</p>
-
-<h3 id="маятник-как-первый-секундомер">Маятник как первый секундомер</h3>
-
-<p>Прежде, чем ответить на эти вопросы, разберемся, как измеряется точное время.
-Это не такая простая задача, если под рукой нет часов.
-Мы можем отсчитывать дни, месяцы и годы или приблизительно разбить день на часы.
-Но найти ориентир, который подскажет количество прошедших секунд, гораздо сложнее.</p>
-
-<p>Принято считать, что первым эту задачу в XVII веке решил итальянский ученый
-<a href="https://ru.wikipedia.org/wiki/%D0%93%D0%B0%D0%BB%D0%B8%D0%BB%D0%B5%D0%B9,_%D0%93%D0%B0%D0%BB%D0%B8%D0%BB%D0%B5%D0%BE">Галилео Галилей</a>.
-Галилео нужно было точно знать, сколько длился тот или иной эксперимент. Его биографы
-утверждают, что сначала он считал количество своих сердцебиений, но однажды
-наблюдал за раскачивающимся канделябром в кафедральном соборе Пизы и заметил,
-что каждое колебание канделябра занимает одинаковое количество сердцебиений.
-Это число не меняется при затухании амплитуды движений. Так он понял, что
-колебания маятника помогают точно измерять время.</p>
-
-<h3 id="можно-ли-использовать-колебания-для-подсчета-времени-в-компьютере">Можно ли использовать колебания для подсчета времени в компьютере?</h3>
-
-<p>Когда в 70-е-80-е годы инженеры впервые столкнулись с задачей отображения человеческого
-времени в компьютере, они, как ни странно, обратились к трудам итальянского ученого,
-но взглянули на них под другим углом. Маятник — не единственный возможный источник
-колебаний. У любого современного персонального компьютера есть «сердце» — центральное
-процессорное устройство (ЦПУ), или просто процессор. Он устроен очень сложно и выполняет
-множество функций, но в данном случае интересно одно из составляющих его устройств.
-Когда через него проходит ток, оно испускает равномерные электрические колебания
-с одинаковой <a href="https://en.wikipedia.org/wiki/Clock_rate">частотой</a>. Частота этих
-колебаний измеряется в герцах (Гц) и определяет количество операций, которое процессор
-может выполнить за одну секунду. К сожалению, если мы будем использовать
-единственную доступную нам операцию в секунду для увеличения счетчика колебаний,
-то наш процессор будет совершенно непригоден для чего-то ещё: ему будет некогда
-исполнять другие команды. Конечно, современные процессоры не такие медленные, их
-частота измеряется в гигагерцах (ГГц), то есть в 1 000 000 000 операций в секунду.
-Но даже при такой мощности для измерения времени пришлось бы считать каждое колебание
-процессора. Для решения проблемы был придуман кварцевый генератор. Он представляет
-собой тончайшую кремниевую пластину, которая под воздействием электрического
-тока равномерно расширяется и сжимается, <a href="https://ru.wikipedia.org/wiki/%D0%9F%D1%8C%D0%B5%D0%B7%D0%BE%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%8D%D1%84%D1%84%D0%B5%D0%BA%D1%82">генерируя слабый электрический заряд на
-поверхности</a>.
-Таким образом, механические колебания пластины сопровождаются синхронными, равномерными
-колебаниями электрического заряда.</p>
-
-<p><img src="/assets/images/time/oscillator.png" alt="oscillator" /></p>
-
-<p>Полученные равномерные колебания принято называть таймером — они позволяют
-процессору синхронизировать производимые им операции во времени. Таким образом,
-у компьютера есть своё собственное понимание времени.</p>
-
-<h3 id="от-компьютерного-времени-к-человеческому">От компьютерного времени к человеческому</h3>
-
-<p>Получается, что внутри компьютера есть таймер, но он не измеряет человеческое
-время — оно для него довольно бесполезно. Как правило, эту задачу на себя берут
-операционные системы (ОС). Поскольку ОС знает, с какой частотой работает кварцевый
-генератор, она может измерить время, которое проходит между срабатываниями таймера
-(срабатывание таймера называют тик (tick) или джиффи (jiffy)). Если генератор
-работает на частоте 100 Гц, то период между тиками равен 1/100 секунды или 10
-миллисекундам. Операционная система создает в памяти переменную, которую обычно
-называют jiffies, и увеличивает её на единицу каждый раз, когда процессор дает
-сигнал о новом тике.</p>
-
-<p>Соответственно, чтобы узнать, как долго включен компьютер, системе достаточно
-умножить размер периода между тиками на количество этих самых тиков. А чтобы узнать
-текущее время, нужно просто добавить прошедшее время к времени на момент старта
-системы. Но как узнать человеческое время на момент старта системы?</p>
-
-<h3 id="rtc-или-часы-реального-времени">RTC или часы реального времени</h3>
-
-<p>Первые персональные компьютеры (например, <a href="https://en.wikipedia.org/wiki/IBM_Personal_Computer#Design_process">IBM PC</a>
-или <a href="https://en.wikipedia.org/wiki/Apple_II">Apple II</a>), не умели следить за тем,
-сколько прошло время после выключения, а <a href="https://www.youtube.com/watch?v=X3aqJQPQKhs">спрашивали его на старте</a>.
-Для решения этой задачи снова пригодился кварцевый генератор. Устройству неважно,
-из какого источника получать электрический ток, — это натолкнуло разработчиков на
-мысль, что достаточно подключить генератор к обычной литиевой батарейке, чтобы
-получать равномерные электрические колебания.</p>
-
-<p>Если в эту схему добавить бинарный счетчик, который увеличивается на каждое колебание,
-то мы получим устройство, которое может фиксировать человеческое время. Оно так
-и называется — RTC (Real Time Clock), или часы реального времени. Частота колебаний
-на выходе из RTC обычно 32 768 Гц или 2^15 Гц, что удобно использовать в бинарных
-счетчиках.</p>
-
-<p><img src="/assets/images/time/RTC.png" alt="RTC" /></p>
-
-<p>Старый компьютер, о котором шла речь в начале, перепутал время именно из-за того,
-что батарейка в его часах реального времени села: после запуска он не смог
-считать время из RTC и выставил стандартное стартовое время — 1 января
-1970 года.</p>
-
-<h3 id="ntp-или-протокол-сетевого-времени">NTP или протокол сетевого времени</h3>
-
-<p>RTC позволяет компьютеру отсчитывать миллисекунды, даже когда он выключен. Но
-стандартные RTC имеют погрешность 1,7-8,6 секунд в день — то есть за год они могут
-потерять целый час.</p>
-
-<p>Иногда мы сталкиваемся с этой проблемой в реальной жизни: например, когда нам
-приходится вручную настраивать время на наручных кварцевых часах или на микроволновке,
-где тоже используют RTC. Но нам никогда не приходится делать этого на компьютере.
-Да и на старте компьютер больше не спрашивает текущее время.
-Современные компьютеры настраивают время через интернет — для этого используется
-NTP (протокол сетевого времени). Этот протокол даже учитывает время передачи данных
-между источником и компьютером и компенсирует его. В публичной сети погрешность
-составляет всего 10 мс.</p>
-
-<h3 id="как-протоколы-работают-вместе">Как протоколы работают вместе?</h3>
-
-<p><img src="/assets/images/time/computer_time_keeping_system.png" alt="computer timekeeping" /></p>
-
-<p>Когда наш компьютер выключен, RTC продолжает работу и отсчитывает время.
-Когда мы нажимаем кнопку запуска, операционная система забирает время из RTC и
-начинает отслеживать время самостоятельно, используя таймер процессора. Время от
-времени операционная система получает точное время по NTP и поправляет свой
-внутренний счетчик. Когда мы выключаем компьютер, за дело снова берется RTC.</p>
-
-<h2 id="таймстампы-и-эпохи">Таймстампы и эпохи</h2>
-
-<p>Как уже говорилось, для отслеживания человеческого времени операционная система
-создает в памяти компьютера переменную jiffy, в которой хранит количество тиков
-с момента старта системы. Но как с помощью неё показывать человеку календарь?</p>
-
-<h3 id="unix-таймстамп-и-epoch">Unix-таймстамп и epoch</h3>
-
-<p>В 70-е годы прошлого века эту проблему решили инженеры из Bell Labs при разработке
-операционной системы Unix (она заложила фундамент для появления современных Linux
-и MacOS). Они ввели в систему переменную, которая, начиная с заданной даты,
-увеличивается на каждый тик генератора — её называли epoch.</p>
-
-<p>Под эту переменную отводилось целое число со знаком (signed integer) размером в
-32 бита (то есть от −2 147 483 648 (-2^31) до 2 147 483 647 (2^31−1)). Подавляющее
-большинство генераторов на тот момент работали на частоте 60 Гц, то есть отсчитывали
-60 тиков в секунду, поэтому в переменной хранилось 1/60 секунды и она могла
-представлять временной промежуток не более 829 дней.</p>
-
-<p>В <a href="http://man.cat-v.org/unix-1st/2/sys-time">версии Unix от 1971 года</a> отсчет начинался
-с 1971-01-01 00:00:00. <a href="https://minnie.tuhs.org/cgi-bin/utree.pl?file=V3/man/man2/time.2">На следующий год</a>
-с 1972-01-01 00:00:00. Переводить время каждый год было довольно неудобно, поэтому
-в <a href="https://minnie.tuhs.org/cgi-bin/utree.pl?file=V4/man/man2/time.2">четвертой версии Unix</a>
-в 1973 году за epoch была взята дата 1970-01-01 00:00:00, а в переменной стали
-хранить не 1/60 секунды, а полную секунду. Позже этот принцип стал международным
-стандартом и используется по сей день.</p>
-
-<p>Если на Вашем компьютере установлена операционная система семейства Linux или MacOS,
-Вы можете увидеть текущий Unix-timestamp, введя в терминале:</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">date</span> +<span class="s2">"%s"</span>
-</code></pre></div></div>
-
-<p>Windows тоже считает время, отталкиваясь от конкретной даты, но использует для
-этого не абстрактный 1970 год, а 1601 — первый год Григорианского календаря.</p>
-
-<h3 id="проблема-2038-года">Проблема 2038 года</h3>
-
-<p>Поскольку время хранится в целочисленной 32-битовой переменной и представляет
-собой определенное количество секунд с определенного момента, то самое большое
-количество секунд, которое мы можем использовать — это 2 147 483 647 (2^31−1).
-Если прибавить это количество к epoch, то мы получим 19 января 2038 03:14. Что
-произойдет с системой, когда наступит этот день и пройдет еще одна секунда?</p>
-
-<p>Чтобы ответить на этот вопрос, рассмотрим особенность 32-битовых переменных:</p>
-
-<p>2 147 483 647 в двоичной системе записывается как</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="mi">01111111111111111111111111111111</span> <span class="c1">// (1 ноль и 31 единица)</span>
-</code></pre></div></div>
-
-<p>Если это число увеличить на единицу, то оно превратится в</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="mi">10000000000000000000000000000000</span> <span class="c1">// (1 единица и 31 ноль)</span>
-</code></pre></div></div>
-
-<p>Первая цифра у таких чисел означает знак: <code class="language-plaintext highlighter-rouge">+</code> или <code class="language-plaintext highlighter-rouge">-</code>. А значит, что в десятичной
-системе оно будет равно −2 147 483 648, то есть число перейдет от самого
-большого положительного к самому маленькому отрицательному. И система начнет
-показывать дату, равную разности epoch и двух млрд секунд, то есть 13 декабря 1901
-года. Но не стоит волноваться, проблема уже решена — большинство систем используют
-64 битовые числа для хранения времени. Этого хватит, чтобы не столкнуться с проблемой
-до 15:40 4 декабря 292 277 026 596 года.</p>
-
-<h3 id="проблема-2000-года-или-y2k-bug">Проблема 2000 года или Y2K bug</h3>
-
-<blockquote>
-  <p>«640 килобайт памяти должно хватить кому угодно», — Билл Гейтс.</p>
-</blockquote>
-
-<p>На самом деле в истории уже была такая ситуация. В 60-70-е годы прошлого столетия,
-когда люди только начали писать программное обеспечение для компьютеров, платы
-памяти стоили дорого и большинство компьютеров обходились несколькими килобайтами.
-Ради экономии памяти программисты решили записывать даты в формате ДД.ММ.ГГ.</p>
-
-<p>Какую проблему это порождало? Допустим, у нас есть человек по имени Боб, у
-которого дата рождения записана как 01.11.19. Он родился в 1919 году, и ему чуть
-больше 100 лет. Есть человек по имени Фред и он родился 02.11.19, но ему всего
-два года, потому что он родился в 2019 году. Сталкиваясь с таким форматом дат,
-человек может исходить из контекста, но компьютер на такое не способен.</p>
-
-<p>Программисты, которые писали программы в 60-70-е годы даже не предполагали, что
-их код может дожить до 2000 года, поэтому использование двух цифр вместо четырех
-было нормальной оптимизацией. Но когда приближался 2000 год, а многие компании всё
-ещё использовали тот же формат дат, началась паника: никто не понимал, что произойдёт,
-когда 99 год сменится на 00. Тогда в мире ходили самого разного рода слухи:
-например, что банкоматы в этот момент начнут плеваться деньгами, а самолёты начнут
-падать. Баг был вовремя замечен и проблему в большинстве систем удалось исправить
-вовремя.</p>
-
-<h2 id="об-особенностях-работы-с-локальным-временем-и-часовыми-поясами">Об особенностях работы с локальным временем и часовыми поясами</h2>
-
-<h3 id="почему-не-стоит-самостоятельно-писать-код-описывающий-время">Почему не стоит самостоятельно писать код, описывающий время</h3>
-
-<p>Представим, что абстрактный программист пишет приложение, которое должно каждый
-день в 12 часов дня отправлять пользователю уведомление, что наступил полдень.
-Программист живет в Лондоне и оно будет использоваться только там.
-Писать код он начал зимой, поэтому разницы с <a href="https://ru.wikipedia.org/wiki/%D0%92%D1%81%D0%B5%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B5_%D0%BA%D0%BE%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%B2%D1%80%D0%B5%D0%BC%D1%8F">UTC</a>
-(Всемирным координированным временем) нет.</p>
-
-<p>Приложение работало всю зиму, но в первый день апреля уведомление ушло на час
-позже полудня. Дело в том, что разработчик просто прикрутил таймер, который
-срабатывает раз в 24 часа, а в последний день марта в Великобритании перевели
-время на час вперед — на летнее. Разработчик быстро исправил ситуацию, заменив
-таймер на планировщик задач — последний срабатывает в соответствии с локальным
-временем сервера, который находится в квартире разработчика.</p>
-
-<p>Как ни странно, приложение пользуется популярностью.
-Спустя некоторое время разработчик получает отзыв от разгневанного пользователя
-из Нью-Йорка: тот пишет, что уведомления приходят вовсе не в полдень, а в 7 утра.
-Нью-Йорк находится в часовом поясе ETC (Eastern Time Zone), то есть UTC -05:00.</p>
-
-<p>Для разных часовых поясов нельзя просто ставить таймер, отталкиваясь от времени
-на сервере. Разработчик добавил выбор часового пояса при регистрации и переписал
-планировщик так, чтобы он стартовал для каждого пользователя раньше или позже на
-несколько часов в зависимости от данных, которые человек ввёл при регистрации.</p>
-
-<p>Кажется, теперь все работает хорошо — но в ноябре разработчику начали писать
-пользователи из Москвы и жаловаться на уведомления, которые приходят в 11 утра.
-Дело в том, что в Великобритании время переводится с зимнего на летнее, а в России
-— нет. К тому моменту разработчик начал нервничать и решил просто записать в коде,
-что если пользователь из России, то делать переход во времени для него не нужно.
-Приложение тем временем только набирало популярность.</p>
-
-<p>В марте, разработчику пишут из Сиднея — им уведомление приходит в два часа дня.
-Все потому, что в южном полушарии в марте происходит переход не на летнее время,
-а на зимнее. Разработчику не оставалось ничего иного, как дополнить свой код
-информацией о том, что в южном полушарии надо переводить время наоборот. Приложение
-уже стало популярным во всём мире и на разработчика посыпались претензии со всех
-уголков света. Например, пользователи из Палестины писали жалобы каждый раз, как
-их правительство переводило часы с летнего времени на зимнее, а случается это
-каждый раз в разное время. А ещё дело было в 2011 году, и 29 декабря пользователи
-из Самоа дружно пересекли <a href="https://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D0%BD%D0%B8%D1%8F_%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D1%8B_%D0%B4%D0%B0%D1%82%D1%8B">линию перемены даты</a>,
-совершив скачок в будущее и очутившись 31 декабря 2011 года. Еще через год
-разработчику позвонили из <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D0%B6%D0%B4%D1%83%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F_%D1%81%D0%BB%D1%83%D0%B6%D0%B1%D0%B0_%D0%B2%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D1%8F_%D0%97%D0%B5%D0%BC%D0%BB%D0%B8">Международной службы вращения Земли</a>
-и сообщили, что ему надо поправить приложение, потому что в этом году будет на
-одну секунду больше, чем в прошлом из-за добавления дополнительной секунды. Записывать
-все это в код — совершенно безумная идея. Поэтому разработчик закрыл проект и
-больше никогда не писал код.</p>
-
-<h3 id="пара-советов-как-работать-с-локальным-временем">Пара советов, как работать с локальным временем</h3>
-
-<p>Что бы мог сделать разработчик, чтобы избежать такого печального финала?
-Все просто — достаточно было учесть опыт тех, кто уже решал эту проблему и
-выкладывал решение в открытый доступ. В каждом языке программирования есть как
-минимум одна библиотека, которая умеет работать с человеческим временем и часовыми
-поясами. Более того, существует база данных, в которой хранится информация о
-локальном времени, в том числе в исторической перспективе.</p>
-
-<p>Что бы мог сделать разработчик:</p>
-
-<ul>
-  <li>Переложить ответственность за подсчет времени на библиотеки и базы данных;</li>
-  <li>Хранить не разницу во времени с локальным временем пользователя, а его часовой
-пояс в соответствии с <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">классификацией IANA</a>,
-то есть не +3, а “Europe/Moscow”;</li>
-  <li>Настроить планировщик так, чтобы он выбирал задачи из списка в соответствии с
-часовым поясом.</li>
-</ul>
-
-<h3 id="пара-советов-как-не-работать-с-локальным-временем">Пара советов, как НЕ работать с локальным временем</h3>
-
-<p>Существует много сценариев, при которых крайне важна последовательность событий,
-на которую не могут повлиять ни изменения часовых поясов, ни переход на летнее время.</p>
-
-<p>Предположим, нужно написать сервис, обслуживающий банковские транзакции. Его
-функционал крайне простой: один пользователь отправляет другому деньги банковским
-переводом, любой из них может получить информацию обо всех переводах. В данном
-случае нужно хранить информацию о том, кто, кому, когда и сколько денег перевёл.
-При этом показывать эту информацию нужно в локальном времени пользователя при
-условии, что транзакции в любом часовом поясе идут одна за другой.</p>
-
-<p>Учтём опыт разработчика из примера выше и не будем описывать время самостоятельно,
-а используем библиотеку. Тут мы столкнемся с рядом вопросов:</p>
-
-<ul>
-  <li>В каком часовом поясе хранить транзакции, если клиенты живут в разных странах,
-а база данных находится в третьей стране;</li>
-  <li>Как учитывать переход на летнее и зимнее время;</li>
-  <li>Как учитывать дополнительную секунду;</li>
-  <li>Что делать, если пользователь переехал из одной страны в другую.</li>
-</ul>
-
-<p>И лучшим решением будет не делать ничего. Не нужно учитывать временные зоны клиентов,
-не нужно учитывать переходы на летнее и зимнее время, не нужно учитывать переезды
-пользователей. Когда нужно абсолютное время, достаточно использовать UTC.</p>
-
-<p>Время в UTC поддерживается почти всеми библиотеками и почти всеми база и данных.
-Используя UTC, мы можем получать транзакцию в локальном времени пользователя,
-переводить это время в UTC и сохранять у себя. И транзакции всегда будут идти
-одна за другой.</p>
-
-<p>Правда, существует проблема: UTC учитывает дополнительные секунды, а значит, в
-какой-то момент мы можем получить такие транзакции:</p>
-
-<ul>
-  <li>Маша Феде перевела 100 рублей 2016-12-31 в 23:59:58</li>
-  <li>Федя Юре перевёл 100 рублей 2016-12-31 в 23:59:59</li>
-  <li>Юра отправил Майклу 1$ 2016-12-31 в 23:59:60</li>
-  <li>Майкл отправил Теду 99$ 2017-01-01 в 00:00:00</li>
-</ul>
-
-<p>Скорее всего программа, работающая с UTC, не сможет сказать, что произошло раньше
-— вторая транзакция, третья или четвертая. Google, которой очень важна абсолютная
-последовательность событий во времени, очень интересно решила эту проблему.
-В своих серверах точного времени они добавляют дополнительную секунду не за раз,
-а равномерно распределяют её в течение дня в начале года. Это называется
-<a href="https://developers.google.com/time/smear">leap smear</a>. Таким образом, раз в год,
-когда астрономы объявляют дополнительную секунду, в течение суток сервера точного
-времени Google немного отстают от UTC, чтобы набрать дополнительную секунду.</p>
-
-<h2 id="выводы">Выводы</h2>
-
-<ul>
-  <li>В любом современном ПК есть процессор, который умеет производить колебания с
-равными интервалами.</li>
-  <li>Зная период этих колебаний, операционная система компьютера может считать
-человеческое время.</li>
-  <li>С помощью протокола NTP операционная система может обращаться к серверам
-точного времени для скорректировать своих часов.</li>
-  <li>Когда компьютер выключен, время считает специальное устройство — RTC, которое
-питается от батареи.</li>
-  <li>Epoch — это некая дата, от которой принято отсчитывать время вперед или назад.
-Разные операционные системы и языки программирования могут выбирать свой собственный
-epoch.</li>
-  <li>Unix-timestamp — это количество секунд, прошедших с unix-epoch, то есть
-с 00:00 1 января 1970 года.</li>
-  <li>Никогда не пишите самостоятельно код, который описывает человеческое время.</li>
-  <li>Если вам нужна точная последовательность действий во времени, не используйте
-часовые зоны. Храните время в UTC и по требованию конвертируйте его.</li>
-</ul>
-
-<h2 id="дополнительные-материалы">Дополнительные материалы</h2>
-
-<ul>
-  <li><a href="https://www.youtube.com/watch?v=YuSgZ173Utg">Как компьютеры складывают числа</a></li>
-</ul>
-
-              ]]>
-            </turbo:content>
-        </item>
-        
-        <item turbo="true">
-            <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/rest-api/</link>
-            <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое REST API?</turbo:topic> -->
-            <title>Что такое REST API?</title>
+            <!-- <turbo:topic>Что такое REST-архитектура?</turbo:topic> -->
+            <title>Что такое REST-архитектура?</title>
             <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -1512,10 +26,10 @@ epoch.</li>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/rest-api/">Что такое REST API?</a>
+                  <a href="https://guides.hexlet.io/rest/">Что такое REST-архитектура?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/rest-api/"
+                  formaction="https://guides.hexlet.io/rest/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -1523,34 +37,7 @@ epoch.</li>
                 >
                   Читать полную версию на сайте
                 </button>
-                <p>REST API это HTTP API (иногда говорят WEB API) построенный по принципам REST-архитектуры. Впервые термин REST ввел Рой Филдинг в своей докторской диссертации “Architectural Styles and the Design of Network-based Software Architectures” в 2000 году. Многие обратили на нее серьезное внимание, потому что Рой был не случайным человеком в индустрии. Этот ученый был одним из ключевых разработчиков протокола HTTP/1.0 и автором HTTP/1.1. Он участвовал в разработке языка HTML и стандарта URI. Кроме того, он со-автор некогда самого популярного веб-сервера в мире Apache Web Server.</p>
-
-<p><em>Небольшое отступление. Вокруг REST существует множество домыслов, за которыми потерялась суть и у немалого числа программистов осталось искаженное понимание REST. Во многом, это связано с самим процессом изучения программирования. Разработчики узнают о REST из документации фреймворков, в которых раскрывается лишь несколько деталей за которыми не видно всю картину. Оно и понятно, у фреймворков нет цели учить людей архитектуре, их задача дать инструмент и научить им пользоваться</em></p>
-
-<h2 id="немного-истории">Немного истории</h2>
-
-<p>Прежде чем обсуждать конкретно, что из себя представляют принципы REST, нужно немного поговорить о его истории. Глобально, REST это не про то как делать HTTP API. REST это, то по каким принципам должен был быть построен весь WEB.</p>
-
-<blockquote>
-  <p>Since 1994, the REST architectural style has been used to guide the design and development of the architecture for the modern Web. This work was done in conjunction with my authoring of the Internet standards for the Hypertext Transfer Protocol (HTTP) and Uniform Resource Identifiers (URI), the two specifications that define the generic interface used by all component interactions on the Web.<br /><br />— Roy Fielding, Architectural Styles and the Design of Network-based Software Architectures, p. 107.</p>
-</blockquote>
-
-<p>То есть не REST появился для того чтобы упорядочить WEB, а WEB стал таким чтобы соответствовать REST.</p>
-
-<h2 id="уровни-протоколов">Уровни протоколов</h2>
-
-<h2 id="семантика-http">Семантика HTTP</h2>
-
-<h2 id="от-soap-к-rest">От SOAP к REST</h2>
-
-<h2 id="принципы-rest">Принципы REST</h2>
-
-<h2 id="дополнительные-материалы">Дополнительные материалы</h2>
-
-<ul>
-  <li>https://restapitutorial.ru/</li>
-  <li>https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf</li>
-</ul>
+                <p>В разработке</p>
 
               ]]>
             </turbo:content>
@@ -1560,9 +47,9 @@ epoch.</li>
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/deploy/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
+            <!-- <turbo:topic>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами 
 </turbo:topic> -->
-            <title>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
+            <title>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами 
 </title>
             <pubDate>Fri, 11 Jun 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
@@ -1571,7 +58,7 @@ epoch.</li>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/deploy/">Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
+                  <a href="https://guides.hexlet.io/deploy/">Deploy (деплой) - что значит «задеплоить на сервер» простыми словами 
 </a>
                 </div>
                 <button
@@ -1976,8 +463,6 @@ PLAY RECAP <span class="k">*****************************************************
 </code></pre></div></div>
 
 <p>Вывод говорит о том, что плейбук успешно выполнен. В результате в директории <em>/tmp</em> окажется файл <em>ansible_was_here</em>. Повторный запуск плейбука тоже закончится успешно, но из вывода будет видно, что он не сделает никаких изменений, так как Ansible сам обеспечивает идемпотентность. В данном случае, он проверит наличие файла и пропустит команду если файл существует. Если в <em>inventory.ini</em> указать несколько ip-адресов, то Ansible выполнит плейбук на каждом из них, причем сделает это параллельно. Единственное о чем нужно не забыть – добавить ssh-ключи на эти машины, иначе Ansible не сможет до них достучаться.</p>
-
-<p><img src="/assets/images/configuration-management/ansible.png" alt="Ansible" /></p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
     <a href="https://ru.hexlet.io/courses/ansible?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс по Ansible с практикой прямо в браузере</a>
@@ -2487,12 +972,6 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
   <li>внимательно набирать код, избегая синтаксических ошибок;</li>
   <li>избегать повторяющихся действий и бесполезных переменных.</li>
 </ul>
-
-<h2 id="частые-вопросы">Частые вопросы</h2>
-
-<h3 id="чем-компилятор-отличается-от-интерпретатора">Чем компилятор отличается от интерпретатора?</h3>
-
-<p>Компилятор это программа, которая выполняет преобразование текста программы в другое представление, обычно машинный код, без его запуска, статически. Затем эта программа уже может быть запущена на выполнение. <a href="/interpreter/">Интерпретатор</a> сразу запускает код и выполняет его в процессе чтения. Промежуточного этапа как в компиляции нет.</p>
 
 <h2 id="дополнительные-материалы">Дополнительные материалы</h2>
 
@@ -3420,6 +1899,10 @@ npm i <span class="nt">-D</span> webpack webpack-cli
 
 <p>Самый простой вариант решения, указанных выше проблем — копирование директорий. К сожалению, такой подход обладает только недостатками. Перенос изменений из одной директории в другую возможен только полной перезаписью, так как точечные изменения отследить невозможно (только по памяти). Как только папок станет две, вы сразу начнёте путаться в них. И всё равно этот способ никак не поможет работать над кодом одновременно двум людям.</p>
 
+<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
+    <a href="?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank"></a>
+</div>
+
 <p>Совместная разработка — это отдельная головная боль. Если два программиста работают над задачами, требующими исправления кода в одних и тех же файлах, то как они выполнят эту работу так, чтобы не повредить или перезаписать изменения другого разработчика?</p>
 
 <p>К счастью, эту задачу решили ещё в 80-х годах. С тех пор инструментарий сильно развился и стал использоваться повсеместно не только для кода, но и, например, для написания и перевода книг. Решением является <strong>контроль версий</strong>. Выполняется он с помощью специальных программ, которые умеют отслеживать изменения кода. Вот некоторые из многочисленных возможностей данных систем:</p>
@@ -3436,19 +1919,19 @@ npm i <span class="nt">-D</span> webpack webpack-cli
 
 <p>Системы контроля версий (СКВ или VCS — Version Control System) часто встроены в инструменты, привычные даже далёким от программирования людям. Именно с них мы и начнём своё знакомство, а заодно погрузимся в соответствующую терминологию.</p>
 
-<p>Сервисы синхронизации файлов между устройствами, такие как Dropbox, используются практически всеми. И все они отслеживают версии файлов, с которыми работают. Происходит это так: периодически программа синхронизирует локальные файлы с теми, которые находятся в хранилище сервиса. Если локальный файл отличается, и время его изменения — позже файла, находящегося на сервере, то файл на сервере становится частью истории изменений, а текущим становится последний изменённый файл.</p>
+<p>Сервисы синхронизации файлов между устройствами, такие как Dropbox, используются практически всеми. И все они отслеживают версии файлов, с которыми работают. Происходит это так: периодически программа синхронизирует локальные файлы с теми, которые находятся в хранилище сервиса. Если локальный файл отличается, и время его изменения – позже файла, находящегося на сервере, то файл на сервере становится частью истории изменений, а текущим становится последний изменённый файл.</p>
 
 <p><img src="/assets/images/git/1.png" alt="dropbox, история версий" /></p>
 
-<p>На картинке выше текущая версия файла обозначена как current. Всё остальное — это предыдущие версии текущего файла. Как видно, Dropbox позволяет восстановить любую версию файла.</p>
+<p>На картинке выше текущая версия файла обозначена как current. Всё остальное – это предыдущие версии текущего файла. Как видно, Dropbox позволяет восстановить любую версию файла.</p>
 
 <p>Обратите внимание на эту фразу:</p>
 
 <p>Dropbox keeps a snapshot every time you save a file. (Дропбокс сохраняет снимок каждый раз, когда вы сохраняете файл)</p>
 
-<p>Снимок (snapshot; разг. снепшот) — очень важное понятие, которое будет встречаться нам в будущем. Его ещё называют снимком состояния или даже мгновенным снимком (буквальный перевод), но для простоты будем называть его просто «снимок».</p>
+<p>Снимок (snapshot; разг. снепшот) – очень важное понятие, которое будет встречаться нам в будущем. Его ещё называют снимком состояния или даже мгновенным снимком (буквальный перевод), но для простоты будем называть его просто «снимок».</p>
 
-<p>В данном случае, снимок — это сам файл после изменения. И чтобы лучше понять этот термин, посмотрим на альтернативу — дельту изменения (diff). Представьте, что вместо сохранения новой версии файла Dropbox бы вычислял разницу между новым и старым файлом (а это не сложно сделать для текстовых файлов) и сохранял только её. Зачем так делать, спросите вы? Такой подход позволяет сэкономить место на диске, хотя и вносит дополнительную сложность при работе с файлами.</p>
+<p>В данном случае, снимок – это сам файл после изменения. И чтобы лучше понять этот термин, посмотрим на альтернативу — дельту изменения (diff). Представьте, что вместо сохранения новой версии файла Dropbox бы вычислял разницу между новым и старым файлом (а это не сложно сделать для текстовых файлов) и сохранял только её. Зачем так делать, спросите вы? Такой подход позволяет сэкономить место на диске, хотя и вносит дополнительную сложность при работе с файлами.</p>
 
 <p>В дальнейшем мы увидим, что разные инструменты используют разные подходы: некоторые работают с дельтой изменений, другие — со снимками. Кстати, термин «снимок» часто применяют к дискам. Например, можно сделать снимок диска и потом восстанавливаться с этой точки (прямо как в играх).</p>
 
@@ -3458,9 +1941,9 @@ npm i <span class="nt">-D</span> webpack webpack-cli
 
 <p>Сервис Google Docs автоматически делает снимки после каждого автосохранения (примерно раз в 5 секунд). Если документ за это время не изменился, то, естественно, новая версия не появляется. Множество таких версий образуют историю изменений.</p>
 
-<p>На картинке выше история версий называется «Revision history». Ревизия — базовое понятие систем контроля версий. Любое зафиксированное изменение в системе контроля версий называется ревизией.</p>
+<p>На картинке выше история версий называется “Revision history”. Ревизия — базовое понятие систем контроля версий. Любое зафиксированное изменение в системе контроля версий называется ревизией.</p>
 
-<p>Обратите внимание на то, что ревизия и снимок — это не одно и то же. Фиксация изменений создаёт ревизию, но сама ревизия может содержать внутри себя либо дельту изменений, либо снимок.</p>
+<p>Обратите внимание на то, что ревизия и снимок – это не одно и то же. Фиксация изменений создаёт ревизию, но сама ревизия может содержать внутри себя либо дельту изменений, либо снимок.</p>
 
 <p>Кстати, процесс переключения между ревизиями также имеет своё название. Когда мы загружаем конкретную ревизию, то говорят, что переключаемся на неё (checkout).</p>
 
@@ -3508,7 +1991,7 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
 <p>При работе с кодом важно, чтобы изменения в рамках одного коммита подчинялись определённым правилам. Только в таком случае можно будет воспользоваться всеми преимуществами СКВ. К таким требованиям относятся:</p>
 
 <ul>
-  <li>Хорошее описание. Как правило, оно начинается кратким однострочным заголовком не более 50 символов, после которого, через пустую строку, следует более детальный поясняющий текст, если он требуется. Обратите внимание, что хорошим тоном является использование повелительного наклонения в заголовке: «Fix scrolling» (Исправить прокрутку), а не «Fixed scrolling» (Исправлена прокрутка) или «Fixes scrolling» (Исправляет прокрутку).</li>
+  <li>Именование. Коммиты должны иметь осмысленное описание. Например: “fix scrolling”.</li>
   <li>Атомарность. Коммит должен решать одну задачу и желательно от начала до конца. Это позволит построить такую историю проекта, которую легко читать и понимать. А в случае необходимости можно легко откатить изменение или перенести его в другую версию программы.</li>
 </ul>
 
@@ -3550,7 +2033,7 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
   <li>Требуют наличия сервера.</li>
 </ul>
 
-<p>Работать в этих системах без доступа к серверу нельзя. Вы не сможете буквально ничего. Посмотреть историю, сделать коммит, откатиться на другую версию, всё это становится невозможно сделать без доступа к сети.</p>
+<p>Работать в этих системах без доступа к серверу нельзя. Вы не сможете буквально ничего. Посмотреть историю, сделать коммит, откатиться на другую версию, всё это становится невозможно сделать без интернета.</p>
 
 <p><img src="/assets/images/git/5.png" alt="системы контроля версий, второе поколение" /></p>
 
@@ -3560,10 +2043,8 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
 
 <ul>
   <li>Распределённые.</li>
-  <li>У каждого участника свой полноценный локальный репозиторий.</li>
+  <li>У каждого свой полноценный репозиторий.</li>
 </ul>
-
-<p>Если и используется сервер, то только лишь для хранения эталонного репозитория. На самом деле все копии репозитория равноправны и могут обмениваться информацией в любых направлениях.</p>
 
 <p><img src="/assets/images/git/6.png" alt="системы контроля версий, третье поколение" /></p>
 
@@ -3929,7 +2410,7 @@ c: Тогда я бы воспользовался встроенной функ
 
 <h2 id="решение-задач">Решение задач</h2>
 
-<p>Разные собеседующие по разному относятся к решению задач. Некоторые их никогда не дают, другие (прим. автора: отношу себя к таким) считают что без реального кодирования нельзя сделать правильных выводов об уровне. В любом случае вы должны быть готовы в режиме собеседования решать задачки подобные <a href="https://ru.hexlet.io/challenges/intro_to_programming_fizzbuzz_exercise">FizzBuzz</a>. Причем как и за компьютером, так и на листочке бумаги.</p>
+<p>Разные собеседующие по разному относятся к решению задач. Некоторые их никогда не дают, другие (прим. автора: отношу себя к таким) считают что без реального кодирования нельзя сделать правильных выводов об уровне. В любом случае вы должны быть готовы в режиме собеседования решать задачки подобные <a href="https://ru.hexlet.io/challenges/intro_to_programming_fizzbuzz">FizzBuzz</a>. Причем как и за компьютером, так и на листочке бумаги.</p>
 
 <h2 id="вопросы-собеседующим">Вопросы собеседующим</h2>
 
@@ -4259,7 +2740,7 @@ c: Тогда я бы воспользовался встроенной функ
                 >
                   Читать полную версию на сайте
                 </button>
-                <p>Хекслет — не просто школа программирования. Это большое и <a href="https://slack-ru.hexlet.io">дружелюбное комьюнити</a> в котором более 20 тысяч участников. Многих мы знаем лично, встречаемся, ходим на скалодром и вместе разрабатываем открытые проекты.</p>
+                <p>Хекслет — не просто школа программирования. Это большое и <a href="https://slack-ru.hexlet.io">дружелюбное комьюнити</a> в котором более 25 тысяч участников. Многих мы знаем лично, встречаемся, ходим на скалодром и вместе разрабатываем открытые проекты.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
     <a href="https://ru.hexlet.io/courses/intro_to_git?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Бесплатный курс «Основы Git» с практикой в браузере
@@ -4436,7 +2917,7 @@ c: Тогда я бы воспользовался встроенной функ
 
 <h3 id="hexlet-comparator">Hexlet Comparator</h3>
 
-<p><a href="https://schools.hexlet.io">schools.hexlet.io</a> — сервис для объективного сравнения онлайн-школ программирования. Стек — NextJS, React.</p>
+<p><a href="schools.hexlet.io">schools.hexlet.io</a> — сервис для объективного сравнения онлайн-школ программирования. Стек — NextJS, React.</p>
 
 <p>Ссылки:</p>
 
@@ -4453,7 +2934,7 @@ c: Тогда я бы воспользовался встроенной функ
 
 <h3 id="jsbrowser">JSBrowser</h3>
 
-<p><a href="https://jsbrowser.herokuapp.com/">jsbrowser</a> — браузер внутри браузера. Поддерживает асинхронную работу, вкладки. Ведёт себя как обычный браузер. Технологии — React, Redux.</p>
+<p>[jsbrowser][jsbrowser.herokuapp.com/] — браузер внутри браузера. Поддерживает асинхронную работу, вкладки. Ведёт себя как обычный браузер. Технологии — React, Redux.</p>
 
 <p>Ссылки:</p>
 
@@ -4510,16 +2991,6 @@ c: Тогда я бы воспользовался встроенной функ
 
 <ul>
   <li>Разработка виджета</li>
-</ul>
-
-<h3 id="nodos">Nodos</h3>
-
-<p><a href="https://github.com/nodosjs/nodos">nodos</a> — фуллстек-фреймворк, вдохновлённый Ruby On Rails для NodeJS. Находится в разработке.</p>
-
-<p>Задачи:</p>
-<ul>
-  <li>Создание документации</li>
-  <li>Разработка ядра</li>
 </ul>
 
 <h2 id="хекслет">Хекслет</h2>
@@ -5882,7 +4353,7 @@ CMD ["eslint", "/app"]
 
 <h3 id="аппаратная-виртуализация">Аппаратная виртуализация</h3>
 
-<p>Как ясно из названия, аппаратная виртуализация работает благодаря поддержке со стороны железа — процессора. В отличие от программной виртуализации, гостевые операционные системы управляются гипервизором напрямую без участия хостовой ОС.</p>
+<p>Как ясно из названия, аппаратная виртуализация работает благодаря поддержки со стороны железа — процессора. В отличие от программной виртуализации, гостевые операционные системы управляются гипервизором напрямую без участия хостовой ОС.</p>
 
 <p>Аппаратная виртуализация гораздо эффективнее программной, так как гипервизор, в отличие от хостовой ОС, создает очень небольшой оверхед (overhead, накладные расходы). Программная виртуализация, в свою очередь, делится на несколько подтипов, о которых подробнее можно прочитать в <a href="https://ru.wikipedia.org/wiki/Виртуализация">Википедии</a>.</p>
 
@@ -5899,12 +4370,6 @@ CMD ["eslint", "/app"]
 <p>Кроме того, виртуализация изолирует машины друг от друга, а значит вам не придется переживать, если пользователи попытаются навредить системе или соседним пользователям. Подобная услуга обычно называется VPS (virtual private server) и в базовой комплектации стоит дешево.</p>
 
 <p>Виртуальные машины позволяют эффективнее утилизировать (использовать) ресурсы железной машины. Как правило, далеко не всем пользователям нужна мощность того железа, которое стоит у хостера, да и платить за нее он не готов. А вот виртуальная машина может съедать лишь проценты от мощности железа, что позволяет на одной машине размещать десятки клиентов (а то и больше). Получается, что и пользователь доволен, и хостер заработал свои деньги.</p>
-
-<h2 id="частые-вопросы">Частые вопросы</h2>
-
-<h3 id="что-делать-если-процессор-не-поддерживает-виртуализацию">Что делать если процессор не поддерживает виртуализацию?</h3>
-
-<p>Это крайне маловероятно, но даже в таком случае можно запустить виртуальную машину. Правда производительность будет очень низкой, так как по факту будет работать программная виртуализация вместо аппаратной. Лучше всё же обновить железо на более современное.</p>
 
 <h2 id="другие-гайды-по-теме">Другие гайды по теме</h2>
 
@@ -6388,11 +4853,11 @@ CMD ["eslint", "/app"]
 
 <p>Пакетные менеджеры в средах, отличных от Windows — это основной способ установки программ и библиотек на компьютер. Если вам понадобится поставить Node.js, то достаточно сделать следующее:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>// mac
-<span class="nv">$ </span>brew <span class="nb">install </span>node
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>// mac
+$ brew install node
 
 // ubuntu
-<span class="nv">$ </span>apt <span class="nb">install </span>node
+$ apt install node
 </code></pre></div></div>
 
 <p>Удобств в таком способе довольно много. Во-первых, не нужно бродить в поисках необходимого софта по всему интернету и тратить уйму времени. Во-вторых, всё, что можно набрать в командной строке автоматизируется. Другими словами, можно написать скрипт, который сам будет ставить всё, что нужно (подробнее смотрите <a href="https://www.ansible.com/">Ansible</a>).</p>
@@ -7017,12 +5482,6 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
 </code></pre></div></div>
 
 <p>Ключи, добавленные к агенту аутентификации (ssh-agent) станут доступными на удаленном сервере. При этом файлы-ключи физически не будут находиться на сервере.</p>
-
-<h2 id="частые-вопросы">Частые вопросы</h2>
-
-<h3 id="чем-telnet-отличается-от-ssh">Чем Telnet отличается от SSH?</h3>
-
-<p>Telnet это конкретная программа с графическим интерфейсом, с помощью которой можно соединяться по SSH. Обычно ей пользуются только Windows пользователи, в Linux и MacOS используют консольную утилиту <em>ssh</em>.</p>
 
 <h2 id="дополнительные-ссылки">Дополнительные ссылки</h2>
 
