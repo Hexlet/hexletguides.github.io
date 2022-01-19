@@ -1,0 +1,374 @@
+<!doctype html>
+<html amp lang="ru_RU">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Что такое интерпретатор?</title>
+    <link rel="canonical" href="https://guides.hexlet.io/interpreter/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+    
+    <style amp-custom>
+      .banner { background-color: #f8f9fa; border-left: 3px solid #0dcaf0; padding: 1rem; }
+
+.markdown .banner a { text-decoration: none; }
+
+.full_post_link.full_post_link { padding: .7rem 1rem; display: block; border: 1px solid #212529; border-radius: 2px; text-align: center; text-decoration: none; font-size: 1rem; }
+
+.markdown { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; color: #4a5568; margin-left: auto; margin-right: auto; max-width: 65ch; padding: 3rem 1.5rem; }
+
+.markdown [class~="lead"] { color: #4a5568; font-size: 1.25em; line-height: 1.6; margin-top: 1.2em; margin-bottom: 1.2em; }
+
+.markdown a { color: #1a202c; text-decoration: underline; }
+
+.markdown strong { color: #1a202c; font-weight: 600; }
+
+.markdown ol { list-style: none; padding: 0; counter-reset: list-counter; margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown ol > li { position: relative; counter-increment: list-counter; padding-left: 1.75em; }
+
+.markdown ol > li::before { content: counter(list-counter) "."; position: absolute; font-weight: 400; color: #718096; }
+
+.markdown ul > li { position: relative; padding-left: 1.75em; }
+
+.markdown ul > li::before { content: ""; position: absolute; background-color: #cbd5e0; border-radius: 50%; width: 0.375em; height: 0.375em; top: calc(0.875em - 0.1875em); left: 0.25em; }
+
+.markdown hr { border-color: #e2e8f0; border-top-width: 1px; margin-top: 3em; margin-bottom: 3em; }
+
+.markdown blockquote { font-weight: 500; font-style: italic; color: #1a202c; border-left-width: 0.25rem; border-left-color: #e2e8f0; margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1em; }
+
+.markdown blockquote p:first-of-type::before { content: open-quote; }
+
+.markdown blockquote p:last-of-type::after { content: close-quote; }
+
+.markdown h1 { color: #1a202c; font-weight: 800; font-size: 2.25em; margin-top: 0; margin-bottom: 0.8888889em; line-height: 1.1111111; }
+
+.markdown h2 { color: #1a202c; font-weight: 700; font-size: 1.5em; margin-top: 2em; margin-bottom: 1em; line-height: 1.3333333; }
+
+.markdown h3 { color: #1a202c; font-weight: 600; font-size: 1.25em; margin-top: 1.6em; margin-bottom: 0.6em; line-height: 1.6; }
+
+.markdown h4 { color: #1a202c; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.5; }
+
+.markdown figure figcaption { color: #718096; font-size: 0.875em; line-height: 1.4285714; margin-top: 0.8571429em; }
+
+.markdown code { color: #1a202c; font-weight: 600; font-size: 0.875em; }
+
+.markdown code::before { content: "`"; }
+
+.markdown code::after { content: "`"; }
+
+.markdown pre { color: #e2e8f0; background-color: #2d3748; overflow-x: auto; font-size: 0.875em; line-height: 1.7142857; margin-top: 1.7142857em; margin-bottom: 1.7142857em; border-radius: 0.375rem; padding-top: 0.8571429em; padding-right: 1.1428571em; padding-bottom: 0.8571429em; padding-left: 1.1428571em; }
+
+.markdown pre code { background-color: transparent; border-width: 0; border-radius: 0; padding: 0; font-weight: 400; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
+
+.markdown pre code::before { content: ""; }
+
+.markdown pre code::after { content: ""; }
+
+.markdown table { width: 100%; table-layout: auto; text-align: left; margin-top: 2em; margin-bottom: 2em; font-size: 0.875em; line-height: 1.7142857; }
+
+.markdown thead { color: #1a202c; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #cbd5e0; }
+
+.markdown thead th { vertical-align: bottom; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown tbody tr { border-bottom-width: 1px; border-bottom-color: #e2e8f0; }
+
+.markdown tbody tr:last-child { border-bottom-width: 0; }
+
+.markdown tbody td { vertical-align: top; padding-top: 0.5714286em; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown { font-size: 1rem; line-height: 1.75; }
+
+.markdown p { margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown img { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown video { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure > * { margin-top: 0; margin-bottom: 0; }
+
+.markdown h2 code { font-size: 0.875em; }
+
+.markdown h3 code { font-size: 0.9em; }
+
+.markdown ul { margin-top: 1.25em; margin-bottom: 1.25em; list-style: none; padding: 0; }
+
+.markdown li { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+.markdown ol > li:before { left: 0; }
+
+.markdown > ul > li p { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown > ul > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ul > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown > ol > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ol > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown hr + * { margin-top: 0; }
+
+.markdown h2 + * { margin-top: 0; }
+
+.markdown h3 + * { margin-top: 0; }
+
+.markdown h4 + * { margin-top: 0; }
+
+.markdown thead th:first-child { padding-left: 0; }
+
+.markdown thead th:last-child { padding-right: 0; }
+
+.markdown tbody td:first-child { padding-left: 0; }
+
+.markdown tbody td:last-child { padding-right: 0; }
+
+.markdown > :first-child { margin-top: 0; }
+
+.markdown > :last-child { margin-bottom: 0; }
+
+@media (min-width: 768px) { .md\:markdown-lg { font-size: 1.125rem; line-height: 1.7777778; } .md\:markdown-lg p { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg [class~="lead"] { font-size: 1.2222222em; line-height: 1.4545455; margin-top: 1.0909091em; margin-bottom: 1.0909091em; } .md\:markdown-lg blockquote { margin-top: 1.6666667em; margin-bottom: 1.6666667em; padding-left: 1em; } .md\:markdown-lg h1 { font-size: 2.6666667em; margin-top: 0; margin-bottom: 0.8333333em; line-height: 1; } .md\:markdown-lg h2 { font-size: 1.6666667em; margin-top: 1.8666667em; margin-bottom: 1.0666667em; line-height: 1.3333333; } .md\:markdown-lg h3 { font-size: 1.3333333em; margin-top: 1.6666667em; margin-bottom: 0.6666667em; line-height: 1.5; } .md\:markdown-lg h4 { margin-top: 1.7777778em; margin-bottom: 0.4444444em; line-height: 1.5555556; } .md\:markdown-lg img { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg video { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure > * { margin-top: 0; margin-bottom: 0; } .md\:markdown-lg figure figcaption { font-size: 0.8888889em; line-height: 1.5; margin-top: 1em; } .md\:markdown-lg code { font-size: 0.8888889em; } .md\:markdown-lg h2 code { font-size: 0.8666667em; } .md\:markdown-lg h3 code { font-size: 0.875em; } .md\:markdown-lg pre { font-size: 0.8888889em; line-height: 1.75; margin-top: 2em; margin-bottom: 2em; border-radius: 0.375rem; padding-top: 1em; padding-right: 1.5em; padding-bottom: 1em; padding-left: 1.5em; } .md\:markdown-lg ol { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg ul { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg li { margin-top: 0.6666667em; margin-bottom: 0.6666667em; } .md\:markdown-lg ol > li { padding-left: 1.6666667em; } .md\:markdown-lg ol > li:before { left: 0; } .md\:markdown-lg ul > li { padding-left: 1.6666667em; } .md\:markdown-lg ul > li::before { width: 0.3333333em; height: 0.3333333em; top: calc(0.8888889em - 0.1666667em); left: 0.2222222em; } .md\:markdown-lg > ul > li p { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg > ul > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ul > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg > ol > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ol > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg ul ul, .md\:markdown-lg ul ol, .md\:markdown-lg ol ul, .md\:markdown-lg ol ol { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg hr { margin-top: 3.1111111em; margin-bottom: 3.1111111em; } .md\:markdown-lg hr + * { margin-top: 0; } .md\:markdown-lg h2 + * { margin-top: 0; } .md\:markdown-lg h3 + * { margin-top: 0; } .md\:markdown-lg h4 + * { margin-top: 0; } .md\:markdown-lg table { font-size: 0.8888889em; line-height: 1.5; } .md\:markdown-lg thead th { padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg thead th:first-child { padding-left: 0; } .md\:markdown-lg thead th:last-child { padding-right: 0; } .md\:markdown-lg tbody td { padding-top: 0.75em; padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg tbody td:first-child { padding-left: 0; } .md\:markdown-lg tbody td:last-child { padding-right: 0; } .md\:markdown-lg > :first-child { margin-top: 0; } .md\:markdown-lg > :last-child { margin-bottom: 0; } }
+
+@media (min-width: 1024px) { .lg\:markdown-xl { font-size: 1.25rem; line-height: 1.8; } .lg\:markdown-xl p { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl [class~="lead"] { font-size: 1.2em; line-height: 1.5; margin-top: 1em; margin-bottom: 1em; } .lg\:markdown-xl blockquote { margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1.0666667em; } .lg\:markdown-xl h1 { font-size: 2.8em; margin-top: 0; margin-bottom: 0.8571429em; line-height: 1; } .lg\:markdown-xl h2 { font-size: 1.8em; margin-top: 1.5555556em; margin-bottom: 0.8888889em; line-height: 1.1111111; } .lg\:markdown-xl h3 { font-size: 1.5em; margin-top: 1.6em; margin-bottom: 0.6666667em; line-height: 1.3333333; } .lg\:markdown-xl h4 { margin-top: 1.8em; margin-bottom: 0.6em; line-height: 1.6; } .lg\:markdown-xl img { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl video { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure > * { margin-top: 0; margin-bottom: 0; } .lg\:markdown-xl figure figcaption { font-size: 0.9em; line-height: 1.5555556; margin-top: 1em; } .lg\:markdown-xl code { font-size: 0.9em; } .lg\:markdown-xl h2 code { font-size: 0.8611111em; } .lg\:markdown-xl h3 code { font-size: 0.9em; } .lg\:markdown-xl pre { font-size: 0.9em; line-height: 1.7777778; margin-top: 2em; margin-bottom: 2em; border-radius: 0.5rem; padding-top: 1.1111111em; padding-right: 1.3333333em; padding-bottom: 1.1111111em; padding-left: 1.3333333em; } .lg\:markdown-xl ol { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl ul { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl li { margin-top: 0.6em; margin-bottom: 0.6em; } .lg\:markdown-xl ol > li { padding-left: 1.8em; } .lg\:markdown-xl ol > li:before { left: 0; } .lg\:markdown-xl ul > li { padding-left: 1.8em; } .lg\:markdown-xl ul > li::before { width: 0.35em; height: 0.35em; top: calc(0.9em - 0.175em); left: 0.25em; } .lg\:markdown-xl > ul > li p { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl > ul > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ul > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl > ol > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ol > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl ul ul, .lg\:markdown-xl ul ol, .lg\:markdown-xl ol ul, .lg\:markdown-xl ol ol { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl hr { margin-top: 2.8em; margin-bottom: 2.8em; } .lg\:markdown-xl hr + * { margin-top: 0; } .lg\:markdown-xl h2 + * { margin-top: 0; } .lg\:markdown-xl h3 + * { margin-top: 0; } .lg\:markdown-xl h4 + * { margin-top: 0; } .lg\:markdown-xl table { font-size: 0.9em; line-height: 1.5555556; } .lg\:markdown-xl thead th { padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl thead th:first-child { padding-left: 0; } .lg\:markdown-xl thead th:last-child { padding-right: 0; } .lg\:markdown-xl tbody td { padding-top: 0.8888889em; padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl tbody td:first-child { padding-left: 0; } .lg\:markdown-xl tbody td:last-child { padding-right: 0; } .lg\:markdown-xl > :first-child { margin-top: 0; } .lg\:markdown-xl > :last-child { margin-bottom: 0; } }
+
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+    <amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{
+  "vars" : {
+    "gtag_id": "UA-1360700-62",
+    "config" : {
+      "UA-1360700-62": { "groups": "default" }
+    }
+  }
+}
+</script>
+</amp-analytics>
+
+<amp-analytics type="metrika">
+<script type="application/json">
+{
+    "vars": {
+      "counterId": "65474386"
+            },
+   "triggers": {
+        "notBounce": {
+            "on": "timer",
+            "timerSpec": {
+                "immediate": false,
+                "interval": 15,
+                "maxTimerLength": 14
+            },
+            "request": "notBounce"
+        }
+    }
+}
+</script>
+</amp-analytics>
+
+    
+    <div class="markdown md:markdown-lg lg:markdown-xl">
+      <h1>Что такое интерпретатор?</h1>
+      
+      
+      
+
+      <a class="full_post_link" href="https://guides.hexlet.io/interpreter/">Читать в полной версии →</a>
+
+      <p>В этом гайде разберемся, что такое интерпретатор, для чего он нужен и как работает. Этот материал поможет понять, как компьютер выполняет программы.</p>
+
+<h2 id="зачем-нужен-интерпретатор">Зачем нужен интерпретатор</h2>
+
+<p>В переводе с английского языка компьютер — <em>вычислитель</em>. Мы привыкли пользоваться компьютером для подготовки документы, чтения новостей и просмотра фильмов. В повседневной жизни производить вычисления приходится крайне редко, поэтому такое определение может показаться странным.</p>
+
+<p>Вместе с тем, это название очень точно отражает природу компьютера. Мы этого не видим, но на самом деле компьютер умеет работать только с числами: документы, и новости, и фильмы выглядят для компьютера как наборы чисел. То же самое касается программ, которые он выполняет.</p>
+
+<p>Каждая команда имеет свой числовой — машинный — код: благодаря ему компьютер без труда понимает, что нужно делать. Человеку трудно писать программы в машинных кодах, однако на заре компьютерной эры программисты писали именно так. Вот так выглядели их программы:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>102 184 0 0
+102 185 100 0
+102 1 200
+102 73
+102 131 249 0
+117 245
+</code></pre></div></div>
+
+<!--
+https://defuse.ca/online-x86-assembler.htm
+
+0:  66 b8 00 00             mov    ax,0x0
+4:  66 b9 64 00             mov    cx,100
+00000008 <loop>:
+8:  66 01 c8                add    ax,cx
+b:  66 49                   dec    cx
+d:  66 83 f9 00             cmp    cx,0
+11: 75 f5     
+-->
+
+<p>Пытаясь облегчить себе работу, программисты придумали языки программирования: они понятнее человеку, поэтому писать программы на них проще. На этом этапе возникла проблема: если компьютер понимает команды только в виде чисел, как он будет выполнять команды, написанные на языке программирования?</p>
+
+<p>Есть два вида программ, которые помогают решить эту проблему — <em>интерпретаторы</em> и <em>компиляторы</em>. Про компилятор <a href="/compiler/">можно почитать здесь</a>, в этом тексте мы остановимся только на интерпретаторах.</p>
+
+<p>Вкратце, <em>интерпретатор</em> — это программа, которая выполняет команды, написанные на каком-то языке программирования. Например, интерпретатор Python понимает команды языка Python, а интерпретатор JavaScript — команды языка JavaScript.</p>
+
+<h2 id="экскурс-в-историю">Экскурс в историю</h2>
+
+<p>Lisp оказался удачным изобретением. За прошедшие годы люди изобрели множество языков, которые оказались никому не нужны. Этого нельзя сказать о Lisp, который развивается до сих пор. Уточню, что разработкой интерпретаторов Lisp занимались разные команды, поэтому у них получались разные версии языка. Такие версии языка называют <em>диалектами</em>. Кроме Emacs Lisp, вы могли слышать о <a href="https://ru.code-basics.com/languages/clojure">ClojureScript</a> — диалекте LISP, который иногда используют вместо JavaScript при разработке фронтенда</p>
+
+<p>Рассмотрим пример программы на Lisp для понимания разницы между машинным кодом и «почти человеческим языком»:</p>
+
+<div class="language-lisp highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="p">(</span><span class="nb">defun</span> <span class="nv">sum</span> <span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">n</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="mi">0</span>
+        <span class="p">(</span><span class="nb">+</span> <span class="nv">n</span> <span class="p">(</span><span class="nv">sum</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">n</span> <span class="mi">1</span><span class="p">)))))</span>
+
+<span class="p">(</span><span class="nv">sum</span> <span class="mi">100</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Необязательно знать Lisp, чтобы увидеть, что в программе есть структура, и понять отдельные ее части. Доступность для понимания — выгодное преимущество языков программирования перед машинным кодом.</p>
+
+<p>Есть интерпретаторы для таких популярных языков программирования, как Python и JavaScript. Они хорошо подходят и для работы, и для изучения программирования. Важную роль в этом играет то, что для них существует интерпретаторы, и чуть позже мы узнаем, почему это так.</p>
+
+<h2 id="пример-интерпретатора-python">Пример интерпретатора Python</h2>
+
+<p>Разберем в деталях работу интерпретатора — для этого напишем несложную программу, которая будет вычислять суммы чисел от 1 до 100:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+  <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">i</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span> <span class="c1"># =&gt; 5050
+</span></code></pre></div></div>
+
+<p>Запустим интерпретатор <em>python</em> и построчно введем программу.</p>
+
+<p><amp-img src="/assets/images/interpreter/example.png" alt="Пример работы интерпретатора Python" width="1364" height="652" layout="responsive"><noscript><img src="/assets/images/interpreter/example.png" alt="Пример работы интерпретатора Python" width="1364" height="652"></noscript></amp-img></p>
+
+<p>Мы видим, что начале каждой строки интерпретатор выводит подсказку <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code>. Когда мы вводим команду <code class="language-plaintext highlighter-rouge">for</code>, состоящую из двух строк, подсказка меняется на троеточие <code class="language-plaintext highlighter-rouge">...</code>.</p>
+
+<p>Выполняя команду <code class="language-plaintext highlighter-rouge">print(sum)</code>, интерпретатор печатает результат — число 5050. Если мы допустим ошибку, интерпретатор подскажет нам, где она находится.</p>
+
+<p><amp-img src="/assets/images/interpreter/error.png" alt="Пример ошибки в программе" width="1364" height="652" layout="responsive"><noscript><img src="/assets/images/interpreter/error.png" alt="Пример ошибки в программе" width="1364" height="652"></noscript></amp-img></p>
+
+<p>В примере выше мы забыли поставить двоеточие после инструкции <code class="language-plaintext highlighter-rouge">for</code>, о чем интерпретатор и сообщает.</p>
+
+<p>Немедленный отклик интерпретатора очень важен при изучении языка. Новички, видя сообщениях об ошибках и пробуя разные варианты, быстро осваивают незнакомый синтаксис. Именно поэтому Python и JavaScript часто используют для обучения.</p>
+
+<p>Опытные программисты также ценят такой — <em>интерактивный</em> — способ разработки, потому что он помогает быстро проверять свои идеи.</p>
+
+<p>Кроме того, интерпретируемые языки часто используют для разработки прототипов больших программ. В интерактивном режиме он постоянно выполняет одни и те же действия: читает команду программиста, выполняет ее и печатает результат. Такой режим называют <em>Циклом Чтения-Выполнения-Печати</em>, или, по-английски <em>Read-Evaluate-Print Loop</em>. Обычно это название сокращают до аббревиатуры REPL.</p>
+
+<p><amp-img src="/assets/images/interpreter/repl.png" alt="Цикл Чтения-Выполнения-Печати" width="960" height="541" layout="responsive"><noscript><img src="/assets/images/interpreter/repl.png" alt="Цикл Чтения-Выполнения-Печати" width="960" height="541"></noscript></amp-img></p>
+
+<h2 id="пример-интерпретатора-javascript">Пример интерпретатора JavaScript</h2>
+
+<p>Интерпретатор JavaScript встроен прямо в браузер. Посмотрим, как он работает, на примере браузера Chrome.</p>
+
+<p>В правом верхнем углу есть три вертикальные точки, которые вызывают меню браузера. Нажмите и выберите пункт меню <em>Дополнительные инструменты</em>, а затем <em>Инструменты разработчика</em>.</p>
+
+<p><amp-img src="/assets/images/interpreter/chrome-dev-tools.png" alt="Инструменты разработчика Chrome" width="1760" height="1476" layout="responsive"><noscript><img src="/assets/images/interpreter/chrome-dev-tools.png" alt="Инструменты разработчика Chrome" width="1760" height="1476"></noscript></amp-img></p>
+
+<p>Вы увидите новое окно, заполненное вкладками. Все эти инструменты полезны и их стоит освоить. Но сейчас нам нужна одна вкладка — <em>Console</em>. В консоли мы можем набирать команды языка JavaScript и сразу видеть отклик интерпретатора.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// =&gt; 1</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// =&gt; 2</span>
+<span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span> <span class="c1">// =&gt; 9</span>
+</code></pre></div></div>
+
+<p>Интерпретатор сохранит переменные <code class="language-plaintext highlighter-rouge">a</code> и <code class="language-plaintext highlighter-rouge">b</code> со значениями 1 и 2, затем вычислит значение <code class="language-plaintext highlighter-rouge">3 * (a + b)</code> и напечатает результат 9.</p>
+
+<p><amp-img src="/assets/images/interpreter/chrome-console.png" alt="Консоль Chrome" width="1228" height="976" layout="responsive"><noscript><img src="/assets/images/interpreter/chrome-console.png" alt="Консоль Chrome" width="1228" height="976"></noscript></amp-img></p>
+
+<h2 id="выполнение-программы">Выполнение программы</h2>
+
+<p>Цикл REPL помогает разрабатывать программу, но вводить каждую команду по отдельности не удобно: куда быстрее ввести их один раз, а затем запустить готовую программу. Для этого создадим текстовый файл <em>sum<span>.</span>py</em> и запишем там команды:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+  <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">i</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Чтобы выполнить программу, достаточно запустить интерпретатор Python, указав имя файла в параметрах:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&gt; python sum.py
+5050
+</code></pre></div></div>
+
+<p>Интерпретатор выполняет команды одну за одной и в конце завершает свою работу. Такой режим работы интерпретатора называют <em>пакетным</em>.</p>
+
+<p>Таким образом, интерпретатор может работать в двух режимах. Интерактивный режим (REPL) помогает нам проверять идеи и придумывать решение задач. Пакетный режим выполняет готовую программу.</p>
+
+<h2 id="устройство-интерпретатора">Устройство интерпретатора</h2>
+
+<p>Есть много способов написать интерпретатор. Не будем рассматривать все возможные варианты, а остановимся на устройстве интерпретаторов в целом. Обычный язык программирования содержит несколько десятков команд.</p>
+
+<p>В программе на Python, которую мы обсуждали выше есть операторы присваивания, цикл <code class="language-plaintext highlighter-rouge">for</code> и вызов функции <code class="language-plaintext highlighter-rouge">print</code>. Все это — команды, которые понимает интерпретатор Python.
+Для каждой команды в интерпретаторе есть блок кода, который умеет такую команду исполнять.</p>
+
+<p>Вторая важная составляющая интерпретатора — анализатор текста. Когда программист вводит текст, анализатор разбирает его на составные части и понимает, о какой команде идет речь. После этого он передает управление блоку, отвечающему за выполнение этой команды.</p>
+
+<p>Так — в цикле — интерпретатор и работает. Анализирует введенную команду, затем выполняет, снова анализирует и снова выполняет. Анализ текста это, конечно, не тривиальная задача, но и не слишком трудная, так что интерпретаторы на самом деле не такие сложные программы.</p>
+
+<p><amp-img src="/assets/images/interpreter/how-it-works.png" alt="Как работает интерпретатор" width="960" height="541" layout="responsive"><noscript><img src="/assets/images/interpreter/how-it-works.png" alt="Как работает интерпретатор" width="960" height="541"></noscript></amp-img></p>
+
+<h2 id="достоинства-и-недостатки">Достоинства и недостатки</h2>
+
+<p>Достоинства интерпретаторов:</p>
+
+<ul>
+  <li>
+    <p><strong>Простота изучения.</strong> REPL помогает проверять, как работают незнакомые конструкции и быстро осваивать синтаксис языка.</p>
+  </li>
+  <li>
+    <p><strong>Простота программирования.</strong> Как и компилятор, интерпретатор избавляет от необходимости писать программы в машинных кодах.</p>
+  </li>
+  <li>
+    <p><strong>Кроссплатформенность.</strong> Интерпретаторы разработаны для разных платформ — Mac, Windows, Linux, поэтому написанная нами программа будет работать на всех платформах.</p>
+  </li>
+  <li>
+    <p><strong>Улучшение программы за счет интерпретатора.</strong> Скорость программ зависит не только от качества кода, но и от того, насколько быстро работает интерпретатор. Например, программисты Google постоянно улучшают интерпретатор JavaScript, который работает в браузере Chrome. Если мы написали программу на JavaScript, с каждой новой версией Chrome она работает быстрее, даже если мы ничего в ней не меняем.</p>
+  </li>
+</ul>
+
+<p>Недостатки интерпретаторов:</p>
+
+<ul>
+  <li>
+    <p><strong>Низкая скорость.</strong> Интерпретируемые программы работают медленнее, чем программы в машинных кодах. Это происходит потому, что интерпретатор должен сначала проанализировать текст команды, и лишь потом выполнить ее. Программа в машинных кодах сразу понятна компьютеру.</p>
+  </li>
+  <li>
+    <p><strong>Зависимость от интерпретатора.</strong> Интерпретируемой программе нужен интерпретатор. В Windows программы в машинных кодах имеют расширение <em>.exe</em>. Такую программу, скажем, архиватор 7-zip можно просто запустить. А для того, чтобы выполнить программу на языке Python, нужен интерпретатор <em>python</em>.</p>
+  </li>
+  <li>
+    <p><strong>Доступность исходного кода.</strong> Исходный код на интерпретируемом языке доступен пользователю программы. Пользователь может подсмотреть в программе то, что ее автор хотел бы скрыть, например, способ шифрования пароля или уникальный алгоритм.</p>
+  </li>
+  <li>
+    <p><strong>Позднее обнаружение ошибок.</strong> Интерпретаторы выполняют программы по одной команде. Если в синтаксисе команды допущена ошибка, интерпретатор не сможет об этом узнать, пока не приступит к ее анализу. В больших программах есть куски, которые выполняются реже других и, возможно, там есть ошибки, про которые программист не знает. Чтобы избежать ошибок, которые увидит пользователь программы, приходится тестировать её гораздо тщательней.</p>
+  </li>
+</ul>
+
+<h2 id="выводы-и-рекомендации">Выводы и рекомендации</h2>
+
+<p>Интерпретатор языка программирования — это программа, выполняющая команды, написанные на этом языке. Мы, например, говорим <em>интерпретатор Python</em> или <em>интерпретатор JavaScript</em>.</p>
+
+<p>Интерактивный режим (REPL) помогает программистам изучать синтаксис языка и проверять свои идеи.</p>
+
+<p>Интерпретатор состоит из анализатора текста и исполнителей отдельных команд языка, таких как цикл <code class="language-plaintext highlighter-rouge">for</code>, проверка <code class="language-plaintext highlighter-rouge">if</code>, вызов функции <code class="language-plaintext highlighter-rouge">print</code>, и других.</p>
+
+<p>К достоинствам интерпретируемых языков относят простоту изучения. Именно поэтому программирование начинают изучать с таких языков, как Python и JavaScript.</p>
+
+      
+      
+    </div>
+  </body>
+</html>

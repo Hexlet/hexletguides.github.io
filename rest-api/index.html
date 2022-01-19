@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru_RU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+    
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/rest-api">
+    
+
+    <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Hexlet Guides" />
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Что такое REST API? | Hexlet Guides</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Что такое REST API?" />
+<meta name="author" content="Кирилл Мокевнин" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="REST API это HTTP API (иногда говорят WEB API) построенный по принципам REST-архитектуры. Впервые термин REST ввел Рой Филдинг в своей докторской диссертации “Architectural Styles and the Design of Network-based Software Architectures” в 2000 году. Многие обратили на нее серьезное внимание, потому что Рой был не случайным человеком в индустрии. Этот ученый был одним из ключевых разработчиков протокола HTTP/1.0 и автором HTTP/1.1. Он участвовал в разработке языка HTML и стандарта URI. Кроме того, он со-автор некогда самого популярного веб-сервера в мире Apache Web Server." />
+<meta property="og:description" content="REST API это HTTP API (иногда говорят WEB API) построенный по принципам REST-архитектуры. Впервые термин REST ввел Рой Филдинг в своей докторской диссертации “Architectural Styles and the Design of Network-based Software Architectures” в 2000 году. Многие обратили на нее серьезное внимание, потому что Рой был не случайным человеком в индустрии. Этот ученый был одним из ключевых разработчиков протокола HTTP/1.0 и автором HTTP/1.1. Он участвовал в разработке языка HTML и стандарта URI. Кроме того, он со-автор некогда самого популярного веб-сервера в мире Apache Web Server." />
+<link rel="canonical" href="https://guides.hexlet.io/rest-api/" />
+<meta property="og:url" content="https://guides.hexlet.io/rest-api/" />
+<meta property="og:site_name" content="Hexlet Guides" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Что такое REST API?" />
+<script type="application/ld+json">
+{"headline":"Что такое REST API?","dateModified":"2021-09-15T00:00:00+00:00","datePublished":"2021-09-15T00:00:00+00:00","url":"https://guides.hexlet.io/rest-api/","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/rest-api/"},"author":{"@type":"Person","name":"Кирилл Мокевнин"},"@type":"BlogPosting","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"description":"REST API это HTTP API (иногда говорят WEB API) построенный по принципам REST-архитектуры. Впервые термин REST ввел Рой Филдинг в своей докторской диссертации “Architectural Styles and the Design of Network-based Software Architectures” в 2000 году. Многие обратили на нее серьезное внимание, потому что Рой был не случайным человеком в индустрии. Этот ученый был одним из ключевых разработчиков протокола HTTP/1.0 и автором HTTP/1.1. Он участвовал в разработке языка HTML и стандарта URI. Кроме того, он со-автор некогда самого популярного веб-сервера в мире Apache Web Server.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMJ8HKG');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+    <link href="/assets/css/theme.css" rel="stylesheet">
+
+    <!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="/assets/css/highlight.css" rel="stylesheet">
+    <!-- custom CSS end-->
+
+  </head>
+
+  
+
+  <body class="layout-post">
+
+    
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMJ8HKG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+    <!-- Menu Navigation
+      ================================================== -->
+
+      <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center py-3">
+          <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Container
+        ================================================== -->
+        <main class="container">
+          <div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto text-break">
+
+
+    <div class="mainheading">
+      <h1 class="posttitle">
+          
+            Что такое REST API?
+          
+      </h1>
+    </div>
+
+
+  <!-- Post Featured Image -->
+    
+  <!-- End Featured Image -->
+
+    <div class="article-post">
+      <ul><li><a href="#немного-истории">Немного истории</a></li><li><a href="#уровни-протоколов">Уровни протоколов</a></li><li><a href="#семантика-http">Семантика HTTP</a></li><li><a href="#от-soap-к-rest">От SOAP к REST</a></li><li><a href="#принципы-rest">Принципы REST</a></li><li><a href="#дополнительные-материалы">Дополнительные материалы</a></li></ul>
+
+      <p>REST API это HTTP API (иногда говорят WEB API) построенный по принципам REST-архитектуры. Впервые термин REST ввел Рой Филдинг в своей докторской диссертации “Architectural Styles and the Design of Network-based Software Architectures” в 2000 году. Многие обратили на нее серьезное внимание, потому что Рой был не случайным человеком в индустрии. Этот ученый был одним из ключевых разработчиков протокола HTTP/1.0 и автором HTTP/1.1. Он участвовал в разработке языка HTML и стандарта URI. Кроме того, он со-автор некогда самого популярного веб-сервера в мире Apache Web Server.</p>
+
+<p><em>Небольшое отступление. Вокруг REST существует множество домыслов, за которыми потерялась суть и у немалого числа программистов осталось искаженное понимание REST. Во многом, это связано с самим процессом изучения программирования. Разработчики узнают о REST из документации фреймворков, в которых раскрывается лишь несколько деталей за которыми не видно всю картину. Оно и понятно, у фреймворков нет цели учить людей архитектуре, их задача дать инструмент и научить им пользоваться</em></p>
+
+<h2 id="немного-истории">Немного истории</h2>
+
+<p>Прежде чем обсуждать конкретно, что из себя представляют принципы REST, нужно немного поговорить о его истории. Глобально, REST это не про то как делать HTTP API. REST это, то по каким принципам должен был быть построен весь WEB.</p>
+
+<blockquote>
+  <p>Since 1994, the REST architectural style has been used to guide the design and development of the architecture for the modern Web. This work was done in conjunction with my authoring of the Internet standards for the Hypertext Transfer Protocol (HTTP) and Uniform Resource Identifiers (URI), the two specifications that define the generic interface used by all component interactions on the Web.<br /><br />— Roy Fielding, Architectural Styles and the Design of Network-based Software Architectures, p. 107.</p>
+</blockquote>
+
+<p>То есть не REST появился для того чтобы упорядочить WEB, а WEB стал таким чтобы соответствовать REST.</p>
+
+<h2 id="уровни-протоколов">Уровни протоколов</h2>
+
+<h2 id="семантика-http">Семантика HTTP</h2>
+
+<h2 id="от-soap-к-rest">От SOAP к REST</h2>
+
+<h2 id="принципы-rest">Принципы REST</h2>
+
+<h2 id="дополнительные-материалы">Дополнительные материалы</h2>
+
+<ul>
+  <li>https://restapitutorial.ru/</li>
+  <li>https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf</li>
+</ul>
+
+    </div>
+
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/main/_posts/2021-09-15-rest-api.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
+
+      
+        
+          <div class="fst-italic">Кирилл Мокевнин</div>
+        
+      
+
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/deploy/">&laquo; Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
+</a>
+      </div>
+      
+      
+      <div class="col-md-6 text-end pr-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/time/">Что такое время &raquo;</a>
+      </div>
+      
+    </div>
+    <!-- End Prev/Next -->
+
+    <section>
+      <div id="comments">
+        <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+        </main>
+
+        <!-- Footer
+          ================================================== -->
+          <footer class="footer container text-center">
+
+            <ul class="p-0 mb-1 small">
+              
+              <li>
+                <a href="/about/" alt="О проекте">О проекте</a>
+              </li>
+              
+              <li>
+                <a href="https://ru.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral" alt="Бесплатные курсы и вебинары" target="_blank">Бесплатные курсы и вебинары</a>
+              </li>
+              
+              <li>
+                <a href="https://cv.hexlet.io/" alt="Оценка резюме" target="_blank">Оценка резюме</a>
+              </li>
+              
+              <li>
+                <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка" target="_blank">Алгоритмическая прокачка</a>
+              </li>
+              
+            </ul>
+          </footer>
+
+          <!-- JavaScript
+            ================================================== -->
+            <script src="/assets/js/theme.js"></script>
+  </body>
+</html>

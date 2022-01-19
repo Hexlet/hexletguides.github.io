@@ -89,7 +89,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ================================================== -->
         <main class="container">
           <div class="row">
-  <div class="col-md-10 col-lg-8 mx-auto">
+  <div class="col-md-10 col-lg-8 mx-auto text-break">
 
 
     <div class="mainheading">
@@ -110,7 +110,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Featured Image -->
 
     <div class="article-post">
-      <ul><li><a href="#что-значит-протокол">Что значит «протокол»?</a></li><li><a href="#что-значит-защищенный">Что значит «защищенный»?</a></li><li><a href="#для-чего-нужен-ssh">Для чего нужен SSH?</a></li><li><a href="#как-подключаться-по-ssh">Как подключаться по SSH?</a><ul><li><a href="#fingerprint">Fingerprint</a></li></ul></li><li><a href="#подключение-по-ssh-по-паролю">Подключение по SSH по паролю</a></li><li><a href="#подключение-по-ssh-по-ключу-без-пароля">Подключение по SSH по ключу, без пароля</a><ul><li><a href="#генерация-ключей">Генерация ключей</a></li><li><a href="#загрузка-публичного-ключа-на-сервер">Загрузка публичного ключа на сервер</a></li></ul></li><li><a href="#ssh-agent">ssh-agent</a></li><li><a href="#форвардинг-проброс-ключей">Форвардинг (проброс) ключей</a></li><li><a href="#дополнительные-ссылки">Дополнительные ссылки</a></li></ul>
+      <ul><li><a href="#что-значит-протокол">Что значит «протокол»?</a></li><li><a href="#что-значит-защищенный">Что значит «защищенный»?</a></li><li><a href="#для-чего-нужен-ssh">Для чего нужен SSH?</a></li><li><a href="#как-подключаться-по-ssh">Как подключаться по SSH?</a><ul><li><a href="#fingerprint">Fingerprint</a></li></ul></li><li><a href="#подключение-по-ssh-по-паролю">Подключение по SSH по паролю</a></li><li><a href="#подключение-по-ssh-по-ключу-без-пароля">Подключение по SSH по ключу, без пароля</a><ul><li><a href="#генерация-ключей">Генерация ключей</a></li><li><a href="#загрузка-публичного-ключа-на-сервер">Загрузка публичного ключа на сервер</a></li></ul></li><li><a href="#ssh-agent">ssh-agent</a></li><li><a href="#форвардинг-проброс-ключей">Форвардинг (проброс) ключей</a></li><li><a href="#частые-вопросы">Частые вопросы</a><ul><li><a href="#чем-telnet-отличается-от-ssh">Чем Telnet отличается от SSH?</a></li></ul></li><li><a href="#дополнительные-ссылки">Дополнительные ссылки</a></li></ul>
 
       <p><strong>SSH — защищенный протокол для удаленного доступа к компьютерам. Через SSH можно выполнять операции в командной строке компьютера, который физически находится в другом месте.</strong></p>
 
@@ -294,6 +294,12 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
 
 <p>Ключи, добавленные к агенту аутентификации (ssh-agent) станут доступными на удаленном сервере. При этом файлы-ключи физически не будут находиться на сервере.</p>
 
+<h2 id="частые-вопросы">Частые вопросы</h2>
+
+<h3 id="чем-telnet-отличается-от-ssh">Чем Telnet отличается от SSH?</h3>
+
+<p>Telnet это конкретная программа с графическим интерфейсом, с помощью которой можно соединяться по SSH. Обычно ей пользуются только Windows пользователи, в Linux и MacOS используют консольную утилиту <em>ssh</em>.</p>
+
 <h2 id="дополнительные-ссылки">Дополнительные ссылки</h2>
 
 <ol>
@@ -316,7 +322,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
 
     <div class="lead d-flex my-5">
       <span class="me-auto">
-        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/master/_posts/2017-07-10-ssh.md" target="_blank">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/main/_posts/2017-07-10-ssh.md" target="_blank">
           Исходный код (github)
         </a>
       </span>
