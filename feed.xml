@@ -1705,10 +1705,11 @@ epoch.</li>
 <h2 id="дополнительная-литература">Дополнительная литература</h2>
 
 <ul>
+  <li><a href="https://twitter.com/mokevnin/status/1491429628854272002">Подробнее про Zero Downtime Deployment</a></li>
   <li><a href="https://bronevichok.ru/posts/engineering-at-booking.com.html">Инжиниринг в Booking</a></li>
   <li><a href="https://habr.com/ru/company/flant/blog/471620/">Стратегии деплоя</a></li>
   <li><a href="https://www.youtube.com/watch?v=WPCz_U7D8PI">Stateless vs Statefull</a></li>
-  <li><a href="https://github.com/ansistrano/deploy">Ansistrano (Ansible + Capistrano)</a></li>
+  <li><a href="https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html">Ansible Deploy</a></li>
   <li><a href="https://ru.hexlet.io/blog/posts/environment">Среды разработки</a></li>
 </ul>
 
@@ -1802,7 +1803,13 @@ epoch.</li>
   <p>Ко мне переодически приходят ребята с вопросами “я пишу на реакте, но думаю куда развиваться, что делать дальше”. И хотя универсального ответа на этот вопрос нет, я таки попробую накинуть то, куда бы пошел сам и что может сделать из вас более лучших инженеров</p>
 </blockquote>
 
-<p><a href="https://twitter.com/mokevnin/status/1427304920466825216">Ссылка на тред</a></p>
+<h2 id="zero-downtime-deployment">Zero Downtime Deployment</h2>
+
+<blockquote>
+  <p>Небольшой ликбез. Деплой – процесс выкладки новой версии кода. В простом случае выглядит как: закрыли сайт с сообщением “мы обновляемся” &gt; накатили изменения в базу данных (миграции) &gt; обновили код на серверах &gt; рестартанули сервер &gt; открыли сайт. У кого так лайкаем)</p>
+</blockquote>
+
+<p><a href="https://twitter.com/mokevnin/status/1491429628854272002">Ссылка на тред</a></p>
 
               ]]>
             </turbo:content>
