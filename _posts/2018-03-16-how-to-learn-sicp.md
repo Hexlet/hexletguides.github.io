@@ -2,7 +2,7 @@
 title: Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)
 subtitle: Зачем и как изучить одну из важнейших книг в информатике
 description: Зачем и как изучить одну из важнейших книг в информатике
-image: "assets/images/sicp/sicp.jpg"
+image: "assets/images/sicp/sicp.png"
 author: Кирилл Мокевнин
 ---
 
