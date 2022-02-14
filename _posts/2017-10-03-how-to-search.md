@@ -2,7 +2,7 @@
 title: Как искать техническую информацию
 subtitle: Правильно заданный вопрос — половина успеха.
 description: Большинство проблем, с которыми сталкивается новичок, уже решены и описаны. Нужно лишь научиться находить эти решения и ответы.
-image: "assets/images/how-to-search/library.jpg"
+image: "assets/images/how-to-search/how-to-search-title.png"
 author: Кирилл Мокевнин
 ---
 
