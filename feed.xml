@@ -6910,7 +6910,7 @@ Are you sure you want to continue connecting (yes/no)? yes
 
 <p>Простейший вариант — подключение по паролю. После ввода команды <code class="language-plaintext highlighter-rouge">ssh</code> система запросит пароль:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ivan@52.307.149.244's password: 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ivan@52.307.149.244's password:
 </code></pre></div></div>
 
 <p>Пароль придется вводить каждый раз.</p>
