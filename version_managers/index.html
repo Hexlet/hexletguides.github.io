@@ -116,8 +116,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Для запуска кода на любом языке, необходимо установить его интерпретатор (или компилятор). В разных операционных системах это делается по-разному: где-то используются пакетные менеджеры, например, <em>apt</em> или <em>yum</em>, где-то скачивается установщик. Некоторые языки бывают предустановленны сразу, например, Python. На него многое завязано в дистрибутивах линукса.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Ubuntu</span>
-<span class="nv">$ </span><span class="nb">sudo </span>apt <span class="nb">install </span>nodejs <span class="c"># установит не самую свежую версию</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Ubuntu</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>nodejs <span class="c"># установит не самую свежую версию</span>
 </code></pre></div></div>
 
 <p>Стандартный способ установки работает хорошо только в самом начале, когда происходит первичная настройка. Затем, с течением времени, начинают всплывать разные проблемы. Например, в какой-то момент выходит новая версия языка, которую нужно подключить к проекту. Обычно, должно пройти какое-то время, перед тем, как язык станет доступным для установки через пакетные менеджеры. И здесь либо придется ждать, что не всегда желательно, либо искать другой способ установки. Последнее нередко превращается в серьёзное испытание, с часами гугления и установкой дополнительных библиотек. Все это в конце концов засоряет систему и иногда ломает её.</p>
@@ -137,23 +137,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Например, для Node.js это <a href="https://github.com/nvm-sh/nvm">NVM</a> (Node Version Manager):</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Установка NVM</span>
-<span class="nv">$ </span>curl <span class="nt">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Установка NVM</span>
+curl <span class="nt">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 <span class="c"># Установка не означает активацию. После установки активной останется та версия, что и была до установки</span>
-<span class="nv">$ </span>nvm <span class="nb">install </span>node <span class="c"># Установка последней доступной версии ноды</span>
-<span class="nv">$ </span>nvm <span class="nb">install </span>6.14.4 <span class="c"># или 10.10.0, 8.9.1, и т.п.</span>
-<span class="nv">$ </span>nvm ls-remote <span class="c"># список доступных версий</span>
-<span class="nv">$ </span>nvm use node <span class="c"># Активация последней установленной версии ноды</span>
-<span class="nv">$ </span>nvm use node 14.1 <span class="c"># Активация нужной версии</span>
+nvm <span class="nb">install </span>node <span class="c"># Установка последней доступной версии ноды</span>
+nvm <span class="nb">install </span>6.14.4 <span class="c"># или 10.10.0, 8.9.1, и т.п.</span>
+nvm ls-remote <span class="c"># список доступных версий</span>
+nvm use node <span class="c"># Активация последней установленной версии ноды</span>
+nvm use node 17 <span class="c"># Активация нужной версии</span>
 </code></pre></div></div>
 
 <p>Для упрощения работы менеджеры версий обычно позволяют создать специальный файл внутри проекта, который зафиксирует нужную версию языка. В некоторых случаях менеджеры версий сами отслеживают этот файл и переключают версию автоматически.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"14.1"</span> <span class="o">&gt;</span> .nvmrc
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">echo</span> <span class="s2">"17"</span> <span class="o">&gt;</span> .nvmrc
 <span class="c"># Эта команда увидела файл .nvmrc и использовала указанную там версию</span>
 <span class="nv">$ </span>nvm use
-Found <span class="s1">'/path/to/project/.nvmrc'</span> with version &lt;14.1&gt;
-Now using node v14.1
+Found <span class="s1">'/path/to/project/.nvmrc'</span> with version &lt;17&gt;
+Now using node v17
 </code></pre></div></div>
 
 <p>В современном мире сложно представить себе язык, у которого бы не было менеджера версий. Более того некоторые языки, такие как Ruby, имеют множество разных менеджеров версий, которые конкурируют между собой:</p>
@@ -183,32 +183,33 @@ Now using node v14.1
 
 <p>Сейчас <em>asdf</em> набрал достаточно большую популярность и постепенно заменяет собой все остальные менеджеры версий (технически под капотом там часто используются менеджеры, специфические для конкретных языков). У него чуть более сложная система команд из-за необходимости поддерживать множество языков, но в остальном он резко упрощает весь процесс.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># У asdf прекрасная документация, где наглядно показано, как его установить,</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># У asdf прекрасная документация, где наглядно показано, как его установить,</span>
 <span class="c"># и какие могут понадобится зависимости в разных системах</span>
 
 <span class="c"># Установка</span>
-<span class="nv">$ </span>git clone https://github.com/asdf-vm/asdf.git ~/.asdf <span class="nt">--branch</span> v0.7.8
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf <span class="nt">--branch</span> v0.9
+<span class="c"># После этого нужно перезапустить терминал</span>
+<span class="nb">echo</span> <span class="s1">'. $HOME/.asdf/asdf.sh'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
 
 <span class="c"># Для работы с конкретным языком, сначала нужно подключить соответствующий плагин</span>
 <span class="c"># Список доступных плагинов есть на сайте проекта</span>
-<span class="nv">$ </span>asdf plugin add nodejs
+asdf plugin add nodejs
 
 <span class="c"># Установка языка</span>
 <span class="c"># Вместо nodejs нужно подставить название того плагина, с которым работаем</span>
-<span class="nv">$ </span>asdf <span class="nb">install </span>nodejs latest <span class="c"># latest означает последнюю версию указанного языка</span>
+asdf <span class="nb">install </span>nodejs latest <span class="c"># latest означает последнюю версию указанного языка</span>
 
 <span class="c"># Установка указанной версии</span>
-<span class="nv">$ </span>asdf <span class="nb">install </span>nodejs 14.1
+asdf <span class="nb">install </span>nodejs latest
 
 <span class="c"># Установка нужной версии языка версией по умолчанию</span>
-<span class="c"># Здесь нужно всегда указывать конкретную версию</span>
-<span class="nv">$ </span>asdf global nodejs 14.1
+asdf global nodejs latest
 
 <span class="c"># Показывает текущие версии для языков, установленных через asdf</span>
-<span class="nv">$ </span>asdf current
+asdf current
 elixir         1.10.1-otp-22 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
 erlang         22.2.7   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
-nodejs         14.2.0   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+nodejs         17.0.0   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
 php            7.4.5    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
 python         3.8.2 2.7.16 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
 ruby           2.7.0    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
