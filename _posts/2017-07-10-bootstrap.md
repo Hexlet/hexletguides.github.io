@@ -182,4 +182,4 @@ $theme-colors: (
 
 * [Документация Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 * [Репозиторий Bootstrap](https://github.com/twbs/bootstrap)
-* [Курс ⎯ Bootstrap 5: Основы верстки](https://ru.hexlet.io/courses/bootstrap_basic)
+* [Bootstrap 5: Основы верстки](https://ru.hexlet.io/courses/bootstrap_basic)
