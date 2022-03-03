@@ -1,5 +1,5 @@
 ---
-title: Как составить резюме начинающему программисту без опыта работы 
+title: Как составить резюме начинающему программисту без опыта работы
 subtitle: Как правильно составить резюме junior программиста
 description: Когда начинать составлять резюме программисту, как его оформлять, что писать об образовании и опыте работы. Эти и другие вопросы подробно рассмотрены в гайде.
 image: "assets/images/resume/resume.jpg"
@@ -164,8 +164,9 @@ _Дисклеймер: Разные люди по-разному смотрят 
 
 Работа — это не чисто механический процесс. Даже разработчики проводят много времени общаясь и взаимодействуя. И каждому разработчику хочется работать в окружении людей, которые ему приятны. Раздел "о себе" позволяет найти точки соприкосновения, а при совпадении интересов родить симпатию.
 
-## Полезные статьи по теме
+## Дополнительные ссылки
 
+* [Hexlet CV ⎯ публикация резюме и рекомендации от участников сообщества и профессиональных HR](https://cv.hexlet.io/)
 * [How To Write Your Human-Voiced Resume](https://www.forbes.com/sites/lizryan/2014/07/17/how-to-write-your-human-voiced-resume/)
 * [Интервью с техническим директором Авито (вторая часть про найм)](https://www.youtube.com/watch?v=8wurHiUJwUA&t=5s)
 * [Интервью с рекрутером. Как происходит поиск и фильтрация кандидатов?](https://www.youtube.com/watch?v=Zg9iNKaFqSY)
@@ -173,6 +174,5 @@ _Дисклеймер: Разные люди по-разному смотрят 
 * [Собеседования. Взгляд со стороны работодателя](https://www.youtube.com/watch?v=M4WW8-9GwRA)
 * [Публичное собеседование](https://www.youtube.com/watch?v=JERUf-xKU1o)
 * [Как правильно откликнуться на вакансию: рекомендации HR-менеджера Хекслета Людмилы Семёновой](https://ru.hexlet.io/blog/posts/kak-pravilno-otkliknutsya-na-vakansiyu-9-sovetov-ot-hr-menedzhera-heksleta-lyudmily-semyonovoy)
-* [Hexlet Резюме](https://cv.hexlet.io/)
 * [В резюме не должно быть частой смены работы: рекомендации тимлида Evrone Дмитрия Матвеева](https://ru.hexlet.io/blog/posts/v-rezyume-ne-dolzhno-byt-chastoy-smeny-raboty-ili-o-trebovaniyah-timlida-k-razrabotchikam-intervyu-s-dmitriem-matveevym-evrone)
 * [HR-эксперты рассказывают о трудоустройстве](https://ru.hexlet.io/blog/posts/neprostye-otvety-na-prostye-voprosy-hr-eksperty-rasskazyvayut-o-trudoustroystve)
