@@ -192,3 +192,4 @@ tasks:
 ## Дополнительные ссылки
 
 * https://github.com/hexlet-boilerplates/ansible
+* [Основы автоматизации в Ansible](https://ru.hexlet.io/courses/ansible)
