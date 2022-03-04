@@ -12,7 +12,7 @@
     <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Hexlet Guides" />
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Что такое протокол SSH | Hexlet Guides</title>
-<meta name="generator" content="Jekyll v4.2.1" />
+<meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="Что такое протокол SSH" />
 <meta name="author" content="Рахим Давлеткалиев" />
 <meta property="og:locale" content="ru_RU" />
@@ -110,7 +110,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Featured Image -->
 
     <div class="article-post">
-      <ul><li><a href="#что-значит-протокол">Что значит «протокол»?</a></li><li><a href="#что-значит-защищенный">Что значит «защищенный»?</a></li><li><a href="#для-чего-нужен-ssh">Для чего нужен SSH?</a></li><li><a href="#как-подключаться-по-ssh">Как подключаться по SSH?</a><ul><li><a href="#fingerprint">Fingerprint</a></li></ul></li><li><a href="#подключение-по-ssh-по-паролю">Подключение по SSH по паролю</a></li><li><a href="#подключение-по-ssh-по-ключу-без-пароля">Подключение по SSH по ключу, без пароля</a><ul><li><a href="#генерация-ключей">Генерация ключей</a></li><li><a href="#загрузка-публичного-ключа-на-сервер">Загрузка публичного ключа на сервер</a></li></ul></li><li><a href="#ssh-agent">ssh-agent</a></li><li><a href="#форвардинг-проброс-ключей">Форвардинг (проброс) ключей</a></li><li><a href="#частые-вопросы">Частые вопросы</a><ul><li><a href="#чем-telnet-отличается-от-ssh">Чем Telnet отличается от SSH?</a></li></ul></li><li><a href="#дополнительные-ссылки">Дополнительные ссылки</a></li></ul>
+      <ul><li><a href="#что-значит-протокол">Что значит «протокол»?</a></li><li><a href="#что-значит-защищенный">Что значит «защищенный»?</a></li><li><a href="#для-чего-нужен-ssh">Для чего нужен SSH?</a></li><li><a href="#как-подключаться-по-ssh">Как подключаться по SSH?</a><ul><li><a href="#fingerprint">Fingerprint</a></li></ul></li><li><a href="#подключение-по-ssh-по-паролю">Подключение по SSH по паролю</a></li><li><a href="#подключение-по-ssh-по-ключу-без-пароля">Подключение по SSH по ключу, без пароля</a><ul><li><a href="#генерация-ключей">Генерация ключей</a></li><li><a href="#загрузка-публичного-ключа-на-сервер">Загрузка публичного ключа на сервер</a></li></ul></li><li><a href="#ssh-agent">ssh-agent</a></li><li><a href="#форвардинг-проброс-ключей">Форвардинг (проброс) ключей</a></li><li><a href="#дополнительные-ссылки">Дополнительные ссылки</a></li></ul>
 
       <p><strong>SSH — защищенный протокол для удаленного доступа к компьютерам. Через SSH можно выполнять операции в командной строке компьютера, который физически находится в другом месте.</strong></p>
 
@@ -139,7 +139,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2 id="как-подключаться-по-ssh">Как подключаться по SSH?</h2>
 
-<p>Для подключения к удаленной машине по SSH нужен клиент — специальная программа. В *nix-подобных системах (Linux, macOS) клиент обычно установлен в системе по умолчанию, и достаточно открыть терминал. В Windows нужно скачать сторонний клиент, например, <a href="https://www.putty.org/">Putty</a>.</p>
+<p>Для подключения к удаленной машине по SSH нужен клиент — специальная программа. В *nix-подобных системах (Linux, macOS) клиент обычно установлен в системе по умолчанию, и достаточно открыть терминал.</p>
 
 <p>Для подключения нужно указать адрес сервера и, опционально, имя пользователя и порт. Вот как выглядит команда при использовании консольного клиента (в терминале):</p>
 
@@ -152,10 +152,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </code></pre></div></div>
 
 <p>Если не указывать порт, то будет использован порт SSH по умолчанию — <code class="language-plaintext highlighter-rouge">22</code>. Используемый порт задается при настройке SSH-сервера, программы, которая запущена на удаленном компьютере и ожидает подключения извне.</p>
-
-<p>В графическом клиенте вроде Putty нужно ввести ту же информацию в соответствующие поля:</p>
-
-<p><img src="/assets/images/ssh/putty.png" alt="Putty - стартовая страница" /></p>
 
 <h3 id="fingerprint">Fingerprint</h3>
 
@@ -202,7 +198,7 @@ Are you sure you want to continue connecting (yes/no)? yes
 Enter file in which to save the key (/home/demo/.ssh/id_rsa):
 </code></pre></div></div>
 
-<p>Нажмите Enter для сохранения в стандартное место — директорию <code class="language-plaintext highlighter-rouge">.ssh/id_rsa</code> в вашей домашней директории.</p>
+<p>Нажмите Enter для сохранения в стандартное место — директорию <em>.ssh/id_rsa</em> в вашей домашней директории.</p>
 
 <p>Программа запросит passphrase. Это вроде пароля для ключа. Можно просто нажать Enter и пропустить этот шаг. Или ввести passphrase — тогда его нужно будет вводить каждый раз, когда используется ключ.</p>
 
@@ -233,20 +229,20 @@ The key's randomart image is:
 <p>Теперь у вас есть два файла:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa</code> — приватный ключ. <strong>Никогда никому и никуда не передавайте его!</strong></li>
-  <li><code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa.pub</code> — публичный ключ. Спокойно распространяйте его.</li>
+  <li><em>~/.ssh/id_rsa</em> — приватный ключ. <strong>Никогда никому и никуда не передавайте его!</strong></li>
+  <li><em>~/.ssh/id_rsa.pub</em> — публичный ключ. Спокойно распространяйте его.</li>
 </ul>
 
-<p>В Windows можно использовать <code class="language-plaintext highlighter-rouge">ssh-gen</code> в подсистеме Ubuntu for Windows или в командной строке Git for Windows. Или создавать ключи графической утилитой вроде <a href="https://winscp.net/eng/docs/ui_puttygen">PuTTYgen</a>.</p>
+<p>В Windows можно использовать <code class="language-plaintext highlighter-rouge">ssh-gen</code> в подсистеме Ubuntu for Windows или в командной строке Git for Windows.</p>
 
 <h3 id="загрузка-публичного-ключа-на-сервер">Загрузка публичного ключа на сервер</h3>
 
-<p>Нужно добавить публичный ключ на сервер в файл <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code>. Самый простой способ — запустить на локальной машине команду для копирования ключа:</p>
+<p>Нужно добавить публичный ключ на сервер в файл <em>~/.ssh/authorized_keys</em>. Самый простой способ — запустить на локальной машине команду для копирования ключа:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code>ssh-copy-id <span class="nt">-i</span> /home/demo/.ssh/id_rsa.pub ivan@52.307.149.244
 </code></pre></div></div>
 
-<p>Другой способ — подключиться по паролю, открыть в редакторе файл <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code> и добавить в конец текст из вашего файла <code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa.pub</code>.</p>
+<p>Другой способ — подключиться по паролю, открыть в редакторе файл <em>~/.ssh/authorized_keys</em> и добавить в конец текст из вашего файла <em>~/.ssh/id_rsa.pub</em>.</p>
 
 <p>Теперь при подключении пароль запрашиваться не будет<sup>1</sup>.</p>
 
@@ -270,9 +266,9 @@ The key's randomart image is:
   <li>не нужно будет вводить ключ вручную — он будет автоматически использован при соответствующем подключении</li>
 </ol>
 
-<p><code class="language-plaintext highlighter-rouge">ssh-add /home/demo/.ssh/id_rsa</code> добавит ключ <code class="language-plaintext highlighter-rouge">id_rsa</code> в запущенный в системе агент. Если у него есть passphrase, то агент попросит ввести его.</p>
+<p><code class="language-plaintext highlighter-rouge">ssh-add /home/demo/.ssh/id_rsa</code> добавит ключ <em>id_rsa</em> в запущенный в системе агент. Если у него есть passphrase, то агент попросит ввести его.</p>
 
-<p>Если запустить <code class="language-plaintext highlighter-rouge">ssh-add</code> без аргументов, то будут добавлены ключи <code class="language-plaintext highlighter-rouge">~/.ssh/id_rsa</code>, <code class="language-plaintext highlighter-rouge">~/.ssh/id_dsa</code>, <code class="language-plaintext highlighter-rouge">~/.ssh/id_ecdsa</code>, <code class="language-plaintext highlighter-rouge">~/.ssh/id_ed25519</code> и <code class="language-plaintext highlighter-rouge">~/.ssh/identity</code>.</p>
+<p>Если запустить <code class="language-plaintext highlighter-rouge">ssh-add</code> без аргументов, то будут добавлены ключи <em>~/.ssh/id_rsa</em>, <em>~/.ssh/id_dsa</em>, <em>~/.ssh/id_ecdsa</em>, <em>~/.ssh/id_ed25519</em> и <em>~/.ssh/identity</em>.</p>
 
 <p>Список добавленных в агент ключей можно посмотреть командой <code class="language-plaintext highlighter-rouge">ssh-add -L</code>:</p>
 
@@ -293,12 +289,6 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
 </code></pre></div></div>
 
 <p>Ключи, добавленные к агенту аутентификации (ssh-agent) станут доступными на удаленном сервере. При этом файлы-ключи физически не будут находиться на сервере.</p>
-
-<h2 id="частые-вопросы">Частые вопросы</h2>
-
-<h3 id="чем-telnet-отличается-от-ssh">Чем Telnet отличается от SSH?</h3>
-
-<p>Telnet это конкретная программа с графическим интерфейсом, с помощью которой можно соединяться по SSH. Обычно ей пользуются только Windows пользователи, в Linux и MacOS используют консольную утилиту <em>ssh</em>.</p>
 
 <h2 id="дополнительные-ссылки">Дополнительные ссылки</h2>
 
