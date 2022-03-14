@@ -102,3 +102,5 @@ author: Кирилл Мокевнин
 * [Курс: Структура и интерпретация компьютерных программ (SICP по-русски)](https://www.youtube.com/watch?v=bFMbqKRjU84&list=PLo6puixMwuSO8eB2uBH5lZy5kjNtdhTfT)
 
 * [Сервис для отслеживания прогресса изучения книги](https://sicp.hexlet.io/)
+
+* [Лекции от авторов курса переведенные на русский язык](https://www.youtube.com/playlist?list=PLc6AqfeLgwzPPK1H3XV1Wfb_CGvT6sXkC)
