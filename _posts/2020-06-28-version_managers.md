@@ -2,7 +2,7 @@
 title: Что такое "Менеджер версий"
 subtitle: Как управлять версиями языков
 description: Правильный подход к установке языков программирования и их обновлению. Универсальный менеджер версий asdf.
-image: "assets/images/version-manager/nvm.png"
+image: "assets/images/version-manager/title.png"
 author: Кирилл Мокевнин
 ---
 
