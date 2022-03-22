@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru_RU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+    
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/how-to-search-en">
+    
+
+    <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Hexlet Guides" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to search for technical information | Hexlet Guides</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="How to search for technical information" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="One of the most important skills for a programmer is the ability to find answers and solve problems using Google. A lot of the problems that beginners face have already been solved and described before. All you need is to learn how to find these solutions and answers. Websites The main sites to get your questions answered: GitHub Stackoverflow Language As practice shows, at the beginning most programmers try to search information in their own language. Sometimes you can find the answer this way, but more often — no. The universal language for programmers is English, it’s used all over the world. The amount of information in the English-speaking segment is noticeably more than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster. Code Basics: бесплатные курсы программирования Search engine To continue the previous section it’s important to note that the best way to search for information is using Google. Local search engines might be appropriate for certain uses, yet the English-speaking segment isn’t their main market, and they are much inferior to Google. For example, you will notice that after a while Google adapts to your queries and starts showing more relevant links. It also is quite capable to understand which programming language you prefer in order to show the answers related to it. Another important point: Google search works even better than site search. If you need something, for example, on Github, it’s better to form an accurate query in Google so that you would get the result far better and faster. Below section “query language” provides further details. Query language Each search engine has a query language. It includes special search operators allowing you to specify more precisely what you want. Here are a few common search techniques: site:stackoverflow.com how to test react code — this search will be performed through the [Stackoverflow] site (https://stackoverflow.com/). add class to element -jquery — a hyphen denotes stop words, therefore, all variants excluding these words will be found. &quot;immutable js&quot; — double quotes indicating to look for an exact match. The full list can be found on the Google support site. Library search The vast majority of libraries are located (they say, “hosted”) on GitHub. Let’s say you need to find a library for executing HTTP requests in JavaScript. To do this you can form the following request: github js http client. Google will show you a dozen links to different repositories. Of course, you can also use the query language: site:github.com js http client, but generally it’s enough to simply indicate github. The same search strategy can be used for well-known libraries: github express. Search by error message Before you search by error message, it’s necessary to understand where the error message is here exactly. Although the output contains a lot of relevant information, it’s not a description of this error. For example: There was 1 failure: 1) App\SolutionTest::testResult with data set #2 (0, 2, 2, 1, 2) Failed asserting that &#39;1&#39; matches expected 0. /usr/src/app/tests/App/Tests/SolutionTest.php:15 FAILURES! Tests: 3, Assertions: 3, Failures: 1. Makefile:2: recipe for target &#39;test&#39; failed make: Leaving directory &#39;/usr/src/app&#39; make: *** [test] Error 1 The output has a lot of text but there is only one real error message: Failed asserting that &#39;1&#39; matches expected 0.. In this particular case, it’s approximately clear what is wrong and where to look (the file and line are indicated in the stack trace below). But so happens not always. If you correctly identified the error message, you may also want to do one thing. Often such messages are personalized: they take specific values of parameters that relate to your environment. For example, paths to files. Hence, if you search throughout the error message, then most likely Google won’t find anything. For example, in the message above, such parameters are &#39;1&#39; and 0. If you clear the phrase, there will be Failed asserting that matches expected. That’s what you have to look for. You can also add language name: php Failed asserting that matches expected. Behavior search Sometimes an error message is either missing or cannot lead to a correct answer (since it’s a consequence, not a cause). At this point, you need to be creative and make a sentence in English. A set of keywords will also work. If the search wasn’t successful then try to add site:stackoverflow.com. Stackoverflow is a unique place having answers to almost all similar questions. If you know which library or program exactly the error belongs to, it would be useful to find its repository on Github and study the Issues section. If there definitely is an error, and it’s relevant, then most certainly someone has already mentioned it. Official documentation Search is good but don’t forget to look into the official documentation for tools (including programming languages). Official (and not only) documentation, as a rule, is divided into following types: Getting Started is a small (not always) step-by-step guide helping to create a minimal working version and quickly start working with the tool to see it in action. It’s the first document you need to look for. Guides are descriptions of the tool components. They are written in a narrative form, so it’s not hard to read them from start to finish. They make it easier to learn large blocks of information. API is a concise documentation on all possible application functions. It is more intended for finding answers to specific questions. Tutorials, in contrast to quides, are aimed at various options for using the tool. Kirill Mokevnin" />
+<meta property="og:description" content="One of the most important skills for a programmer is the ability to find answers and solve problems using Google. A lot of the problems that beginners face have already been solved and described before. All you need is to learn how to find these solutions and answers. Websites The main sites to get your questions answered: GitHub Stackoverflow Language As practice shows, at the beginning most programmers try to search information in their own language. Sometimes you can find the answer this way, but more often — no. The universal language for programmers is English, it’s used all over the world. The amount of information in the English-speaking segment is noticeably more than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster. Code Basics: бесплатные курсы программирования Search engine To continue the previous section it’s important to note that the best way to search for information is using Google. Local search engines might be appropriate for certain uses, yet the English-speaking segment isn’t their main market, and they are much inferior to Google. For example, you will notice that after a while Google adapts to your queries and starts showing more relevant links. It also is quite capable to understand which programming language you prefer in order to show the answers related to it. Another important point: Google search works even better than site search. If you need something, for example, on Github, it’s better to form an accurate query in Google so that you would get the result far better and faster. Below section “query language” provides further details. Query language Each search engine has a query language. It includes special search operators allowing you to specify more precisely what you want. Here are a few common search techniques: site:stackoverflow.com how to test react code — this search will be performed through the [Stackoverflow] site (https://stackoverflow.com/). add class to element -jquery — a hyphen denotes stop words, therefore, all variants excluding these words will be found. &quot;immutable js&quot; — double quotes indicating to look for an exact match. The full list can be found on the Google support site. Library search The vast majority of libraries are located (they say, “hosted”) on GitHub. Let’s say you need to find a library for executing HTTP requests in JavaScript. To do this you can form the following request: github js http client. Google will show you a dozen links to different repositories. Of course, you can also use the query language: site:github.com js http client, but generally it’s enough to simply indicate github. The same search strategy can be used for well-known libraries: github express. Search by error message Before you search by error message, it’s necessary to understand where the error message is here exactly. Although the output contains a lot of relevant information, it’s not a description of this error. For example: There was 1 failure: 1) App\SolutionTest::testResult with data set #2 (0, 2, 2, 1, 2) Failed asserting that &#39;1&#39; matches expected 0. /usr/src/app/tests/App/Tests/SolutionTest.php:15 FAILURES! Tests: 3, Assertions: 3, Failures: 1. Makefile:2: recipe for target &#39;test&#39; failed make: Leaving directory &#39;/usr/src/app&#39; make: *** [test] Error 1 The output has a lot of text but there is only one real error message: Failed asserting that &#39;1&#39; matches expected 0.. In this particular case, it’s approximately clear what is wrong and where to look (the file and line are indicated in the stack trace below). But so happens not always. If you correctly identified the error message, you may also want to do one thing. Often such messages are personalized: they take specific values of parameters that relate to your environment. For example, paths to files. Hence, if you search throughout the error message, then most likely Google won’t find anything. For example, in the message above, such parameters are &#39;1&#39; and 0. If you clear the phrase, there will be Failed asserting that matches expected. That’s what you have to look for. You can also add language name: php Failed asserting that matches expected. Behavior search Sometimes an error message is either missing or cannot lead to a correct answer (since it’s a consequence, not a cause). At this point, you need to be creative and make a sentence in English. A set of keywords will also work. If the search wasn’t successful then try to add site:stackoverflow.com. Stackoverflow is a unique place having answers to almost all similar questions. If you know which library or program exactly the error belongs to, it would be useful to find its repository on Github and study the Issues section. If there definitely is an error, and it’s relevant, then most certainly someone has already mentioned it. Official documentation Search is good but don’t forget to look into the official documentation for tools (including programming languages). Official (and not only) documentation, as a rule, is divided into following types: Getting Started is a small (not always) step-by-step guide helping to create a minimal working version and quickly start working with the tool to see it in action. It’s the first document you need to look for. Guides are descriptions of the tool components. They are written in a narrative form, so it’s not hard to read them from start to finish. They make it easier to learn large blocks of information. API is a concise documentation on all possible application functions. It is more intended for finding answers to specific questions. Tutorials, in contrast to quides, are aimed at various options for using the tool. Kirill Mokevnin" />
+<link rel="canonical" href="https://guides.hexlet.io/how-to-search-en/" />
+<meta property="og:url" content="https://guides.hexlet.io/how-to-search-en/" />
+<meta property="og:site_name" content="Hexlet Guides" />
+<meta property="og:image" content="https://guides.hexlet.io/assets/images/how-to-search/how-to-search-title.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://guides.hexlet.io/assets/images/how-to-search/how-to-search-title.png" />
+<meta property="twitter:title" content="How to search for technical information" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Kirill Mokevnin"},"dateModified":"2022-03-22T00:00:00+00:00","datePublished":"2022-03-22T00:00:00+00:00","description":"One of the most important skills for a programmer is the ability to find answers and solve problems using Google. A lot of the problems that beginners face have already been solved and described before. All you need is to learn how to find these solutions and answers. Websites The main sites to get your questions answered: GitHub Stackoverflow Language As practice shows, at the beginning most programmers try to search information in their own language. Sometimes you can find the answer this way, but more often — no. The universal language for programmers is English, it’s used all over the world. The amount of information in the English-speaking segment is noticeably more than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster. Code Basics: бесплатные курсы программирования Search engine To continue the previous section it’s important to note that the best way to search for information is using Google. Local search engines might be appropriate for certain uses, yet the English-speaking segment isn’t their main market, and they are much inferior to Google. For example, you will notice that after a while Google adapts to your queries and starts showing more relevant links. It also is quite capable to understand which programming language you prefer in order to show the answers related to it. Another important point: Google search works even better than site search. If you need something, for example, on Github, it’s better to form an accurate query in Google so that you would get the result far better and faster. Below section “query language” provides further details. Query language Each search engine has a query language. It includes special search operators allowing you to specify more precisely what you want. Here are a few common search techniques: site:stackoverflow.com how to test react code — this search will be performed through the [Stackoverflow] site (https://stackoverflow.com/). add class to element -jquery — a hyphen denotes stop words, therefore, all variants excluding these words will be found. &quot;immutable js&quot; — double quotes indicating to look for an exact match. The full list can be found on the Google support site. Library search The vast majority of libraries are located (they say, “hosted”) on GitHub. Let’s say you need to find a library for executing HTTP requests in JavaScript. To do this you can form the following request: github js http client. Google will show you a dozen links to different repositories. Of course, you can also use the query language: site:github.com js http client, but generally it’s enough to simply indicate github. The same search strategy can be used for well-known libraries: github express. Search by error message Before you search by error message, it’s necessary to understand where the error message is here exactly. Although the output contains a lot of relevant information, it’s not a description of this error. For example: There was 1 failure: 1) App\\SolutionTest::testResult with data set #2 (0, 2, 2, 1, 2) Failed asserting that &#39;1&#39; matches expected 0. /usr/src/app/tests/App/Tests/SolutionTest.php:15 FAILURES! Tests: 3, Assertions: 3, Failures: 1. Makefile:2: recipe for target &#39;test&#39; failed make: Leaving directory &#39;/usr/src/app&#39; make: *** [test] Error 1 The output has a lot of text but there is only one real error message: Failed asserting that &#39;1&#39; matches expected 0.. In this particular case, it’s approximately clear what is wrong and where to look (the file and line are indicated in the stack trace below). But so happens not always. If you correctly identified the error message, you may also want to do one thing. Often such messages are personalized: they take specific values of parameters that relate to your environment. For example, paths to files. Hence, if you search throughout the error message, then most likely Google won’t find anything. For example, in the message above, such parameters are &#39;1&#39; and 0. If you clear the phrase, there will be Failed asserting that matches expected. That’s what you have to look for. You can also add language name: php Failed asserting that matches expected. Behavior search Sometimes an error message is either missing or cannot lead to a correct answer (since it’s a consequence, not a cause). At this point, you need to be creative and make a sentence in English. A set of keywords will also work. If the search wasn’t successful then try to add site:stackoverflow.com. Stackoverflow is a unique place having answers to almost all similar questions. If you know which library or program exactly the error belongs to, it would be useful to find its repository on Github and study the Issues section. If there definitely is an error, and it’s relevant, then most certainly someone has already mentioned it. Official documentation Search is good but don’t forget to look into the official documentation for tools (including programming languages). Official (and not only) documentation, as a rule, is divided into following types: Getting Started is a small (not always) step-by-step guide helping to create a minimal working version and quickly start working with the tool to see it in action. It’s the first document you need to look for. Guides are descriptions of the tool components. They are written in a narrative form, so it’s not hard to read them from start to finish. They make it easier to learn large blocks of information. API is a concise documentation on all possible application functions. It is more intended for finding answers to specific questions. Tutorials, in contrast to quides, are aimed at various options for using the tool. Kirill Mokevnin","headline":"How to search for technical information","image":"https://guides.hexlet.io/assets/images/how-to-search/how-to-search-title.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/how-to-search-en/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"url":"https://guides.hexlet.io/how-to-search-en/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMJ8HKG');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+    <link href="/assets/css/theme.css" rel="stylesheet">
+
+    <!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
+    <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="/assets/css/highlight.css" rel="stylesheet">
+    <!-- custom CSS end-->
+
+  </head>
+
+  
+
+  <body class="layout-post">
+
+    
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMJ8HKG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+    <!-- Menu Navigation
+      ================================================== -->
+
+      <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center py-3">
+          <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">Исходный код</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Container
+        ================================================== -->
+        <main class="container">
+          <div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto text-break">
+
+
+    <div class="mainheading">
+      <h1 class="posttitle">
+          
+            How to search for technical information
+          
+      </h1>
+    </div>
+
+
+  <!-- Post Featured Image -->
+    
+      <div class="text-center mx-auto mb-5">
+        <img class="featured-image text-center mx-auto rounded" src="/assets/images/how-to-search/how-to-search-title.png" alt="How to search for technical information">
+      </div>
+    
+  <!-- End Featured Image -->
+
+    <div class="article-post">
+      <ul><li><a href="#websites">Websites</a></li><li><a href="#language">Language</a></li><li><a href="#search-engine">Search engine</a></li><li><a href="#query-language">Query language</a></li><li><a href="#library-search">Library search</a></li><li><a href="#search-by-error-message">Search by error message</a></li><li><a href="#behavior-search">Behavior search</a></li><li><a href="#official-documentation">Official documentation</a></li><li><a href="#tutorials-in-contrast-to-quides-are-aimed-at-various-options-for-using-the-tool"><a href="https://blog.codeship.com/an-introduction-to-apis-with-phoenix/">Tutorials</a>, in contrast to quides, are aimed at various options for using the tool.</a></li></ul>
+
+      <p><strong>One of the most important skills for a programmer is the ability to find answers and solve problems using Google. A lot of the problems that beginners face have already been solved and described before. All you need is to learn how to find these solutions and answers.</strong></p>
+<h2 id="websites">Websites</h2>
+<p>The main sites to get your questions answered:</p>
+<ul>
+  <li><a href="https://github.com">GitHub</a></li>
+  <li><a href="https://stackoverflow.com">Stackoverflow</a>
+    <h2 id="language">Language</h2>
+    <p>As practice shows, at the beginning most programmers try to search information in their own language. Sometimes you can find the answer this way, but more often — no. <strong>The universal language for programmers is English</strong>, it’s used all over the world. The amount of information in the English-speaking segment is noticeably more than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster.</p>
+  </li>
+</ul>
+<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
+    <a href="https://ru.code-basics.com/?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Code Basics: бесплатные курсы программирования
+</a>
+</div>
+
+<h2 id="search-engine">Search engine</h2>
+<p>To continue the previous section it’s important to note that the best way to search for information is using Google. Local search engines might be appropriate for certain uses, yet the English-speaking segment isn’t their main market, and they are much inferior to Google. For example, you will notice that after a while Google adapts to your queries and starts showing more relevant links. It also is quite capable to understand which programming language you prefer in order to show the answers related to it.
+Another important point: Google search works even better than site search. If you need something, for example, on Github, it’s better to form an accurate query in Google so that you would get the result far better and faster. Below section “query language” provides further details.</p>
+<h2 id="query-language">Query language</h2>
+<p>Each search engine has a query language. It includes special search operators allowing you to specify more precisely what you want. Here are a few common search techniques:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">site:stackoverflow.com how to test react code</code> — this search will be performed through the [Stackoverflow] site (https://stackoverflow.com/).</li>
+  <li><code class="language-plaintext highlighter-rouge">add class to element -jquery</code> — a hyphen denotes stop words, therefore, all variants excluding these words will be found.</li>
+  <li><code class="language-plaintext highlighter-rouge">"immutable js"</code> — double quotes indicating to look for an exact match.
+The full list can be found <a href="https://support.google.com/websearch/answer/2466433?visit_id=1-636424030566191968-2246914586&amp;p=adv_operators&amp;hl=en&amp;rd=1">on the Google support site</a>.
+    <h2 id="library-search">Library search</h2>
+    <p>The vast majority of libraries are located (they say, “hosted”) on <a href="https://github.com">GitHub</a>. Let’s say you need to find a library for executing HTTP requests in JavaScript. To do this you can form the following request: <code class="language-plaintext highlighter-rouge">github js http client</code>. Google will show you a dozen links to different repositories. Of course, you can also use the query language: <code class="language-plaintext highlighter-rouge">site:github.com js http client</code>, but generally it’s enough to simply indicate <code class="language-plaintext highlighter-rouge">github</code>.
+The same search strategy can be used for well-known libraries: <code class="language-plaintext highlighter-rouge">github express</code>.</p>
+    <h2 id="search-by-error-message">Search by error message</h2>
+    <p>Before you search by error message, it’s necessary to understand where <em>the error message</em> is here exactly. Although the output contains a lot of relevant information, it’s not a description of this error. For example:</p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>There was 1 failure:
+1<span class="o">)</span> App<span class="se">\S</span>olutionTest::testResult with data <span class="nb">set</span> <span class="c">#2 (0, 2, 2, 1, 2)</span>
+Failed asserting that <span class="s1">'1'</span> matches expected 0.
+/usr/src/app/tests/App/Tests/SolutionTest.php:15
+FAILURES!
+Tests: 3, Assertions: 3, Failures: 1.
+Makefile:2: recipe <span class="k">for </span>target <span class="s1">'test'</span> failed
+make: Leaving directory <span class="s1">'/usr/src/app'</span>
+make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</span><span class="o">]</span> Error 1
+</code></pre></div>    </div>
+    <p>The output has a lot of text but there is only one real error message: <code class="language-plaintext highlighter-rouge">Failed asserting that '1' matches expected 0.</code>. In this particular case, it’s approximately clear what is wrong and where to look (the file and line are indicated in the stack trace below). But so happens not always. If you correctly identified the error message, you may also want to do one thing. Often such messages are personalized: they take specific values of parameters that relate to your environment. For example, paths to files. Hence, if you search throughout the error message, then most likely Google won’t find anything. For example, in the message above, such parameters are <code class="language-plaintext highlighter-rouge">'1'</code> and <code class="language-plaintext highlighter-rouge">0</code>. If you clear the phrase, there will be <code class="language-plaintext highlighter-rouge">Failed asserting that matches expected</code>. That’s what you have to look for. You can also add language name: <code class="language-plaintext highlighter-rouge">php Failed asserting that matches expected</code>.</p>
+    <h2 id="behavior-search">Behavior search</h2>
+    <p>Sometimes an error message is either missing or cannot lead to a correct answer (since it’s a consequence, not a cause). At this point, you need to be creative and make a sentence in English. A set of keywords will also work. If the search wasn’t successful then try to add <code class="language-plaintext highlighter-rouge">site:stackoverflow.com</code>. Stackoverflow is a unique place having answers to almost all similar questions.
+If you know which library or program exactly the error belongs to, it would be useful to find its repository on Github and study the Issues section. If there definitely is an error, and it’s relevant, then most certainly someone has already mentioned it.</p>
+    <h2 id="official-documentation">Official documentation</h2>
+    <p>Search is good but don’t forget to look into the official documentation for tools (including programming languages). Official (and not only) documentation, as a rule, is divided into following types:</p>
+    <ol>
+      <li><a href="https://guides.rubyonrails.org/getting_started.html">Getting Started</a> is a small (not always) step-by-step guide helping to create a minimal working version and quickly start working with the tool to see it in action. It’s the first document you need to look for.</li>
+      <li><a href="https://laravel.com/docs/5.5/routing">Guides</a> are descriptions of the tool components. They are written in a narrative form, so it’s not hard to read them from start to finish. They make it easier to learn large blocks of information.</li>
+      <li><a href="https://bit.ly/2uq98XM">API</a> is a concise documentation on all possible application functions. It is more intended for finding answers to specific questions.</li>
+      <li>
+        <h2 id="tutorials-in-contrast-to-quides-are-aimed-at-various-options-for-using-the-tool"><a href="https://blog.codeship.com/an-introduction-to-apis-with-phoenix/">Tutorials</a>, in contrast to quides, are aimed at various options for using the tool.</h2>
+        <p><em>Kirill Mokevnin</em></p>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+    </div>
+
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/main/_posts/2022-03-22-how-to-search-en.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
+
+      
+        
+          <div class="fst-italic">Kirill Mokevnin</div>
+        
+      
+
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/error-tracking-en/">&laquo; What is Error Tracking?</a>
+      </div>
+      
+      
+    </div>
+    <!-- End Prev/Next -->
+
+    <section>
+      <div id="comments">
+        <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+        </main>
+
+        <!-- Footer
+          ================================================== -->
+          <footer class="footer container text-center">
+
+            <ul class="p-0 mb-1 small">
+              
+              <li>
+                <a href="/about/" alt="О проекте">О проекте</a>
+              </li>
+              
+              <li>
+                <a href="https://ru.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral" alt="Бесплатные курсы и вебинары" target="_blank">Бесплатные курсы и вебинары</a>
+              </li>
+              
+              <li>
+                <a href="https://cv.hexlet.io/" alt="Оценка резюме" target="_blank">Оценка резюме</a>
+              </li>
+              
+              <li>
+                <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка" target="_blank">Алгоритмическая прокачка</a>
+              </li>
+              
+            </ul>
+          </footer>
+
+          <!-- JavaScript
+            ================================================== -->
+            <script src="/assets/js/theme.js"></script>
+  </body>
+</html>
