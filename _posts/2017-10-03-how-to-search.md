@@ -1,51 +1,51 @@
 ---
-title: Как искать техническую информацию
-subtitle: Правильно заданный вопрос — половина успеха.
-description: Большинство проблем, с которыми сталкивается новичок, уже решены и описаны. Нужно лишь научиться находить эти решения и ответы.
+title: How to search for technical information
+subtitle: Asking the right questions is half the battle. 
 image: "assets/images/how-to-search/how-to-search-title.png"
-author: Кирилл Мокевнин
+author: Kirill Mokevnin
+hidden: true
 ---
 
-**Поиск ответов на вопросы и решение проблем с помощью Гугла — важнейший навык для программиста. Большинство проблем, с которыми сталкивается новичок, уже решены и описаны. Нужно лишь научиться находить эти решения и ответы.**
+**One of the most important skills for a programmer is the ability to find answers and solve problems using Google. A lot of the problems that beginners face have already been solved and described before. All you need is to learn how to find these solutions and answers.**
 
-## Сайты
+## Websites
 
-Основные сайты с ответами на вопросы:
+The main sites to get your questions answered:
 
 * [GitHub](https://github.com)
 * [Stackoverflow](https://stackoverflow.com)
 
-## Язык
+## Language
 
-Как показывает практика, в самом начале своего пути немалая часть программистов пытается найти ответы, задавая вопросы поисковой системе на русском языке. Иногда так можно найти ответ, но в большинстве случаев — нет. **Главный язык программистов — английский**, весь мир говорит именно на нем. Количество информации в англоязычном сегменте на порядки больше, чем в русскоязычном. К тому же она свежее. Учитесь формулировать свои мысли, а в случае поиска — набор слов, на английском. Заодно быстрее изучите терминологию.
+As practice shows, at the beginning most programmers try to search information in their own language. Sometimes you can find the answer this way, but more often — no. **The universal language for programmers is English**, it's used all over the world. The amount of information in the English-speaking segment is noticeably more than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster.
 
 {% include banner.html name="site-code-basics" %}
 
-## Поисковая система
+## Search engine
 
-Связано с предыдущим пунктом. Искать нужно в Гугле. Яндекс хоть и хорош для определенных задач, все же англоязычный сегмент — не его основной рынок, и там он значительно уступает Гуглу. Например, вы заметите, что через некоторое время Гугл адаптируется к вашим запросам и начнет показывать более релевантные ссылки. Он вполне способен понять, какой язык программирования вы предпочитаете, чтобы показывать ответы, применимые именно к нему.
+To continue the previous section it’s important to note that the best way to search for information is using Google. Local search engines might be appropriate for certain uses, yet the English-speaking segment isn’t their main market, and they are much inferior to Google. For example, you will notice that after a while Google adapts to your queries and starts showing more relevant links. It also is quite capable to understand which programming language you prefer in order to show the answers related to it.
 
-Еще один важный момент. Гугл даже лучше, чем специфические поиски конкретных сайтов. Если вам нужно что-то на том же Гитхабе, то лучше сформировать правильный запрос в Гугле и получить результат лучше и быстрее. Ниже, в разделе «язык запросов» об этом рассказано подробнее.
+Another important point: Google search works even better than site search. If you need something, for example, on Github, it’s better to form an accurate query in Google so that you would get the result far better and faster. Below section "query language" provides further details.
 
-## Язык запросов
+## Query language
 
-Каждая поисковая система обладает языком запросов. В него входят специальные операторы, позволяющие более точно указать то, что вы хотите. Вот некоторые важные возможности:
+Each search engine has a query language. It includes special search operators allowing you to specify more precisely what you want. Here are a few common search techniques:
 
-* `site:stackoverflow.com how to test react code` — поиск будет произведен среди страниц сайта [Stackoverflow](https://stackoverflow.com/).
-* `add class to element -jquery` — дефисом обозначаются стоп-слова, то есть будут найдены все варианты, в которых эти слова не упоминаются.
-* `"immutable js"` — двойные кавычки указывают на то, что нужно искать точное совпадение.
+* `site:stackoverflow.com how to test react code` — this search will be performed through the [Stackoverflow] site (https://stackoverflow.com/).
+* `add class to element -jquery` — a hyphen denotes stop words, therefore, all variants excluding these words will be found.
+* `"immutable js"` — double quotes indicating to look for an exact match.
 
-Полный список можно найти [на сайте поддержки Гугл](https://support.google.com/websearch/answer/2466433?visit_id=1-636424030566191968-2246914586&p=adv_operators&hl=en&rd=1).
+The full list can be found [on the Google support site](https://support.google.com/websearch/answer/2466433?visit_id=1-636424030566191968-2246914586&p=adv_operators&hl=en&rd=1).
 
-## Поиск библиотек
+## Library search
 
-Подавляющее большинство библиотек находятся (говорят, «хостятся») на [Гитхабе](https://github.com). Предположим, понадобилось найти библиотеку для выполнения HTTP-запросов в JavaScript. Для этого можно сформировать следующий запрос: `github js http client`. Гугл выдаст десяток ссылок на разные репозитории. Конечно, можно использовать и язык запросов: `site:github.com js http client`, но чаще всего достаточно просто указать `github`.
+The vast majority of libraries are located (they say, "hosted") on [GitHub](https://github.com). Let’s say you need to find a library for executing HTTP requests in JavaScript. To do this you can form the following request: `github js http client`. Google will show you a dozen links to different repositories. Of course, you can also use the query language: `site:github.com js http client`, but generally it's enough to simply indicate `github`.
 
-Точно такая же стратегия поиска может использоваться для библиотек с известным названием: `github express`.
+The same search strategy can be used for well-known libraries: `github express`.
 
-## Поиск по сообщению об ошибке
+## Search by error message
 
-Перед тем, как искать по сообщению об ошибке, нужно понять, где же тут *сообщение об ошибке*. Часто вывод с ошибками содержит много информации, которая хоть и относится к делу, но не является описанием той самой ошибки. Пример:
+Before you search by error message, it’s necessary to understand where *the error message* is here exactly. Although the output contains a lot of relevant information, it’s not a description of this error. For example:
 
 ```sh
 There was 1 failure:
@@ -62,24 +62,24 @@ make: Leaving directory '/usr/src/app'
 make: *** [test] Error 1
 ```
 
-В этом выводе много текста, но реальное сообщение об ошибке только одно: `Failed asserting that '1' matches expected 0.`. Конкретно в этом случае примерно понятно, что не так и куда смотреть (в стектрейсе ниже указан файл и строчка). Но так бывает далеко не всегда. Если вам удалось точно идентифицировать сообщение об ошибке, то не лишним будет сделать еще кое-что. Часто подобные сообщения индивидуальны. В них подставляются конкретные значения каких-то параметров, относящихся именно к вашему окружению. Например, пути до файлов. Соответственно, если вы будете искать по всему тексту ошибки, то скорее всего Гугл ничего не найдет. Например, в сообщении выше такими параметрами являются `'1'` и `0`. Если очистить фразу, то получится `Failed asserting that matches expected`. Именно её и надо искать. Не лишним бывает добавить имя языка: `php Failed asserting that matches expected`.
+The output has a lot of text but there is only one real error message: `Failed asserting that '1' matches expected 0.`. In this particular case, it’s approximately clear what is wrong and where to look (the file and line are indicated in the stack trace below). But so happens not always. If you correctly identified the error message, you may also want to do one thing. Often such messages are personalized: they take specific values of parameters that relate to your environment. For example, paths to files. Hence, if you search throughout the error message, then most likely Google won’t find anything. For example, in the message above, such parameters are `'1'` and `0`. If you clear the phrase, there will be `Failed asserting that matches expected`. That’s what you have to look for. You can also add language name: `php Failed asserting that matches expected`.
 
-## Поиск по поведению
+## Behavior search
 
-Нередко сообщение об ошибке либо отсутствует, либо не может привести к правильному ответу (потому что оно — следствие, а не причина). В этой ситуации нужно проявить креативность и составить предложение на английском языке. Набор ключевых слов тоже подойдет. Если поиск не увенчался успехом, то к поисковой фразе полезно добавить `site:stackoverflow.com`. Stackoverflow — место, где есть ответы практически на все подобные вопросы.
+Sometimes an error message is either missing or cannot lead to a correct answer (since it’s a consequence, not a cause). At this point, you need to be creative and make a sentence in English. A set of keywords will also work. If the search wasn’t successful then try to add `site:stackoverflow.com`. Stackoverflow is a unique place having answers to almost all similar questions.
 
-Если известно, к какой библиотеке или программе относится ошибка, то полезно найти её репозиторий на Гитхабе и поизучать раздел Issues. Если ошибка действительно есть, и она актуальная, то почти наверняка о ней уже кто-то отписался.
+If you know which library or program exactly the error belongs to, it would be useful to find its repository on Github and study the Issues section. If there definitely is an error, and it’s relevant, then most certainly someone has already mentioned it.
 
 
-## Официальная документация
+## Official documentation
 
-Поиск — это хорошо, но никогда не забывайте про официальную документацию используемых инструментов (в том числе языков программирования). Официальная (и не только) документация, как правило, делится на несколько видов:
+Search is good but don’t forget to look into the official documentation for tools (including programming languages). Official (and not only) documentation, as a rule, is divided into following types:
 
-1. [Getting Started](https://guides.rubyonrails.org/getting_started.html) — небольшое (не всегда) пошаговое руководство по созданию минимально рабочей версии. Первым делом нужно искать именно этот документ. Он позволяет быстро стартануть чтобы посмотреть инструмент в деле.
-1. [Guides](https://laravel.com/docs/5.5/routing) — описания компонентов рассматриваемого инструмента. Написаны в повествовательной манере, что позволяет их прочитывать от и до. По гайдам удобно изучать большие блоки.
-1. [API](https://bit.ly/2uq98XM) — сухая документация по всем возможным функциям приложения. В нее имеет смысл смотреть только для поиска ответов на конкретные вопросы.
-1. [Tutorials](https://blog.codeship.com/an-introduction-to-apis-with-phoenix/) — в отличие от гайдов, направлены на различные варианты использования инструмента.
+1. [Getting Started](https://guides.rubyonrails.org/getting_started.html) is a small (not always) step-by-step guide helping to create a minimal working version and quickly start working with the tool to see it in action. It’s the first document you need to look for.
+1. [Guides](https://laravel.com/docs/5.5/routing) are descriptions of the tool components. They are written in a narrative form, so it's not hard to read them from start to finish. They make it easier to learn large blocks of information.
+1. [API](https://bit.ly/2uq98XM) is a concise documentation on all possible application functions. It is more intended for finding answers to specific questions.
+1. [Tutorials](https://blog.codeship.com/an-introduction-to-apis-with-phoenix/), in contrast to quides, are aimed at various options for using the tool.
 
 ---
 
-*Кирилл Мокевнин*
+*Kirill Mokevnin*
