@@ -48,5 +48,3 @@ Search is good but don’t forget to look into the official documentation for to
 1. [Guides](https://laravel.com/docs/5.5/routing) are descriptions of the tool components. They are written in a narrative form, so it's not hard to read them from start to finish. They make it easier to learn large blocks of information.
 1. [API](https://bit.ly/2uq98XM) is a concise documentation on all possible application functions. It is more intended for finding answers to specific questions.
 1. [Tutorials](https://blog.codeship.com/an-introduction-to-apis-with-phoenix/), in contrast to quides, are aimed at various options for using the tool.
----
-*Kirill Mokevnin*
