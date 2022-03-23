@@ -16,6 +16,7 @@ The main sites to get your questions answered:
 ## Language
 
 As practice shows, at the beginning most programmers try to search for information in their native language. Sometimes you can find the answer this way, but more often — no. **The universal language for programmers is English** – the whole world speaks it. The amount of information in the English-speaking segment is noticeably higher than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster.
+
 {% include banner.html name="site-code-basics" %}
 
 ## Search engine
@@ -27,7 +28,7 @@ Another important point: Google search works even better than site search. If yo
 
 Each search engine has a query language. It includes special search operators allowing you to specify more precisely what you want. Here are a few common search techniques:
 
-* `site:stackoverflow.com how to test react code` — this search will be performed through the [Stackoverflow] site (https://stackoverflow.com/).
+* `site:stackoverflow.com how to test react code` — this search will be performed through [Stackoverflow](https://stackoverflow.com/).
 * `add class to element -jquery` — a hyphen denotes stop words, therefore, all variants excluding these words will be found.
 * `"immutable js"` — double quotes indicating to look for an exact match.
 
