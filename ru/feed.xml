@@ -642,7 +642,7 @@
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/transpilers/</link>
+            <link>https://guides.hexlet.io/ru/transpilers/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое транспиляция?</turbo:topic> -->
             <title>Что такое транспиляция?</title>
@@ -653,10 +653,10 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/transpilers/">Что такое транспиляция?</a>
+                  <a href="https://guides.hexlet.io/ru/transpilers/">Что такое транспиляция?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/transpilers/"
+                  formaction="https://guides.hexlet.io/ru/transpilers/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -795,7 +795,7 @@ Grumpy обеспечивает трансляцию кода на языке Py
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/http-api/</link>
+            <link>https://guides.hexlet.io/ru/http-api/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое API?</turbo:topic> -->
             <title>Что такое API?</title>
@@ -806,10 +806,10 @@ Grumpy обеспечивает трансляцию кода на языке Py
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/http-api/">Что такое API?</a>
+                  <a href="https://guides.hexlet.io/ru/http-api/">Что такое API?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/http-api/"
+                  formaction="https://guides.hexlet.io/ru/http-api/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -906,7 +906,7 @@ https://some-site.com/api/rpc?param<span class="o">=</span>value
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/interpreter/</link>
+            <link>https://guides.hexlet.io/ru/interpreter/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое интерпретатор?</turbo:topic> -->
             <title>Что такое интерпретатор?</title>
@@ -917,10 +917,10 @@ https://some-site.com/api/rpc?param<span class="o">=</span>value
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/interpreter/">Что такое интерпретатор?</a>
+                  <a href="https://guides.hexlet.io/ru/interpreter/">Что такое интерпретатор?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/interpreter/"
+                  formaction="https://guides.hexlet.io/ru/interpreter/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -1118,7 +1118,7 @@ d:  66 83 f9 00             cmp    cx,0
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/time/</link>
+            <link>https://guides.hexlet.io/ru/time/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое время</turbo:topic> -->
             <title>Что такое время</title>
@@ -1129,10 +1129,10 @@ d:  66 83 f9 00             cmp    cx,0
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/time/">Что такое время</a>
+                  <a href="https://guides.hexlet.io/ru/time/">Что такое время</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/time/"
+                  formaction="https://guides.hexlet.io/ru/time/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -1505,7 +1505,7 @@ epoch.</li>
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/rest-api/</link>
+            <link>https://guides.hexlet.io/ru/rest-api/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое REST API?</turbo:topic> -->
             <title>Что такое REST API?</title>
@@ -1516,10 +1516,10 @@ epoch.</li>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/rest-api/">Что такое REST API?</a>
+                  <a href="https://guides.hexlet.io/ru/rest-api/">Что такое REST API?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/rest-api/"
+                  formaction="https://guides.hexlet.io/ru/rest-api/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -1563,7 +1563,7 @@ epoch.</li>
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/deploy/</link>
+            <link>https://guides.hexlet.io/ru/deploy/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
 </turbo:topic> -->
@@ -1576,11 +1576,11 @@ epoch.</li>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/deploy/">Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
+                  <a href="https://guides.hexlet.io/ru/deploy/">Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
 </a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/deploy/"
+                  formaction="https://guides.hexlet.io/ru/deploy/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -1720,7 +1720,7 @@ epoch.</li>
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/usefull-twitter-threads/</link>
+            <link>https://guides.hexlet.io/ru/usefull-twitter-threads/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Полезные треды в твиттере</turbo:topic> -->
             <title>Полезные треды в твиттере</title>
@@ -1731,10 +1731,10 @@ epoch.</li>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/usefull-twitter-threads/">Полезные треды в твиттере</a>
+                  <a href="https://guides.hexlet.io/ru/usefull-twitter-threads/">Полезные треды в твиттере</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/usefull-twitter-threads/"
+                  formaction="https://guides.hexlet.io/ru/usefull-twitter-threads/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -1818,7 +1818,7 @@ epoch.</li>
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/configuration-management/</link>
+            <link>https://guides.hexlet.io/ru/configuration-management/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое "управление конфигурацией"?</turbo:topic> -->
             <title>Что такое "управление конфигурацией"?</title>
@@ -1829,10 +1829,10 @@ epoch.</li>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/configuration-management/">Что такое "управление конфигурацией"?</a>
+                  <a href="https://guides.hexlet.io/ru/configuration-management/">Что такое "управление конфигурацией"?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/configuration-management/"
+                  formaction="https://guides.hexlet.io/ru/configuration-management/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -2030,7 +2030,7 @@ PLAY RECAP <span class="k">*****************************************************
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/logging/</link>
+            <link>https://guides.hexlet.io/ru/logging/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое логирование?</turbo:topic> -->
             <title>Что такое логирование?</title>
@@ -2041,10 +2041,10 @@ PLAY RECAP <span class="k">*****************************************************
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/logging/">Что такое логирование?</a>
+                  <a href="https://guides.hexlet.io/ru/logging/">Что такое логирование?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/logging/"
+                  formaction="https://guides.hexlet.io/ru/logging/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -2192,7 +2192,7 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/hosting/</link>
+            <link>https://guides.hexlet.io/ru/hosting/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое хостинг и домен сайта простыми словами?</turbo:topic> -->
             <title>Что такое хостинг и домен сайта простыми словами?</title>
@@ -2203,10 +2203,10 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/hosting/">Что такое хостинг и домен сайта простыми словами?</a>
+                  <a href="https://guides.hexlet.io/ru/hosting/">Что такое хостинг и домен сайта простыми словами?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/hosting/"
+                  formaction="https://guides.hexlet.io/ru/hosting/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -2364,7 +2364,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/compiler/</link>
+            <link>https://guides.hexlet.io/ru/compiler/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое компилятор?</turbo:topic> -->
             <title>Что такое компилятор?</title>
@@ -2375,10 +2375,10 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/compiler/">Что такое компилятор?</a>
+                  <a href="https://guides.hexlet.io/ru/compiler/">Что такое компилятор?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/compiler/"
+                  formaction="https://guides.hexlet.io/ru/compiler/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -2518,7 +2518,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/makefile-as-task-runner/</link>
+            <link>https://guides.hexlet.io/ru/makefile-as-task-runner/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое Makefile и как начать его использовать</turbo:topic> -->
             <title>Что такое Makefile и как начать его использовать</title>
@@ -2529,10 +2529,10 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/makefile-as-task-runner/">Что такое Makefile и как начать его использовать</a>
+                  <a href="https://guides.hexlet.io/ru/makefile-as-task-runner/">Что такое Makefile и как начать его использовать</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/makefile-as-task-runner/"
+                  formaction="https://guides.hexlet.io/ru/makefile-as-task-runner/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -2943,7 +2943,7 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/webpack/</link>
+            <link>https://guides.hexlet.io/ru/webpack/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Зачем нужно собирать фронтенд</turbo:topic> -->
             <title>Зачем нужно собирать фронтенд</title>
@@ -2954,10 +2954,10 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/webpack/">Зачем нужно собирать фронтенд</a>
+                  <a href="https://guides.hexlet.io/ru/webpack/">Зачем нужно собирать фронтенд</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/webpack/"
+                  formaction="https://guides.hexlet.io/ru/webpack/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -3126,7 +3126,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/encoding/</link>
+            <link>https://guides.hexlet.io/ru/encoding/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое кодировки?</turbo:topic> -->
             <title>Что такое кодировки?</title>
@@ -3137,10 +3137,10 @@ npm i <span class="nt">-D</span> webpack webpack-cli
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/encoding/">Что такое кодировки?</a>
+                  <a href="https://guides.hexlet.io/ru/encoding/">Что такое кодировки?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/encoding/"
+                  formaction="https://guides.hexlet.io/ru/encoding/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -3305,7 +3305,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/https-yandex-guide/</link>
+            <link>https://guides.hexlet.io/ru/https-yandex-guide/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое протокол HTTPS, и как он защищает вас в интернете</turbo:topic> -->
             <title>Что такое протокол HTTPS, и как он защищает вас в интернете</title>
@@ -3316,10 +3316,10 @@ npm i <span class="nt">-D</span> webpack webpack-cli
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/https-yandex-guide/">Что такое протокол HTTPS, и как он защищает вас в интернете</a>
+                  <a href="https://guides.hexlet.io/ru/https-yandex-guide/">Что такое протокол HTTPS, и как он защищает вас в интернете</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/https-yandex-guide/"
+                  formaction="https://guides.hexlet.io/ru/https-yandex-guide/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -3386,7 +3386,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/git-guide/</link>
+            <link>https://guides.hexlet.io/ru/git-guide/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое Git и для чего он нужен</turbo:topic> -->
             <title>Что такое Git и для чего он нужен</title>
@@ -3397,10 +3397,10 @@ npm i <span class="nt">-D</span> webpack webpack-cli
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/git-guide/">Что такое Git и для чего он нужен</a>
+                  <a href="https://guides.hexlet.io/ru/git-guide/">Что такое Git и для чего он нужен</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/git-guide/"
+                  formaction="https://guides.hexlet.io/ru/git-guide/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -3595,7 +3595,7 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/dns/</link>
+            <link>https://guides.hexlet.io/ru/dns/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое DNS-сервер простыми словами</turbo:topic> -->
             <title>Что такое DNS-сервер простыми словами</title>
@@ -3606,10 +3606,10 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/dns/">Что такое DNS-сервер простыми словами</a>
+                  <a href="https://guides.hexlet.io/ru/dns/">Что такое DNS-сервер простыми словами</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/dns/"
+                  formaction="https://guides.hexlet.io/ru/dns/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -3874,7 +3874,7 @@ ya.ru.	599	IN	AAAA	 2A02:6B8:0:0:0:0:2:242
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/how-to-pass-the-interview/</link>
+            <link>https://guides.hexlet.io/ru/how-to-pass-the-interview/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как проходить интервью</turbo:topic> -->
             <title>Как проходить интервью</title>
@@ -3885,10 +3885,10 @@ ya.ru.	599	IN	AAAA	 2A02:6B8:0:0:0:0:2:242
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/how-to-pass-the-interview/">Как проходить интервью</a>
+                  <a href="https://guides.hexlet.io/ru/how-to-pass-the-interview/">Как проходить интервью</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/how-to-pass-the-interview/"
+                  formaction="https://guides.hexlet.io/ru/how-to-pass-the-interview/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -3979,7 +3979,7 @@ c: Тогда я бы воспользовался встроенной функ
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/how-to-prepare-for-interview/</link>
+            <link>https://guides.hexlet.io/ru/how-to-prepare-for-interview/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как проходит собеседование у программистов, что спрашивают</turbo:topic> -->
             <title>Как проходит собеседование у программистов, что спрашивают</title>
@@ -3990,10 +3990,10 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/how-to-prepare-for-interview/">Как проходит собеседование у программистов, что спрашивают</a>
+                  <a href="https://guides.hexlet.io/ru/how-to-prepare-for-interview/">Как проходит собеседование у программистов, что спрашивают</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/how-to-prepare-for-interview/"
+                  formaction="https://guides.hexlet.io/ru/how-to-prepare-for-interview/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -4255,7 +4255,7 @@ c: Тогда я бы воспользовался встроенной функ
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/how-to-be-a-helpful-for-the-hexlet-community/</link>
+            <link>https://guides.hexlet.io/ru/how-to-be-a-helpful-for-the-hexlet-community/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как участвовать в жизни Хекслета</turbo:topic> -->
             <title>Как участвовать в жизни Хекслета</title>
@@ -4266,10 +4266,10 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/how-to-be-a-helpful-for-the-hexlet-community/">Как участвовать в жизни Хекслета</a>
+                  <a href="https://guides.hexlet.io/ru/how-to-be-a-helpful-for-the-hexlet-community/">Как участвовать в жизни Хекслета</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/how-to-be-a-helpful-for-the-hexlet-community/"
+                  formaction="https://guides.hexlet.io/ru/how-to-be-a-helpful-for-the-hexlet-community/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -4728,7 +4728,7 @@ c: Тогда я бы воспользовался встроенной функ
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/how-to-create-a-resume/</link>
+            <link>https://guides.hexlet.io/ru/how-to-create-a-resume/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как составить резюме начинающему программисту без опыта работы</turbo:topic> -->
             <title>Как составить резюме начинающему программисту без опыта работы</title>
@@ -4739,10 +4739,10 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/how-to-create-a-resume/">Как составить резюме начинающему программисту без опыта работы</a>
+                  <a href="https://guides.hexlet.io/ru/how-to-create-a-resume/">Как составить резюме начинающему программисту без опыта работы</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/how-to-create-a-resume/"
+                  formaction="https://guides.hexlet.io/ru/how-to-create-a-resume/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -4950,7 +4950,7 @@ c: Тогда я бы воспользовался встроенной функ
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/check-list-of-engineering-practices/</link>
+            <link>https://guides.hexlet.io/ru/check-list-of-engineering-practices/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Чек-лист хороших инженерных практик в компаниях</turbo:topic> -->
             <title>Чек-лист хороших инженерных практик в компаниях</title>
@@ -4961,10 +4961,10 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/check-list-of-engineering-practices/">Чек-лист хороших инженерных практик в компаниях</a>
+                  <a href="https://guides.hexlet.io/ru/check-list-of-engineering-practices/">Чек-лист хороших инженерных практик в компаниях</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/check-list-of-engineering-practices/"
+                  formaction="https://guides.hexlet.io/ru/check-list-of-engineering-practices/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -5162,7 +5162,7 @@ c: Тогда я бы воспользовался встроенной функ
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/how-to-learn-sicp/</link>
+            <link>https://guides.hexlet.io/ru/how-to-learn-sicp/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</turbo:topic> -->
             <title>Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</title>
@@ -5173,10 +5173,10 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/how-to-learn-sicp/">Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</a>
+                  <a href="https://guides.hexlet.io/ru/how-to-learn-sicp/">Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/how-to-learn-sicp/"
+                  formaction="https://guides.hexlet.io/ru/how-to-learn-sicp/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -5336,7 +5336,7 @@ c: Тогда я бы воспользовался встроенной функ
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/docker/</link>
+            <link>https://guides.hexlet.io/ru/docker/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как и для чего использовать Docker</turbo:topic> -->
             <title>Как и для чего использовать Docker</title>
@@ -5347,10 +5347,10 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/docker/">Как и для чего использовать Docker</a>
+                  <a href="https://guides.hexlet.io/ru/docker/">Как и для чего использовать Docker</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/docker/"
+                  formaction="https://guides.hexlet.io/ru/docker/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -5859,7 +5859,7 @@ CMD ["eslint", "/app"]
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/virtualization/</link>
+            <link>https://guides.hexlet.io/ru/virtualization/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое виртуализация и для чего она нужна</turbo:topic> -->
             <title>Что такое виртуализация и для чего она нужна</title>
@@ -5870,10 +5870,10 @@ CMD ["eslint", "/app"]
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/virtualization/">Что такое виртуализация и для чего она нужна</a>
+                  <a href="https://guides.hexlet.io/ru/virtualization/">Что такое виртуализация и для чего она нужна</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/virtualization/"
+                  formaction="https://guides.hexlet.io/ru/virtualization/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -5941,7 +5941,7 @@ CMD ["eslint", "/app"]
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/vim/</link>
+            <link>https://guides.hexlet.io/ru/vim/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Зачем использовать vim</turbo:topic> -->
             <title>Зачем использовать vim</title>
@@ -5952,10 +5952,10 @@ CMD ["eslint", "/app"]
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/vim/">Зачем использовать vim</a>
+                  <a href="https://guides.hexlet.io/ru/vim/">Зачем использовать vim</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/vim/"
+                  formaction="https://guides.hexlet.io/ru/vim/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -6190,7 +6190,7 @@ CMD ["eslint", "/app"]
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/vagrant/</link>
+            <link>https://guides.hexlet.io/ru/vagrant/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое Vagrant: установка, запуск, использование
 </turbo:topic> -->
@@ -6203,11 +6203,11 @@ CMD ["eslint", "/app"]
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/vagrant/">Что такое Vagrant: установка, запуск, использование
+                  <a href="https://guides.hexlet.io/ru/vagrant/">Что такое Vagrant: установка, запуск, использование
 </a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/vagrant/"
+                  formaction="https://guides.hexlet.io/ru/vagrant/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -6341,7 +6341,7 @@ CMD ["eslint", "/app"]
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/development-on-windows/</link>
+            <link>https://guides.hexlet.io/ru/development-on-windows/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как начать разрабатывать в Windows</turbo:topic> -->
             <title>Как начать разрабатывать в Windows</title>
@@ -6352,10 +6352,10 @@ CMD ["eslint", "/app"]
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/development-on-windows/">Как начать разрабатывать в Windows</a>
+                  <a href="https://guides.hexlet.io/ru/development-on-windows/">Как начать разрабатывать в Windows</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/development-on-windows/"
+                  formaction="https://guides.hexlet.io/ru/development-on-windows/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -6501,7 +6501,7 @@ choco <span class="nb">install </span>vagrant
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/learning/</link>
+            <link>https://guides.hexlet.io/ru/learning/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как учиться и справляться с негативными мыслями</turbo:topic> -->
             <title>Как учиться и справляться с негативными мыслями</title>
@@ -6512,10 +6512,10 @@ choco <span class="nb">install </span>vagrant
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/learning/">Как учиться и справляться с негативными мыслями</a>
+                  <a href="https://guides.hexlet.io/ru/learning/">Как учиться и справляться с негативными мыслями</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/learning/"
+                  formaction="https://guides.hexlet.io/ru/learning/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -6757,7 +6757,7 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/typing/</link>
+            <link>https://guides.hexlet.io/ru/typing/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как научиться слепой печати на клавиатуре</turbo:topic> -->
             <title>Как научиться слепой печати на клавиатуре</title>
@@ -6768,10 +6768,10 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/typing/">Как научиться слепой печати на клавиатуре</a>
+                  <a href="https://guides.hexlet.io/ru/typing/">Как научиться слепой печати на клавиатуре</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/typing/"
+                  formaction="https://guides.hexlet.io/ru/typing/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -6842,7 +6842,7 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ssh/</link>
+            <link>https://guides.hexlet.io/ru/ssh/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое протокол SSH</turbo:topic> -->
             <title>Что такое протокол SSH</title>
@@ -6853,10 +6853,10 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ssh/">Что такое протокол SSH</a>
+                  <a href="https://guides.hexlet.io/ru/ssh/">Что такое протокол SSH</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ssh/"
+                  formaction="https://guides.hexlet.io/ru/ssh/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -7066,7 +7066,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/markdown/</link>
+            <link>https://guides.hexlet.io/ru/markdown/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое Markdown</turbo:topic> -->
             <title>Что такое Markdown</title>
@@ -7077,10 +7077,10 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/markdown/">Что такое Markdown</a>
+                  <a href="https://guides.hexlet.io/ru/markdown/">Что такое Markdown</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/markdown/"
+                  formaction="https://guides.hexlet.io/ru/markdown/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -7214,7 +7214,7 @@ const func = (num) =&gt; {
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/bootstrap/</link>
+            <link>https://guides.hexlet.io/ru/bootstrap/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Bootstrap простыми словами: что это, для чего нужен, как работает фреймворк
 </turbo:topic> -->
@@ -7227,11 +7227,11 @@ const func = (num) =&gt; {
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/bootstrap/">Bootstrap простыми словами: что это, для чего нужен, как работает фреймворк
+                  <a href="https://guides.hexlet.io/ru/bootstrap/">Bootstrap простыми словами: что это, для чего нужен, как работает фреймворк
 </a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/bootstrap/"
+                  formaction="https://guides.hexlet.io/ru/bootstrap/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
