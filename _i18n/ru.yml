@@ -1,0 +1,15 @@
+---
+
+menu:
+  source_code: Исходный код
+
+hero:
+  header: Статьи о технологиях, инструментах и практиках
+  description: |
+    Зачем нужен Docker? Что такое кодировки, DNS, Webpack? Как печатать вслепую? И многое другое
+
+links:
+  programs_list:
+    name: Программы обучения
+    url: |
+      https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral

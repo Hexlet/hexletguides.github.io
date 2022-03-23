@@ -16,11 +16,8 @@
     {% include counters.html %}
 
     <link href="{{ "/assets/css/theme.css" | relative_url }}" rel="stylesheet">
-
-    <!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
     <link href="{{ "/assets/css/custom.css" | relative_url }}" rel="stylesheet">
     <link href="{{ "/assets/css/highlight.css" | relative_url }}" rel="stylesheet">
-    <!-- custom CSS end-->
 
   </head>
 
@@ -37,10 +34,21 @@
           <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="{{  site.logo | relative_url }}"></a>
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="{{ site.github.repository_url }}">Исходный код</a>
+              <a class="nav-link" target="_blank" href="{{ site.github.repository_url }}">
+                {% t 'menu.source_code' %}
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral">Программы обучения</a>
+            <a class="nav-link" target="_blank" href="{% t 'links.programs_list.url' %}">
+              {% t 'links.programs_list.name' %}
+            </a>
+            </li>
+            <li class="nav-item">
+              {% if site.lang == "ru" %}
+                <a class="nav-link" href="{{ site.baseurl_root }}/">English</a>
+              {% elsif site.lang == "en" %}
+                <a class="nav-link" href="{{ site.baseurl_root }}/ru/">Russian</a>
+              {% endif %}
             </li>
           </ul>
         </div>

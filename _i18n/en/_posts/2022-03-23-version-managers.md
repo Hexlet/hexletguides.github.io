@@ -3,8 +3,8 @@ title: What Is Version Manager
 subtitle: How to manage different language versions
 image: "assets/images/version-manager/title.png"
 author: Kirill Mokevnin
-hidden: true
 ---
+
 ## System installation
 
 To run code in any language, you need to install its interpreter (or compiler). Different operating systems do it differently: some of them use package managers, for example, *apt* or *yum*, and some download the installer directly from repository. Some languages come preinstalled with operating system, for example, Python. In particular, Python plays a key role in the Linux OS and its distributions.

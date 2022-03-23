@@ -1,10 +1,11 @@
 {
-  "name": "hexletguides.github.io",
+  "name": "hexlet-guides",
+  "private": true,
   "version": "1.0.0",
   "simple-git-hooks": {
     "pre-push": "make lint"
   },
-  "description": "[Live Demo](https://wowthemesnet.github.io/affiliates-jekyll-theme/) | [Docs & Download](https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/) |  [Buy me a coffee](https://www.wowthemes.net/donate/)",
+  "description": "Guides",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,9 +21,10 @@
   },
   "homepage": "https://github.com/Hexlet/hexletguides.github.io#readme",
   "dependencies": {
-    "bootstrap": "^5.0.1"
+    "bootstrap": "^5.1.3"
   },
   "devDependencies": {
-    "simple-git-hooks": "^2.5.1"
+    "npm-check-updates": "^12.5.4",
+    "simple-git-hooks": "^2.7.0"
   }
 }

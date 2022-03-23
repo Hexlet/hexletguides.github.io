@@ -1,0 +1,15 @@
+---
+
+menu:
+  source_code: Source Code
+
+hero:
+  header: Articles
+  description: |
+    Why?
+
+links:
+  programs_list:
+    name: Educational Programs
+    url: |
+      https://en.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral

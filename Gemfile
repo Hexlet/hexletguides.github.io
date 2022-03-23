@@ -31,6 +31,8 @@ group :jekyll_plugins do
   # gem 'jekyll-target-blank'
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
+  gem 'jekyll-multiple-languages-plugin'
+  gem 'jekyll-redirect-from'
 end
 
 gem 'webrick'

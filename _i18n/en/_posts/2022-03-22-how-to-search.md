@@ -3,8 +3,8 @@ title: How to search for technical information
 subtitle: Asking the right questions is half the battle.
 image: "assets/images/how-to-search/how-to-search-title.png"
 author: Kirill Mokevnin
-hidden: true
 ---
+
 **One of the most important skills for a programmer is the ability to find answers and solve problems using Google. A lot of the problems that beginners face have already been solved and described before. All you need is to learn how to find these solutions and answers.**
 
 ## Websites

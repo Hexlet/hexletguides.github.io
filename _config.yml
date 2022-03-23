@@ -8,6 +8,14 @@ tagline: Гайды
 description: |
   Полезные статьи и гайды для разработчиков
 
+languages:
+  - en
+  - ru
+
+exclude_from_localizations:
+  - javascript
+  - images
+  - css
 # twitter:
 #   username: HexletHQ
 #   card: summary
@@ -70,6 +78,8 @@ plugins:
   # - jekyll-archives
   - jekyll-github-metadata
   - amp-jekyll
+  - jekyll-redirect-from
+  - jekyll-multiple-languages-plugin
 
 defaults:
 

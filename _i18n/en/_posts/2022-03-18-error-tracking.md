@@ -3,7 +3,6 @@ title: What is Error Tracking?
 subtitle: A fast way to track errors in a working application
 image: "assets/images/error-tracking/error-tracking.png"
 author: Kirill Mokevnin
-hidden: true
 ---
 
 There are no programs without errors. Their number can be reduced with the great help of a type system, linters, tests, or even a whole department of testers, but it’s impossible to remove them completely. This is the reality we must face; the best thing we can do is learning how to track these errors and fix them as soon as possible.
