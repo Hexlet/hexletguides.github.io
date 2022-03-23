@@ -74,7 +74,7 @@
           <footer class="footer container text-center">
 
             <ul class="p-0 mb-1 small">
-              {% for item in site.data.menus.footermenu %}
+              {% for item in site.translations[site.lang].footermenu %}
               <li>
                 <a href="{% unless item.external %}{{site.baseurl}}/{% endunless %}{{item.url}}" alt="{{item.title}}"{% if item.external %} target="_blank"{% endif %}>{{item.title}}</a>
               </li>

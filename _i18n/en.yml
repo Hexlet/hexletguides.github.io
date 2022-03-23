@@ -13,3 +13,17 @@ links:
     name: Educational Programs
     url: |
       https://en.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral
+
+footermenu:
+
+- title: About
+  url: /about/
+  external: false
+
+- title: Free courses and webinars
+  url: https://enn.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral
+  external: true
+
+- title: Code Battle
+  url: https://codebattle.hexlet.io/
+  external: true
