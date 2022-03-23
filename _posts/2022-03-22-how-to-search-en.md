@@ -15,19 +15,20 @@ The main sites to get your questions answered:
 
 ## Language
 
-As practice shows, at the beginning most programmers try to search information in their own language. Sometimes you can find the answer this way, but more often — no. **The universal language for programmers is English**, it's used all over the world. The amount of information in the English-speaking segment is noticeably more than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster.
+As practice shows, at the beginning most programmers try to search for information in their native language. Sometimes you can find the answer this way, but more often — no. **The universal language for programmers is English** – the whole world speaks it. The amount of information in the English-speaking segment is noticeably higher than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster.
 {% include banner.html name="site-code-basics" %}
 
 ## Search engine
 
-To continue the previous section it’s important to note that the best way to search for information is using Google. Local search engines might be appropriate for certain uses, yet the English-speaking segment isn’t their main market, and they are much inferior to Google. For example, you will notice that after a while Google adapts to your queries and starts showing more relevant links. It also is quite capable to understand which programming language you prefer in order to show the answers related to it.
-Another important point: Google search works even better than site search. If you need something, for example, on Github, it’s better to form an accurate query in Google so that you would get the result far better and faster. Below section "query language" provides further details.
+To continue the previous section it’s important to note that the best way to search for information is using Google. Although local search engines are fine for certain tasks, the English-speaking segment isn’t their main market, and they are much inferior to Google. For example, you will notice that after a while Google adapts to your queries and starts showing more relevant links. It can understand which programming language you prefer and will output the related answers.
+
+Another important point: Google search works even better than site search. If you need something, for example, on Github, it's better to make the proper Google query to get a better and faster result. The below section "query language" provides further details.
 
 ## Query language
 
 Each search engine has a query language. It includes special search operators allowing you to specify more precisely what you want. Here are a few common search techniques:
 
-* `site:stackoverflow.com how to test react code` — this search will be performed through the [Stackoverflow] site (https://stackoverflow.com/).
+* `site:stackoverflow.com how to test react code` — this search will be performed through [Stackoverflow](https://stackoverflow.com/).
 * `add class to element -jquery` — a hyphen denotes stop words, therefore, all variants excluding these words will be found.
 * `"immutable js"` — double quotes indicating to look for an exact match.
 
