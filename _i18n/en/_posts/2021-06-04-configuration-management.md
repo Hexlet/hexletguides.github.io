@@ -1,4 +1,5 @@
 ---
-redirect_to: /ru/bootstrap/
+redirect_to: /ru/configuration-management/
+hidden: true
 ---
 
