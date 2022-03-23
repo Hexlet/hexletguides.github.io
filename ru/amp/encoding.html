@@ -1,0 +1,341 @@
+<!doctype html>
+<html amp lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Что такое кодировки?</title>
+    <link rel="canonical" href="https://guides.hexlet.io/ru/encoding/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+    
+    <style amp-custom>
+      .banner { background-color: #f8f9fa; border-left: 3px solid #0dcaf0; padding: 1rem; }
+
+.markdown .banner a { text-decoration: none; }
+
+.full_post_link.full_post_link { padding: .7rem 1rem; display: block; border: 1px solid #212529; border-radius: 2px; text-align: center; text-decoration: none; font-size: 1rem; }
+
+.markdown { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; color: #4a5568; margin-left: auto; margin-right: auto; max-width: 65ch; padding: 3rem 1.5rem; }
+
+.markdown [class~="lead"] { color: #4a5568; font-size: 1.25em; line-height: 1.6; margin-top: 1.2em; margin-bottom: 1.2em; }
+
+.markdown a { color: #1a202c; text-decoration: underline; }
+
+.markdown strong { color: #1a202c; font-weight: 600; }
+
+.markdown ol { list-style: none; padding: 0; counter-reset: list-counter; margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown ol > li { position: relative; counter-increment: list-counter; padding-left: 1.75em; }
+
+.markdown ol > li::before { content: counter(list-counter) "."; position: absolute; font-weight: 400; color: #718096; }
+
+.markdown ul > li { position: relative; padding-left: 1.75em; }
+
+.markdown ul > li::before { content: ""; position: absolute; background-color: #cbd5e0; border-radius: 50%; width: 0.375em; height: 0.375em; top: calc(0.875em - 0.1875em); left: 0.25em; }
+
+.markdown hr { border-color: #e2e8f0; border-top-width: 1px; margin-top: 3em; margin-bottom: 3em; }
+
+.markdown blockquote { font-weight: 500; font-style: italic; color: #1a202c; border-left-width: 0.25rem; border-left-color: #e2e8f0; margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1em; }
+
+.markdown blockquote p:first-of-type::before { content: open-quote; }
+
+.markdown blockquote p:last-of-type::after { content: close-quote; }
+
+.markdown h1 { color: #1a202c; font-weight: 800; font-size: 2.25em; margin-top: 0; margin-bottom: 0.8888889em; line-height: 1.1111111; }
+
+.markdown h2 { color: #1a202c; font-weight: 700; font-size: 1.5em; margin-top: 2em; margin-bottom: 1em; line-height: 1.3333333; }
+
+.markdown h3 { color: #1a202c; font-weight: 600; font-size: 1.25em; margin-top: 1.6em; margin-bottom: 0.6em; line-height: 1.6; }
+
+.markdown h4 { color: #1a202c; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.5; }
+
+.markdown figure figcaption { color: #718096; font-size: 0.875em; line-height: 1.4285714; margin-top: 0.8571429em; }
+
+.markdown code { color: #1a202c; font-weight: 600; font-size: 0.875em; }
+
+.markdown code::before { content: "`"; }
+
+.markdown code::after { content: "`"; }
+
+.markdown pre { color: #e2e8f0; background-color: #2d3748; overflow-x: auto; font-size: 0.875em; line-height: 1.7142857; margin-top: 1.7142857em; margin-bottom: 1.7142857em; border-radius: 0.375rem; padding-top: 0.8571429em; padding-right: 1.1428571em; padding-bottom: 0.8571429em; padding-left: 1.1428571em; }
+
+.markdown pre code { background-color: transparent; border-width: 0; border-radius: 0; padding: 0; font-weight: 400; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
+
+.markdown pre code::before { content: ""; }
+
+.markdown pre code::after { content: ""; }
+
+.markdown table { width: 100%; table-layout: auto; text-align: left; margin-top: 2em; margin-bottom: 2em; font-size: 0.875em; line-height: 1.7142857; }
+
+.markdown thead { color: #1a202c; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #cbd5e0; }
+
+.markdown thead th { vertical-align: bottom; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown tbody tr { border-bottom-width: 1px; border-bottom-color: #e2e8f0; }
+
+.markdown tbody tr:last-child { border-bottom-width: 0; }
+
+.markdown tbody td { vertical-align: top; padding-top: 0.5714286em; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown { font-size: 1rem; line-height: 1.75; }
+
+.markdown p { margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown img { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown video { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure > * { margin-top: 0; margin-bottom: 0; }
+
+.markdown h2 code { font-size: 0.875em; }
+
+.markdown h3 code { font-size: 0.9em; }
+
+.markdown ul { margin-top: 1.25em; margin-bottom: 1.25em; list-style: none; padding: 0; }
+
+.markdown li { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+.markdown ol > li:before { left: 0; }
+
+.markdown > ul > li p { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown > ul > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ul > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown > ol > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ol > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown hr + * { margin-top: 0; }
+
+.markdown h2 + * { margin-top: 0; }
+
+.markdown h3 + * { margin-top: 0; }
+
+.markdown h4 + * { margin-top: 0; }
+
+.markdown thead th:first-child { padding-left: 0; }
+
+.markdown thead th:last-child { padding-right: 0; }
+
+.markdown tbody td:first-child { padding-left: 0; }
+
+.markdown tbody td:last-child { padding-right: 0; }
+
+.markdown > :first-child { margin-top: 0; }
+
+.markdown > :last-child { margin-bottom: 0; }
+
+@media (min-width: 768px) { .md\:markdown-lg { font-size: 1.125rem; line-height: 1.7777778; } .md\:markdown-lg p { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg [class~="lead"] { font-size: 1.2222222em; line-height: 1.4545455; margin-top: 1.0909091em; margin-bottom: 1.0909091em; } .md\:markdown-lg blockquote { margin-top: 1.6666667em; margin-bottom: 1.6666667em; padding-left: 1em; } .md\:markdown-lg h1 { font-size: 2.6666667em; margin-top: 0; margin-bottom: 0.8333333em; line-height: 1; } .md\:markdown-lg h2 { font-size: 1.6666667em; margin-top: 1.8666667em; margin-bottom: 1.0666667em; line-height: 1.3333333; } .md\:markdown-lg h3 { font-size: 1.3333333em; margin-top: 1.6666667em; margin-bottom: 0.6666667em; line-height: 1.5; } .md\:markdown-lg h4 { margin-top: 1.7777778em; margin-bottom: 0.4444444em; line-height: 1.5555556; } .md\:markdown-lg img { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg video { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure > * { margin-top: 0; margin-bottom: 0; } .md\:markdown-lg figure figcaption { font-size: 0.8888889em; line-height: 1.5; margin-top: 1em; } .md\:markdown-lg code { font-size: 0.8888889em; } .md\:markdown-lg h2 code { font-size: 0.8666667em; } .md\:markdown-lg h3 code { font-size: 0.875em; } .md\:markdown-lg pre { font-size: 0.8888889em; line-height: 1.75; margin-top: 2em; margin-bottom: 2em; border-radius: 0.375rem; padding-top: 1em; padding-right: 1.5em; padding-bottom: 1em; padding-left: 1.5em; } .md\:markdown-lg ol { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg ul { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg li { margin-top: 0.6666667em; margin-bottom: 0.6666667em; } .md\:markdown-lg ol > li { padding-left: 1.6666667em; } .md\:markdown-lg ol > li:before { left: 0; } .md\:markdown-lg ul > li { padding-left: 1.6666667em; } .md\:markdown-lg ul > li::before { width: 0.3333333em; height: 0.3333333em; top: calc(0.8888889em - 0.1666667em); left: 0.2222222em; } .md\:markdown-lg > ul > li p { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg > ul > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ul > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg > ol > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ol > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg ul ul, .md\:markdown-lg ul ol, .md\:markdown-lg ol ul, .md\:markdown-lg ol ol { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg hr { margin-top: 3.1111111em; margin-bottom: 3.1111111em; } .md\:markdown-lg hr + * { margin-top: 0; } .md\:markdown-lg h2 + * { margin-top: 0; } .md\:markdown-lg h3 + * { margin-top: 0; } .md\:markdown-lg h4 + * { margin-top: 0; } .md\:markdown-lg table { font-size: 0.8888889em; line-height: 1.5; } .md\:markdown-lg thead th { padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg thead th:first-child { padding-left: 0; } .md\:markdown-lg thead th:last-child { padding-right: 0; } .md\:markdown-lg tbody td { padding-top: 0.75em; padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg tbody td:first-child { padding-left: 0; } .md\:markdown-lg tbody td:last-child { padding-right: 0; } .md\:markdown-lg > :first-child { margin-top: 0; } .md\:markdown-lg > :last-child { margin-bottom: 0; } }
+
+@media (min-width: 1024px) { .lg\:markdown-xl { font-size: 1.25rem; line-height: 1.8; } .lg\:markdown-xl p { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl [class~="lead"] { font-size: 1.2em; line-height: 1.5; margin-top: 1em; margin-bottom: 1em; } .lg\:markdown-xl blockquote { margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1.0666667em; } .lg\:markdown-xl h1 { font-size: 2.8em; margin-top: 0; margin-bottom: 0.8571429em; line-height: 1; } .lg\:markdown-xl h2 { font-size: 1.8em; margin-top: 1.5555556em; margin-bottom: 0.8888889em; line-height: 1.1111111; } .lg\:markdown-xl h3 { font-size: 1.5em; margin-top: 1.6em; margin-bottom: 0.6666667em; line-height: 1.3333333; } .lg\:markdown-xl h4 { margin-top: 1.8em; margin-bottom: 0.6em; line-height: 1.6; } .lg\:markdown-xl img { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl video { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure > * { margin-top: 0; margin-bottom: 0; } .lg\:markdown-xl figure figcaption { font-size: 0.9em; line-height: 1.5555556; margin-top: 1em; } .lg\:markdown-xl code { font-size: 0.9em; } .lg\:markdown-xl h2 code { font-size: 0.8611111em; } .lg\:markdown-xl h3 code { font-size: 0.9em; } .lg\:markdown-xl pre { font-size: 0.9em; line-height: 1.7777778; margin-top: 2em; margin-bottom: 2em; border-radius: 0.5rem; padding-top: 1.1111111em; padding-right: 1.3333333em; padding-bottom: 1.1111111em; padding-left: 1.3333333em; } .lg\:markdown-xl ol { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl ul { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl li { margin-top: 0.6em; margin-bottom: 0.6em; } .lg\:markdown-xl ol > li { padding-left: 1.8em; } .lg\:markdown-xl ol > li:before { left: 0; } .lg\:markdown-xl ul > li { padding-left: 1.8em; } .lg\:markdown-xl ul > li::before { width: 0.35em; height: 0.35em; top: calc(0.9em - 0.175em); left: 0.25em; } .lg\:markdown-xl > ul > li p { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl > ul > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ul > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl > ol > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ol > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl ul ul, .lg\:markdown-xl ul ol, .lg\:markdown-xl ol ul, .lg\:markdown-xl ol ol { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl hr { margin-top: 2.8em; margin-bottom: 2.8em; } .lg\:markdown-xl hr + * { margin-top: 0; } .lg\:markdown-xl h2 + * { margin-top: 0; } .lg\:markdown-xl h3 + * { margin-top: 0; } .lg\:markdown-xl h4 + * { margin-top: 0; } .lg\:markdown-xl table { font-size: 0.9em; line-height: 1.5555556; } .lg\:markdown-xl thead th { padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl thead th:first-child { padding-left: 0; } .lg\:markdown-xl thead th:last-child { padding-right: 0; } .lg\:markdown-xl tbody td { padding-top: 0.8888889em; padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl tbody td:first-child { padding-left: 0; } .lg\:markdown-xl tbody td:last-child { padding-right: 0; } .lg\:markdown-xl > :first-child { margin-top: 0; } .lg\:markdown-xl > :last-child { margin-bottom: 0; } }
+
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+    <amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{
+  "vars" : {
+    "gtag_id": "UA-1360700-62",
+    "config" : {
+      "UA-1360700-62": { "groups": "default" }
+    }
+  }
+}
+</script>
+</amp-analytics>
+
+<amp-analytics type="metrika">
+<script type="application/json">
+{
+    "vars": {
+      "counterId": "65474386"
+            },
+   "triggers": {
+        "notBounce": {
+            "on": "timer",
+            "timerSpec": {
+                "immediate": false,
+                "interval": 15,
+                "maxTimerLength": 14
+            },
+            "request": "notBounce"
+        }
+    }
+}
+</script>
+</amp-analytics>
+
+    
+    <div class="markdown md:markdown-lg lg:markdown-xl">
+      <h1>Что такое кодировки?</h1>
+      
+      
+      
+
+      <a class="full_post_link" href="https://guides.hexlet.io/ru/encoding/">Читать в полной версии →</a>
+
+      <h2 id="почему-кодировки---это-важно">Почему кодировки - это важно?</h2>
+
+<p>Компьютеры постоянно работают с текстами: это ленты новостных сайтов, фондовые биржи, сообщения в социальных сетях и мессенджерах, банковские приложения и многое другое. Сегодня мы не можем представить жизнь без передачи информации. Но так было не всегда. Компьютеры научились работать с текстом благодаря появлению кодировок. Кодировки прошли большой путь от таблиц символов, созданных отдельно для каждого компьютера, до единой кодировки, принятой во всём мире.</p>
+
+<p>Сейчас Unicode — это основной стандарт кодирования символов, включающий в себя знаки почти всех письменных языков мира. Unicode применяется везде, где есть текст. Информация на страницах в социальных сетях, записи в базах данных, компьютерные программы и мобильные приложения — всё это работает с использованием Unicode.</p>
+
+<p>В этом гайде мы рассмотрим, как появился Unicode и какие проблемы он решает. Узнаем, как хранилась и передавалась информация до введения единого стандарта кодирования символов, а также рассмотрим примеры кодировок, основанных на Unicode.</p>
+
+<h2 id="предпосылки-появления-кодировок">Предпосылки появления кодировок</h2>
+
+<p>Исторически компьютер создавался как машина для ускорения и автоматизации вычислений. Само слово computer с английского можно перевести как вычислитель, а в 20 веке в СССР, до распространения термина компьютер, использовалась аббревиатура ЭВМ — электронно вычислительная машина.</p>
+
+<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
+    <a href="https://ru.hexlet.io/courses/operating_systems?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс: «Введение в операционные системы». Бесплатно
+</a>
+</div>
+
+<p>Всё, чем компьютеры оперировали — числа. Основным заказчиком и драйвером появления первых моделей были оборонные предприятия. На компьютерах проводили расчёты параметров полёта баллистических ракет, самолётов, спутников. В 1950-е годы вычислительные мощности компьютеров стали использовать для:</p>
+<ul>
+  <li>прогноза погоды;</li>
+  <li>вычислений экспериментальной и теоретической физики;</li>
+  <li>расчета заработной платы сотрудников (например, компьютер LEO применялся для нужд компании, владеющей сетью чайных магазинов);</li>
+  <li>прогнозирование результатов выборов президента США (1952 год, компьютер UNIVAC).</li>
+</ul>
+
+<h3 id="компьютеры-и-числа">Компьютеры и числа</h3>
+
+<p>Цели, для которых разрабатывались компьютеры, привели к появлению архитектуры, предназначенной для работы с числами. Они хранятся в компьютере следующим образом:</p>
+<ol>
+  <li>Число из десятичной системы счисления переводится в двоичную, т.е. набор нулей и единиц. Например, 3 в двоичной системе счисления можно записать в виде 11, а 9 как 1001. Подробнее о системах счисления читайте в соответствующем гайде.</li>
+  <li>Полученный набор нулей и единиц хранится в ячейках памяти компьютера. Например, наличие тока на элементе памяти означает единицу, его отсутствие — ноль.</li>
+</ol>
+
+<p><amp-img src="/assets/images/encoding/enter-number.png" alt="картинка о записи чисел в память" width="1499" height="686" layout="responsive"><noscript><img src="/assets/images/encoding/enter-number.png" alt="картинка о записи чисел в память" width="1499" height="686"></noscript></amp-img></p>
+
+<p>В конце 1950-х годов происходит замена ламп накаливания на полупроводниковые элементы (транзисторы и диоды). Внедрение новой технологии позволило уменьшить размеры компьютеров, увеличить скорость работы и надёжность вычислений, а также повлияло на конечную стоимость. Если первые компьютеры были дорогостоящими штучными проектами, которые могли себе позволить только государства или крупные компании, то с применением полупроводников начали появляться серийные компьютеры, пусть даже и не персональные.</p>
+
+<h3 id="компьютеры-и-символы">Компьютеры и символы</h3>
+
+<p>Постепенно компьютеры начинают применяться для решения не только вычислительных или математических задач. Возникает необходимость обработки текстовой информации, но с буквами и другими символами ситуация обстоит сложнее, чем с числами. Символы — это визуальный объект. Даже одна и та же буква «а» может быть представлена двумя различными символами «а» и «А» в зависимости от регистра.</p>
+
+<p>Также число «один» можно представить в виде различных символов. Это может быть арабская цифра 1 или римская цифра I. Значение числа не меняется, но символы используются разные.</p>
+
+<p>Компьютеры создавались для работы с числами, они не могут хранить символы. При вводе информации в компьютер символы преобразуются в числа и хранятся в памяти компьютера как обычные числа, а при выводе информации происходит обратное преобразование из чисел в символы.</p>
+
+<p>Правила преобразования символов и чисел хранились в виде таблицы символов (англ. charset). В соответствии с такой таблицей для каждого компьютера конструировали и своё уникальное устройство ввода/вывода информации (например, клавиатура и принтер).</p>
+
+<p><amp-img src="/assets/images/encoding/enter-symbol.png" alt="Картинка о записи символов в память" width="1515" height="691" layout="responsive"><noscript><img src="/assets/images/encoding/enter-symbol.png" alt="Картинка о записи символов в память" width="1515" height="691"></noscript></amp-img></p>
+
+<h3 id="распространение-компьютеров">Распространение компьютеров</h3>
+
+<p>В начале 1960-х годов компьютеры были несовместимы друг с другом даже в рамках одной компании-производителя. Например, в компании IBM насчитывалось около 20 конструкторских бюро, и каждое разрабатывало свою собственную модель. Такие компьютеры не были универсальными, они создавались для решения конкретных задач. Для каждой решаемой задачи формировалась необходимая таблица символов, и проектировались устройства ввода/вывода информации.</p>
+
+<p>В этот период начинают формироваться сети, соединяющие в себе несколько компьютеров. Так, в 1958 году создали систему SAGE (Semi-Automatic Ground Environment), объединившую радарные станций США и Канады в первую крупномасштабную компьютерную сеть. При этом, чтобы результаты вычислений одних компьютеров можно было использовать на других компьютерах сети, они должны были обладать одинаковыми таблицами символов.</p>
+
+<p>В 1962 году компания IBM формирует два главных принципа для развития собственной линейки компьютеров:</p>
+<ol>
+  <li>Компьютеры должны стать универсальными. Это означало переход от производства узкоспециализированных компьютеров к машинам, которые могут решать разные задачи.</li>
+  <li>Компьютеры должны стать совместимыми друг с другом, то есть должна быть возможность использовать данные с одного компьютера на другом.</li>
+</ol>
+
+<p>Так в 1965 году появились компьютеры IBM System/360. Это была линейка из шести моделей, состоящих из совместимых модулей. Модели различались по производительности и стоимости, что позволило заказчикам гибко подходить к выбору компьютера. Модульность систем привела к появлению новой отрасли — производству совместимых с System/360 вычислительных модулей. У компаний не было необходимости производить компьютер целиком, они могли выходить на рынок с отдельными совместимыми модулями. Всё это привело к ещё большему распространению компьютеров.</p>
+
+<h2 id="ascii-как-первый-стандарт-кодирования-информации">ASCII как первый стандарт кодирования информации</h2>
+
+<h3 id="телетайп-и-терминал">Телетайп и терминал</h3>
+
+<p>Параллельно с этим развивались телетайпы. Телетайп — это система передачи текстовой информации на расстоянии. Два принтера и две клавиатуры (на самом деле электромеханические печатные машинки) попарно соединялись друг с другом проводами. Текст, набранный на клавиатуре у первого пользователя, печатается на принтере у второго пользователя и наоборот. Таким образом, например, была организована «горячая линия» между президентом США и руководством СССР вплоть до начала 1970-х годов.</p>
+
+<p>Телетайпы также преобразуют текстовую информацию в некоторые сигналы, которые передаются по проводам. При этом не всегда используется бинарный код, например, в азбуке Морзе используются 3 символа — точка, тире и пауза. Для телетайпов необходимы таблицы символов, соответствие в которых строится между символами и сигналами в проводах. При этом для каждого телетайпа (пары, соединённых телетайпов) таблицы символов могли быть свои, исходя из задач, которые они решали. Отличаться, например, мог язык, а значит и сам набор символов, который отправлялся с помощью устройства. Для оптимизации работы телетайпа самые популярные (часто встречающиеся) символы кодировались наиболее коротким набором сигналов, а значит и в рамках одного языка, набор символов мог быть разным.</p>
+
+<p>На основе телетайпов разработали терминалы доступа к компьютерам. Такой телетайп отправлял сообщения не второму пользователю, а информация вводилась на некоторый удалённый компьютер, который после обработки указанных команд, возвращал результат в виде ответного сообщения. Это нововведение позволило использовать тогда ещё очень дорогие вычислительные мощности компьютеров, не имея физического доступа к самому компьютеру. Например, компьютер мог размещаться в отдельном вычислительном центре корпорации или института, а сотрудники из других филиалов или городов получали доступ к вычислительным мощностями компьютера посредством установленных у них терминалов.</p>
+
+<h3 id="ascii">ASCII</h3>
+
+<p>Повсеместное распространение компьютеров и средств обмена текстовой информацией потребовало разработки единого стандарта кодирования для передачи и хранения информации. Такой стандарт разработали в США в 1963 году. Таблицу из 128 символов назвали ASCII — American standard code for information interchange (Американский стандарт кодов для обмена информацией).</p>
+
+<p><amp-img src="/assets/images/encoding/ASCII_Code_Chart.png" alt="ASCII image" width="830" height="328" layout="responsive"><noscript><img src="/assets/images/encoding/ASCII_Code_Chart.png" alt="ASCII image" width="830" height="328"></noscript></amp-img></p>
+
+<p>Первые 32 символа в ASCII являются управляющими. Они использовались для того, чтобы, например, управлять печатающим устройством телетайпа и получать некоторые составные символы. Например:</p>
+
+<ol>
+  <li>символ Ø можно было получить так: печатаем O, затем с помощью управляющего кода BS (BackSpace) передвигаем печатную головку на один символ назад и печатаем символ /,</li>
+  <li>символ à получался как a BS `</li>
+  <li>символ Ç получался как C BS ,</li>
+</ol>
+
+<p>Введение управляющих символов позволяло получать новые символы как комбинацию существующих, не вводя дополнительные таблицы символов.</p>
+
+<p>Однако введение стандарта ASCII решило вопрос только в англоговорящих странах. В странах с другой письменностью, например, с кириллической в СССР, проблема оставалась.</p>
+
+<h3 id="кодировки-для-других-языков">Кодировки для других языков</h3>
+
+<p>В течение более чем 20 лет вопрос решали введением собственных локальных стандартов, например, в СССР на основе таблицы ASCII разработали собственные варианты кодировок КОИ 7 и КОИ 8, где 7 и 8 указывают на количество бит, необходимых для кодирования одного символа, а КОИ расшифровывается как Коды Обмена Информацией.</p>
+
+<p>С дальнейшим развитием систем начали использовать восьмибитные кодировки. Это позволило использовать наборы, содержащие по 256 символов. Достаточно распространён был подход, при котором первые 128 символов брали из стандарта ASCII, а оставшиеся 128 дополнялись собственными символами. Такое решение, в частности, было использовано в кодировке KOI 8.</p>
+
+<p>Однако единым стандартом указанные кодировки так и не стали. Например, в MS-DOS для русских локализаций использовалась кодировка cp866, а далее в среде MS Windows стали использоваться кодировки cp1251. Для греческого языка применялись кодировки cp851 и cp1253. В результате документы, подготовленные с использованием старой кодировки, становились нечитаемыми на новых.</p>
+
+<p>Свои кодировки необходимы и для других стран с уникальным набором символов. Это приводило к путанице и сложностям в обмене информацией. Ниже приведён пример текста, который написали в кодировке KOI8-R, а читают в cp851.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>KOI8-R</th>
+      <th>cp851</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>English text.</td>
+      <td>English text.</td>
+    </tr>
+    <tr>
+      <td>Это - русский текст :-).</td>
+      <td>ΰΨΣ - ΦΩΧΧ╦╔╩ Ψ┼╦ΧΨ :-).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><amp-img src="/assets/images/encoding/forward-information.png" alt="Картинка для кодировок" width="1154" height="482" layout="responsive"><noscript><img src="/assets/images/encoding/forward-information.png" alt="Картинка для кодировок" width="1154" height="482"></noscript></amp-img></p>
+
+<p>Обе кодировки основаны на стандарте ASCII, поэтому знаки препинания и буквы английского алфавита в обеих кодировках выглядят одинаково. Кириллический текст при этом становится совершенно нечитаемым.</p>
+
+<p>При этом компьютерная память была дорогой, а связь между компьютерами медленной. Поэтому выгоднее было использовать кодировки, в которых размер в битах каждого символа был небольшим. Таблица символов состоит из 256 символов. Это значит, что нам достаточно 8 бит для кодирования любого из них (2^8 = 256).</p>
+
+<h2 id="переход-к-unicode">Переход к Unicode</h2>
+
+<p>Развитие интернета, увеличение количества компьютеров и удешевление памяти привели к тому, что проблемы, которые доставляла путаница в кодировках, стали перевешивать некоторую экономию памяти. Особенно ярко это проявлялось в интернете, когда текст написанный на одном компьютере должен был корректно отображаться на многих других устройствах. Это доставляло огромные проблемы как программистам, которые должны были решать какую кодировку использовать, так и конечным пользователям, которые не могли получить доступ к интересующим их текстам.</p>
+
+<p>В результате в октябре 1991 года появилась первая версия одной общей таблицы символов, названной Unicode. Она включала в себя на тот момент 7161 различный символ из 24 письменностей мира.</p>
+
+<p>В Unicode постепенно добавлялись новые языки и символы. Например, в версию 1.0.1 в середине 1992 года добавили более 20 000 идеограмм китайского, японского и корейского языков. В актуальной на текущий момент версии содержится уже более 143 000 символов.</p>
+
+<h2 id="кодировки-на-основе-unicode">Кодировки на основе Unicode</h2>
+
+<p>Unicode можно себе представить как огромную таблицу символов. В памяти компьютера записываются не сами символы, а номера из таблицы. Записывать их можно разными способами. Именно для этого на основе Unicode разработаны несколько кодировок, которые отличаются способом записи номера символа Unicode в виде набора байт. Они называются UTF — Unicode Transformation Format. Есть кодировки постоянной длины, например, UTF-32, в которой номер любого символа из таблицы Unicode занимает ровно 4 байта. Однако наибольшую популярность получила UTF-8 — кодировка с переменным числом байт. Она позволяет кодировать символы так, что наиболее распространённые символы занимают 1-2 байта, и только редко встречающиеся символы могут использовать по 4 байта. Например, все символы таблицы ASCII занимают ровно по одному байту, поэтому текст, написанный на английском языке с использованием кодировки UTF-8, будет занимать столько же места, как и текст, написанный с использованием таблицы символов ASCII.</p>
+
+<p>На сегодняшний день Unicode является основной кодировкой, которую используют в работе все, кто связан с компьютерами и текстами. Unicode позволяет использовать сотни тысяч различных символов и отображать их одинаково на всех устройствах от мобильных телефонов до компьютеров на космических станциях.</p>
+
+<h2 id="резюме">Резюме</h2>
+
+<ul>
+  <li>Кодировка — это соответствие между визуальными символами и числами.</li>
+  <li>Кодировки необходимы, так как компьютеры созданы для работы с числами и не понимают текст.</li>
+  <li>До 1990-х годов не существовало единой кодировки, это приводило к тому, что текст, написанный в одной кодировке, становится совершенно нечитаемым на других.</li>
+  <li>Unicode — единый стандарт кодирования символов. Развитие интернета и необходимость обмена большим количеством текстовой информации приводило к тому, что сейчас все пользуются этим стандартом.</li>
+  <li>UTF-8, UTF-16, UTF-32 и т.п. — это варианты кодировок, основанные на Unicode. Отличаются они тем, что по-разному хранят информацию.</li>
+  <li>UTF-8 — самая популярная кодировка. Особенность её в том, что самые популярные символы кодируются 1-2 байтами, а редко встречающиеся занимают 3-4 байта. Это приводит к существенной экономии памяти, например, при работе с английским текстом.</li>
+</ul>
+
+      
+      
+    </div>
+  </body>
+</html>

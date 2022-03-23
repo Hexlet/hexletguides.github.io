@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+    
+      <link rel="amphtml" href="https://guides.hexlet.io/ru/amp/hosting">
+    
+
+    <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Hexlet Guides" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Что такое хостинг и домен сайта простыми словами? | Hexlet Guides</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Что такое хостинг и домен сайта простыми словами?" />
+<meta name="author" content="Кирилл Мокевнин" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Что такое домен и хостинг простым языком. Как они работают, для чего нужны." />
+<meta property="og:description" content="Что такое домен и хостинг простым языком. Как они работают, для чего нужны." />
+<link rel="canonical" href="https://guides.hexlet.io/hosting/" />
+<meta property="og:url" content="https://guides.hexlet.io/hosting/" />
+<meta property="og:site_name" content="Hexlet Guides" />
+<meta property="og:image" content="https://guides.hexlet.io/ru/assets/images/hosting/servers.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://guides.hexlet.io/ru/assets/images/hosting/servers.png" />
+<meta property="twitter:title" content="Что такое хостинг и домен сайта простыми словами?" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Кирилл Мокевнин"},"dateModified":"2021-01-18T00:00:00+00:00","datePublished":"2021-01-18T00:00:00+00:00","description":"Что такое домен и хостинг простым языком. Как они работают, для чего нужны.","headline":"Что такое хостинг и домен сайта простыми словами?","image":"https://guides.hexlet.io/ru/assets/images/hosting/servers.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/hosting/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Кирилл Мокевнин"},"url":"https://guides.hexlet.io/hosting/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMJ8HKG');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+    <link href="/assets/css/theme.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="/assets/css/highlight.css" rel="stylesheet">
+
+  </head>
+
+  
+
+  <body class="layout-post">
+
+    
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMJ8HKG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+    <!-- Menu Navigation
+      ================================================== -->
+
+      <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center py-3">
+          <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png"></a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">
+                Исходный код
+              </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral
+">
+              Программы обучения
+            </a>
+            </li>
+            <li class="nav-item">
+              
+                <a class="nav-link" href="/">English</a>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Container
+        ================================================== -->
+        <main class="container">
+          <div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto text-break">
+
+
+    <div class="mainheading">
+      <h1 class="posttitle">
+          
+            Что такое хостинг и домен сайта простыми словами?
+          
+      </h1>
+    </div>
+
+
+  <!-- Post Featured Image -->
+    
+      <div class="text-center mx-auto mb-5">
+        <img class="featured-image text-center mx-auto rounded" src="/ru/assets/images/hosting/servers.png" alt="Что такое хостинг и домен сайта простыми словами?">
+      </div>
+    
+  <!-- End Featured Image -->
+
+    <div class="article-post">
+      <h2 id="доменное-имя-домен">Доменное имя (домен)</h2>
+
+<p>Когда интернет только зарождался, у сайтов не было доменных имён. Для обращения к сайту использовались прямые IP-адреса машин (серверов), например, 10.132.234.4 (вместо понятного hexlet.io). Довольно быстро стало понятно, что это слишком сложно для запоминания. К тому же адреса могли меняться. Нужно было что-то вроде записной книжки для адресов.</p>
+
+<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+</a>
+</div>
+
+<p>Первым решением стал специальный файл <em>hosts</em>, расположенный на каждой машине, с которой происходил доступ к сайтам. Он содержит сопоставление между IP-адресом и именем, удобным для запоминания. Этот файл существует до сих пор и часто используется программистами во время разработки. Формат файла:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="syntax"><code># Формат файла: &lt;ip-адрес&gt; &lt;имена сайта&gt;
+34.117.253.138 hexlet.io
+172.10.11.200 facebook.com m.facebook.com
+</code></pre></div></div>
+
+<p>Когда происходит запрос по адресу, например, hexlet.io, то сначала проверяется файл <em>hosts</em>, и если домен найден (как в примере выше), то браузер устанавливает соединение с сервером. В нашем примере он пойдёт по адресу <code class="language-plaintext highlighter-rouge">34.117.253.138</code>.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Пример обращения к DNS с помощью утилиты host</span>
+host hexlet.io
+hexlet.io has address 34.117.253.138
+hexlet.io mail is handled by 10 alt4.aspmx.l.google.com.
+hexlet.io mail is handled by 1 aspmx.l.google.com.
+hexlet.io mail is handled by 10 alt3.aspmx.l.google.com.
+hexlet.io mail is handled by 5 alt1.aspmx.l.google.com.
+hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
+</code></pre></div></div>
+
+<p>Такой подход оказался очень неэффективен. В каждой подсети использовался собственный файл hosts, который рассылался на все компьютеры, входящие в подсеть. Кроме того, если появляется новый сайт, то всех нужно оповестить. Да и самих сайтов становилось слишком много. Для решения этих проблем создали Domain Name System (DNS). Основное предназначение этой системы заключается в сопоставлении имени домена конкретному IP-адресу, на котором находится сайт. Другими словами, любой сервис может обратиться к DNS и спросить «какой IP-адрес у домена hexlet.io?».</p>
+
+<p><img src="/assets/images/hosting/dns.png" alt="Как работает DNS" /></p>
+
+<p>Важно понимать, что DNS — это именно служба, а не конкретный сервер. Так как весь интернет зависит от стабильности работы этой системы, то в неё входит множество серверов по всему миру. Кроме того, DNS устроена таким образом, что нет центральной организации, управляющей этими серверами. Подробнее о DNS прочитайте в <a href="https://guides.hexlet.io/dns/">нашем гайде</a>.</p>
+
+<h2 id="хостинг">Хостинг</h2>
+
+<p>Интернет — это глобальная сеть, объединяющая огромное число устройств. К устройствам относятся далеко не только стационарные компьютеры и ноутбуки, но также и мобильные устройства, камеры, различные электронные и бытовые приборы. Хотя все эти устройства совершенно разные, они без проблем общаются друг с другом с помощью единого языка. Таким языком в мире машин стал стек протоколов <a href="https://ru.wikipedia.org/wiki/TCP/IP">TCP/IP</a>. Не вдаваясь в детали, скажем, что протокол — это правила, по которым происходит общение. При этом природа общающихся устройств не важна.</p>
+
+<p>Главным элементом в TCP/IP является IP-адрес. В версии IPv4 он выглядит так: <code class="language-plaintext highlighter-rouge">10.123.23.1</code>. Четыре числа, разделённые точкой. У всех устройств, подключенных к сети напрямую, этот адрес уникальный. Фактически, любой запрос в интернете всегда обращается к какому-то IP-адресу, даже если вы этого не видите.</p>
+
+<p>Среди компьютеров, подключённых к интернету, выделяется класс машин, которые выполняют роль серверов. Эти сервера, как правило, располагаются у хостеров, и именно они обслуживают многочисленные интернет сайты.</p>
+
+<p><img src="/assets/images/hosting/servers.png" alt="Серверные стойки" /></p>
+
+<p>Хостер — это компания, предоставляющая услугу, называемую хостинг, то есть ресурсы для размещения и обслуживания сайта в интернете. Хостинг бывает очень разным, начиная от уже полностью готовой среды, в которую заливается код сайта, до железных серверов, которыми можно и нужно управлять самостоятельно.</p>
+
+<p>Работает это обычно так: после регистрации на сайте хостера выбирается тариф, привязывается банковская карточка, и с вас списывается ежемесячная плата за обслуживание и дополнительные услуги. Взамен вы получаете доступ к вашим ресурсам, например, IP-адрес и пару логин/пароль для ssh- или ftp-доступа.</p>
+
+<p>Однако есть и бесплатные хостинги, требующие только базовых знаний веб-разработки. Чтобы разместить свою страницу в интернете может быть достаточно возможностей бесплатного Github Pages и одной HTML-страницы. Там же можно получить домен третьего уровня или привязать собственный. Подробнее это рассматривается в наших профессиях в уроке <a href="https://ru.hexlet.io/courses/layout-designer-basics/lessons/publication/theory_unit">Публикация в интернете</a>.</p>
+
+<h3 id="виды-хостингов-on-prem-iaas-paas-saas">Виды хостингов: On-Prem, IaaS, PaaS, SaaS</h3>
+
+<p>Вы можете использовать старый компьютер, как собственный хостинг, но придётся самостоятельно обеспечивать его постоянную доступность в интернете, защиту от атак и обновление софта. Такое решение будет называться On-Premises. Вместо рукопашки можно воспользоваться решениями “as Service”:</p>
+<ul>
+  <li>IaaS — Infrastructure as a Service, инфраструктура как услуга;</li>
+  <li>PaaS — Platform as a Service, платформа как услуга;</li>
+  <li>SaaS — Software as a Service, программное обеспечение как услуга.</li>
+</ul>
+
+<p>Каждый термин означает разный уровень ответственности. В случае с <a href="https://pages.github.com/">Github Pages</a> от вас требуется только написать HTML и загрузить его в сервис, остальное решается через интерфейс (панель управления), а вся “магия” происходит на стороне сервиса. Это решение SaaS.</p>
+
+<p>Одно из популярных решений PaaS является <a href="https://www.heroku.com/">Heroku</a>, предоставляющая множество удобных бесплатных инструментов. Практический навык работы с Heroku студенты получают при работе над 4-м проектом в наших профессиях.</p>
+
+<p>А среди популярных решений IaaS — это <a href="https://aws.amazon.com/">Amazon Web Services</a>. Примечательно, что Heroku использует AWS для размещения ваших ресурсов, то есть выступает посредником, упрощая многие процедуры управления серверами.</p>
+
+<p>Популярна визуализация этих решений на примере приготовления пиццы, где On-Prem требует наличия и ингредиентов, и инструментов, а SaaS представлен пиццерией, куда вы приходите чтобы съесть пиццу:</p>
+
+<p><img src="/assets/images/hosting/pizza-as-service.png" alt="Пицца as service" /></p>
+
+<h2 id="заключение">Заключение</h2>
+
+<p>Итак, чтобы создать собственный сайт, вам понадобится домен, хостинг и курсы программирования. Выдачей доменов занимаются организации, именуемые регистраторами. На их сайте вы можете подобрать незанятый домен и оплатить его. После этого каждый год необходимо продление, иначе он вновь станет свободным, и его смогут купить другие. Затем, прямо там же у регистратора, вы можете настроить DNS, например, указать адрес вашего хостинга (в реальности все чуть сложнее, сначала надо указать NS-сервера), на котором находится сайт. Спустя примерно сутки ваш сайт начнёт открываться. Такой срок связан с тем, что информация о новой связке домен-адрес должна распространиться по всем DNS серверам по всему миру. Такая же история происходит и при изменении IP-адреса. Процесс может занять до суток.</p>
+
+<p>Хостинг может быть простым и бесплатным, а может быть платным и требующим специальных знаний и навыков администрирования. Можно начать с размещения на бесплатном хостинге с бесплатным доменом. Но не следует путать регистраторов доменных имён и хостеров. Часто хостеры выступают как посредники и предлагают купить домены через себя, но, в общем случае, регистраторы — это отдельные компании, которые никак не связаны с хостингом.</p>
+
+<p>А получить все необходимые навыки программирования и работы с веб-приложениями можно с нашими наставниками в одной из профессий: https://ru.hexlet.io/professions</p>
+
+    </div>
+
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/main/_i18n/ru/_posts/2021-01-18-hosting.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
+
+      
+        
+          <div class="fst-italic">Кирилл Мокевнин</div>
+        
+      
+
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/error-tracking/">&laquo; Что такое трекинг ошибок?</a>
+      </div>
+      
+      
+      <div class="col-md-6 text-end pr-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/logging/">Что такое логирование? &raquo;</a>
+      </div>
+      
+    </div>
+    <!-- End Prev/Next -->
+
+    <section>
+      <div id="comments">
+        <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides';
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+        </main>
+
+        <!-- Footer
+          ================================================== -->
+          <footer class="footer container text-center">
+
+            <ul class="p-0 mb-1 small">
+              
+              <li>
+                <a href="/ru/about/" alt="О проекте">О проекте</a>
+              </li>
+              
+              <li>
+                <a href="https://ru.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral" alt="Бесплатные курсы и вебинары" target="_blank">Бесплатные курсы и вебинары</a>
+              </li>
+              
+              <li>
+                <a href="https://cv.hexlet.io/" alt="Оценка резюме" target="_blank">Оценка резюме</a>
+              </li>
+              
+              <li>
+                <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка" target="_blank">Алгоритмическая прокачка</a>
+              </li>
+              
+            </ul>
+          </footer>
+
+          <!-- JavaScript
+            ================================================== -->
+            <script src="/assets/js/theme.js"></script>
+  </body>
+</html>

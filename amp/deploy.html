@@ -1,10 +1,9 @@
 <!doctype html>
-<html amp lang="ru_RU">
+<html amp lang="en">
   <head>
     <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <title>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
-</title>
+    <title>Deploy</title>
     <link rel="canonical" href="https://guides.hexlet.io/deploy/" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
@@ -177,142 +176,14 @@
 
     
     <div class="markdown md:markdown-lg lg:markdown-xl">
-      <h1>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
-</h1>
+      <h1>Deploy</h1>
       
       
       
 
       <a class="full_post_link" href="https://guides.hexlet.io/deploy/">Читать в полной версии →</a>
 
-      <p>Деплой — процесс «разворачивания» веб-сервиса, например, сайта, в рабочем окружении. Рабочее окружение — место, где сайт запускается и доступен для запросов. Это может быть как готовый хостинг, так и своя собственная серверная инфраструктура.</p>
-
-<p><em>Деплоятся не только веб-сервисы, но любые сервисы, доступные по сети. Даже если эта сеть внутренняя и не доступна для запросов через интернет.</em></p>
-
-<p>Для понимания деплоя необходимо разобраться с жизненным циклом кода. Код приложения разрабатывается на рабочей машине разработчика, а запускается в другом месте, называемом продакшеном. Продакшен — это среда запуска (иногда говорят боевая среда). В случае простого приложения она может состоять из одного сервера, а может — из тысяч и десятков тысяч в случае по-настоящему сложных приложений.</p>
-
-<p>Как это происходит. Разработчики добавляют код в репозиторий. В какой-то момент они решают, что пора доставить его до продакшена. Это может происходить как по регулярному расписанию, например раз в две недели, так и просто по необходимости, вплоть до выкатки после каждого изменения. Во многом количество деплоев зависит от уровня его автоматизации — того, насколько процесс легкий в проведении и откате в случае проблем. На Хекслете деплои выполняются практически после каждого изменения, около 3 деплоев в день.</p>
-
-<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
-</a>
-</div>
-
-<p>Каждый раз, когда разработчики решили что все, пора, они создают релиз. Под релизом обычно понимают тег в Git, который фиксирует, что уйдет в деплой. То есть изменения, добавленные в мастер после создания тега, не повлияют на сам тег, а значит мы точно уверены в том, что деплоим.</p>
-
-<!-- image -->
-
-<p>Для статических сайтов или отдельного фронтенда (только HTML, CSS и статические файлы) деплой сводится к обновлению кода на сервере. В ситуации деплоя бэкенда, как минимум, подключается база данных. В общем случае деплой может быть сложной процедурой, занимающей приличное время. В распределенных системах, состоящих из множества независимых веб-сервисов, вообще не бывает общего деплоя — каждая часть приложения деплоится (выкатывается) независимо.</p>
-
-<p><em>Стоит сказать, что PaaS-платформы, такие как Heroku, берут деплой полностью на себя. Там достаточно выполнить коммит, и дальше все произойдет само. Цена за это — стоимость самой платформы</em></p>
-
-<h2 id="шаги-деплоя">Шаги деплоя</h2>
-
-<h3 id="доставка-кода-на-сервер">Доставка кода на сервер</h3>
-
-<p>Возможны разные варианты доставки кода на сервер в зависимости от способа его упаковки. Иногда код просто копируют на сервер как набор файлов, но такое встречается редко, чаще он обновляется через Git. Раньше был популярен способ деплоя через стандартные пакетные менеджеры Linux-дистрибутивов. Сейчас он тоже встречается, и для определенных ситуаций подходит лучше всего.</p>
-
-<ul>
-  <li>Git: <em>git checkout tag-name</em>
-</li>
-  <li>Docker: <em>docker pull image-name:tag-name</em>
-</li>
-  <li>Apt (Пакет): <em>apt-install application-package-name</em>
-</li>
-</ul>
-
-<h3 id="обновление-базы-данных">Обновление базы данных</h3>
-
-<p>Новая версия приложения, как правило, требует изменений в базе данных. Для этого во время (или до) деплоя запускают миграции — специальные скрипты, содержащие правила обновления базы данных. Например sql-скрипты:</p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">car</span> <span class="p">(</span>
-    <span class="n">id</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
-    <span class="n">license_plate</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
-    <span class="n">color</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span>
-<span class="p">);</span>
-
-<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">owner</span> <span class="k">ADD</span> <span class="n">driver_license_id</span> <span class="nb">VARCHAR</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h3 id="запуск-и-остановка">Запуск и остановка</h3>
-
-<p>Где-то в этом процессе происходит остановка старой версии и запуск новой. Если сначала остановить старую версию, а потом выполнить миграции и запустить новую, то мы получим простой (downtime) в работе сервиса. Так действительно работают многие, но это может быть болезненно для бизнеса и частых деплоев. Поэтому самые продвинутые проекты не останавливаются во время деплоя. О том, как это делать — ниже.</p>
-
-<h2 id="автоматизация">Автоматизация</h2>
-
-<p>Деплой нужно максимально автоматизировать, от этого зависит Time To Market, ключевая характеристика бизнес-ориентированных приложений. Чем быстрее и чаще мы доставляем изменения пользователю, тем лучше. Быстрее проверяем гипотезы, быстрее вносим исправления, быстрее оправдываем деньги, вложенные в разработку. Без автоматизации разработчики боятся выполнять деплой, он становится обузой, что приводит к снижению числа деплоев и регулярному стрессу для всей команды, с засиживанием на работе до позднего вечера.</p>
-
-<p>Основных способа автоматизации три:</p>
-
-<ol>
-  <li>С помощью утилит, созданных для конкретных языков. Например в Ruby это Capistrano, одна из первых и наиболее известных утилит подобного рода, ставшая популярной далеко за пределами Ruby. Основная проблема с такими инструментами — сильная завязка на язык.</li>
-  <li>С помощью Ansible, в который уже <a href="https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html">встроен модуль для деплоя</a>. Идеально подходит для большинства ситуаций деплоя на управляемые сервера.</li>
-  <li>Системы оркестрации типа Kubernetes. Если они используются, то без автоматического деплоя никак.</li>
-</ol>
-
-<p>Но даже если автоматизация выполнена, все равно остается задача «запустить деплой». Запуск тоже автоматизируется. Существует целый подход, который называется <a href="https://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%BF%D1%80%D0%B5%D1%80%D1%8B%D0%B2%D0%BD%D0%B0%D1%8F_%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0">Непрерывная доставка</a>(continuous delivery). Его сложно внедрить и он не везде подходит, но если получилось, то про деплой забывают. Он выполняется полностью сам без участия людей. Главное в таком варианте — хороший мониторинг и система оповещения (алертинг) для реакции на ошибки.</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html#examples</span>
-<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Initialize the deploy root and gather facts</span>
-  <span class="na">community.general.deploy_helper</span><span class="pi">:</span>
-    <span class="na">path</span><span class="pi">:</span> <span class="s">/path/to/root</span>
-<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Clone the project to the new release folder</span>
-  <span class="na">ansible.builtin.git</span><span class="pi">:</span>
-    <span class="na">repo</span><span class="pi">:</span> <span class="s">ansible.builtin.git://foosball.example.org/path/to/repo.git</span>
-    <span class="na">dest</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
-    <span class="na">version</span><span class="pi">:</span> <span class="s">v1.1.1</span>
-<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Add an unfinished file, to allow cleanup on successful finalize</span>
-  <span class="na">ansible.builtin.file</span><span class="pi">:</span>
-    <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/'</span>
-    <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span>
-</code></pre></div></div>
-
-<h2 id="zero-downtime-deployment">Zero Downtime Deployment</h2>
-
-<p>Если не предпринимать специальных шагов, то каждый деплой будет приводить к остановке (возможно частичной) сервиса. В это время пользователи либо увидят ошибку, либо сообщение о происходящем обновлении. Но такого не происходит на большинстве крупных сервисов в интернете. Почему? Из-за реализации подхода «деплой без даунтайма» (downtime — простои в работе сервиса).</p>
-
-<p>Zero Downtime Deployment выглядит так, как будто сервис никогда не останавливается, но при этом обновляется. Достигается это за счет одновременного запуска старой версии и новой кода. То есть когда деплоится приложение, то сначала поднимается новая версия рядом со старой. И только когда автоматика убеждается, что новая версия запустилась и работает, происходит остановка старой версии. Для выполнения этой процедуры понадобится следующее:</p>
-
-<ol>
-  <li>Инфраструктура. Нужен балансировщик, который может переключать трафик (входящие соединения от браузеров или других систем) между старой и новой версией кода. И желательно иметь как минимум два сервера, хотя это и не обязательно.</li>
-  <li>Деплой. Процесс деплоя без простоя значительно сложнее, чем с остановкой. Проще всего такой деплой делается на системах оркестрации, например, Kubernetes.</li>
-  <li>Культура кода. Обеспечить безостановочную работу невозможно без определенной культуры написания кода. Чтобы старая и новая версия могли работать одновременно, нужно следить за всеми интерфейсами. Важно соблюдение обратной совместимости (работа с api, базой, очередьми и, в целом, любыми хранилищами).</li>
-  <li>База данных. Она должна быть обратна совместима между старой и новой версией. Все миграции только вперед (их нельзя откатывать!) и только на добавление. Нельзя удалять и обновлять (переименовывать, менять тип) колонки и таблицы</li>
-</ol>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">extensions/v1beta1</span>
-<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
-<span class="na">metadata</span><span class="pi">:</span>
-  <span class="na">name</span><span class="pi">:</span> <span class="s">tomcat-deployment-${TARGET_ROLE}</span>
-<span class="na">spec</span><span class="pi">:</span>
-  <span class="na">replicas</span><span class="pi">:</span> <span class="m">2</span>
-  <span class="na">template</span><span class="pi">:</span>
-    <span class="na">metadata</span><span class="pi">:</span>
-      <span class="na">labels</span><span class="pi">:</span>
-        <span class="na">app</span><span class="pi">:</span> <span class="s">tomcat</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">${TARGET_ROLE}</span>
-    <span class="na">spec</span><span class="pi">:</span>
-      <span class="na">containers</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">tomcat-container</span>
-        <span class="na">image</span><span class="pi">:</span> <span class="s">tomcat:${TOMCAT_VERSION}</span>
-        <span class="na">ports</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
-        <span class="na">readinessProbe</span><span class="pi">:</span>
-          <span class="na">httpGet</span><span class="pi">:</span>
-            <span class="na">path</span><span class="pi">:</span> <span class="s">/</span>
-            <span class="na">port</span><span class="pi">:</span> <span class="m">8080</span>
-</code></pre></div></div>
-
-<h2 id="дополнительная-литература">Дополнительная литература</h2>
-
-<ul>
-  <li><a href="https://twitter.com/mokevnin/status/1491429628854272002">Подробнее про Zero Downtime Deployment</a></li>
-  <li><a href="https://bronevichok.ru/posts/engineering-at-booking.com.html">Инжиниринг в Booking</a></li>
-  <li><a href="https://habr.com/ru/company/flant/blog/471620/">Стратегии деплоя</a></li>
-  <li><a href="https://www.youtube.com/watch?v=WPCz_U7D8PI">Stateless vs Statefull</a></li>
-  <li><a href="https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html">Ansible Deploy</a></li>
-  <li><a href="https://ru.hexlet.io/blog/posts/environment">Среды разработки</a></li>
-</ul>
+      
 
       
       

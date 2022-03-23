@@ -1,0 +1,285 @@
+<!doctype html>
+<html amp lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>What Is Version Manager</title>
+    <link rel="canonical" href="https://guides.hexlet.io/version-managers/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+    
+    <style amp-custom>
+      .banner { background-color: #f8f9fa; border-left: 3px solid #0dcaf0; padding: 1rem; }
+
+.markdown .banner a { text-decoration: none; }
+
+.full_post_link.full_post_link { padding: .7rem 1rem; display: block; border: 1px solid #212529; border-radius: 2px; text-align: center; text-decoration: none; font-size: 1rem; }
+
+.markdown { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; color: #4a5568; margin-left: auto; margin-right: auto; max-width: 65ch; padding: 3rem 1.5rem; }
+
+.markdown [class~="lead"] { color: #4a5568; font-size: 1.25em; line-height: 1.6; margin-top: 1.2em; margin-bottom: 1.2em; }
+
+.markdown a { color: #1a202c; text-decoration: underline; }
+
+.markdown strong { color: #1a202c; font-weight: 600; }
+
+.markdown ol { list-style: none; padding: 0; counter-reset: list-counter; margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown ol > li { position: relative; counter-increment: list-counter; padding-left: 1.75em; }
+
+.markdown ol > li::before { content: counter(list-counter) "."; position: absolute; font-weight: 400; color: #718096; }
+
+.markdown ul > li { position: relative; padding-left: 1.75em; }
+
+.markdown ul > li::before { content: ""; position: absolute; background-color: #cbd5e0; border-radius: 50%; width: 0.375em; height: 0.375em; top: calc(0.875em - 0.1875em); left: 0.25em; }
+
+.markdown hr { border-color: #e2e8f0; border-top-width: 1px; margin-top: 3em; margin-bottom: 3em; }
+
+.markdown blockquote { font-weight: 500; font-style: italic; color: #1a202c; border-left-width: 0.25rem; border-left-color: #e2e8f0; margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1em; }
+
+.markdown blockquote p:first-of-type::before { content: open-quote; }
+
+.markdown blockquote p:last-of-type::after { content: close-quote; }
+
+.markdown h1 { color: #1a202c; font-weight: 800; font-size: 2.25em; margin-top: 0; margin-bottom: 0.8888889em; line-height: 1.1111111; }
+
+.markdown h2 { color: #1a202c; font-weight: 700; font-size: 1.5em; margin-top: 2em; margin-bottom: 1em; line-height: 1.3333333; }
+
+.markdown h3 { color: #1a202c; font-weight: 600; font-size: 1.25em; margin-top: 1.6em; margin-bottom: 0.6em; line-height: 1.6; }
+
+.markdown h4 { color: #1a202c; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.5; }
+
+.markdown figure figcaption { color: #718096; font-size: 0.875em; line-height: 1.4285714; margin-top: 0.8571429em; }
+
+.markdown code { color: #1a202c; font-weight: 600; font-size: 0.875em; }
+
+.markdown code::before { content: "`"; }
+
+.markdown code::after { content: "`"; }
+
+.markdown pre { color: #e2e8f0; background-color: #2d3748; overflow-x: auto; font-size: 0.875em; line-height: 1.7142857; margin-top: 1.7142857em; margin-bottom: 1.7142857em; border-radius: 0.375rem; padding-top: 0.8571429em; padding-right: 1.1428571em; padding-bottom: 0.8571429em; padding-left: 1.1428571em; }
+
+.markdown pre code { background-color: transparent; border-width: 0; border-radius: 0; padding: 0; font-weight: 400; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
+
+.markdown pre code::before { content: ""; }
+
+.markdown pre code::after { content: ""; }
+
+.markdown table { width: 100%; table-layout: auto; text-align: left; margin-top: 2em; margin-bottom: 2em; font-size: 0.875em; line-height: 1.7142857; }
+
+.markdown thead { color: #1a202c; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #cbd5e0; }
+
+.markdown thead th { vertical-align: bottom; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown tbody tr { border-bottom-width: 1px; border-bottom-color: #e2e8f0; }
+
+.markdown tbody tr:last-child { border-bottom-width: 0; }
+
+.markdown tbody td { vertical-align: top; padding-top: 0.5714286em; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown { font-size: 1rem; line-height: 1.75; }
+
+.markdown p { margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown img { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown video { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure > * { margin-top: 0; margin-bottom: 0; }
+
+.markdown h2 code { font-size: 0.875em; }
+
+.markdown h3 code { font-size: 0.9em; }
+
+.markdown ul { margin-top: 1.25em; margin-bottom: 1.25em; list-style: none; padding: 0; }
+
+.markdown li { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+.markdown ol > li:before { left: 0; }
+
+.markdown > ul > li p { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown > ul > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ul > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown > ol > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ol > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown hr + * { margin-top: 0; }
+
+.markdown h2 + * { margin-top: 0; }
+
+.markdown h3 + * { margin-top: 0; }
+
+.markdown h4 + * { margin-top: 0; }
+
+.markdown thead th:first-child { padding-left: 0; }
+
+.markdown thead th:last-child { padding-right: 0; }
+
+.markdown tbody td:first-child { padding-left: 0; }
+
+.markdown tbody td:last-child { padding-right: 0; }
+
+.markdown > :first-child { margin-top: 0; }
+
+.markdown > :last-child { margin-bottom: 0; }
+
+@media (min-width: 768px) { .md\:markdown-lg { font-size: 1.125rem; line-height: 1.7777778; } .md\:markdown-lg p { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg [class~="lead"] { font-size: 1.2222222em; line-height: 1.4545455; margin-top: 1.0909091em; margin-bottom: 1.0909091em; } .md\:markdown-lg blockquote { margin-top: 1.6666667em; margin-bottom: 1.6666667em; padding-left: 1em; } .md\:markdown-lg h1 { font-size: 2.6666667em; margin-top: 0; margin-bottom: 0.8333333em; line-height: 1; } .md\:markdown-lg h2 { font-size: 1.6666667em; margin-top: 1.8666667em; margin-bottom: 1.0666667em; line-height: 1.3333333; } .md\:markdown-lg h3 { font-size: 1.3333333em; margin-top: 1.6666667em; margin-bottom: 0.6666667em; line-height: 1.5; } .md\:markdown-lg h4 { margin-top: 1.7777778em; margin-bottom: 0.4444444em; line-height: 1.5555556; } .md\:markdown-lg img { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg video { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure > * { margin-top: 0; margin-bottom: 0; } .md\:markdown-lg figure figcaption { font-size: 0.8888889em; line-height: 1.5; margin-top: 1em; } .md\:markdown-lg code { font-size: 0.8888889em; } .md\:markdown-lg h2 code { font-size: 0.8666667em; } .md\:markdown-lg h3 code { font-size: 0.875em; } .md\:markdown-lg pre { font-size: 0.8888889em; line-height: 1.75; margin-top: 2em; margin-bottom: 2em; border-radius: 0.375rem; padding-top: 1em; padding-right: 1.5em; padding-bottom: 1em; padding-left: 1.5em; } .md\:markdown-lg ol { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg ul { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg li { margin-top: 0.6666667em; margin-bottom: 0.6666667em; } .md\:markdown-lg ol > li { padding-left: 1.6666667em; } .md\:markdown-lg ol > li:before { left: 0; } .md\:markdown-lg ul > li { padding-left: 1.6666667em; } .md\:markdown-lg ul > li::before { width: 0.3333333em; height: 0.3333333em; top: calc(0.8888889em - 0.1666667em); left: 0.2222222em; } .md\:markdown-lg > ul > li p { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg > ul > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ul > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg > ol > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ol > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg ul ul, .md\:markdown-lg ul ol, .md\:markdown-lg ol ul, .md\:markdown-lg ol ol { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg hr { margin-top: 3.1111111em; margin-bottom: 3.1111111em; } .md\:markdown-lg hr + * { margin-top: 0; } .md\:markdown-lg h2 + * { margin-top: 0; } .md\:markdown-lg h3 + * { margin-top: 0; } .md\:markdown-lg h4 + * { margin-top: 0; } .md\:markdown-lg table { font-size: 0.8888889em; line-height: 1.5; } .md\:markdown-lg thead th { padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg thead th:first-child { padding-left: 0; } .md\:markdown-lg thead th:last-child { padding-right: 0; } .md\:markdown-lg tbody td { padding-top: 0.75em; padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg tbody td:first-child { padding-left: 0; } .md\:markdown-lg tbody td:last-child { padding-right: 0; } .md\:markdown-lg > :first-child { margin-top: 0; } .md\:markdown-lg > :last-child { margin-bottom: 0; } }
+
+@media (min-width: 1024px) { .lg\:markdown-xl { font-size: 1.25rem; line-height: 1.8; } .lg\:markdown-xl p { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl [class~="lead"] { font-size: 1.2em; line-height: 1.5; margin-top: 1em; margin-bottom: 1em; } .lg\:markdown-xl blockquote { margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1.0666667em; } .lg\:markdown-xl h1 { font-size: 2.8em; margin-top: 0; margin-bottom: 0.8571429em; line-height: 1; } .lg\:markdown-xl h2 { font-size: 1.8em; margin-top: 1.5555556em; margin-bottom: 0.8888889em; line-height: 1.1111111; } .lg\:markdown-xl h3 { font-size: 1.5em; margin-top: 1.6em; margin-bottom: 0.6666667em; line-height: 1.3333333; } .lg\:markdown-xl h4 { margin-top: 1.8em; margin-bottom: 0.6em; line-height: 1.6; } .lg\:markdown-xl img { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl video { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure > * { margin-top: 0; margin-bottom: 0; } .lg\:markdown-xl figure figcaption { font-size: 0.9em; line-height: 1.5555556; margin-top: 1em; } .lg\:markdown-xl code { font-size: 0.9em; } .lg\:markdown-xl h2 code { font-size: 0.8611111em; } .lg\:markdown-xl h3 code { font-size: 0.9em; } .lg\:markdown-xl pre { font-size: 0.9em; line-height: 1.7777778; margin-top: 2em; margin-bottom: 2em; border-radius: 0.5rem; padding-top: 1.1111111em; padding-right: 1.3333333em; padding-bottom: 1.1111111em; padding-left: 1.3333333em; } .lg\:markdown-xl ol { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl ul { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl li { margin-top: 0.6em; margin-bottom: 0.6em; } .lg\:markdown-xl ol > li { padding-left: 1.8em; } .lg\:markdown-xl ol > li:before { left: 0; } .lg\:markdown-xl ul > li { padding-left: 1.8em; } .lg\:markdown-xl ul > li::before { width: 0.35em; height: 0.35em; top: calc(0.9em - 0.175em); left: 0.25em; } .lg\:markdown-xl > ul > li p { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl > ul > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ul > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl > ol > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ol > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl ul ul, .lg\:markdown-xl ul ol, .lg\:markdown-xl ol ul, .lg\:markdown-xl ol ol { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl hr { margin-top: 2.8em; margin-bottom: 2.8em; } .lg\:markdown-xl hr + * { margin-top: 0; } .lg\:markdown-xl h2 + * { margin-top: 0; } .lg\:markdown-xl h3 + * { margin-top: 0; } .lg\:markdown-xl h4 + * { margin-top: 0; } .lg\:markdown-xl table { font-size: 0.9em; line-height: 1.5555556; } .lg\:markdown-xl thead th { padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl thead th:first-child { padding-left: 0; } .lg\:markdown-xl thead th:last-child { padding-right: 0; } .lg\:markdown-xl tbody td { padding-top: 0.8888889em; padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl tbody td:first-child { padding-left: 0; } .lg\:markdown-xl tbody td:last-child { padding-right: 0; } .lg\:markdown-xl > :first-child { margin-top: 0; } .lg\:markdown-xl > :last-child { margin-bottom: 0; } }
+
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+    <amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{
+  "vars" : {
+    "gtag_id": "UA-1360700-62",
+    "config" : {
+      "UA-1360700-62": { "groups": "default" }
+    }
+  }
+}
+</script>
+</amp-analytics>
+
+<amp-analytics type="metrika">
+<script type="application/json">
+{
+    "vars": {
+      "counterId": "65474386"
+            },
+   "triggers": {
+        "notBounce": {
+            "on": "timer",
+            "timerSpec": {
+                "immediate": false,
+                "interval": 15,
+                "maxTimerLength": 14
+            },
+            "request": "notBounce"
+        }
+    }
+}
+</script>
+</amp-analytics>
+
+    
+    <div class="markdown md:markdown-lg lg:markdown-xl">
+      <h1>What Is Version Manager</h1>
+      
+      
+      
+
+      <a class="full_post_link" href="https://guides.hexlet.io/version-managers/">Читать в полной версии →</a>
+
+      <h2 id="system-installation">System installation</h2>
+
+<p>To run code in any language, you need to install its interpreter (or compiler). Different operating systems do it differently: some of them use package managers, for example, <em>apt</em> or <em>yum</em>, and some download the installer directly from repository. Some languages come preinstalled with operating system, for example, Python. In particular, Python plays a key role in the Linux OS and its distributions.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Ubuntu</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>nodejs <span class="c"># installs most recent version</span>
+</code></pre></div></div>
+<p>The standard installation method works well only at the very beginning during the initial setup. Then, over time, different problems begin to surfase. For example, at some point a new version of the language comes out and the project you are working on requires latest version. Usually, it takes some time before the language becomes available for installation through package managers. And in this case you either have to wait, which isn’t always convenient, or look for another installation method. The last one often becomes a challenge and takes a lot of time, with hours of googling and installing additional libraries. All this eventually clogs the system and sometimes breaks it.</p>
+
+<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+</a>
+</div>
+
+<p>Another serious problem arise when developer requires different versions of the same language for different programs. It happens surprisingly often since there are plenty of options in development: various company projects, pet-projects, open source.</p>
+
+<p><em>It’s important thing to mention, that all of this doesn’t concern those who have completely thrown themselves into Docker and Docker Compose. However, even in this case, languages are required to work with open source.</em></p>
+
+<h2 id="version-managers">Version managers</h2>
+
+<p>To solve these problems, the developers came up with version managers. A version manager is a special program designed to manage versions of a language. With its help it became possible to install the required versions and switch between them. Unlike the package managers that come with operating systems, version managers always allow to install the latest versions of languages as soon as they come out (including installing alpha and beta versions).</p>
+
+<p>For example, you can use <a href="https://github.com/nvm-sh/nvm">NVM</a> (Node Version Manager) for Node.js:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Install NVM</span>
+curl <span class="nt">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+<span class="c"># Installation does not mean activation. After installation, the version that was before installation will remain active</span>
+nvm <span class="nb">install </span>node <span class="c"># Install the latest available version of the node</span>
+nvm <span class="nb">install </span>6.14.4 <span class="c"># or 10.10.0, 8.9.1, and so on.</span>
+nvm ls-remote <span class="c"># list of available versions</span>
+nvm use node <span class="c"># Activate the last installed version of the node</span>
+nvm use node 17 <span class="c"># Activate the required version</span>
+</code></pre></div></div>
+<p>To simplify the work, version managers usually enable users to create a special file within the project that captures the required version of the language. In some cases, version managers track this file and switch versions automatically.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">echo</span> <span class="s2">"17"</span> <span class="o">&gt;</span> .nvmrc
+<span class="c"># This command spotted .nvmrc file and used the version specified there</span>
+<span class="nv">$ </span>nvm use
+Found <span class="s1">'/path/to/project/.nvmrc'</span> with version &lt;17&gt;
+Now using node v17
+</code></pre></div></div>
+<p>In today’s world its hard to imagine a language without version manager. Moreover, some of the widely used languages, such as Ruby, have many competitive version managers:</p>
+<ul>
+  <li>go: gvm, g</li>
+  <li>java: jabba</li>
+  <li>ruby: rbenv, rvm, chruby</li>
+  <li>php: phpenv, phpbrew</li>
+  <li>python: pyenv</li>
+</ul>
+
+<p>Version managers also solve a few more important tasks. As a rule, when a programmer interacts with a language installed directly, he has to use <em>sudo</em> when installing global packages. The fact is that the standard language installation scheme is intended for all users at once. Hence, all the necessary files, including global packages, get into shared directories that require administrative rights. From the security perspective, this is a vulnerability that developers of open source libraries can exploit (and sometimes they do). Version managers install everything in the current user’s home directory, where he already has full rights. On the one hand, this makes it possible not to run package installation as an administrator, and on the other hand, the system isn’t clogged. It’s incredibly simple to remove a language and all its packages through the version manager. All you have to do is delete the directory (although it’s better to do this using the version manager).</p>
+
+<h2 id="universal-version-manager">Universal version manager</h2>
+
+<p>While solving some problems version managers also cause a few others. Firstly, there are too many of them, so their popularity is constantly changing. Secondly, the process of installing the version manager can be more complicated than installing the language. The problem is that they need to be universal and work everywhere, which is extremely problematic, considering the diversity of modern ecosystems. It’s enough to look at the size of the NVM documentation to assess the scale of the disaster. Thirdly, all these managers work differently and have different commands. It complicates the process of switching between them while working with various languages.</p>
+
+<p>All this led to the next logical step. Eventually, a universal manager <a href="https://asdf-vm.com/">asdf</a> appeared on the scene, and, thanks to plugins, is now able to work with any languages. A short list of its advantages:</p>
+<ul>
+  <li>A single command line utility to work with all languages</li>
+  <li>A single interface for all languages</li>
+  <li>Automatic switching between languages within each project</li>
+  <li>A simple plugin system that allows to add any languages</li>
+</ul>
+
+<p>Now <em>asdf</em> has become quite popular and is gradually replacing every other version managers (technically, language-specific managers are more often used there). It has a bit more complex command system due to the need to support many languages, but otherwise it significantly simplifies the whole process.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># asdf has excellent documentation, which clearly shows how to install it,</span>
+<span class="c"># and what dependencies can be required in different systems</span>
+<span class="c"># Installing</span>
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf <span class="nt">--branch</span> v0.9
+<span class="c"># Restart the terminal after that</span>
+<span class="nb">echo</span> <span class="s1">'. $HOME/.asdf/asdf.sh'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="c"># To work with a particular language, it's necessary to install the respective plugin</span>
+<span class="c"># The list of available plugins is on the project website</span>
+asdf plugin add nodejs
+<span class="c"># Language installing</span>
+<span class="c"># Instead of nodejs, you need to substitute the name of the plugin you are working with</span>
+asdf <span class="nb">install </span>nodejs latest <span class="c"># latest means the latest version of the required language</span>
+<span class="c"># Installing the required version</span>
+asdf <span class="nb">install </span>nodejs latest
+<span class="c"># Installing the required language version by default</span>
+asdf global nodejs latest
+<span class="c"># Shows current language versions installed through asdf</span>
+asdf current
+elixir         1.10.1-otp-22 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+erlang         22.2.7   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+nodejs         17.0.0   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+php            7.4.5    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+python         3.8.2 2.7.16 <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+ruby           2.7.0    <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /Users/user/.tool-versions<span class="o">)</span>
+</code></pre></div></div>
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Working with different versions of languages is a challenging task, which can be simplified through the use of version managers and docker (for advanced users). Among all managers, <em>asdf</em> stands out and at the same time becomes a universal tool for managing any languages and even regular programs.</p>
+
+      
+      
+    </div>
+  </body>
+</html>

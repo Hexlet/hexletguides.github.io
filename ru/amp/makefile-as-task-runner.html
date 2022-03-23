@@ -1,0 +1,455 @@
+<!doctype html>
+<html amp lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Что такое Makefile и как начать его использовать</title>
+    <link rel="canonical" href="https://guides.hexlet.io/ru/makefile-as-task-runner/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+    
+    <style amp-custom>
+      .banner { background-color: #f8f9fa; border-left: 3px solid #0dcaf0; padding: 1rem; }
+
+.markdown .banner a { text-decoration: none; }
+
+.full_post_link.full_post_link { padding: .7rem 1rem; display: block; border: 1px solid #212529; border-radius: 2px; text-align: center; text-decoration: none; font-size: 1rem; }
+
+.markdown { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; color: #4a5568; margin-left: auto; margin-right: auto; max-width: 65ch; padding: 3rem 1.5rem; }
+
+.markdown [class~="lead"] { color: #4a5568; font-size: 1.25em; line-height: 1.6; margin-top: 1.2em; margin-bottom: 1.2em; }
+
+.markdown a { color: #1a202c; text-decoration: underline; }
+
+.markdown strong { color: #1a202c; font-weight: 600; }
+
+.markdown ol { list-style: none; padding: 0; counter-reset: list-counter; margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown ol > li { position: relative; counter-increment: list-counter; padding-left: 1.75em; }
+
+.markdown ol > li::before { content: counter(list-counter) "."; position: absolute; font-weight: 400; color: #718096; }
+
+.markdown ul > li { position: relative; padding-left: 1.75em; }
+
+.markdown ul > li::before { content: ""; position: absolute; background-color: #cbd5e0; border-radius: 50%; width: 0.375em; height: 0.375em; top: calc(0.875em - 0.1875em); left: 0.25em; }
+
+.markdown hr { border-color: #e2e8f0; border-top-width: 1px; margin-top: 3em; margin-bottom: 3em; }
+
+.markdown blockquote { font-weight: 500; font-style: italic; color: #1a202c; border-left-width: 0.25rem; border-left-color: #e2e8f0; margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1em; }
+
+.markdown blockquote p:first-of-type::before { content: open-quote; }
+
+.markdown blockquote p:last-of-type::after { content: close-quote; }
+
+.markdown h1 { color: #1a202c; font-weight: 800; font-size: 2.25em; margin-top: 0; margin-bottom: 0.8888889em; line-height: 1.1111111; }
+
+.markdown h2 { color: #1a202c; font-weight: 700; font-size: 1.5em; margin-top: 2em; margin-bottom: 1em; line-height: 1.3333333; }
+
+.markdown h3 { color: #1a202c; font-weight: 600; font-size: 1.25em; margin-top: 1.6em; margin-bottom: 0.6em; line-height: 1.6; }
+
+.markdown h4 { color: #1a202c; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.5; }
+
+.markdown figure figcaption { color: #718096; font-size: 0.875em; line-height: 1.4285714; margin-top: 0.8571429em; }
+
+.markdown code { color: #1a202c; font-weight: 600; font-size: 0.875em; }
+
+.markdown code::before { content: "`"; }
+
+.markdown code::after { content: "`"; }
+
+.markdown pre { color: #e2e8f0; background-color: #2d3748; overflow-x: auto; font-size: 0.875em; line-height: 1.7142857; margin-top: 1.7142857em; margin-bottom: 1.7142857em; border-radius: 0.375rem; padding-top: 0.8571429em; padding-right: 1.1428571em; padding-bottom: 0.8571429em; padding-left: 1.1428571em; }
+
+.markdown pre code { background-color: transparent; border-width: 0; border-radius: 0; padding: 0; font-weight: 400; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
+
+.markdown pre code::before { content: ""; }
+
+.markdown pre code::after { content: ""; }
+
+.markdown table { width: 100%; table-layout: auto; text-align: left; margin-top: 2em; margin-bottom: 2em; font-size: 0.875em; line-height: 1.7142857; }
+
+.markdown thead { color: #1a202c; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #cbd5e0; }
+
+.markdown thead th { vertical-align: bottom; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown tbody tr { border-bottom-width: 1px; border-bottom-color: #e2e8f0; }
+
+.markdown tbody tr:last-child { border-bottom-width: 0; }
+
+.markdown tbody td { vertical-align: top; padding-top: 0.5714286em; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown { font-size: 1rem; line-height: 1.75; }
+
+.markdown p { margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown img { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown video { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure > * { margin-top: 0; margin-bottom: 0; }
+
+.markdown h2 code { font-size: 0.875em; }
+
+.markdown h3 code { font-size: 0.9em; }
+
+.markdown ul { margin-top: 1.25em; margin-bottom: 1.25em; list-style: none; padding: 0; }
+
+.markdown li { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+.markdown ol > li:before { left: 0; }
+
+.markdown > ul > li p { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown > ul > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ul > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown > ol > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ol > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown hr + * { margin-top: 0; }
+
+.markdown h2 + * { margin-top: 0; }
+
+.markdown h3 + * { margin-top: 0; }
+
+.markdown h4 + * { margin-top: 0; }
+
+.markdown thead th:first-child { padding-left: 0; }
+
+.markdown thead th:last-child { padding-right: 0; }
+
+.markdown tbody td:first-child { padding-left: 0; }
+
+.markdown tbody td:last-child { padding-right: 0; }
+
+.markdown > :first-child { margin-top: 0; }
+
+.markdown > :last-child { margin-bottom: 0; }
+
+@media (min-width: 768px) { .md\:markdown-lg { font-size: 1.125rem; line-height: 1.7777778; } .md\:markdown-lg p { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg [class~="lead"] { font-size: 1.2222222em; line-height: 1.4545455; margin-top: 1.0909091em; margin-bottom: 1.0909091em; } .md\:markdown-lg blockquote { margin-top: 1.6666667em; margin-bottom: 1.6666667em; padding-left: 1em; } .md\:markdown-lg h1 { font-size: 2.6666667em; margin-top: 0; margin-bottom: 0.8333333em; line-height: 1; } .md\:markdown-lg h2 { font-size: 1.6666667em; margin-top: 1.8666667em; margin-bottom: 1.0666667em; line-height: 1.3333333; } .md\:markdown-lg h3 { font-size: 1.3333333em; margin-top: 1.6666667em; margin-bottom: 0.6666667em; line-height: 1.5; } .md\:markdown-lg h4 { margin-top: 1.7777778em; margin-bottom: 0.4444444em; line-height: 1.5555556; } .md\:markdown-lg img { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg video { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure > * { margin-top: 0; margin-bottom: 0; } .md\:markdown-lg figure figcaption { font-size: 0.8888889em; line-height: 1.5; margin-top: 1em; } .md\:markdown-lg code { font-size: 0.8888889em; } .md\:markdown-lg h2 code { font-size: 0.8666667em; } .md\:markdown-lg h3 code { font-size: 0.875em; } .md\:markdown-lg pre { font-size: 0.8888889em; line-height: 1.75; margin-top: 2em; margin-bottom: 2em; border-radius: 0.375rem; padding-top: 1em; padding-right: 1.5em; padding-bottom: 1em; padding-left: 1.5em; } .md\:markdown-lg ol { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg ul { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg li { margin-top: 0.6666667em; margin-bottom: 0.6666667em; } .md\:markdown-lg ol > li { padding-left: 1.6666667em; } .md\:markdown-lg ol > li:before { left: 0; } .md\:markdown-lg ul > li { padding-left: 1.6666667em; } .md\:markdown-lg ul > li::before { width: 0.3333333em; height: 0.3333333em; top: calc(0.8888889em - 0.1666667em); left: 0.2222222em; } .md\:markdown-lg > ul > li p { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg > ul > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ul > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg > ol > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ol > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg ul ul, .md\:markdown-lg ul ol, .md\:markdown-lg ol ul, .md\:markdown-lg ol ol { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg hr { margin-top: 3.1111111em; margin-bottom: 3.1111111em; } .md\:markdown-lg hr + * { margin-top: 0; } .md\:markdown-lg h2 + * { margin-top: 0; } .md\:markdown-lg h3 + * { margin-top: 0; } .md\:markdown-lg h4 + * { margin-top: 0; } .md\:markdown-lg table { font-size: 0.8888889em; line-height: 1.5; } .md\:markdown-lg thead th { padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg thead th:first-child { padding-left: 0; } .md\:markdown-lg thead th:last-child { padding-right: 0; } .md\:markdown-lg tbody td { padding-top: 0.75em; padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg tbody td:first-child { padding-left: 0; } .md\:markdown-lg tbody td:last-child { padding-right: 0; } .md\:markdown-lg > :first-child { margin-top: 0; } .md\:markdown-lg > :last-child { margin-bottom: 0; } }
+
+@media (min-width: 1024px) { .lg\:markdown-xl { font-size: 1.25rem; line-height: 1.8; } .lg\:markdown-xl p { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl [class~="lead"] { font-size: 1.2em; line-height: 1.5; margin-top: 1em; margin-bottom: 1em; } .lg\:markdown-xl blockquote { margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1.0666667em; } .lg\:markdown-xl h1 { font-size: 2.8em; margin-top: 0; margin-bottom: 0.8571429em; line-height: 1; } .lg\:markdown-xl h2 { font-size: 1.8em; margin-top: 1.5555556em; margin-bottom: 0.8888889em; line-height: 1.1111111; } .lg\:markdown-xl h3 { font-size: 1.5em; margin-top: 1.6em; margin-bottom: 0.6666667em; line-height: 1.3333333; } .lg\:markdown-xl h4 { margin-top: 1.8em; margin-bottom: 0.6em; line-height: 1.6; } .lg\:markdown-xl img { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl video { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure > * { margin-top: 0; margin-bottom: 0; } .lg\:markdown-xl figure figcaption { font-size: 0.9em; line-height: 1.5555556; margin-top: 1em; } .lg\:markdown-xl code { font-size: 0.9em; } .lg\:markdown-xl h2 code { font-size: 0.8611111em; } .lg\:markdown-xl h3 code { font-size: 0.9em; } .lg\:markdown-xl pre { font-size: 0.9em; line-height: 1.7777778; margin-top: 2em; margin-bottom: 2em; border-radius: 0.5rem; padding-top: 1.1111111em; padding-right: 1.3333333em; padding-bottom: 1.1111111em; padding-left: 1.3333333em; } .lg\:markdown-xl ol { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl ul { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl li { margin-top: 0.6em; margin-bottom: 0.6em; } .lg\:markdown-xl ol > li { padding-left: 1.8em; } .lg\:markdown-xl ol > li:before { left: 0; } .lg\:markdown-xl ul > li { padding-left: 1.8em; } .lg\:markdown-xl ul > li::before { width: 0.35em; height: 0.35em; top: calc(0.9em - 0.175em); left: 0.25em; } .lg\:markdown-xl > ul > li p { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl > ul > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ul > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl > ol > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ol > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl ul ul, .lg\:markdown-xl ul ol, .lg\:markdown-xl ol ul, .lg\:markdown-xl ol ol { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl hr { margin-top: 2.8em; margin-bottom: 2.8em; } .lg\:markdown-xl hr + * { margin-top: 0; } .lg\:markdown-xl h2 + * { margin-top: 0; } .lg\:markdown-xl h3 + * { margin-top: 0; } .lg\:markdown-xl h4 + * { margin-top: 0; } .lg\:markdown-xl table { font-size: 0.9em; line-height: 1.5555556; } .lg\:markdown-xl thead th { padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl thead th:first-child { padding-left: 0; } .lg\:markdown-xl thead th:last-child { padding-right: 0; } .lg\:markdown-xl tbody td { padding-top: 0.8888889em; padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl tbody td:first-child { padding-left: 0; } .lg\:markdown-xl tbody td:last-child { padding-right: 0; } .lg\:markdown-xl > :first-child { margin-top: 0; } .lg\:markdown-xl > :last-child { margin-bottom: 0; } }
+
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+    <amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{
+  "vars" : {
+    "gtag_id": "UA-1360700-62",
+    "config" : {
+      "UA-1360700-62": { "groups": "default" }
+    }
+  }
+}
+</script>
+</amp-analytics>
+
+<amp-analytics type="metrika">
+<script type="application/json">
+{
+    "vars": {
+      "counterId": "65474386"
+            },
+   "triggers": {
+        "notBounce": {
+            "on": "timer",
+            "timerSpec": {
+                "immediate": false,
+                "interval": 15,
+                "maxTimerLength": 14
+            },
+            "request": "notBounce"
+        }
+    }
+}
+</script>
+</amp-analytics>
+
+    
+    <div class="markdown md:markdown-lg lg:markdown-xl">
+      <h1>Что такое Makefile и как начать его использовать</h1>
+      
+      
+      
+
+      <a class="full_post_link" href="https://guides.hexlet.io/ru/makefile-as-task-runner/">Читать в полной версии →</a>
+
+      <h2 id="введение">Введение</h2>
+
+<p>В жизни многих разработчиков найдётся история про первый рабочий день с новым проектом. После клонирования основного репозитория проекта наступает этап, когда приходится вводить множество команд с определёнными флагами и в заданной последовательности. Без описания команд, в большинстве случаев, невозможно понять что происходит, например:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nb">touch</span> ~/.bash_history
+ufw allow 3035/tcp <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'cant configure ufw'</span>
+ufw allow http <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'cant configure ufw'</span>
+docker run <span class="se">\</span>
+  <span class="nt">-v</span> /root/:/root/ <span class="se">\</span>
+  <span class="nt">-v</span> /etc:/etc <span class="se">\</span>
+  <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="se">\</span>
+  <span class="nt">-v</span> /var/tmp:/var/tmp <span class="se">\</span>
+  <span class="nt">-v</span> /tmp:/tmp <span class="se">\</span>
+  <span class="nt">-v</span> <span class="nv">$PWD</span>:/app <span class="se">\</span>
+  <span class="nt">--network</span> host <span class="se">\</span>
+  <span class="nt">-w</span> /app <span class="se">\</span>
+  <span class="nt">--env-file</span> .env <span class="se">\</span>
+  ansible ansible-playbook ansible/development.yml <span class="nt">-i</span> ansible/development <span class="nt">--limit</span><span class="o">=</span>localhost <span class="nt">-vv</span>
+<span class="nb">grep</span> <span class="nt">-qxF</span> <span class="s1">'fs.inotify.max_user_watches=524288'</span> /etc/sysctl.conf <span class="o">||</span> <span class="nb">echo </span>fs.inotify.max_user_watches<span class="o">=</span>524288 | <span class="nb">tee</span> <span class="nt">-a</span> /etc/sysctl.conf <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'cant set max_user_watches'</span> <span class="o">&amp;&amp;</span> sysctl <span class="nt">-p</span>
+<span class="nb">sudo </span>systemctl daemon-reload <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>systemctl restart docker
+</code></pre></div></div>
+
+<p>Эти команды являются лишь частью того, что необходимо выполнить при разворачивании проекта. В приведённом примере видно, что команды сами по себе длинные, содержат много флагов, а значит, их трудно не только запомнить, но и вводить вручную. Постоянно вести документацию становится сложнее с ростом проекта, она неизбежно устаревает, а порог входа для новичков становится выше, ведь уже никто не в состоянии вспомнить всех деталей проекта. Некоторые такие команды необходимо использовать каждый день, и даже не один раз в день.</p>
+
+<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+</a>
+</div>
+
+<p>Со временем становится понятно, что нужен инструмент, способный объединить в себе подобные команды, предоставить к ним удобные шорткаты (<em>более короткие и простые команды</em>) и обеспечить самодокументацию проекта. Именно таким инструментом стал <em>Makefile</em> и утилита <code class="language-plaintext highlighter-rouge">make</code>. Этот гайд расскажет, как использование этих инструментов позволит свести процесс разворачивания проекта к нескольким коротким и понятным командам:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+make setup
+make start
+make <span class="nb">test</span>
+</code></pre></div></div>
+
+<h2 id="что-такое-make-и-makefile">Что такое <code class="language-plaintext highlighter-rouge">make</code> и <em>Makefile</em>
+</h2>
+
+<p><em>Makefile</em> — это файл, который хранится вместе с кодом в репозитории. Его обычно помещают в корень проекта. Он выступает и как документация, и как исполняемый код. Мейкфайл скрывает за собой детали реализации и раскладывает “по полочкам” команды, а утилита <code class="language-plaintext highlighter-rouge">make</code> запускает их из того мейкфайла, который находится в текущей директории.</p>
+
+<p>Изначально <code class="language-plaintext highlighter-rouge">make</code> предназначалась для автоматизации сборки исполняемых программ и библиотек из исходного кода. Она поставлялась по умолчанию в большинство *nix дистрибутивов, что и привело к её широкому распространению и повсеместному использованию. Позже оказалось что данный инструмент удобно использовать и при разработке любых других проектов, потому что процесс в большинстве своём сводится к тем же задачам — автоматизация и сборка приложений.</p>
+
+<p>Применение мейка в проектах стало стандартом для многих разработчиков, включая крупные проекты. Примеры мейкфайла можно найти у таких проектов, как <a href="https://github.com/kubernetes/kubernetes/blob/master/build/root/Makefile">Kubernetes</a>, <a href="https://github.com/babel/babel/blob/main/Makefile">Babel</a>, <a href="https://github.com/ansible/ansible/blob/devel/Makefile">Ansible</a> и, конечно же, повсеместно на <a href="https://github.com/Hexlet">Хекслете</a>.</p>
+
+<h3 id="синтаксис-makefile">Синтаксис <em>Makefile</em>
+</h3>
+
+<p><code class="language-plaintext highlighter-rouge">make</code> запускает цели из <em>Makefile</em>, которые состоят из команд:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">цель1</span><span class="o">:</span> <span class="c">#</span><span class="nf"> имя цели</span><span class="p">,</span><span class="nf"> поддерживается kebab-case и snake_case</span>
+	команда1 <span class="c"># для отступа используется табуляция, это важная деталь </span>
+	команда2 <span class="c"># команды будут выполняться последовательно и только в случае успеха предыдущей</span>
+</code></pre></div></div>
+
+<p>Но недостаточно просто начать использовать мейкфайл в проекте. Чтобы получить эффект от его внедрения, понадобится поработать над разделением команд на цели, а целям дать семантически подходящие имена. Поначалу, перенос команд в Makefile может привести к свалке всех команд в одну цель с «размытым» названием:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">up</span><span class="o">:</span> <span class="c">#</span><span class="nf"> разворачивание и запуск</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env
+	<span class="nb">touch </span>database/database.sqlite
+	composer <span class="nb">install</span>
+	npm <span class="nb">install</span>
+	php artisan key:generate
+	php artisan migrate <span class="nt">--seed</span>
+	heroku <span class="nb">local</span> <span class="nt">-f</span> Procfile.dev <span class="c"># запуск проекта</span>
+</code></pre></div></div>
+
+<p>Здесь происходит сразу несколько действий: создание файла с переменными окружения, подготовка базы данных, генерация ключей, установка зависимостей и запуск проекта. Это невозможно понять из комментариев и названия цели, поэтому будет правильно разделить эти независимые команды на разные цели:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">env-prepare</span><span class="o">:</span> <span class="c">#</span><span class="nf"> создать .env-файл для секретов</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env
+
+<span class="nl">sqlite-prepare</span><span class="o">:</span> <span class="c">#</span><span class="nf"> подготовить локальную БД</span>
+	<span class="nb">touch </span>database/database.sqlite
+
+<span class="nl">install</span><span class="o">:</span> <span class="c">#</span><span class="nf"> установить зависимости</span>
+	composer <span class="nb">install</span>
+	npm <span class="nb">install</span>
+
+<span class="nl">key</span><span class="o">:</span> <span class="c">#</span><span class="nf"> сгенерировать ключи</span>
+	php artisan key:generate
+
+<span class="nl">db-prepare</span><span class="o">:</span> <span class="c">#</span><span class="nf"> загрузить данные в БД</span>
+	php artisan migrate <span class="nt">--seed</span>
+
+<span class="nl">start</span><span class="o">:</span> <span class="c">#</span><span class="nf"> запустить приложение</span>
+	heroku <span class="nb">local</span> <span class="nt">-f</span> Procfile.dev
+</code></pre></div></div>
+
+<p>Теперь, когда команды разбиты на цели, можно отдельно установить зависимости командой <code class="language-plaintext highlighter-rouge">make install</code> или запустить приложение через <code class="language-plaintext highlighter-rouge">make start</code>. Но остальные цели нужны только при первом разворачивании проекта и выполнять их нужно в определённой последовательности. Говоря языком мейкфайла, цель имеет пререквизиты:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">цель1</span><span class="o">:</span> <span class="nf">цель2 </span><span class="c">#</span><span class="nf"> такой синтаксис указывает на зависимость задач — цель1 зависит от цель2</span>
+	команда2 <span class="c"># команда2 выполнится только в случае успеха команды из цель2</span>
+
+<span class="nl">цель2</span><span class="o">:</span>
+	команда1
+</code></pre></div></div>
+
+<p>Задачи будут выполняться только в указанной последовательности и только в случае успеха предыдущей задачи. Значит, можно добавить цель <code class="language-plaintext highlighter-rouge">setup</code>, чтобы объединить в себе все необходимые действия:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">setup</span><span class="o">:</span> <span class="nf">env-prepare sqlite-prepare install key db-prepare </span><span class="c">#</span><span class="nf"> можно ссылаться на цели</span><span class="p">,</span><span class="nf"> описанные ниже</span>
+
+<span class="nl">env-prepare</span><span class="o">:</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env
+
+<span class="nl">sqlite-prepare</span><span class="o">:</span>
+	<span class="nb">touch </span>database/database.sqlite
+
+<span class="nl">install</span><span class="o">:</span>
+	composer <span class="nb">install</span>
+	npm <span class="nb">install</span>
+
+<span class="nl">key</span><span class="o">:</span>
+	php artisan key:generate
+
+<span class="nl">db-prepare</span><span class="o">:</span>
+	php artisan migrate <span class="nt">--seed</span>
+
+<span class="nl">start</span><span class="o">:</span>
+	heroku <span class="nb">local</span> <span class="nt">-f</span> Procfile.dev
+</code></pre></div></div>
+
+<p>Теперь развернуть и запустить проект достаточно двумя командами:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+make setup <span class="c"># выполнит последовательно: env-prepare sqlite-prepare install key db-prepare</span>
+make start
+</code></pre></div></div>
+
+<p>Благодаря проделанной работе <em>Makefile</em>, команды проекта вместе с флагами сведены в <em>Makefile</em>. Он обеспечивает правильный порядок выполнения и не важно, какие при этом задействованы языки и технологии.</p>
+
+<h2 id="продвинутое-использование">Продвинутое использование</h2>
+
+<h3 id="фальшивая-цель">Фальшивая цель</h3>
+
+<p>Использование <code class="language-plaintext highlighter-rouge">make</code> в проекте однажды может привести к появлению ошибки <code class="language-plaintext highlighter-rouge">make: &lt;имя-цели&gt; is up to date.</code>, хотя всё написано правильно. Зачастую, её появление связано с наличием каталога или файла, совпадающего с именем цели. Например:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">test</span><span class="o">:</span> <span class="c">#</span><span class="nf"> цель в мейкфайле</span>
+	php artisan <span class="nb">test</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span><span class="nb">ls
+</span>Makefile
+<span class="nb">test</span> <span class="c"># в файловой системе находится каталог с именем, как у цели в мейкфайле</span>
+
+<span class="nv">$ </span>make <span class="nb">test</span> <span class="c"># попытка запустить тесты</span>
+make: <span class="sb">`</span><span class="nb">test</span><span class="sb">`</span> is up to date.
+</code></pre></div></div>
+
+<p>Как уже говорилось ранее, изначально <code class="language-plaintext highlighter-rouge">make</code> предназначалась для сборок из исходного кода. Поэтому она ищет каталог или файл с указанным именем, и пытается собрать из него проект. Чтобы изменить это поведение, необходимо в конце мейкфайла добавить <code class="language-plaintext highlighter-rouge">.PHONY</code> указатель на цель:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">test</span><span class="o">:</span>
+	php artisan <span class="nb">test</span>
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">test</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span>make <span class="nb">test</span>
+✓ All tests passed!
+</code></pre></div></div>
+
+<h3 id="последовательный-запуск-команд-и-игнорирование-ошибок">Последовательный запуск команд и игнорирование ошибок</h3>
+
+<p>Запуск команд можно производить по одной: <code class="language-plaintext highlighter-rouge">make setup</code>, <code class="language-plaintext highlighter-rouge">make start</code>, <code class="language-plaintext highlighter-rouge">make test</code> или указывать цепочкой через пробел: <code class="language-plaintext highlighter-rouge">make setup start test</code>. Последний способ работает как зависимость между задачами, но без описания её в мейкфайле. Сложности могут возникнуть, если одна из команд возвращает ошибку, которую нужно игнорировать. В примерах ранее такой командой было создание .env-файла при разворачивании проекта:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">env-prepare</span><span class="o">:</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env <span class="c"># если файл уже создан, то повторный запуск этой команды вернёт ошибку</span>
+</code></pre></div></div>
+
+<p>Самый простой (<em>но не единственный</em>) способ «заглушить» ошибку — это сделать логическое ИЛИ прямо в мейкфайле:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">env-prepare</span><span class="o">:</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env <span class="o">||</span> <span class="nb">true</span> <span class="c"># теперь любой исход выполнения команды будет считаться успешным</span>
+</code></pre></div></div>
+
+<p>Добавлять такие хаки стоит с осторожностью, чтобы не «выстрелить себе в ногу» в более сложных случаях.</p>
+
+<h3 id="переменные">Переменные</h3>
+
+<p>Зачастую в команды подставляют параметры для конфигурации, указания путей, переменные окружения и <code class="language-plaintext highlighter-rouge">make</code> тоже позволяет этим управлять. Переменные можно прописать прямо в команде внутри мейкфайла и передавать их при вызове:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">say</span><span class="o">:</span>
+	<span class="nb">echo</span> <span class="s2">"Hello, </span><span class="nv">$(HELLO)</span><span class="s2">!"</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span>make say <span class="nv">HELLO</span><span class="o">=</span>World
+<span class="nb">echo</span> <span class="s2">"Hello, World!"</span>
+Hello, World!
+
+<span class="nv">$ </span>make say <span class="nv">HELLO</span><span class="o">=</span>Kitty
+<span class="nb">echo</span> <span class="s2">"Hello, Kitty!"</span>
+Hello, Kitty!
+</code></pre></div></div>
+
+<p>Переменные могут быть необязательными и содержать значение по умолчанию. Обычно их объявляют в начале мейкфайла.</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nv">HELLO</span><span class="o">?=</span>World <span class="c"># знак вопроса указывает, что переменная опциональна. Значение после присвоения можно не указывать.</span>
+
+<span class="nl">say</span><span class="o">:</span>
+	<span class="nb">echo</span> <span class="s2">"Hello, </span><span class="nv">$(HELLO)</span><span class="s2">!"</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span>make say
+<span class="nb">echo</span> <span class="s2">"Hello, World!"</span>
+Hello, World!
+
+<span class="nv">$ </span>make say <span class="nv">HELLO</span><span class="o">=</span>Kitty
+<span class="nb">echo</span> <span class="s2">"Hello, Kitty!"</span>
+Hello, Kitty!
+</code></pre></div></div>
+
+<p>Некоторые переменные в <em>Makefile</em> имеют названия отличные от системных. Например, <code class="language-plaintext highlighter-rouge">$PWD</code> называется <code class="language-plaintext highlighter-rouge">$CURDIR</code> в <a href="https://github.com/hexlet-basics/hexlet_basics/blob/3f4635bf629e2676efe547c9a01c22a2573eaebd/Makefile#L35-L39">мейкфайле</a>:</p>
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">project-env-generate</span><span class="o">:</span>
+	docker run <span class="nt">--rm</span> <span class="nt">-e</span> <span class="nv">RUNNER_PLAYBOOK</span><span class="o">=</span>ansible/development.yml <span class="se">\</span>
+		<span class="nt">-v</span> <span class="nv">$(CURDIR)</span>/ansible/development:/runner/inventory <span class="se">\ </span><span class="c"># </span><span class="nv">$(CURDIR)</span> - то же самое, что <span class="nv">$PWD</span> в терминале
+		<span class="p">-</span>v <span class="nv">$(CURDIR)</span>:/runner/project <span class="se">\</span>
+		ansible/ansible-runner
+</code></pre></div></div>
+
+<h2 id="заключение">Заключение</h2>
+
+<p>В рамках данного гайда было рассказано об основных возможностях <em>Makefile</em> и утилиты <code class="language-plaintext highlighter-rouge">make</code>. Более плотное знакомство с данным инструментом откроет множество других его полезных возможностей: условия, циклы, подключение файлов. В компаниях, где имеется множество проектов, написанных разными командами в разное время, мейкфайл станет отличным подспорьем в стандартизации типовых команд: <code class="language-plaintext highlighter-rouge">setup start test deploy ...</code>.</p>
+
+<p>Возможность описывать в мейкфале последовательно многострочные команды позволяет использовать его как «универсальный клей» между менеджерами языков и другими утилитами. Широкая распространённость этого инструмента и общая простота позволяют внедрить его в свой проект достаточно легко, без необходимости доработок. Но мейкфайл может быть по-настоящему большим и сложным, это можно увидеть на примере реальных проектов:</p>
+
+<ul>
+  <li><a href="https://github.com/hexlet-codebattle/codebattle/blob/master/Makefile">Codebattle</a></li>
+  <li><a href="https://github.com/babel/babel/blob/main/Makefile">Babel</a></li>
+  <li><a href="https://github.com/kubernetes/kubernetes/blob/master/build/root/Makefile">Kubernetes</a></li>
+</ul>
+
+<h3 id="дополнительные-материалы">Дополнительные материалы</h3>
+
+<ul>
+  <li>
+<a href="https://ru.makefile.site/">Руководство по современному Make</a> — «выжимка» из документации на русском языке;</li>
+  <li>
+<a href="https://www.youtube.com/watch?v=pK9mF5aK05Q">Утилита make: полезный универсальный инструмент программиста</a> — видео-версия данного гайда.</li>
+</ul>
+
+<p>Мейкфайлы, использованные при составлении гайда:</p>
+
+<ul>
+  <li><a href="https://github.com/Hexlet/hexlet-sicp/blob/master/Makefile">Hexlet SICP</a></li>
+  <li><a href="https://github.com/hexlet-basics/hexlet_basics/blob/master/Makefile">Hexlet Basics</a></li>
+</ul>
+
+      
+      
+    </div>
+  </body>
+</html>

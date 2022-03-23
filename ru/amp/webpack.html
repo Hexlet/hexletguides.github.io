@@ -1,0 +1,345 @@
+<!doctype html>
+<html amp lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Зачем нужно собирать фронтенд</title>
+    <link rel="canonical" href="https://guides.hexlet.io/ru/webpack/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+    
+    <style amp-custom>
+      .banner { background-color: #f8f9fa; border-left: 3px solid #0dcaf0; padding: 1rem; }
+
+.markdown .banner a { text-decoration: none; }
+
+.full_post_link.full_post_link { padding: .7rem 1rem; display: block; border: 1px solid #212529; border-radius: 2px; text-align: center; text-decoration: none; font-size: 1rem; }
+
+.markdown { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; color: #4a5568; margin-left: auto; margin-right: auto; max-width: 65ch; padding: 3rem 1.5rem; }
+
+.markdown [class~="lead"] { color: #4a5568; font-size: 1.25em; line-height: 1.6; margin-top: 1.2em; margin-bottom: 1.2em; }
+
+.markdown a { color: #1a202c; text-decoration: underline; }
+
+.markdown strong { color: #1a202c; font-weight: 600; }
+
+.markdown ol { list-style: none; padding: 0; counter-reset: list-counter; margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown ol > li { position: relative; counter-increment: list-counter; padding-left: 1.75em; }
+
+.markdown ol > li::before { content: counter(list-counter) "."; position: absolute; font-weight: 400; color: #718096; }
+
+.markdown ul > li { position: relative; padding-left: 1.75em; }
+
+.markdown ul > li::before { content: ""; position: absolute; background-color: #cbd5e0; border-radius: 50%; width: 0.375em; height: 0.375em; top: calc(0.875em - 0.1875em); left: 0.25em; }
+
+.markdown hr { border-color: #e2e8f0; border-top-width: 1px; margin-top: 3em; margin-bottom: 3em; }
+
+.markdown blockquote { font-weight: 500; font-style: italic; color: #1a202c; border-left-width: 0.25rem; border-left-color: #e2e8f0; margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1em; }
+
+.markdown blockquote p:first-of-type::before { content: open-quote; }
+
+.markdown blockquote p:last-of-type::after { content: close-quote; }
+
+.markdown h1 { color: #1a202c; font-weight: 800; font-size: 2.25em; margin-top: 0; margin-bottom: 0.8888889em; line-height: 1.1111111; }
+
+.markdown h2 { color: #1a202c; font-weight: 700; font-size: 1.5em; margin-top: 2em; margin-bottom: 1em; line-height: 1.3333333; }
+
+.markdown h3 { color: #1a202c; font-weight: 600; font-size: 1.25em; margin-top: 1.6em; margin-bottom: 0.6em; line-height: 1.6; }
+
+.markdown h4 { color: #1a202c; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.5; }
+
+.markdown figure figcaption { color: #718096; font-size: 0.875em; line-height: 1.4285714; margin-top: 0.8571429em; }
+
+.markdown code { color: #1a202c; font-weight: 600; font-size: 0.875em; }
+
+.markdown code::before { content: "`"; }
+
+.markdown code::after { content: "`"; }
+
+.markdown pre { color: #e2e8f0; background-color: #2d3748; overflow-x: auto; font-size: 0.875em; line-height: 1.7142857; margin-top: 1.7142857em; margin-bottom: 1.7142857em; border-radius: 0.375rem; padding-top: 0.8571429em; padding-right: 1.1428571em; padding-bottom: 0.8571429em; padding-left: 1.1428571em; }
+
+.markdown pre code { background-color: transparent; border-width: 0; border-radius: 0; padding: 0; font-weight: 400; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
+
+.markdown pre code::before { content: ""; }
+
+.markdown pre code::after { content: ""; }
+
+.markdown table { width: 100%; table-layout: auto; text-align: left; margin-top: 2em; margin-bottom: 2em; font-size: 0.875em; line-height: 1.7142857; }
+
+.markdown thead { color: #1a202c; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #cbd5e0; }
+
+.markdown thead th { vertical-align: bottom; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown tbody tr { border-bottom-width: 1px; border-bottom-color: #e2e8f0; }
+
+.markdown tbody tr:last-child { border-bottom-width: 0; }
+
+.markdown tbody td { vertical-align: top; padding-top: 0.5714286em; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown { font-size: 1rem; line-height: 1.75; }
+
+.markdown p { margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown img { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown video { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure > * { margin-top: 0; margin-bottom: 0; }
+
+.markdown h2 code { font-size: 0.875em; }
+
+.markdown h3 code { font-size: 0.9em; }
+
+.markdown ul { margin-top: 1.25em; margin-bottom: 1.25em; list-style: none; padding: 0; }
+
+.markdown li { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+.markdown ol > li:before { left: 0; }
+
+.markdown > ul > li p { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown > ul > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ul > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown > ol > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ol > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown hr + * { margin-top: 0; }
+
+.markdown h2 + * { margin-top: 0; }
+
+.markdown h3 + * { margin-top: 0; }
+
+.markdown h4 + * { margin-top: 0; }
+
+.markdown thead th:first-child { padding-left: 0; }
+
+.markdown thead th:last-child { padding-right: 0; }
+
+.markdown tbody td:first-child { padding-left: 0; }
+
+.markdown tbody td:last-child { padding-right: 0; }
+
+.markdown > :first-child { margin-top: 0; }
+
+.markdown > :last-child { margin-bottom: 0; }
+
+@media (min-width: 768px) { .md\:markdown-lg { font-size: 1.125rem; line-height: 1.7777778; } .md\:markdown-lg p { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg [class~="lead"] { font-size: 1.2222222em; line-height: 1.4545455; margin-top: 1.0909091em; margin-bottom: 1.0909091em; } .md\:markdown-lg blockquote { margin-top: 1.6666667em; margin-bottom: 1.6666667em; padding-left: 1em; } .md\:markdown-lg h1 { font-size: 2.6666667em; margin-top: 0; margin-bottom: 0.8333333em; line-height: 1; } .md\:markdown-lg h2 { font-size: 1.6666667em; margin-top: 1.8666667em; margin-bottom: 1.0666667em; line-height: 1.3333333; } .md\:markdown-lg h3 { font-size: 1.3333333em; margin-top: 1.6666667em; margin-bottom: 0.6666667em; line-height: 1.5; } .md\:markdown-lg h4 { margin-top: 1.7777778em; margin-bottom: 0.4444444em; line-height: 1.5555556; } .md\:markdown-lg img { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg video { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure > * { margin-top: 0; margin-bottom: 0; } .md\:markdown-lg figure figcaption { font-size: 0.8888889em; line-height: 1.5; margin-top: 1em; } .md\:markdown-lg code { font-size: 0.8888889em; } .md\:markdown-lg h2 code { font-size: 0.8666667em; } .md\:markdown-lg h3 code { font-size: 0.875em; } .md\:markdown-lg pre { font-size: 0.8888889em; line-height: 1.75; margin-top: 2em; margin-bottom: 2em; border-radius: 0.375rem; padding-top: 1em; padding-right: 1.5em; padding-bottom: 1em; padding-left: 1.5em; } .md\:markdown-lg ol { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg ul { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg li { margin-top: 0.6666667em; margin-bottom: 0.6666667em; } .md\:markdown-lg ol > li { padding-left: 1.6666667em; } .md\:markdown-lg ol > li:before { left: 0; } .md\:markdown-lg ul > li { padding-left: 1.6666667em; } .md\:markdown-lg ul > li::before { width: 0.3333333em; height: 0.3333333em; top: calc(0.8888889em - 0.1666667em); left: 0.2222222em; } .md\:markdown-lg > ul > li p { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg > ul > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ul > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg > ol > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ol > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg ul ul, .md\:markdown-lg ul ol, .md\:markdown-lg ol ul, .md\:markdown-lg ol ol { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg hr { margin-top: 3.1111111em; margin-bottom: 3.1111111em; } .md\:markdown-lg hr + * { margin-top: 0; } .md\:markdown-lg h2 + * { margin-top: 0; } .md\:markdown-lg h3 + * { margin-top: 0; } .md\:markdown-lg h4 + * { margin-top: 0; } .md\:markdown-lg table { font-size: 0.8888889em; line-height: 1.5; } .md\:markdown-lg thead th { padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg thead th:first-child { padding-left: 0; } .md\:markdown-lg thead th:last-child { padding-right: 0; } .md\:markdown-lg tbody td { padding-top: 0.75em; padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg tbody td:first-child { padding-left: 0; } .md\:markdown-lg tbody td:last-child { padding-right: 0; } .md\:markdown-lg > :first-child { margin-top: 0; } .md\:markdown-lg > :last-child { margin-bottom: 0; } }
+
+@media (min-width: 1024px) { .lg\:markdown-xl { font-size: 1.25rem; line-height: 1.8; } .lg\:markdown-xl p { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl [class~="lead"] { font-size: 1.2em; line-height: 1.5; margin-top: 1em; margin-bottom: 1em; } .lg\:markdown-xl blockquote { margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1.0666667em; } .lg\:markdown-xl h1 { font-size: 2.8em; margin-top: 0; margin-bottom: 0.8571429em; line-height: 1; } .lg\:markdown-xl h2 { font-size: 1.8em; margin-top: 1.5555556em; margin-bottom: 0.8888889em; line-height: 1.1111111; } .lg\:markdown-xl h3 { font-size: 1.5em; margin-top: 1.6em; margin-bottom: 0.6666667em; line-height: 1.3333333; } .lg\:markdown-xl h4 { margin-top: 1.8em; margin-bottom: 0.6em; line-height: 1.6; } .lg\:markdown-xl img { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl video { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure > * { margin-top: 0; margin-bottom: 0; } .lg\:markdown-xl figure figcaption { font-size: 0.9em; line-height: 1.5555556; margin-top: 1em; } .lg\:markdown-xl code { font-size: 0.9em; } .lg\:markdown-xl h2 code { font-size: 0.8611111em; } .lg\:markdown-xl h3 code { font-size: 0.9em; } .lg\:markdown-xl pre { font-size: 0.9em; line-height: 1.7777778; margin-top: 2em; margin-bottom: 2em; border-radius: 0.5rem; padding-top: 1.1111111em; padding-right: 1.3333333em; padding-bottom: 1.1111111em; padding-left: 1.3333333em; } .lg\:markdown-xl ol { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl ul { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl li { margin-top: 0.6em; margin-bottom: 0.6em; } .lg\:markdown-xl ol > li { padding-left: 1.8em; } .lg\:markdown-xl ol > li:before { left: 0; } .lg\:markdown-xl ul > li { padding-left: 1.8em; } .lg\:markdown-xl ul > li::before { width: 0.35em; height: 0.35em; top: calc(0.9em - 0.175em); left: 0.25em; } .lg\:markdown-xl > ul > li p { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl > ul > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ul > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl > ol > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ol > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl ul ul, .lg\:markdown-xl ul ol, .lg\:markdown-xl ol ul, .lg\:markdown-xl ol ol { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl hr { margin-top: 2.8em; margin-bottom: 2.8em; } .lg\:markdown-xl hr + * { margin-top: 0; } .lg\:markdown-xl h2 + * { margin-top: 0; } .lg\:markdown-xl h3 + * { margin-top: 0; } .lg\:markdown-xl h4 + * { margin-top: 0; } .lg\:markdown-xl table { font-size: 0.9em; line-height: 1.5555556; } .lg\:markdown-xl thead th { padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl thead th:first-child { padding-left: 0; } .lg\:markdown-xl thead th:last-child { padding-right: 0; } .lg\:markdown-xl tbody td { padding-top: 0.8888889em; padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl tbody td:first-child { padding-left: 0; } .lg\:markdown-xl tbody td:last-child { padding-right: 0; } .lg\:markdown-xl > :first-child { margin-top: 0; } .lg\:markdown-xl > :last-child { margin-bottom: 0; } }
+
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+    <amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{
+  "vars" : {
+    "gtag_id": "UA-1360700-62",
+    "config" : {
+      "UA-1360700-62": { "groups": "default" }
+    }
+  }
+}
+</script>
+</amp-analytics>
+
+<amp-analytics type="metrika">
+<script type="application/json">
+{
+    "vars": {
+      "counterId": "65474386"
+            },
+   "triggers": {
+        "notBounce": {
+            "on": "timer",
+            "timerSpec": {
+                "immediate": false,
+                "interval": 15,
+                "maxTimerLength": 14
+            },
+            "request": "notBounce"
+        }
+    }
+}
+</script>
+</amp-analytics>
+
+    
+    <div class="markdown md:markdown-lg lg:markdown-xl">
+      <h1>Зачем нужно собирать фронтенд</h1>
+      
+      
+      
+
+      <a class="full_post_link" href="https://guides.hexlet.io/ru/webpack/">Читать в полной версии →</a>
+
+      <p>HTML поддерживает два способа работы с JavaScript. Первый – код добавляется прямо на страницу и второй – код загружается из файла указанного в теге <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code>.</p>
+
+<h2 id="инлайновые-скрипты">Инлайновые скрипты</h2>
+
+<p>Первый способ:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;script&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">demo</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Hello JavaScript!</span><span class="dl">'</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>Он работает только в самых простых ситуациях. Иногда им пользуются для добавления небольших интерактивных элементов, таких как переключатели табов, автокомплиты и т.п.</p>
+
+<h2 id="код-в-файлах">Код в файлах</h2>
+
+<p>Современный фронтенд вышел далеко за пределы этих задач. Количество JavaScript кода во многих проектах достигает десяток и сотен тысяч строк кода. Такую массу кода физически невозможно поддерживать внутри HTML. Потому он располагается в отдельных файлах, которых может быть довольно много. Для их подключения используется второй способ:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c">&lt;!--
+Когда браузер встречает тег `&lt;script&gt;` с указанием `src`,
+он загружает указанный файл и исполняет его.
+Так код получает доступ к содержимому страницы.
+--&gt;</span>
+
+<span class="c">&lt;!-- Все определения внутри становятся глобальны и доступны для всех остальных скриптов --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/script1.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/assets/script2.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>Тег <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> был добавлен в HTML очень давно, задолго до появления современной версии языка с модулями. В те времена не существовало Node.js, пакетного менеджера и понятия “зависимости” (dependencies). Весь код писался в одном файле. Даже если файлов было несколько, они никак не были связаны друг с другом. Если попытаться использовать модули вместе с обычным тегом <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code>, то браузер выдаст ошибку:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Uncaught SyntaxError: Cannot use import statement outside a module
+</code></pre></div></div>
+
+<p>В теории, код можно писать и без использования системы модулей, но этот способ невероятно трудозатратный и основывается на том, что все определения в коде глобальны (а значит, можно легко что-нибудь сломать, перетерев существующие определения). Придётся руками указывать все существующие файлы и загружать их в HTML, в строго определённом порядке. Подобное сейчас встречается только на сайтах, где фронтенд — это jquery с небольшим числом интерактивных элементов.</p>
+
+<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+</a>
+</div>
+
+<p>Отсутствие модулей делает нормальную разработку невозможной. Нельзя работать с зависимостями, нельзя написать тесты, статический анализ кода отсутствует (невозможны переходы по определениям, подсказки).</p>
+
+<h2 id="модули-в-браузере">Модули в браузере</h2>
+
+<p>Проблема отсутствия модулей в браузере настолько важная, что в HTML5 ввели поддержку JavaScript-модулей. Достаточно в теге <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> добавить <code class="language-plaintext highlighter-rouge">type="module"</code>, как браузер начинает их понимать и загружать. Модули понимают практически все современные браузеры.</p>
+
+<p>В HTML:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span> <span class="na">src=</span><span class="s">"/assets/index.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>В JavaScript:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1">// index.js</span>
+
+<span class="k">import</span> <span class="nx">app</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./app.js</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="nx">app</span><span class="p">();</span>
+
+<span class="c1">// app.js</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello from module!</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Модули в браузере кардинально всё меняют и позволяют работать с JavaScript так, как это нужно, если бы не одно серьёзное “но”. Система модулей в браузере не умеет работать с зависимостями. Если мы решим установить, например, lodash, то попытка его импортировать завершится с ошибкой. Решить эту проблему на уровне браузеров невозможно. Браузер ничего не знает про файловую систему и того, что там происходит.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Uncaught TypeError: Failed to resolve module specifier "lodash".
+Relative references must start with either "/", "./", or "../".
+</code></pre></div></div>
+
+<h2 id="сборщики-фронтенда">Сборщики фронтенда</h2>
+
+<p>Эти проблемы полностью решают системы сборки. Кроме загрузки файлов, они решают множество других не менее важных задач. Фронтенд-разработка сильно опирается на различные пре- и пост-процессоры. Например, для современного JavaScript (и TypeScript) и многих фреймворков нужен Babel, который получает на вход исходный код проекта, преобразует его в код понятный браузеру. Только после этого его можно отдавать клиенту.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию src</span>
+<span class="c"># И директорию, в которую положить готовый код</span>
+babel src <span class="nt">-o</span> dist
+</code></pre></div></div>
+
+<p>То же самое касается CSS. Всё больше разработчиков используют SASS, который нужно транслировать в чистый CSS.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию stylesheets</span>
+<span class="c"># И директорию, в которую положить готовый CSS</span>
+sass <span class="nt">--update</span> stylesheets dist/stylesheets
+</code></pre></div></div>
+
+<p>Кроме этих задач, сборщики занимаются следующим:</p>
+
+<ul>
+  <li>Предоставляют единую команду для полной сборки фронтенда включая все его части.</li>
+  <li>Автоматически пересобирают фронтенд во время разработки. Делают это очень быстро благодаря использованию инкрементальной сборки (собирают только то, что поменялось).</li>
+  <li>Обеспечивают производительность. Минифицируют и сжимают код (в том числе удаляя неиспользуемый). Разбивают его максимально удобным для кеширования способом.</li>
+  <li>Выполняют любые преобразования, например, TypeScript =&gt; JavaScript. Позволяют подключать пре- и пост-процессоры, настроить порядок их применения к выбранным файлам.</li>
+</ul>
+
+<p>Если выполнять эти задачи вручную, то подготовка кода к запуску в браузере станет занимать больше времени, чем сама разработка.</p>
+
+<h2 id="webpack">Webpack</h2>
+
+<p>Одним из первых сборщиков фронтенда стал Webpack. Сейчас он стандарт де-факто в среде фронтенда, хотя существуют и другие решения. Общий принцип работы вебпака такой. В проекте устанавливается сам вебпак и описывается его конфигурация. Эта конфигурация содержит все правила сборки: какие файлы брать, какие обработчики к ним применять и куда складывать результат. На выходе вебпак формирует файл или набор файлов, готовых для загрузки в браузер. Дальше он не участвует, использование этих файлов – задача программиста.</p>
+
+<p>Webpack поставляется как npm-библиотека и устанавливается в проект, обычно, в dev-зависимости, а для работы удобно использовать cli-утилиту:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir </span>webpack-demo
+<span class="nb">cd </span>webpack-demo
+npm init <span class="nt">-y</span>
+npm i <span class="nt">-D</span> webpack webpack-cli
+</code></pre></div></div>
+
+<p>Теперь можно инициализировать новый вебпак-проект, который автоматически создаст все необходимые файлы и конфигурацию одной командой:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init <span class="nt">--force</span>
+</code></pre></div></div>
+
+<p>Она предложит перезаписать <em>package.json</em>, добавит в проект несколько зависимостей, создаст HTML и JS-файлы, а также создаст конфигурационный файл. Запуск этой же команды без флага <code class="language-plaintext highlighter-rouge">--force</code> откроет интерактивный режим, где можно более тонко настроить будущее приложение.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init
+? Which of the following JS solutions <span class="k">do </span>you want to use? ES6
+? Do you want to use webpack-dev-server? Yes
+? Do you want to simplify the creation of HTML files <span class="k">for </span>your bundle? Yes
+? Do you want to add PWA support? No
+? Which of the following CSS solutions <span class="k">do </span>you want to use? none
+? Do you like to <span class="nb">install </span>prettier to format generated configuration? No
+? Pick a package manager: npm
+<span class="o">[</span>webpack-cli] ℹ INFO  Initialising project...
+ conflict package.json
+? Overwrite package.json? overwrite
+    force package.json
+   create src/index.js
+   create README.md
+   create index.html
+   create webpack.config.js
+   create .babelrc
+
+<span class="c"># вывод об установке библиотек</span>
+
+<span class="o">[</span>webpack-cli] ⚠ Generated configuration may not be properly formatted as prettier is not installed.
+<span class="o">[</span>webpack-cli] Project has been initialised with webpack!
+</code></pre></div></div>
+
+<p>Проект готов и теперь его можно запустить:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack serve
+</code></pre></div></div>
+
+<p>Эта команда соберёт приложение в режиме разработки, откроет браузер и отобразит содержимое HTML-файла, а в консоль выведется сообщение из <em>src/index.js</em>.</p>
+
+<p><amp-img src="/assets/images/webpack/init-app.png" alt="Запущенное в браузере Webpack-приложение" width="2168" height="1142" layout="responsive"><noscript><img src="/assets/images/webpack/init-app.png" alt="Запущенное в браузере Webpack-приложение" width="2168" height="1142"></noscript></amp-img></p>
+
+<p>Конфигурационный файл <em>webpack.config.js</em> будет содержать несколько плагинов, необходимых для работы с HTML. Всё готово, чтобы написать своё первое фронтенд-приложение, используя Webpack!</p>
+
+<p>Лучший способ продолжить с ним работу — это читать <a href="https://webpack.js.org/guides/getting-started/#basic-setup">официальную документацию</a> и изучить <a href="https://github.com/hexlet-boilerplates/webpack-package">Webpack Boilerplate</a>, созданный Хекслетом.</p>
+
+      
+      
+    </div>
+  </body>
+</html>
