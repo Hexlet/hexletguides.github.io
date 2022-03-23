@@ -31,7 +31,16 @@
 
       <div class="container mb-4">
         <div class="d-flex flex-wrap justify-content-center py-3">
-          <a class="navbar-brand me-auto" href="/"><img width="30" alt="Code Basics logo" src="{{  site.logo | relative_url }}"></a>
+          {% capture baseurl %}
+            {% if site.lang == "ru" %}
+              {{ site.baseurl_root }}/ru/
+            {% else %}
+              /
+            {% endif %}
+          {% endcapture %}
+          <a class="navbar-brand me-auto" href="{{ baseurl | strip }}">
+            <img width="30" alt="Code Basics logo" src="{{  site.logo | relative_url }}">
+          </a>
           <ul class="nav nav-pills">
             <li class="nav-item">
               <a class="nav-link" target="_blank" href="{{ site.github.repository_url }}">
