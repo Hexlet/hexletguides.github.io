@@ -138,7 +138,7 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/how-to-search/</link>
+            <link>https://guides.hexlet.io/how_to_search/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>How to search for technical information</turbo:topic> -->
             <title>How to search for technical information</title>
@@ -149,10 +149,10 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/how-to-search/">How to search for technical information</a>
+                  <a href="https://guides.hexlet.io/how_to_search/">How to search for technical information</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/how-to-search/"
+                  formaction="https://guides.hexlet.io/how_to_search/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -240,7 +240,7 @@ If you know which library or program exactly the error belongs to, it would be u
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/error-tracking/</link>
+            <link>https://guides.hexlet.io/error_tracking/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>What is Error Tracking?</turbo:topic> -->
             <title>What is Error Tracking?</title>
@@ -251,10 +251,10 @@ If you know which library or program exactly the error belongs to, it would be u
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/error-tracking/">What is Error Tracking?</a>
+                  <a href="https://guides.hexlet.io/error_tracking/">What is Error Tracking?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/error-tracking/"
+                  formaction="https://guides.hexlet.io/error_tracking/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"

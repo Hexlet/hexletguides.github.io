@@ -2297,7 +2297,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/error-tracking/</link>
+            <link>https://guides.hexlet.io/ru/error-tracking/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое трекинг ошибок?</turbo:topic> -->
             <title>Что такое трекинг ошибок?</title>
@@ -2308,10 +2308,10 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/error-tracking/">Что такое трекинг ошибок?</a>
+                  <a href="https://guides.hexlet.io/ru/error-tracking/">Что такое трекинг ошибок?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/error-tracking/"
+                  formaction="https://guides.hexlet.io/ru/error-tracking/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -6644,7 +6644,7 @@ choco <span class="nb">install </span>vagrant
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/how-to-search/</link>
+            <link>https://guides.hexlet.io/ru/how-to-search/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как искать техническую информацию</turbo:topic> -->
             <title>Как искать техническую информацию</title>
@@ -6655,10 +6655,10 @@ choco <span class="nb">install </span>vagrant
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/how-to-search/">Как искать техническую информацию</a>
+                  <a href="https://guides.hexlet.io/ru/how-to-search/">Как искать техническую информацию</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/how-to-search/"
+                  formaction="https://guides.hexlet.io/ru/how-to-search/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
