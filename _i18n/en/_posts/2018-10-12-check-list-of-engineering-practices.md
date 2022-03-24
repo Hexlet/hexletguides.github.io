@@ -1,5 +1,4 @@
 ---
-redirect_to: /ru/check-list-of-engineering-practice/
+redirect_to: /ru/check-list-of-engineering-practices/
 hidden: true
 ---
-
