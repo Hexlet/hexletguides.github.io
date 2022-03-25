@@ -1,5 +1,4 @@
 ---
-redirect_to: /ru/how-to-be-a-helpfull-for-the-hexlet-community/
+redirect_to: /ru/how-to-be-a-helpful-for-the-hexlet-community/
 hidden: true
 ---
-
