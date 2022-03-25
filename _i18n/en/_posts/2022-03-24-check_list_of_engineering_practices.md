@@ -3,24 +3,22 @@ title: Checklist of Good Software Engineering Practices in Companies
 subtitle:
 description: Подходы к тестированию, развертыванию, разработке и процессам
 image: "assets/images/engineering-practice/check-list.png"
-author: Кирилл Мокевнин
+author: Kirill Mokevnin
 hidden: true
 ---
 
-Разработка программного обеспечения — нетривиальный процесс, который имеет тенденцию значительно усложняться с ростом количества участников. Больше людей в команде — больше коммуникаций и необходимости синхронизироваться (обмениваться знаниями о частях системы и происходящих процессах, следить за бизнесом и его требованиями). Растет цена ошибки, система перестает умещаться в голове одного разработчика, изменения в одном месте влияют на изменения в других местах.
+Software development is a challenging process that tends to become much more complex as the number of participants increases. More people in the team creates more communication and requires more synchronisation (sharing knowledge of system parts and processes, keeping track of the business and its requirements). The cost of error increases, the system can no longer fit in just one head, while change to one element affects change to the other element.
 
-В этих условиях разные команды проявляют себя по-разному. Некоторые продолжают поддерживать высокий темп разработки и регулярно выпускают новые версии. В других командах происходит сильное замедление процессов: переговоры отнимают больше времени, чем разработка, качество падает, выпуск новой версии становится стрессом и приключением. Общая скорость внедрения новых фич в таких командах может различаться во много раз и даже на порядок.
+Different teams cope with these conditions in different ways. Some keep a high development pace and make regular releases, while other teams are slowing down significantly: their negotiations take more time than their development, their quality drops, their version updates become stressful and adventurous. Total speed of feature implementation of one team can be way more or even ten times faster than that of other teams.
 
-{% include banner.html name="intensive-devops" %}
+There are many reasons for this crucial difference. Here are some of them:
 
-Причин такой катастрофической разницы довольно много. Вот некоторые из них:
+* Top management regarding business. When a company does the wrong things, its efficiency does not matter – the business will eventually close down. This topic is beyond our current guide.
+* Top management regarding processes. If this level is not good, everything else is irrelevant. Even the wrong bonus structure can lead to team rifts and ultimately shut down development altogether.
+* Human factor. Personal virtues and vices can cause problems for the rest of the team and for the whole project. The main problem is this part cannot be rectified by any process. It is either a behaviour change or a break-up.
+* Poor development process. This applies to each and every engineer and includes everything from communication and task handling to testing and code review.
 
-* Ошибки топ-менеджмента в бизнесе. Если бизнес делает не то, что надо, то не важно насколько эффективно он делает это — в конце концов бизнес закроется. Эта тема выходит за рамки текущего гайда.
-* Ошибки топ-менеджмента в области процессов. Если на этом уровне все плохо, то все остальное вторично. Даже неверная система бонусов может привести к разладу в команде и полной блокировке разработки в конечном счете.
-* Человеческий фактор. Личные качества и человеческие пороки могут создать проблемы как остальным членам команды, так и всему проекту в целом. Главная проблема в том, что эту часть невозможно выправить никакими процессами. Только изменение поведения. Либо расставание.
-* Плохой процесс разработки. Эта тема касается всех инженеров без исключения. Сюда входит все, начиная от взаимодействия и работы с задачами, заканчивая тестированием и проведением ревью кода.
-
-На некоторые проблемы повлиять либо сложно, либо невозможно (с уровня разработчика). Но другие, особенно относящиеся к инженерным практикам, нужно постоянно улучшать и менять. Программисты должны принимать в этом самое активное участие.
+Some problems are either difficult or impossible to solve (at the developer level). But others, especially those relating to engineering practices, should be continually improved and fixed. Programmers should be very involved in this.
 
 * [Книги](https://ru.hexlet.io/pages/recommended-books)
     * Человеческий фактор. Успешные проекты и команды
@@ -31,121 +29,121 @@ hidden: true
 * [Bus Factor](https://en.wikipedia.org/wiki/Bus_factor)
 * [Карго культ](https://ru.wikipedia.org/wiki/Карго-культ)
 
-И хотя практик довольно много, в конечном итоге все сводится к тому, как быстро клиенты получают результат вашей работы и насколько они им удовлетворены. Ниже приводится чек-лист, который позволяет понять, используются ли в команде те инженерные практики, которые считаются наиболее удачными.
+Although there are many practices, the net result is how quickly your customers get the results of your work and how pleased they are with it. Below is a checklist to see whether the team is using those engineering practices that are considered most appropriate.
 
-_Соответствие этим практикам не гарантирует того, что в компании нет проблем. Возможно это культ-карго, либо процессы формализованы настолько, что больше мешают, чем помогают. С другой стороны из каждого правила есть исключения и всегда найдется проект, где что-то из списка ниже не применимо. Ну и наконец, некоторые из указанных подходов могут идти вразрез с чьими-то ценностями._
+_Compliance with these standards does not guarantee the company won't have problems. It may be cargo cult, or its processes may be so formalised that they hinder rather than help. On the other hand, there is an exception to every rule and there will always be some project which cannot apply some of the following. Finally, some of these approaches may be in conflict with one's values._
 
 ## Код
 
-**Хорошо**
+**Good**
 
-* [VCS](https://ru.wikipedia.org/wiki/VCS). Код находится под контролем версий (как правило гит).
-* [Общий код](https://ru.wikipedia.org/wiki/Экстремальное_программирование#Коллективное_владение). Любой член команды в любой момент времени может изменить любую часть системы.
-* [Единый стиль кода](https://ru.wikipedia.org/wiki/Экстремальное_программирование#Стандарты_оформления_кода). В команде все придерживаются стандартов кодирования, принятых для данного стека (языка, платформы).
+* [VCS](https://ru.wikipedia.org/wiki/VCS). The code is put under version control (usually Git).
+* [Общий код](https://ru.wikipedia.org/wiki/Экстремальное_программирование#Коллективное_владение). Any member of the team can change any piece of code in the system at any time.
+* [Единый стиль кода](https://ru.wikipedia.org/wiki/Экстремальное_программирование#Стандарты_оформления_кода). All team members adhere to the coding standards adopted for the stack (language, platform).
 
-**Плохо**
+**Bad**
 
-* Отсутствие единого стиля. Каждый пишет код в том стиле, к которому он привык. Нет общих стандартов либо есть, но свой, совершенно отдельный от общепринятого.
-* Не используется контроль версий. Вместо этого используются бекапы кода, а разработчикам приходится договариваться, чтобы не перетереть изменения друг друга.
-* Код имеет "владельца". Программисты защищают свой участок кода от посягательства других участников.
+* •	Lack of a unified style. Everyone writes code in the style they are used to. There are no common standards at all or there is one but it is absolutely different from the generally accepted rules.
+* •	There is no version control. Code backups are used instead, and developers have to negotiate so that they don't overwrite each other's changes.
+* •	The code has an ‘owner’. Developers protect their piece of code from encroachment by other team members.
 
-**Ссылки**
+**Links**
 
 * [Trunk Based Development](https://trunkbaseddevelopment.com/)
 
-## Среда разработки
+## Development environment
 
-**Хорошо**
+**Good**
 
-* Девелопмент среда. Разработка ведется в специальной development (dev) среде. Как правило, это локальная машина (возможно, с использованием Vagrant или Docker Compose). Эта среда у каждого разработчика полностью своя, и изменения в одной среде не могут влиять на другие среды разработки.
-* Разворачивание среды автоматизировано и происходит "одной кнопкой". Это позволяет легко вводить в проект новичков, быстро и в автоматическом режиме распространять инфраструктурные изменения, работать без страха что-либо поломать, так как легко восстановить.
-* Инфраструктура как код. Распространение изменений конфигурации происходит через код проекта. Достаточно еще раз выполнить развертывание дев среды (с новым кодом проекта), как подхватятся все обновления.
-* Среда разработки максимально приближена к условиям продакшена. Если сервис работает на Linux, то и разработка ведется на Linux. То же самое касается и других аспектов.
+* Development (dev) environment. Development is done in a dedicated environment. This is usually a local machine (possibly using Vagrant or Docker Compose). This environment is completely different for each developer, and changes in one environment cannot affect other environments.
+* One-click, automated deployment of the environment. This makes it easy to introduce newcomers to your project, to quickly and automatically propagate infrastructure changes and to operate with no concern of crashing, as it is easy to rebuild.
+* Infrastructure as code. Configuration changes are propagated through the project code. One more dev environment deployment (with new project code) is enough to push all updates.
+* The development environment is as close to a production environment as possible. Linux running services require Linux as the development environment. The same applies to other issues.
 
-**Плохо**
+**Bad**
 
-* Разворачивание среды и настройка происходит по мануалам, либо методом "попробовал запустить — прочитал сообщение об ошибке — погуглил — исправил". Дорого и неэффективно. Мануалы устаревают практически сразу после того, как их пишут. Новый человек может тратить дни на разворачивание среды с нуля.
-* Ручное обновление конфигурации. Всем разработчикам рассылается директива произвести локальные изменения настройки среды (например, доставить что-нибудь новое) для работы нового кода.
-* Общая база данных для всех разработчиков. Нагрузка от одного человека влияет на всех. Случайная поломка также тормозит всех остальных.
+* Deploying and setting up the environment is done either with manuals or by ‘try to run, read the error message, google, fix it’ method. It’s expensive and inefficient. Manuals become outdated nearly the second they are written. A new person can spend days deploying the environment from scratch.
+* Manual configuration update. All developers receive some directive to make local configuration changes to the environment (e.g., add something new) in order for the new code to work.
+* Shared database for all developers. Loading from one person affects everyone. Crash failure also slows down everyone else.
 
-## Качество
+## Quality
 
-**Хорошо**
+**Good**
 
-* Кодовая база покрыта тестами. Тесты повышают уверенность в работоспособности кода. Хорошие тесты положительно влияют на дизайн самого кода. Как правило, код, покрытый тестами, сам по себе лучше кода без тестов. Хотя есть корреляция.
-* Частично протестированная фича или вовсе — фича без тестов — не считается выполненной. Наличие тестов значительно снижает нагрузку на всех остальных членов команды и положительно влияет на качество решения задачи. К тому же часто происходит, что если тесты не написать сразу, то потом на них времени не останется.
-* Программист отвечает за фичу до самого конца. Фича считается выполненной, только когда она работает на продакшене. Каждый человек в команде должен понимать, что наиважнейшая цель — это доставка ценности клиенту. Пока фичей никто не пользуется, то не важно, написана она или нет, потому что бизнес в этот момент остается в пролете.
-* Команда ревьювит код друг друга (без фанатизма). Ревью — не только способ найти ошибки, но и способ учиться друг у друга.
-* [Парное программирование](https://ru.wikipedia.org/wiki/Парное_программирование). Техника эффективна не только между программистами. Она очень полезна в парах "программист и тестировщик", "новичок и опытный".
-* [Continuous integration (CI)](https://ru.wikipedia.org/wiki/Непрерывная_интеграция). Репозитории проекта подключены к серверу непрерывной интеграции, на котором после каждого коммита проверяется стиль кодирования (через запуск линтеров), прогоняются тесты, осуществляется сборка проекта (например, компиляция).
-* В случае инцидентов проводятся [пост мортемы](https://www.pagerduty.com/resources/learn/post-mortem-incident-report/).
-* [Ретроспектива](https://ru.wikipedia.org/wiki/Ретроспектива_в_программировании). Процесс непрерывно улучшается и на изменения влияет каждый член команды.
+* Test coverage. Tests increase confidence in the code performance. Good tests have a positive impact on the design of the code. Test-covered code is usually better than untested code. Although there is a correlation.
+* A feature that has been partially tested or an untested feature is not considered to have been completed. Testing reduces the workload of the rest of the team and has a positive effect on the quality of the solution. Moreover, it is best to write tests immediately, as there is often no time left for them later.
+* The programmer is responsible for their feature all the way to the end. A feature is only considered completed when it is running in production workflow. Everybody in the team must understand that the most important goal is to deliver value to the customer. As long as no one uses the feature, it doesn't matter if it's written, because the business is screwed at that point.
+* The team members review each other's code (but don't overdo it). The review is not only a way to find bugs, but also a way to learn from each other.
+* [Pair programming](https://ru.wikipedia.org/wiki/Парное_программирование). This is an effective approach not only for programmers, but also for programmer–tester or novice–expert pair.
+* [Continuous integration (CI)](https://ru.wikipedia.org/wiki/Непрерывная_интеграция). The project repositories are connected to a CI server, where the code style is checked after each commit (by running linters), tests are run, and the project is built (e.g. compiled).
+* Incident postmortems [пост мортемы](https://www.pagerduty.com/resources/learn/post-mortem-incident-report/).
+* [Retrospective](https://ru.wikipedia.org/wiki/Ретроспектива_в_программировании). The process is continually improving and every team member affects the changes.
 
-**Плохо**
+**Bad**
 
-* Нет тестов. Работа нового кода проверяется только ручным способом, через прокликивание. Последствия катастрофические — скорость доставки низкая, а качество кода, скорее всего, неудовлетворительное.
-* Отсутствует код ревью. Разный стиль кодирования, изоляция программистов друг от друга, слабый обмен опытом, плохие решения в продакшене.
-* Программист считает, что фича закрыта, когда код попал в основную ветку. Новый код лежит мертвым грузом и не приносит пользы. Может устареть до попадания клиенту.
-* [KPI](https://ru.wikipedia.org/wiki/Ключевые_показатели_эффективности). Активно используются количественные метрики: строки кода, выпущенные фичи, закрытые баги. Вместо ориентации на результат, разработчики стремятся выполнить KPI. Даже в случае, если это идет вразрез с задачами бизнеса.
-* Высокий уровень формализации процессов. Замедляется скорость, падает мотивация.
+* No testing. New code performance tests are done manually by clicking through. This way has disastrous consequences, such as low delivery speed and most likely poor code quality.
+* No code review. Different code styles, isolation of programmers from each other, limited sharing of experience, poor production decisions.
+* The programmer considers the feature closed when their code reaches the main branch. New code remains idle and useless and may even become obsolete before it reaches the customer.
+* [KPI](https://ru.wikipedia.org/wiki/Ключевые_показатели_эффективности). Heavy use of quantitative metrics: lines of code, released features, closed bugs. Instead of being result-oriented, developers strive to meet KPIs. Even if it goes against business goals.
+* High degree of formalisation. Speed slows down, motivation drops.
 
-**Ссылки**
+**Links**
 
 * [Экстремальное программирование](https://ru.wikipedia.org/wiki/Экстремальное_программирование)
 * [Парное программирование (доклад Николая Рыжикова)](https://www.youtube.com/watch?v=Vu5ujdZDS6E)
 * [Как распространять инженерную культуру в своей компании](https://www.youtube.com/watch?v=mOfiWrTW9dA)
 
-## Процесс разработки
+## Development process
 
-**Хорошо**
+**Good**
 
-* Разработчики руководствуются принципами [12factors](https://habr.com/post/258739/). Приложения проще разворачивать, масштабировать и мониторить.
-* Запуск одного теста выполняется за доли секунды. Разработка через тесты подразумевает очень частый запуск тестов в процессе отладки. В такой ситуации крайне важна скорость старта конкретного теста — она должна быть настолько быстрой, чтобы разработчик оставался в контексте.
-* Тесты писать легко и приятно. Лакмусовая бумажка для определения того, насколько хорошо с тестами в проекте. Если приходится себя заставлять, то есть вероятность, что тесты написаны плохо (например, много моков) и их будет недостаточно.
-* [Test-driven development (TDD)](https://ru.wikipedia.org/wiki/TDD). По возможности тесты пишутся до кода. Есть несколько причин, по которым это важно:
+* Developers are guided by [12factors](https://habr.com/post/258739/) principles. Applications are easier to deploy, scale and monitor.
+* A single test runs in a fraction of a second. Test-driven development implies very frequent testing during debugging. The speed of launching a particular test is extremely important here – it should be fast enough to keep the developer on track.
+* Effortless and enjoyable test writing. It is a touchstone to determine how good the project tests are. If you have to force yourself, it is likely that the tests are poorly written (e.g. a lot of mocks) and there will not be enough of them.
+* [Test-driven development (TDD)](https://ru.wikipedia.org/wiki/TDD). If possible, tests are written before the code. There are several reasons why this is important:
 
-    Тесты заставляют думать не о реализации, а о том, как тестируемый код будет использоваться. Благодаря такому подходу, программисты видят изъяны в интерфейсах на самых ранних стадиях.
+    Tests require you to think not about the implementation, but about the way the code being tested will be used. Because of this approach, programmers detect flaws in their interfaces at a very early stage.
 
-    Код в любом случае надо проверять. Если теста не будет, то это придется делать руками.
+    The code must be tested in any case. If there is no test, it has to be checked in person.
 
-* Перед починкой бага сначала пишется тест, который его воспроизводит, затем происходит исправление. Только в этом случае тесты действительно помогают.
+* Once a bug is detected, first a test is written to reproduce it, then a fix is made. This is the only case where tests really help.
 
-**Плохо**
+**Bad**
 
-* Тесты есть, но приходится заставлять себя писать тесты, потому что их сложно писать, они долго выполняются, часто ломаются или постоянно приходится их переписывать.
-* Запуск одного теста занимает секунды. Такой тест тяжело запускать при разработке через тесты и общее время выполнения тестов становится слишком большим.
-* Код правится прямо на продакшене (то место где он работает). Без комментариев.
+* You have tests, but you have to force yourself to write it because they are difficult to write, take a long time to run, often crash or you have to rewrite them all the time.
+* Running one test takes seconds. Such a test is hard to run in TDD and the total test execution time becomes too long.
+* The code is fixed directly in production (the place where it works). No comment.
 
-**Ссылки**
+**Links**
 
 * [12factors](https://12factor.net/ru/)
 * [Начинаем писать тесты (правильно)](https://ru.hexlet.io/blog/posts/how-to-test-code)
 * [Бережливое тестирование](https://www.youtube.com/watch?v=zsz8kdi62mE)
 
-## Выкатка новых версий (более актуально для веб-проектов)
+## New version release (more relevant to web projects)
 
-Продакшен-среда — инфраструктура (например, сервера), в которой развернут проект. Она обеспечивает доступ к проекту конечным пользователям.
+The production environment is the infrastructure (e.g. servers) where the project is deployed. It provides access to the project for end users.
 
-Деплой (выкатка) — процесс, в рамках которого происходит обновление проекта в продакшен среде.
+Deployment is the process of updating the project in the production environment.
 
-**Хорошо**
+**Good**
 
-* Автоматизация. Развертывание автоматизировано и выполняется одной кнопкой.
-* Частые небольшие релизы. Развертывание — рядовое событие, которое может выполняться в любой момент по готовности фич, без необходимости отвлекать команду.
-* Zero Downtime Deploy. Обновление версии происходит прозрачно для пользователей.
-* Развертывание, технически (то есть все хорошо автоматизировано), может выполнить любой член команды.
+* Automation. Deployment is automated and is performed by clicking one button.
+* Frequent small releases. Deployment is routine and can be done at any time when features are ready, with no team distractions.
+* Zero Downtime Deployments. Version updates are transparent to users.
+* Technically, deployment can be done by any team member (i.e. everything is well automated).
 
-**Плохо**
+**Bad**
 
-* Выкладка происходит в ручном режиме. Например, через прямое управление с сервера. Самый ненадежный и не масштабируемый подход, подвержен ошибкам и может занимать значительное время. При наличии нескольких серверов просто не работает.
-* Выкладка кода сопровождается эмоциональным напряжением и вовлечением большого числа участников. В такой атмосфере все стремятся выкатываться реже, что приводит к еще большим проблемам и напрямую вредит бизнесу.
-* Процесс развертывания длится десятки минут или часы. Скорее всего, это означает, что процесс сборки проекта интегрирован с самим деплоем. Эти задачи нужно выполнять независимо.
-* Разворачивание происходит раз в неделю и реже. Чем больше изменений выкатывается сразу, тем выше шанс поломки. И тем сложнее отследить влияние каждой фичи на бизнес-показатели. Кроме того, происходит забывание тех изменений, которые были сделаны ранее и ждали своего часа до выхода в продакшен.
-* Во время разворачивания наблюдаются длительные даунтаймы. Пользователи вынуждены ожидать завершения деплоя. Такая ситуация мешает деплоить часто.
-* Развертывание выполняет один специальный человек. Знания хранятся в одной голове. Уход в отпуск или болезнь ломает весь процесс. Остальные программисты не понимают "как оно работает там".
-* Деплой конфигурации. Обновление конфигурации, не относящейся непосредственно к логике кода, требует повторного деплоя. Например, изменение пароля к базе данных или адреса базы. Эти параметры являются чисто инфраструктурными и должны попадать в код так, как описано в 12factors.
+* Manual deployment. For example, by direct management from the server. It is the most unreliable and unscalable approach, prone to error, which can take a considerable amount of time. Doesn't work with multiple servers.
+* Deployment comes with emotional tension and involves a large number of participants. This atmosphere makes everyone tend to slow down their code deployment, which causes even more problems and hurts the business.
+* Deployment process takes dozens of minutes or hours. This likely means that the build process is integrated with the deployment. These tasks need to be done separately.
+* Deployment happens once a week or rarer. The more changes deployed at once, the greater the chance of failure. And the harder it is to track the impact of each feature on business outcomes. In addition, changes that have been made before and were waiting to be deployed to production get overlooked.
+* Long down times during deployment. Users have to wait for deployment to complete. This situation interferes with frequent deployments.
+* Deployment is done by a single person. Knowledge is stored in one head. Their vacating or getting sick ruins the whole process, as the rest of the coders don't understand how it's all set up.
+* Deployment of configuration. Updating a configuration outside the logic of the code (e.g. changing a database password or database address) requires a second deployment. These parameters are strictly infrastructural and should go into the code as described in Twelve-Factor App.
 
-**Ссылки**
+**Links**
 
 * [Что такое DevOps?](https://ru.atlassian.com/devops)
 * [Инжиниринг в букинге](https://bronevichok.ru/blog/2015/04/26/engineering-at-booking.com.html)
