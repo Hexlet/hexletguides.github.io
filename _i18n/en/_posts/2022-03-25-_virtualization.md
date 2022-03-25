@@ -17,9 +17,9 @@ The most obvious way, and it’s a costly affair, is to buy a second computer. A
 
 *Virtualization allows you to run the operating system like a regular program right on your computer!*
 
-The OS running a virtual environment is called **the host ** and the OS running in a virtual environment is called **the guest **.
+The OS running a virtual environment is called **the host** and the OS running in a virtual environment is called **the guest**.
 
-A special program (in fact, also an OS) called **a hypervisor** creates and manages virtual machines. The hypervisor isolates operating systems from each other and provides protection, security, and resource allocation between running OSs. Depending on the type of virtualization, the hypervisor can work directly with the hardware without a host system, or through the main OS installed on the host machine. In the first case, we use **hardware virtualization **, and in the second case, **software virtualization **. The second is regular for home computers.
+A special program (in fact, also an OS) called **a hypervisor** creates and manages virtual machines. The hypervisor isolates operating systems from each other and provides protection, security, and resource allocation between running OSs. Depending on the type of virtualization, the hypervisor can work directly with the hardware without a host system, or through the main OS installed on the host machine. In the first case, we use **hardware virtualization**, and in the second case, **software virtualization**. The second is regular for home computers.
 
 Unlike installing two parallel OSs in one machine, virtualization is a much more secure way. You can uninstall and reinstall the systems at any time. You can create as many virtual machines as you need.
 
@@ -31,7 +31,7 @@ Hardware virtualization is much more efficient than software virtualization, sin
 
 ### Container virtualization
 
-**Container virtualization ** is another matter. Unlike the previous types, it is not related to running the OS in an isolated environment. With container virtualization, isolation occurs at the OS processes level.
+**Container virtualization** is another matter. Unlike the previous types, it is not related to running the OS in an isolated environment. With container virtualization, isolation occurs at the OS processes level.
 
 Currently, this kind of virtualization is used only in Linux and is available thanks to two kernel features: cgroups and namespaces. These features make run only one process as if it were running in its own world, with its own network, own disk, own file system, and so on. With this kind of virtualization, one process runs on **the same operating system and the same kernel**. For example, you cannot run Windows on Linux. This virtualization is applied at the level of service that is part of the software product. The most famous projects are OpenVZ, Docker, LXC.
 
