@@ -1,6 +1,6 @@
 ---
 title: What is virtualization and why is it needed
-subtitle: What is the meaning of this technology and what are the types of virtualization.
+subtitle: What is the point of this technology, and what are the types of virtualization.
 description: Virtualization technology, what is it. Virtualization is the creation of isolated environments within a single physical device.
 image: "assets/images/virtualization/virtualization.png"
 author: Kirill Mokevnin
@@ -29,27 +29,29 @@ As the name implies, hardware virtualization is related to the hardware, i.e. th
 
 Hardware virtualization is much more efficient than software virtualization, since the hypervisor, unlike the host OS, creates a very small overhead while software virtualization is divided into several subtypes. You can read more about it on [Wikipedia]((https://en.wikipedia.org/wiki/Virtualization)).
 
-### Контейнерная виртуализация
+### Container virtualization
 
-Особняком стоит так называемая **контейнерная виртуализация**. В отличие от предыдущих видов, она не связана с запуском ОС в изолированном окружении. При контейнерной виртуализации изоляция происходит на уровне процесса операционной системы.
+**Container virtualization ** is another matter. Unlike the previous types, it is not related to running the OS in an isolated environment. With container virtualization, isolation occurs at the OS processes level.
 
-На текущий момент такой вид виртуализации существует только в Linux и доступен благодаря двум возможностям ядра: cgroups и namespaces. Они позволяют запускать всего лишь один процесс так, как будто он выполняется в своем собственном мире, со своей сетью, своим диском, своей файловой системой и так далее. При таком виде виртуализации происходит запуск процесса в **той же операционной системе и на том же ядре**, а значит вы не можете с помощью нее в Linux запустить Windows. Эту виртуализацию применяют на уровне сервисов, составляющих части программного продукта. Наиболее известные проекты: OpenVZ, Docker, LXC.
+Currently, this kind of virtualization is used only in Linux and is available thanks to two kernel features: cgroups and namespaces. These features make run only one process as if it were running in its own world, with its own network, own disk, own file system, and so on. With this kind of virtualization, one process runs on **the same operating system and the same kernel**. For example, you cannot run Windows on Linux. This virtualization is applied at the level of service that is part of the software product. The most famous projects are OpenVZ, Docker, LXC.
 
-## Хостинг
+## Hosting
 
-Каждая виртуальная машина получит столько ресурсов, сколько вы укажете. Этим фактом особенно пользуются хостеры (компании, предоставляющие услуги веб-хостинга). Фактически на каждого пользователя создается своя собственная виртуальная машина с квотами, соответствующими выбранному тарифу (ограничения по памяти, процессору и так далее).
+Each virtual machine receives as many resources as you specify. The hosters (companies providing web hosting services) use it a lot. In fact, each user creates his own virtual machine with limits set up by selected plan (memory, CPU, and so on).
 
-Кроме того, виртуализация изолирует машины друг от друга, а значит вам не придется переживать, если пользователи попытаются навредить системе или соседним пользователям. Подобная услуга обычно называется VPS (virtual private server) и в базовой комплектации стоит дешево.
+In addition, virtualization isolates machines from each other, which means you don't have to worry if users try to harm the system or neighboring users. Such a service is usually called VPS (virtual private server) and is cheap in the basic configuration.
 
-Виртуальные машины позволяют эффективнее утилизировать (использовать) ресурсы железной машины. Как правило, далеко не всем пользователям нужна мощность того железа, которое стоит у хостера, да и платить за нее он не готов. А вот виртуальная машина может съедать лишь проценты от мощности железа, что позволяет на одной машине размещать десятки клиентов (а то и больше). Получается, что и пользователь доволен, и хостер заработал свои деньги.
+Virtual machines allow you to utilize hardware resources more efficiently. Not all users need all the hardware power that the hoster has, or simply do not want to pay for it. A virtual machine can use only a part of the hardware capacity, which allows hosting dozens of clients on one machine. It's a win-win situation: the user is satisfied, and the hoster earns his money.
 
-## Частые вопросы
+## FAQ
 
-### Что делать если процессор не поддерживает виртуализацию?
+### What to do if the CPU does not support virtualization?
 
-Это крайне маловероятно, но даже в таком случае можно запустить виртуальную машину. Правда производительность будет очень низкой, так как по факту будет работать программная виртуализация вместо аппаратной. Лучше всё же обновить железо на более современное.
+It is extremely unlikely, but even in this case it is possible to start a virtual machine. However the performance will be very low, since program virtualization will be implemented instead of software virtualization. In other words, it's better to upgrade your hardware.
 
-## Другие гайды по теме
+<!---
+## Related guides
 
-1. [Что такое Vagrant](/vagrant/). Vagrant позволяет создавать и конфигурировать легковесные, повторяемые и переносимые окружения для разработки в виртуальных машинах.
-2. [Как работать с Linux используя Windows](/ubuntu-linux-in-windows/). Инструкция по установке Ubuntu Linux внутри Windows с использованием различных технологий виртуализации.
+1. [What is Vagrant](/vagrant/). Vagrant allows creating and configuring lightweight, repeatable, and portable development environments for virtual machines.
+2. [How to work with Linux using Windows](/ubuntu-linux-in-windows/). Instructions for installing Ubuntu Linux on Windows using various virtualization technologies.
+--->
