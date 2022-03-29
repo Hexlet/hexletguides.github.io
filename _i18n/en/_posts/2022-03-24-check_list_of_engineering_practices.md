@@ -37,9 +37,9 @@ _Compliance with these standards does not guarantee the company won't have probl
 
 **Good**
 
-* [VCS](https://ru.wikipedia.org/wiki/VCS). The code is put under version control (usually Git).
-* [Общий код](https://ru.wikipedia.org/wiki/Экстремальное_программирование#Коллективное_владение). Any member of the team can change any piece of code in the system at any time.
-* [Единый стиль кода](https://ru.wikipedia.org/wiki/Экстремальное_программирование#Стандарты_оформления_кода). All team members adhere to the coding standards adopted for the stack (language, platform).
+* [VCS](https://en.wikipedia.org/wiki/Version_control). The code is put under version control (usually Git).
+* [Общий код](https://en.wikipedia.org/wiki/Extreme_programming_practices#Collective_code_ownership). Any member of the team can change any piece of code in the system at any time.
+* [Единый стиль кода](https://en.wikipedia.org/wiki/Extreme_programming_practices#Coding_standard). All team members adhere to the coding standards adopted for the stack (language, platform).
 
 **Bad**
 
@@ -74,22 +74,22 @@ _Compliance with these standards does not guarantee the company won't have probl
 * A feature that has been partially tested or an untested feature is not considered to have been completed. Testing reduces the workload of the rest of the team and has a positive effect on the quality of the solution. Moreover, it is best to write tests immediately, as there is often no time left for them later.
 * The programmer is responsible for their feature all the way to the end. A feature is only considered completed when it is running in production workflow. Everybody in the team must understand that the most important goal is to deliver value to the customer. As long as no one uses the feature, it doesn't matter if it's written, because the business is screwed at that point.
 * The team members review each other's code (but don't overdo it). The review is not only a way to find bugs, but also a way to learn from each other.
-* [Pair programming](https://ru.wikipedia.org/wiki/Парное_программирование). This is an effective approach not only for programmers, but also for programmer–tester or novice–expert pair.
-* [Continuous integration (CI)](https://ru.wikipedia.org/wiki/Непрерывная_интеграция). The project repositories are connected to a CI server, where the code style is checked after each commit (by running linters), tests are run, and the project is built (e.g. compiled).
-* Incident postmortems [пост мортемы](https://www.pagerduty.com/resources/learn/post-mortem-incident-report/).
-* [Retrospective](https://ru.wikipedia.org/wiki/Ретроспектива_в_программировании). The process is continually improving and every team member affects the changes.
+* [Pair programming](https://en.wikipedia.org/wiki/Pair_programming). This is an effective approach not only for programmers, but also for programmer–tester or novice–expert pair.
+* [Continuous integration (CI)](https://en.wikipedia.org/wiki/Continuous_integration). The project repositories are connected to a CI server, where the code style is checked after each commit (by running linters), tests are run, and the project is built (e.g. compiled).
+* Incident [postmortems](https://www.pagerduty.com/resources/learn/post-mortem-incident-report/).
+* [Retrospective](https://en.wikipedia.org/wiki/Retrospective#Software_development). The process is continually improving and every team member affects the changes.
 
 **Bad**
 
 * No testing. New code performance tests are done manually by clicking through. This way has disastrous consequences, such as low delivery speed and most likely poor code quality.
 * No code review. Different code styles, isolation of programmers from each other, limited sharing of experience, poor production decisions.
 * The programmer considers the feature closed when their code reaches the main branch. New code remains idle and useless and may even become obsolete before it reaches the customer.
-* [KPI](https://ru.wikipedia.org/wiki/Ключевые_показатели_эффективности). Heavy use of quantitative metrics: lines of code, released features, closed bugs. Instead of being result-oriented, developers strive to meet KPIs. Even if it goes against business goals.
+* [KPI](https://en.wikipedia.org/wiki/Performance_indicator). Heavy use of quantitative metrics: lines of code, released features, closed bugs. Instead of being result-oriented, developers strive to meet KPIs. Even if it goes against business goals.
 * High degree of formalisation. Speed slows down, motivation drops.
 
 **Links**
 
-* [Экстремальное программирование](https://ru.wikipedia.org/wiki/Экстремальное_программирование)
+* [Extreme programming](https://en.wikipedia.org/wiki/Extreme_programming)
 * [Парное программирование (доклад Николая Рыжикова)](https://www.youtube.com/watch?v=Vu5ujdZDS6E)
 * [Как распространять инженерную культуру в своей компании](https://www.youtube.com/watch?v=mOfiWrTW9dA)
 
@@ -97,10 +97,10 @@ _Compliance with these standards does not guarantee the company won't have probl
 
 **Good**
 
-* Developers are guided by [12factors](https://habr.com/post/258739/) principles. Applications are easier to deploy, scale and monitor.
+* Developers are guided by [12factors](https://12factor.net) principles. Applications are easier to deploy, scale and monitor.
 * A single test runs in a fraction of a second. Test-driven development implies very frequent testing during debugging. The speed of launching a particular test is extremely important here – it should be fast enough to keep the developer on track.
 * Effortless and enjoyable test writing. It is a touchstone to determine how good the project tests are. If you have to force yourself, it is likely that the tests are poorly written (e.g. a lot of mocks) and there will not be enough of them.
-* [Test-driven development (TDD)](https://ru.wikipedia.org/wiki/TDD). If possible, tests are written before the code. There are several reasons why this is important:
+* [Test-driven development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development). If possible, tests are written before the code. There are several reasons why this is important:
 
     Tests require you to think not about the implementation, but about the way the code being tested will be used. Because of this approach, programmers detect flaws in their interfaces at a very early stage.
 
@@ -116,7 +116,7 @@ _Compliance with these standards does not guarantee the company won't have probl
 
 **Links**
 
-* [12factors](https://12factor.net/ru/)
+* [12factors](https://12factor.net)
 * [Начинаем писать тесты (правильно)](https://ru.hexlet.io/blog/posts/how-to-test-code)
 * [Бережливое тестирование](https://www.youtube.com/watch?v=zsz8kdi62mE)
 
@@ -145,7 +145,7 @@ Deployment is the process of updating the project in the production environment.
 
 **Links**
 
-* [Что такое DevOps?](https://ru.atlassian.com/devops)
+* [Что такое DevOps?](https://www.atlassian.com/devops)
 * [Инжиниринг в букинге](https://bronevichok.ru/blog/2015/04/26/engineering-at-booking.com.html)
 * [Среды разработки. Мужики, выкатывай!](https://ru.hexlet.io/blog/posts/environment)
 * [Вебинар: Как распространять инженерную культуру в своей компании?](https://www.youtube.com/watch?v=mOfiWrTW9dA)
