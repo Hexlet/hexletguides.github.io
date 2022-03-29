@@ -15,8 +15,6 @@ sudo apt install nodejs # installs most recent version
 ```
 The standard installation method works well only at the very beginning during the initial setup. Then, over time, different problems begin to surfase. For example, at some point a new version of the language comes out and the project you are working on requires latest version. Usually, it takes some time before the language becomes available for installation through package managers. And in this case you either have to wait, which isn’t always convenient, or look for another installation method. The last one often becomes a challenge and takes a lot of time, with hours of googling and installing additional libraries. All this eventually clogs the system and sometimes breaks it.
 
-{% include banner.html name="intensive-devops" %}
-
 Another serious problem arise when developer requires different versions of the same language for different programs. It happens surprisingly often since there are plenty of options in development: various company projects, pet-projects, open source.
 
 *It’s important thing to mention, that all of this doesn’t concern those who have completely thrown themselves into Docker and Docker Compose. However, even in this case, languages are required to work with open source.*
