@@ -1,7 +1,7 @@
 ---
 title: Checklist of Good Software Engineering Practices in Companies
 subtitle:
-description: Подходы к тестированию, развертыванию, разработке и процессам
+description: Approaches to testing, deployment, developement and processes
 image: "assets/images/engineering-practice/check-list.png"
 author: Kirill Mokevnin
 hidden: true
@@ -20,6 +20,7 @@ There are many reasons for this crucial difference. Here are some of them:
 
 Some problems are either difficult or impossible to solve (at the developer level). But others, especially those relating to engineering practices, should be continually improved and fixed. Programmers should be very involved in this.
 
+<!--- 
 * [Книги](https://ru.hexlet.io/pages/recommended-books)
     * Человеческий фактор. Успешные проекты и команды
     * Мифический человеко-месяц, или Как создаются программные системы
@@ -28,24 +29,25 @@ Some problems are either difficult or impossible to solve (at the developer leve
 * [Manifesto for Agile Software Development](https://bit.ly/2NSBRLp)
 * [Bus Factor](https://en.wikipedia.org/wiki/Bus_factor)
 * [Карго культ](https://ru.wikipedia.org/wiki/Карго-культ)
+-->
 
 Although there are many practices, the net result is how quickly your customers get the results of your work and how pleased they are with it. Below is a checklist to see whether the team is using those engineering practices that are considered most appropriate.
 
 _Compliance with these standards does not guarantee the company won't have problems. It may be cargo cult, or its processes may be so formalised that they hinder rather than help. On the other hand, there is an exception to every rule and there will always be some project which cannot apply some of the following. Finally, some of these approaches may be in conflict with one's values._
 
-## Код
+## Coding
 
 **Good**
 
 * [VCS](https://en.wikipedia.org/wiki/Version_control). The code is put under version control (usually Git).
-* [Общий код](https://en.wikipedia.org/wiki/Extreme_programming_practices#Collective_code_ownership). Any member of the team can change any piece of code in the system at any time.
-* [Единый стиль кода](https://en.wikipedia.org/wiki/Extreme_programming_practices#Coding_standard). All team members adhere to the coding standards adopted for the stack (language, platform).
+* [Collective code ownership](https://en.wikipedia.org/wiki/Extreme_programming_practices#Collective_code_ownership). Any member of the team can change any piece of code in the system at any time.
+* [Coding standart](https://en.wikipedia.org/wiki/Extreme_programming_practices#Coding_standard). All team members adhere to the coding standards adopted for the stack (language, platform).
 
 **Bad**
 
-* •	Lack of a unified style. Everyone writes code in the style they are used to. There are no common standards at all or there is one but it is absolutely different from the generally accepted rules.
-* •	There is no version control. Code backups are used instead, and developers have to negotiate so that they don't overwrite each other's changes.
-* •	The code has an ‘owner’. Developers protect their piece of code from encroachment by other team members.
+* Lack of a unified style. Everyone writes code in the style they are used to. There are no common standards at all or there is one but it is absolutely different from the generally accepted rules.
+* There is no version control. Code backups are used instead, and developers have to negotiate so that they don't overwrite each other's changes.
+* The code has an ‘owner’. Developers protect their piece of code from encroachment by other team members.
 
 **Links**
 
@@ -90,8 +92,10 @@ _Compliance with these standards does not guarantee the company won't have probl
 **Links**
 
 * [Extreme programming](https://en.wikipedia.org/wiki/Extreme_programming)
+<!---
 * [Парное программирование (доклад Николая Рыжикова)](https://www.youtube.com/watch?v=Vu5ujdZDS6E)
 * [Как распространять инженерную культуру в своей компании](https://www.youtube.com/watch?v=mOfiWrTW9dA)
+-->
 
 ## Development process
 
@@ -117,8 +121,10 @@ _Compliance with these standards does not guarantee the company won't have probl
 **Links**
 
 * [12factors](https://12factor.net)
+<!---
 * [Начинаем писать тесты (правильно)](https://ru.hexlet.io/blog/posts/how-to-test-code)
 * [Бережливое тестирование](https://www.youtube.com/watch?v=zsz8kdi62mE)
+-->
 
 ## New version release (more relevant to web projects)
 
@@ -145,7 +151,9 @@ Deployment is the process of updating the project in the production environment.
 
 **Links**
 
-* [Что такое DevOps?](https://www.atlassian.com/devops)
+* [What is DevOps?](https://www.atlassian.com/devops)
+<!---
 * [Инжиниринг в букинге](https://bronevichok.ru/blog/2015/04/26/engineering-at-booking.com.html)
 * [Среды разработки. Мужики, выкатывай!](https://ru.hexlet.io/blog/posts/environment)
 * [Вебинар: Как распространять инженерную культуру в своей компании?](https://www.youtube.com/watch?v=mOfiWrTW9dA)
+-->
