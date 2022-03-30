@@ -1,45 +1,43 @@
 ---
 title: |
-    Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
-header: Что такое деплой?
+    Deployment means deploing to server
+header: What is deployment?
 # subtitle: Front-End фреймворк для быстрой и простой веб-разработки.
-description: Доставка кода на продакшен сервера. Миграция базы данных. Zero Downtime Deployment. Ansible, Kubernetes
+description: Code delivery to the production server. Data base migration. Zero Downtime Deployment. Ansible, Kubernetes
 image: "assets/images/deploy/deploy.png"
-author: Кирилл Мокевнин
+author: Kirill Mokevnin
 hidden: true
 ---
 
-Деплой — процесс «разворачивания» веб-сервиса, например, сайта, в рабочем окружении. Рабочее окружение — место, где сайт запускается и доступен для запросов. Это может быть как готовый хостинг, так и своя собственная серверная инфраструктура.
+Deployment is the process of web service “deployment”, e.g. of a website, in the operating environment. Operating environment is a place where a website is started and available for requests. This can be a ready-made hosting as well as your own server infrastructure.
 
-*Деплоятся не только веб-сервисы, но любые сервисы, доступные по сети. Даже если эта сеть внутренняя и не доступна для запросов через интернет.*
+*Not only web services but also any services available over the network are deployed. Even if this network is internal and not available for requests over the Internet.*
 
-Для понимания деплоя необходимо разобраться с жизненным циклом кода. Код приложения разрабатывается на рабочей машине разработчика, а запускается в другом месте, называемом продакшеном. Продакшен — это среда запуска (иногда говорят боевая среда). В случае простого приложения она может состоять из одного сервера, а может — из тысяч и десятков тысяч в случае по-настоящему сложных приложений.
+To understand deployment, you need to understand code life cycle. The application code is built on the developer's workstation and run in another place called production. Production is a startup environment (sometimes it is called a live environment). In case of a simple application it may consist of a single server or thousands and tens of thousands servers in case of truly complex applications.
 
-Как это происходит. Разработчики добавляют код в репозиторий. В какой-то момент они решают, что пора доставить его до продакшена. Это может происходить как по регулярному расписанию, например раз в две недели, так и просто по необходимости, вплоть до выкатки после каждого изменения. Во многом количество деплоев зависит от уровня его автоматизации — того, насколько процесс легкий в проведении и откате в случае проблем. На Хекслете деплои выполняются практически после каждого изменения, около 3 деплоев в день.
+How it works. Developers add the code into the information repository. At some point they decide it's time to bring it to production. This can be done on a regular schedule such as every two weeks or just as needed up to the release after each change. In many cases, the number of deployments depends on the automation level, that is to which extent the process is easy to conduct and roll back. At Hexlet deployments are performed almost after each change, approximately 3 deployments a day.
 
-{% include banner.html name="intensive-devops" %}
-
-Каждый раз, когда разработчики решили что все, пора, они создают релиз. Под релизом обычно понимают тег в Git, который фиксирует, что уйдет в деплой. То есть изменения, добавленные в мастер после создания тега, не повлияют на сам тег, а значит мы точно уверены в том, что деплоим.
+Every time developers decide it is time, they create a release. Release usually refers to a Git tag that marks things to be deployed. Namely, changes added to a master branch after the tag has been created will not affect the tag itself, which means that we are sure about what we will be deploying.
 
 <!-- image -->
 
-Для статических сайтов или отдельного фронтенда (только HTML, CSS и статические файлы) деплой сводится к обновлению кода на сервере. В ситуации деплоя бэкенда, как минимум, подключается база данных. В общем случае деплой может быть сложной процедурой, занимающей приличное время. В распределенных системах, состоящих из множества независимых веб-сервисов, вообще не бывает общего деплоя — каждая часть приложения деплоится (выкатывается) независимо.
+For static websites or a separate frontend (HTML, CSS and static files only), deployment comes down to updating the code on the server. In case of backend deployment, the database is connected at the very least. In general, deployment can be a complicated procedure taking decent time. In distributed systems consisting of many independent web services, there is no common deployment at all - each part of the application is deployed (released) independently.
 
-*Стоит сказать, что PaaS-платформы, такие как Heroku, берут деплой полностью на себя. Там достаточно выполнить коммит, и дальше все произойдет само. Цена за это — стоимость самой платформы*
+*It is worth mentioning that such PaaS platforms as Heroku take the deployment completely upon themselves. There you just have to make a commit, and then everything will happen by itself. The price for this is the cost of the platform itself.*
 
-## Шаги деплоя
+## Deployment stages
 
-### Доставка кода на сервер
+### Code delivery to the server
 
-Возможны разные варианты доставки кода на сервер в зависимости от способа его упаковки. Иногда код просто копируют на сервер как набор файлов, но такое встречается редко, чаще он обновляется через Git. Раньше был популярен способ деплоя через стандартные пакетные менеджеры Linux-дистрибутивов. Сейчас он тоже встречается, и для определенных ситуаций подходит лучше всего.
+There are different options for code delivery to the server depending on its packaging. Sometimes the code is simply copied to the server as a set of files, but this is rare, more often it is updated through Git. Back in the day, the deployment method through standard package managers of Linux distributions was popular. It is also used now, and it is best suited for certain situations.
 
 * Git: *git checkout tag-name*
 * Docker: *docker pull image-name:tag-name*
-* Apt (Пакет): *apt-install application-package-name*
+* Apt (package): *apt-install application-package-name*
 
-### Обновление базы данных
+### Database update
 
-Новая версия приложения, как правило, требует изменений в базе данных. Для этого во время (или до) деплоя запускают миграции — специальные скрипты, содержащие правила обновления базы данных. Например sql-скрипты:
+In general, a new application version requires changes in the database. To do this, migrations - special scripts containing database update rules - are run during (or before) deployment. For instance SQL-scripts:
 
 ```sql
 CREATE TABLE car (
@@ -51,21 +49,21 @@ CREATE TABLE car (
 ALTER TABLE owner ADD driver_license_id VARCHAR;
 ```
 
-### Запуск и остановка
+### Start and stop
 
-Где-то в этом процессе происходит остановка старой версии и запуск новой. Если сначала остановить старую версию, а потом выполнить миграции и запустить новую, то мы получим простой (downtime) в работе сервиса. Так действительно работают многие, но это может быть болезненно для бизнеса и частых деплоев. Поэтому самые продвинутые проекты не останавливаются во время деплоя. О том, как это делать — ниже.
+Somewhere in this process, the old version stops, and the new one starts. If we first stop the old version, then execute migrations and start the new version, we will get service downtime. This is a really common thing for many, but it can be sensitive for business and frequent deployments. So, the most advanced projects don't stop during deployment. There is a description below of how to do it.
 
-## Автоматизация
+## Automation
 
-Деплой нужно максимально автоматизировать, от этого зависит Time To Market, ключевая характеристика бизнес-ориентированных приложений. Чем быстрее и чаще мы доставляем изменения пользователю, тем лучше. Быстрее проверяем гипотезы, быстрее вносим исправления, быстрее оправдываем деньги, вложенные в разработку. Без автоматизации разработчики боятся выполнять деплой, он становится обузой, что приводит к снижению числа деплоев и регулярному стрессу для всей команды, с засиживанием на работе до позднего вечера.
+Deployment shall be automated as much as possible; Time To Market, a key characteristic of business-oriented applications, depends on it. The faster and more often we deliver changes to the user, the better. The faster we check hypotheses, the faster we introduce changes, the faster the money invested in development pays its way. Developers are afraid to perform deployment without automation, it becomes a burden that leads to a decrease in deployments and regular stress for the whole team, working long hours.
 
-Основных способа автоматизации три:
+There are three main automation ways:
 
-1. С помощью утилит, созданных для конкретных языков. Например в Ruby это Capistrano, одна из первых и наиболее известных утилит подобного рода, ставшая популярной далеко за пределами Ruby. Основная проблема с такими инструментами — сильная завязка на язык.
-1. С помощью Ansible, в который уже [встроен модуль для деплоя](https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html). Идеально подходит для большинства ситуаций деплоя на управляемые сервера.
-1. Системы оркестрации типа Kubernetes. Если они используются, то без автоматического деплоя никак.
+1. Using utilities created for specific languages. E.g. it is Capistrano in Ruby, one of the first and best-known utilities of its kind, which has become popular far beyond Ruby. The main problem with such tools is strong binding with the language.
+2. Using Ansible with an [already built-in module for deployment](https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html). It is ideal for most deployment situations on managed servers.
+3. Kubernetes-type orchestration systems. If they are used, you cannot do without automated deployment.
 
-Но даже если автоматизация выполнена, все равно остается задача «запустить деплой». Запуск тоже автоматизируется. Существует целый подход, который называется [Непрерывная доставка](https://ru.wikipedia.org/wiki/Непрерывная_доставка)(continuous delivery). Его сложно внедрить и он не везде подходит, но если получилось, то про деплой забывают. Он выполняется полностью сам без участия людей. Главное в таком варианте — хороший мониторинг и система оповещения (алертинг) для реакции на ошибки.
+However, even if automation is executed, the task of "running deployment" still remains. Start is also automated. There is a whole approach called [Continuous Delivery](https://en.wikipedia.org/wiki/Continuous_delivery). It is difficult to implement and is not suitable everywhere, but if it works, you can forget about deployment. It is performed entirely on its own without human involvement. The main thing in this option is good monitoring and alerting system.
 
 ```yaml
 # https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html#examples
@@ -85,14 +83,14 @@ ALTER TABLE owner ADD driver_license_id VARCHAR;
 
 ## Zero Downtime Deployment
 
-Если не предпринимать специальных шагов, то каждый деплой будет приводить к остановке (возможно частичной) сервиса. В это время пользователи либо увидят ошибку, либо сообщение о происходящем обновлении. Но такого не происходит на большинстве крупных сервисов в интернете. Почему? Из-за реализации подхода «деплой без даунтайма» (downtime — простои в работе сервиса).
+If no special steps are taken, each deployment will cause the service to stop (possibly partially). At this time users will either see an error or a message that an update is in progress. But this does not happen on most major Internet services. Why? Due to the implementation of “Zero Downtime Deployment” approach (downtime means service operational downtime).
 
-Zero Downtime Deployment выглядит так, как будто сервис никогда не останавливается, но при этом обновляется. Достигается это за счет одновременного запуска старой версии и новой кода. То есть когда деплоится приложение, то сначала поднимается новая версия рядом со старой. И только когда автоматика убеждается, что новая версия запустилась и работает, происходит остановка старой версии. Для выполнения этой процедуры понадобится следующее:
+Zero Downtime Deployment looks as if the service never stops running but it is being updated at the same time. This is achieved by simultaneously running the old version and the new code. Namely, when an application is deployed, the new version arises next to the old one. And only when the automatics make sure that the new version has started and is running, the old version is stopped. The following is required to perform this procedure:
 
-1. Инфраструктура. Нужен балансировщик, который может переключать трафик (входящие соединения от браузеров или других систем) между старой и новой версией кода. И желательно иметь как минимум два сервера, хотя это и не обязательно.
-1. Деплой. Процесс деплоя без простоя значительно сложнее, чем с остановкой. Проще всего такой деплой делается на системах оркестрации, например, Kubernetes.
-1. Культура кода. Обеспечить безостановочную работу невозможно без определенной культуры написания кода. Чтобы старая и новая версия могли работать одновременно, нужно следить за всеми интерфейсами. Важно соблюдение обратной совместимости (работа с api, базой, очередьми и, в целом, любыми хранилищами).
-1. База данных. Она должна быть обратна совместима между старой и новой версией. Все миграции только вперед (их нельзя откатывать!) и только на добавление. Нельзя удалять и обновлять (переименовывать, менять тип) колонки и таблицы
+1. Infrastructure. You need a load balancing to switch traffic (incoming connections from browsers or other systems) between the old and the new version of the code. And it is desirable to have at least two servers, although it is not required.
+2. Deployment. Zero downtime deployment process is much more complicated than the usual one. The easiest way to execute it is on orchestration systems such as Kubernetes.
+3. Code culture. It is impossible to ensure non-stop operation without a certain culture of code writing. For the old and the new version to work simultaneously, you need to keep an eye on all interfaces. It is important to maintain backward compatibility (working with API, database, queues, and, in general, any storage).
+4. Database. It shall be backward compatible between the old and the new version. All migrations are forward-only (they cannot be rolled back!) and for addition only. You cannot delete and update (rename, change the type of) columns and tables
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -117,8 +115,8 @@ spec:
             path: /
             port: 8080
 ```
-
-## Дополнительная литература
+<!---
+## Supplementary literature
 
 * [Подробнее про Zero Downtime Deployment](https://twitter.com/mokevnin/status/1491429628854272002)
 * [Инжиниринг в Booking](https://bronevichok.ru/posts/engineering-at-booking.com.html)
@@ -126,3 +124,4 @@ spec:
 * [Stateless vs Statefull](https://www.youtube.com/watch?v=WPCz_U7D8PI)
 * [Ansible Deploy](https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html)
 * [Среды разработки](https://ru.hexlet.io/blog/posts/environment)
+-->
