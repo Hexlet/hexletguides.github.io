@@ -6,7 +6,6 @@ header: What is deployment?
 description: Code delivery to the production server. Data base migration. Zero Downtime Deployment. Ansible, Kubernetes
 image: "assets/images/deploy/deploy.png"
 author: Kirill Mokevnin
-hidden: true
 ---
 
 Deployment is the process of web service “deployment”, e.g. of a website, in the operating environment. Operating environment is a place where a website is started and available for requests. This can be a ready-made hosting as well as your own server infrastructure.
