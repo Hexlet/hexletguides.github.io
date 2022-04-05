@@ -2,7 +2,7 @@
 title: |
     Deployment means deploing to server
 header: What is deployment?
-# subtitle: Front-End фреймворк для быстрой и простой веб-разработки.
+# subtitle: Front-end framework for fast and easy web development.
 description: Code delivery to the production server. Data base migration. Zero Downtime Deployment. Ansible, Kubernetes
 image: "assets/images/deploy/deploy.png"
 author: Kirill Mokevnin
