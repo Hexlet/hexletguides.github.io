@@ -4,7 +4,6 @@ subtitle: What is the point of this technology, and what are the types of virtua
 description: Virtualization technology, what is it. Virtualization is the creation of isolated environments within a single physical device.
 image: "assets/images/virtualization/virtualization.png"
 author: Kirill Mokevnin
-hidden: true
 ---
 
 Linux or Mac users sometimes need to run Windows-only programs, and, in turn, Windows users, especially programmers, may need to launch Linux or another version of Windows. The classic example is Photoshop or games.
