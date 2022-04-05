@@ -11,9 +11,9 @@
 
     <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Hexlet Guides" />
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>What Is Version Manager | Hexlet Guides</title>
+<title>What is Version Manager | Hexlet Guides</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="What Is Version Manager" />
+<meta property="og:title" content="What is Version Manager" />
 <meta name="author" content="Kirill Mokevnin" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="System installation" />
@@ -26,9 +26,9 @@
 <meta property="article:published_time" content="2022-03-23T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://guides.hexlet.io/assets/images/version-manager/title.png" />
-<meta property="twitter:title" content="What Is Version Manager" />
+<meta property="twitter:title" content="What is Version Manager" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Kirill Mokevnin"},"dateModified":"2022-03-23T00:00:00+00:00","datePublished":"2022-03-23T00:00:00+00:00","description":"System installation","headline":"What Is Version Manager","image":"https://guides.hexlet.io/assets/images/version-manager/title.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/version-managers/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"url":"https://guides.hexlet.io/version-managers/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Kirill Mokevnin"},"dateModified":"2022-03-23T00:00:00+00:00","datePublished":"2022-03-23T00:00:00+00:00","description":"System installation","headline":"What is Version Manager","image":"https://guides.hexlet.io/assets/images/version-manager/title.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/version-managers/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"url":"https://guides.hexlet.io/version-managers/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -105,7 +105,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="mainheading">
       <h1 class="posttitle">
           
-            What Is Version Manager
+            What is Version Manager
           
       </h1>
     </div>
@@ -114,7 +114,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Post Featured Image -->
     
       <div class="text-center mx-auto mb-5">
-        <img class="featured-image text-center mx-auto rounded" src="/assets/images/version-manager/title.png" alt="What Is Version Manager">
+        <img class="featured-image text-center mx-auto rounded" src="/assets/images/version-manager/title.png" alt="What is Version Manager">
       </div>
     
   <!-- End Featured Image -->
@@ -122,20 +122,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="article-post">
       <h2 id="system-installation">System installation</h2>
 
-<p>To run code in any language, you need to install its interpreter (or compiler). Different operating systems do it differently: some of them use package managers, for example, <em>apt</em> or <em>yum</em>, and some download the installer directly from repository. Some languages come preinstalled with operating system, for example, Python. In particular, Python plays a key role in the Linux OS and its distributions.</p>
+<p>To run code in any language, you need to install its interpreter (or compiler). Different operating systems do it differently: some of them use package managers, for example, <em>apt</em> or <em>yum</em>, and some download the installer directly from the repository. Some languages come preinstalled with an operating system, for example, Python. In particular, Python plays a key role in the Linux OS and its distributions.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Ubuntu</span>
 <span class="nb">sudo </span>apt <span class="nb">install </span>nodejs <span class="c"># installs most recent version</span>
 </code></pre></div></div>
-<p>The standard installation method works well only at the very beginning during the initial setup. Then, over time, different problems begin to surfase. For example, at some point a new version of the language comes out and the project you are working on requires latest version. Usually, it takes some time before the language becomes available for installation through package managers. And in this case you either have to wait, which isn’t always convenient, or look for another installation method. The last one often becomes a challenge and takes a lot of time, with hours of googling and installing additional libraries. All this eventually clogs the system and sometimes breaks it.</p>
+<p>The standard installation method works well only at the very beginning during the initial setup. Then, over time, different problems begin to surfase. For example, at some point, a new version of the language comes out but the project you are working on requires the latest version. Usually, it takes some time before the language becomes available for installation through package managers. And in this case, you either have to wait, which isn’t always convenient, or look for another installation method. The last one often becomes a challenge and takes a lot of time, with hours of googling and installing additional libraries. All this eventually clogs the system and sometimes breaks it.</p>
 
-<p>Another serious problem arise when developer requires different versions of the same language for different programs. It happens surprisingly often since there are plenty of options in development: various company projects, pet-projects, open source.</p>
+<p>Another serious problem arises when developer requires different versions of the same language for different programs. It happens surprisingly often since there are plenty of options in development: various company projects, pet-projects, open source.</p>
 
-<p><em>It’s important thing to mention, that all of this doesn’t concern those who have completely thrown themselves into Docker and Docker Compose. However, even in this case, languages are required to work with open source.</em></p>
+<p><em>It’s important thing to mention, that all of this doesn’t concern those, who have completely thrown themselves into Docker and Docker Compose. However, even in this case, languages are required to work with open source.</em></p>
 
 <h2 id="version-managers">Version managers</h2>
 
-<p>To solve these problems, the developers came up with version managers. A version manager is a special program designed to manage versions of a language. With its help it became possible to install the required versions and switch between them. Unlike the package managers that come with operating systems, version managers always allow to install the latest versions of languages as soon as they come out (including installing alpha and beta versions).</p>
+<p>To solve these problems, the developers came up with version managers. A version manager is a special program designed to handle language versions. With its help it became possible to install the required versions and switch between them. Unlike the package managers that come with operating systems, version managers always allow to install the latest versions of languages as soon as they come out (including installing alpha and beta versions).</p>
 
 <p>For example, you can use <a href="https://github.com/nvm-sh/nvm">NVM</a> (Node Version Manager) for Node.js:</p>
 
@@ -164,18 +164,19 @@ Now using node v17
   <li>python: pyenv</li>
 </ul>
 
-<p>Version managers also solve a few more important tasks. As a rule, when a programmer interacts with a language installed directly, he has to use <em>sudo</em> when installing global packages. The fact is that the standard language installation scheme is intended for all users at once. Hence, all the necessary files, including global packages, get into shared directories that require administrative rights. From the security perspective, this is a vulnerability that developers of open source libraries can exploit (and sometimes they do). Version managers install everything in the current user’s home directory, where he already has full rights. On the one hand, this makes it possible not to run package installation as an administrator, and on the other hand, the system isn’t clogged. It’s incredibly simple to remove a language and all its packages through the version manager. All you have to do is delete the directory (although it’s better to do this using the version manager).</p>
+<p>Version managers also solve a few more important tasks. Customarily, when a programmer interacts with a language installed directly, he has to use <em>sudo</em> when installing global packages. The fact is that the standard language installation scheme is intended for all users at once. Hence, all the necessary files, including global packages, get into shared directories that require administrative rights. From the security perspective, this is a vulnerability that developers of open source libraries can exploit (and sometimes they do). Version managers install everything in the current user’s home directory, where he already has full rights. On the one hand, it allows not to run package installation as an administrator, and on the other hand, the system isn’t clogged. Version manager makes it painless to remove a language and all its packages. All you have to do is delete the directory (although it’s better to do this using the version manager tools).</p>
 
 <h2 id="universal-version-manager">Universal version manager</h2>
 
-<p>While solving some problems version managers also cause a few others. Firstly, there are too many of them, so their popularity is constantly changing. Secondly, the process of installing the version manager can be more complicated than installing the language. The problem is that they need to be universal and work everywhere, which is extremely problematic, considering the diversity of modern ecosystems. It’s enough to look at the size of the NVM documentation to assess the scale of the disaster. Thirdly, all these managers work differently and have different commands. It complicates the process of switching between them while working with various languages.</p>
+<p>While solving some problems, version managers also cause a few others. Firstly, there are too many of them, so their popularity constantly changes. Secondly, the process of installing the version manager can be more complicated than installing the language. The problem is that they need to be universal and work everywhere, which is extremely problematic, considering the diversity of modern ecosystems. It’s enough to look at the size of the NVM documentation to assess the scale of the disaster. Thirdly, all these managers work differently and have different commands. It complicates the process of switching between them while working with various languages.</p>
 
-<p>All this led to the next logical step. Eventually, a universal manager <a href="https://asdf-vm.com/">asdf</a> appeared on the scene, and, thanks to plugins, is now able to work with any languages. A short list of its advantages:</p>
+<p>All this led to the next logical step. Eventually, a universal manager <a href="https://asdf-vm.com/">asdf</a> appeared on the scene, and, thanks to plugins, is now able to work with any language. A shortlist of its advantages:</p>
+
 <ul>
   <li>A single command line utility to work with all languages</li>
   <li>A single interface for all languages</li>
   <li>Automatic switching between languages within each project</li>
-  <li>A simple plugin system that allows to add any languages</li>
+  <li>A simple plugin system that allows to add any language</li>
 </ul>
 
 <p>Now <em>asdf</em> has become quite popular and is gradually replacing every other version managers (technically, language-specific managers are more often used there). It has a bit more complex command system due to the need to support many languages, but otherwise it significantly simplifies the whole process.</p>
@@ -208,7 +209,7 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
 </code></pre></div></div>
 <h2 id="conclusion">Conclusion</h2>
 
-<p>Working with different versions of languages is a challenging task, which can be simplified through the use of version managers and docker (for advanced users). Among all managers, <em>asdf</em> stands out and at the same time becomes a universal tool for managing any languages and even regular programs.</p>
+<p>Working with different versions of the language is a challenge, which is made easy due to version managers and Docker (for advanced users). Among all managers, <em>asdf</em> stands out and at the same time becomes a universal tool for managing any language and even regular programs.</p>
 
     </div>
 
