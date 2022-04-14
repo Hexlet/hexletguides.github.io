@@ -1,4 +1,4 @@
 ---
-redirect_to: /ru/version_managers/
+redirect_to: /ru/version-managers/
 hidden: true
 ---
