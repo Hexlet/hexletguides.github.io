@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://guides.hexlet.io/error_tracking/</loc>
+<loc>https://guides.hexlet.io/error-tracking/</loc>
 <lastmod>2022-03-18T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>https://guides.hexlet.io/how_to_search/</loc>
+<loc>https://guides.hexlet.io/how-to-search/</loc>
 <lastmod>2022-03-22T00:00:00+00:00</lastmod>
 </url>
 <url>
@@ -13,15 +13,15 @@
 <lastmod>2022-03-23T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>https://guides.hexlet.io/check_list_of_engineering_practices/</loc>
+<loc>https://guides.hexlet.io/check-list-of-engineering-practices/</loc>
 <lastmod>2022-03-24T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>https://guides.hexlet.io/what-is-virtualization/</loc>
+<loc>https://guides.hexlet.io/virtualization/</loc>
 <lastmod>2022-03-25T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>https://guides.hexlet.io/what_is_deployment/</loc>
+<loc>https://guides.hexlet.io/deploy/</loc>
 <lastmod>2022-03-29T00:00:00+00:00</lastmod>
 </url>
 <url>

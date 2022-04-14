@@ -1563,7 +1563,7 @@ epoch.</li>
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/deploy/</link>
+            <link>https://guides.hexlet.io/deploy/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
 </turbo:topic> -->
@@ -1576,11 +1576,11 @@ epoch.</li>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/deploy/">Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
+                  <a href="https://guides.hexlet.io/deploy/">Deploy (деплой) - что значит «задеплоить на сервер» простыми словами
 </a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/deploy/"
+                  formaction="https://guides.hexlet.io/deploy/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -2299,7 +2299,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/error-tracking/</link>
+            <link>https://guides.hexlet.io/error-tracking/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое трекинг ошибок?</turbo:topic> -->
             <title>Что такое трекинг ошибок?</title>
@@ -2310,10 +2310,10 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/error-tracking/">Что такое трекинг ошибок?</a>
+                  <a href="https://guides.hexlet.io/error-tracking/">Что такое трекинг ошибок?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/error-tracking/"
+                  formaction="https://guides.hexlet.io/error-tracking/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -2809,7 +2809,7 @@ Hello, Kitty!
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/version_managers/</link>
+            <link>https://guides.hexlet.io/version-managers/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое "Менеджер версий"</turbo:topic> -->
             <title>Что такое "Менеджер версий"</title>
@@ -2820,10 +2820,10 @@ Hello, Kitty!
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/version_managers/">Что такое "Менеджер версий"</a>
+                  <a href="https://guides.hexlet.io/version-managers/">Что такое "Менеджер версий"</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/version_managers/"
+                  formaction="https://guides.hexlet.io/version-managers/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -4952,7 +4952,7 @@ c: Тогда я бы воспользовался встроенной функ
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/check-list-of-engineering-practices/</link>
+            <link>https://guides.hexlet.io/check-list-of-engineering-practices/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Чек-лист хороших инженерных практик в компаниях</turbo:topic> -->
             <title>Чек-лист хороших инженерных практик в компаниях</title>
@@ -4963,10 +4963,10 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/check-list-of-engineering-practices/">Чек-лист хороших инженерных практик в компаниях</a>
+                  <a href="https://guides.hexlet.io/check-list-of-engineering-practices/">Чек-лист хороших инженерных практик в компаниях</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/check-list-of-engineering-practices/"
+                  formaction="https://guides.hexlet.io/check-list-of-engineering-practices/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -5861,7 +5861,7 @@ CMD ["eslint", "/app"]
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/virtualization/</link>
+            <link>https://guides.hexlet.io/virtualization/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое виртуализация и для чего она нужна</turbo:topic> -->
             <title>Что такое виртуализация и для чего она нужна</title>
@@ -5872,10 +5872,10 @@ CMD ["eslint", "/app"]
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/virtualization/">Что такое виртуализация и для чего она нужна</a>
+                  <a href="https://guides.hexlet.io/virtualization/">Что такое виртуализация и для чего она нужна</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/virtualization/"
+                  formaction="https://guides.hexlet.io/virtualization/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -6646,7 +6646,7 @@ choco <span class="nb">install </span>vagrant
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/how-to-search/</link>
+            <link>https://guides.hexlet.io/how-to-search/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как искать техническую информацию</turbo:topic> -->
             <title>Как искать техническую информацию</title>
@@ -6657,10 +6657,10 @@ choco <span class="nb">install </span>vagrant
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/how-to-search/">Как искать техническую информацию</a>
+                  <a href="https://guides.hexlet.io/how-to-search/">Как искать техническую информацию</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/how-to-search/"
+                  formaction="https://guides.hexlet.io/how-to-search/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"

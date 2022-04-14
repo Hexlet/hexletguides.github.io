@@ -1,11 +1,321 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <meta charset="utf-8">
-  <title>Redirecting&hellip;</title>
-  <link rel="canonical" href="https://guides.hexlet.io/ru/deploy/">
-  <script>location="https://guides.hexlet.io/ru/deploy/"</script>
-  <meta http-equiv="refresh" content="0; url=https://guides.hexlet.io/ru/deploy/">
-  <meta name="robots" content="noindex">
-  <h1>Redirecting&hellip;</h1>
-  <a href="https://guides.hexlet.io/ru/deploy/">Click here if you are not redirected.</a>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+    
+      <link rel="amphtml" href="https://guides.hexlet.io/amp/deploy">
+    
+
+    <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Hexlet Guides" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Deployment means deploing to server | Hexlet Guides</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Deployment means deploing to server" />
+<meta name="author" content="Kirill Mokevnin" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Code delivery to the production server. Data base migration. Zero Downtime Deployment. Ansible, Kubernetes" />
+<meta property="og:description" content="Code delivery to the production server. Data base migration. Zero Downtime Deployment. Ansible, Kubernetes" />
+<link rel="canonical" href="https://guides.hexlet.io/deploy/" />
+<meta property="og:url" content="https://guides.hexlet.io/deploy/" />
+<meta property="og:site_name" content="Hexlet Guides" />
+<meta property="og:image" content="https://guides.hexlet.io/assets/images/deploy/deploy.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-29T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://guides.hexlet.io/assets/images/deploy/deploy.png" />
+<meta property="twitter:title" content="Deployment means deploing to server" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Kirill Mokevnin"},"dateModified":"2022-03-29T00:00:00+00:00","datePublished":"2022-03-29T00:00:00+00:00","description":"Code delivery to the production server. Data base migration. Zero Downtime Deployment. Ansible, Kubernetes","headline":"Deployment means deploing to server","image":"https://guides.hexlet.io/assets/images/deploy/deploy.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/deploy/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Kirill Mokevnin"},"url":"https://guides.hexlet.io/deploy/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMJ8HKG');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+    <link href="/assets/css/theme.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="/assets/css/highlight.css" rel="stylesheet">
+
+  </head>
+
+  
+
+  <body class="layout-post">
+
+    
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMJ8HKG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+    <!-- Menu Navigation
+      ================================================== -->
+
+      <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center py-3">
+          
+          <a class="navbar-brand me-auto" href="/">
+            <img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png">
+          </a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">
+                Source Code
+              </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://en.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral
+">
+              Educational Programs
+            </a>
+            </li>
+            <li class="nav-item">
+              
+                <a class="nav-link" href="/ru/">Russian</a>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Container
+        ================================================== -->
+        <main class="container">
+          <div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto text-break">
+
+
+    <div class="mainheading">
+      <h1 class="posttitle">
+          
+            What is deployment?
+          
+      </h1>
+    </div>
+
+
+  <!-- Post Featured Image -->
+    
+      <div class="text-center mx-auto mb-5">
+        <img class="featured-image text-center mx-auto rounded" src="/assets/images/deploy/deploy.png" alt="Deployment means deploing to server
+">
+      </div>
+    
+  <!-- End Featured Image -->
+
+    <div class="article-post">
+      <p>Deployment is the process of web service “deployment”, e.g. of a website, in the operating environment. Operating environment is a place where a website is started and available for requests. This can be a ready-made hosting as well as your own server infrastructure.</p>
+
+<p><em>Not only web services but also any services available over the network are deployed. Even if this network is internal and not available for requests over the Internet.</em></p>
+
+<p>To understand deployment, you need to understand code life cycle. The application code is built on the developer’s workstation and run in another place called production. Production is a startup environment (sometimes it is called a live environment). In case of a simple application it may consist of a single server or thousands and tens of thousands servers in case of truly complex applications.</p>
+
+<p>How it works. Developers add the code into the information repository. At some point they decide it’s time to bring it to production. This can be done on a regular schedule such as every two weeks or just as needed up to the release after each change. In many cases, the number of deployments depends on the automation level, that is to which extent the process is easy to conduct and roll back. At Hexlet deployments are performed almost after each change, approximately 3 deployments a day.</p>
+
+<p>Every time developers decide it is time, they create a release. Release usually refers to a Git tag that marks things to be deployed. Namely, changes added to a master branch after the tag has been created will not affect the tag itself, which means that we are sure about what we will be deploying.</p>
+
+<!-- image -->
+
+<p>For static websites or a separate frontend (HTML, CSS and static files only), deployment comes down to updating the code on the server. In case of backend deployment, the database is connected at the very least. In general, deployment can be a complicated procedure taking decent time. In distributed systems consisting of many independent web services, there is no common deployment at all - each part of the application is deployed (released) independently.</p>
+
+<p><em>It is worth mentioning that such PaaS platforms as Heroku take the deployment completely upon themselves. There you just have to make a commit, and then everything will happen by itself. The price for this is the cost of the platform itself.</em></p>
+
+<h2 id="deployment-stages">Deployment stages</h2>
+
+<h3 id="code-delivery-to-the-server">Code delivery to the server</h3>
+
+<p>There are different options for code delivery to the server depending on its packaging. Sometimes the code is simply copied to the server as a set of files, but this is rare, more often it is updated through Git. Back in the day, the deployment method through standard package managers of Linux distributions was popular. It is also used now, and it is best suited for certain situations.</p>
+
+<ul>
+  <li>Git: <em>git checkout tag-name</em></li>
+  <li>Docker: <em>docker pull image-name:tag-name</em></li>
+  <li>Apt (package): <em>apt-install application-package-name</em></li>
+</ul>
+
+<h3 id="database-update">Database update</h3>
+
+<p>In general, a new application version requires changes in the database. To do this, migrations - special scripts containing database update rules - are run during (or before) deployment. For instance SQL-scripts:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">car</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">license_plate</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">color</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">owner</span> <span class="k">ADD</span> <span class="n">driver_license_id</span> <span class="nb">VARCHAR</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="start-and-stop">Start and stop</h3>
+
+<p>Somewhere in this process, the old version stops, and the new one starts. If we first stop the old version, then execute migrations and start the new version, we will get service downtime. This is a really common thing for many, but it can be sensitive for business and frequent deployments. So, the most advanced projects don’t stop during deployment. There is a description below of how to do it.</p>
+
+<h2 id="automation">Automation</h2>
+
+<p>Deployment shall be automated as much as possible; Time To Market, a key characteristic of business-oriented applications, depends on it. The faster and more often we deliver changes to the user, the better. The faster we check hypotheses, the faster we introduce changes, the faster the money invested in development pays its way. Developers are afraid to perform deployment without automation, it becomes a burden that leads to a decrease in deployments and regular stress for the whole team, working long hours.</p>
+
+<p>There are three main automation ways:</p>
+
+<ol>
+  <li>Using utilities created for specific languages. E.g. it is Capistrano in Ruby, one of the first and best-known utilities of its kind, which has become popular far beyond Ruby. The main problem with such tools is strong binding with the language.</li>
+  <li>Using Ansible with an <a href="https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html">already built-in module for deployment</a>. It is ideal for most deployment situations on managed servers.</li>
+  <li>Kubernetes-type orchestration systems. If they are used, you cannot do without automated deployment.</li>
+</ol>
+
+<p>However, even if automation is executed, the task of “running deployment” still remains. Start is also automated. There is a whole approach called <a href="https://en.wikipedia.org/wiki/Continuous_delivery">Continuous Delivery</a>. It is difficult to implement and is not suitable everywhere, but if it works, you can forget about deployment. It is performed entirely on its own without human involvement. The main thing in this option is good monitoring and alerting system.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html#examples</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Initialize the deploy root and gather facts</span>
+  <span class="na">community.general.deploy_helper</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">/path/to/root</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Clone the project to the new release folder</span>
+  <span class="na">ansible.builtin.git</span><span class="pi">:</span>
+    <span class="na">repo</span><span class="pi">:</span> <span class="s">ansible.builtin.git://foosball.example.org/path/to/repo.git</span>
+    <span class="na">dest</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">v1.1.1</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Add an unfinished file, to allow cleanup on successful finalize</span>
+  <span class="na">ansible.builtin.file</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/'</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span>
+</code></pre></div></div>
+
+<h2 id="zero-downtime-deployment">Zero Downtime Deployment</h2>
+
+<p>If no special steps are taken, each deployment will cause the service to stop (possibly partially). At this time users will either see an error or a message that an update is in progress. But this does not happen on most major Internet services. Why? Due to the implementation of “Zero Downtime Deployment” approach (downtime means service operational downtime).</p>
+
+<p>Zero Downtime Deployment looks as if the service never stops running but it is being updated at the same time. This is achieved by simultaneously running the old version and the new code. Namely, when an application is deployed, the new version arises next to the old one. And only when the automatics make sure that the new version has started and is running, the old version is stopped. The following is required to perform this procedure:</p>
+
+<ol>
+  <li>Infrastructure. You need a load balancing to switch traffic (incoming connections from browsers or other systems) between the old and the new version of the code. And it is desirable to have at least two servers, although it is not required.</li>
+  <li>Deployment. Zero downtime deployment process is much more complicated than the usual one. The easiest way to execute it is on orchestration systems such as Kubernetes.</li>
+  <li>Code culture. It is impossible to ensure non-stop operation without a certain culture of code writing. For the old and the new version to work simultaneously, you need to keep an eye on all interfaces. It is important to maintain backward compatibility (working with API, database, queues, and, in general, any storage).</li>
+  <li>Database. It shall be backward compatible between the old and the new version. All migrations are forward-only (they cannot be rolled back!) and for addition only. You cannot delete and update (rename, change the type of) columns and tables</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">extensions/v1beta1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">tomcat-deployment-${TARGET_ROLE}</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">2</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">tomcat</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">${TARGET_ROLE}</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">tomcat-container</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">tomcat:${TOMCAT_VERSION}</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+        <span class="na">readinessProbe</span><span class="pi">:</span>
+          <span class="na">httpGet</span><span class="pi">:</span>
+            <span class="na">path</span><span class="pi">:</span> <span class="s">/</span>
+            <span class="na">port</span><span class="pi">:</span> <span class="m">8080</span>
+</code></pre></div></div>
+<!---
+## Supplementary literature
+
+* [Подробнее про Zero Downtime Deployment](https://twitter.com/mokevnin/status/1491429628854272002)
+* [Инжиниринг в Booking](https://bronevichok.ru/posts/engineering-at-booking.com.html)
+* [Стратегии деплоя](https://habr.com/ru/company/flant/blog/471620/)
+* [Stateless vs Statefull](https://www.youtube.com/watch?v=WPCz_U7D8PI)
+* [Ansible Deploy](https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html)
+* [Среды разработки](https://ru.hexlet.io/blog/posts/environment)
+-->
+
+    </div>
+
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/main/_i18n/en/_posts/2022-03-29-deploy.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
+
+      
+        
+          <div class="fst-italic">Kirill Mokevnin</div>
+        
+      
+
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/virtualization/">&laquo; What is virtualization and why is it needed</a>
+      </div>
+      
+      
+    </div>
+    <!-- End Prev/Next -->
+
+    <section>
+      <div id="comments">
+        <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides';
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+        </main>
+
+        <!-- Footer
+          ================================================== -->
+          <footer class="footer container text-center">
+
+            <ul class="p-0 mb-1 small">
+              
+              <li>
+                <a href="/about/" alt="About">About</a>
+              </li>
+              
+              <li>
+                <a href="https://en.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral" alt="Free courses and webinars" target="_blank">Free courses and webinars</a>
+              </li>
+              
+              <li>
+                <a href="https://codebattle.hexlet.io/" alt="Code Battle" target="_blank">Code Battle</a>
+              </li>
+              
+            </ul>
+          </footer>
+
+          <!-- JavaScript
+            ================================================== -->
+            <script src="/assets/js/theme.js"></script>
+  </body>
 </html>
