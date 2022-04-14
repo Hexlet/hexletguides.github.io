@@ -1,7 +1,7 @@
 ---
-title: What is virtualization and why is it needed
+title: What is Virtualization and why is it needed
 subtitle: What is the point of this technology, and what are the types of virtualization.
-description: Virtualization technology, what is it. Virtualization is the creation of isolated environments within a single physical device.
+description: Find out what virtualization is and how it works. It allows you to run the operating system like a regular program right on your computer
 image: "assets/images/virtualization/virtualization.png"
 author: Kirill Mokevnin
 ---
@@ -12,7 +12,7 @@ The most obvious way, and it’s a costly affair, is to buy a second computer. A
 
 ## Virtualization
 
-**Virtualization is the creation of isolated environments within a single physical device** (in our case, a computer). Each environment appears to be a separate computer with unique characteristics, such as available memory, CPU, etc. Such an environment is called a set of logical resources or a **virtual machine**.
+**Virtualization is the creation of isolated environments within a single physical device** (in our case, a computer). Each environment appears to be a separate computer with unique characteristics, such as available memory, CPU, etc. This environment is called a set of logical resources or a **virtual machine**.
 
 *Virtualization allows you to run the operating system like a regular program right on your computer!*
 
@@ -36,7 +36,7 @@ Currently, this kind of virtualization is used only in Linux and is available th
 
 ## Hosting
 
-Each virtual machine receives as many resources as you specify. The hosters (companies providing web hosting services) use it a lot. In fact, each user creates his own virtual machine with limits set up by selected plan (memory, CPU, and so on).
+Each virtual machine receives as many resources as you specify. The hosters (companies providing web hosting services) use it a lot. In fact, each user creates his own virtual machine with limits set up by selected plan (memory, CPU, etc.).
 
 In addition, virtualization isolates machines from each other, which means you don't have to worry if users try to harm the system or neighboring users. Such a service is usually called VPS (virtual private server) and is cheap in the basic configuration.
 
