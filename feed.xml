@@ -168,8 +168,8 @@
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/virtualization/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>What is virtualization and why is it needed</turbo:topic> -->
-            <title>What is virtualization and why is it needed</title>
+            <!-- <turbo:topic>What is Virtualization and why is it needed</turbo:topic> -->
+            <title>What is Virtualization and why is it needed</title>
             <pubDate>Fri, 25 Mar 2022 00:00:00 +0000</pubDate>
             <author>Kirill Mokevnin</author>
             <!-- <yandex:related></yandex:related> -->
@@ -177,7 +177,7 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/virtualization/">What is virtualization and why is it needed</a>
+                  <a href="https://guides.hexlet.io/virtualization/">What is Virtualization and why is it needed</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/virtualization/"
@@ -194,7 +194,7 @@
 
 <h2 id="virtualization">Virtualization</h2>
 
-<p><strong>Virtualization is the creation of isolated environments within a single physical device</strong> (in our case, a computer). Each environment appears to be a separate computer with unique characteristics, such as available memory, CPU, etc. Such an environment is called a set of logical resources or a <strong>virtual machine</strong>.</p>
+<p><strong>Virtualization is the creation of isolated environments within a single physical device</strong> (in our case, a computer). Each environment appears to be a separate computer with unique characteristics, such as available memory, CPU, etc. This environment is called a set of logical resources or a <strong>virtual machine</strong>.</p>
 
 <p><em>Virtualization allows you to run the operating system like a regular program right on your computer!</em></p>
 
@@ -218,7 +218,7 @@
 
 <h2 id="hosting">Hosting</h2>
 
-<p>Each virtual machine receives as many resources as you specify. The hosters (companies providing web hosting services) use it a lot. In fact, each user creates his own virtual machine with limits set up by selected plan (memory, CPU, and so on).</p>
+<p>Each virtual machine receives as many resources as you specify. The hosters (companies providing web hosting services) use it a lot. In fact, each user creates his own virtual machine with limits set up by selected plan (memory, CPU, etc.).</p>
 
 <p>In addition, virtualization isolates machines from each other, which means you don’t have to worry if users try to harm the system or neighboring users. Such a service is usually called VPS (virtual private server) and is cheap in the basic configuration.</p>
 
