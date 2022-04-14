@@ -2,9 +2,8 @@
 title: Checklist of Good Software Engineering Practices in Companies
 subtitle:
 description: Approaches to testing, deployment, developement and processes
-image: "assets/images/engineering-practice/check-list.png"
+image: "assets/images/engineering-practice/check-list-en.png"
 author: Kirill Mokevnin
-hidden: true
 ---
 
 Software development is a challenging process that tends to become much more complex as the number of participants increases. More people in the team creates more communication and requires more synchronisation (sharing knowledge of system parts and processes, keeping track of the business and its requirements). The cost of error increases, the system can no longer fit in just one head, while change to one element affects change to the other element.
@@ -20,16 +19,14 @@ There are many reasons for this crucial difference. Here are some of them:
 
 Some problems are either difficult or impossible to solve (at the developer level). But others, especially those relating to engineering practices, should be continually improved and fixed. Programmers should be very involved in this.
 
-<!--- 
-* [Книги](https://ru.hexlet.io/pages/recommended-books)
-    * Человеческий фактор. Успешные проекты и команды
-    * Мифический человеко-месяц, или Как создаются программные системы
-    * Идеальный программист. Как стать профессионалом разработки ПО
-    * Цель. Процесс непрерывного совершенствования
-* [Manifesto for Agile Software Development](https://bit.ly/2NSBRLp)
+* [Books](https://en.hexlet.io/pages/recommended-books)
+    * Peopleware: Productive Projects and Teams
+    * Mythical Man-Month, The: Essays on Software Engineering
+    * The Clean Coder: A Code of Conduct for Professional Programmers
+    * The Goal: A Process of Ongoing Improvement
+* [Manifesto for Agile Software Development](https://agilemanifesto.org/iso/en/manifesto.html)
 * [Bus Factor](https://en.wikipedia.org/wiki/Bus_factor)
-* [Карго культ](https://ru.wikipedia.org/wiki/Карго-культ)
--->
+* [Cargo cult](https://en.wikipedia.org/wiki/Cargo_cult)
 
 Although there are many practices, the net result is how quickly your customers get the results of your work and how pleased they are with it. Below is a checklist to see whether the team is using those engineering practices that are considered most appropriate.
 
