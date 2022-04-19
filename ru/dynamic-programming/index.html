@@ -390,8 +390,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Наконец, создадим наше правило заполнения таблицы. Для каждой новой ячейки мы проверяем верхнюю, левую или лево верхнюю по диагонали соседние ячейки. Из трех чисел будет выбрано наименьшее и записано в новую ячейку.</p>
 
-<p><em>TODO сделать картинкой:</em></p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>D[i, j] = minimum(
 	D[i-1, j] + 1,                              // delete
 	D[i, j-1] + 1,                              // insert 
