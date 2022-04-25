@@ -1,7 +1,7 @@
 ---
 title: What is Version Manager
 subtitle: How to manage different language versions
-description: The right approach to installing programming languages and updating them. Universal asdf version manager.
+description: The right approach to installing programming languages and updating them. Universal asdf version manager
 image: "assets/images/version-manager/title.png"
 author: Kirill Mokevnin
 ---
