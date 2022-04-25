@@ -89,10 +89,6 @@ _Compliance with these standards does not guarantee the company won't have probl
 **Links**
 
 * [Extreme programming](https://en.wikipedia.org/wiki/Extreme_programming)
-<!---
-* [Парное программирование (доклад Николая Рыжикова)](https://www.youtube.com/watch?v=Vu5ujdZDS6E)
-* [Как распространять инженерную культуру в своей компании](https://www.youtube.com/watch?v=mOfiWrTW9dA)
--->
 
 ## Development process
 
@@ -118,10 +114,6 @@ _Compliance with these standards does not guarantee the company won't have probl
 **Links**
 
 * [12factors](https://12factor.net)
-<!---
-* [Начинаем писать тесты (правильно)](https://ru.hexlet.io/blog/posts/how-to-test-code)
-* [Бережливое тестирование](https://www.youtube.com/watch?v=zsz8kdi62mE)
--->
 
 ## New version release (more relevant to web projects)
 
@@ -149,8 +141,3 @@ Deployment is the process of updating the project in the production environment.
 **Links**
 
 * [What is DevOps?](https://www.atlassian.com/devops)
-<!---
-* [Инжиниринг в букинге](https://bronevichok.ru/blog/2015/04/26/engineering-at-booking.com.html)
-* [Среды разработки. Мужики, выкатывай!](https://ru.hexlet.io/blog/posts/environment)
-* [Вебинар: Как распространять инженерную культуру в своей компании?](https://www.youtube.com/watch?v=mOfiWrTW9dA)
--->
