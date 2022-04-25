@@ -15,21 +15,21 @@
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/learning-vs-negative-thoughts-en/</link>
+            <link>https://guides.hexlet.io/learning/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>How to learn and cope with negative thoughts</turbo:topic> -->
             <title>How to learn and cope with negative thoughts</title>
-            <pubDate>Fri, 22 Apr 2022 00:00:00 +0000</pubDate>
+            <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
             <author>Rakhim Davletkaliyev</author>
             <!-- <yandex:related></yandex:related> -->
             <turbo:content>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/learning-vs-negative-thoughts-en/">How to learn and cope with negative thoughts</a>
+                  <a href="https://guides.hexlet.io/learning/">How to learn and cope with negative thoughts</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/learning-vs-negative-thoughts-en/"
+                  formaction="https://guides.hexlet.io/learning/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"

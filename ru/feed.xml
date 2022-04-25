@@ -7152,7 +7152,7 @@ choco <span class="nb">install </span>vagrant
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/learning/</link>
+            <link>https://guides.hexlet.io/learning/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как учиться и справляться с негативными мыслями</turbo:topic> -->
             <title>Как учиться и справляться с негативными мыслями</title>
@@ -7163,10 +7163,10 @@ choco <span class="nb">install </span>vagrant
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/learning/">Как учиться и справляться с негативными мыслями</a>
+                  <a href="https://guides.hexlet.io/learning/">Как учиться и справляться с негативными мыслями</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/learning/"
+                  formaction="https://guides.hexlet.io/learning/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
