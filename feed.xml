@@ -160,9 +160,9 @@
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/deploy/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Deployment means deploing to server
+            <!-- <turbo:topic>Code delivery to the production server
 </turbo:topic> -->
-            <title>Deployment means deploing to server
+            <title>Code delivery to the production server
 </title>
             <pubDate>Tue, 29 Mar 2022 00:00:00 +0000</pubDate>
             <author>Kirill Mokevnin</author>
@@ -171,7 +171,7 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/deploy/">Deployment means deploing to server
+                  <a href="https://guides.hexlet.io/deploy/">Code delivery to the production server
 </a>
                 </div>
                 <button
@@ -183,27 +183,27 @@
                 >
                   Читать полную версию на сайте
                 </button>
-                <p>Deployment is the process of web service “deployment”, e.g. of a website, in the operating environment. Operating environment is a place where a website is started and available for requests. This can be a ready-made hosting as well as your own server infrastructure.</p>
+                <p>Deployment is the process of web service “deployment”, e.g. of a website, in the operating environment. An operating environment is a place where a website is started and available for requests. This can be ready-made hosting as well as your own server infrastructure.</p>
 
 <p><em>Not only web services but also any services available over the network are deployed. Even if this network is internal and not available for requests over the Internet.</em></p>
 
-<p>To understand deployment, you need to understand code life cycle. The application code is built on the developer’s workstation and run in another place called production. Production is a startup environment (sometimes it is called a live environment). In case of a simple application it may consist of a single server or thousands and tens of thousands servers in case of truly complex applications.</p>
+<p>To understand deployment, you need to understand the code life cycle. The application code is built on the developer’s workstation and run in another place called production. Production is a startup environment (also called a live environment). In the case of a simple application, it may consist of a single server, but for truly complex applications it can be thousands and tens of thousands of servers.</p>
 
-<p>How it works. Developers add the code into the information repository. At some point they decide it’s time to bring it to production. This can be done on a regular schedule such as every two weeks or just as needed up to the release after each change. In many cases, the number of deployments depends on the automation level, that is to which extent the process is easy to conduct and roll back. At Hexlet deployments are performed almost after each change, approximately 3 deployments a day.</p>
+<p>How does it work? Developers add the code to the information repository. At some point, they decide it’s time to bring it to production. This can be done on a regular schedule such as every two weeks or just as needed up to the release after each change. In many cases, the number of deployments depends on the automation level, i.e. to which extent the process is easy to conduct and rollback. At Hexlet, deployments are performed almost after each change, approximately three deployments a day.</p>
 
-<p>Every time developers decide it is time, they create a release. Release usually refers to a Git tag that marks things to be deployed. Namely, changes added to a master branch after the tag has been created will not affect the tag itself, which means that we are sure about what we will be deploying.</p>
+<p>When developers decide now it’s time, they create a release. Release usually refers to a Git tag that marks things to be deployed. Namely, changes added to a master branch after the tag has been created won’t affect the tag itself, which means that we are sure about what we will be deploying.</p>
 
 <!-- image -->
 
-<p>For static websites or a separate frontend (HTML, CSS and static files only), deployment comes down to updating the code on the server. In case of backend deployment, the database is connected at the very least. In general, deployment can be a complicated procedure taking decent time. In distributed systems consisting of many independent web services, there is no common deployment at all - each part of the application is deployed (released) independently.</p>
+<p>For static websites or a separate frontend (HTML, CSS, and static files only), deployment comes down to updating the code on the server. In the case of backend deployment, the database is connected at the very least. In general, deployment can be a complicated procedure taking decent time. In distributed systems consisting of many independent web services, there is no regular deployment at all - each part of the application is deployed (released) independently.</p>
 
-<p><em>It is worth mentioning that such PaaS platforms as Heroku take the deployment completely upon themselves. There you just have to make a commit, and then everything will happen by itself. The price for this is the cost of the platform itself.</em></p>
+<p><em>It’s worth mentioning that such PaaS platforms as Heroku take the deployment completely upon themselves. There you just have to make a commit, and then everything will happen by itself. The price for this is the cost of the platform itself.</em></p>
 
 <h2 id="deployment-stages">Deployment stages</h2>
 
 <h3 id="code-delivery-to-the-server">Code delivery to the server</h3>
 
-<p>There are different options for code delivery to the server depending on its packaging. Sometimes the code is simply copied to the server as a set of files, but this is rare, more often it is updated through Git. Back in the day, the deployment method through standard package managers of Linux distributions was popular. It is also used now, and it is best suited for certain situations.</p>
+<p>There are different options for code delivery to the server, depending on its packaging. Sometimes the code is directly transmitted to the server as a set of files, but more often it’s updated via Git. Back in the day, the deployment method through standard package managers of Linux distributions was popular. It’s still in use today and best suited for certain situations.</p>
 
 <ul>
   <li>Git: <em>git checkout tag-name</em></li>
@@ -213,7 +213,7 @@
 
 <h3 id="database-update">Database update</h3>
 
-<p>In general, a new application version requires changes in the database. To do this, migrations - special scripts containing database update rules - are run during (or before) deployment. For instance SQL-scripts:</p>
+<p>In general, a new application version requires changes in the database. To do this, migrations - special scripts containing database update rules - are run during (or before) deployment. For instance, SQL scripts:</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">car</span> <span class="p">(</span>
     <span class="n">id</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
@@ -230,17 +230,17 @@
 
 <h2 id="automation">Automation</h2>
 
-<p>Deployment shall be automated as much as possible; Time To Market, a key characteristic of business-oriented applications, depends on it. The faster and more often we deliver changes to the user, the better. The faster we check hypotheses, the faster we introduce changes, the faster the money invested in development pays its way. Developers are afraid to perform deployment without automation, it becomes a burden that leads to a decrease in deployments and regular stress for the whole team, working long hours.</p>
+<p>Deployment should be automated as much as possible; Time To Market, a key characteristic of business-oriented applications, depends on it. The faster and more often we deliver changes to the user, the better. The faster we check hypotheses, the faster we introduce changes, and the faster the money invested in development pays its way. Developers are afraid to perform deployment without automation, it becomes a burden that leads to a decrease in deployments and regular stress for the whole team, working long hours.</p>
 
 <p>There are three main automation ways:</p>
 
 <ol>
-  <li>Using utilities created for specific languages. E.g. it is Capistrano in Ruby, one of the first and best-known utilities of its kind, which has become popular far beyond Ruby. The main problem with such tools is strong binding with the language.</li>
-  <li>Using Ansible with an <a href="https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html">already built-in module for deployment</a>. It is ideal for most deployment situations on managed servers.</li>
-  <li>Kubernetes-type orchestration systems. If they are used, you cannot do without automated deployment.</li>
+  <li>Using utilities created for specific languages. For example, it’s Capistrano in Ruby, one of the first and best-known utilities of its kind, which has become popular far beyond Ruby. The main problem with such tools is strong binding with the language</li>
+  <li>Using Ansible with an <a href="https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html">already built-in module for deployment</a>. It’s relevant for most deployment situations on managed servers</li>
+  <li>Kubernetes-type orchestration systems. If they are used, you can’t do without automated deployment</li>
 </ol>
 
-<p>However, even if automation is executed, the task of “running deployment” still remains. Start is also automated. There is a whole approach called <a href="https://en.wikipedia.org/wiki/Continuous_delivery">Continuous Delivery</a>. It is difficult to implement and is not suitable everywhere, but if it works, you can forget about deployment. It is performed entirely on its own without human involvement. The main thing in this option is good monitoring and alerting system.</p>
+<p>However, even if automation is executed, the task of “running deployment” remains. The start is also automated. There is a whole approach called <a href="https://en.wikipedia.org/wiki/Continuous_delivery">Continuous Delivery</a>. It’s difficult to implement and is not suitable everywhere, but if it works, you can forget about deployment. It’s performed entirely on its own without human involvement. The main thing in this option is good monitoring and alerting system.</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html#examples</span>
 <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Initialize the deploy root and gather facts</span>
@@ -259,15 +259,15 @@
 
 <h2 id="zero-downtime-deployment">Zero Downtime Deployment</h2>
 
-<p>If no special steps are taken, each deployment will cause the service to stop (possibly partially). At this time users will either see an error or a message that an update is in progress. But this does not happen on most major Internet services. Why? Due to the implementation of “Zero Downtime Deployment” approach (downtime means service operational downtime).</p>
+<p>If no special steps are taken, each deployment will cause the service to stop (possibly partially). At this time users will either see an error or a message that an update is in progress. But this does not happen on most major Internet services. Why? Due to the implementation of the “Zero Downtime Deployment” approach (downtime means service operational downtime).</p>
 
-<p>Zero Downtime Deployment looks as if the service never stops running but it is being updated at the same time. This is achieved by simultaneously running the old version and the new code. Namely, when an application is deployed, the new version arises next to the old one. And only when the automatics make sure that the new version has started and is running, the old version is stopped. The following is required to perform this procedure:</p>
+<p>Zero Downtime Deployment is when the service never stops running, but in the meantime, it’s being updated. This is achieved by simultaneously running the old version and the new code. Namely, when an application is deployed, the new version arises next to the old one. And only when the automatics make sure that the new version has started and run, the old version is stopped. The following is required to perform this procedure:</p>
 
 <ol>
-  <li>Infrastructure. You need a load balancing to switch traffic (incoming connections from browsers or other systems) between the old and the new version of the code. And it is desirable to have at least two servers, although it is not required.</li>
-  <li>Deployment. Zero downtime deployment process is much more complicated than the usual one. The easiest way to execute it is on orchestration systems such as Kubernetes.</li>
-  <li>Code culture. It is impossible to ensure non-stop operation without a certain culture of code writing. For the old and the new version to work simultaneously, you need to keep an eye on all interfaces. It is important to maintain backward compatibility (working with API, database, queues, and, in general, any storage).</li>
-  <li>Database. It shall be backward compatible between the old and the new version. All migrations are forward-only (they cannot be rolled back!) and for addition only. You cannot delete and update (rename, change the type of) columns and tables</li>
+  <li>Infrastructure. You need a load balancing to switch traffic (incoming connections from browsers or other systems) between the old and the new version of the code. And it’s desirable to have at least two servers, although it’s not required</li>
+  <li>Deployment. Zero downtime deployment process is much more complicated than the usual one. The easiest way to execute it’s on orchestration systems such as Kubernetes</li>
+  <li>Code culture. It’s impossible to ensure non-stop operation without a certain culture of code writing. For the old and the new version to work simultaneously, you need to keep an eye on all interfaces. It’s important to maintain backward compatibility (working with API, database, queues, and, in general, with any storage)</li>
+  <li>Database. It should be backward compatible between the old and the new versions. All migrations are forward-only (you can’t undo them!) and for addition only. You can’t delete and update (rename, change the type of) columns and tables</li>
 </ol>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">extensions/v1beta1</span>
@@ -384,8 +384,8 @@
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/check-list-of-engineering-practices/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Checklist of Good Software Engineering Practices in Companies</turbo:topic> -->
-            <title>Checklist of Good Software Engineering Practices in Companies</title>
+            <!-- <turbo:topic>Checklist of good software engineering practices in companies</turbo:topic> -->
+            <title>Checklist of good software engineering practices in companies</title>
             <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
             <author>Kirill Mokevnin</author>
             <!-- <yandex:related></yandex:related> -->
@@ -393,7 +393,7 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/check-list-of-engineering-practices/">Checklist of Good Software Engineering Practices in Companies</a>
+                  <a href="https://guides.hexlet.io/check-list-of-engineering-practices/">Checklist of good software engineering practices in companies</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/check-list-of-engineering-practices/"
@@ -404,17 +404,17 @@
                 >
                   Читать полную версию на сайте
                 </button>
-                <p>Software development is a challenging process that tends to become much more complex as the number of participants increases. More people in the team creates more communication and requires more synchronisation (sharing knowledge of system parts and processes, keeping track of the business and its requirements). The cost of error increases, the system can no longer fit in just one head, while change to one element affects change to the other element.</p>
+                <p>Software development is a challenging process that tends to become much more complex as the number of participants increases. More people in the team create more communication and require more synchronization (sharing knowledge of system parts and processes, keeping track of the business and its requirements). The cost of error increases, and the system can no longer fit in just one head, while a change to one element affects a change to the other element.</p>
 
-<p>Different teams cope with these conditions in different ways. Some keep a high development pace and make regular releases, while other teams are slowing down significantly: their negotiations take more time than their development, their quality drops, their version updates become stressful and adventurous. Total speed of feature implementation of one team can be way more or even ten times faster than that of other teams.</p>
+<p>Different teams cope with these conditions in different ways. Some of them keep a high development pace and make regular releases, while others are slowing down significantly: their negotiations take more time than their development, their quality drops, and their version updates become stressful and adventurous. The total speed of feature implementation of one team can be way more or even ten times faster than that of other teams.</p>
 
 <p>There are many reasons for this crucial difference. Here are some of them:</p>
 
 <ul>
-  <li>Top management regarding business. When a company does the wrong things, its efficiency does not matter – the business will eventually close down. This topic is beyond our current guide.</li>
-  <li>Top management regarding processes. If this level is not good, everything else is irrelevant. Even the wrong bonus structure can lead to team rifts and ultimately shut down development altogether.</li>
-  <li>Human factor. Personal virtues and vices can cause problems for the rest of the team and for the whole project. The main problem is this part cannot be rectified by any process. It is either a behaviour change or a break-up.</li>
-  <li>Poor development process. This applies to each and every engineer and includes everything from communication and task handling to testing and code review.</li>
+  <li>Top management regarding business. When a company does the wrong things, its efficiency does not matter – the business will eventually close down. This topic is beyond our current guide</li>
+  <li>Top management regarding processes. If this level is not good, everything else is irrelevant. Even the wrong bonus structure can lead to team rifts and ultimately shut down development altogether</li>
+  <li>Human factor. Personal virtues and vices can cause problems for the rest of the team and the whole project. The main problem is this part cannot be rectified by any process. It is either a behavior change or a break-up</li>
+  <li>Poor development process. This applies to every engineer and includes everything from communication and task handling to testing and code review</li>
 </ul>
 
 <p>Some problems are either difficult or impossible to solve (at the developer level). But others, especially those relating to engineering practices, should be continually improved and fixed. Programmers should be very involved in this.</p>
@@ -435,24 +435,24 @@
 
 <p>Although there are many practices, the net result is how quickly your customers get the results of your work and how pleased they are with it. Below is a checklist to see whether the team is using those engineering practices that are considered most appropriate.</p>
 
-<p><em>Compliance with these standards does not guarantee the company won’t have problems. It may be cargo cult, or its processes may be so formalised that they hinder rather than help. On the other hand, there is an exception to every rule and there will always be some project which cannot apply some of the following. Finally, some of these approaches may be in conflict with one’s values.</em></p>
+<p><em>Compliance with these standards does not guarantee the company won’t have problems. It may be a cargo cult, or its processes may be so formalized that they hinder rather than help. On the other hand, there is an exception to every rule and there will always be some projects which cannot apply some of the following. Finally, some of these approaches may conflict with one’s values.</em></p>
 
 <h2 id="coding">Coding</h2>
 
 <p><strong>Good</strong></p>
 
 <ul>
-  <li><a href="https://en.wikipedia.org/wiki/Version_control">VCS</a>. The code is put under version control (usually Git).</li>
-  <li><a href="https://en.wikipedia.org/wiki/Extreme_programming_practices#Collective_code_ownership">Collective code ownership</a>. Any member of the team can change any piece of code in the system at any time.</li>
-  <li><a href="https://en.wikipedia.org/wiki/Extreme_programming_practices#Coding_standard">Coding standart</a>. All team members adhere to the coding standards adopted for the stack (language, platform).</li>
+  <li><a href="https://en.wikipedia.org/wiki/Version_control">VCS</a>. The code is put under version control (usually Git)</li>
+  <li><a href="https://en.wikipedia.org/wiki/Extreme_programming_practices#Collective_code_ownership">Collective code ownership</a>. Any member of the team can change any piece of code in the system at any time</li>
+  <li><a href="https://en.wikipedia.org/wiki/Extreme_programming_practices#Coding_standard">Coding standart</a>. All team members adhere to the coding standards adopted for the stack (language, platform)</li>
 </ul>
 
 <p><strong>Bad</strong></p>
 
 <ul>
-  <li>Lack of a unified style. Everyone writes code in the style they are used to. There are no common standards at all or there is one but it is absolutely different from the generally accepted rules.</li>
-  <li>There is no version control. Code backups are used instead, and developers have to negotiate so that they don’t overwrite each other’s changes.</li>
-  <li>The code has an ‘owner’. Developers protect their piece of code from encroachment by other team members.</li>
+  <li>Lack of a unified style. Everyone writes code in the style they are used to. There are no common standards at all or there is one but it is absolutely different from the generally accepted rules</li>
+  <li>There is no version control. Code backups are used instead, and developers have to negotiate so that they don’t overwrite each other’s changes</li>
+  <li>The code has an “owner”. Developers protect their piece of code from encroachment by other team members</li>
 </ul>
 
 <p><strong>Links</strong></p>
@@ -466,18 +466,18 @@
 <p><strong>Good</strong></p>
 
 <ul>
-  <li>Development (dev) environment. Development is done in a dedicated environment. This is usually a local machine (possibly using Vagrant or Docker Compose). This environment is completely different for each developer, and changes in one environment cannot affect other environments.</li>
-  <li>One-click, automated deployment of the environment. This makes it easy to introduce newcomers to your project, to quickly and automatically propagate infrastructure changes and to operate with no concern of crashing, as it is easy to rebuild.</li>
-  <li>Infrastructure as code. Configuration changes are propagated through the project code. One more dev environment deployment (with new project code) is enough to push all updates.</li>
-  <li>The development environment is as close to a production environment as possible. Linux running services require Linux as the development environment. The same applies to other issues.</li>
+  <li>Development (dev) environment. Development is done in a dedicated environment. This is usually a local machine (possibly using Vagrant or Docker Compose). Each developer has a unique environment, and changes in one environment can’t affect others</li>
+  <li>One-click, automated deployment of the environment. This makes it easy to introduce newcomers to your project, to quickly and automatically propagate infrastructure changes and operate with no concern of crashing, as it is easy to rebuild</li>
+  <li>Infrastructure as code. Configuration changes are propagated through the project code. One more dev environment deployment (with new project code) is enough to push all updates</li>
+  <li>The development environment is as close to a production environment as possible. Linux running services require Linux as the development environment. The same applies to other issues</li>
 </ul>
 
 <p><strong>Bad</strong></p>
 
 <ul>
-  <li>Deploying and setting up the environment is done either with manuals or by ‘try to run, read the error message, google, fix it’ method. It’s expensive and inefficient. Manuals become outdated nearly the second they are written. A new person can spend days deploying the environment from scratch.</li>
-  <li>Manual configuration update. All developers receive some directive to make local configuration changes to the environment (e.g., add something new) in order for the new code to work.</li>
-  <li>Shared database for all developers. Loading from one person affects everyone. Crash failure also slows down everyone else.</li>
+  <li>Deploying and setting up the environment is done either with manuals or by the “try to run, read the error message, google for solution, and fix it” method. It’s expensive and inefficient. Manuals become outdated nearly the second they are written. A new person can spend days deploying the environment from scratch</li>
+  <li>Manual configuration update. All developers receive some directive to make local configuration changes to the environment (e.g., add something new) for the new code to work</li>
+  <li>Shared database for all developers. Loading from one person affects everyone. Crash failure also slows down everyone else</li>
 </ul>
 
 <h2 id="quality">Quality</h2>
@@ -485,24 +485,24 @@
 <p><strong>Good</strong></p>
 
 <ul>
-  <li>Test coverage. Tests increase confidence in the code performance. Good tests have a positive impact on the design of the code. Test-covered code is usually better than untested code. Although there is a correlation.</li>
-  <li>A feature that has been partially tested or an untested feature is not considered to have been completed. Testing reduces the workload of the rest of the team and has a positive effect on the quality of the solution. Moreover, it is best to write tests immediately, as there is often no time left for them later.</li>
-  <li>The programmer is responsible for their feature all the way to the end. A feature is only considered completed when it is running in production workflow. Everybody in the team must understand that the most important goal is to deliver value to the customer. As long as no one uses the feature, it doesn’t matter if it’s written, because the business is screwed at that point.</li>
-  <li>The team members review each other’s code (but don’t overdo it). The review is not only a way to find bugs, but also a way to learn from each other.</li>
-  <li><a href="https://en.wikipedia.org/wiki/Pair_programming">Pair programming</a>. This is an effective approach not only for programmers, but also for programmer–tester or novice–expert pair.</li>
-  <li><a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous integration (CI)</a>. The project repositories are connected to a CI server, where the code style is checked after each commit (by running linters), tests are run, and the project is built (e.g. compiled).</li>
-  <li>Incident <a href="https://www.pagerduty.com/resources/learn/post-mortem-incident-report/">postmortems</a>.</li>
-  <li><a href="https://en.wikipedia.org/wiki/Retrospective#Software_development">Retrospective</a>. The process is continually improving and every team member affects the changes.</li>
+  <li>Test coverage. Tests increase confidence in the code performance. Good tests have a positive impact on a code design. Test-covered code is usually better than untested one. Although there is a correlation</li>
+  <li>A feature that has been partially tested or hasn’t been tested at all is not considered completed. Testing reduces the workload of the rest of the team and positively affects the quality of a subsequent code. Moreover, it’s best to write tests immediately, as there is often no time left for them later</li>
+  <li>Developer is responsible for his feature all the way to the end. A feature is only considered completed when it is running in a production workflow. Everybody in the team must understand that the most important goal is to deliver value to the customer. As long as no one uses the feature, it doesn’t matter if it’s written, because the business is screwed at that point</li>
+  <li>The team members reviewing each other’s code (to a reasonable extent). The reviewing process helps both find bugs and learn from each other</li>
+  <li><a href="https://en.wikipedia.org/wiki/Pair_programming">Pair programming</a>. This is an effective approach not only for programmers but also for programmer–tester or novice–expert pair</li>
+  <li><a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous integration (CI)</a>. The project repositories are connected to a CI server, where the code style is checked after each commit (by running linters), tests are run, and the project is built (e.g. compiled)</li>
+  <li>Incident <a href="https://www.pagerduty.com/resources/learn/post-mortem-incident-report/">postmortems</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Retrospective#Software_development">Retrospective</a>. The process is continually improving and every team member affects the changes</li>
 </ul>
 
 <p><strong>Bad</strong></p>
 
 <ul>
-  <li>No testing. New code performance tests are done manually by clicking through. This way has disastrous consequences, such as low delivery speed and most likely poor code quality.</li>
-  <li>No code review. Different code styles, isolation of programmers from each other, limited sharing of experience, poor production decisions.</li>
-  <li>The programmer considers the feature closed when their code reaches the main branch. New code remains idle and useless and may even become obsolete before it reaches the customer.</li>
-  <li><a href="https://en.wikipedia.org/wiki/Performance_indicator">KPI</a>. Heavy use of quantitative metrics: lines of code, released features, closed bugs. Instead of being result-oriented, developers strive to meet KPIs. Even if it goes against business goals.</li>
-  <li>High degree of formalisation. Speed slows down, motivation drops.</li>
+  <li>No testing. New code performance tests are done manually by clicking through. This way has disastrous consequences, such as low delivery speed and most likely poor code quality</li>
+  <li>No code review. Different code styles, isolation of programmers from each other, limited sharing of experience, poor production decisions</li>
+  <li>The programmer considers the feature closed when their code reaches the main branch. New code remains idle and useless and may even become obsolete before it reaches the customer</li>
+  <li><a href="https://en.wikipedia.org/wiki/Performance_indicator">KPI</a>. Heavy use of quantitative metrics: lines of code, released features, closed bugs. Instead of being result-oriented, developers strive to meet KPIs. Even if it goes against business goals</li>
+  <li>High degree of formalization. Speed slows down, motivation drops</li>
 </ul>
 
 <p><strong>Links</strong></p>
@@ -516,25 +516,25 @@
 <p><strong>Good</strong></p>
 
 <ul>
-  <li>Developers are guided by <a href="https://12factor.net">12factors</a> principles. Applications are easier to deploy, scale and monitor.</li>
-  <li>A single test runs in a fraction of a second. Test-driven development implies very frequent testing during debugging. The speed of launching a particular test is extremely important here – it should be fast enough to keep the developer on track.</li>
-  <li>Effortless and enjoyable test writing. It is a touchstone to determine how good the project tests are. If you have to force yourself, it is likely that the tests are poorly written (e.g. a lot of mocks) and there will not be enough of them.</li>
+  <li>Developers are guided by <a href="https://12factor.net">12factors</a> principles. Applications are easier to deploy, scale and monitor</li>
+  <li>A single test runs in a fraction of a second. Test-driven development implies frequent testing during debugging. The speed of launching a particular test is extremely important here – it should be fast enough to keep the developer on track</li>
+  <li>Effortless and enjoyable test writing. It is a touchstone to determine how good the project tests are. If you have to force yourself, likely, the tests are poorly written (e.g. a lot of mocks), and there won’t be enough of them</li>
   <li>
-    <p><a href="https://en.wikipedia.org/wiki/Test-driven_development">Test-driven development (TDD)</a>. If possible, tests are written before the code. There are several reasons why this is important:</p>
+    <p><a href="https://en.wikipedia.org/wiki/Test-driven_development">Test-driven development (TDD)</a>. If possible, write tests before the code. There are several reasons why this is important:</p>
 
     <p>Tests require you to think not about the implementation, but about the way the code being tested will be used. Because of this approach, programmers detect flaws in their interfaces at a very early stage.</p>
 
     <p>The code must be tested in any case. If there is no test, it has to be checked in person.</p>
   </li>
-  <li>Once a bug is detected, first a test is written to reproduce it, then a fix is made. This is the only case where tests really help.</li>
+  <li>Once a bug is detected, first a test is written to reproduce it, then a fix is made. This is the only case where tests really help</li>
 </ul>
 
 <p><strong>Bad</strong></p>
 
 <ul>
-  <li>You have tests, but you have to force yourself to write it because they are difficult to write, take a long time to run, often crash or you have to rewrite them all the time.</li>
-  <li>Running one test takes seconds. Such a test is hard to run in TDD and the total test execution time becomes too long.</li>
-  <li>The code is fixed directly in production (the place where it works). No comment.</li>
+  <li>You have tests, but you have to force yourself to write them because they are difficult to write, take a long time to run, often crash or you have to rewrite them all the time</li>
+  <li>Running one test takes seconds. Such a test is hard to run in TDD and the total test execution time becomes too long</li>
+  <li>The code is fixed directly in production (the place where it works). No comment</li>
 </ul>
 
 <p><strong>Links</strong></p>
@@ -552,22 +552,22 @@
 <p><strong>Good</strong></p>
 
 <ul>
-  <li>Automation. Deployment is automated and is performed by clicking one button.</li>
-  <li>Frequent small releases. Deployment is routine and can be done at any time when features are ready, with no team distractions.</li>
-  <li>Zero Downtime Deployments. Version updates are transparent to users.</li>
-  <li>Technically, deployment can be done by any team member (i.e. everything is well automated).</li>
+  <li>Automation. Deployment is automated and performed by clicking one button</li>
+  <li>Frequent small releases. Deployment is routine and can be done at any time when features are ready, with no team distractions</li>
+  <li>Zero Downtime Deployments. Version updates are transparent to users</li>
+  <li>Technically, deployment can be done by any team member (i.e. everything is well automated)</li>
 </ul>
 
 <p><strong>Bad</strong></p>
 
 <ul>
-  <li>Manual deployment. For example, by direct management from the server. It is the most unreliable and unscalable approach, prone to error, which can take a considerable amount of time. Doesn’t work with multiple servers.</li>
-  <li>Deployment comes with emotional tension and involves a large number of participants. This atmosphere makes everyone tend to slow down their code deployment, which causes even more problems and hurts the business.</li>
-  <li>Deployment process takes dozens of minutes or hours. This likely means that the build process is integrated with the deployment. These tasks need to be done separately.</li>
-  <li>Deployment happens once a week or rarer. The more changes deployed at once, the greater the chance of failure. And the harder it is to track the impact of each feature on business outcomes. In addition, changes that have been made before and were waiting to be deployed to production get overlooked.</li>
-  <li>Long down times during deployment. Users have to wait for deployment to complete. This situation interferes with frequent deployments.</li>
-  <li>Deployment is done by a single person. Knowledge is stored in one head. Their vacating or getting sick ruins the whole process, as the rest of the coders don’t understand how it’s all set up.</li>
-  <li>Deployment of configuration. Updating a configuration outside the logic of the code (e.g. changing a database password or database address) requires a second deployment. These parameters are strictly infrastructural and should go into the code as described in Twelve-Factor App.</li>
+  <li>Manual deployment. For example, by direct management from the server. It is the most unreliable and unscalable approach, prone to error, which can take a considerable amount of time. Doesn’t work with multiple servers</li>
+  <li>Deployment comes with emotional tension and involves a large number of participants. This atmosphere makes everyone tend to slow down their code deployment, which causes even more problems and hurts the business</li>
+  <li>Deployment process takes dozens of minutes or hours. This likely means that the build process is integrated with the deployment. These tasks need to be done separately</li>
+  <li>Deployment happens once a week or rarer. The more changes deployed at once, the greater the chance of failure. And the harder it is to track the impact of each feature on business outcomes. In addition, changes that have been made before and were waiting to be deployed to production get overlooked</li>
+  <li>Long downtimes during deployment. Users have to wait for a deployment to complete. This situation interferes with frequent deployments</li>
+  <li>Deployment is done by a single person. Knowledge is stored in one head. Then this person goes on vacation or getting sick, ruining the whole process, as the rest of the team don’t understand how it’s all set up</li>
+  <li>Deployment of configuration. Updating a configuration outside the logic of the code (e.g. changing a database password or database address) requires a second deployment. These parameters are strictly infrastructural and should go into the code as described in Twelve-Factor App</li>
 </ul>
 
 <p><strong>Links</strong></p>
