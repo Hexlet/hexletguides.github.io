@@ -26,7 +26,7 @@ Unlike installing two parallel OSs in one machine, virtualization is a much more
 
 As the name implies, hardware virtualization is related to the hardware, i.e. the processor. In this case, unlike software virtualization, guest operating systems are controlled directly by the hypervisor without the participation of the host OS.
 
-Hardware virtualization is much more efficient than software virtualization, since the hypervisor, unlike the host OS, creates a very small overhead while software virtualization is divided into several subtypes. You can read more about it on [Wikipedia]((https://en.wikipedia.org/wiki/Virtualization)).
+Hardware virtualization is much more efficient than software virtualization, since the hypervisor, unlike the host OS, creates a very small overhead while software virtualization is divided into several subtypes. You can read more about it on [Wikipedia]((https://en.wikipedia.org/wiki/Virtualization).
 
 ### Container virtualization
 
