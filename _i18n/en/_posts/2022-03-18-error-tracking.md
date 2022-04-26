@@ -1,6 +1,7 @@
 ---
 title: What is Error Tracking?
 subtitle: A fast way to track errors in a working application
+description: Errors are unavoidable. So you should be able both to track and prevent them. There are services which help manage this task
 image: "assets/images/error-tracking/error-tracking.png"
 author: Kirill Mokevnin
 ---

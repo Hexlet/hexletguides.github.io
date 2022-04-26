@@ -1,14 +1,23 @@
 <!-- begin post -->
 {% assign author = site.authors[post.author] %}
+
+{% capture post_url %}
+    {% if site.lang == "ru" %}
+        {{ site.baseurl }}{{ post.url }}
+    {% else %}
+        {{ post.url }}
+    {% endif %}
+{% endcapture %}
+
 <div class="card">
-    <a href="{{ site.baseurl }}/{{ post.url }}">
-        {% if !post.image_closed %}
+    <!-- <a href="{{ post_url }}">
+        {% if post.image %}
             <img class="rounded mb-4" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}">
         {% endif %}
-    </a>
+    </a> -->
     <div class="card-block">
         <div class="card-title h4 serif-font">
-            <a href="{{ post.url | absolute_url }}">
+            <a href="{{ post_url }}">
                 {% if post.header %}
                     {{ post.header }}
                 {% else %}

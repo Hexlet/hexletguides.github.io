@@ -4,9 +4,9 @@ menu:
   source_code: Source Code
 
 hero:
-  header: Articles
+  header: Guides on technologies, tools, and practices
   description: |
-    Why?
+    When to use Docker? What are encodings, DNS, and Webpack? How to learn touch typing? And much more
 
 links:
   programs_list:
@@ -17,11 +17,11 @@ links:
 footermenu:
 
 - title: About
-  url: /about/
+  url: about/
   external: false
 
 - title: Free courses and webinars
-  url: https://enn.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral
+  url: https://en.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral
   external: true
 
 - title: Code Battle

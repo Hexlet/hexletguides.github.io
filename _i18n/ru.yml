@@ -17,7 +17,7 @@ links:
 footermenu:
 
   - title: О проекте
-    url: /about/
+    url: about/
     external: false
 
   - title: Бесплатные курсы и вебинары
