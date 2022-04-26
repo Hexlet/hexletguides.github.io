@@ -2,6 +2,7 @@
 title: How to read professional literature more effectively
 image: "https://cdn2.hexlet.io/derivations/image/fill_webp/850/400/eyJpZCI6ImJmNzU0MjU3ZWI4ZTBlM2E3N2FiMDg5MWRhMjBmOWQwLmpwZyIsInN0b3JhZ2UiOiJzdG9yZSJ9?signature=7f7437e76863371d0e215a3a97a0ce6fc00f7b8ebdae2aa871457747e5b55d35"
 author: Kirill Mokevnin
+hidden: true
 ---
 Reading is important. However, the process of reading matters just as much. On the one hand, one doesn't want to miss important information, on the other, trying to understand and comprehend every word stretches this process to infinity. Next, I will share my way of reading. Most likely, it’s not for everyone, but, as practice has shown, many people like it.
 
