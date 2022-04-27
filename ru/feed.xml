@@ -3777,7 +3777,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/encoding/</link>
+            <link>https://guides.hexlet.io/encoding/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое кодировки?</turbo:topic> -->
             <title>Что такое кодировки?</title>
@@ -3788,10 +3788,10 @@ npm i <span class="nt">-D</span> webpack webpack-cli
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/encoding/">Что такое кодировки?</a>
+                  <a href="https://guides.hexlet.io/encoding/">Что такое кодировки?</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/encoding/"
+                  formaction="https://guides.hexlet.io/encoding/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
