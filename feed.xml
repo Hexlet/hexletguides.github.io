@@ -17,8 +17,8 @@
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/learning/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>How to learn and cope with negative thoughts</turbo:topic> -->
-            <title>How to learn and cope with negative thoughts</title>
+            <!-- <turbo:topic>How to Learn and Cope with Negative Thoughts</turbo:topic> -->
+            <title>How to Learn and Cope with Negative Thoughts</title>
             <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
             <author>Rakhim Davletkaliyev</author>
             <!-- <yandex:related></yandex:related> -->
@@ -26,7 +26,7 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/learning/">How to learn and cope with negative thoughts</a>
+                  <a href="https://guides.hexlet.io/learning/">How to Learn and Cope with Negative Thoughts</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/learning/"
@@ -307,8 +307,8 @@
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/virtualization/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>What is Virtualization and why is it needed</turbo:topic> -->
-            <title>What is Virtualization and why is it needed</title>
+            <!-- <turbo:topic>What is Virtualization and Why is It Needed</turbo:topic> -->
+            <title>What is Virtualization and Why is It Needed</title>
             <pubDate>Fri, 25 Mar 2022 00:00:00 +0000</pubDate>
             <author>Kirill Mokevnin</author>
             <!-- <yandex:related></yandex:related> -->
@@ -316,7 +316,7 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/virtualization/">What is Virtualization and why is it needed</a>
+                  <a href="https://guides.hexlet.io/virtualization/">What is Virtualization and Why is It Needed</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/virtualization/"
@@ -384,8 +384,8 @@
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/check-list-of-engineering-practices/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Checklist of good software engineering practices in companies</turbo:topic> -->
-            <title>Checklist of good software engineering practices in companies</title>
+            <!-- <turbo:topic>Checklist of Good Software Engineering Practices in Companies</turbo:topic> -->
+            <title>Checklist of Good Software Engineering Practices in Companies</title>
             <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
             <author>Kirill Mokevnin</author>
             <!-- <yandex:related></yandex:related> -->
@@ -393,7 +393,7 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/check-list-of-engineering-practices/">Checklist of good software engineering practices in companies</a>
+                  <a href="https://guides.hexlet.io/check-list-of-engineering-practices/">Checklist of Good Software Engineering Practices in Companies</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/check-list-of-engineering-practices/"
