@@ -1,5 +1,5 @@
 ---
-title: What is Virtualization and why is it needed
+title: What is Virtualization and Why is It Needed
 subtitle: What is the point of this technology, and what are the types of virtualization.
 description: Find out what virtualization is and how it works. It allows you to run the operating system like a regular program right on your computer
 image: "assets/images/virtualization/virtualization.png"
