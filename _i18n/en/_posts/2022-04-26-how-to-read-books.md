@@ -1,5 +1,5 @@
 ---
-title: How to read professional literature more effectively
+title: How to Read Professional Literature More Effectively
 image: "https://cdn2.hexlet.io/derivations/image/fill_webp/850/400/eyJpZCI6ImJmNzU0MjU3ZWI4ZTBlM2E3N2FiMDg5MWRhMjBmOWQwLmpwZyIsInN0b3JhZ2UiOiJzdG9yZSJ9?signature=7f7437e76863371d0e215a3a97a0ce6fc00f7b8ebdae2aa871457747e5b55d35"
 author: Kirill Mokevnin
 hidden: true
