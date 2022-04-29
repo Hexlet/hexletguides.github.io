@@ -1,5 +1,5 @@
 ---
-title: Checklist of good software engineering practices in companies
+title: Checklist of Good Software Engineering Practices in Companies
 subtitle:
 description: Approaches to testing, deployment, developement and processes
 image: "assets/images/engineering-practice/check-list-en.png"
