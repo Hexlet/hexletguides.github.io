@@ -4,7 +4,7 @@ image: "https://cdn2.hexlet.io/derivations/image/fill_webp/850/400/eyJpZCI6ImJmN
 author: Kirill Mokevnin
 hidden: true
 ---
-Reading is important. However, the process of reading matters just as much. On the one hand, one doesn't want to miss important information, on the other, trying to understand and comprehend every word stretches this process to infinity. Next, I will share my way of reading. Most likely, it’s not for everyone, but, as practice has shown, many people like it.
+Reading is important. However, the process of reading matters just as much. On the one hand, one doesn't want to miss useful information, on the other, trying to understand and comprehend every word stretches this process to infinity. Next, I will share my way of reading. Most likely, it’s not for everyone, but, as a practice has shown, many people like it.
 
 - [Reading order](https://ru.hexlet.io/blog/posts/how-to-read-books#poryadok-chteniya)
 - [Depth of understanding](https://ru.hexlet.io/blog/posts/how-to-read-books#glubina-vnikaniya)
@@ -13,15 +13,15 @@ Reading is important. However, the process of reading matters just as much. On t
 
 ### Reading order
 
-Reading сan sometimes be so tedious that you don't have the strength to take another book. It happens quite often since the books with a serious and requiring much attention content generally follow each other on the list. That's why I always plan reading 3-4 books ahead in such a way that those books where one needs to think a lot are evenly mixed with ones that are easily and quickly read. For example, after a book on operating systems you can read Joel Spolsky's "Joel on Software". And it’s also very useful to dilute technical literature with fiction.
+Reading сan sometimes be so tedious that you don't have the energy to take another book. It happens quite often since the books with a serious and requiring much attention content generally follow each other on the list. That's why I always plan to read 3-4 books ahead in such a way that those books where one needs to think a lot is evenly mixed with ones that are easily and quickly read. For example, after a book on operating systems, you can read Joel Spolsky's "Joel on Software". And it’s also very useful to dilute technical literature with fiction.
 
 ### Depth of understanding
 
-This paragraph is the most important. While reading a book I never try to delve into it 100%, take notes in the margins or move on until I made the most of what I have read. The fact is that the brain remembers things much better when you do something repeatedly and in various ways. In other words, I usually try to read at least two books by different authors on the same subject. So at some point, opening another book, I realize that I know almost everything what it's about. That indicates that you've done with the subject and can move on to others.
+This paragraph is the most important. While reading a book I never try to fully dive into it, take notes in the margins, or move on until I made the most of what I have read. The fact is that the brain remembers things much better when you do something repeatedly and in various ways. In other words, I usually try to read at least two books by different authors on the same subject. So at some point, opening another book, I realize that I know almost everything about what it will be about. This indicates that you've done with the subject and can move on to others.
 
 ### Frequency
 
-The closer I was to the beginning of my career, the less from the books I could understand. It didn’t mean that I ignored those books. On the contrary, I read them with passion if at least part of them was exciting to me. What is most interesting is that after months or even a year I returned to reading some of them. Only this time, it turned out that I could use and understand a way more things than before. What matters is that you can't skip the first stage and wait that the second one would come right away. There is always should be a little gap between theory and practice. The general approach is as follows:
+The closer I was to the beginning of my career, the less I could understand from books. It didn’t mean that I ignored those books. On the contrary, I read them with passion if they got me excited in some way. What is most interesting is that after months or even a year I returned to reading some of them. Only this time, it turned out that I could use and understand way more things than before. What matters is that you can't skip the first stage and wait that the second one would come right away. There is always should be a little gap between theory and practice. The general approach is as follows:
 
 1. A book on a new subject
 2. Practice
@@ -29,7 +29,7 @@ The closer I was to the beginning of my career, the less from the books I could 
 
 ### How to choose books
 
-The main thing is not to dwell on specialized subjects. Almost all books on specific programming languages have little in common with programming. In actual fact, this is the study of the API of the language, its standard library and, perhaps, some useful practices in this language. For practicing developers, reading solely academic works can bring more frustration than benefit. For example, lots of people recommend to read Knuth but, in fact, very few of them have read it. Besides, his books on algorithms are more like guides. They are not meant to be read continuously backwards and forwards. I know real people who suffer but still try to get through such works because "they have to". Because some opinion leaders say so.
+The main thing is not to dwell on specialized subjects. Almost all books on particular programming languages have little in common with programming itself. They are dedicated to the API of the language, its standard library, and, perhaps, some useful coding practices. For practicing developers, reading solely academic works can bring more frustration than benefits. For example, lots of people recommend reading Knuth but, in fact, very few of them have read it. Besides, his books on algorithms are more like guides that are not meant to be read continuously from beginning to an end. I know real people who suffer but still try to get through such works because "they have to", because some opinion leaders say so.
 
 Here are a few subjects that good developers are generally interested in:
 
