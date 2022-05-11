@@ -1,7 +1,7 @@
 ---
 title: What is Error Tracking?
 subtitle: A fast way to track errors in a working application
-description: The code of any application contains errors. Unlike the development environment, errors in a real-world application occur when you don't expect them. In properly configured systems, programmers know about these errors as soon as they occur, not when the client says so. This can be done using error tracking services.
+description: Errors are unavoidable. So you should be able both to track and prevent them. There are services which help manage this task
 image: "assets/images/error-tracking/error-tracking.png"
 author: Kirill Mokevnin
 ---

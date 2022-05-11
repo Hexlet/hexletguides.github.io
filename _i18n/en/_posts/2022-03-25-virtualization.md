@@ -1,5 +1,5 @@
 ---
-title: What is Virtualization and why is it needed
+title: What is Virtualization and Why is It Needed
 subtitle: What is the point of this technology, and what are the types of virtualization.
 description: Find out what virtualization is and how it works. It allows you to run the operating system like a regular program right on your computer
 image: "assets/images/virtualization/virtualization.png"
@@ -26,7 +26,7 @@ Unlike installing two parallel OSs in one machine, virtualization is a much more
 
 As the name implies, hardware virtualization is related to the hardware, i.e. the processor. In this case, unlike software virtualization, guest operating systems are controlled directly by the hypervisor without the participation of the host OS.
 
-Hardware virtualization is much more efficient than software virtualization, since the hypervisor, unlike the host OS, creates a very small overhead while software virtualization is divided into several subtypes. You can read more about it on [Wikipedia]((https://en.wikipedia.org/wiki/Virtualization)).
+Hardware virtualization is much more efficient than software virtualization, since the hypervisor, unlike the host OS, creates a very small overhead while software virtualization is divided into several subtypes. You can read more about it on [Wikipedia](https://en.wikipedia.org/wiki/Virtualization).
 
 ### Container virtualization
 
