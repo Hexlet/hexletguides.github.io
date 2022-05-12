@@ -17,8 +17,8 @@
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ru/dynamic-programming/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое динамическое программирование?</turbo:topic> -->
-            <title>Что такое динамическое программирование?</title>
+            <!-- <turbo:topic>Что такое динамическое программирование</turbo:topic> -->
+            <title>Что такое динамическое программирование</title>
             <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
             <author>Валерий Жила</author>
             <!-- <yandex:related></yandex:related> -->
@@ -26,7 +26,7 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/dynamic-programming/">Что такое динамическое программирование?</a>
+                  <a href="https://guides.hexlet.io/ru/dynamic-programming/">Что такое динамическое программирование</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/ru/dynamic-programming/"
@@ -1293,8 +1293,8 @@
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ru/transpilers/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое транспиляция?</turbo:topic> -->
-            <title>Что такое транспиляция?</title>
+            <!-- <turbo:topic>Что такое транспиляция</turbo:topic> -->
+            <title>Что такое транспиляция</title>
             <pubDate>Mon, 29 Nov 2021 00:00:00 +0000</pubDate>
             <author>Казанцев Игорь</author>
             <!-- <yandex:related></yandex:related> -->
@@ -1302,7 +1302,7 @@
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/transpilers/">Что такое транспиляция?</a>
+                  <a href="https://guides.hexlet.io/ru/transpilers/">Что такое транспиляция</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/ru/transpilers/"
@@ -1446,8 +1446,8 @@ Grumpy обеспечивает трансляцию кода на языке Py
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ru/http-api/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое API?</turbo:topic> -->
-            <title>Что такое API?</title>
+            <!-- <turbo:topic>Что такое API</turbo:topic> -->
+            <title>Что такое API</title>
             <pubDate>Fri, 26 Nov 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -1455,7 +1455,7 @@ Grumpy обеспечивает трансляцию кода на языке Py
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/http-api/">Что такое API?</a>
+                  <a href="https://guides.hexlet.io/ru/http-api/">Что такое API</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/ru/http-api/"
@@ -1557,8 +1557,8 @@ https://some-site.com/api/rpc?param<span class="o">=</span>value
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ru/interpreter/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое интерпретатор?</turbo:topic> -->
-            <title>Что такое интерпретатор?</title>
+            <!-- <turbo:topic>Что такое интерпретатор</turbo:topic> -->
+            <title>Что такое интерпретатор</title>
             <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
             <author>Марк Шевченко</author>
             <!-- <yandex:related></yandex:related> -->
@@ -1566,7 +1566,7 @@ https://some-site.com/api/rpc?param<span class="o">=</span>value
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/interpreter/">Что такое интерпретатор?</a>
+                  <a href="https://guides.hexlet.io/ru/interpreter/">Что такое интерпретатор</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/ru/interpreter/"
@@ -2156,8 +2156,8 @@ epoch.</li>
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ru/rest-api/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое REST API?</turbo:topic> -->
-            <title>Что такое REST API?</title>
+            <!-- <turbo:topic>Что такое REST API</turbo:topic> -->
+            <title>Что такое REST API</title>
             <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -2165,7 +2165,7 @@ epoch.</li>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/rest-api/">Что такое REST API?</a>
+                  <a href="https://guides.hexlet.io/ru/rest-api/">Что такое REST API</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/ru/rest-api/"
@@ -2585,8 +2585,8 @@ epoch.</li>
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ru/configuration-management/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое "управление конфигурацией"?</turbo:topic> -->
-            <title>Что такое "управление конфигурацией"?</title>
+            <!-- <turbo:topic>Что такое «управление конфигурацией»</turbo:topic> -->
+            <title>Что такое «управление конфигурацией»</title>
             <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -2594,7 +2594,7 @@ epoch.</li>
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/configuration-management/">Что такое "управление конфигурацией"?</a>
+                  <a href="https://guides.hexlet.io/ru/configuration-management/">Что такое «управление конфигурацией»</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/ru/configuration-management/"
@@ -2797,8 +2797,8 @@ PLAY RECAP <span class="k">*****************************************************
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ru/logging/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое логирование?</turbo:topic> -->
-            <title>Что такое логирование?</title>
+            <!-- <turbo:topic>Что такое логирование</turbo:topic> -->
+            <title>Что такое логирование</title>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -2806,7 +2806,7 @@ PLAY RECAP <span class="k">*****************************************************
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/logging/">Что такое логирование?</a>
+                  <a href="https://guides.hexlet.io/ru/logging/">Что такое логирование</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/ru/logging/"
@@ -2959,8 +2959,8 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ru/hosting/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое хостинг и домен сайта простыми словами?</turbo:topic> -->
-            <title>Что такое хостинг и домен сайта простыми словами?</title>
+            <!-- <turbo:topic>Что такое хостинг и домен сайта простыми словами</turbo:topic> -->
+            <title>Что такое хостинг и домен сайта простыми словами</title>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -2968,7 +2968,7 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/hosting/">Что такое хостинг и домен сайта простыми словами?</a>
+                  <a href="https://guides.hexlet.io/ru/hosting/">Что такое хостинг и домен сайта простыми словами</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/ru/hosting/"
@@ -3064,8 +3064,8 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/error-tracking/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое трекинг ошибок?</turbo:topic> -->
-            <title>Что такое трекинг ошибок?</title>
+            <!-- <turbo:topic>Что такое трекинг ошибок</turbo:topic> -->
+            <title>Что такое трекинг ошибок</title>
             <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -3073,7 +3073,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/error-tracking/">Что такое трекинг ошибок?</a>
+                  <a href="https://guides.hexlet.io/error-tracking/">Что такое трекинг ошибок</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/error-tracking/"
@@ -3131,8 +3131,8 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/ru/compiler/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое компилятор?</turbo:topic> -->
-            <title>Что такое компилятор?</title>
+            <!-- <turbo:topic>Что такое компилятор</turbo:topic> -->
+            <title>Что такое компилятор</title>
             <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
             <author>Татьяна Федорина</author>
             <!-- <yandex:related></yandex:related> -->
@@ -3140,7 +3140,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/compiler/">Что такое компилятор?</a>
+                  <a href="https://guides.hexlet.io/ru/compiler/">Что такое компилятор</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/ru/compiler/"
@@ -3574,8 +3574,8 @@ Hello, Kitty!
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/version-managers/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое "Менеджер версий"</turbo:topic> -->
-            <title>Что такое "Менеджер версий"</title>
+            <!-- <turbo:topic>Что такое «Менеджер версий»</turbo:topic> -->
+            <title>Что такое «Менеджер версий»</title>
             <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
             <author>Кирилл Мокевнин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -3583,7 +3583,7 @@ Hello, Kitty!
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/version-managers/">Что такое "Менеджер версий"</a>
+                  <a href="https://guides.hexlet.io/version-managers/">Что такое «Менеджер версий»</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/version-managers/"
@@ -3893,8 +3893,8 @@ npm i <span class="nt">-D</span> webpack webpack-cli
             <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/encoding/</link>
             <!-- <turbo:source></turbo:source> -->
-            <!-- <turbo:topic>Что такое кодировки?</turbo:topic> -->
-            <title>Что такое кодировки?</title>
+            <!-- <turbo:topic>Что такое кодировки</turbo:topic> -->
+            <title>Что такое кодировки</title>
             <pubDate>Wed, 15 Apr 2020 00:00:00 +0000</pubDate>
             <author>Ильнар Шафигуллин</author>
             <!-- <yandex:related></yandex:related> -->
@@ -3902,7 +3902,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/encoding/">Что такое кодировки?</a>
+                  <a href="https://guides.hexlet.io/encoding/">Что такое кодировки</a>
                 </div>
                 <button
                   formaction="https://guides.hexlet.io/encoding/"
