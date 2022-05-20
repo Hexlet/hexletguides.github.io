@@ -2492,10 +2492,10 @@ epoch.</li>
 <h2 id="дополнительные-материалы">Дополнительные материалы</h2>
 
 <ul>
-  <li>https://restapitutorial.ru/</li>
-  <li>https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf</li>
-  <li>https://opensource.zalando.com/restful-api-guidelines/</li>
-  <li>https://habr.com/ru/company/hexlet/blog/595795/</li>
+  <li><a href="https://restapitutorial.ru/">Руководство по созданию RESTful-сервиса</a></li>
+  <li><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf">Architectural Styles and the Design of Network-based Software Architectures</a></li>
+  <li><a href="https://opensource.zalando.com/restful-api-guidelines/">Zalando RESTful API and Event Guidelines</a></li>
+  <li><a href="https://habr.com/ru/company/hexlet/blog/595795/">Почему никто не понимает REST</a></li>
 </ul>
 
               ]]>
