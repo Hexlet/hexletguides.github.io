@@ -13,3 +13,5 @@ _sass
 node_modules
 .env
 .jekyll-metadata
+next-app/node_modules
+next-app/.next
