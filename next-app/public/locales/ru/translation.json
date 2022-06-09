@@ -1,0 +1,41 @@
+{
+    "menu": {
+      "source_code": "Исходный код"
+    },
+    "hero": {
+      "header": "Статьи о технологиях, инструментах и практиках",
+      "description": "Полезные материалы для тех, кто только начинает свой путь в разработку. Знакомим с основными терминами и рассказываем простыми словами о сложных процессах\n"
+    },
+    "links": {
+      "programs_list": {
+        "name": "Программы обучения",
+        "url": "https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral\n"
+      }
+    },
+    "footermenu": [
+      {
+        "title": "О проекте",
+        "url": "about/",
+        "external": false
+      },
+      {
+        "title": "Бесплатные курсы и вебинары",
+        "url": "https://ru.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral",
+        "external": true
+      },
+      {
+        "title": "Оценка резюме",
+        "url": "https://cv.hexlet.io/",
+        "external": true
+      },
+      {
+        "title": "Алгоритмическая прокачка",
+        "url": "https://codebattle.hexlet.io/",
+        "external": true
+      }
+    ],
+    "about": {
+      "title": "About",
+      "text": "Hexlet Guides is an open source project created and supported by Hexlet's community. Join to our community, publish new guides, help with editing."
+    }
+  }
