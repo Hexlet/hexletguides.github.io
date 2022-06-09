@@ -1,0 +1,37 @@
+{
+    "menu": {
+      "source_code": "Source Code"
+    },
+    "hero": {
+      "header": "Guides on technologies, tools, and practices",
+      "description": "When to use Docker? What are encodings, DNS, and Webpack? How to learn touch typing? And much more\n"
+    },
+    "links": {
+      "programs_list": {
+        "name": "Educational Programs",
+        "url": "https://en.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral\n"
+      }
+    },
+    "footermenu": [
+      {
+        "title": "About",
+        "url": "about/",
+        "external": false
+      },
+      {
+        "title": "Free courses and webinars",
+        "url": "https://en.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral",
+        "external": true
+      },
+      {
+        "title": "Code Battle",
+        "url": "https://codebattle.hexlet.io/",
+        "external": true
+      }
+    ],
+    "about": {
+      "title": "About",
+      "text": "Hexlet Guides is an open source project created and supported by Hexlet's community. Join to our community, publish new guides, help with editing."
+    }
+  }
+  
