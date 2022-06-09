@@ -1,5 +1,10 @@
-function HomePage() {
-  return <div>Welcome to Next.js!</div>
-}
+import DefaultLayout from '../components/DefaultLayout.jsx';
+import HomePageInfo from '../components/HomePageInfo.jsx';
 
-export default HomePage
+const Home = () => (
+  <DefaultLayout>
+    <HomePageInfo />
+  </DefaultLayout>
+);
+
+export default Home;
