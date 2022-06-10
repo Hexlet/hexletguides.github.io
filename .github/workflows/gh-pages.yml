@@ -30,6 +30,7 @@ jobs:
           JEKYLL_ENV: production
           JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # NOTE: для амп картинки нужны размеры а при первом билде их еще нет в файле с сайтом, поэтому падает но ты билдишь второй раз и фалы уже есть и амп проходит без проблем
       - run: make generate-githubpages
         env:
           JEKYLL_ENV: production
