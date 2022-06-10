@@ -4,7 +4,6 @@ subtitle: A guide to the basics of make and Makefile for use in your own project
 description: This guide will explain how using Makefile will reduce the process of deploying a project to a few short and clear commands
 image: "assets/images/makefile/cover.jpg"
 author: Kirill Mokevnin
-hidden: true
 ---
 
 ## Introduction
