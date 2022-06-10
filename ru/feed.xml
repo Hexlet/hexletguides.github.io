@@ -3461,7 +3461,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/makefile-as-task-runner/</link>
+            <link>https://guides.hexlet.io/makefile-as-task-runner/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое Makefile и как начать его использовать</turbo:topic> -->
             <title>Что такое Makefile и как начать его использовать</title>
@@ -3472,10 +3472,10 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/makefile-as-task-runner/">Что такое Makefile и как начать его использовать</a>
+                  <a href="https://guides.hexlet.io/makefile-as-task-runner/">Что такое Makefile и как начать его использовать</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/makefile-as-task-runner/"
+                  formaction="https://guides.hexlet.io/makefile-as-task-runner/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
