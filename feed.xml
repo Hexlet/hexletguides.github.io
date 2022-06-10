@@ -15,6 +15,290 @@
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
+            <link>https://guides.hexlet.io/makefile-as-task-runner/</link>
+            <!-- <turbo:source></turbo:source> -->
+            <!-- <turbo:topic>What Is a Makefile and How to Use It</turbo:topic> -->
+            <title>What Is a Makefile and How to Use It</title>
+            <pubDate>Fri, 10 Jun 2022 00:00:00 +0000</pubDate>
+            <author>Kirill Mokevnin</author>
+            <!-- <yandex:related></yandex:related> -->
+            <turbo:content>
+              <![CDATA[
+                <div data-block="breadcrumblist">
+                  <a href="https://guides.hexlet.io/">Hexlet Guides</a>
+                  <a href="https://guides.hexlet.io/makefile-as-task-runner/">What Is a Makefile and How to Use It</a>
+                </div>
+                <button
+                  formaction="https://guides.hexlet.io/makefile-as-task-runner/"
+                  data-background-color="#eee"
+                  data-color="dark"
+                  data-turbo="false"
+                  data-primary="false"
+                >
+                  Читать полную версию на сайте
+                </button>
+                <h2 id="introduction">Introduction</h2>
+
+<p>Many developers may recall the first day they started working on a new project. After cloning the main repository, there comes a point when you have to enter a lot of commands with certain flags and in a specific order. In most cases, it’s hard to grasp what is going on without a description of the commands. For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nb">touch</span> ~/.bash_history
+ufw allow 3035/tcp <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'cant configure ufw'</span>
+ufw allow http <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'cant configure ufw'</span>
+docker run <span class="se">\</span>
+  <span class="nt">-v</span> /root/:/root/ <span class="se">\</span>
+  <span class="nt">-v</span> /etc:/etc <span class="se">\</span>
+  <span class="nt">-v</span> /var/run/docker.sock:/var/run/docker.sock <span class="se">\</span>
+  <span class="nt">-v</span> /var/tmp:/var/tmp <span class="se">\</span>
+  <span class="nt">-v</span> /tmp:/tmp <span class="se">\</span>
+  <span class="nt">-v</span> <span class="nv">$PWD</span>:/app <span class="se">\</span>
+  <span class="nt">--network</span> host <span class="se">\</span>
+  <span class="nt">-w</span> /app <span class="se">\</span>
+  <span class="nt">--env-file</span> .env <span class="se">\</span>
+  ansible ansible-playbook ansible/development.yml <span class="nt">-i</span> ansible/development <span class="nt">--limit</span><span class="o">=</span>localhost <span class="nt">-vv</span>
+<span class="nb">grep</span> <span class="nt">-qxF</span> <span class="s1">'fs.inotify.max_user_watches=524288'</span> /etc/sysctl.conf <span class="o">||</span> <span class="nb">echo </span>fs.inotify.max_user_watches<span class="o">=</span>524288 | <span class="nb">tee</span> <span class="nt">-a</span> /etc/sysctl.conf <span class="o">||</span> <span class="nb">echo</span> <span class="s1">'cant set max_user_watches'</span> <span class="o">&amp;&amp;</span> sysctl <span class="nt">-p</span>
+<span class="nb">sudo </span>systemctl daemon-reload <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>systemctl restart docker
+</code></pre></div></div>
+
+<p>These commands are just a small portion of the project deployment process. The commands themselves are extensive and contain several flags, as shown in the example above, making them not only difficult to learn but also difficult to enter manually. Constantly maintaining documentation becomes more challenging as the project grows; it inevitably becomes outdated, and the entry barrier for newcomers increases since no one can remember all of the project’s details. Some of these commands must be used on a daily basis, if not multiple times per day.</p>
+
+<p>Over time, it became clear that we desperately needed a tool that could maintain such commands, and provide convenient shortcuts and self-documentation of the project. This is precisely what <em>Makefile</em> and the <code class="language-plaintext highlighter-rouge">make</code> utility have turned into. In this guide, I’ll show you how to reduce the deployment to a few short and straightforward commands using these tools:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+make setup
+make start
+make <span class="nb">test</span>
+</code></pre></div></div>
+
+<h2 id="what-is-make-and-makefile">What is <code class="language-plaintext highlighter-rouge">make</code> and <em>Makefile</em></h2>
+
+<p><em>Makefile</em> is a file that is stored in the repository alongside the code. It is usually placed at the project’s root. It acts both as documentation and as executable code. The Makefile hides the implementation details and manages the commands, and the <code class="language-plaintext highlighter-rouge">make</code> utility runs them from the Makefile in the current directory.</p>
+
+<p><code class="language-plaintext highlighter-rouge">make</code> was originally designed to automate the building process of executable programs and libraries from source code. Most *nix distributions have it by default, which has contributed to its extensive use. Later, it turned out that this tool is convenient to use in other development projects because the process is essentially the same in most cases - automation and building applications.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">make</code> has become a standard for many developers, especially for those working on large projects. Examples of makefile can be found in projects such as <a href="https://github.com/kubernetes/kubernetes/blob/master/build/root/Makefile">Kubernetes</a>, <a href="https://github.com/babel/babel/blob/main/Makefile">Babel</a>, <a href="https://github.com/ansible/ansible/blob/devel/Makefile">Ansible</a>, and, of course, everywhere on <a href="https://github.com/Hexlet">Hexlet</a>.</p>
+
+<h3 id="makefile-syntax"><em>Makefile</em> syntax</h3>
+
+<p><code class="language-plaintext highlighter-rouge">make</code> runs targets from a <em>Makefile</em> that contains the following commands:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">target1</span><span class="o">:</span> <span class="c">#</span><span class="nf"> arget name</span><span class="p">,</span><span class="nf"> you can also use kebab-case or snake_case</span>
+	command1 <span class="c"># it's very important to use tabs to indent </span>
+	command2 <span class="c"># the commands will be executed sequentially and only if the previous one was successful</span>
+</code></pre></div></div>
+
+<p>However, it’s not enough to just start using a Makefile in a project. To make its implementation more efficient, build a target-oriented command structure and give the targets semantically relevant names. At first, moving commands to a Makefile may result in all commands being merged into a single one with a vague name:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">up</span><span class="o">:</span> <span class="c">#</span><span class="nf"> deploying and launching</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env
+	<span class="nb">touch </span>database/database.sqlite
+	composer <span class="nb">install</span>
+	npm <span class="nb">install</span>
+	php artisan key:generate
+	php artisan migrate <span class="nt">--seed</span>
+	heroku <span class="nb">local</span> <span class="nt">-f</span> Procfile.dev <span class="c"># project launch</span>
+</code></pre></div></div>
+
+<p>Several actions take place here at once: creating a file with environment variables, preparing the database, generating keys, installing dependencies, and launching the project. Since this is impossible to understand from the comments and target name, it’s best to separate these  commands into different independent targets:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">env-prepare</span><span class="o">:</span> <span class="c">#</span><span class="nf"> create .env file for secrets</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env
+
+<span class="nl">sqlite-prepare</span><span class="o">:</span> <span class="c">#</span><span class="nf"> prepare a local database</span>
+	<span class="nb">touch </span>database/database.sqlite
+
+<span class="nl">install</span><span class="o">:</span> <span class="c">#</span><span class="nf"> install dependencies</span>
+	composer <span class="nb">install</span>
+	npm <span class="nb">install</span>
+
+<span class="nl">key</span><span class="o">:</span> <span class="c">#</span><span class="nf"> generate keys</span>
+	php artisan key:generate
+
+<span class="nl">db-prepare</span><span class="o">:</span> <span class="c">#</span><span class="nf"> upload data to the database</span>
+	php artisan migrate <span class="nt">--seed</span>
+
+<span class="nl">start</span><span class="o">:</span> <span class="c">#</span><span class="nf"> run the app</span>
+	heroku <span class="nb">local</span> <span class="nt">-f</span> Procfile.dev
+</code></pre></div></div>
+
+<p>Now that the commands are divided into targets, you can individually install dependencies with the <code class="language-plaintext highlighter-rouge">make install</code> command or run your app via <code class="language-plaintext highlighter-rouge">make start</code>. But the remaining targets are only required during the project’s initial deployment and must be performed in a specific sequence. In the Makefile world, the target has the following prerequisites:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">target1</span><span class="o">:</span> <span class="nf">target2 </span><span class="c">#</span><span class="nf"> here established the command dependency</span><span class="p">,</span><span class="nf"> target1 depends on target2</span>
+	command2 <span class="c"># target2 will be executed only if target2 command was successful</span>
+
+<span class="nl">target2</span><span class="o">:</span>
+	command1
+</code></pre></div></div>
+
+<p>Commands will only be executed in the specified order and only if the previous command proves to be successful. Therefore, you can add a <code class="language-plaintext highlighter-rouge">setup</code> target to combine all the necessary actions:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">setup</span><span class="o">:</span> <span class="nf">env-prepare sqlite-prepare install key db-prepare </span><span class="c">#</span><span class="nf"> you may refer to the targets described below</span>
+
+<span class="nl">env-prepare</span><span class="o">:</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env
+
+<span class="nl">sqlite-prepare</span><span class="o">:</span>
+	<span class="nb">touch </span>database/database.sqlite
+
+<span class="nl">install</span><span class="o">:</span>
+	composer <span class="nb">install</span>
+	npm <span class="nb">install</span>
+
+<span class="nl">key</span><span class="o">:</span>
+	php artisan key:generate
+
+<span class="nl">db-prepare</span><span class="o">:</span>
+	php artisan migrate <span class="nt">--seed</span>
+
+<span class="nl">start</span><span class="o">:</span>
+	heroku <span class="nb">local</span> <span class="nt">-f</span> Procfile.dev
+</code></pre></div></div>
+
+<p>Now it is enough to deploy and launch the project with two commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+make setup <span class="c"># will run sequentially: env-prepare sqlite-prepare install key db-prepare</span>
+make start
+</code></pre></div></div>
+
+<p>The project commands and flags are combined into a <em>Makefile</em> as a result of the <em>Makefile’s</em> work. It ensures the correct execution order, regardless of the languages or technologies involved.</p>
+
+<h2 id="advanced-usage">Advanced usage</h2>
+
+<h3 id="fake-target">Fake target</h3>
+
+<p>Using <code class="language-plaintext highlighter-rouge">make</code> in a project may one day lead to the error <code class="language-plaintext highlighter-rouge">make: &lt;target name&gt; is up to date.</code>, although everything is written correctly. This is frequently related to the existence of a directory or file that matches the target name. For example:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">test</span><span class="o">:</span> <span class="c">#</span><span class="nf"> the target in the makefile</span>
+	php artisan <span class="nb">test</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span><span class="nb">ls
+</span>Makefile
+<span class="nb">test</span> <span class="c"># the file system contains a directory with the name of the target in the makefile</span>
+
+<span class="nv">$ </span>make <span class="nb">test</span> <span class="c"># an attempt to run tests</span>
+make: <span class="sb">`</span><span class="nb">test</span><span class="sb">`</span> is up to date.
+</code></pre></div></div>
+
+<p>As stated previously, <code class="language-plaintext highlighter-rouge">make</code> was designed to build programs from source code. Therefore, it searches for a directory or file with the given name and attempts to create a project from it. To alter this behavior, you need to add a <code class="language-plaintext highlighter-rouge">.PHONY</code> pointer to the target at the end of the Makefile:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">test</span><span class="o">:</span>
+	php artisan <span class="nb">test</span>
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">test</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span>make <span class="nb">test</span>
+✓ All tests passed!
+</code></pre></div></div>
+
+<h3 id="running-commands-consecutively-and-ignoring-errors">Running commands consecutively and ignoring errors</h3>
+
+<p>You can run commands one at a time: <code class="language-plaintext highlighter-rouge">make setup</code>, <code class="language-plaintext highlighter-rouge">make start</code>, <code class="language-plaintext highlighter-rouge">make test</code> or all at once, space-separated: <code class="language-plaintext highlighter-rouge">make setup start test</code>. The latter method works as a dependency between commands, although it is not documented in the Makefile. Difficulties may arise if one of the commands produces an error that must be ignored. In the previous examples, such a command was to create an .env-file when deploying the project:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">env-prepare</span><span class="o">:</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env <span class="c"># if the file has already been created, using this command again will result in an error</span>
+</code></pre></div></div>
+
+<p>The easiest (<em>but not the only</em>) way to “cover up” an error is to use a logical OR in the Makefile:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">env-prepare</span><span class="o">:</span>
+	<span class="nb">cp</span> <span class="nt">-n</span> .env.example .env <span class="o">||</span> <span class="nb">true</span> <span class="c"># any result of command execution is now considered successful</span>
+</code></pre></div></div>
+
+<p>Be cautious applying such hacks so that you don’t shoot yourself in the foot in more complex scenarios.</p>
+
+<h3 id="variables">Variables</h3>
+
+<p>Configuration parameters, path indicators, and environment variables are often substituted into commands, and <code class="language-plaintext highlighter-rouge">make</code> enables you to handle this as well. Variables can be written directly in the command within the makefile and passed when called:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">say</span><span class="o">:</span>
+	<span class="nb">echo</span> <span class="s2">"Hello, </span><span class="nv">$(HELLO)</span><span class="s2">!"</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span>make say <span class="nv">HELLO</span><span class="o">=</span>World
+<span class="nb">echo</span> <span class="s2">"Hello, World!"</span>
+Hello, World!
+
+<span class="nv">$ </span>make say <span class="nv">HELLO</span><span class="o">=</span>Kitty
+<span class="nb">echo</span> <span class="s2">"Hello, Kitty!"</span>
+Hello, Kitty!
+</code></pre></div></div>
+
+<p>Variables can be optional and have a default value. They are commonly declared at the beginning of the Makefile.</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nv">HELLO</span><span class="o">?=</span>World <span class="c"># the question mark indicates that the variable is optional. The value after assignment can be omitted</span>
+
+<span class="nl">say</span><span class="o">:</span>
+	<span class="nb">echo</span> <span class="s2">"Hello, </span><span class="nv">$(HELLO)</span><span class="s2">!"</span>
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Bash</span>
+<span class="nv">$ </span>make say
+<span class="nb">echo</span> <span class="s2">"Hello, World!"</span>
+Hello, World!
+
+<span class="nv">$ </span>make say <span class="nv">HELLO</span><span class="o">=</span>Kitty
+<span class="nb">echo</span> <span class="s2">"Hello, Kitty!"</span>
+Hello, Kitty!
+</code></pre></div></div>
+
+<p>Some variables in the <em>Makefile</em> have names other than the system ones. For example, <code class="language-plaintext highlighter-rouge">$PWD</code> is referred to as <code class="language-plaintext highlighter-rouge">$CURDIR</code> in the <a href="https://github.com/hexlet-basics/hexlet_basics/blob/3f4635bf629e2676efe547c9a01c22a2573eaebd/Makefile#L35-L39">Makefile</a>:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Makefile
+</span><span class="nl">project-env-generate</span><span class="o">:</span>
+	docker run <span class="nt">--rm</span> <span class="nt">-e</span> <span class="nv">RUNNER_PLAYBOOK</span><span class="o">=</span>ansible/development.yml <span class="se">\</span>
+		<span class="nt">-v</span> <span class="nv">$(CURDIR)</span>/ansible/development:/runner/inventory <span class="se">\ </span><span class="c"># </span><span class="nv">$(CURDIR)</span> is the same as <span class="nv">$PWD</span> <span class="k">in </span>the terminal
+		<span class="p">-</span>v <span class="nv">$(CURDIR)</span>:/runner/project <span class="se">\</span>
+		ansible/ansible-runner
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In this guide, we covered the main features of <em>Makefile</em> and the <code class="language-plaintext highlighter-rouge">make</code> utility. A deeper understanding of this tool will reveal many of its other useful features, such as conditions, cycles, and importing files. Makefile will be a great help in standardizing generic instructions in companies where multiple projects are written by different teams at different times: <code class="language-plaintext highlighter-rouge">setup start test deploy ...</code>.</p>
+
+<p>Because the Makefile can describe multi-line commands consecutively, it may be used as a “universal glue” between language managers and other utilities. The widespread use of this tool and its overall simplicity allows you to quickly implement it into your project without making any changes. However, Makefile can be extremely large and complicated, as shown by the following real-world applications:</p>
+
+<ul>
+  <li><a href="https://github.com/hexlet-codebattle/codebattle/blob/master/Makefile">Codebattle</a></li>
+  <li><a href="https://github.com/babel/babel/blob/main/Makefile">Babel</a></li>
+  <li><a href="https://github.com/kubernetes/kubernetes/blob/master/build/root/Makefile">Kubernetes</a></li>
+</ul>
+
+<h3 id="additional-materials">Additional materials</h3>
+
+<ul>
+  <li><a href="https://makefile.site">Modern Make Handbook</a> — a summary of the documentation</li>
+</ul>
+
+<p>Makefile examples from this guide were taken from:</p>
+
+<ul>
+  <li><a href="https://github.com/Hexlet/hexlet-sicp/blob/master/Makefile">Hexlet SICP</a></li>
+  <li><a href="https://github.com/hexlet-basics/hexlet_basics/blob/master/Makefile">Hexlet Basics</a></li>
+</ul>
+
+              ]]>
+            </turbo:content>
+        </item>
+        
+        <item turbo="true">
+            <turbo:extendedHtml>true</turbo:extendedHtml>
             <link>https://guides.hexlet.io/learning/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>How to Learn and Cope with Negative Thoughts</turbo:topic> -->
