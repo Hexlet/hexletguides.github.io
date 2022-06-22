@@ -1,0 +1,5 @@
+{
+  "eslint.workingDirectories": [
+  "next-app"
+  ]
+}

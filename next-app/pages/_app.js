@@ -2,8 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/theme.scss';
 import '../styles/highlight.css';
 import '../styles/custom.css';
-import i18n from '../public/i18n.js';
+import { appWithTranslation } from 'next-i18next';
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const App = ({ Component, pageProps }) => <Component { ...pageProps } />;
+
+export default appWithTranslation(App);
