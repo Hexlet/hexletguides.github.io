@@ -1,14 +1,17 @@
 import React from "react";
 // import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
 const Navbar = () => {
-  const { t, i18n } = useTranslation();
-  const lng = i18n.language === 'en' ? 'ru' : 'en';
-  const lngButton = i18n.language === 'en' ? 'Ru' : 'En';
-  const changeLanguage = () => {
-    i18n.changeLanguage(lng);
+  const router = useRouter();
+  const { t } = useTranslation();
+  const lngButton = router.locale === 'en' ? 'Ru' : 'En';
+  const handleChangeLanguage = (e) => {
+    e.preventDefault();
+    const currentLocation = router.pathname;
+    router.push(currentLocation, currentLocation, { locale: lngButton.toLowerCase() });
   }
   return (
     <div className="container mb-4">
@@ -35,7 +38,7 @@ const Navbar = () => {
         </li>
         <li className="nav-item">
           <Link href="/">
-            <a className="nav-link" onClick={changeLanguage}>{lngButton}</a>
+            <a className="nav-link" onClick={handleChangeLanguage}>{lngButton}</a>
           </Link>
         </li>
       </ul>
