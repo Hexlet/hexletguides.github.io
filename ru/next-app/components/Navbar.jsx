@@ -1,5 +1,5 @@
 import React from "react";
-// import Image from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
@@ -18,7 +18,7 @@ const Navbar = () => {
     <div className="d-flex flex-wrap justify-content-center py-3">
       <Link href="/">
         <a className="navbar-brand me-auto">
-          <img width="30" alt="Hexlet logo" src="/images/hexlet_logo.png" />
+          <Image width="30" height="30" alt="Hexlet logo" src="/images/hexlet_logo.png" />
         </a>
       </Link>
       <ul className="nav nav-pills">

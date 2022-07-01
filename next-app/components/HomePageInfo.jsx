@@ -1,5 +1,5 @@
 import React from 'react';
-// import Image from 'next/Image';
+import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 
 
@@ -13,7 +13,7 @@ const HomePageInfo = () => {
             <p className="lead">{t('hero.description')}</p>
           </div>
           <div className="col-md-4 d-none d-md-block">
-            <img className="intro" height="500" src="/images/intro.svg" alt="Intro image" />
+            <Image className="intro" width="344" height="274" src="/images/intro.svg" alt="Intro image" />
           </div>
         </div>
       </div>
