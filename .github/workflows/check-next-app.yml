@@ -1,0 +1,32 @@
+name: check-next-app
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint-and-build-project:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: Cloning the repository
+        uses: actions/checkout@v2
+
+      - name: Installing node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Installing dependencies
+        working-directory: ./next-app
+        run: make install
+
+      - name: Linting code
+        working-directory: ./next-app
+        run: make lint
+
+      - name: Building project
+        working-directory: ./next-app
+        run: make build
