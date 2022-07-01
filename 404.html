@@ -3,8 +3,16 @@ layout: default
 title: 404
 permalink: /404.html
 ---
+<script>
+  const { pathname } = document.location;
+  const { lang } = document.documentElement;
+  if (pathname.slice(1, 3) === 'ru' && lang === 'en') {
+    location.replace('/ru/404.html');
+  }
+</script>
+
 <div class="text-center">
 <h1 class="mt-5"><span class="badge badge-dark font-weight-normal">404</span></h1>
-<h1 class="display-1 mt-4 mb-4"> Page not found!</h1>
-<p>Please use the search bar from the bottom left or visit our <a href="{{site.baseurl}}/">homepage</a>!</p>
+<h1 class="display-1 mt-4 mb-4">{% t 'notfound.title' %}!</h1>
+<p>{% t 'notfound.subtitle' %} <a href="{{site.baseurl}}/">{% t 'notfound.link' %}</a>!</p>
 </div>

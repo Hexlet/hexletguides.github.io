@@ -31,3 +31,8 @@ footermenu:
   - title: Алгоритмическая прокачка
     url: https://codebattle.hexlet.io/
     external: true
+
+notfound:
+  title: Страница не найдена
+  subtitle: Воспользуйтесь поиском или вернитесь на
+  link: главную страницу
