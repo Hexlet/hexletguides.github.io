@@ -27,3 +27,8 @@ footermenu:
 - title: Code Battle
   url: https://codebattle.hexlet.io/
   external: true
+
+notfound:
+  title: Page not found
+  subtitle: Please use the search bar from the bottom left or visit our
+  link: homepage
