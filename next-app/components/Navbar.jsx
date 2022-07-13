@@ -20,34 +20,34 @@ const Navbar = () => {
 
   return (
     <div className="container mb-4">
-    <div className="d-flex flex-wrap justify-content-center py-3">
-      <Link href="/">
-        <a className="navbar-brand me-auto">
-          <Image width="30" height="30" alt="Hexlet logo" src="/images/hexlet_logo.png" />
-        </a>
-      </Link>
-      <ul className="nav nav-pills">
-        <li className="nav-item">
-          <Link href="https://github.com/Hexlet/hexletguides.github.io">
-            <a className="nav-link">
-              {t('menu.source_code')}
-            </a>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link href={t('links.programs_list.url')}>
-            <a className="nav-link">
-              {t('links.programs_list.name')}
-            </a>
-          </Link>
-        </li>
-        <li className="nav-item">
-          {langSwitchLink}
-        </li>
-      </ul>
+      <div className="d-flex flex-wrap justify-content-center py-3">
+        <Link href="/">
+          <a className="navbar-brand me-auto">
+            <Image width="30" height="30" alt="Hexlet logo" src="/images/hexlet_logo.png" />
+          </a>
+        </Link>
+        <ul className="nav nav-pills">
+          <li className="nav-item">
+            <Link href="https://github.com/Hexlet/hexletguides.github.io">
+              <a className="nav-link" target="_blank">
+                {t('navbar.source_code.title')}
+              </a>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link href={t('navbar.programs.url')}>
+              <a className="nav-link" target="_blank">
+                {t('navbar.programs.title')}
+              </a>
+            </Link>
+          </li>
+          <li className="nav-item">
+            {langSwitchLink}
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  )
+  );
 };
 
 export default Navbar;
