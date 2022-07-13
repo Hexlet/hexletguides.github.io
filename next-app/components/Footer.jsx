@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
-  i18n.language
+
   return (
     <footer className="footer container text-center">
       <ul className="p-0 mb-1 small">

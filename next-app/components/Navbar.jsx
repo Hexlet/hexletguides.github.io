@@ -5,14 +5,19 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
 const Navbar = () => {
-  const router = useRouter();
   const { t } = useTranslation();
-  const lngButton = router.locale === 'en' ? 'Ru' : 'En';
-  const handleChangeLanguage = (e) => {
-    e.preventDefault();
-    const currentLocation = router.pathname;
-    router.push(currentLocation, currentLocation, { locale: lngButton.toLowerCase() });
-  }
+  const { locale } = useRouter();
+
+  const langSwitchLink = locale === 'en' ? (
+    <Link href="/" locale="ru">
+      <a className="nav-link text-capitalize">ru</a>
+    </Link>
+  ) : (
+    <Link href="/" locale={false}>
+      <a className="nav-link text-capitalize">en</a>
+    </Link>
+  );
+
   return (
     <div className="container mb-4">
     <div className="d-flex flex-wrap justify-content-center py-3">
@@ -37,9 +42,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link href="/">
-            <a className="nav-link" onClick={handleChangeLanguage}>{lngButton}</a>
-          </Link>
+          {langSwitchLink}
         </li>
       </ul>
     </div>
