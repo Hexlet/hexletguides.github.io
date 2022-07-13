@@ -30,7 +30,7 @@
       }
     },
     "about": {
-      "title": "About",
-      "text": "Hexlet Guides is an open source project created and supported by Hexlet's community. Join to our community, publish new guides, help with editing."
+      "title": "О проекте",
+      "text": "Hexlet Guides - это проект с открытым исходным кодом, созданный и поддерживаемый сообществом Hexlet. Присоединяйтесь к нашему сообществу, публикуйте новые руководства или помогайте с редактированием."
     }
   }
