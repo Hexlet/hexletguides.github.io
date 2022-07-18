@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/assets/images/favicons/favicon-128.png">
+
+    
+      <link rel="amphtml" href="https://guides.hexlet.io/ru/amp/xpath">
+    
+
+    <link type="application/atom+xml" rel="alternate" href="https://guides.hexlet.io/feed.xml" title="Hexlet Guides" />
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Введение в XPath | Hexlet Guides</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Введение в XPath" />
+<meta name="author" content="Никита Михайлов" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Как устроен язык запросов XPath. Разбираемся в поиске информации внутри XML" />
+<meta property="og:description" content="Как устроен язык запросов XPath. Разбираемся в поиске информации внутри XML" />
+<link rel="canonical" href="https://guides.hexlet.io/ru/xpath/" />
+<meta property="og:url" content="https://guides.hexlet.io/ru/xpath/" />
+<meta property="og:site_name" content="Hexlet Guides" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Введение в XPath" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Никита Михайлов"},"dateModified":"2022-07-15T00:00:00+00:00","datePublished":"2022-07-15T00:00:00+00:00","description":"Как устроен язык запросов XPath. Разбираемся в поиске информации внутри XML","headline":"Введение в XPath","mainEntityOfPage":{"@type":"WebPage","@id":"https://guides.hexlet.io/ru/xpath/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://guides.hexlet.io/assets/images/hexlet_logo.png"},"name":"Никита Михайлов"},"url":"https://guides.hexlet.io/ru/xpath/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KMJ8HKG');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+    <link href="/assets/css/theme.css" rel="stylesheet">
+    <link href="/assets/css/custom.css" rel="stylesheet">
+    <link href="/assets/css/highlight.css" rel="stylesheet">
+
+  </head>
+
+  
+
+  <body class="layout-post">
+
+    
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMJ8HKG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+    <!-- Menu Navigation
+      ================================================== -->
+
+      <div class="container mb-4">
+        <div class="d-flex flex-wrap justify-content-center py-3">
+          
+          <a class="navbar-brand me-auto" href="/ru/">
+            <img width="30" alt="Code Basics logo" src="/assets/images/hexlet_logo.png">
+          </a>
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/Hexlet/hexletguides.github.io">
+                Исходный код
+              </a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://ru.hexlet.io/programs?utm_source=hexlet-guides&utm_medium=referral
+">
+              Программы обучения
+            </a>
+            </li>
+            <li class="nav-item">
+              
+                <a class="nav-link" href="/">En</a>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Container
+        ================================================== -->
+        <main class="container">
+          <div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto text-break">
+
+
+    <div class="mainheading">
+      <h1 class="posttitle">
+          
+            Введение в XPath
+          
+      </h1>
+    </div>
+
+
+  <!-- Post Featured Image -->
+    
+  <!-- End Featured Image -->
+
+    <div class="article-post">
+      <p>Язык разметки XML с самого первого стандарта окружает пользователей компьютеров: таблицы в Excel, выгрузки из интернет-магазинов, RSS для получения коротких новостей и так далее основаны на XML. Хоть визуальное отображение отличается на устройствах и в программах, но в основе лежит единый формат.</p>
+
+<p>При таком количестве информации, которая может находиться в XML встаёт вопрос о перемещении и выборке внутри документа. Как это сделать быстро? Какие средства применять, чтобы из тысячи товаров интернет магазина найти только те, которые отвечают нашим требованиям? Для решения задач навигации и поиска внутри XML используется язык запросов XPath.</p>
+
+<p>В этой статье разберём:</p>
+
+<ul>
+  <li>для кого может быть полезен <em>XPath</em></li>
+  <li>базовые конструкции языка для поиска информации в XML</li>
+  <li>чем XPath отличается от CSS-селекторов при поиске в HTML</li>
+</ul>
+
+<h2 id="синтаксис-xpath">Синтаксис XPath</h2>
+
+<p>Перед тем, как приступить к написанию запросов, стоит создать базовый пример XML, по которому и будет производиться поиск. Таким XML будет некоторый список курсов по вёрстке на Хекслете:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;courses&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Курсы HTML и CSS (вёрстка)<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;description&gt;</span>На курсах по вёрстке вы познакомитесь с основами HTML и CSS, научитесь верстать адаптивные страницы, работать с препроцессорами. Освоите современные технологии и инструменты, включая Flex, Sass, Bootstrap.<span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;course&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Основы современной вёрстки<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;tags&gt;</span>HTML5, CSS, DevTools, вёрстка<span class="nt">&lt;/tags&gt;</span>
+    <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"9"</span><span class="nt">&gt;</span>9 часов<span class="nt">&lt;/duration&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/layout-designer-basics<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/layout-designer-basics<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;/course&gt;</span>
+  <span class="nt">&lt;course&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Основы вёрстки контента<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;tags&gt;</span>CSS3, HTML5, Селекторы, Доступность, CSS Columns, CSS Units, Вёрстка<span class="nt">&lt;/tags&gt;</span>
+    <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"18"</span><span class="nt">&gt;</span>18 часов<span class="nt">&lt;/duration&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/css-content<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/css-content<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;/course&gt;</span>
+  <span class="nt">&lt;course&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Bootstrap 5: Основы верстки<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;tags&gt;</span>Bootstrap 5, Адаптивность, HTML, CSS3<span class="nt">&lt;/tags&gt;</span>
+    <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"10"</span><span class="nt">&gt;</span>10 часов<span class="nt">&lt;/duration&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;/course&gt;</span>
+<span class="nt">&lt;/courses&gt;</span>
+</code></pre></div></div>
+
+<p>Это учебный пример. Для отработки навыков XPath подойдёт любой XML, а структура может сильно отличаться. Принципы XPath сохраняться, так как стандарт XML позволяет использовать элементы с произвольными тегами.</p>
+
+<p>Для тестирования результата подойдут онлайн-сервисы, такие, как:</p>
+
+<ul>
+  <li><a href="https://codebeautify.org/Xpath-Tester">Code Beautify</a></li>
+  <li><a href="http://xpather.com/">XPather</a></li>
+</ul>
+
+<h3 id="абсолютные-пути">Абсолютные пути</h3>
+
+<p>Самый простой запрос состоит из обращения к корневому элементу. Для этого достаточно выполнить запрос <code class="language-plaintext highlighter-rouge">/courses</code>. Нам вернётся XML в том виде, как он представлен в примере выше, кроме строки <code class="language-plaintext highlighter-rouge">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>, так как элемент не внутри <code class="language-plaintext highlighter-rouge">&lt;courses&gt;</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;courses&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Курсы HTML и CSS (вёрстка)<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;description&gt;</span>На курсах по вёрстке вы познакомитесь с основами HTML и CSS, научитесь верстать адаптивные страницы, работать с препроцессорами. Освоите современные технологии и инструменты, включая Flex, Sass, Bootstrap.<span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;course&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Основы современной вёрстки<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;tags&gt;</span>HTML5, CSS, DevTools, вёрстка<span class="nt">&lt;/tags&gt;</span>
+    <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"9"</span><span class="nt">&gt;</span>9 часов<span class="nt">&lt;/duration&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/layout-designer-basics<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/layout-designer-basics<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;/course&gt;</span>
+  <span class="nt">&lt;course&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Основы вёрстки контента<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;tags&gt;</span>CSS3, HTML5, Селекторы, Доступность, CSS Columns, CSS Units, Вёрстка<span class="nt">&lt;/tags&gt;</span>
+    <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"18"</span><span class="nt">&gt;</span>18 часов<span class="nt">&lt;/duration&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/css-content<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/css-content<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;/course&gt;</span>
+  <span class="nt">&lt;course&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Bootstrap 5: Основы верстки<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;tags&gt;</span>Bootstrap 5, Адаптивность, HTML, CSS3<span class="nt">&lt;/tags&gt;</span>
+    <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"10"</span><span class="nt">&gt;</span>10 часов<span class="nt">&lt;/duration&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;/course&gt;</span>
+<span class="nt">&lt;/courses&gt;</span>
+</code></pre></div></div>
+
+<p>В качестве результата XPath возвращает узлы XML-документа.</p>
+
+<p>Продолжим цепочку и обратимся к описанию из элемента <code class="language-plaintext highlighter-rouge">&lt;description&gt;</code>. Для этого добавим в запрос путь к <code class="language-plaintext highlighter-rouge">description</code>: <code class="language-plaintext highlighter-rouge">/courses/description</code>. Результатом выполнения станет:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;description&gt;</span>На курсах по вёрстке вы познакомитесь с основами HTML и CSS, научитесь верстать адаптивные страницы, работать с препроцессорами. Освоите современные технологии и инструменты, включая Flex, Sass, Bootstrap.<span class="nt">&lt;/description&gt;</span>
+</code></pre></div></div>
+
+<p>Путь, который строится от корневого элемента, называется <em>абсолютным</em>. Используя схему из прошлого запроса можно обратиться к любому элементу внутри XML.</p>
+
+<p>А что если обратиться к имени курса? Какое именно поле <code class="language-plaintext highlighter-rouge">&lt;name&gt;</code> будет возвращено? Ответ: в этом случае вернутся <code class="language-plaintext highlighter-rouge">&lt;name&gt;</code> из всех курсов.</p>
+
+<p>Запрос <code class="language-plaintext highlighter-rouge">/courses/course/name</code> вернёт:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;name&gt;</span>Основы современной вёрстки<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;name&gt;</span>Основы вёрстки контента<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;name&gt;</span>Bootstrap 5: Основы верстки<span class="nt">&lt;/name&gt;</span>
+</code></pre></div></div>
+
+<p>Вот список некоторых базовых запросов и их результат:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Запрос         </th>
+      <th>Результат                                                                               </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/courses/course</code></td>
+      <td>Все данные из всех элементов <code class="language-plaintext highlighter-rouge">&lt;course&gt;&lt;/course&gt;</code>                                         </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/courses/course/name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;name&gt;Основы современной вёрстки&lt;/name&gt;</code><br /><code class="language-plaintext highlighter-rouge">&lt;name&gt;Основы вёрстки контента&lt;/name&gt;</code><br /><code class="language-plaintext highlighter-rouge">&lt;name&gt;Bootstrap 5: Основы верстки&lt;/name&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">/courses/course/duration</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;duration value="9"&gt;9 часов&lt;/duration&gt;</code><br /><code class="language-plaintext highlighter-rouge">&lt;duration value="18"&gt;18 часов&lt;/duration&gt;</code><br /><code class="language-plaintext highlighter-rouge">&lt;duration value="10"&gt;10 часов&lt;/duration&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="относительные-пути">Относительные пути</h3>
+
+<p>Прошлые запросы строились с помощью <em>абсолютных путей</em>, то есть нужно было чётко указать полный путь до информации. Бывают ситуации, когда полный путь неизвестен в силу некоторых причин или необходимо получить уникальное поле и мы точно об этом знаем. В этом случае возможно использовать <em>относительный путь</em>, который произведёт поиск по всему XML и вернёт узлы, подходящие под запрос.</p>
+
+<p>Для составления относительного пути используется конструкция <code class="language-plaintext highlighter-rouge">//</code> после которой можно написать любое поле и получить результат. Например, <code class="language-plaintext highlighter-rouge">//name</code> вернёт поля <code class="language-plaintext highlighter-rouge">&lt;name&gt;</code> из XML:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;name&gt;</span>Основы современной вёрстки<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;name&gt;</span>Основы вёрстки контента<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;name&gt;</span>Bootstrap 5: Основы верстки<span class="nt">&lt;/name&gt;</span>
+</code></pre></div></div>
+
+<p>Проблема такого подхода — уникальность полей. В документах одни и те же имена полей могут обозначать разные данные в зависимости от расположения, поэтому используйте относительные пути там, где уверены в возвращаемых данных. Например, в нашем примере название курса может быть заключено в <code class="language-plaintext highlighter-rouge">&lt;title&gt;</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;courses&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Курсы HTML и CSS (вёрстка)<span class="nt">&lt;/title&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+    
+  <span class="nt">&lt;course&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Основы современной вёрстки<span class="nt">&lt;/title&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+  <span class="nt">&lt;/course&gt;</span>
+    
+  <span class="nt">&lt;course&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Основы вёрстки контента<span class="nt">&lt;/title&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+  <span class="nt">&lt;/course&gt;</span>
+    
+  <span class="nt">&lt;course&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Bootstrap 5: Основы верстки<span class="nt">&lt;/title&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+  <span class="nt">&lt;/course&gt;</span>
+    
+<span class="nt">&lt;/courses&gt;</span>
+</code></pre></div></div>
+
+<p>Запрос <code class="language-plaintext highlighter-rouge">//title</code> вернёт не только имена курсов, но и узел, который находится в <code class="language-plaintext highlighter-rouge">&lt;courses&gt;</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;title&gt;</span>Курсы HTML и CSS (вёрстка)<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;title&gt;</span>Основы современной вёрстки<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;title&gt;</span>Основы вёрстки контента<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;title&gt;</span>Bootstrap 5: Основы верстки<span class="nt">&lt;/title&gt;</span>
+</code></pre></div></div>
+
+<p>Через относительные пути разработчики, иногда, экономят пару секунд на опускание корневого элемента. То есть, вместо <code class="language-plaintext highlighter-rouge">/courses/course/name</code> пишут <code class="language-plaintext highlighter-rouge">//course/name</code>. Попробуйте прошлые примеры перевести на относительные пути с помощью такого механизма</p>
+
+<p>Несколько примеров запросов с идентичными ответами, как и в прошлой таблице:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Запрос             </th>
+      <th>Результат                                                   </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">//course</code>         </td>
+      <td>Все данные из всех элементов <code class="language-plaintext highlighter-rouge">&lt;course&gt;&lt;/course&gt;</code>             </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">//name</code>           </td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;name&gt;Основы современной вёрстки&lt;/name&gt;</code><br /><code class="language-plaintext highlighter-rouge">&lt;name&gt;Основы вёрстки контента&lt;/name&gt;</code><br /><code class="language-plaintext highlighter-rouge">&lt;name&gt;Bootstrap 5: Основы верстки&lt;/name&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">//course/duration</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;duration value="9"&gt;9 часов&lt;/duration&gt;</code><br /><code class="language-plaintext highlighter-rouge">&lt;duration value="18"&gt;18 часов&lt;/duration&gt;</code><br /><code class="language-plaintext highlighter-rouge">&lt;duration value="10"&gt;10 часов&lt;/duration&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="предикаты">Предикаты</h3>
+
+<p>В примерах запросов к именам возвращались имена всех курсов которые были найдены, что, в некоторых ситуациях, может быть избыточно. Что делать, если хочется получить данные только по первому курсу в <code class="language-plaintext highlighter-rouge">&lt;courses&gt;</code>? На помощь приходят предикаты — конструкции, с помощью которых можно отфильтровать элементы по заданным условиям. </p>
+
+<p>Выберем ключевые слова первого курса по вёрстке. Для этого достаточно использовать запрос <code class="language-plaintext highlighter-rouge">//course[1]/tags</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;tags&gt;</span>HTML5, CSS, DevTools, вёрстка<span class="nt">&lt;/tags&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">[1]</code> — это предикат с условием: «Взять элемент по индексу 1». Попробуйте сделать запрос ко второму или третьему элементу. Достаточно поменять только одну цифру! </p>
+
+<hr />
+
+<p>Интересно, что в отличие от принятых стандартов программирования, в <em>XPath</em> индексы элементов начинаются с единицы, а не с нуля. Если вы уже программируете, то это может немного запутать</p>
+
+<hr />
+
+<p>Предикаты помогают делать точные выборки. Например, получить ссылки на русскоязычные страницы курсов. Для этого нужно получить элементы <code class="language-plaintext highlighter-rouge">&lt;url&gt;</code> у которых атрибут <code class="language-plaintext highlighter-rouge">lang</code> равен <code class="language-plaintext highlighter-rouge">ru</code>. Делается это указанием атрибута и значения, а чтобы <em>XPath</em> отличил атрибут от элемента перед атрибутом указывается символ <code class="language-plaintext highlighter-rouge">@</code>. </p>
+
+<p>Теперь запрос будет выглядеть так: <code class="language-plaintext highlighter-rouge">//course/url[@lang="ru"]</code></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/layout-designer-basics<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/css-content<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+</code></pre></div></div>
+
+<p>Бывает полезно выбрать элементы, которые имеют хоть какой-то атрибут. Для этого можно использовать конструкцию <code class="language-plaintext highlighter-rouge">//*[@*]</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"9"</span><span class="nt">&gt;</span>9 часов<span class="nt">&lt;/duration&gt;</span>
+<span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/layout-designer-basics<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/layout-designer-basics<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"18"</span><span class="nt">&gt;</span>18 часов<span class="nt">&lt;/duration&gt;</span>
+<span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/css-content<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/css-content<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"10"</span><span class="nt">&gt;</span>10 часов<span class="nt">&lt;/duration&gt;</span>
+<span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+</code></pre></div></div>
+
+<p>Как можно понять, знак <code class="language-plaintext highlighter-rouge">*</code> обозначает «все/любой».</p>
+
+<p>Когда выбраны элементы по атрибутам, то можно произвести дополнительную фильтрацию по этим значениям. Например, найдём элементы <code class="language-plaintext highlighter-rouge">&lt;duration&gt;</code> со значением атрибута <code class="language-plaintext highlighter-rouge">value</code> больше <code class="language-plaintext highlighter-rouge">9</code>. Что нужно узнать из нового — внутри предикатов используются знакомые, по языкам программирования, операторы сравнения:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&gt;</code> — больше</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;</code> — меньше</li>
+  <li><code class="language-plaintext highlighter-rouge">&gt;=</code> — больше или равно</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;=</code> — меньше или равно</li>
+  <li><code class="language-plaintext highlighter-rouge">=</code> — равно</li>
+  <li><code class="language-plaintext highlighter-rouge">!=</code> — не равно</li>
+</ul>
+
+<p>Запрос будет выглядеть так: <code class="language-plaintext highlighter-rouge">//course/duration[@value &gt; 9]</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"18"</span><span class="nt">&gt;</span>18 часов<span class="nt">&lt;/duration&gt;</span>
+<span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"10"</span><span class="nt">&gt;</span>10 часов<span class="nt">&lt;/duration&gt;</span>
+</code></pre></div></div>
+
+<p>Это, конечно, всё интересно, но мало кому нужно выбирать только одно поле. Скорее всего нам нужны данные по всему курсу или другому его полю. Как одновременно использовать предикат и обращаться к другим полям? В этом нет ничего сложного! Предикат необязательно должен идти в конце запроса, он может находиться в любой его части, а внутри него может быть не только выборка по атрибуту или индексу, а новые пути по которым нужно сделать проверку.</p>
+
+<p>Звучит сложно, но на деле всё очень просто. Мы уже знаем как, с помощью предиката, отфильтровать данные по полю <code class="language-plaintext highlighter-rouge">&lt;duration&gt;</code>. Это делалось с помощью конструкции <code class="language-plaintext highlighter-rouge">duration[@value &gt; 9]</code>. А если эта конструкция будет предикатом для <code class="language-plaintext highlighter-rouge">&lt;course&gt;</code>? Именно это и нужно сделать, чтобы получить данные о курсах, у которых длительность больше 9 часов: <code class="language-plaintext highlighter-rouge">//course[duration[@value &gt; 9]]</code></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;course&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Основы вёрстки контента<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;tags&gt;</span>CSS3, HTML5, Селекторы, Доступность, CSS Columns, CSS Units, Вёрстка<span class="nt">&lt;/tags&gt;</span>
+  <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"18"</span><span class="nt">&gt;</span>18 часов<span class="nt">&lt;/duration&gt;</span>
+  <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/css-content<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/css-content<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/course&gt;</span>
+<span class="nt">&lt;course&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Bootstrap 5: Основы верстки<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;tags&gt;</span>Bootstrap 5, Адаптивность, HTML, CSS3<span class="nt">&lt;/tags&gt;</span>
+  <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"10"</span><span class="nt">&gt;</span>10 часов<span class="nt">&lt;/duration&gt;</span>
+  <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/course&gt;</span>
+</code></pre></div></div>
+
+<p>Можно продолжить этот запрос и получить только имена курсов. В таком случае предикат будет уже в середине запроса, а не в его конце. <code class="language-plaintext highlighter-rouge">//course[duration[@value &gt; 9]]/name</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;name&gt;</span>Основы вёрстки контента<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;name&gt;</span>Bootstrap 5: Основы верстки<span class="nt">&lt;/name&gt;</span>
+</code></pre></div></div>
+
+<h3 id="функции">Функции</h3>
+
+<p>В прошлых примерах запросы затрагивали теги и атрибуты, но не сами данные, а ведь это огромный пласт информации по которой можно делать выборки. Для решения этой задачи используются встроенные в <em>XPath</em> функции. Они являются частью предикатов, как, например <code class="language-plaintext highlighter-rouge">@</code>. Попробуем найти курс с названием «Основы вёрстки контента». </p>
+
+<p>Для поиска по тексту внутри элемента используется функция <code class="language-plaintext highlighter-rouge">text()</code>. Её задача — получить текстовое значение элемента и, при необходимости, сравнить с условием. Вот как будет выглядеть запрос для поиска курса с нужным именем: <code class="language-plaintext highlighter-rouge">//course[name[text()="Основы вёрстки контента"]]</code></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;course&gt;</span>
+  <span class="nt">&lt;name&gt;</span>Основы вёрстки контента<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;tags&gt;</span>CSS3, HTML5, Селекторы, Доступность, CSS Columns, CSS Units, Вёрстка<span class="nt">&lt;/tags&gt;</span>
+  <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"18"</span><span class="nt">&gt;</span>18 часов<span class="nt">&lt;/duration&gt;</span>
+  <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/css:content<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/css:content<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/course&gt;</span>
+</code></pre></div></div>
+
+<p>Но что если нам известно только часть названия? Для этого существует функция <code class="language-plaintext highlighter-rouge">contains()</code> которая принимает два аргумента:</p>
+
+<ol>
+  <li>Строка, где будет производиться поиск</li>
+  <li>Подстрока, которая будет искаться</li>
+</ol>
+
+<p>Например, найдём курс, у которого в ключевых словах есть слово «Bootstrap». Функция примет текстовое значение элемента <code class="language-plaintext highlighter-rouge">tags</code> и найдёт там слово «Bootstrap»: <code class="language-plaintext highlighter-rouge">//course[tags[contains(text(), "Bootstrap")]]</code></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;course&gt;</span>
+  <span class="nt">&lt;name&gt;</span>Bootstrap 5: Основы верстки<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;tags&gt;</span>Bootstrap 5, Адаптивность, HTML, CSS3<span class="nt">&lt;/tags&gt;</span>
+  <span class="nt">&lt;duration</span> <span class="na">value=</span><span class="s">"10"</span><span class="nt">&gt;</span>10 часов<span class="nt">&lt;/duration&gt;</span>
+  <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"ru"</span><span class="nt">&gt;</span>https://ru.hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;url</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>https://hexlet.io/courses/bootstrap_basic<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/course&gt;</span>
+</code></pre></div></div>
+
+<p>В стандарте <em>XPath</em> существует ещё несколько функций, но цель статьи не дать исчерпывающую документацию по языку, а показать принципы работы тех или иных механизмов</p>
+
+<h2 id="отличия-от-css-селекторов">Отличия от CSS-селекторов</h2>
+
+<p>Если вы писали на JavaScript, то знаете, что можно искать элементы с помощью CSS-селекторов используя методы <code class="language-plaintext highlighter-rouge">querySelector()</code> или <code class="language-plaintext highlighter-rouge">querySelectorAll()</code>. Почему же разработчики, иногда, прибегают к помощи <em>XPath</em> для поиска элементов внутри HTML? Всё дело в концепции поиска элементов: используя CSS возможно идти только в глубину без возможности обратиться к родительским элементам; <em>XPath</em> позволяет в любой момент обращаться как к дочерним, так и к родительским элементам. </p>
+
+<hr />
+
+<p>Если вы хотите узнать, как осуществлять поиск по HTML с помощью XPath, то рекомендуем обратиться к статье <a href="https://developer.mozilla.org/en-US/docs/Web/XPath/Introduction_to_using_XPath_in_JavaScript">Introduction to using XPath in JavaScript</a></p>
+
+<hr />
+
+<p>С помощью CSS нельзя найти все элементы <code class="language-plaintext highlighter-rouge">div</code> внутри которых есть ссылки. Мы можем найти сами ссылки, но не их родителей. XPath позволяет это сделать простым сочетанием <code class="language-plaintext highlighter-rouge">div[a]</code> . Постепенно это изменяется и в CSS появился селектор <code class="language-plaintext highlighter-rouge">:has()</code>, но его поддержка ещё не реализована всеми новыми версиями браузеров. Со временем это изменится, но, пока, реальность именно такая.</p>
+
+<p>Другой пример — поиск элементов по тексту внутри них. С этой задачей CSS никогда не справится, так как такой задачи у него нет. XPath, как мы изучили, умеет это делать с помощью функции <code class="language-plaintext highlighter-rouge">text()</code></p>
+
+<h2 id="кому-нужен-xpath">Кому нужен Xpath</h2>
+
+<p>Ответ на этот вопрос лежит на поверхности: «Всем, кто работает с XML». С одной стороны это максимальный короткий ответ, а с другой он не вызывает понимания. Вот лишь несколько примеров, кому будет полезен <em>_XPath_</em>:</p>
+
+<p><strong>SEO-специалисты</strong>. В своей работе специалистам по продвижению необходимо обрабатывать большие массивы данных и «вытаскивать» информацию со страниц сайта. Например, для них критичны мета-теги — дополнительная информация, в которой содержатся иконки сайтов, название страницы, описание и так далее. Используя специализированный софт они могут составлять запросы в <em>_XPath_</em> для автоматического парсинга этих данных</p>
+
+<p><strong>Тестировщики</strong>. При тестировании Frontend тестировщикам часто нужно проверить тот или иной вывод информации на странице. Для этого, внутри теста, выбирается элемент с нужной страницы и производится тестирование. Но как выбрать элемент на странице? На самом деле есть несколько основных способов и один из них — использование <em>XPath</em>. Так же <em>XPath</em> можно использовать и внутри привычных всем инструментов разработчика, например DevTools который встроен в браузеры на основе движка <em>Chromium</em> </p>
+
+<p><strong>Разработчики</strong>. В разработке есть популярный класс программ, которые называются <em>парсеры</em> — это скрипты, задача которых найти нужную информацию на страницах одного или нескольких сайтов. Например, мы хотим сравнить стоимость одного и того же товара в разных магазинах. Для такой задачи можно написать скрипт, который пройдётся по всем нужным сайтам, сравнит цены и вернёт данные. А вот найти информацию на странице можно с помощью <em>XPath</em></p>
+
+<p>Это лишь часть сценариев, где может пригодиться язык <em>XPath</em>, а реальность такова, что есть ещё десятки сценариев использования запросов с помощью этого языка</p>
+
+<h2 id="заключение">Заключение</h2>
+
+<p>В этой статье мы рассмотрели где встречается XML и кому может понадобиться искать внутри по данным внутри этих документов. Научились составлять базовые запросы и изучили часто используемые конструкции XPath:</p>
+
+<ul>
+  <li>Абсолютные и относительные пути</li>
+  <li>Предикаты</li>
+  <li>Поиск по атрибутам</li>
+  <li>Операторы сравнения</li>
+  <li>Функции</li>
+</ul>
+
+<p>Узнали, когда поиск по HTML с помощью XPath может быть эффективнее поиска с помощью CSS-селекторов.</p>
+
+<p>Язык XPath более глубокий, чем представлено в статье, но те знания, которые вы получили достаточны для того, чтобы решить большинство поставленных задач. Как и при изучении других технологий, тут важно «набивка» руки. Чем больше практики, тем более искусные запросы вы научитесь составлять</p>
+
+    </div>
+
+    <div class="lead d-flex my-5">
+      <span class="me-auto">
+        <a href="https://github.com/Hexlet/hexletguides.github.io/tree/main/_i18n/ru/_posts/2022-07-15-xpath.md" target="_blank">
+          Исходный код (github)
+        </a>
+      </span>
+
+      
+        
+          <div class="fst-italic">Никита Михайлов</div>
+        
+      
+
+    </div>
+
+    <!-- Prev/Next -->
+    <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+      
+      <div class="col-md-6 rightborder pl-0">
+        <a class="thepostlink" href="https://guides.hexlet.io/ru/cryptography/">&laquo; Что такое криптография?</a>
+      </div>
+      
+      
+    </div>
+    <!-- End Prev/Next -->
+
+    <section>
+      <div id="comments">
+        <section class="disqus">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'hexlet-guides';
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+        </main>
+
+        <!-- Footer
+          ================================================== -->
+          <footer class="footer container text-center">
+
+            <ul class="p-0 mb-1 small">
+              
+              <li>
+                <a href="/ru/about/" alt="О проекте">О проекте</a>
+              </li>
+              
+              <li>
+                <a href="https://ru.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral" alt="Бесплатные курсы и вебинары" target="_blank">Бесплатные курсы и вебинары</a>
+              </li>
+              
+              <li>
+                <a href="https://cv.hexlet.io/" alt="Оценка резюме" target="_blank">Оценка резюме</a>
+              </li>
+              
+              <li>
+                <a href="https://codebattle.hexlet.io/" alt="Алгоритмическая прокачка" target="_blank">Алгоритмическая прокачка</a>
+              </li>
+              
+            </ul>
+          </footer>
+
+          <!-- JavaScript
+            ================================================== -->
+            <script src="/assets/js/theme.js"></script>
+  </body>
+</html>
