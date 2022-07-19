@@ -6500,7 +6500,7 @@ c: Тогда я бы воспользовался встроенной функ
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/how-to-learn-sicp/</link>
+            <link>https://guides.hexlet.io/how-to-learn-sicp/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</turbo:topic> -->
             <title>Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</title>
@@ -6511,10 +6511,10 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/how-to-learn-sicp/">Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</a>
+                  <a href="https://guides.hexlet.io/how-to-learn-sicp/">Как изучать Структуру и Интерпретацию Компьютерных Программ (SICP)</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/how-to-learn-sicp/"
+                  formaction="https://guides.hexlet.io/how-to-learn-sicp/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
@@ -6674,7 +6674,7 @@ c: Тогда я бы воспользовался встроенной функ
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/docker/</link>
+            <link>https://guides.hexlet.io/docker/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Как и для чего использовать Docker</turbo:topic> -->
             <title>Как и для чего использовать Docker</title>
@@ -6685,10 +6685,10 @@ c: Тогда я бы воспользовался встроенной функ
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/docker/">Как и для чего использовать Docker</a>
+                  <a href="https://guides.hexlet.io/docker/">Как и для чего использовать Docker</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/docker/"
+                  formaction="https://guides.hexlet.io/docker/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
