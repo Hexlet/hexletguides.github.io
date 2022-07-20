@@ -450,16 +450,16 @@ Untagged: Ruby@sha256:d973c59b89f3c5c9bb330e3350ef8c529753ba9004dcd1bfbcaa4e9c0a
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>CONTAINER ID        IMAGE                            COMMAND                  CREATED                  STATUS                       PORTS                                          NAMES
 85fb81250406        ubuntu                           <span class="s2">"bash -c unkown"</span>         Less than a second ago   Exited <span class="o">(</span>127<span class="o">)</span> 3 seconds ago                                                  loving_bose
-c379040bce42        ubuntu                           <span class="s2">"ls"</span>                     Less than a second ago   Exited <span class="o">(</span>0<span class="o">)</span> 9 seconds ago                                                    determined_tereshkova
+c379040bce42        ubuntu                           <span class="s2">"ls"</span>                     Less than a second ago   Exited <span class="o">(</span>0<span class="o">)</span> 9 seconds ago                                                    determined_thatchar
 </code></pre></div></div>
 
 <p>Here are our two most recent launches. If you look at the STATUS column, you can see that both containers are in the Exited state. That is, the running command inside them was executed, and they stopped. The only difference is that one completed successfully (0), and the other did not (127). Even after it has been stopped, the container can be restarted:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker start determined_tereshkova <span class="c"># In your case, there will be another name</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker start determined_thatchar <span class="c"># In your case, there will be another name</span>
 
 </code></pre></div></div>
 
-<p>Only this time you won’t see the output. Use the <code class="language-plaintext highlighter-rouge">docker logs determined_tereshkova</code> command to see it.</p>
+<p>Only this time you won’t see the output. Use the <code class="language-plaintext highlighter-rouge">docker logs determined_thatchar</code> command to see it.</p>
 
 <h2 id="interactionbetween-thecomponentsof-asystem">Interaction between the components of a system</h2>
 
