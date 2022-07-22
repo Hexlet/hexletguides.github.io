@@ -54,3 +54,20 @@ export const getPostsList = async (locale) => {
     name,
   }));
 };
+
+export const findPost = async (name, locale) => {
+  const posts = await getPublishedPosts(locale);
+  const post = posts.find((post) => post.name === name);
+
+  const {
+    title, header = title,
+    description, summary = description,
+    ...props
+  } = post;
+
+  return {
+    header,
+    summary,
+    ...props,
+  };
+};
