@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-export default function FourOhFour() {
+const FourOhFour = () => {
   const { t } = useTranslation('404');
 
   return (
@@ -39,3 +39,5 @@ export const getStaticProps = async ({ locale }) => ({
     ...await serverSideTranslations(locale, ['404']),
   },
 });
+
+export default FourOhFour;

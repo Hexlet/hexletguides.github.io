@@ -1,0 +1,115 @@
+<p>Deployment is the process of web service “deployment”, e.g. of a website, in the operating environment. An operating environment is a place where a website is started and available for requests. This can be ready-made hosting as well as your own server infrastructure.</p>
+
+<p><em>Not only web services but also any services available over the network are deployed. Even if this network is internal and not available for requests over the Internet.</em></p>
+
+<p>To understand deployment, you need to understand the code life cycle. The application code is built on the developer’s workstation and run in another place called production. Production is a startup environment (also called a live environment). In the case of a simple application, it may consist of a single server, but for truly complex applications it can be thousands and tens of thousands of servers.</p>
+
+<p>How does it work? Developers add the code to the information repository. At some point, they decide it’s time to bring it to production. This can be done on a regular schedule such as every two weeks or just as needed up to the release after each change. In many cases, the number of deployments depends on the automation level, i.e. to which extent the process is easy to conduct and rollback. At Hexlet, deployments are performed almost after each change, approximately three deployments a day.</p>
+
+<p>When developers decide now it’s time, they create a release. Release usually refers to a Git tag that marks things to be deployed. Namely, changes added to a master branch after the tag has been created won’t affect the tag itself, which means that we are sure about what we will be deploying.</p>
+
+<!-- image -->
+
+<p>For static websites or a separate frontend (HTML, CSS, and static files only), deployment comes down to updating the code on the server. In the case of backend deployment, the database is connected at the very least. In general, deployment can be a complicated procedure taking decent time. In distributed systems consisting of many independent web services, there is no regular deployment at all - each part of the application is deployed (released) independently.</p>
+
+<p><em>It’s worth mentioning that such PaaS platforms as Heroku take the deployment completely upon themselves. There you just have to make a commit, and then everything will happen by itself. The price for this is the cost of the platform itself.</em></p>
+
+<h2 id="deployment-stages">Deployment stages</h2>
+
+<h3 id="code-delivery-to-the-server">Code delivery to the server</h3>
+
+<p>There are different options for code delivery to the server, depending on its packaging. Sometimes the code is directly transmitted to the server as a set of files, but more often it’s updated via Git. Back in the day, the deployment method through standard package managers of Linux distributions was popular. It’s still in use today and best suited for certain situations.</p>
+
+<ul>
+  <li>Git: <em>git checkout tag-name</em></li>
+  <li>Docker: <em>docker pull image-name:tag-name</em></li>
+  <li>Apt (package): <em>apt-install application-package-name</em></li>
+</ul>
+
+<h3 id="database-update">Database update</h3>
+
+<p>In general, a new application version requires changes in the database. To do this, migrations - special scripts containing database update rules - are run during (or before) deployment. For instance, SQL scripts:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">car</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">INT</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">license_plate</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">color</span> <span class="nb">VARCHAR</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">owner</span> <span class="k">ADD</span> <span class="n">driver_license_id</span> <span class="nb">VARCHAR</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="start-and-stop">Start and stop</h3>
+
+<p>Somewhere in this process, the old version stops, and the new one starts. If we first stop the old version, then execute migrations and start the new version, we will get service downtime. This is a really common thing for many, but it can be sensitive for business and frequent deployments. So, the most advanced projects don’t stop during deployment. There is a description below of how to do it.</p>
+
+<h2 id="automation">Automation</h2>
+
+<p>Deployment should be automated as much as possible; Time To Market, a key characteristic of business-oriented applications, depends on it. The faster and more often we deliver changes to the user, the better. The faster we check hypotheses, the faster we introduce changes, and the faster the money invested in development pays its way. Developers are afraid to perform deployment without automation, it becomes a burden that leads to a decrease in deployments and regular stress for the whole team, working long hours.</p>
+
+<p>There are three main automation ways:</p>
+
+<ol>
+  <li>Using utilities created for specific languages. For example, it’s Capistrano in Ruby, one of the first and best-known utilities of its kind, which has become popular far beyond Ruby. The main problem with such tools is strong binding with the language</li>
+  <li>Using Ansible with an <a href="https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html">already built-in module for deployment</a>. It’s relevant for most deployment situations on managed servers</li>
+  <li>Kubernetes-type orchestration systems. If they are used, you can’t do without automated deployment</li>
+</ol>
+
+<p>However, even if automation is executed, the task of “running deployment” remains. The start is also automated. There is a whole approach called <a href="https://en.wikipedia.org/wiki/Continuous_delivery">Continuous Delivery</a>. It’s difficult to implement and is not suitable everywhere, but if it works, you can forget about deployment. It’s performed entirely on its own without human involvement. The main thing in this option is good monitoring and alerting system.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c1"># https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html#examples</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Initialize the deploy root and gather facts</span>
+  <span class="na">community.general.deploy_helper</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">/path/to/root</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Clone the project to the new release folder</span>
+  <span class="na">ansible.builtin.git</span><span class="pi">:</span>
+    <span class="na">repo</span><span class="pi">:</span> <span class="s">ansible.builtin.git://foosball.example.org/path/to/repo.git</span>
+    <span class="na">dest</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">v1.1.1</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Add an unfinished file, to allow cleanup on successful finalize</span>
+  <span class="na">ansible.builtin.file</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/'</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">touch</span>
+</code></pre></div></div>
+
+<h2 id="zero-downtime-deployment">Zero Downtime Deployment</h2>
+
+<p>If no special steps are taken, each deployment will cause the service to stop (possibly partially). At this time users will either see an error or a message that an update is in progress. But this does not happen on most major Internet services. Why? Due to the implementation of the “Zero Downtime Deployment” approach (downtime means service operational downtime).</p>
+
+<p>Zero Downtime Deployment is when the service never stops running, but in the meantime, it’s being updated. This is achieved by simultaneously running the old version and the new code. Namely, when an application is deployed, the new version arises next to the old one. And only when the automatics make sure that the new version has started and run, the old version is stopped. The following is required to perform this procedure:</p>
+
+<ol>
+  <li>Infrastructure. You need a load balancing to switch traffic (incoming connections from browsers or other systems) between the old and the new version of the code. And it’s desirable to have at least two servers, although it’s not required</li>
+  <li>Deployment. Zero downtime deployment process is much more complicated than the usual one. The easiest way to execute it’s on orchestration systems such as Kubernetes</li>
+  <li>Code culture. It’s impossible to ensure non-stop operation without a certain culture of code writing. For the old and the new version to work simultaneously, you need to keep an eye on all interfaces. It’s important to maintain backward compatibility (working with API, database, queues, and, in general, with any storage)</li>
+  <li>Database. It should be backward compatible between the old and the new versions. All migrations are forward-only (you can’t undo them!) and for addition only. You can’t delete and update (rename, change the type of) columns and tables</li>
+</ol>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">extensions/v1beta1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">tomcat-deployment-${TARGET_ROLE}</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">2</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">tomcat</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">${TARGET_ROLE}</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">tomcat-container</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">tomcat:${TOMCAT_VERSION}</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+        <span class="na">readinessProbe</span><span class="pi">:</span>
+          <span class="na">httpGet</span><span class="pi">:</span>
+            <span class="na">path</span><span class="pi">:</span> <span class="s">/</span>
+            <span class="na">port</span><span class="pi">:</span> <span class="m">8080</span>
+</code></pre></div></div>
+
+<h2 id="links">Links</h2>
+
+<ul>
+  <li><a href="https://docs.ansible.com/ansible/latest/collections/community/general/deploy_helper_module.html">Ansible Deploy</a></li>
+</ul>
