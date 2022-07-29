@@ -4,7 +4,7 @@ title: |
 header: Что такое Bootstrap, и как он работает
 subtitle: Front-End фреймворк для быстрой и простой веб-разработки.
 description: Рассказываем о фреймворке для создания и проектирования фронтенд-систем, который часто используют верстальщики
-image: "assets/images/bootstrap/bootstrap.jpeg"
+image: "assets/images/bootstrap/bootstrap.png"
 author: Никита Михайлов
 ---
 
