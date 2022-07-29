@@ -398,7 +398,7 @@ Untagged: Ruby@sha256:d973c59b89f3c5c9bb330e3350ef8c529753ba9004dcd1bfbcaa4e9c0a
 
 <p>The picture describes the life cycle (finite state machine) of the container. The circles depict the states, the console commands are highlighted in bold, and the squares show what is actually being executed.</p>
 
-<p>Follow the path of the  <code class="language-plaintext highlighter-rouge">docker run</code>command. This single command performs two actions in Docker: creating a container and starting it. There are more complex execution scenarios, but in this section, we will consider only the basics.</p>
+<p>Follow the path of the  <code class="language-plaintext highlighter-rouge">docker run</code> command. This single command performs two actions in Docker: creating a container and starting it. There are more complex execution scenarios, but in this section, we will consider only the basics.</p>
 
 <p>Let’s run nginx so that it works in the background. To do this, we will add the <code class="language-plaintext highlighter-rouge">-d</code> flag after the word <em>run</em>:</p>
 
@@ -517,9 +517,9 @@ src
 <p>The application in a container is often configured via environment variables following <a href="https://12factor.net">12factors</a>. There are two ways of installing them:</p>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">-e</code>flag is used as follows: <code class="language-plaintext highlighter-rouge">docker run -it -e "HOME=/tmp" ubuntu bash</code>
+  <li>The <code class="language-plaintext highlighter-rouge">-e</code> flag is used as follows: <code class="language-plaintext highlighter-rouge">docker run -it -e "HOME=/tmp" ubuntu bash</code>
 </li>
-  <li>The <code class="language-plaintext highlighter-rouge">--env-file</code> option inserts a special file containing environment variable definitions into the container</li>
+  <li>The <code class="language-plaintext highlighter-rouge">--env-file</code> option inserts a special file containing environment variable definitions into the</li>
 </ul>
 
 <h2 id="preparing-your-own-docker-image">Preparing your own docker image</h2>
@@ -594,7 +594,7 @@ CMD ["eslint", "/app"]
 
 <h4 id="workdir">WORKDIR</h4>
 
-<p>Sets the working directory. All subsequent instructions will be assumed to be executed from it. By default, the <code class="language-plaintext highlighter-rouge">WORKDIR</code> instruction acts like a <code class="language-plaintext highlighter-rouge">cd</code>command. Besides, when we launch the container, it also starts from the working directory. For example, by running bash, you will end up inside it.</p>
+<p>Sets the working directory. All subsequent instructions will be assumed to be executed from it. By default, the <code class="language-plaintext highlighter-rouge">WORKDIR</code> instruction acts like a <code class="language-plaintext highlighter-rouge">cd</code> command. Besides, when we launch the container, it also starts from the working directory. For example, by running bash, you will end up inside it.</p>
 
 <h4 id="cmd">CMD</h4>
 
