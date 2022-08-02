@@ -4,7 +4,6 @@ subtitle: Инструкция по установке Ubuntu Linux внутри
 description: Инструкция по установке Ubuntu Linux внутри Windows с использованием VirtualBox.
 image: "assets/images/virtualbox/virtualization_cover.png"
 author: Кирилл Мокевнин
-hidden: true
 ---
 
 Если вы работаете на Windows версии ниже 10 или хотите получить изолированную операционную систему Linux, да ещё и с графическим окружением, то можно воспользоваться сторонним бесплатным программным продуктом под названием VirtualBox.
