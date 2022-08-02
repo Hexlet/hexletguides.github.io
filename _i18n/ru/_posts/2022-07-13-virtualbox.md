@@ -2,7 +2,6 @@
 title: Virtualbox
 subtitle: Инструкция по установке Ubuntu Linux внутри Windows с использованием VirtualBox.
 description: Инструкция по установке Ubuntu Linux внутри Windows с использованием VirtualBox.
-image: "assets/images/virtualbox/virtualization_cover.png"
 author: Кирилл Мокевнин
 hidden: true
 ---
