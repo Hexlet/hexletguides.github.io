@@ -2,7 +2,7 @@
 title: Что такое интерпретатор
 # subtitle:
 description: В этом гайде разберемся, что такое интерпретатор, для чего он нужен и как работает
-# image: "/assets/images/compiler/compiler.jpg"
+image: "/assets/images/interpreter/interpreter.png"
 author: Марк Шевченко
 ---
 
