@@ -91,10 +91,10 @@ asdf plugin add nodejs
 asdf install nodejs latest # latest означает последнюю версию указанного языка
 
 # Установка указанной версии
-asdf install nodejs latest
+asdf install nodejs 18.7.0
 
 # Установка нужной версии языка версией по умолчанию
-asdf global nodejs latest
+asdf global nodejs 18.7.0
 
 # Показывает текущие версии для языков, установленных через asdf
 asdf current
