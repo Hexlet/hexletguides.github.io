@@ -15,3 +15,4 @@ node_modules
 .jekyll-metadata
 next-app/node_modules
 next-app/.next
+.vscode
