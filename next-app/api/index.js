@@ -3,6 +3,7 @@ import fsp from 'fs/promises';
 
 import yaml from 'js-yaml';
 import matter from 'gray-matter';
+import remarkGfm from 'remark-gfm';
 import rehypePrism from '@mapbox/rehype-prism';
 import { serialize } from 'next-mdx-remote/serialize';
 
@@ -72,6 +73,7 @@ export const findPost = async (name, locale) => {
   const { compiledSource } = await serialize(content, {
     mdxOptions:{
       rehypePlugins: [rehypePrism],
+      remarkPlugins: [remarkGfm],
       format: 'md',
     },
     parseFrontmatter: false,

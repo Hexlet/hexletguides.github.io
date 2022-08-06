@@ -23,6 +23,7 @@
     "next-mdx-remote": "^4.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "remark-gfm": "^3.0.1",
     "sass": "^1.52.2"
   },
   "devDependencies": {
