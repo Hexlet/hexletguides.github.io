@@ -183,7 +183,7 @@
 
       <a class="full_post_link" href="https://guides.hexlet.io/ru/asciidoc/">Читать в полной версии →</a>
 
-      <p>Представьте, что вы пишите статью, книгу или курс на Хекслете: используете дополнительную литературу, вычитываете текст, делаете его простым и стараетесь донести до читателей всё, что хотели. Это уже большая работа, которая требует времени и внимательности, но нужно не только написать текст, но и разметить его, чтобы выделить заголовки, списки, цитаты, ссылки.</p>
+      <p>Представьте, что вы пишите статью, книгу или обучающий курс: используете дополнительную литературу, вычитываете текст, делаете его простым и стараетесь донести до читателей всё, что хотели. Это уже большая работа, которая требует времени и внимательности, но нужно не только написать текст, но и разметить его, чтобы выделить заголовки, списки, цитаты, ссылки, формулы.</p>
 
 <p>Как сделать так, чтобы устройства, с которых будут читать текст, правильно поняли логическую структуру? Для этого используются языки разметки — специальные соглашения по оформлению текста, в которых для каждого элемента существуют конструкции, однозначно их определяющие.</p>
 
@@ -240,7 +240,7 @@
 
 <p>Разработчики AsciiDoc советуют не использовать Word, Libre Office, Google Docs и другие тяжелые редакторы. Дело в том, что эти “тяжелые редакторы” мешают работать с “адоками”: автору придется сначала оформлять заголовки в гуглдоке, а потом переносить в <em>.adoc</em> и переделывать еще раз, это двойная работа.</p>
 
-<p>Перед изучением синтаксиса стоит сказать, что AsciiDoc напоминает формат разметки Markdown. Если вы работали с этим форматом, то многие вещи покажутся похожими и интуитивно понятными. И наоборот, если вы знаете AsciiDoc, то использование Markdown не вызовет больших трудностей.</p>
+<p>Перед изучением синтаксиса стоит сказать, что AsciiDoc напоминает формат <a href="https://guides.hexlet.io/ru/markdown/">разметки Markdown</a>. Если вы работали с этим форматом, то многие вещи покажутся похожими и интуитивно понятными. И наоборот, если вы знаете AsciiDoc, то использование Markdown не вызовет больших трудностей.</p>
 
 <p>Помимо этого, AsciiDoc умеет интерпретировать многие записи формата Markdown, поэтому, если у вас есть текст в Markdown, то попробуйте поменять расширение и посмотреть, как много элементов останутся такими же. Полный список совместимости будет по ссылке в конце этого гайда.</p>
 
@@ -473,56 +473,12 @@ end
 
 <p><amp-img src="/assets/images/asciidoc/asciidoc_table_header.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_table_header.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
 
-<h3 id="добавление-html-разметки-в-текст">Добавление HTML разметки в текст</h3>
-
-<p>Хоть AsciiDoc и призван заменить HTML разметку для текста, но её использование может быть обосновано стилизацией, удобством чтения исходного текста и так далее.</p>
-
-<p>Используется два способа добавления разметки в AsiiDoc:</p>
-
-<ol>
-  <li>Passthroughs — блочное добавление</li>
-  <li>Inline Passthroughs — инлайновое добавление</li>
-</ol>
-
-<p>Они отличаются способом записи и возможностью многострочного добавления кода. В примере с таблицами, для создания переноса строки, использовался код <code class="language-plaintext highlighter-rouge">pass:[&lt;br&gt;]</code>. Это — инлайновое добавление, когда внутрь строки добавляется произвольная HTML разметка. На самом деле пример с таблицей можно было записать так:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>|====
-|Язык |Где используется
-
-|HTML
-|Web-страницы и приложения в браузере
-
-|JS
-|Web-разработка
-
- Мобильная разработка
-
- GameDev
-|====
-</code></pre></div></div>
-
-<p>Такой способ записи разбивает привычную картину, в которой одна строка отвечает за одну ячейку. Это полезно, если текст длинный и имеет параграфы, списки и так далее.</p>
-
-<p>В нашем случае проще добавить перенос с помощью тега <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>. Для его записи используется конструкция <code class="language-plaintext highlighter-rouge">pass:[]</code>, где внутри скобок указывается HTML разметка.</p>
-
-<p>С помощью конструкции Inline Passthroughs добавляются теги <code class="language-plaintext highlighter-rouge">&lt;kbd&gt;&lt;/kbd&gt;</code>, которые размечают клавиши на клавиатуре:</p>
+<p>Строка <code class="language-plaintext highlighter-rouge">pass:[&lt;br&gt;]</code> добавляет HTML-тег <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code> для переноса внутри строки. Так же можно добавить теги <code class="language-plaintext highlighter-rouge">&lt;kbd&gt;&lt;/kbd&gt;</code>, которые размечают клавиши на клавиатуре:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Для открытия DevTools используйте комбинацию клавиш pass:[&lt;kbd&gt;Ctrl + Shift + I&lt;kbd&gt;]
 </code></pre></div></div>
 
 <p><amp-img src="/assets/images/asciidoc/asciidoc_kbd.png" alt="Разметка комбинаций клавиш в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_kbd.png" alt="Разметка комбинаций клавиш в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
-
-<p>Если требуется создать большой код с HTML, то используется блочное добавление. Для этого разметка добавляется между двумя конструкциями <code class="language-plaintext highlighter-rouge">++++</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>++++
-&lt;section class="promo"&gt;
-  &lt;h1&gt;Приходите на курсы по вёрстке&lt;/h1&gt;
-  &lt;p&gt;Хоть иногда :(&lt;/p&gt;
-&lt;/section&gt;
-++++
-</code></pre></div></div>
-
-<p><amp-img src="/assets/images/asciidoc/asciidoc_html.png" alt="Добавление HTML в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_html.png" alt="Добавление HTML в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
 
 <h3 id="математические-формулы">Математические формулы</h3>
 
