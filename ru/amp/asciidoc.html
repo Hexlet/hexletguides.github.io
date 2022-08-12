@@ -1,0 +1,571 @@
+<!doctype html>
+<html amp lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Что такое AsciiDoc</title>
+    <link rel="canonical" href="https://guides.hexlet.io/ru/asciidoc/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+    
+    <style amp-custom>
+      .banner { background-color: #f8f9fa; border-left: 3px solid #0dcaf0; padding: 1rem; }
+
+.markdown .banner a { text-decoration: none; }
+
+.full_post_link.full_post_link { padding: .7rem 1rem; display: block; border: 1px solid #212529; border-radius: 2px; text-align: center; text-decoration: none; font-size: 1rem; }
+
+.markdown { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; color: #4a5568; margin-left: auto; margin-right: auto; max-width: 65ch; padding: 3rem 1.5rem; }
+
+.markdown [class~="lead"] { color: #4a5568; font-size: 1.25em; line-height: 1.6; margin-top: 1.2em; margin-bottom: 1.2em; }
+
+.markdown a { color: #1a202c; text-decoration: underline; }
+
+.markdown strong { color: #1a202c; font-weight: 600; }
+
+.markdown ol { list-style: none; padding: 0; counter-reset: list-counter; margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown ol > li { position: relative; counter-increment: list-counter; padding-left: 1.75em; }
+
+.markdown ol > li::before { content: counter(list-counter) "."; position: absolute; font-weight: 400; color: #718096; }
+
+.markdown ul > li { position: relative; padding-left: 1.75em; }
+
+.markdown ul > li::before { content: ""; position: absolute; background-color: #cbd5e0; border-radius: 50%; width: 0.375em; height: 0.375em; top: calc(0.875em - 0.1875em); left: 0.25em; }
+
+.markdown hr { border-color: #e2e8f0; border-top-width: 1px; margin-top: 3em; margin-bottom: 3em; }
+
+.markdown blockquote { font-weight: 500; font-style: italic; color: #1a202c; border-left-width: 0.25rem; border-left-color: #e2e8f0; margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1em; }
+
+.markdown blockquote p:first-of-type::before { content: open-quote; }
+
+.markdown blockquote p:last-of-type::after { content: close-quote; }
+
+.markdown h1 { color: #1a202c; font-weight: 800; font-size: 2.25em; margin-top: 0; margin-bottom: 0.8888889em; line-height: 1.1111111; }
+
+.markdown h2 { color: #1a202c; font-weight: 700; font-size: 1.5em; margin-top: 2em; margin-bottom: 1em; line-height: 1.3333333; }
+
+.markdown h3 { color: #1a202c; font-weight: 600; font-size: 1.25em; margin-top: 1.6em; margin-bottom: 0.6em; line-height: 1.6; }
+
+.markdown h4 { color: #1a202c; font-weight: 600; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.5; }
+
+.markdown figure figcaption { color: #718096; font-size: 0.875em; line-height: 1.4285714; margin-top: 0.8571429em; }
+
+.markdown code { color: #1a202c; font-weight: 600; font-size: 0.875em; }
+
+.markdown code::before { content: "`"; }
+
+.markdown code::after { content: "`"; }
+
+.markdown pre { color: #e2e8f0; background-color: #2d3748; overflow-x: auto; font-size: 0.875em; line-height: 1.7142857; margin-top: 1.7142857em; margin-bottom: 1.7142857em; border-radius: 0.375rem; padding-top: 0.8571429em; padding-right: 1.1428571em; padding-bottom: 0.8571429em; padding-left: 1.1428571em; }
+
+.markdown pre code { background-color: transparent; border-width: 0; border-radius: 0; padding: 0; font-weight: 400; color: inherit; font-size: inherit; font-family: inherit; line-height: inherit; }
+
+.markdown pre code::before { content: ""; }
+
+.markdown pre code::after { content: ""; }
+
+.markdown table { width: 100%; table-layout: auto; text-align: left; margin-top: 2em; margin-bottom: 2em; font-size: 0.875em; line-height: 1.7142857; }
+
+.markdown thead { color: #1a202c; font-weight: 600; border-bottom-width: 1px; border-bottom-color: #cbd5e0; }
+
+.markdown thead th { vertical-align: bottom; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown tbody tr { border-bottom-width: 1px; border-bottom-color: #e2e8f0; }
+
+.markdown tbody tr:last-child { border-bottom-width: 0; }
+
+.markdown tbody td { vertical-align: top; padding-top: 0.5714286em; padding-right: 0.5714286em; padding-bottom: 0.5714286em; padding-left: 0.5714286em; }
+
+.markdown { font-size: 1rem; line-height: 1.75; }
+
+.markdown p { margin-top: 1.25em; margin-bottom: 1.25em; }
+
+.markdown img { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown video { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure { margin-top: 2em; margin-bottom: 2em; }
+
+.markdown figure > * { margin-top: 0; margin-bottom: 0; }
+
+.markdown h2 code { font-size: 0.875em; }
+
+.markdown h3 code { font-size: 0.9em; }
+
+.markdown ul { margin-top: 1.25em; margin-bottom: 1.25em; list-style: none; padding: 0; }
+
+.markdown li { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+.markdown ol > li:before { left: 0; }
+
+.markdown > ul > li p { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown > ul > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ul > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown > ol > li > *:first-child { margin-top: 1.25em; }
+
+.markdown > ol > li > *:last-child { margin-bottom: 1.25em; }
+
+.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol { margin-top: 0.75em; margin-bottom: 0.75em; }
+
+.markdown hr + * { margin-top: 0; }
+
+.markdown h2 + * { margin-top: 0; }
+
+.markdown h3 + * { margin-top: 0; }
+
+.markdown h4 + * { margin-top: 0; }
+
+.markdown thead th:first-child { padding-left: 0; }
+
+.markdown thead th:last-child { padding-right: 0; }
+
+.markdown tbody td:first-child { padding-left: 0; }
+
+.markdown tbody td:last-child { padding-right: 0; }
+
+.markdown > :first-child { margin-top: 0; }
+
+.markdown > :last-child { margin-bottom: 0; }
+
+@media (min-width: 768px) { .md\:markdown-lg { font-size: 1.125rem; line-height: 1.7777778; } .md\:markdown-lg p { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg [class~="lead"] { font-size: 1.2222222em; line-height: 1.4545455; margin-top: 1.0909091em; margin-bottom: 1.0909091em; } .md\:markdown-lg blockquote { margin-top: 1.6666667em; margin-bottom: 1.6666667em; padding-left: 1em; } .md\:markdown-lg h1 { font-size: 2.6666667em; margin-top: 0; margin-bottom: 0.8333333em; line-height: 1; } .md\:markdown-lg h2 { font-size: 1.6666667em; margin-top: 1.8666667em; margin-bottom: 1.0666667em; line-height: 1.3333333; } .md\:markdown-lg h3 { font-size: 1.3333333em; margin-top: 1.6666667em; margin-bottom: 0.6666667em; line-height: 1.5; } .md\:markdown-lg h4 { margin-top: 1.7777778em; margin-bottom: 0.4444444em; line-height: 1.5555556; } .md\:markdown-lg img { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg video { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure { margin-top: 1.7777778em; margin-bottom: 1.7777778em; } .md\:markdown-lg figure > * { margin-top: 0; margin-bottom: 0; } .md\:markdown-lg figure figcaption { font-size: 0.8888889em; line-height: 1.5; margin-top: 1em; } .md\:markdown-lg code { font-size: 0.8888889em; } .md\:markdown-lg h2 code { font-size: 0.8666667em; } .md\:markdown-lg h3 code { font-size: 0.875em; } .md\:markdown-lg pre { font-size: 0.8888889em; line-height: 1.75; margin-top: 2em; margin-bottom: 2em; border-radius: 0.375rem; padding-top: 1em; padding-right: 1.5em; padding-bottom: 1em; padding-left: 1.5em; } .md\:markdown-lg ol { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg ul { margin-top: 1.3333333em; margin-bottom: 1.3333333em; } .md\:markdown-lg li { margin-top: 0.6666667em; margin-bottom: 0.6666667em; } .md\:markdown-lg ol > li { padding-left: 1.6666667em; } .md\:markdown-lg ol > li:before { left: 0; } .md\:markdown-lg ul > li { padding-left: 1.6666667em; } .md\:markdown-lg ul > li::before { width: 0.3333333em; height: 0.3333333em; top: calc(0.8888889em - 0.1666667em); left: 0.2222222em; } .md\:markdown-lg > ul > li p { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg > ul > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ul > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg > ol > li > *:first-child { margin-top: 1.3333333em; } .md\:markdown-lg > ol > li > *:last-child { margin-bottom: 1.3333333em; } .md\:markdown-lg ul ul, .md\:markdown-lg ul ol, .md\:markdown-lg ol ul, .md\:markdown-lg ol ol { margin-top: 0.8888889em; margin-bottom: 0.8888889em; } .md\:markdown-lg hr { margin-top: 3.1111111em; margin-bottom: 3.1111111em; } .md\:markdown-lg hr + * { margin-top: 0; } .md\:markdown-lg h2 + * { margin-top: 0; } .md\:markdown-lg h3 + * { margin-top: 0; } .md\:markdown-lg h4 + * { margin-top: 0; } .md\:markdown-lg table { font-size: 0.8888889em; line-height: 1.5; } .md\:markdown-lg thead th { padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg thead th:first-child { padding-left: 0; } .md\:markdown-lg thead th:last-child { padding-right: 0; } .md\:markdown-lg tbody td { padding-top: 0.75em; padding-right: 0.75em; padding-bottom: 0.75em; padding-left: 0.75em; } .md\:markdown-lg tbody td:first-child { padding-left: 0; } .md\:markdown-lg tbody td:last-child { padding-right: 0; } .md\:markdown-lg > :first-child { margin-top: 0; } .md\:markdown-lg > :last-child { margin-bottom: 0; } }
+
+@media (min-width: 1024px) { .lg\:markdown-xl { font-size: 1.25rem; line-height: 1.8; } .lg\:markdown-xl p { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl [class~="lead"] { font-size: 1.2em; line-height: 1.5; margin-top: 1em; margin-bottom: 1em; } .lg\:markdown-xl blockquote { margin-top: 1.6em; margin-bottom: 1.6em; padding-left: 1.0666667em; } .lg\:markdown-xl h1 { font-size: 2.8em; margin-top: 0; margin-bottom: 0.8571429em; line-height: 1; } .lg\:markdown-xl h2 { font-size: 1.8em; margin-top: 1.5555556em; margin-bottom: 0.8888889em; line-height: 1.1111111; } .lg\:markdown-xl h3 { font-size: 1.5em; margin-top: 1.6em; margin-bottom: 0.6666667em; line-height: 1.3333333; } .lg\:markdown-xl h4 { margin-top: 1.8em; margin-bottom: 0.6em; line-height: 1.6; } .lg\:markdown-xl img { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl video { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure { margin-top: 2em; margin-bottom: 2em; } .lg\:markdown-xl figure > * { margin-top: 0; margin-bottom: 0; } .lg\:markdown-xl figure figcaption { font-size: 0.9em; line-height: 1.5555556; margin-top: 1em; } .lg\:markdown-xl code { font-size: 0.9em; } .lg\:markdown-xl h2 code { font-size: 0.8611111em; } .lg\:markdown-xl h3 code { font-size: 0.9em; } .lg\:markdown-xl pre { font-size: 0.9em; line-height: 1.7777778; margin-top: 2em; margin-bottom: 2em; border-radius: 0.5rem; padding-top: 1.1111111em; padding-right: 1.3333333em; padding-bottom: 1.1111111em; padding-left: 1.3333333em; } .lg\:markdown-xl ol { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl ul { margin-top: 1.2em; margin-bottom: 1.2em; } .lg\:markdown-xl li { margin-top: 0.6em; margin-bottom: 0.6em; } .lg\:markdown-xl ol > li { padding-left: 1.8em; } .lg\:markdown-xl ol > li:before { left: 0; } .lg\:markdown-xl ul > li { padding-left: 1.8em; } .lg\:markdown-xl ul > li::before { width: 0.35em; height: 0.35em; top: calc(0.9em - 0.175em); left: 0.25em; } .lg\:markdown-xl > ul > li p { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl > ul > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ul > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl > ol > li > *:first-child { margin-top: 1.2em; } .lg\:markdown-xl > ol > li > *:last-child { margin-bottom: 1.2em; } .lg\:markdown-xl ul ul, .lg\:markdown-xl ul ol, .lg\:markdown-xl ol ul, .lg\:markdown-xl ol ol { margin-top: 0.8em; margin-bottom: 0.8em; } .lg\:markdown-xl hr { margin-top: 2.8em; margin-bottom: 2.8em; } .lg\:markdown-xl hr + * { margin-top: 0; } .lg\:markdown-xl h2 + * { margin-top: 0; } .lg\:markdown-xl h3 + * { margin-top: 0; } .lg\:markdown-xl h4 + * { margin-top: 0; } .lg\:markdown-xl table { font-size: 0.9em; line-height: 1.5555556; } .lg\:markdown-xl thead th { padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl thead th:first-child { padding-left: 0; } .lg\:markdown-xl thead th:last-child { padding-right: 0; } .lg\:markdown-xl tbody td { padding-top: 0.8888889em; padding-right: 0.6666667em; padding-bottom: 0.8888889em; padding-left: 0.6666667em; } .lg\:markdown-xl tbody td:first-child { padding-left: 0; } .lg\:markdown-xl tbody td:last-child { padding-right: 0; } .lg\:markdown-xl > :first-child { margin-top: 0; } .lg\:markdown-xl > :last-child { margin-bottom: 0; } }
+
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  </head>
+  <body>
+    <amp-analytics type="gtag" data-credentials="include">
+<script type="application/json">
+{
+  "vars" : {
+    "gtag_id": "UA-1360700-62",
+    "config" : {
+      "UA-1360700-62": { "groups": "default" }
+    }
+  }
+}
+</script>
+</amp-analytics>
+
+<amp-analytics type="metrika">
+<script type="application/json">
+{
+    "vars": {
+      "counterId": "65474386"
+            },
+   "triggers": {
+        "notBounce": {
+            "on": "timer",
+            "timerSpec": {
+                "immediate": false,
+                "interval": 15,
+                "maxTimerLength": 14
+            },
+            "request": "notBounce"
+        }
+    }
+}
+</script>
+</amp-analytics>
+
+    
+    <div class="markdown md:markdown-lg lg:markdown-xl">
+      <h1>Что такое AsciiDoc</h1>
+      
+      
+      
+
+      <a class="full_post_link" href="https://guides.hexlet.io/ru/asciidoc/">Читать в полной версии →</a>
+
+      <p>Представьте, что вы пишите статью, книгу или курс на Хекслете: используете дополнительную литературу, вычитываете текст, делаете его простым и стараетесь донести до читателей всё, что хотели. Это уже большая работа, которая требует времени и внимательности, но нужно не только написать текст, но и разметить его, чтобы выделить заголовки, списки, цитаты, ссылки.</p>
+
+<p>Как сделать так, чтобы устройства, с которых будут читать текст, правильно поняли логическую структуру? Для этого используются языки разметки — специальные соглашения по оформлению текста, в которых для каждого элемента существуют конструкции, однозначно их определяющие.</p>
+
+<p>В веб-разработке языком разметки является HTML, с помощью которого размечаются данные на странице. Страница, на которой вы находитесь тоже размечена языком HTML, а браузер интерпретирует её по общим соглашениям. Например, для создания списка, в HTML, используют конструкцию:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Первый пункт списка<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Второй пункт списка
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Первый подпункт второго пункта списка<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;</span>Второй подпункт второго пункта списка<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<p>Размечать текст таким образом не очень удобно:</p>
+
+<ul>
+  <li>Помимо текста пришлось ввести дополнительные 48 символов, которые не имеют к тексту отношения.</li>
+  <li>В такой разметке легко допустить ошибку. Забыли указать <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;/li&gt;</code> или <code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;/ul&gt;</code> и браузер неправильно выведет разметку, а возможно и затронет соседние блоки с текстом.</li>
+  <li>Для разметки текста нужно знать язык HTML, что не требуется от писателей, контент-менеджеров и других людей, чей труд связан с написанием текстов, но не разработкой.</li>
+</ul>
+
+<p>Решить эти проблемы можно с помощью сторонних форматов разметки текстов и в этом гайде рассмотрим формат <em>AsciiDoc</em>, в котором список выше будет написан так:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>* Первый пункт списка
+* Второй пункт списка
+** Первый подпункт второго пункта списка
+** Второй подпункт второго пункта списка
+</code></pre></div></div>
+
+<p>Разберёмся, как создать файл в формате <em>AsciiDoc</em>, в каких программах редактировать, как разметить текст и получить результат в HTML. Помните, что <em>AsciiDoc</em> не замена HTML, так как имеет ограниченную область использования — разметка текста.</p>
+
+<h2 id="как-начать-работать-с-asciidoc">Как начать работать с AsciiDoc</h2>
+
+<p>Начать работать с форматом <em>AsciiDoc</em> можно прямо сейчас. Создайте файл с расширением <em>.adoc</em> и вы готовы повторять примеры гайда.</p>
+
+<p>Редактировать файл можно стандартным блокнотом или любимым редактором: VSCode, Sublime Text, Atom и так далее. Открыть файл можно с помощью браузера, у которого установлено расширение <em>Asciidoctor.js Live Preview</em>:</p>
+
+<ul>
+  <li><a href="https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia">Chrome</a></li>
+  <li><a href="https://microsoftedge.microsoft.com/addons/detail/asciidoctorjs-live-previ/pefkelkanablhjdekgdahplkccnbdggd">Edge</a></li>
+  <li><a href="https://addons.mozilla.org/en/firefox/addon/asciidoctorjs-live-preview">Firefox</a></li>
+  <li><a href="https://addons.opera.com/en/extensions/details/asciidoctorjs-live-preview/">Opera</a></li>
+  <li><a href="https://macdownload.informer.com/asciidoctor-for-safari/">Safari</a></li>
+</ul>
+
+<p>Если вы используете редактор <em>VSCode</em>, то можно установить дополнение <a href="https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode">AsciiDoc</a>, которое добавит в редактор подсветку синтаксиса, экспорт в PDF, HTML, а так же добавит функцию <em>Live Preview</em></p>
+
+<p><amp-img src="/assets/images/asciidoc/live-preview.png" alt="Функция Live Preview плагина AsciiDoc" width="1920" height="1045" layout="responsive"><noscript><img src="/assets/images/asciidoc/live-preview.png" alt="Функция Live Preview плагина AsciiDoc" width="1920" height="1045"></noscript></amp-img></p>
+
+<p>Если интересно только попробовать разметку, но ничего дополнительно не устанавливать, то можно воспользоваться <a href="https://asciidoclive.com">AsciiDoc Live</a>. Это онлайн редактор, в котором можно сразу увидеть результат преобразования разметки в HTML и, при необходимости, экспортировать текст из формата <em>AsciiDoc</em> в <em>HTML</em>.</p>
+
+<p>Разработчики AsciiDoc советуют не использовать Word, Libre Office, Google Docs и другие тяжелые редакторы. Дело в том, что эти “тяжелые редакторы” мешают работать с “адоками”: автору придется сначала оформлять заголовки в гуглдоке, а потом переносить в <em>.adoc</em> и переделывать еще раз, это двойная работа.</p>
+
+<p>Перед изучением синтаксиса стоит сказать, что AsciiDoc напоминает формат разметки Markdown. Если вы работали с этим форматом, то многие вещи покажутся похожими и интуитивно понятными. И наоборот, если вы знаете AsciiDoc, то использование Markdown не вызовет больших трудностей.</p>
+
+<p>Помимо этого, AsciiDoc умеет интерпретировать многие записи формата Markdown, поэтому, если у вас есть текст в Markdown, то попробуйте поменять расширение и посмотреть, как много элементов останутся такими же. Полный список совместимости будет по ссылке в конце этого гайда.</p>
+
+<h2 id="синтаксис-asciidoc">Синтаксис AsciiDoc</h2>
+
+<p>В этом гайде мы не берём на себя функции пересказать документацию AsciiDoc со всеми возможными подводными камнями. С этим документации справится намного лучше, поэтому рассмотрим базовые примеры, по которым уже можно разметить первый текст.</p>
+
+<h3 id="параграфы-и-выделение-текста">Параграфы и выделение текста</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Добавьте строку текста и она автоматически станет параграфом. Никаких дополнительных указаний не требуется.
+
+Каждая новая строка — новый параграф. Поэтому AsciiDoc сделает из этого текста два параграфа. Важно, что параграфы отделяются пустой строкой. Так будет однозначно понятно, где закончился один параграф и начался другой
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_paragraph.png" alt="Параграфы в AsciiDoc" width="1320" height="495" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_paragraph.png" alt="Параграфы в AsciiDoc" width="1320" height="495"></noscript></amp-img></p>
+
+<p>В текстах полезно выделять ключевые слова или мысли, так читатель сконцентрирует внимание на самой важной части. Выделять текст можно с помощью <strong>насыщенности</strong> или <em>курсива</em>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>А вы знаете, что _AsciiDoc_ — *невероятный инструмент* для разметки текста?
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_textstyle.png" alt="Насыщенность и курсив" width="1320" height="495" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_textstyle.png" alt="Насыщенность и курсив" width="1320" height="495"></noscript></amp-img></p>
+
+<h3 id="заголовки">Заголовки</h3>
+
+<p>Заголовки позволяют отделить логические области текста. Откройте оглавление книги и увидите главы, подглавы. Это заголовки и по ним мы легко ориентируемся в тексте. В HTML используется шесть уровней заголовков, поэтому и в <em>AsciiDoc</em> их шесть</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>= Заголовок первого уровня
+
+== Заголовок второго уровня
+
+=== Заголовок третьего уровня
+
+==== Заголовок четвёртого уровня
+
+===== Заголовок пятого уровня
+
+====== Заголовок шестого уровня
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_headers.png" alt="Заголовки в AsciiDoc" width="1320" height="495" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_headers.png" alt="Заголовки в AsciiDoc" width="1320" height="495"></noscript></amp-img></p>
+
+<h3 id="ссылки">Ссылки</h3>
+
+<p>Ссылки — прекрасный способ отсылки к другому материалу или странице, на которую пользователю стоит перейти, чтобы получить дополнительную информацию.</p>
+
+<p>Для создания ссылки используется конструкция <code class="language-plaintext highlighter-rouge">link[description]</code>, где:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">link</code> — ссылка</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">description</code> — текст ссылки</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>https://guides.hexlet.io[Гайды от команды Хекслета]
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_links.png" alt="Ссылки в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_links.png" alt="Ссылки в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<h3 id="списки">Списки</h3>
+
+<p>Как и в HTML, в <em>AsciiDoc</em> существуют списки двух видов:</p>
+
+<ul>
+  <li>Нумерованные</li>
+  <li>Маркированные</li>
+</ul>
+
+<p>Для создания нумерованных списков используется символ <code class="language-plaintext highlighter-rouge">.</code>, а маркированных символ <code class="language-plaintext highlighter-rouge">*</code>. Можно создавать большие вложенности одних пунктов в другие простым добавлением второго символа списка, а сами списки комбинировать, создавая сложные, многоуровневые конструкции</p>
+
+<p><strong>Простой список</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>== Купить
+
+* Молоко
+* Сыр
+* Йогурт греческий
+* Йогурт с малиной
+* Пельмени
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_list_1.png" alt="Нумерованный список в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_list_1.png" alt="Нумерованный список в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<p><strong>Вложенные списки разных типов</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>== Купить
+
+* В продуктовом
+.. Молоко
+.. Сыр
+.. Йогурт
+... Греческий
+... С малиной
+.. Пельмени
+* В книжном
+** Ясно, понятно
+** Пиши, сокращай
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_list_2.png" alt="Вложенный список в AsciiDoc" width="1320" height="596" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_list_2.png" alt="Вложенный список в AsciiDoc" width="1320" height="596"></noscript></amp-img></p>
+
+<h3 id="изображения">Изображения</h3>
+
+<p>Изображения — выразительный инструмент, который помогает визуализировать текст. Согласитесь, что без изображений этот гайд был бы сухим и менее понятным.</p>
+
+<p>Изображения добавляются с помощью конструкции <code class="language-plaintext highlighter-rouge">image::image.png[]</code>, где:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">image.png</code> — путь к изображению. Он может быть как абсолютным, так и относительным. Это зависит от того, где располагается файл</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">[]</code> — описание изображения, которым пользуются программы для чтения с экрана или поисковые роботы</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>image::https://github.com/Hexlet/assets/blob/master/images/hexlet_logo.png?raw=true[Логотип Хекслета]
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_images.png" alt="Разметка изображений в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_images.png" alt="Разметка изображений в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<h3 id="цитаты">Цитаты</h3>
+
+<p>Для оформления цитат используется символ <code class="language-plaintext highlighter-rouge">&gt;</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&gt; Основная задача не в том, чтобы найти ошибку, а в том, чтобы найти условия, при которых код продолжает свою работу
+</code></pre></div></div>
+
+<p>Если цитата содержит несколько строк, то их можно соединить с помощью конструкции <code class="language-plaintext highlighter-rouge">&gt; +</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&gt; Эффективная отладка кода +
+&gt; — один из ключевых показателей хороших разработчиков
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_quote.png" alt="Оформление цитат в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_quote.png" alt="Оформление цитат в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<h3 id="оформление-кода">Оформление кода</h3>
+
+<p>При написании технических статей возникает потребность в оформлении кода. Для этого используется конструкция</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>[source,lang]
+----
+Код
+----
+</code></pre></div></div>
+
+<p>В этой конструкции важным является параметр <code class="language-plaintext highlighter-rouge">lang</code>, который указывает на язык, который используется при оформлении кода. Это поможет сторонним плагинам сделать подсветку кода. Вот как может выглядеть оформление кода на языке Ruby:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>[source,ruby]
+----
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+----
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_code.png" alt="Оформление кода в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_code.png" alt="Оформление кода в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<h3 id="таблицы">Таблицы</h3>
+
+<p>Таблицы — способ группировки схожей информации и ей часто можно заменить список, если в нём присутствуют однотипные типы информации.</p>
+
+<p>Предположим, что нужно добавить информацию о языке программирования и его области применений. Выделим две категории информации:</p>
+
+<ol>
+  <li>Язык</li>
+  <li>Область использования</li>
+</ol>
+
+<p>Такую информацию можно представить в виде таблицы из двух колонок</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Язык</th>
+      <th>Где используется</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HTML</td>
+      <td>Web-страницы и приложения в браузере</td>
+    </tr>
+    <tr>
+      <td>JS</td>
+      <td>Web-разработка <br> Мобильная разработка <br> GameDev</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Для создания таблицы в AsciiDoc есть несколько типов синтаксиса. Для примера возьмём синтаксис, который, визуально, похож на список:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>[cols=2]
+|====
+|HTML
+|Web-страницы и приложения в браузере
+
+|JS
+|Web-разработка pass:[&lt;br&gt;] Мобильная разработка pass:[&lt;br&gt;] GameDev
+|====
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_table.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_table.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<p>Пример выше можно разбить на несколько основных частей:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">[cols=2]</code> — определение количества колонок</li>
+  <li>Парные <code class="language-plaintext highlighter-rouge">|====</code> — определение начала и конца таблицы</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">|</code> — ячейка таблицы</li>
+</ul>
+
+<p>Как же добавить заголовки к таблице? В этом случае синтаксис немного изменится:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>|====
+|Язык |Где используется
+
+|HTML
+|Web-страницы и приложения в браузере
+
+|JS
+|Web-разработка pass:[&lt;br&gt;] Мобильная разработка pass:[&lt;br&gt;] GameDev
+|====
+</code></pre></div></div>
+
+<p>В этом примере исчезло указание <code class="language-plaintext highlighter-rouge">[cols=2]</code>, так как количество ячеек определяется количеством заголовков. Заголовки указываются после открытия таблицы и указываются в одну строку. Каждый заголовок начинается с символа <code class="language-plaintext highlighter-rouge">|</code></p>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_table_header.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_table_header.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<h3 id="добавление-html-разметки-в-текст">Добавление HTML разметки в текст</h3>
+
+<p>Хоть AsciiDoc и призван заменить HTML разметку для текста, но её использование может быть обосновано стилизацией, удобством чтения исходного текста и так далее.</p>
+
+<p>Используется два способа добавления разметки в AsiiDoc:</p>
+
+<ol>
+  <li>Passthroughs — блочное добавление</li>
+  <li>Inline Passthroughs — инлайновое добавление</li>
+</ol>
+
+<p>Они отличаются способом записи и возможностью многострочного добавления кода. В примере с таблицами, для создания переноса строки, использовался код <code class="language-plaintext highlighter-rouge">pass:[&lt;br&gt;]</code>. Это — инлайновое добавление, когда внутрь строки добавляется произвольная HTML разметка. На самом деле пример с таблицей можно было записать так:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>|====
+|Язык |Где используется
+
+|HTML
+|Web-страницы и приложения в браузере
+
+|JS
+|Web-разработка
+
+ Мобильная разработка
+
+ GameDev
+|====
+</code></pre></div></div>
+
+<p>Такой способ записи разбивает привычную картину, в которой одна строка отвечает за одну ячейку. Это полезно, если текст длинный и имеет параграфы, списки и так далее.</p>
+
+<p>В нашем случае проще добавить перенос с помощью тега <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>. Для его записи используется конструкция <code class="language-plaintext highlighter-rouge">pass:[]</code>, где внутри скобок указывается HTML разметка.</p>
+
+<p>С помощью конструкции Inline Passthroughs добавляются теги <code class="language-plaintext highlighter-rouge">&lt;kbd&gt;&lt;/kbd&gt;</code>, которые размечают клавиши на клавиатуре:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Для открытия DevTools используйте комбинацию клавиш pass:[&lt;kbd&gt;Ctrl + Shift + I&lt;kbd&gt;]
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_kbd.png" alt="Разметка комбинаций клавиш в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_kbd.png" alt="Разметка комбинаций клавиш в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<p>Если требуется создать большой код с HTML, то используется блочное добавление. Для этого разметка добавляется между двумя конструкциями <code class="language-plaintext highlighter-rouge">++++</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>++++
+&lt;section class="promo"&gt;
+  &lt;h1&gt;Приходите на курсы по вёрстке&lt;/h1&gt;
+  &lt;p&gt;Хоть иногда :(&lt;/p&gt;
+&lt;/section&gt;
+++++
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_html.png" alt="Добавление HTML в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_html.png" alt="Добавление HTML в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<h3 id="математические-формулы">Математические формулы</h3>
+
+<p>При написании текстов на научные, технические темы сложно обойтись без математических обозначений. По умолчанию такой функциональности нет ни в HTML, ни в AsciiDoc, но AsciiDoc добавили обозначения математических формул, которые могут быть обработаны сторонними плагинами, например <a href="https://github.com/mathjax/MathJax"><em>MathJax</em></a>. По умолчанию, для вывода формул используется формат <em>AsciiMath</em>. Разбор этой нотации тема отдельного гайда, поэтому не будем на этом останавливаться, а посмотрим, как добавить формулу в текст. Для этого выполняется два действия:</p>
+
+<ol>
+  <li>В документе, <em>до</em> использования формул указывается строка <code class="language-plaintext highlighter-rouge">:stem:</code>. Это сигнал для обработки документа сторонними библиотеками. STEM является сокращением от <em>Science, Technology, Engineering and Math</em>
+</li>
+  <li>Перед формулой указать конструкцию <code class="language-plaintext highlighter-rouge">stem:[Формула]</code>
+</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>:stem:
+
+stem:[EEx: x!=a^2+b^2, x,a,b in Z]
+
+stem:[a]: Apple продает смартфоны — stem:[true]
+
+stem:[b]: Apple продает яблоки — stem:[false]
+
+stem:[a ^^ b]: Apple продает смартфоны и яблоки — stem:[false]
+
+Пусть stem:[X=5]
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_math.png" alt="STEM в AsciiDoc" width="1300" height="492" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_math.png" alt="STEM в AsciiDoc" width="1300" height="492"></noscript></amp-img></p>
+
+<p>При использовании математических формул используются знаки из нотации AsciiMath, которые будут преобразованы в математические символы. Не используйте уже готовые знаки, такие как <code class="language-plaintext highlighter-rouge">≠</code>. Вместо этого используется знак <code class="language-plaintext highlighter-rouge">!=</code>, так как готовые знаки интерпретатор может распознать неверно или вовсе как ошибку.</p>
+
+<p>Доступные знаки, их вывод и запись доступны на официальной странице AsciiMath по ссылке в конце гайда.</p>
+
+<h2 id="полезные-ссылки">Полезные ссылки</h2>
+
+<ul>
+  <li><a href="https://docs.asciidoctor.org/asciidoc/latest/asciidoc-vs-markdown/">В чем разница между AsciiDoc и Markdown?</a></li>
+  <li><a href="https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/#markdown-compatibility">Совместимость AsciiDoc и Markdown</a></li>
+  <li><a href="https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/">Шпаргалка по синтаксису AsciiDoc</a></li>
+  <li><a href="https://docs.asciidoctor.org/asciidoc/latest/">Полная документация AsciiDoc</a></li>
+  <li><a href="http://asciimath.org/">AsciiMath</a></li>
+</ul>
+
+      
+      
+    </div>
+  </body>
+</html>
