@@ -1,6 +1,16 @@
 # Hexlet Guides
 
-* Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
+## About
+A site with guides for beginners. Articles about technologies, tools and practices
+Useful materials for those who are just starting their way into development. We introduce basic terms and explain complicated processes in simple words. 
+
+Tasks:
+
+* Improvements to the current guide. Bug fixes
+* Update outdated information
+* Updating the guidebook engine
+
+Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
 
 ## Run
 
