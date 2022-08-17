@@ -32,3 +32,6 @@ notfound:
   title: Page not found
   subtitle: Please use the search bar from the bottom left or visit our
   link: homepage
+
+post:
+  source_code: Source code (github)
