@@ -1,18 +1,10 @@
 import path from 'path';
 import fsp from 'fs/promises';
 
-import yaml from 'js-yaml';
 import matter from 'gray-matter';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from '@mapbox/rehype-prism';
 import { serialize } from 'next-mdx-remote/serialize';
-
-export const getConfig = async () => {
-  const configPath = path.join(process.cwd(), 'data', 'config.yml');
-  const content = await fsp.readFile(configPath, 'utf-8');
-
-  return yaml.load(content);
-};
 
 const readPost = async (filePath) => {
   const fileContent = await fsp.readFile(filePath, 'utf-8');

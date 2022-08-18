@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
+import config from '../data/config.js';
+
 const Navbar = () => {
   const { t } = useTranslation('common');
   const { locale } = useRouter();
@@ -28,7 +30,7 @@ const Navbar = () => {
         </Link>
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <Link href="https://github.com/Hexlet/hexletguides.github.io">
+            <Link href={config.repositoryUrl}>
               <a className="nav-link" target="_blank">
                 {t('navbar.source_code.title')}
               </a>

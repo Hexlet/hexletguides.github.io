@@ -1,7 +1,7 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { i18n } from '../next-i18next.config.js';
-import { findPost, getConfig, getPublishedPosts } from '../api/index.js';
+import { findPost, getPublishedPosts } from '../api/index.js';
 import DefaultLayout from '../components/DefaultLayout.jsx';
 import PostPageInfo from '../components/PostPageInfo.jsx';
 
@@ -38,7 +38,6 @@ export const getStaticProps = async ({ locale, params }) => {
   return {
     props: {
       post,
-      config: await getConfig(),
       ...await serverSideTranslations(locale, ['common', 'post']),
     },
   };
