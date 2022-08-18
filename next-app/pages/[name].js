@@ -39,7 +39,7 @@ export const getStaticProps = async ({ locale, params }) => {
     props: {
       post,
       config: await getConfig(),
-      ...await serverSideTranslations(locale, ['common']),
+      ...await serverSideTranslations(locale, ['common', 'post']),
     },
   };
 };

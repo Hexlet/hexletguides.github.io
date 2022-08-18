@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
 const Navbar = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const { locale } = useRouter();
 
   const langSwitchLink = locale === 'en' ? (

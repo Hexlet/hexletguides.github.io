@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import Post from './Post.jsx';
 
 const HomePageInfo = ({ posts }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   const postsList = posts.map(({ header, summary, name }) => (
     <div key={name} className="col-md-6 mb-5">
