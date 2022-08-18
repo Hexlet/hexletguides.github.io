@@ -1,8 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote';
+import { useTranslation } from 'next-i18next';
 
-const PostPageInfo = ({ post, content }) => {
+import Author from './Author.jsx';
+import Disqus from './Disqus.jsx';
+
+const PostPageInfo = ({ post, disqus }) => {
+  const { t } = useTranslation('post');
+
   const postImage = post.image ? (
     <div className="text-center mx-auto mb-5">
       <img
@@ -25,6 +32,21 @@ const PostPageInfo = ({ post, content }) => {
         <div className="article-post">
           <MDXRemote compiledSource={post.content} />
         </div>
+        <div className="lead d-flex my-5">
+          <span className="me-auto">
+            <Link href={post.sourceUrl} >
+              <a alt={t('page.source_code')} target="_blank">
+                {t('page.source_code')}
+              </a>
+            </Link>
+          </span>
+          <Author name={post.author} url={post.author_url}/>
+        </div>
+        <section>
+          <div id="comments">
+            <Disqus shortName={disqus.short_name} config={disqus.config} />
+          </div>
+        </section>
       </div>
     </div>
   );

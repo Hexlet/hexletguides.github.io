@@ -6,8 +6,10 @@ import remarkGfm from 'remark-gfm';
 import rehypePrism from '@mapbox/rehype-prism';
 import { serialize } from 'next-mdx-remote/serialize';
 
-const readPost = async (filePath) => {
-  const fileContent = await fsp.readFile(filePath, 'utf-8');
+import config from '../data/config.js';
+
+const readPost = async (filePath, basePath) => {
+  const fileContent = await fsp.readFile(path.join(basePath, filePath), 'utf-8');
   const { data, content } = matter(fileContent);
   const { name } = path.parse(filePath);
   const {
@@ -15,20 +17,22 @@ const readPost = async (filePath) => {
     description = null, summary = description,
     ...props
   } = data;
+  const sourceUrl = `${config.repositoryUrl}/tree/main/${filePath}`;
 
   return {
     header,
     summary,
     content,
-    filePath,
+    sourceUrl,
     name: name.slice(11),
     ...props,
   };
 };
 
 export const getPublishedPosts = async (locale) => {
-  const postsPath = path.resolve(process.cwd(), 'data', 'posts', locale);
-  const entries = await fsp.readdir(postsPath, { withFileTypes: true });
+  const { dir } = path.parse(process.cwd());
+  const postsPath = path.join('next-app', 'data', 'posts', locale);
+  const entries = await fsp.readdir(path.resolve(dir, postsPath), { withFileTypes: true });
   const fileNames = entries
     .filter((entry) => entry.isFile())
     .filter(({ name }) => path.extname(name) === '.md')
@@ -36,7 +40,7 @@ export const getPublishedPosts = async (locale) => {
 
   const promises = fileNames
     .sort((a, b) => b.localeCompare(a))
-    .map(async (name) => readPost(path.join(postsPath, name)));
+    .map(async (name) => readPost(path.join(postsPath, name), dir));
 
   return await Promise.all(promises);
 };
