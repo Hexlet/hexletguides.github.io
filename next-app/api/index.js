@@ -70,7 +70,7 @@ export const findPost = async (name, locale) => {
     mdxOptions:{
       rehypePlugins: [rehypePrism],
       remarkPlugins: [remarkGfm],
-      format: 'md',
+      format: 'mdx',
     },
     parseFrontmatter: false,
   });

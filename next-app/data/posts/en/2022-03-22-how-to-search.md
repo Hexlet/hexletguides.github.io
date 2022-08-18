@@ -17,7 +17,7 @@ The main sites to get your questions answered:
 ## Language
 
 As practice shows, at the beginning most programmers try to search for information in their native language. Sometimes you can find the answer this way, but more often — no. **The universal language for programmers is English** – the whole world speaks it. The amount of information in the English-speaking segment is noticeably higher than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster.
-{% include banner.html name="site-code-basics" %}
+<Banner name="site-code-basics"/>
 
 ## Search engine
 

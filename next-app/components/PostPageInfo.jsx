@@ -6,6 +6,11 @@ import { useTranslation } from 'next-i18next';
 
 import Author from './Author.jsx';
 import Disqus from './Disqus.jsx';
+import Banner from './Banner.jsx';
+
+const components = {
+  Banner,
+};
 
 const PostPageInfo = ({ post, disqus }) => {
   const { t } = useTranslation('post');
@@ -30,7 +35,7 @@ const PostPageInfo = ({ post, disqus }) => {
         </div>
         {postImage}
         <div className="article-post">
-          <MDXRemote compiledSource={post.content} />
+          <MDXRemote compiledSource={post.content} components={components} />
         </div>
         <div className="lead d-flex my-5">
           <span className="me-auto">
