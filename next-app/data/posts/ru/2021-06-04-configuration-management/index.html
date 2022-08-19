@@ -2,18 +2,15 @@
 
 <p><em>Существуют подходы, которые позволяют избежать прямого взаимодействия с инфраструктурой. В рамках статьи они не рассматриваются, но знать про них полезно. К ним относятся: классические хостинги с предустановленным софтом, serverless, хостинги статических сайтов, PaaS решения и kubernetes (и его аналоги)</em></p>
 
-<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
-</a>
-</div>
+<Banner name="intensive-devops" />
 
 <p>В подавляющем большинстве случаев, сервера арендуются у хостинговых компаний, таких как <a href="https://m.do.co/c/e702f9a99145">DigitalOcean</a> или AWS. Делается это за 5 минут нажатием буквально нескольких кнопок. Нас попросят выбрать характеристики сервера, операционную систему и датацентр, в котором он будет развернут. В результате, мы получаем машину (виртуальную), с предустановленной операционной системой и ip-адресом для входа по ssh.</p>
 
-<!-- image: DO -->
+<p>{/* image: DO */}</p>
 
 <p>Новая машина содержит только основную операционную систему с небольшим набором предустановленных программ. Перед тем как запустить на ней какой-то сервис, например, обычный сайт, понадобится установить дополнительные пакеты. Набор пакетов зависит от стека технологий, на котором он написан. Если сайт “завернут” в Docker, то настройка значительно упрощается и сводится к установке самого Docker. В остальных случаях придется потратить какое-то время на донастройку и конфигурирование. Помимо пакетов, часто требуется настраивать саму систему, менять конфигурационные файлы, права на файлы и директории, создавать пользователей и так далее:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Как это могло бы быть</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Как это могло бы быть</span>
 <span class="c"># Сервер на Ubuntu</span>
 
 <span class="c"># Заходим на удаленную машину</span>
@@ -49,7 +46,7 @@ vim /etc/nginx/default.conf
 
 <p>В простейшем случае для этого достаточно обычного Bash-скрипта, в который последовательно добавляются команды, которые ранее мы запускали руками. Затем все сводится к копированию скрипта на сервер и запуску:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Копирование на сервер с помощью scp</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Копирование на сервер с помощью scp</span>
 scp mybashscript.sh root@ipaddress:~/
 
 <span class="c"># Заходим на сервер и запускаем скрипт</span>
@@ -59,7 +56,7 @@ sh ~/mybashscript.sh
 
 <p>Если перенести команды в bash-скрипт “как есть”, без модификации, то, скорее всего, нам придется постоянно следить за выводом и не забывать подтверждать установку пакетов, так как это поведение по умолчанию:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>➜  ~ apt <span class="nb">install </span>golang
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>➜  ~ apt <span class="nb">install </span>golang
 The following additional packages will be installed:
   golang-1.13 golang-1.13-doc golang-1.13-go golang-1.13-race-detector-runtime golang-1.13-src golang-doc golang-go
 Need to get 63.5 MB of archives.
@@ -69,18 +66,18 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n] <sp
 
 <p>Автоматическое “да” добавляется опцией <code class="language-plaintext highlighter-rouge">-y</code>. У других команд свои опции для подавления взаимодействия с пользователем. Придется их все учесть.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>apt <span class="nb">install</span> <span class="nt">-y</span> golang
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>apt <span class="nb">install</span> <span class="nt">-y</span> golang
 </code></pre></div></div>
 
 <p>Другая проблема серьезнее, она связана с понятием “идемпотентность”. Что будет если выполнить команду создания директории два раза?</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir</span> /hexlet
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir</span> /hexlet
 <span class="nb">mkdir</span> /hexlet <span class="c"># ?</span>
 </code></pre></div></div>
 
 <p>Команда завершится с ошибкой, она не идемпотентна. То есть последовательные вызовы одной и той же команды приводят к разному результату. Идемпотентность для настройки сервера <a href="https://ru.hexlet.io/blog/posts/pochemu-vazhna-idempotentnost-i-kak-pisat-idempotentnye-bash-skripty">очень важна</a>. Иначе повторный запуск скрипта настройки завершится с ошибкой. А повторные запуски нужны, например в случае отладки самого скрипта, когда мы его только пишем и проверяем как он работает. В случае с командой <code class="language-plaintext highlighter-rouge">mkdir</code> идемпотентности добиться легко, достаточно добавить флаг <code class="language-plaintext highlighter-rouge">-p</code>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir</span> <span class="nt">-p</span> /hexlet
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir</span> <span class="nt">-p</span> /hexlet
 <span class="nb">mkdir</span> <span class="nt">-p</span> /hexlet <span class="c"># ошибки не будет</span>
 </code></pre></div></div>
 
@@ -118,7 +115,7 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n] <sp
 
 <p>Файловая структура может выглядеть так:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>tree <span class="c"># вывод содержимого директории</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>tree <span class="c"># вывод содержимого директории</span>
 <span class="nb">.</span>
 ├── inventory.ini
 └── playbook.yaml
@@ -126,7 +123,7 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n] <sp
 
 <p>Теперь запускаем:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Запуск Ansible идет на локальной машине!</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Запуск Ansible идет на локальной машине!</span>
 <span class="c"># Запускать нужно в той же директории, где созданы файлы</span>
 <span class="c"># -i означает inventory.ini</span>
 <span class="c"># https://github.com/hexlet-boilerplates/ansible</span>
@@ -149,9 +146,7 @@ PLAY RECAP <span class="k">*****************************************************
 
 <p><img src="/assets/images/configuration-management/ansible.png" alt="Ansible" /></p>
 
-<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/ansible?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс по Ansible с практикой прямо в браузере</a>
-</div>
+<Banner name="course-ansible" />
 
 <p>Что из себя представляет плейбук? Главное внутри него – набор задач (tasks), которые мы хотим выполнить. В отличии от bash-скрипта, задачи это не просто bash-команды. На каждую задачу в Ansible встроен модуль для работы с определенной частью системы. Например внутри Ansible есть модули для работы с git, пакетными менеджерами, файлами и тому подобным. Всего их сотни на все случаи жизни. Именно благодаря готовым интеграциям, Ansible знает как работают те или иные части системы, что позволяет добавить нужные проверки для обеспечения идемпотентности. Пара примеров:</p>
 

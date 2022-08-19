@@ -2,10 +2,7 @@
 
 <p>Среда Windows не очень хорошо подходит для разработки, если вы не пишете под .net. Выражается это во многих аспектах: система не <a href="https://ru.wikipedia.org/wiki/POSIX">POSIX</a>-совместимая (а большинство библиотек пишется именно для таких систем, например linux или mac), в Windows нет примитивных средств, которые необходимы любому разработчику для комфортной работы.</p>
 
-<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
-</a>
-</div>
+<Banner name="intensive-devops" />
 
 <p>Несмотря на все написанное ниже, наша основная рекомендация — ставить Linux-дистрибутив, например, Ubuntu и полностью погружаться в него. Подавляющее большинство веб-проектов работает под управлением Linux-систем. А постоянное использование такой системы на домашнем и рабочем компьютере равносильно погружению в языковую среду при изучении иностранных языков.</p>
 
@@ -51,7 +48,7 @@
 
 <p>Пакетные менеджеры в средах, отличных от Windows — это основной способ установки программ и библиотек на компьютер. Если вам понадобится поставить Node.js, то достаточно сделать следующее:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>// mac
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>// mac
 <span class="nv">$ </span>brew <span class="nb">install </span>node
 
 // ubuntu
@@ -64,12 +61,12 @@
 
 <p>В чем-то Chocolaty справляется даже лучше, чем brew или apt. С его помощью можно ставить не только специализированный софт (например, для программистов), но и любые программы вообще.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>GoogleChrome
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>GoogleChrome
 </code></pre></div></div>
 
 <p>или, что тоже самое</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>cinst GoogleChrome
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>cinst GoogleChrome
 </code></pre></div></div>
 
 <p>Список того, что можно поставить находится <a href="https://chocolatey.org/packages">здесь</a>.</p>
@@ -84,7 +81,7 @@
 
 <p>Запустите программу <code class="language-plaintext highlighter-rouge">cmd.exe</code> и выполните там следующую команду:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>cmder
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>cmder
 </code></pre></div></div>
 
 <p>После установки Cmder всё остальное следует делать только из под него.</p>
@@ -93,14 +90,14 @@
 
 <p>Альтернативный эмулятор, доступный по ссылке: <a href="https://mobaxterm.mobatek.net/">MobaXterm</a>. Также как и Cmder, из коробки поставляется с командной оболочкой. Бесплатен для домашнего использования.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>mobaxterm
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>mobaxterm
 </code></pre></div></div>
 
 <h4 id="hyperjs">Hyper.js</h4>
 
 <p>Рассмотрен здесь для полноты картины. В отличие от предыдущих предоставляет только терминал. По умолчанию запускает внутри себя <code class="language-plaintext highlighter-rouge">cmd.exe</code>, но можно настроить на любую оболочку.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>hyper
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>hyper
 </code></pre></div></div>
 
 <h2 id="ubuntu-for-windows">Ubuntu for Windows</h2>
@@ -113,7 +110,7 @@
 
 <p>Вагрант, в отличие от прямого использования виртуальной машины, дает множество полезностей для разработчика. Подробнее про преимущества и процесс установки читайте в <a href="/vagrant/">отдельном руководстве</a>.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>choco <span class="nb">install </span>virtualBox
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>choco <span class="nb">install </span>virtualBox
 choco <span class="nb">install </span>vagrant
 </code></pre></div></div>
 
@@ -123,7 +120,7 @@ choco <span class="nb">install </span>vagrant
 
 <p>С Cygwin работать напрямую не очень удобно, поэтому был создан Babun. Это командная оболочка, построенная на Cygwin. В отличие от других вариантов, Babun поставляется с собственной экосистемой. Например, он включает в себя пакетный менеджер <em>pact</em>, что приводит к конфликту с Chocolatey.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>babun
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>choco <span class="nb">install </span>babun
 </code></pre></div></div>
 
 <hr />

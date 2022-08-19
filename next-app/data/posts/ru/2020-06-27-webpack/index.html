@@ -33,10 +33,7 @@
 
 <p>В теории, код можно писать и без использования системы модулей, но этот способ невероятно трудозатратный и основывается на том, что все определения в коде глобальны (а значит, можно легко что-нибудь сломать, перетерев существующие определения). Придётся руками указывать все существующие файлы и загружать их в HTML, в строго определённом порядке. Подобное сейчас встречается только на сайтах, где фронтенд — это jquery с небольшим числом интерактивных элементов.</p>
 
-<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
-</a>
-</div>
+<Banner name="intensive-devops" />
 
 <p>Отсутствие модулей делает нормальную разработку невозможной. Нельзя работать с зависимостями, нельзя написать тесты, статический анализ кода отсутствует (невозможны переходы по определениям, подсказки).</p>
 
@@ -74,14 +71,14 @@ Relative references must start with either "/", "./", or "../".
 
 <p>Эти проблемы полностью решают системы сборки. Кроме загрузки файлов, они решают множество других не менее важных задач. Фронтенд-разработка сильно опирается на различные пре- и пост-процессоры. Например, для современного JavaScript (и TypeScript) и многих фреймворков нужен Babel, который получает на вход исходный код проекта, преобразует его в код понятный браузеру. Только после этого его можно отдавать клиенту.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию src</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию src</span>
 <span class="c"># И директорию, в которую положить готовый код</span>
 babel src <span class="nt">-o</span> dist
 </code></pre></div></div>
 
 <p>То же самое касается CSS. Всё больше разработчиков используют SASS, который нужно транслировать в чистый CSS.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию stylesheets</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Указываем исходную директорию stylesheets</span>
 <span class="c"># И директорию, в которую положить готовый CSS</span>
 sass <span class="nt">--update</span> stylesheets dist/stylesheets
 </code></pre></div></div>
@@ -103,7 +100,7 @@ sass <span class="nt">--update</span> stylesheets dist/stylesheets
 
 <p>Webpack поставляется как npm-библиотека и устанавливается в проект, обычно, в dev-зависимости, а для работы удобно использовать cli-утилиту:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir </span>webpack-demo
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nb">mkdir </span>webpack-demo
 <span class="nb">cd </span>webpack-demo
 npm init <span class="nt">-y</span>
 npm i <span class="nt">-D</span> webpack webpack-cli
@@ -111,12 +108,12 @@ npm i <span class="nt">-D</span> webpack webpack-cli
 
 <p>Теперь можно инициализировать новый вебпак-проект, который автоматически создаст все необходимые файлы и конфигурацию одной командой:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init <span class="nt">--force</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init <span class="nt">--force</span>
 </code></pre></div></div>
 
 <p>Она предложит перезаписать <em>package.json</em>, добавит в проект несколько зависимостей, создаст HTML и JS-файлы, а также создаст конфигурационный файл. Запуск этой же команды без флага <code class="language-plaintext highlighter-rouge">--force</code> откроет интерактивный режим, где можно более тонко настроить будущее приложение.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack init
 ? Which of the following JS solutions <span class="k">do </span>you want to use? ES6
 ? Do you want to use webpack-dev-server? Yes
 ? Do you want to simplify the creation of HTML files <span class="k">for </span>your bundle? Yes
@@ -142,7 +139,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
 
 <p>Проект готов и теперь его можно запустить:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack serve
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>npx webpack serve
 </code></pre></div></div>
 
 <p>Эта команда соберёт приложение в режиме разработки, откроет браузер и отобразит содержимое HTML-файла, а в консоль выведется сообщение из <em>src/index.js</em>.</p>

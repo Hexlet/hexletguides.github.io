@@ -6,16 +6,13 @@
 
 <p>Чтобы начать пользоваться Докером, необходимо установить движок — Docker Engine. На странице https://docs.docker.com/engine/install/ доступны ссылки для скачивания под все популярные платформы. Выберите вашу и установите Докер.</p>
 
-<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
-</a>
-</div>
+<Banner name="intensive-devops" />
 
 <p>В работе Докера есть одна деталь, которую важно знать при установке на Mac и Linux. По умолчанию Докер работает через unix сокет. В целях безопасности сокет закрыт для пользователей, не входящих в группу <em>docker</em>. И хотя установщик добавляет текущего пользователя в эту группу автоматически, Докер сразу не заработает. Дело в том, что если пользователь меняет группу сам себе, то ничего не изменится до тех пор, пока пользователь не перелогинится. Такова особенность работы ядра. Для проверки того, в какие группы входит ваш пользователь, можно набрать команду <code class="language-plaintext highlighter-rouge">id</code>.</p>
 
 <p>Проверить успешность установки можно командой <code class="language-plaintext highlighter-rouge">docker info</code>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker info
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker info
 Containers: 22
  Running: 2
  Paused: 0
@@ -40,7 +37,7 @@ Cgroup Driver: cgroupfs
 
 <p>Начнем с самого простого варианта:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> nginx bash
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> nginx bash
 root@a6c26812d23b:/#
 </code></pre></div></div>
 
@@ -50,7 +47,7 @@ root@a6c26812d23b:/#
 
 <p>Теперь посмотрим вариант вызова команды <code class="language-plaintext highlighter-rouge">cat</code>, выполненной уже в другом контейнере, но тоже запущенном из образа <em>nginx</em>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run nginx <span class="nb">cat</span> /etc/nginx/nginx.conf
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run nginx <span class="nb">cat</span> /etc/nginx/nginx.conf
 
 user  nginx<span class="p">;</span>
 worker_processes  1<span class="p">;</span>
@@ -65,7 +62,7 @@ pid        /var/run/nginx.pid<span class="p">;</span>
 
 <p>Последний вариант запуска будет таким:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Обратите внимание на то, что после имени образа не указана никакая команда.</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Обратите внимание на то, что после имени образа не указана никакая команда.</span>
 <span class="c"># Такой подход работает в случае если команда на запуск прописана в самом образе</span>
 <span class="nv">$ </span>docker run <span class="nt">-p</span> 8080:80 nginx
 </code></pre></div></div>
@@ -82,7 +79,7 @@ pid        /var/run/nginx.pid<span class="p">;</span>
 
 <p>Попробуйте выполнить команду <code class="language-plaintext highlighter-rouge">docker run -it ubuntu bash</code> и наберите <code class="language-plaintext highlighter-rouge">ps auxf</code> внутри запущенного контейнера. Вывод будет таким:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root         1  0.1  0.1  18240  3300 pts/0    Ss   15:39   0:00 /bin/bash
 root        12  0.0  0.1  34424  2808 pts/0    R+   15:40   0:00 ps aux
 </code></pre></div></div>
@@ -107,7 +104,7 @@ root        12  0.0  0.1  34424  2808 pts/0    R+   15:40   0:00 ps aux
 
 <p>Докер позволяет упростить эту процедуру до запуска одной команды причем с почти 100% гарантией успеха. Посмотрите на вымышленный пример, в котором происходит установка программы Tunnel на локальный компьютер в директорию <em>/usr/local/bin</em> используя образ <em>tunnel</em>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker run <span class="nt">-v</span> /usr/local/bin:/out tunnel
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker run <span class="nt">-v</span> /usr/local/bin:/out tunnel
 </code></pre></div></div>
 
 <p>Запуск этой команды приводит к тому, что в основной системе в директории <em>/usr/local/bin</em> оказывается исполняемый файл программы, находящейся внутри образа <em>tunnel</em>. Команда <code class="language-plaintext highlighter-rouge">docker run</code> запускает контейнер из образа <em>tunnel</em>, внутри происходит компиляция программы и, в конечном итоге, она оказывается в директории <em>/usr/local/bin</em> основной файловой системы. Теперь можно стартовать программу, просто набрав <code class="language-plaintext highlighter-rouge">tunnel</code> в терминале.</p>
@@ -120,7 +117,7 @@ root        12  0.0  0.1  34424  2808 pts/0    R+   15:40   0:00 ps aux
 
 <p>С Докером запуск Jekyll сводится к одной команде, выполняемой в директории с блогом (подробнее можно посмотреть в <a href="https://github.com/hexletguides/hexletguides.github.io">репозитории</a> наших гайдов):</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker run <span class="nt">--rm</span> <span class="nt">--volume</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">:/srv/jekyll"</span> <span class="nt">-it</span> jekyll/jekyll jekyll server
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker run <span class="nt">--rm</span> <span class="nt">--volume</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">:/srv/jekyll"</span> <span class="nt">-it</span> jekyll/jekyll jekyll server
 </code></pre></div></div>
 
 <p>Точно таким же образом сейчас запускается огромное количество различного софта. Чем дальше, тем больше подобный способ захватывает мир. На этом месте можно немного окунуться в происхождение названия Docker.</p>
@@ -166,7 +163,7 @@ root        12  0.0  0.1  34424  2808 pts/0    R+   15:40   0:00 ps aux
 
 <p>Когда мы выполняем команду <em>run</em> <code class="language-plaintext highlighter-rouge">docker run &lt;image name&gt;</code>, то Docker проверяет наличие указанного образа на локальной машине и скачивает его по необходимости. Список образов, уже скачанных на компьютер, можно посмотреть командой <code class="language-plaintext highlighter-rouge">docker images</code>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker images
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker images
 REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
 workshopdevops_web                   latest              cfd7771b4b3a        2 days ago          817MB
 hexletbasics_app                     latest              8e34a5f631ea        2 days ago          1.3GB
@@ -203,7 +200,7 @@ postgres                             latest              ec61d13c8566        5 w
 
 <p>Удаляются образы командой <code class="language-plaintext highlighter-rouge">docker rmi &lt;imagename&gt;</code>.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker rmi Ruby:2.4
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker rmi Ruby:2.4
 Untagged: Ruby:2.4
 Untagged: Ruby@sha256:d973c59b89f3c5c9bb330e3350ef8c529753ba9004dcd1bfbcaa4e9c0acb0c82
 </code></pre></div></div>
@@ -220,13 +217,13 @@ Untagged: Ruby@sha256:d973c59b89f3c5c9bb330e3350ef8c529753ba9004dcd1bfbcaa4e9c0a
 
 <p>Запустим nginx так, чтобы он работал в фоне. Для этого после слова <em>run</em> добавляется флаг <code class="language-plaintext highlighter-rouge">-d</code>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 8080:80 nginx
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">-p</span> 8080:80 nginx
 431a3b3fc24bf8440efe2bca5bbb837944d5ae5c3b23b9b33a5575cb3566444e
 </code></pre></div></div>
 
 <p>После выполнения команды Докер выводит идентификатор контейнера и возвращает управление. Убедитесь в том, что nginx работает, открыв в браузере ссылку <code class="language-plaintext highlighter-rouge">localhost:8080</code>. В отличие от предыдущего запуска, наш nginx работает в фоне, а значит не видно его вывода (логов). Посмотреть его можно командой <code class="language-plaintext highlighter-rouge">docker logs</code>, которой нужно передать идентификатор контейнера:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker logs 431a3b3fc24bf8440efe2bca5bbb837944d5ae5c3b23b9b33a5575cb3566444e
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker logs 431a3b3fc24bf8440efe2bca5bbb837944d5ae5c3b23b9b33a5575cb3566444e
 
 172.17.0.1 - - <span class="o">[</span>19/Jan/2018:07:38:55 +0000] <span class="s2">"GET / HTTP/1.1"</span> 200 612 <span class="s2">"-"</span> <span class="s2">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36"</span> <span class="s2">"-"</span>
 </code></pre></div></div>
@@ -235,7 +232,7 @@ Untagged: Ruby@sha256:d973c59b89f3c5c9bb330e3350ef8c529753ba9004dcd1bfbcaa4e9c0a
 
 <p>Теперь выведем информацию о запущенных контейнерах командой <code class="language-plaintext highlighter-rouge">docker ps</code>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS              PORTS                                          NAMES
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>CONTAINER ID        IMAGE                            COMMAND                  CREATED             STATUS              PORTS                                          NAMES
 431a3b3fc24b        nginx                            <span class="s2">"nginx -g 'daemon of…"</span>   2 minutes ago       Up 2 minutes        80/tcp                                         wizardly_rosalind
 </code></pre></div></div>
 
@@ -255,7 +252,7 @@ Untagged: Ruby@sha256:d973c59b89f3c5c9bb330e3350ef8c529753ba9004dcd1bfbcaa4e9c0a
 
 <p>Теперь попробуем остановить контейнер. Выполним команду:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Вместо CONTAINER_ID можно указывать имя</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Вместо CONTAINER_ID можно указывать имя</span>
 <span class="nv">$ </span>docker <span class="nb">kill </span>431a3b3fc24b <span class="c"># docker kill wizardly_rosalind</span>
 431a3b3fc24b
 </code></pre></div></div>
@@ -266,14 +263,14 @@ Untagged: Ruby@sha256:d973c59b89f3c5c9bb330e3350ef8c529753ba9004dcd1bfbcaa4e9c0a
 
 <p>Теперь выведем все контейнеры командой <code class="language-plaintext highlighter-rouge">docker ps -a</code>. Первыми тремя строчками вывода окажутся:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>CONTAINER ID        IMAGE                            COMMAND                  CREATED                  STATUS                       PORTS                                          NAMES
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>CONTAINER ID        IMAGE                            COMMAND                  CREATED                  STATUS                       PORTS                                          NAMES
 85fb81250406        ubuntu                           <span class="s2">"bash -c unkown"</span>         Less than a second ago   Exited <span class="o">(</span>127<span class="o">)</span> 3 seconds ago                                                  loving_bose
 c379040bce42        ubuntu                           <span class="s2">"ls"</span>                     Less than a second ago   Exited <span class="o">(</span>0<span class="o">)</span> 9 seconds ago                                                    determined_tereshkova
 </code></pre></div></div>
 
 <p>Здесь как раз два последних наших запуска. Если посмотреть на колонку STATUS, то видно, что оба контейнера находятся в состоянии Exited. То есть запущенная команда внутри них выполнилась, и они остановились. Разница лишь в том, что один завершился успешно (0), а второй с ошибкой (127). После остановки контейнер можно даже перезапустить:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker start determined_tereshkova <span class="c"># В вашем случае будет другое имя</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code>docker start determined_tereshkova <span class="c"># В вашем случае будет другое имя</span>
 </code></pre></div></div>
 
 <p>Только в этот раз вы не увидите вывод. Чтобы его посмотреть, воспользуйтесь командой <code class="language-plaintext highlighter-rouge">docker logs determined_tereshkova</code>.</p>
@@ -286,7 +283,7 @@ c379040bce42        ubuntu                           <span class="s2">"ls"</span
 
 <p>Самый простой вариант использования Докера, как мы уже убедились — поднять контейнер и выполнить внутри него какую-либо команду:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run ubuntu <span class="nb">ls</span> /usr
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run ubuntu <span class="nb">ls</span> /usr
 bin
 games
 include
@@ -300,7 +297,7 @@ src
 
 <p>После выполнения команды Docker возвращает управление, и мы снова находимся вне контейнера. Если попробовать точно так же запустить баш, то мы получим не то, что хотим:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run ubuntu bash
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run ubuntu bash
 <span class="err">$</span>
 </code></pre></div></div>
 
@@ -350,7 +347,7 @@ src
 
 <p>Рассмотрим процесс создания образа на примере упаковки линтера <code class="language-plaintext highlighter-rouge">eslint</code> (не забудьте повторить его самостоятельно). В результате сборки, мы получим образ, который можно использовать так:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> <span class="nt">-v</span> /path/to/js/files:/app my_account_name/eslint
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> <span class="nt">-v</span> /path/to/js/files:/app my_account_name/eslint
 
 /app/index.js
   3:6  error  Parsing error: Unexpected token
@@ -420,14 +417,14 @@ CMD ["eslint", "/app"]
 
 <p>Для сборки образа используется команда <code class="language-plaintext highlighter-rouge">docker build</code>. С помощью флага <code class="language-plaintext highlighter-rouge">-t</code> передается имя образа, включая имя аккаунта и тег. Как обычно, если не указывать тег, то подставляется <em>latest</em>.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker build <span class="nt">-t</span> my_account_name/eslint <span class="nb">.</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker build <span class="nt">-t</span> my_account_name/eslint <span class="nb">.</span>
 </code></pre></div></div>
 
 <p>После выполнения данной команды вы можете увидеть текущий образ в списке <code class="language-plaintext highlighter-rouge">docker images</code>. Вы даже можете начать его использовать без необходимости публикации в Registry. Напомню, что команда <code class="language-plaintext highlighter-rouge">docker run</code> не пытается искать обновленную версию образа, если локально есть образ с таким именем и тегом.</p>
 
 <h3 id="4-публикация">4. Публикация</h3>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker push my_account_name/eslint
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nv">$ </span>docker push my_account_name/eslint
 </code></pre></div></div>
 
 <p>Для успешного выполнения публикации нужно соблюсти два условия:</p>

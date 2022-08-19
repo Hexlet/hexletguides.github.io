@@ -8,10 +8,7 @@
 
 <p>Markdown — это набор подобных правил.</p>
 
-<div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/layout-designer-basics?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: «Верстка веб-приложений». Вся база за 2 месяца
-</a>
-</div>
+<Banner name="intensive-markup" />
 
 <p>Правила понятны разным программам и сайтам. Например, «Вопросы и ответы» в уроках на Хекслете поддерживают Markdown. Это значит, что вы можете писать туда тексты по правилам Markdown, а после нажатия «Отправить» разметка станет реальной: текст в одинарных звездочках станет наклонным, текст в двойных звездочках станет жирным и так далее. Это конвертация из Markdown в HTML.</p>
 
@@ -75,17 +72,20 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Иногда нужно добавить кусок кода `function(12);` в обычную строчку текста.
 </code></pre></div></div>
 
-<pre><code>А иногда нужно вставить целый блок кода:
+<pre>
+А иногда нужно вставить целый блок кода:
 
-&#96;&#96;&#96;javascript
+~~~
+```javascript
 const func = (num) =&gt; {
   if (num &gt; 0) {
     return num - 1;
   }
   return num + 1;
 };
-&#96;&#96;&#96;
-</code></pre>
+```
+~~~
+</pre>
 
 <h3 id="списки">Списки</h3>
 

@@ -1,43 +1,80 @@
+import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
+import config from '../data/config.js';
 import { i18n } from '../next-i18next.config.js';
-import { findPost, getConfig, getPostsList } from '../api/index.js';
+import { findPost, getPublishedPosts } from '../api/index.js';
 import DefaultLayout from '../components/DefaultLayout.jsx';
 import PostPageInfo from '../components/PostPageInfo.jsx';
 
 const Post = ({ post }) => {
+  const { locale } = useRouter();
+
+  if (!post) {
+    return null;
+  }
+
+  const disqus = {
+    short_name: config.disqus[locale],
+    config: {
+      language: locale,
+      title: post.header,
+      identifier: post.name,
+    },
+  };
+
   return (
-    <DefaultLayout>
-      <PostPageInfo post={post} />
+    <DefaultLayout title={post.header}>
+      <PostPageInfo post={post} disqus={disqus} />
     </DefaultLayout>
   );
 };
 
-export const getStaticProps = async ({ locale, params }) => ({
-  props: {
-    config: await getConfig(),
-    post: await findPost(params.name, locale),
-    ...await serverSideTranslations(locale, ['common']),
-  },
-});
+export const getStaticProps = async ({ locale, params }) => {
+  const post = await findPost(params.name, locale);
+
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
+
+  if (post.redirect_to) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: post.redirect_to,
+      },
+    };
+  }
+
+  return {
+    props: {
+      post,
+      ...(await serverSideTranslations(locale, ['common', 'post'])),
+    },
+  };
+};
 
 export const getStaticPaths = async () => {
-    const promises = i18n.locales.map(async (locale) => {
-        const posts = await getPostsList(locale);
+  const promises = i18n.locales.map(async (locale) => {
+    const posts = await getPublishedPosts(locale);
 
-        return posts.map(({ name }) => ({
-            locale,
-            params: { name },
-        }));
-    });
+    return posts
+      .filter(({ redirect_to }) => !redirect_to)
+      .map(({ name }) => ({
+        locale,
+        params: { name },
+      }));
+  });
 
-    const allPaths = await Promise.all(promises);
-    const paths = allPaths.flat();
+  const allPaths = await Promise.all(promises);
+  const paths = allPaths.flat();
 
-    return {
-        paths,
-        fallback: false,
-    };
+  return {
+    paths,
+    fallback: true,
+  };
 };
 
 export default Post;

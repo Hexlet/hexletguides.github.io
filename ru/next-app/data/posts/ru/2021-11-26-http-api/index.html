@@ -15,7 +15,7 @@
 
 <p>Именно здесь на помощь приходит API. Твиттер предоставляет специальные http-адреса, по которым доступны чистые данные, а не конкретные интернет-страницы с готовым внешним видом. Данные по таким адресам отдаются в структурированном формате, чаще всего JSON. Один сервис “упаковывает” данные в JSON формат, другой, который ходит за данными, “распаковывает” их из JSON и использует внутри себя для отображения. Пример запроса пользователя:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Адрес, по которому возвращается список указанных пользователей</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Адрес, по которому возвращается список указанных пользователей</span>
 <span class="c"># В данном случае запрашивается один пользователь</span>
 https://api.twitter.com/2/users/by?usernames<span class="o">=</span>hexletHQ
 
@@ -70,7 +70,7 @@ https://api.twitter.com/2/users/by?usernames<span class="o">=</span>hexletHQ
 
 <p>Подобное API часто называют REST API. Подробнее о нем в другой статье. Иногда API выглядит так, что адрес всегда один, но на него отправляются разные параметры запроса. У данного способа есть множество разновидностей, например, json-rpc, graphql и другое:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Все запросы идут только на этот адрес</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="c"># Все запросы идут только на этот адрес</span>
 https://some-site.com/api/rpc
 https://some-site.com/api/rpc?param<span class="o">=</span>value
 </code></pre></div></div>
