@@ -1,0 +1,127 @@
+/**
+ * Nord Theme Originally by Arctic Ice Studio
+ * https://nordtheme.com
+ *
+ * Ported for PrismJS by Zane Hitchcoxc (@zwhitchcox) and Gabriel Ramos (@gabrieluizramos)
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    background: none;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"],
+:not(pre) > code[class*="language-"],
+pre > code:not([class*="language-"]) {
+    display: block;
+    background-color: #f8f8f8;
+    border: 1px solid #dee2e6;
+    margin-bottom: 1rem;
+    padding: 10px;
+}
+
+pre[class*="language-"] {
+    overflow: auto;
+    margin-bottom: 1rem;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #999988;
+    font-style: italic;
+}
+
+.token.property,
+.token.symbol,
+.token.deleted,
+.language-scss .token.function {
+    color: #990000;
+}
+
+.token.tag {
+    color: #000080;
+}
+
+.language-scss .token.selector {
+    color: #445588
+}
+
+.token.constant,
+.token.atrule,
+.token.attr-name,
+.token.attr-equals,
+.token.variable {
+    color: #008080;
+}
+
+.token.selector,
+.token.attr-value,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.regex {
+    color: #d14;
+}
+
+.token.number {
+    color: #009999;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.style.token.string,
+.language-bash .token.number,
+.language-css .token.string {
+    color: #000000;
+}
+
+.token.function,
+.token.class-name,
+.token.keyword,
+.language-scss .token.hexcode.color {
+    color: #0086B3;
+}
+
+.token.bold,
+.token.boolean,
+.token.operator,
+.language-scss .token.function,
+.language-scss .token.selector,
+.language-scss .token.important {
+    font-weight: bold;
+}
+
+.token.important {
+    font-weight: normal;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}

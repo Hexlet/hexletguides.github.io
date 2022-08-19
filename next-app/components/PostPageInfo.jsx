@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import { MDXRemote } from 'next-mdx-remote';
 
-const PostPageInfo = ({ post }) => {
+const PostPageInfo = ({ post, content }) => {
   const postImage = post.image ? (
     <div className="text-center mx-auto mb-5">
       <img
@@ -16,10 +17,14 @@ const PostPageInfo = ({ post }) => {
     <div className="row">
       <div className="col-md-10 col-lg-8 mx-auto text-break">
         <div className="mainheading">
-          <h1 className="posttitle">{post.header}</h1>
+          <h1 className="posttitle">
+            {post.header}
+          </h1>
         </div>
         {postImage}
-        <div className="article-post">{post.content}</div>
+        <div className="article-post">
+          <MDXRemote compiledSource={post.content} />
+        </div>
       </div>
     </div>
   );
