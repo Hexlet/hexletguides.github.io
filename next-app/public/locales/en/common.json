@@ -24,5 +24,15 @@
       "title": "Code Battle",
       "url": "https://codebattle.hexlet.io/"
     }
+  },
+  "disqus": {
+    "noscript": {
+      "prefix": "Please enable JavaScript to view the",
+      "link": "comments powered by Disqus."
+    },
+    "link": {
+      "prefix": "comments powered by",
+      "logo": "Disqus"
+    }
   }
 }

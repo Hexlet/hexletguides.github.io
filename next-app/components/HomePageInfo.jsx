@@ -26,9 +26,7 @@ const HomePageInfo = ({ posts }) => {
           </div>
         </div>
       </div>
-      <div className="row mx-lg-5">
-        {postsList}
-      </div>
+      <div className="row mx-lg-5">{postsList}</div>
     </>
   );
 };

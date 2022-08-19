@@ -1,22 +1,20 @@
-export default {
-  title: "Hexlet Guides",
-  email: "support@hexlet.io",
-  timezone: "UTC",
-  repositoryUrl: "https://github.com/Hexlet/hexletguides.github.io",
-  tagline: "Гайды",
-  description: "Полезные статьи и гайды для разработчиков",
+const config = {
+  title: 'Hexlet Guides',
+  email: 'support@hexlet.io',
+  timezone: 'UTC',
+  repositoryUrl: 'https://github.com/Hexlet/hexletguides.github.io',
+  tagline: 'Гайды',
+  description: 'Полезные статьи и гайды для разработчиков',
   social: {
-    links: [
-      "https://www.instagram.com/hexlethq/",
-      "https://www.facebook.com/Hexlet/",
-      "https://twitter.com/HexletHQ"
-    ]
+    links: ['https://www.instagram.com/hexlethq/', 'https://www.facebook.com/Hexlet/', 'https://twitter.com/HexletHQ'],
   },
-  logo: "assets/images/hexlet_logo.png",
-  favicon: "assets/images/favicons/favicon-128.png",
-  author: "Kirill Mokevnin",
+  logo: '/images/hexlet_logo.png',
+  favicon: '/images/favicons/favicon-128.png',
+  author: 'Kirill Mokevnin',
   disqus: {
-    ru: "hexlet-guides",
-    en: "hexlet-guides-en"
+    ru: 'hexlet-guides',
+    en: 'hexlet-guides-en',
   },
-}
+};
+
+export default config;

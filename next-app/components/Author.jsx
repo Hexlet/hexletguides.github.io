@@ -7,13 +7,13 @@ const Author = ({ name, url }) => {
   }
 
   if (!url) {
-    return (
-      <div className="fst-italic">{name}</div>
-    );
+    return <div className="fst-italic">{name}</div>;
   }
 
   return (
-    <Link className="fst-italic" href={url}>{name}</Link>
+    <Link className="fst-italic" href={url}>
+      {name}
+    </Link>
   );
 };
 

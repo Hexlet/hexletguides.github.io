@@ -5,7 +5,7 @@ const Post = ({ name, header, summary }) => {
   const href = {
     pathname: '/[name]',
     query: {
-      name
+      name,
     },
   };
 
@@ -13,7 +13,9 @@ const Post = ({ name, header, summary }) => {
     <div className="card">
       <div className="card-block">
         <div className="card-title h4 serif-font">
-          <Link key={name} href={href}>{header}</Link>
+          <Link key={name} href={href}>
+            {header}
+          </Link>
         </div>
         <p className="card-text text-muted">{summary}</p>
       </div>
