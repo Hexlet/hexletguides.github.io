@@ -1,12 +1,15 @@
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { getConfig, getPostsList } from '../api/index.js';
+import { getPostsList } from '../api/index.js';
 import DefaultLayout from '../components/DefaultLayout.jsx';
 import HomePageInfo from '../components/HomePageInfo.jsx';
 
 const Home = ({ posts }) => {
+  const { t } = useTranslation('common');
+
   return (
-    <DefaultLayout>
+    <DefaultLayout title={t('title')}>
       <HomePageInfo posts={posts} />
     </DefaultLayout>
   );
@@ -14,9 +17,8 @@ const Home = ({ posts }) => {
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    config: await getConfig(),
     posts: await getPostsList(locale),
-    ...await serverSideTranslations(locale, ['common']),
+    ...(await serverSideTranslations(locale, ['common'])),
   },
 });
 

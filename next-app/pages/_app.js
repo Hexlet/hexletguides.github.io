@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/theme.scss';
-import '../styles/highlight.css';
+import '../styles/prism.css';
 import '../styles/custom.css';
 import { appWithTranslation } from 'next-i18next';
 

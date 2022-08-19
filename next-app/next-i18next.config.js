@@ -3,5 +3,5 @@ module.exports = {
     defaultLocale: 'en',
     locales: [ 'ru', 'en' ],
   },
-  ns: ['common', '404'],
+  ns: ['common', 'about', 'post', '404'],
 };

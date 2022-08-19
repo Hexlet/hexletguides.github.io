@@ -17,7 +17,7 @@ The main sites to get your questions answered:
 ## Language
 
 As practice shows, at the beginning most programmers try to search for information in their native language. Sometimes you can find the answer this way, but more often — no. **The universal language for programmers is English** – the whole world speaks it. The amount of information in the English-speaking segment is noticeably higher than in any other. Besides it’s a lot fresher. Learn to formulate your thoughts more accurately, and while searching - compose a set of words in English. This way you will master the terminology faster.
-{% include banner.html name="site-code-basics" %}
+<Banner name="site-code-basics"/>
 
 ## Search engine
 
@@ -44,7 +44,7 @@ The same search strategy can be used for well-known libraries: `github express`.
 
 Before you search by error message, it’s necessary to understand where *the error message* is here exactly. Although the output contains a lot of relevant information, it’s not a description of this error. For example:
 
-```sh
+```shell
 There was 1 failure:
 1) App\SolutionTest::testResult with data set #2 (0, 2, 2, 1, 2)
 Failed asserting that '1' matches expected 0.

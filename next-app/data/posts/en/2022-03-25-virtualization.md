@@ -48,9 +48,9 @@ Virtual machines allow you to utilize hardware resources more efficiently. Not a
 
 It is extremely unlikely, but even in this case it is possible to start a virtual machine. However the performance will be very low, since program virtualization will be implemented instead of software virtualization. In other words, it's better to upgrade your hardware.
 
-<!---
+{/*
 ## Related guides
 
 1. [What is Vagrant](/vagrant/). Vagrant allows creating and configuring lightweight, repeatable, and portable development environments for virtual machines.
 2. [How to work with Linux using Windows](/ubuntu-linux-in-windows/). Instructions for installing Ubuntu Linux on Windows using various virtualization technologies.
---->
+*/}
