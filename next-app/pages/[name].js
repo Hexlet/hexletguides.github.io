@@ -24,7 +24,7 @@ const Post = ({ post }) => {
   };
 
   return (
-    <DefaultLayout>
+    <DefaultLayout title={post.header}>
       <PostPageInfo post={post} disqus={disqus} />
     </DefaultLayout>
   );
@@ -51,30 +51,30 @@ export const getStaticProps = async ({ locale, params }) => {
   return {
     props: {
       post,
-      ...await serverSideTranslations(locale, ['common', 'post']),
+      ...(await serverSideTranslations(locale, ['common', 'post'])),
     },
   };
 };
 
 export const getStaticPaths = async () => {
-    const promises = i18n.locales.map(async (locale) => {
-      const posts = await getPublishedPosts(locale);
+  const promises = i18n.locales.map(async (locale) => {
+    const posts = await getPublishedPosts(locale);
 
-      return posts
-        .filter(({ redirect_to }) => !redirect_to)
-        .map(({ name }) => ({
-          locale,
-          params: { name },
-        }));
-    });
+    return posts
+      .filter(({ redirect_to }) => !redirect_to)
+      .map(({ name }) => ({
+        locale,
+        params: { name },
+      }));
+  });
 
-    const allPaths = await Promise.all(promises);
-    const paths = allPaths.flat();
+  const allPaths = await Promise.all(promises);
+  const paths = allPaths.flat();
 
-    return {
-      paths,
-      fallback: true,
-    };
+  return {
+    paths,
+    fallback: true,
+  };
 };
 
 export default Post;

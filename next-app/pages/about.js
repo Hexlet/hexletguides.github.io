@@ -7,7 +7,7 @@ const About = () => {
   const { t } = useTranslation('about');
 
   return (
-    <DefaultLayout>
+    <DefaultLayout title={t('page.title')}>
       <div className="col-lg-8 mx-auto">
         <div className="mainheading">
           <h1 className="posttitle">{t('page.title')}</h1>
@@ -22,7 +22,7 @@ const About = () => {
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...await serverSideTranslations(locale, ['common', 'about']),
+    ...(await serverSideTranslations(locale, ['common', 'about'])),
   },
 });
 

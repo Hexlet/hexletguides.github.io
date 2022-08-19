@@ -9,7 +9,7 @@ const config = {
     links: ['https://www.instagram.com/hexlethq/', 'https://www.facebook.com/Hexlet/', 'https://twitter.com/HexletHQ'],
   },
   logo: '/images/hexlet_logo.png',
-  favicon: '/images/favicons/favicon-128.png',
+  favicon: '/assets/images/favicons/favicon-128.png',
   author: 'Kirill Mokevnin',
   disqus: {
     ru: 'hexlet-guides',
