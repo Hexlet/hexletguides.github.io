@@ -27,7 +27,7 @@
     "bootstrap": "^5.1.3"
   },
   "devDependencies": {
-    "npm-check-updates": "^12.5.4",
+    "npm-check-updates": "^16.0.5",
     "simple-git-hooks": "^2.7.0"
   }
 }
