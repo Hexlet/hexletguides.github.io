@@ -91,6 +91,11 @@ defaults:
     values:
       layout: "post"
 
+  - scope:
+      path: "next-app" # an empty string here means all files in the project
+    values:
+      sitemap: false
+
   # - scope:
   #     path: ""
   #     type: "posts"
