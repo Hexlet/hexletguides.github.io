@@ -13,6 +13,8 @@ const components = {
 };
 
 const PostPageInfo = ({ post, disqus }) => {
+  console.log(post.next)
+  console.log(post.prev)
   const { t } = useTranslation('post');
 
   const postImage = post.image ? (
@@ -30,6 +32,20 @@ const PostPageInfo = ({ post, disqus }) => {
         {postImage}
         <div className="article-post">
           <MDXRemote compiledSource={post.content} components={components} />
+        </div>
+        <div className="col-md-12 mx-auto">
+          <nav className="navbar navbar-light bg-light flex-nowrap">
+           <Link href={post.prev.name }>
+              <a alt={t('page.prev_guide')} className="text-sm-start nav-link">
+                {post.prev.name && <div className="fs-6 badge bg-secondary text-wrap">&larr;{post.prev.header}</div>} 
+              </a>
+            </Link>
+            <Link href={post.next.name}>
+              <a alt={t('page.next_guide')} className="text-sm-end nav-link">
+                {post.next.name && <div className="fs-6 badge bg-secondary text-wrap">{post.next.header}&rarr;</div>}
+              </a>
+            </Link>
+          </nav>
         </div>
         <div className="lead d-flex my-5">
           <span className="me-auto">

@@ -32,7 +32,6 @@ const Post = ({ post }) => {
 
 export const getStaticProps = async ({ locale, params }) => {
   const post = await findPost(params.name, locale);
-
   if (!post) {
     return {
       notFound: true,

@@ -60,6 +60,10 @@ export const getPostsList = async (locale) => {
 export const findPost = async (name, locale) => {
   const posts = await getPublishedPosts(locale);
   const post = posts.find((post) => post.name === name);
+  const numOfposts = posts.length - 1;
+  const postIndex = posts.indexOf(post);
+  const nextPost = postIndex === numOfposts ? posts[0] : posts[postIndex + 1];
+  const prevPost = postIndex === 0 ? posts[numOfposts] : posts[postIndex - 1];
 
   if (!post) {
     return null;
@@ -77,6 +81,8 @@ export const findPost = async (name, locale) => {
 
   return {
     ...props,
+    next: { header: nextPost.header, name: nextPost.name},
+    prev: { header: prevPost.header, name: prevPost.name},
     content: compiledSource,
   };
 };
