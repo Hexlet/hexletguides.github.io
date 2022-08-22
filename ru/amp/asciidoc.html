@@ -183,11 +183,17 @@
 
       <a class="full_post_link" href="https://guides.hexlet.io/ru/asciidoc/">Читать в полной версии →</a>
 
-      <p>Представьте, что вы пишите статью, книгу или обучающий курс: используете дополнительную литературу, вычитываете текст, делаете его простым и стараетесь донести до читателей всё, что хотели. Это уже большая работа, которая требует времени и внимательности, но нужно не только написать текст, но и разметить его, чтобы выделить заголовки, списки, цитаты, ссылки, формулы.</p>
+      <p>Представьте, что вы пишите статью, книгу или обучающий курс. Но мало написать простой текст, еще его нужно сделать структурным: выделить заголовки, списки, цитаты, ссылки, формулы. Это сделает материал понятным и логичным. Для этого используются языки разметки, например, AsciiDoc.</p>
 
-<p>Как сделать так, чтобы устройства, с которых будут читать текст, правильно поняли логическую структуру? Для этого используются языки разметки — специальные соглашения по оформлению текста, в которых для каждого элемента существуют конструкции, однозначно их определяющие.</p>
+<p>В этом гайде разберемся, как создать файл в формате AsciiDoc, в каких программах редактировать, как разметить текст и получить результат в HTML.</p>
 
-<p>В веб-разработке языком разметки является HTML, с помощью которого размечаются данные на странице. Страница, на которой вы находитесь тоже размечена языком HTML, а браузер интерпретирует её по общим соглашениям. Например, для создания списка, в HTML, используют конструкцию:</p>
+<h2 id="почему-нужно-выбрать-asciidoc">Почему нужно выбрать AsciiDoc</h2>
+
+<p>Языки разметки помогают сформировать структуру в текстах, а также определить основные элементы. С помощью конструкций для каждого элемента можно показать, где в тексте заголовок, выделить понятие, код, список, вставить ссылку, изображение и таблицу.</p>
+
+<p>В веб-разработке язык разметки — <strong>HTML</strong>. С его помощью размечаются данные на странице. Например, страница с этим гайдом тоже размечена языком HTML, а браузер интерпретирует ее по общим соглашениям. Здесь вы увидите заголовки, списки и прочие элементы, которые ввели с помощью специальных конструкций.</p>
+
+<p>Но многие специалисты, которые работаю с HTML, считают его неудобным. Например, чтобы создать список, в этом языке разметки используют конструкцию:</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="nt">&lt;ul&gt;</span>
   <span class="nt">&lt;li&gt;</span>Первый пункт списка<span class="nt">&lt;/li&gt;</span>
@@ -203,12 +209,16 @@
 <p>Размечать текст таким образом не очень удобно:</p>
 
 <ul>
-  <li>Помимо текста пришлось ввести дополнительные 48 символов, которые не имеют к тексту отношения.</li>
-  <li>В такой разметке легко допустить ошибку. Забыли указать <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;/li&gt;</code> или <code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;/ul&gt;</code> и браузер неправильно выведет разметку, а возможно и затронет соседние блоки с текстом.</li>
-  <li>Для разметки текста нужно знать язык HTML, что не требуется от писателей, контент-менеджеров и других людей, чей труд связан с написанием текстов, но не разработкой.</li>
+  <li>Помимо текста пришлось ввести дополнительные 48 символов, которые не имеют отношения к тексту</li>
+  <li>В такой разметке легко допустить ошибку. Забыли указать <code class="language-plaintext highlighter-rouge">&lt;li&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;/li&gt;</code> или <code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;/ul&gt;</code> и браузер неправильно выведет разметку. Возможно, он затронет соседние блоки с текстом</li>
+  <li>Часто писатели, контент-менеджеры и редакторы, которые работают с текстом, не знают язык HTML, что усложняет работу</li>
 </ul>
 
-<p>Решить эти проблемы можно с помощью сторонних форматов разметки текстов и в этом гайде рассмотрим формат <em>AsciiDoc</em>, в котором список выше будет написан так:</p>
+<p>Решить эту проблему можно с помощью сторонних форматов разметки текстов, например, <strong>AsciiDoc</strong>. В этом гайде рассмотрим именно этот формат.</p>
+
+<p>AsciiDoc удобен тем, что требует минимальной вставки дополнительных символов в текст, чтобы его структурировать.</p>
+
+<p>Например, список из примера выше можно написать так:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>* Первый пункт списка
 * Второй пункт списка
@@ -216,15 +226,21 @@
 ** Второй подпункт второго пункта списка
 </code></pre></div></div>
 
-<p>Разберёмся, как создать файл в формате <em>AsciiDoc</em>, в каких программах редактировать, как разметить текст и получить результат в HTML.</p>
+<p>Как видите, здесь мы указали лишь шесть дополнительных символов, вместо 48 в HTML. Чуть позже мы изучим их подробнее.</p>
+
+<p>Главное преимущество AsciiDoc — его удобно использовать. Он помогает автору не вписывать в текст много кодов HTML, и запомнить его символы разметки легче.</p>
+
+<p>AsciiDoc не единственный язык разметки с простым и удобным кодом. Еще писатели часто используют Markdown, который также станет хорошей альтернативой HTML. Но есть случаи, когда AsciiDoc справится лучше. Расскажем о них.</p>
 
 <h2 id="почему-не-markdown">Почему не Markdown</h2>
 
-<p>Если вы уже работали с текстами с помощью формата Markdown, то можете задаться вопросом: «А стоит ли переходить на AsciiDoc, если меня всё устраивает в Markdown?». Ответ прост — если функциональности Markdown достаточно для решения задач, то нет смысла переходить на другой формат.</p>
+<p>Если вы работаете с текстами с помощью формата Markdown и вам достаточно его функциональности, то нет смысла переходить на другой язык. Однако у этого языка есть ряд недостатков по сравнению с AsciiDoc.</p>
 
-<p>AsciiDoc значительно расширяет возможности для добавления элементов на страницу с помощью макросов. Макросы — небольшой код, который помогает автоматизировать рутинные задачи. В качестве примера такого макроса изучим вставку YouTube видео в Markdown и AsciiDoc.</p>
+<p>AsciiDoc расширяет возможности для добавления элементов на страницу с помощью <strong>макросов</strong> — небольшого кода, который помогает автоматизировать рутинные задачи.</p>
 
-<p>Как вставить видео из Youtube с помощью Markdown? Для этого можно скопировать HTML код, который включает в себя <code class="language-plaintext highlighter-rouge">&lt;iframe&gt;</code> и добавить его на страницу, тогда код будет выглядеть так:</p>
+<p>Для примера рассмотрим, как вставлять видео из YouTube в Markdown и AsciiDoc.</p>
+
+<p>Чтобы вставить видео из Youtube с помощью Markdown, можно скопировать HTML код, который включает в себя <code class="language-plaintext highlighter-rouge">&lt;iframe&gt;</code> и добавить его на страницу. Тогда код будет выглядеть так:</p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="syntax"><code><span class="gu">## Наше самое популярное видео</span>
 
@@ -233,7 +249,7 @@
 <span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">"560"</span> <span class="na">height=</span><span class="s">"315"</span> <span class="na">src=</span><span class="s">"https://www.youtube.com/embed/eXI_TFW5Cdo"</span> <span class="na">title=</span><span class="s">"YouTube video player"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">allow=</span><span class="s">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span>
 </code></pre></div></div>
 
-<p>В формате AsciiDoc для добавления видео используется макрос <code class="language-plaintext highlighter-rouge">video</code>, с помощью которого можно добавить как локальное видео, так и видео со сторонних ресурсов. Вот как будет выглядеть разметка в формате AsciiDoc:</p>
+<p>Чтобы добавить видео в формате AsciiDoc, используется макрос <code class="language-plaintext highlighter-rouge">video</code>. С его помощью добавляют как локальное видео, так и видео со сторонних ресурсов. Вот как будет выглядеть разметка в формате AsciiDoc:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>== Наше самое популярное видео
 
@@ -242,19 +258,21 @@
 video::eXI_TFW5Cdo[youtube, width=560, height=315]
 </code></pre></div></div>
 
-<p>Теперь, вместо HTML кода, используется конструкция с идентификатором видео, источником видео, ширины и высоты. Остальное AsciiDoc сделает самостоятельно.</p>
+<p>Как видите, здесь код выглядит меньше, красивее и понятнее. Вместо HTML кода используется конструкция с идентификатором видео, источником видео, ширины и высоты. Остальное AsciiDoc сделает самостоятельно.</p>
 
-<p>Таких макросов в AsciiDoc большое количество. С их помощью добавлять аудио, видео, создавать кнопки для взаимодействий, добавлять готовую вёрстку для некоторых блоков и так далее. Подробности про макросы находятся в официальной документации вместе с примерами макросов, которые предоставляет формат AsciiDoc. Ссылка на документацию будет в конце гайда.</p>
+<p>Таких макросов в AsciiDoc много. С их помощью можно добавлять аудио, видео, создавать кнопки для взаимодействий, добавлять готовую верстку для блоков и прочее. Их можно найти в официальной документации к AsciiDoc. Ссылка есть в конце гайда.</p>
 
-<p>Макросы — не единственное преимущество перед Markdown, но уже достаточное, чтобы попробовать новый формат. Помимо этого используются и другие функции, работающие по единому стандарту и доступные в AsciiDoc «из коробки». Например, использование математических формул. Подробнее об этом будет в конце гайда.</p>
+<p>Макросы — не единственное преимущество перед Markdown. Помимо этого используются и другие функции, которые работают по единому стандарту и доступны в AsciiDoc. Например, можно обозначать математические формулы. Подробнее об этом расскажем позже.</p>
 
-<p>Эти преимущества не обозначают, что нельзя сделать такие же блоки на Markdown, но в AsciiDoc для этого используются официальные стандарты, когда новые функции работают предсказуемо и понятно, а их написание стандартизировано.</p>
+<p>Эти преимущества не означают, что нельзя сделать такие же блоки на Markdown. Но в AsciiDoc для этого используются официальные стандарты. При этом новые функции работают предсказуемо и понятно, а их написание стандартизировано.</p>
+
+<p>Далее расскажем, как разметить текст в AsciiDoc. Но чтобы сразу применять новые знания на практике, нужно подготовиться.</p>
 
 <h2 id="как-начать-работать-с-asciidoc">Как начать работать с AsciiDoc</h2>
 
-<p>Начать работать с форматом <em>AsciiDoc</em> можно прямо сейчас. Создайте файл с расширением <em>.adoc</em> и вы готовы повторять примеры гайда.</p>
+<p>Чтобы начать работать с форматом AsciiDoc, создайте файл с расширением <strong>.adoc</strong>. Так вы сможете сразу повторять примеры гайда.</p>
 
-<p>Редактировать файл можно стандартным блокнотом или любимым редактором: VSCode, Sublime Text, Atom и так далее. Открыть файл можно с помощью браузера, у которого установлено расширение <em>Asciidoctor.js Live Preview</em>:</p>
+<p>Редактировать файл можно стандартным блокнотом или редактором, например, VSCode, Sublime Text, Atom. Открыть файл можно с помощью браузера, у которого установлено расширение Asciidoctor.js Live Preview. Вот ссылки на расширение в магазинах для конкретных браузеров:</p>
 
 <ul>
   <li><a href="https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia">Chrome</a></li>
@@ -264,87 +282,102 @@ video::eXI_TFW5Cdo[youtube, width=560, height=315]
   <li><a href="https://macdownload.informer.com/asciidoctor-for-safari/">Safari</a></li>
 </ul>
 
-<p>Если вы используете редактор <em>VSCode</em>, то можно установить дополнение <a href="https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode">AsciiDoc</a>, которое добавит в редактор подсветку синтаксиса, экспорт в PDF, HTML, а так же добавит функцию <em>Live Preview</em></p>
+<p>Если вы используете редактор VSCode, можно установить дополнение <a href="https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode">AsciiDoc</a>. Оно добавит в редактор подсветку синтаксиса, экспорт в PDF, HTML и функцию Live Preview:</p>
 
 <p><amp-img src="/assets/images/asciidoc/live-preview.png" alt="Функция Live Preview плагина AsciiDoc" width="1920" height="1045" layout="responsive"><noscript><img src="/assets/images/asciidoc/live-preview.png" alt="Функция Live Preview плагина AsciiDoc" width="1920" height="1045"></noscript></amp-img></p>
 
-<p>Если интересно только попробовать разметку, но ничего дополнительно не устанавливать, то можно воспользоваться <a href="https://asciidoclive.com">AsciiDoc Live</a>. Это онлайн редактор, в котором можно сразу увидеть результат преобразования разметки в HTML и, при необходимости, экспортировать текст из формата <em>AsciiDoc</em> в <em>HTML</em>.</p>
+<p>Если интересно только попробовать разметку, но ничего дополнительно не устанавливать, то можно воспользоваться <a href="https://asciidoclive.com">AsciiDoc Live</a>. Это онлайн редактор, в котором можно сразу увидеть результат преобразования разметки в HTML. При этом можно экспортировать текст из формата AsciiDoc в HTML.</p>
 
-<p>Разработчики AsciiDoc советуют не использовать Word, Libre Office, Google Docs и другие тяжелые редакторы. Дело в том, что эти “тяжелые редакторы” мешают работать с “адоками”: автору придется сначала оформлять заголовки в гуглдоке, а потом переносить в <em>.adoc</em> и переделывать еще раз, это двойная работа.</p>
+<p>Разработчики AsciiDoc советуют не использовать Word, Libre Office, Google Docs и другие тяжелые редакторы. Они мешают работать с .adoc. Автору придется сначала оформлять заголовки в гуглдоке, а потом переносить в .adoc и переделывать еще раз — это двойная работа.</p>
 
-<p>Перед изучением синтаксиса стоит сказать, что AsciiDoc напоминает формат <a href="https://guides.hexlet.io/ru/markdown/">разметки Markdown</a>. Если вы работали с этим форматом, то многие вещи покажутся похожими и интуитивно понятными. И наоборот, если вы знаете AsciiDoc, то использование Markdown не вызовет больших трудностей.</p>
-
-<p>Помимо этого, AsciiDoc умеет интерпретировать многие записи формата Markdown, поэтому, если у вас есть текст в Markdown, то попробуйте поменять расширение и посмотреть, как много элементов останутся такими же. Полный список совместимости будет по ссылке в конце этого гайда.</p>
+<p>Теперь, когда вы готовы к работе с AsciiDoc, можно разобрать его синтаксис. Советуем сразу применять знания на практике, чтобы видеть, как это работает.</p>
 
 <h2 id="синтаксис-asciidoc">Синтаксис AsciiDoc</h2>
 
-<p>В этом гайде мы не берём на себя функции пересказать документацию AsciiDoc со всеми возможными подводными камнями. С этим документации справится намного лучше, поэтому рассмотрим базовые примеры, по которым уже можно разметить первый текст.</p>
+<p>AsciiDoc напоминает формат <a href="https://guides.hexlet.io/ru/markdown/">разметки Markdown</a>. Если вы работали с ним, то многие вещи покажутся похожими и интуитивно понятными. И наоборот, если вы знаете AsciiDoc, то использование Markdown не вызовет трудностей.</p>
 
-<h3 id="параграфы-и-выделение-текста">Параграфы и выделение текста</h3>
+<p>Еще AsciiDoc интерпретирует многие записи формата Markdown. Если у вас есть текст в Markdown, то попробуйте поменять расширение и посмотреть, как много элементов останутся такими же. Список совместимости можно посмотреть в <a href="https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/#markdown-compatibility">документации</a>.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>Добавьте строку текста и она автоматически станет параграфом. Никаких дополнительных указаний не требуется.
+<p>Рассмотрим основные примеры разметки, которых хватит для оформления базового текста. Мы будем разбирать, как разметить:</p>
 
-Каждая новая строка — новый параграф. Поэтому AsciiDoc сделает из этого текста два параграфа. Важно, что параграфы отделяются пустой строкой. Так будет однозначно понятно, где закончился один параграф и начался другой
-</code></pre></div></div>
+<ul>
+  <li>параграфы</li>
+  <li>заголовки</li>
+  <li>выделение</li>
+  <li>списки</li>
+  <li>код</li>
+  <li>ссылки</li>
+  <li>цитаты</li>
+  <li>изображения</li>
+  <li>таблицы</li>
+  <li>математические формулы</li>
+</ul>
+
+<p>Разберем разметку каждого элемента подробнее.</p>
+
+<h3 id="параграфы">Параграфы</h3>
+
+<p>Каждая новая строка в тексте — новый параграф. Чтобы добавить его, нужно перейти на новую строчку. Но чтобы параграфы отделялись друг от друга, необходимо оставить между ними пустую строку. Так будет понятно, где закончился один параграф и начался другой:</p>
 
 <p><amp-img src="/assets/images/asciidoc/asciidoc_paragraph.png" alt="Параграфы в AsciiDoc" width="1320" height="495" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_paragraph.png" alt="Параграфы в AsciiDoc" width="1320" height="495"></noscript></amp-img></p>
 
-<p>В текстах полезно выделять ключевые слова или мысли, так читатель сконцентрирует внимание на самой важной части. Выделять текст можно с помощью <strong>насыщенности</strong> или <em>курсива</em>:</p>
+<p>Здесь видно, что первый параграф находится на строке «1», строка «2» — разделительная, и на строке «3» находится следующий параграф. Никаких символов, чтобы обозначить параграф, не нужно.</p>
+
+<h3 id="заголовки">Заголовки</h3>
+
+<p>Заголовками отделяют логические области текста. По ним мы легко ориентироваться в тексте. В HTML используется шесть уровней заголовков, поэтому и в AsciiDoc их шесть:</p>
+
+<p><code class="language-plaintext highlighter-rouge">=</code> — заголовок первого уровня</p>
+
+<p><code class="language-plaintext highlighter-rouge">==</code> — заголовок второго уровня</p>
+
+<p><code class="language-plaintext highlighter-rouge">===</code> — заголовок третьего уровня</p>
+
+<p><code class="language-plaintext highlighter-rouge">====</code> — заголовок четвертого уровня</p>
+
+<p><code class="language-plaintext highlighter-rouge">=====</code> — заголовок пятого уровня</p>
+
+<p><code class="language-plaintext highlighter-rouge">======</code> — заголовок шестого уровня</p>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_headers.png" alt="Заголовки в AsciiDoc" width="1320" height="495" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_headers.png" alt="Заголовки в AsciiDoc" width="1320" height="495"></noscript></amp-img></p>
+
+<p>Размеры заголовков при переходе от первого к последнему уровню уменьшаются. Это помогает обозначать блоки одного уровня.</p>
+
+<h3 id="выделение">Выделение</h3>
+
+<p>В текстах полезно выделять ключевые слова или мысли, так читатель концентрирует внимание на самой важной части. Выделять текст можно с помощью <strong>жирного шрифта</strong> или <em>курсива</em>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>А вы знаете, что _AsciiDoc_ — *невероятный инструмент* для разметки текста?
 </code></pre></div></div>
 
 <p><amp-img src="/assets/images/asciidoc/asciidoc_textstyle.png" alt="Насыщенность и курсив" width="1320" height="495" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_textstyle.png" alt="Насыщенность и курсив" width="1320" height="495"></noscript></amp-img></p>
 
-<h3 id="заголовки">Заголовки</h3>
-
-<p>Заголовки позволяют отделить логические области текста. Откройте оглавление книги и увидите главы, подглавы. Это заголовки и по ним мы легко ориентируемся в тексте. В HTML используется шесть уровней заголовков, поэтому и в <em>AsciiDoc</em> их шесть</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>= Заголовок первого уровня
-
-== Заголовок второго уровня
-
-=== Заголовок третьего уровня
-
-==== Заголовок четвёртого уровня
-
-===== Заголовок пятого уровня
-
-====== Заголовок шестого уровня
-</code></pre></div></div>
-
-<p><amp-img src="/assets/images/asciidoc/asciidoc_headers.png" alt="Заголовки в AsciiDoc" width="1320" height="495" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_headers.png" alt="Заголовки в AsciiDoc" width="1320" height="495"></noscript></amp-img></p>
-
-<h3 id="ссылки">Ссылки</h3>
-
-<p>Ссылки — прекрасный способ отсылки к другому материалу или странице, на которую пользователю стоит перейти, чтобы получить дополнительную информацию.</p>
-
-<p>Для создания ссылки используется конструкция <code class="language-plaintext highlighter-rouge">link[description]</code>, где:</p>
-
-<ul>
-  <li>
-<code class="language-plaintext highlighter-rouge">link</code> — ссылка</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">description</code> — текст ссылки</li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>https://guides.hexlet.io[Гайды от команды Хекслета]
-</code></pre></div></div>
-
-<p><amp-img src="/assets/images/asciidoc/asciidoc_links.png" alt="Ссылки в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_links.png" alt="Ссылки в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+<p>Выделить жирным шрифтом можно с помощью двух символов <code class="language-plaintext highlighter-rouge">*</code> по краям выделенного текста. А курсив обозначается с помощью <code class="language-plaintext highlighter-rouge">_</code> тоже по краям текста, который нужно выделить.</p>
 
 <h3 id="списки">Списки</h3>
 
-<p>Как и в HTML, в <em>AsciiDoc</em> существуют списки двух видов:</p>
+<p>Как и в HTML, в AsciiDoc есть списки двух видов:</p>
 
 <ul>
   <li>Нумерованные</li>
   <li>Маркированные</li>
 </ul>
 
-<p>Для создания нумерованных списков используется символ <code class="language-plaintext highlighter-rouge">.</code>, а маркированных символ <code class="language-plaintext highlighter-rouge">*</code>. Можно создавать большие вложенности одних пунктов в другие простым добавлением второго символа списка, а сами списки комбинировать, создавая сложные, многоуровневые конструкции</p>
+<p>Чтобы создать нумерованный список, используйте символ <code class="language-plaintext highlighter-rouge">.</code>:</p>
 
-<p><strong>Простой список</strong></p>
+<p><strong>Простой нумерованный список</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>== Пошаговый рецепт
+
+. Налить 200 грамм молока
+. Добавить 50 грамм мороженого
+. Влить 10 грамм сиропа
+. Перемешать в блендере в течение пяти минут
+</code></pre></div></div>
+
+<p>Маркированный список создается с помощью символа <code class="language-plaintext highlighter-rouge">*</code>. Например, вот так будет выглядеть список покупок:</p>
+
+<p><strong>Простой маркированный список</strong></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>== Купить
 
@@ -357,7 +390,9 @@ video::eXI_TFW5Cdo[youtube, width=560, height=315]
 
 <p><amp-img src="/assets/images/asciidoc/asciidoc_list_1.png" alt="Нумерованный список в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_list_1.png" alt="Нумерованный список в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
 
-<p><strong>Вложенные списки разных типов</strong></p>
+<p>Еще в AsciiDoc можно создавать большие вложенности одних пунктов в другие. Для этого нужно добавить второй символ списка. Также списки можно комбинировать, создавая сложные многоуровневые конструкции:</p>
+
+<p><strong>Сложный многоуровневый список</strong></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>== Купить
 
@@ -375,42 +410,10 @@ video::eXI_TFW5Cdo[youtube, width=560, height=315]
 
 <p><amp-img src="/assets/images/asciidoc/asciidoc_list_2.png" alt="Вложенный список в AsciiDoc" width="1320" height="596" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_list_2.png" alt="Вложенный список в AsciiDoc" width="1320" height="596"></noscript></amp-img></p>
 
-<h3 id="изображения">Изображения</h3>
-
-<p>Изображения — выразительный инструмент, который помогает визуализировать текст. Согласитесь, что без изображений этот гайд был бы сухим и менее понятным.</p>
-
-<p>Изображения добавляются с помощью конструкции <code class="language-plaintext highlighter-rouge">image::image.png[]</code>, где:</p>
-
-<ul>
-  <li>
-<code class="language-plaintext highlighter-rouge">image.png</code> — путь к изображению. Он может быть как абсолютным, так и относительным. Это зависит от того, где располагается файл</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">[]</code> — описание изображения, которым пользуются программы для чтения с экрана или поисковые роботы</li>
-</ul>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>image::https://github.com/Hexlet/assets/blob/master/images/hexlet_logo.png?raw=true[Логотип Хекслета]
-</code></pre></div></div>
-
-<p><amp-img src="/assets/images/asciidoc/asciidoc_images.png" alt="Разметка изображений в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_images.png" alt="Разметка изображений в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
-
-<h3 id="цитаты">Цитаты</h3>
-
-<p>Для оформления цитат используется символ <code class="language-plaintext highlighter-rouge">&gt;</code></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&gt; Основная задача не в том, чтобы найти ошибку, а в том, чтобы найти условия, при которых код продолжает свою работу
-</code></pre></div></div>
-
-<p>Если цитата содержит несколько строк, то их можно соединить с помощью конструкции <code class="language-plaintext highlighter-rouge">&gt; +</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&gt; Эффективная отладка кода +
-&gt; — один из ключевых показателей хороших разработчиков
-</code></pre></div></div>
-
-<p><amp-img src="/assets/images/asciidoc/asciidoc_quote.png" alt="Оформление цитат в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_quote.png" alt="Оформление цитат в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
-
 <h3 id="оформление-кода">Оформление кода</h3>
 
-<p>При написании технических статей возникает потребность в оформлении кода. Для этого используется конструкция</p>
+<p>Текстовый файл часто создается, чтобы описать проект, где содержится код. В Хекслете мы учим программированию, поэтому тоже постоянно показываем примеры кодов.
+Чтобы код не терялся в тексте, его тоже нужно выделять. Так будет виден его синтаксис. Для этого используется конструкция:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>[source,lang]
 ----
@@ -418,7 +421,9 @@ video::eXI_TFW5Cdo[youtube, width=560, height=315]
 ----
 </code></pre></div></div>
 
-<p>В этой конструкции важным является параметр <code class="language-plaintext highlighter-rouge">lang</code>, который указывает на язык, который используется при оформлении кода. Это поможет сторонним плагинам сделать подсветку кода. Вот как может выглядеть оформление кода на языке Ruby:</p>
+<p><code class="language-plaintext highlighter-rouge">lang</code> — это параметр, который указывает язык. Строки с этим параметром не видно в итоговом тексте. <code class="language-plaintext highlighter-rouge">Код</code> — это часть кода, который требуется показать.</p>
+
+<p>Вот как выглядит оформление кода на языке Ruby:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>[source,ruby]
 ----
@@ -432,39 +437,81 @@ end
 
 <p><amp-img src="/assets/images/asciidoc/asciidoc_code.png" alt="Оформление кода в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_code.png" alt="Оформление кода в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
 
+<p>Такое оформление кода поможет сторонним плагинам сделать подсветку кода.</p>
+
+<h3 id="ссылки">Ссылки</h3>
+
+<p>С помощью ссылок можно отсылаться к другому материалу или странице, на которую пользователю стоит перейти. Это помогает наполнить материал дополнительной информацией.</p>
+
+<p>Чтобы создать ссылку, используйте конструкцию <code class="language-plaintext highlighter-rouge">link[description]</code>, где:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">link</code> — ссылка</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">description</code> — текст ссылки</li>
+</ul>
+
+<p>Например, нам нужно вставить ссылку на сборник гайдов от Хекслета:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>https://guides.hexlet.io[Гайды от команды Хекслета]
+</code></pre></div></div>
+
+<p>Вот так это будет выглядеть в редакторе и в итоговом тексте:</p>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_links.png" alt="Ссылки в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_links.png" alt="Ссылки в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<p>Чтобы текст залинковался, между ссылкой и <code class="language-plaintext highlighter-rouge">[]</code> не должно быть пробела.</p>
+
+<h3 id="цитаты">Цитаты</h3>
+
+<p>Часто в текстах нужно вставлять прямую речь, например, цитату эксперта. Для этого используется символ <code class="language-plaintext highlighter-rouge">&gt;</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&gt; Основная задача не в том, чтобы найти ошибку, а в том, чтобы найти условия, при которых код продолжает свою работу
+</code></pre></div></div>
+
+<p>Если цитата содержит несколько строк, то их можно соединить с помощью конструкции <code class="language-plaintext highlighter-rouge">&gt; +</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>&gt; Эффективная отладка кода +
+&gt; — один из ключевых показателей хороших разработчиков
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_quote.png" alt="Оформление цитат в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_quote.png" alt="Оформление цитат в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<p>В итоговом тексте цитата выделится кавычками, и читатель поймет, что это прямая речь эксперта.</p>
+
+<h3 id="изображения">Изображения</h3>
+
+<p>Изображения — инструмент, который помогает визуализировать текст. Например, без них этот гайд был бы менее понятным.</p>
+
+<p>Изображения добавляются с помощью конструкции <code class="language-plaintext highlighter-rouge">image::image.png[]</code>, где:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">image.png</code> — путь к изображению. Он может быть как точным, так и относительно «отправной точки». Это зависит от того, где располагается файл</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">[]</code> — описание изображения, которым пользуются программы для чтения с экрана или поисковики</li>
+</ul>
+
+<p>Например, вот так будет выглядеть вставка логотипа Хекслета, который находится в <code class="language-plaintext highlighter-rouge">https://github.com/Hexlet/assets/blob/master/images/hexlet_logo.png?raw=true</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>image::https://github.com/Hexlet/assets/blob/master/images/hexlet_logo.png?raw=true[Логотип Хекслета]
+</code></pre></div></div>
+
+<p><amp-img src="/assets/images/asciidoc/asciidoc_images.png" alt="Разметка изображений в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_images.png" alt="Разметка изображений в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
 <h3 id="таблицы">Таблицы</h3>
 
-<p>Таблицы — способ группировки схожей информации и ей часто можно заменить список, если в нём присутствуют однотипные типы информации.</p>
+<p>Таблицы — способ группировки схожей информации, с помощью которой можно заменить список, если в нем есть однотипная информация.</p>
 
 <p>Предположим, что нужно добавить информацию о языке программирования и его области применений. Выделим две категории информации:</p>
 
 <ol>
   <li>Язык</li>
-  <li>Область использования</li>
+  <li>Область применения</li>
 </ol>
 
-<p>Такую информацию можно представить в виде таблицы из двух колонок</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Язык</th>
-      <th>Где используется</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>HTML</td>
-      <td>Web-страницы и приложения в браузере</td>
-    </tr>
-    <tr>
-      <td>JS</td>
-      <td>Web-разработка <br> Мобильная разработка <br> GameDev</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Для создания таблицы в AsciiDoc есть несколько типов синтаксиса. Для примера возьмём синтаксис, который, визуально, похож на список:</p>
+<p>Такую информацию можно представить в виде таблицы из двух колонок. Чтобы создать таблицу в AsciiDoc, используют несколько типов синтаксиса. Для примера возьмем синтаксис, который похож на список:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>[cols=2]
 |====
@@ -476,10 +523,6 @@ end
 |====
 </code></pre></div></div>
 
-<p><amp-img src="/assets/images/asciidoc/asciidoc_table.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_table.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
-
-<p>Пример выше можно разбить на несколько основных частей:</p>
-
 <ul>
   <li>
 <code class="language-plaintext highlighter-rouge">[cols=2]</code> — определение количества колонок</li>
@@ -488,7 +531,9 @@ end
 <code class="language-plaintext highlighter-rouge">|</code> — ячейка таблицы</li>
 </ul>
 
-<p>Как же добавить заголовки к таблице? В этом случае синтаксис немного изменится:</p>
+<p><amp-img src="/assets/images/asciidoc/asciidoc_table.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_table.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
+
+<p>Но такая таблица будет непонятной, так как нет заголовков. Если их добавить, то синтаксис будет выглядеть так:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>|====
 |Язык |Где используется
@@ -501,7 +546,7 @@ end
 |====
 </code></pre></div></div>
 
-<p>В этом примере исчезло указание <code class="language-plaintext highlighter-rouge">[cols=2]</code>, так как количество ячеек определяется количеством заголовков. Заголовки указываются после открытия таблицы и указываются в одну строку. Каждый заголовок начинается с символа <code class="language-plaintext highlighter-rouge">|</code></p>
+<p>В этом примере исчезло указание <code class="language-plaintext highlighter-rouge">[cols=2]</code>, так как количество ячеек определяется количеством заголовков. Заголовки указываются после открытия таблицы в одну строку. Каждый заголовок начинается с символа <code class="language-plaintext highlighter-rouge">|</code></p>
 
 <p><amp-img src="/assets/images/asciidoc/asciidoc_table_header.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_table_header.png" alt="Разметка таблицы в AsciiDoc" width="1320" height="447"></noscript></amp-img></p>
 
@@ -514,12 +559,13 @@ end
 
 <h3 id="математические-формулы">Математические формулы</h3>
 
-<p>При написании текстов на научные, технические темы сложно обойтись без математических обозначений. По умолчанию такой функциональности нет ни в HTML, ни в AsciiDoc, но AsciiDoc добавили обозначения математических формул, которые могут быть обработаны сторонними плагинами, например <a href="https://github.com/mathjax/MathJax"><em>MathJax</em></a>. По умолчанию, для вывода формул используется формат <em>AsciiMath</em>. Разбор этой нотации тема отдельного гайда, поэтому не будем на этом останавливаться, а посмотрим, как добавить формулу в текст. Для этого выполняется два действия:</p>
+<p>Часто тексты на научные и технические темы включают математические обозначения. Такой функциональности нет ни в HTML, ни в AsciiDoc. Но в последнем есть обозначения математических формул, которые обрабатываются сторонними плагинами, например <a href="https://github.com/mathjax/MathJax">MathJax</a>.</p>
+
+<p>По умолчанию, для вывода формул используется формат AsciiMath. Для этого выполняется два действия:</p>
 
 <ol>
-  <li>В документе, <em>до</em> использования формул указывается строка <code class="language-plaintext highlighter-rouge">:stem:</code>. Это сигнал для обработки документа сторонними библиотеками. STEM является сокращением от <em>Science, Technology, Engineering and Math</em>
-</li>
-  <li>Перед формулой указать конструкцию <code class="language-plaintext highlighter-rouge">stem:[Формула]</code>
+  <li>В документе <em>до</em> использования формул указывается строка <code class="language-plaintext highlighter-rouge">:stem:</code>. Это сигнал для обработки документа сторонними библиотеками. STEM — сокращение от Science, Technology, Engineering and Math</li>
+  <li>Перед формулой указывается конструкцию <code class="language-plaintext highlighter-rouge">stem:[Формула]</code>
 </li>
 </ol>
 
@@ -538,9 +584,15 @@ stem:[a ^^ b]: Apple продает смартфоны и яблоки — stem:
 
 <p><amp-img src="/assets/images/asciidoc/asciidoc_math.png" alt="STEM в AsciiDoc" width="1300" height="492" layout="responsive"><noscript><img src="/assets/images/asciidoc/asciidoc_math.png" alt="STEM в AsciiDoc" width="1300" height="492"></noscript></amp-img></p>
 
-<p>При использовании математических формул используются знаки из нотации AsciiMath, которые будут преобразованы в математические символы. Не используйте уже готовые знаки, такие как <code class="language-plaintext highlighter-rouge">≠</code>. Вместо этого используется знак <code class="language-plaintext highlighter-rouge">!=</code>, так как готовые знаки интерпретатор может распознать неверно или вовсе как ошибку.</p>
+<p>Когда обозначаются математические формулы, используются знаки из нотации AsciiMath. Они преобразовываются в математические символы. Например, не нужно использовать готовые знаки, такие как <code class="language-plaintext highlighter-rouge">≠</code>. Вместо этого используется <code class="language-plaintext highlighter-rouge">!=</code>, так как готовые знаки интерпретатор может распознать неверно или как ошибку.</p>
 
-<p>Доступные знаки, их вывод и запись доступны на официальной странице AsciiMath по ссылке в конце гайда.</p>
+<p>Знаки, их вывод и запись можно изучить на <a href="http://asciimath.org/">официальной странице AsciiMath</a>.</p>
+
+<h2 id="заключение">Заключение</h2>
+
+<p>Мы рассмотрели основные случаи разметки текста. Полную документацию по работе с AsciiDoc можно найти в полезных ссылках. Там вы познакомитесь со всеми макросами языка.</p>
+
+<p>AsciiDoc сделает материал понятным и логичным, так как с его помощью можно структурировать текст, выделить важные моменты, визуализировать примеры и  оформить технические статьи. Также он является хорошей заменой HTML, так как не нужно использовать много дополнительных символов, чтобы разметить текст.</p>
 
 <h2 id="полезные-ссылки">Полезные ссылки</h2>
 
