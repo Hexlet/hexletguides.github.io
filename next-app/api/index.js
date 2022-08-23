@@ -81,8 +81,8 @@ export const findPost = async (name, locale) => {
 
   return {
     ...props,
-    next: { header: nextPost.header, name: nextPost.name},
-    prev: { header: prevPost.header, name: prevPost.name},
+    nextLink: { header: nextPost.header, name: nextPost.name},
+    prevLink: { header: prevPost.header, name: prevPost.name},
     content: compiledSource,
   };
 };
