@@ -7,6 +7,7 @@ import { useTranslation } from 'next-i18next';
 import Author from './Author.jsx';
 import Disqus from './Disqus.jsx';
 import Banner from './Banner.jsx';
+import PostPageNav from './PostPageNav.jsx';
 
 const components = {
   Banner,
@@ -20,7 +21,6 @@ const PostPageInfo = ({ post, disqus }) => {
       <img className="featured-image text-center mx-auto rounded" src={post.image} alt={post.header} />
     </div>
   ) : null;
-
   return (
     <div className="row">
       <div className="col-md-10 col-lg-8 mx-auto text-break">
@@ -31,20 +31,7 @@ const PostPageInfo = ({ post, disqus }) => {
         <div className="article-post">
           <MDXRemote compiledSource={post.content} components={components} />
         </div>
-        <div className="col-md-12 mx-auto">
-          <nav className="navbar navbar-light bg-light flex-nowrap">
-           <Link href={post.prev.name }>
-              <a alt={t('page.prev_guide')} className="text-sm-start nav-link">
-                {post.prev.name && <div className="fs-6 badge bg-secondary text-wrap">&larr;{post.prev.header}</div>} 
-              </a>
-            </Link>
-            <Link href={post.next.name}>
-              <a alt={t('page.next_guide')} className="text-sm-end nav-link">
-                {post.next.name && <div className="fs-6 badge bg-secondary text-wrap">{post.next.header}&rarr;</div>}
-              </a>
-            </Link>
-          </nav>
-        </div>
+        <PostPageNav nextGuide={post.next} prevGuide={post.prev}/>
         <div className="lead d-flex my-5">
           <span className="me-auto">
             <Link href={post.sourceUrl}>
