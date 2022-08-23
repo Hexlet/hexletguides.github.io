@@ -15,7 +15,7 @@ import { parseISO, endOfDay } from 'date-fns';
 
 import RSSFeedPostContent from '../components/RSSFeedPostContent.jsx';
 import { i18n } from '../next-i18next.config.js';
-import config from '../data/config.js';
+import cfg from '../data/config.js';
 
 const makeHref = (pathname, locale) => {
   const parts = ['/'];
@@ -43,7 +43,7 @@ const readPost = async (filePath, basePath, locale) => {
   const { data, content } = matter(fileContent);
   const { name } = path.parse(filePath);
   const { title = null, header = title, description = null, summary = description, ...props } = data;
-  const sourceUrl = `${config.repositoryUrl}/tree/main/${filePath}`;
+  const sourceUrl = `${cfg.repositoryUrl}/tree/main/${filePath}`;
   const shortName = name.slice(11); // remove DD_MM_YYYY prefix from post file name
   const date = endOfDay(parseISO(name.slice(0, 10)));
 
@@ -76,12 +76,12 @@ const compilePostContent = async (content) => {
 };
 
 const makePostRSSItem = async (post, locale) => {
-  const postUrl = new URL(post.href, config.siteURL)
+  const postUrl = new URL(post.href, cfg.siteURL)
   const content = await compilePostContent(post.content);
   const breadcrumbs = [
     {
-      link: config.siteURL,
-      text: config.title,
+      link: cfg.siteURL,
+      text: cfg.title,
     },
     {
       link: postUrl.toString(),
@@ -170,9 +170,9 @@ export const generateRssFeed = async (locale) => {
 
   const feedItems = await Promise.all(promises);
   const feed = new Feed({
-    title: config.title,
-    link: config.siteURL,
-    description: config.description,
+    title: cfg.title,
+    link: cfg.siteURL,
+    description: cfg.description,
     language: locale,
   });
 
@@ -185,16 +185,16 @@ export const generateSitemap = async (locale) => {
   const posts = await getPublishedPosts(locale);
   const visiblePosts = posts.filter(({ hidden = false }) => !hidden);
   const fields = visiblePosts.map((post) => ({
-    loc: new URL(post.href, config.siteURL),
+    loc: new URL(post.href, cfg.siteURL),
     lastmod: post.date,
   }));
 
   fields.push({
-    loc: new URL(makeHref(null, locale), config.siteURL)
+    loc: new URL(makeHref(null, locale), cfg.siteURL)
   });
 
   fields.push({
-    loc: new URL(makeHref('about', locale), config.siteURL)
+    loc: new URL(makeHref('about', locale), cfg.siteURL)
   });
 
   return fields;
