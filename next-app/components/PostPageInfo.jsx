@@ -13,8 +13,6 @@ const components = {
 };
 
 const PostPageInfo = ({ post, disqus }) => {
-  console.log(post.next)
-  console.log(post.prev)
   const { t } = useTranslation('post');
 
   const postImage = post.image ? (
