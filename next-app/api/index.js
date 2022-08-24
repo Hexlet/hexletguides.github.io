@@ -59,17 +59,17 @@ export const getPostsList = async (locale) => {
 
 export const findPost = async (name, locale) => {
   const posts = await getPublishedPosts(locale);
-  const post = posts.find((post) => post.name === name);
-  const numOfposts = posts.length - 1;
-  const postIndex = posts.indexOf(post);
-  const nextPost = postIndex === numOfposts ? posts[0] : posts[postIndex + 1];
-  const prevPost = postIndex === 0 ? posts[numOfposts] : posts[postIndex - 1];
+  const postIndex = posts.findIndex((post) => post.name === name);
 
-  if (!post) {
+  if (postIndex === -1) {
     return null;
   }
 
-  const { content, ...props } = post;
+  const postsCount = posts.length - 1;
+  const nextPost = postIndex === postsCount ? posts[0] : posts[postIndex + 1];
+  const prevPost = postIndex === 0 ? posts[postsCount] : posts[postIndex - 1];
+  
+  const { content, ...props } = posts[postIndex];
   const { compiledSource } = await serialize(content, {
     mdxOptions:{
       rehypePlugins: [rehypePrism],
@@ -81,8 +81,8 @@ export const findPost = async (name, locale) => {
 
   return {
     ...props,
-    nextLink: { header: nextPost.header, name: nextPost.name},
-    prevLink: { header: prevPost.header, name: prevPost.name},
+    nextPost,
+    prevPost,
     content: compiledSource,
   };
 };

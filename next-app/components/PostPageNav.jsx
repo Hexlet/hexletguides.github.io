@@ -2,24 +2,34 @@ import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 
-const PostPageNav = ({ nextLink, prevLink }) => {
+const PostPageNav = ({ nextPost, prevPost }) => {
   const { t } = useTranslation('post');
+
+  const makeHref = (link) => ({
+    pathname: '/[name]',
+    query: {
+      name: link,
+    },
+  });
+  const prevHref = makeHref(prevPost.name);
+  const nextHref = makeHref(nextPost.name);
+
   return (
     <div className="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
       <div className="col-md-6 rightborder pl-0">
-        {prevLink.header && (
-          <Link href={prevLink.name}>
+        {prevPost.header && (
+          <Link href={prevHref}>
             <a alt={t('page.prev_guide')} className="thepostlink">
-              « {prevLink.header}
+              « {prevPost.header}
             </a>
           </Link>
         )}
       </div>
       <div className="col-md-6 text-end pr-0">
-        {nextLink.header && (
-          <Link href={nextLink.name}>
+        {nextPost.header && (
+          <Link href={nextHref}>
             <a alt={t('page.next_guide')} className="thepostlink">
-              {nextLink.header} »
+              {nextPost.header} »
             </a>
           </Link>
         )}
