@@ -31,7 +31,7 @@ const PostPageInfo = ({ post, disqus }) => {
         <div className="article-post">
           <MDXRemote compiledSource={post.content} components={components} />
         </div>
-        <PostPageNav nextPost={post.nextPost} prevPost={post.prevPost}/>
+        <PostPageNav nextPost={post.nextPostData} prevPost={post.prevPostData}/>
         <div className="lead d-flex my-5">
           <span className="me-auto">
             <Link href={post.sourceUrl}>

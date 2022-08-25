@@ -2,18 +2,19 @@ import React from 'react';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 
+const makeHref = (name) => ({
+  pathname: '/[name]',
+  query: {
+    name,
+  },
+});
+
 const PostPageNav = ({ nextPost, prevPost }) => {
   const { t } = useTranslation('post');
 
-  const makeHref = (link) => ({
-    pathname: '/[name]',
-    query: {
-      name: link,
-    },
-  });
   const prevHref = makeHref(prevPost.name);
   const nextHref = makeHref(nextPost.name);
-
+  
   return (
     <div className="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
       <div className="col-md-6 rightborder pl-0">
