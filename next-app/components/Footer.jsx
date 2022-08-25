@@ -36,6 +36,13 @@ const Footer = () => {
             </a>
           </Link>
         </li>
+        <li>
+          <Link href={t('footer.PrivacyPolicy.url')}>
+            <a alt={t('footer.PrivacyPolicy.title')} target="_blank">
+              {t('footer.PrivacyPolicy.title')}
+            </a>
+          </Link>
+        </li>
       </ul>
     </footer>
   );
