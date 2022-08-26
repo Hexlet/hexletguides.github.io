@@ -1,8 +1,11 @@
 ---
 layout: page
-title: About
+title: 
 permalink: "about/"
 # image: assets/images/screenshot.png
 ---
 
-Hexlet Guides is an open source project created and supported by Hexlet's community. Join to our community, publish new guides, help with editing.
+<div class="text-center">
+<h1 class="display-1 mt-4 mb-4">{% t 'about.title' %}</h1>
+<p>{% t 'about.text' %}</p>
+</div>
