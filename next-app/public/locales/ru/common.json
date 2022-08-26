@@ -27,6 +27,10 @@
     "cv": {
       "title": "Оценка резюме",
       "url": "https://cv.hexlet.io/"
+    },
+    "PrivacyPolicy": {
+      "title": "Политика конфиденциальности.",
+      "url": "ru.https://hexlet.io/pages/privacy"
     }
   },
   "disqus": {

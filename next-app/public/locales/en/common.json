@@ -24,6 +24,10 @@
     "codebattle": {
       "title": "Code Battle",
       "url": "https://codebattle.hexlet.io/"
+    },
+    "PrivacyPolicy": {
+      "title": "Privacy Policy",
+      "url": "https://hexlet.io/pages/privacy"
     }
   },
   "disqus": {
