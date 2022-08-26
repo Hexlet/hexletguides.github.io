@@ -28,6 +28,10 @@ footermenu:
   url: https://codebattle.hexlet.io/
   external: true
 
+- title: Privacy Policy
+  url: "https://hexlet.io/pages/privacy"
+  external: true
+
 notfound:
   title: Page not found
   subtitle: Please use the search bar from the bottom left or visit our

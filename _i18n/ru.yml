@@ -32,6 +32,10 @@ footermenu:
     url: https://codebattle.hexlet.io/
     external: true
 
+  - title: Политика конфиденциальности
+    url: "https://ru.hexlet.io/pages/privacy"
+    external: true
+
 notfound:
   title: Страница не найдена
   subtitle: Воспользуйтесь поиском или вернитесь на
