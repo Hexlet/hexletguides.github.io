@@ -12,11 +12,7 @@ const readPost = async (filePath, basePath) => {
   const fileContent = await fsp.readFile(path.join(basePath, filePath), 'utf-8');
   const { data, content } = matter(fileContent);
   const { name } = path.parse(filePath);
-  const {
-    title = null, header = title,
-    description = null, summary = description,
-    ...props
-  } = data;
+  const { title = null, header = title, description = null, summary = description, ...props } = data;
   const sourceUrl = `${config.repositoryUrl}/tree/main/${filePath}`;
 
   return {
@@ -59,15 +55,19 @@ export const getPostsList = async (locale) => {
 
 export const findPost = async (name, locale) => {
   const posts = await getPublishedPosts(locale);
-  const post = posts.find((post) => post.name === name);
+  const postIndex = posts.findIndex((post) => post.name === name);
 
-  if (!post) {
+  if (postIndex === -1) {
     return null;
   }
 
-  const { content, ...props } = post;
+  const postsCount = posts.length - 1;
+  const nextPost = postIndex === postsCount ? posts[0] : posts[postIndex + 1];
+  const prevPost = postIndex === 0 ? posts[postsCount] : posts[postIndex - 1];
+
+  const { content, ...props } = posts[postIndex];
   const { compiledSource } = await serialize(content, {
-    mdxOptions:{
+    mdxOptions: {
       rehypePlugins: [rehypePrism],
       remarkPlugins: [remarkGfm],
       format: 'mdx',
@@ -77,6 +77,8 @@ export const findPost = async (name, locale) => {
 
   return {
     ...props,
+    nextPostData: { name: nextPost.name, header: nextPost.header },
+    prevPostData: { name: prevPost.name, header: prevPost.header },
     content: compiledSource,
   };
 };

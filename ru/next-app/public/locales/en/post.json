@@ -1,5 +1,7 @@
 {
   "page": {
-    "source_code": "Source code (github)"
+    "source_code": "Source code (github)",
+    "next_guide": "Read next Guide",
+    "prev_guide": "Read previous Guide"
   }
 }

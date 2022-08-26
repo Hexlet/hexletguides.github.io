@@ -1,5 +1,7 @@
 {
   "page": {
-    "source_code": "Исходный код (github)"
+    "source_code": "Исходный код (github)",
+    "next_guide": "Следующая статья",
+    "prev_guide": "Предыдущая статья"
   }
 }
