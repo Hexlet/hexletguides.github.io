@@ -5,8 +5,17 @@ import matter from 'gray-matter';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from '@mapbox/rehype-prism';
 import { serialize } from 'next-mdx-remote/serialize';
+import findLastIndex from 'lodash.findlastindex';
+import capitalize from 'lodash.capitalize';
 
 import config from '../data/config.js';
+
+const formatNameToHeader = (name) => {
+  return name
+    .split('-')
+    .map(capitalize)
+    .join(' ');
+};
 
 const readPost = async (filePath, basePath) => {
   const fileContent = await fsp.readFile(path.join(basePath, filePath), 'utf-8');
@@ -14,13 +23,14 @@ const readPost = async (filePath, basePath) => {
   const { name } = path.parse(filePath);
   const { title = null, header = title, description = null, summary = description, ...props } = data;
   const sourceUrl = `${config.repositoryUrl}/tree/main/${filePath}`;
+  const shortName = name.slice(11);  // remove DD_MM_YYYY prefix from post file name
 
   return {
-    header,
     summary,
     content,
     sourceUrl,
-    name: name.slice(11),
+    name: shortName,
+    header: header || formatNameToHeader(shortName),
     ...props,
   };
 };
@@ -35,7 +45,7 @@ export const getPublishedPosts = async (locale) => {
     .map(({ name }) => name);
 
   const promises = fileNames
-    .sort((a, b) => b.localeCompare(a))
+    .sort((a, b) => a.localeCompare(b))
     .map(async (name) => readPost(path.join(postsPath, name), dir));
 
   return await Promise.all(promises);
@@ -50,12 +60,13 @@ export const getPostsList = async (locale) => {
       header,
       summary,
       name,
-    }));
+    }))
+    .reverse();
 };
 
 export const findPost = async (name, locale) => {
   const posts = await getPublishedPosts(locale);
-  const postIndex = posts.findIndex((post) => post.name === name);
+  const postIndex = findLastIndex(posts, (post) => post.name === name);
 
   if (postIndex === -1) {
     return null;
