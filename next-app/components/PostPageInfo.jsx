@@ -7,6 +7,7 @@ import { useTranslation } from 'next-i18next';
 import Author from './Author.jsx';
 import Disqus from './Disqus.jsx';
 import Banner from './Banner.jsx';
+import PostPageNav from './PostPageNav.jsx';
 
 const components = {
   Banner,
@@ -20,7 +21,6 @@ const PostPageInfo = ({ post, disqus }) => {
       <img className="featured-image text-center mx-auto rounded" src={post.image} alt={post.header} />
     </div>
   ) : null;
-
   return (
     <div className="row">
       <div className="col-md-10 col-lg-8 mx-auto text-break">
@@ -31,6 +31,7 @@ const PostPageInfo = ({ post, disqus }) => {
         <div className="article-post">
           <MDXRemote compiledSource={post.content} components={components} />
         </div>
+        <PostPageNav nextPost={post.nextPostData} prevPost={post.prevPostData}/>
         <div className="lead d-flex my-5">
           <span className="me-auto">
             <Link href={post.sourceUrl}>

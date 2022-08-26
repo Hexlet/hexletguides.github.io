@@ -55,7 +55,7 @@ The `make` has become a standard for many developers, especially for those worki
 
 ```makefile
 # Makefile
-target1: # arget name, you can also use kebab-case or snake_case
+target1: # target name, you can also use kebab-case or snake_case
 	command1 # it's very important to use tabs to indent
 	command2 # the commands will be executed sequentially and only if the previous one was successful
 ```
