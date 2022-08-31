@@ -13,7 +13,9 @@ layout: default
 <div class="col-lg-8 mx-auto">
 
   <div class="mainheading">
-    <h1 class="posttitle">{{ page.title }}</h1>
+  {% if page.title == 'about.title' %}
+    <h1 class="posttitle">{% t 'about.text' %}</h1>
+  {% endif %}
   </div>
 
   <div class="article-post">
