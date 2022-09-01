@@ -22,6 +22,8 @@
     "disqus-react": "^1.1.3",
     "file-loader": "^6.2.0",
     "gray-matter": "^4.0.3",
+    "lodash.capitalize": "^4.2.1",
+    "lodash.findlastindex": "^4.6.0",
     "next": "^12.2.5",
     "next-i18next": "^11.0.0",
     "next-mdx-remote": "^4.1.0",
