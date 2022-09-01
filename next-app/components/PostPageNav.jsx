@@ -14,26 +14,22 @@ const PostPageNav = ({ nextPost, prevPost }) => {
 
   const prevHref = makeHref(prevPost.name);
   const nextHref = makeHref(nextPost.name);
-  
+
   return (
     <div className="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
       <div className="col-md-6 rightborder pl-0">
-        {prevPost.header && (
-          <Link href={prevHref}>
-            <a alt={t('page.prev_guide')} className="thepostlink">
-              « {prevPost.header}
-            </a>
-          </Link>
-        )}
+        <Link href={prevHref}>
+          <a alt={t('page.prev_guide')} className="thepostlink">
+            « {prevPost.header}
+          </a>
+        </Link>
       </div>
       <div className="col-md-6 text-end pr-0">
-        {nextPost.header && (
-          <Link href={nextHref}>
-            <a alt={t('page.next_guide')} className="thepostlink">
-              {nextPost.header} »
-            </a>
-          </Link>
-        )}
+        <Link href={nextHref}>
+          <a alt={t('page.next_guide')} className="thepostlink">
+            {nextPost.header} »
+          </a>
+        </Link>
       </div>
     </div>
   );
