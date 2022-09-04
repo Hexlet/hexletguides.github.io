@@ -7,9 +7,9 @@ import Post from './Post.jsx';
 const HomePageInfo = ({ posts }) => {
   const { t } = useTranslation('common');
 
-  const postsList = posts.map(({ header, summary, name }) => (
+  const postsList = posts.map(({ header, summary, name, href }) => (
     <div key={name} className="col-md-6 mb-5">
-      <Post name={name} header={header} summary={summary} />
+      <Post name={name} header={header} summary={summary} href={href} />
     </div>
   ));
 

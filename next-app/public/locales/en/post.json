@@ -2,6 +2,7 @@
   "page": {
     "source_code": "Source code (github)",
     "next_guide": "Read next Guide",
-    "prev_guide": "Read previous Guide"
+    "prev_guide": "Read previous Guide",
+    "full_post_link": "Read full version"
   }
 }

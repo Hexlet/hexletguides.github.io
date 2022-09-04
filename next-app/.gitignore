@@ -8,9 +8,6 @@
 /.next/
 /out/
 
-# sitemap
-/public/sitemap.xml
-
 # production
 /build
 
@@ -22,3 +19,4 @@ yarn-error.log*
 
 # local env files
 .env*.local
+

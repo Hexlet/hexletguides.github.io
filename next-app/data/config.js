@@ -1,4 +1,5 @@
 const config = {
+  siteURL: 'https://guides.hexlet.io',
   title: 'Hexlet Guides',
   email: 'support@hexlet.io',
   timezone: 'UTC',
