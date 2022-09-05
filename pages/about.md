@@ -1,8 +1,12 @@
 ---
 layout: page
-title: About
-permalink: "about/"
+permalink: /about/
 # image: assets/images/screenshot.png
 ---
-
-Hexlet Guides is an open source project created and supported by Hexlet's community. Join to our community, publish new guides, help with editing.
+ 
+<div class="mainheading">
+  <h1 class="posttitle">{% t about.title %}</h1>
+</div>
+<div class="article-post">
+  {% t about.text %} 
+</div>

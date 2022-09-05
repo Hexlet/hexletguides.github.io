@@ -37,5 +37,9 @@ notfound:
   subtitle: Please use the search bar from the bottom left or visit our
   link: homepage
 
+about:
+  title: About
+  text: Hexlet Guides is an open source project created and supported by Hexlet’s community. Join to our community, publish new guides, help with editing.
+
 post:
   source_code: Source code (github)
