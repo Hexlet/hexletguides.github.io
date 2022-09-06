@@ -5284,7 +5284,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
         
         <item turbo="true">
             <turbo:extendedHtml>true</turbo:extendedHtml>
-            <link>https://guides.hexlet.io/ru/git-guide/</link>
+            <link>https://guides.hexlet.io/git-guide/</link>
             <!-- <turbo:source></turbo:source> -->
             <!-- <turbo:topic>Что такое Git и для чего он нужен</turbo:topic> -->
             <title>Что такое Git и для чего он нужен</title>
@@ -5295,10 +5295,10 @@ npm i <span class="nt">-D</span> webpack webpack-cli
               <![CDATA[
                 <div data-block="breadcrumblist">
                   <a href="https://guides.hexlet.io/">Hexlet Guides</a>
-                  <a href="https://guides.hexlet.io/ru/git-guide/">Что такое Git и для чего он нужен</a>
+                  <a href="https://guides.hexlet.io/git-guide/">Что такое Git и для чего он нужен</a>
                 </div>
                 <button
-                  formaction="https://guides.hexlet.io/ru/git-guide/"
+                  formaction="https://guides.hexlet.io/git-guide/"
                   data-background-color="#eee"
                   data-color="dark"
                   data-turbo="false"
