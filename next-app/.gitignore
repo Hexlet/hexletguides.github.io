@@ -22,3 +22,6 @@ yarn-error.log*
 
 # local env files
 .env*.local
+
+#RSS
+/public/feed.xml
