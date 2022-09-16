@@ -16,6 +16,6 @@ const hostname = window.location.hostname;
 const referrer = document.referrer;
 const landingPage = !referrer || referrer.indexOf(hostname) == -1;
  
-  if (landingPage && (current_lang !== suitable_lang)) {
+if (landingPage && (current_lang !== suitable_lang)) {
   window.location = '/' + suitable_lang + '/';
 }
