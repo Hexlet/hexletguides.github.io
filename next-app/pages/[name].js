@@ -24,21 +24,27 @@ const Post = ({ post }) => {
   };
 
   return (
-    <DefaultLayout title={post.header}>
-      <PostPageInfo post={post} disqus={disqus}/>
+    <DefaultLayout
+      title={post.header}
+      description={post.summary}
+      author={post.author}
+      image={post.image}
+      type="article"
+    >
+      <PostPageInfo post={post} disqus={disqus} />
     </DefaultLayout>
   );
 };
 
 export const getStaticProps = async ({ locale, params }) => {
   const post = await findPost(params.name, locale);
- 
+
   if (!post) {
     return {
       notFound: true,
     };
   }
-  
+
   if (post.redirect_to) {
     return {
       redirect: {
@@ -47,7 +53,7 @@ export const getStaticProps = async ({ locale, params }) => {
       },
     };
   }
-   
+
   return {
     props: {
       post,
