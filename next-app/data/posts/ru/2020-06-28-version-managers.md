@@ -53,7 +53,7 @@ Now using node v17
 В современном мире сложно представить себе язык, у которого бы не было менеджера версий. Более того некоторые языки, такие как Ruby, имеют множество разных менеджеров версий, которые конкурируют между собой:
 
 * go: gvm, g
-* java: [sdkman](https://sdkman.io/), jabba
+* java: sdkman, jabba
 * ruby: rbenv, rvm, chruby
 * php: phpenv, phpbrew
 * python: pyenv
