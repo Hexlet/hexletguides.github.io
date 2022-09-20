@@ -3,6 +3,7 @@ const config = {
   email: 'support@hexlet.io',
   timezone: 'UTC',
   repositoryUrl: 'https://github.com/Hexlet/hexletguides.github.io',
+  siteUrl: 'https://guides.hexlet.io',
   tagline: 'Гайды',
   description: 'Полезные статьи и гайды для разработчиков',
   social: {
