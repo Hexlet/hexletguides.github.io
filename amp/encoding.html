@@ -272,26 +272,6 @@
 
 <p>ASCII standard resolved this issue only in English-speaking countries. However, in countries with different writing (for example, Cyrillic in the USSR) the problem remained.</p>
 
-<h3 id="encodings-for-other-languages">Encodings for other languages</h3>
-
-<p>For more than 20 years, the issue had been solved by the introduction of its own local standards. For example, in the USSR, based on the ASCII table, they developed their own encoding variants, KOI7 and KOI8, where 7 and 8 indicate the number of bytes needed to encode one character, and KOI stands for “Kod Obmena Informatsiey” (Code for Information Exchange).</p>
-
-<p>ASCII was soon expanded to an 8-byte system that has 256 code points. It has become quite common to mix the first ASCII 128 characters with 128 local ones (in particular, in the KOI8 encoding).</p>
-
-<p>However, these encodings did not become a single standard. For example, MS-DOS encoding for Russian localization was a cp866 (Code page 866), and then a cp1251 encoding in MS Windows. Both the cp851 and cp1253 encodings were used for the Greek language. As a result, documents using the old encoding became unreadable via new ones.</p>
-
-<p>Other languages also required proper encodings with a unique set of characters. This resulted in widespread confusion and difficulties in the information exchange. Below is the text that was written in KOI8-R encoding and read in cp851.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="syntax"><code>KOI8-R	cp851
-English text.	English text.
-Это - русский текст :-).	ΰΨΣ - ΦΩΧΧ╦╔╩ Ψ┼╦ΧΨ :-).
-</code></pre></div></div>
-<p><amp-img src="/assets/images/encoding/forward-information-en.png" alt="Image forward information" width="2001" height="1125" layout="responsive"><noscript><img src="/assets/images/encoding/forward-information-en.png" alt="Image forward information" width="2001" height="1125"></noscript></amp-img></p>
-
-<p>Both encodings are based on ASCII Code, so punctuation marks and letters of the English alphabet look the same. The Cyrillic text becomes completely unreadable, though.</p>
-
-<p>It was a time when computer memory was expensive and connection between computers was slow. Therefore, it was more advantageous to use encodings in which the bit size of each character was small. The symbol table consists of 256 characters. This means that 8 bytes are enough to encode any of them (2^8 = 256).</p>
-
 <h2 id="switching-to-unicode">Switching to Unicode</h2>
 
 <p>The rise of the Internet, the proliferation of computers, and the availability of low-cost memory all contributed to encoding confusion. This was especially evident on the Internet when the text written on one computer had to be displayed correctly on many other devices. This became a huge problem both for programmers, who had to decide which encoding to use, and for end-users, who couldn’t access the texts they needed.</p>
