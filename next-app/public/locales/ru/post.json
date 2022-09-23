@@ -2,6 +2,7 @@
   "page": {
     "source_code": "Исходный код (github)",
     "next_guide": "Следующая статья",
-    "prev_guide": "Предыдущая статья"
+    "prev_guide": "Предыдущая статья",
+    "full_post_link": "Читать в полной версии"
   }
 }
