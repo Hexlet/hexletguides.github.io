@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import config from '../data/config.js';
+import cfg from '../data/config.js';
 import { i18n } from '../next-i18next.config.js';
 import { findPost, getPublishedPosts } from '../api/index.js';
 import DefaultLayout from '../components/DefaultLayout.jsx';
@@ -15,7 +15,7 @@ const Post = ({ post }) => {
   }
 
   const disqus = {
-    short_name: config.disqus[locale],
+    short_name: cfg.disqus[locale],
     config: {
       language: locale,
       title: post.header,

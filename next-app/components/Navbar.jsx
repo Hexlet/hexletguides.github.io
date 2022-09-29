@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
-import config from '../data/config.js';
+import cfg from '../data/config.js';
 
 const Navbar = () => {
   const { t } = useTranslation('common');
@@ -26,12 +26,12 @@ const Navbar = () => {
       <div className="d-flex flex-wrap justify-content-center py-3">
         <Link href="/">
           <a className="navbar-brand me-auto">
-            <Image width="30" height="30" alt="Hexlet logo" src={config.logo} />
+            <Image width="30" height="30" alt="Hexlet logo" src={cfg.logo} />
           </a>
         </Link>
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <Link href={config.repositoryUrl}>
+            <Link href={cfg.repositoryUrl}>
               <a className="nav-link" target="_blank">
                 {t('navbar.source_code.title')}
               </a>

@@ -1,39 +1,24 @@
-import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import cfg from '../data/config.js';
-import { i18n } from '../next-i18next.config.js';
-import { findPost, getPublishedPosts } from '../api/index.js';
-import DefaultLayout from '../components/DefaultLayout.jsx';
-import PostPageInfo from '../components/PostPageInfo.jsx';
+import { i18n } from '../../next-i18next.config.js';
+import { findPost, getPublishedPosts } from '../../api/index.js';
+import AmpLayout from '../../components/AmpLayout.jsx';
+import AmpPostPageInfo from '../../components/AmpPostPageInfo.jsx';
 
-const Post = ({ post }) => {
-  const { locale } = useRouter();
-
+const AmpPost = ({ post }) => {
   if (!post) {
     return null;
   }
 
-  const disqus = {
-    short_name: cfg.disqus[locale],
-    config: {
-      language: locale,
-      title: post.header,
-      identifier: post.name,
-    },
-  };
-
   return (
-    <DefaultLayout
-      title={post.header}
-      description={post.summary}
-      author={post.author}
-      image={post.image}
-      type="article"
-    >
-      <PostPageInfo post={post} disqus={disqus} />
-    </DefaultLayout>
+    <AmpLayout title={post.header}>
+      <AmpPostPageInfo post={post} />
+    </AmpLayout>
   );
+};
+
+export const config = {
+  amp: true,
 };
 
 export const getStaticProps = async ({ locale, params }) => {
@@ -83,4 +68,4 @@ export const getStaticPaths = async () => {
   };
 };
 
-export default Post;
+export default AmpPost;

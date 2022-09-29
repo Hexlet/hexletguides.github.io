@@ -17,6 +17,12 @@ const config = {
     ru: 'hexlet-guides',
     en: 'hexlet-guides-en',
   },
+  amp: {
+    analytics: {
+      metrikaCounterId: '65474386',
+      googleTrackingId: 'UA-1360700-62',
+    }
+  }
 };
 
 export default config;

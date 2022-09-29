@@ -1,0 +1,6177 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+.banner {
+  background-color: $light;
+  border-left: 3px solid $info;
+  padding: 1rem;
+
+  .markdown & a {
+    text-decoration: none;
+  }
+}
+
+// NOTE: повышаем специфичность кнопки перехода на полную версию сайта
+// FIXME: сделать хорошо!
+.full_post_link.full_post_link {
+  padding: .7rem 1rem;
+  display: block;
+  border: 1px solid $dark;
+  border-radius: 2px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.markdown {
+  font-family: $font-family-sans-serif;
+  color: #4a5568;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 65ch;
+  padding: 3rem 1.5rem;
+}
+
+.markdown [class~="lead"] {
+  color: #4a5568;
+  font-size: 1.25em;
+  line-height: 1.6;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+.markdown a {
+  color: #1a202c;
+  text-decoration: underline;
+}
+
+.markdown strong {
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.markdown ol {
+  list-style: none;
+  padding: 0;
+  counter-reset: list-counter;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.markdown ol > li {
+  position: relative;
+  counter-increment: list-counter;
+  padding-left: 1.75em;
+}
+
+.markdown ol > li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  font-weight: 400;
+  color: #718096;
+}
+
+.markdown ul > li {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+.markdown ul > li::before {
+  content: "";
+  position: absolute;
+  background-color: #cbd5e0;
+  border-radius: 50%;
+  width: 0.375em;
+  height: 0.375em;
+  top: calc(0.875em - 0.1875em);
+  left: 0.25em;
+}
+
+.markdown hr {
+  border-color: #e2e8f0;
+  border-top-width: 1px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.markdown blockquote {
+  font-weight: 500;
+  font-style: italic;
+  color: #1a202c;
+  border-left-width: 0.25rem;
+  border-left-color: #e2e8f0;
+//   quotes: "\201C""\201D""\2018""\2019";
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  padding-left: 1em;
+}
+
+.markdown blockquote p:first-of-type::before {
+  content: open-quote;
+}
+
+.markdown blockquote p:last-of-type::after {
+  content: close-quote;
+}
+
+.markdown h1 {
+  color: #1a202c;
+  font-weight: 800;
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+}
+
+.markdown h2 {
+  color: #1a202c;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+}
+
+.markdown h3 {
+  color: #1a202c;
+  font-weight: 600;
+  font-size: 1.25em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+
+.markdown h4 {
+  color: #1a202c;
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+.markdown figure figcaption {
+  color: #718096;
+  font-size: 0.875em;
+  line-height: 1.4285714;
+  margin-top: 0.8571429em;
+}
+
+.markdown code {
+  color: #1a202c;
+  font-weight: 600;
+  font-size: 0.875em;
+}
+
+.markdown code::before {
+  content: "`";
+}
+
+.markdown code::after {
+  content: "`";
+}
+
+.markdown pre {
+  color: #e2e8f0;
+  background-color: #2d3748;
+  overflow-x: auto;
+  font-size: 0.875em;
+  line-height: 1.7142857;
+  margin-top: 1.7142857em;
+  margin-bottom: 1.7142857em;
+  border-radius: 0.375rem;
+  padding-top: 0.8571429em;
+  padding-right: 1.1428571em;
+  padding-bottom: 0.8571429em;
+  padding-left: 1.1428571em;
+}
+
+.markdown pre code {
+  background-color: transparent;
+  border-width: 0;
+  border-radius: 0;
+  padding: 0;
+  font-weight: 400;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.markdown pre code::before {
+  content: "";
+}
+
+.markdown pre code::after {
+  content: "";
+}
+
+.markdown table {
+  width: 100%;
+  table-layout: auto;
+  text-align: left;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 0.875em;
+  line-height: 1.7142857;
+}
+
+.markdown thead {
+  color: #1a202c;
+  font-weight: 600;
+  border-bottom-width: 1px;
+  border-bottom-color: #cbd5e0;
+}
+
+.markdown thead th {
+  vertical-align: bottom;
+  padding-right: 0.5714286em;
+  padding-bottom: 0.5714286em;
+  padding-left: 0.5714286em;
+}
+
+.markdown tbody tr {
+  border-bottom-width: 1px;
+  border-bottom-color: #e2e8f0;
+}
+
+.markdown tbody tr:last-child {
+  border-bottom-width: 0;
+}
+
+.markdown tbody td {
+  vertical-align: top;
+  padding-top: 0.5714286em;
+  padding-right: 0.5714286em;
+  padding-bottom: 0.5714286em;
+  padding-left: 0.5714286em;
+}
+
+.markdown {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.markdown p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.markdown img {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.markdown video {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.markdown figure {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.markdown figure > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown h2 code {
+  font-size: 0.875em;
+}
+
+.markdown h3 code {
+  font-size: 0.9em;
+}
+
+.markdown ul {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  list-style: none;
+  padding: 0;
+}
+
+.markdown li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.markdown ol > li:before {
+  left: 0;
+}
+
+.markdown > ul > li p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.markdown > ul > li > *:first-child {
+  margin-top: 1.25em;
+}
+
+.markdown > ul > li > *:last-child {
+  margin-bottom: 1.25em;
+}
+
+.markdown > ol > li > *:first-child {
+  margin-top: 1.25em;
+}
+
+.markdown > ol > li > *:last-child {
+  margin-bottom: 1.25em;
+}
+
+.markdown ul ul, .markdown ul ol, .markdown ol ul, .markdown ol ol {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.markdown hr + * {
+  margin-top: 0;
+}
+
+.markdown h2 + * {
+  margin-top: 0;
+}
+
+.markdown h3 + * {
+  margin-top: 0;
+}
+
+.markdown h4 + * {
+  margin-top: 0;
+}
+
+.markdown thead th:first-child {
+  padding-left: 0;
+}
+
+.markdown thead th:last-child {
+  padding-right: 0;
+}
+
+.markdown tbody td:first-child {
+  padding-left: 0;
+}
+
+.markdown tbody td:last-child {
+  padding-right: 0;
+}
+
+.markdown > :first-child {
+  margin-top: 0;
+}
+
+.markdown > :last-child {
+  margin-bottom: 0;
+}
+
+// .markdown-sm {
+//   font-size: 0.875rem;
+//   line-height: 1.7142857;
+// }
+
+// .markdown-sm p {
+//   margin-top: 1.1428571em;
+//   margin-bottom: 1.1428571em;
+// }
+
+// .markdown-sm [class~="lead"] {
+//   font-size: 1.2857143em;
+//   line-height: 1.5555556;
+//   margin-top: 0.8888889em;
+//   margin-bottom: 0.8888889em;
+// }
+
+// .markdown-sm blockquote {
+//   margin-top: 1.3333333em;
+//   margin-bottom: 1.3333333em;
+//   padding-left: 1.1111111em;
+// }
+
+// .markdown-sm h1 {
+//   font-size: 2.1428571em;
+//   margin-top: 0;
+//   margin-bottom: 0.8em;
+//   line-height: 1.2;
+// }
+
+// .markdown-sm h2 {
+//   font-size: 1.4285714em;
+//   margin-top: 1.6em;
+//   margin-bottom: 0.8em;
+//   line-height: 1.4;
+// }
+
+// .markdown-sm h3 {
+//   font-size: 1.2857143em;
+//   margin-top: 1.5555556em;
+//   margin-bottom: 0.4444444em;
+//   line-height: 1.5555556;
+// }
+
+// .markdown-sm h4 {
+//   margin-top: 1.4285714em;
+//   margin-bottom: 0.5714286em;
+//   line-height: 1.4285714;
+// }
+
+// .markdown-sm img {
+//   margin-top: 1.7142857em;
+//   margin-bottom: 1.7142857em;
+// }
+
+// .markdown-sm video {
+//   margin-top: 1.7142857em;
+//   margin-bottom: 1.7142857em;
+// }
+
+// .markdown-sm figure {
+//   margin-top: 1.7142857em;
+//   margin-bottom: 1.7142857em;
+// }
+
+// .markdown-sm figure > * {
+//   margin-top: 0;
+//   margin-bottom: 0;
+// }
+
+// .markdown-sm figure figcaption {
+//   font-size: 0.8571429em;
+//   line-height: 1.3333333;
+//   margin-top: 0.6666667em;
+// }
+
+// .markdown-sm code {
+//   font-size: 0.8571429em;
+// }
+
+// .markdown-sm h2 code {
+//   font-size: 0.9em;
+// }
+
+// .markdown-sm h3 code {
+//   font-size: 0.8888889em;
+// }
+
+// .markdown-sm pre {
+//   font-size: 0.8571429em;
+//   line-height: 1.6666667;
+//   margin-top: 1.6666667em;
+//   margin-bottom: 1.6666667em;
+//   border-radius: 0.25rem;
+//   padding-top: 0.6666667em;
+//   padding-right: 1em;
+//   padding-bottom: 0.6666667em;
+//   padding-left: 1em;
+// }
+
+// .markdown-sm ol {
+//   margin-top: 1.1428571em;
+//   margin-bottom: 1.1428571em;
+// }
+
+// .markdown-sm ul {
+//   margin-top: 1.1428571em;
+//   margin-bottom: 1.1428571em;
+// }
+
+// .markdown-sm li {
+//   margin-top: 0.2857143em;
+//   margin-bottom: 0.2857143em;
+// }
+
+// .markdown-sm ol > li {
+//   padding-left: 1.5714286em;
+// }
+
+// .markdown-sm ol > li:before {
+//   left: 0;
+// }
+
+// .markdown-sm ul > li {
+//   padding-left: 1.5714286em;
+// }
+
+// .markdown-sm ul > li::before {
+//   height: 0.3571429em;
+//   width: 0.3571429em;
+//   top: calc(0.8571429em - 0.1785714em);
+//   left: 0.2142857em;
+// }
+
+// .markdown-sm > ul > li p {
+//   margin-top: 0.5714286em;
+//   margin-bottom: 0.5714286em;
+// }
+
+// .markdown-sm > ul > li > *:first-child {
+//   margin-top: 1.1428571em;
+// }
+
+// .markdown-sm > ul > li > *:last-child {
+//   margin-bottom: 1.1428571em;
+// }
+
+// .markdown-sm > ol > li > *:first-child {
+//   margin-top: 1.1428571em;
+// }
+
+// .markdown-sm > ol > li > *:last-child {
+//   margin-bottom: 1.1428571em;
+// }
+
+// .markdown-sm ul ul, .markdown-sm ul ol, .markdown-sm ol ul, .markdown-sm ol ol {
+//   margin-top: 0.5714286em;
+//   margin-bottom: 0.5714286em;
+// }
+
+// .markdown-sm hr {
+//   margin-top: 2.8571429em;
+//   margin-bottom: 2.8571429em;
+// }
+
+// .markdown-sm hr + * {
+//   margin-top: 0;
+// }
+
+// .markdown-sm h2 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-sm h3 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-sm h4 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-sm table {
+//   font-size: 0.8571429em;
+//   line-height: 1.5;
+// }
+
+// .markdown-sm thead th {
+//   padding-right: 1em;
+//   padding-bottom: 0.6666667em;
+//   padding-left: 1em;
+// }
+
+// .markdown-sm thead th:first-child {
+//   padding-left: 0;
+// }
+
+// .markdown-sm thead th:last-child {
+//   padding-right: 0;
+// }
+
+// .markdown-sm tbody td {
+//   padding-top: 0.6666667em;
+//   padding-right: 1em;
+//   padding-bottom: 0.6666667em;
+//   padding-left: 1em;
+// }
+
+// .markdown-sm tbody td:first-child {
+//   padding-left: 0;
+// }
+
+// .markdown-sm tbody td:last-child {
+//   padding-right: 0;
+// }
+
+// .markdown-sm > :first-child {
+//   margin-top: 0;
+// }
+
+// .markdown-sm > :last-child {
+//   margin-bottom: 0;
+// }
+
+// .markdown-lg {
+//   font-size: 1.125rem;
+//   line-height: 1.7777778;
+// }
+
+// .markdown-lg p {
+//   margin-top: 1.3333333em;
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-lg [class~="lead"] {
+//   font-size: 1.2222222em;
+//   line-height: 1.4545455;
+//   margin-top: 1.0909091em;
+//   margin-bottom: 1.0909091em;
+// }
+
+// .markdown-lg blockquote {
+//   margin-top: 1.6666667em;
+//   margin-bottom: 1.6666667em;
+//   padding-left: 1em;
+// }
+
+// .markdown-lg h1 {
+//   font-size: 2.6666667em;
+//   margin-top: 0;
+//   margin-bottom: 0.8333333em;
+//   line-height: 1;
+// }
+
+// .markdown-lg h2 {
+//   font-size: 1.6666667em;
+//   margin-top: 1.8666667em;
+//   margin-bottom: 1.0666667em;
+//   line-height: 1.3333333;
+// }
+
+// .markdown-lg h3 {
+//   font-size: 1.3333333em;
+//   margin-top: 1.6666667em;
+//   margin-bottom: 0.6666667em;
+//   line-height: 1.5;
+// }
+
+// .markdown-lg h4 {
+//   margin-top: 1.7777778em;
+//   margin-bottom: 0.4444444em;
+//   line-height: 1.5555556;
+// }
+
+// .markdown-lg img {
+//   margin-top: 1.7777778em;
+//   margin-bottom: 1.7777778em;
+// }
+
+// .markdown-lg video {
+//   margin-top: 1.7777778em;
+//   margin-bottom: 1.7777778em;
+// }
+
+// .markdown-lg figure {
+//   margin-top: 1.7777778em;
+//   margin-bottom: 1.7777778em;
+// }
+
+// .markdown-lg figure > * {
+//   margin-top: 0;
+//   margin-bottom: 0;
+// }
+
+// .markdown-lg figure figcaption {
+//   font-size: 0.8888889em;
+//   line-height: 1.5;
+//   margin-top: 1em;
+// }
+
+// .markdown-lg code {
+//   font-size: 0.8888889em;
+// }
+
+// .markdown-lg h2 code {
+//   font-size: 0.8666667em;
+// }
+
+// .markdown-lg h3 code {
+//   font-size: 0.875em;
+// }
+
+// .markdown-lg pre {
+//   font-size: 0.8888889em;
+//   line-height: 1.75;
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+//   border-radius: 0.375rem;
+//   padding-top: 1em;
+//   padding-right: 1.5em;
+//   padding-bottom: 1em;
+//   padding-left: 1.5em;
+// }
+
+// .markdown-lg ol {
+//   margin-top: 1.3333333em;
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-lg ul {
+//   margin-top: 1.3333333em;
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-lg li {
+//   margin-top: 0.6666667em;
+//   margin-bottom: 0.6666667em;
+// }
+
+// .markdown-lg ol > li {
+//   padding-left: 1.6666667em;
+// }
+
+// .markdown-lg ol > li:before {
+//   left: 0;
+// }
+
+// .markdown-lg ul > li {
+//   padding-left: 1.6666667em;
+// }
+
+// .markdown-lg ul > li::before {
+//   width: 0.3333333em;
+//   height: 0.3333333em;
+//   top: calc(0.8888889em - 0.1666667em);
+//   left: 0.2222222em;
+// }
+
+// .markdown-lg > ul > li p {
+//   margin-top: 0.8888889em;
+//   margin-bottom: 0.8888889em;
+// }
+
+// .markdown-lg > ul > li > *:first-child {
+//   margin-top: 1.3333333em;
+// }
+
+// .markdown-lg > ul > li > *:last-child {
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-lg > ol > li > *:first-child {
+//   margin-top: 1.3333333em;
+// }
+
+// .markdown-lg > ol > li > *:last-child {
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-lg ul ul, .markdown-lg ul ol, .markdown-lg ol ul, .markdown-lg ol ol {
+//   margin-top: 0.8888889em;
+//   margin-bottom: 0.8888889em;
+// }
+
+// .markdown-lg hr {
+//   margin-top: 3.1111111em;
+//   margin-bottom: 3.1111111em;
+// }
+
+// .markdown-lg hr + * {
+//   margin-top: 0;
+// }
+
+// .markdown-lg h2 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-lg h3 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-lg h4 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-lg table {
+//   font-size: 0.8888889em;
+//   line-height: 1.5;
+// }
+
+// .markdown-lg thead th {
+//   padding-right: 0.75em;
+//   padding-bottom: 0.75em;
+//   padding-left: 0.75em;
+// }
+
+// .markdown-lg thead th:first-child {
+//   padding-left: 0;
+// }
+
+// .markdown-lg thead th:last-child {
+//   padding-right: 0;
+// }
+
+// .markdown-lg tbody td {
+//   padding-top: 0.75em;
+//   padding-right: 0.75em;
+//   padding-bottom: 0.75em;
+//   padding-left: 0.75em;
+// }
+
+// .markdown-lg tbody td:first-child {
+//   padding-left: 0;
+// }
+
+// .markdown-lg tbody td:last-child {
+//   padding-right: 0;
+// }
+
+// .markdown-lg > :first-child {
+//   margin-top: 0;
+// }
+
+// .markdown-lg > :last-child {
+//   margin-bottom: 0;
+// }
+
+// .markdown-xl {
+//   font-size: 1.25rem;
+//   line-height: 1.8;
+// }
+
+// .markdown-xl p {
+//   margin-top: 1.2em;
+//   margin-bottom: 1.2em;
+// }
+
+// .markdown-xl [class~="lead"] {
+//   font-size: 1.2em;
+//   line-height: 1.5;
+//   margin-top: 1em;
+//   margin-bottom: 1em;
+// }
+
+// .markdown-xl blockquote {
+//   margin-top: 1.6em;
+//   margin-bottom: 1.6em;
+//   padding-left: 1.0666667em;
+// }
+
+// .markdown-xl h1 {
+//   font-size: 2.8em;
+//   margin-top: 0;
+//   margin-bottom: 0.8571429em;
+//   line-height: 1;
+// }
+
+// .markdown-xl h2 {
+//   font-size: 1.8em;
+//   margin-top: 1.5555556em;
+//   margin-bottom: 0.8888889em;
+//   line-height: 1.1111111;
+// }
+
+// .markdown-xl h3 {
+//   font-size: 1.5em;
+//   margin-top: 1.6em;
+//   margin-bottom: 0.6666667em;
+//   line-height: 1.3333333;
+// }
+
+// .markdown-xl h4 {
+//   margin-top: 1.8em;
+//   margin-bottom: 0.6em;
+//   line-height: 1.6;
+// }
+
+// .markdown-xl img {
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+// }
+
+// .markdown-xl video {
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+// }
+
+// .markdown-xl figure {
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+// }
+
+// .markdown-xl figure > * {
+//   margin-top: 0;
+//   margin-bottom: 0;
+// }
+
+// .markdown-xl figure figcaption {
+//   font-size: 0.9em;
+//   line-height: 1.5555556;
+//   margin-top: 1em;
+// }
+
+// .markdown-xl code {
+//   font-size: 0.9em;
+// }
+
+// .markdown-xl h2 code {
+//   font-size: 0.8611111em;
+// }
+
+// .markdown-xl h3 code {
+//   font-size: 0.9em;
+// }
+
+// .markdown-xl pre {
+//   font-size: 0.9em;
+//   line-height: 1.7777778;
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+//   border-radius: 0.5rem;
+//   padding-top: 1.1111111em;
+//   padding-right: 1.3333333em;
+//   padding-bottom: 1.1111111em;
+//   padding-left: 1.3333333em;
+// }
+
+// .markdown-xl ol {
+//   margin-top: 1.2em;
+//   margin-bottom: 1.2em;
+// }
+
+// .markdown-xl ul {
+//   margin-top: 1.2em;
+//   margin-bottom: 1.2em;
+// }
+
+// .markdown-xl li {
+//   margin-top: 0.6em;
+//   margin-bottom: 0.6em;
+// }
+
+// .markdown-xl ol > li {
+//   padding-left: 1.8em;
+// }
+
+// .markdown-xl ol > li:before {
+//   left: 0;
+// }
+
+// .markdown-xl ul > li {
+//   padding-left: 1.8em;
+// }
+
+// .markdown-xl ul > li::before {
+//   width: 0.35em;
+//   height: 0.35em;
+//   top: calc(0.9em - 0.175em);
+//   left: 0.25em;
+// }
+
+// .markdown-xl > ul > li p {
+//   margin-top: 0.8em;
+//   margin-bottom: 0.8em;
+// }
+
+// .markdown-xl > ul > li > *:first-child {
+//   margin-top: 1.2em;
+// }
+
+// .markdown-xl > ul > li > *:last-child {
+//   margin-bottom: 1.2em;
+// }
+
+// .markdown-xl > ol > li > *:first-child {
+//   margin-top: 1.2em;
+// }
+
+// .markdown-xl > ol > li > *:last-child {
+//   margin-bottom: 1.2em;
+// }
+
+// .markdown-xl ul ul, .markdown-xl ul ol, .markdown-xl ol ul, .markdown-xl ol ol {
+//   margin-top: 0.8em;
+//   margin-bottom: 0.8em;
+// }
+
+// .markdown-xl hr {
+//   margin-top: 2.8em;
+//   margin-bottom: 2.8em;
+// }
+
+// .markdown-xl hr + * {
+//   margin-top: 0;
+// }
+
+// .markdown-xl h2 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-xl h3 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-xl h4 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-xl table {
+//   font-size: 0.9em;
+//   line-height: 1.5555556;
+// }
+
+// .markdown-xl thead th {
+//   padding-right: 0.6666667em;
+//   padding-bottom: 0.8888889em;
+//   padding-left: 0.6666667em;
+// }
+
+// .markdown-xl thead th:first-child {
+//   padding-left: 0;
+// }
+
+// .markdown-xl thead th:last-child {
+//   padding-right: 0;
+// }
+
+// .markdown-xl tbody td {
+//   padding-top: 0.8888889em;
+//   padding-right: 0.6666667em;
+//   padding-bottom: 0.8888889em;
+//   padding-left: 0.6666667em;
+// }
+
+// .markdown-xl tbody td:first-child {
+//   padding-left: 0;
+// }
+
+// .markdown-xl tbody td:last-child {
+//   padding-right: 0;
+// }
+
+// .markdown-xl > :first-child {
+//   margin-top: 0;
+// }
+
+// .markdown-xl > :last-child {
+//   margin-bottom: 0;
+// }
+
+// .markdown-2xl {
+//   font-size: 1.5rem;
+//   line-height: 1.6666667;
+// }
+
+// .markdown-2xl p {
+//   margin-top: 1.3333333em;
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-2xl [class~="lead"] {
+//   font-size: 1.25em;
+//   line-height: 1.4666667;
+//   margin-top: 1.0666667em;
+//   margin-bottom: 1.0666667em;
+// }
+
+// .markdown-2xl blockquote {
+//   margin-top: 1.7777778em;
+//   margin-bottom: 1.7777778em;
+//   padding-left: 1.1111111em;
+// }
+
+// .markdown-2xl h1 {
+//   font-size: 2.6666667em;
+//   margin-top: 0;
+//   margin-bottom: 0.875em;
+//   line-height: 1;
+// }
+
+// .markdown-2xl h2 {
+//   font-size: 2em;
+//   margin-top: 1.5em;
+//   margin-bottom: 0.8333333em;
+//   line-height: 1.0833333;
+// }
+
+// .markdown-2xl h3 {
+//   font-size: 1.5em;
+//   margin-top: 1.5555556em;
+//   margin-bottom: 0.6666667em;
+//   line-height: 1.2222222;
+// }
+
+// .markdown-2xl h4 {
+//   margin-top: 1.6666667em;
+//   margin-bottom: 0.6666667em;
+//   line-height: 1.5;
+// }
+
+// .markdown-2xl img {
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+// }
+
+// .markdown-2xl video {
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+// }
+
+// .markdown-2xl figure {
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+// }
+
+// .markdown-2xl figure > * {
+//   margin-top: 0;
+//   margin-bottom: 0;
+// }
+
+// .markdown-2xl figure figcaption {
+//   font-size: 0.8333333em;
+//   line-height: 1.6;
+//   margin-top: 1em;
+// }
+
+// .markdown-2xl code {
+//   font-size: 0.8333333em;
+// }
+
+// .markdown-2xl h2 code {
+//   font-size: 0.875em;
+// }
+
+// .markdown-2xl h3 code {
+//   font-size: 0.8888889em;
+// }
+
+// .markdown-2xl pre {
+//   font-size: 0.8333333em;
+//   line-height: 1.8;
+//   margin-top: 2em;
+//   margin-bottom: 2em;
+//   border-radius: 0.5rem;
+//   padding-top: 1.2em;
+//   padding-right: 1.6em;
+//   padding-bottom: 1.2em;
+//   padding-left: 1.6em;
+// }
+
+// .markdown-2xl ol {
+//   margin-top: 1.3333333em;
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-2xl ul {
+//   margin-top: 1.3333333em;
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-2xl li {
+//   margin-top: 0.5em;
+//   margin-bottom: 0.5em;
+// }
+
+// .markdown-2xl ol > li {
+//   padding-left: 1.6666667em;
+// }
+
+// .markdown-2xl ol > li:before {
+//   left: 0;
+// }
+
+// .markdown-2xl ul > li {
+//   padding-left: 1.6666667em;
+// }
+
+// .markdown-2xl ul > li::before {
+//   width: 0.3333333em;
+//   height: 0.3333333em;
+//   top: calc(0.8333333em - 0.1666667em);
+//   left: 0.25em;
+// }
+
+// .markdown-2xl > ul > li p {
+//   margin-top: 0.8333333em;
+//   margin-bottom: 0.8333333em;
+// }
+
+// .markdown-2xl > ul > li > *:first-child {
+//   margin-top: 1.3333333em;
+// }
+
+// .markdown-2xl > ul > li > *:last-child {
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-2xl > ol > li > *:first-child {
+//   margin-top: 1.3333333em;
+// }
+
+// .markdown-2xl > ol > li > *:last-child {
+//   margin-bottom: 1.3333333em;
+// }
+
+// .markdown-2xl ul ul, .markdown-2xl ul ol, .markdown-2xl ol ul, .markdown-2xl ol ol {
+//   margin-top: 0.6666667em;
+//   margin-bottom: 0.6666667em;
+// }
+
+// .markdown-2xl hr {
+//   margin-top: 3em;
+//   margin-bottom: 3em;
+// }
+
+// .markdown-2xl hr + * {
+//   margin-top: 0;
+// }
+
+// .markdown-2xl h2 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-2xl h3 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-2xl h4 + * {
+//   margin-top: 0;
+// }
+
+// .markdown-2xl table {
+//   font-size: 0.8333333em;
+//   line-height: 1.4;
+// }
+
+// .markdown-2xl thead th {
+//   padding-right: 0.6em;
+//   padding-bottom: 0.8em;
+//   padding-left: 0.6em;
+// }
+
+// .markdown-2xl thead th:first-child {
+//   padding-left: 0;
+// }
+
+// .markdown-2xl thead th:last-child {
+//   padding-right: 0;
+// }
+
+// .markdown-2xl tbody td {
+//   padding-top: 0.8em;
+//   padding-right: 0.6em;
+//   padding-bottom: 0.8em;
+//   padding-left: 0.6em;
+// }
+
+// .markdown-2xl tbody td:first-child {
+//   padding-left: 0;
+// }
+
+// .markdown-2xl tbody td:last-child {
+//   padding-right: 0;
+// }
+
+// .markdown-2xl > :first-child {
+//   margin-top: 0;
+// }
+
+// .markdown-2xl > :last-child {
+//   margin-bottom: 0;
+// }
+
+@media (min-width: 640px) {
+//   .sm\:markdown {
+//     color: #4a5568;
+//     max-width: 65ch;
+//   }
+
+//   .sm\:markdown [class~="lead"] {
+//     color: #4a5568;
+//     font-size: 1.25em;
+//     line-height: 1.6;
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .sm\:markdown a {
+//     color: #1a202c;
+//     text-decoration: underline;
+//   }
+
+//   .sm\:markdown strong {
+//     color: #1a202c;
+//     font-weight: 600;
+//   }
+
+//   .sm\:markdown ol {
+//     counter-reset: list-counter;
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .sm\:markdown ol > li {
+//     position: relative;
+//     counter-increment: list-counter;
+//     padding-left: 1.75em;
+//   }
+
+//   .sm\:markdown ol > li::before {
+//     content: counter(list-counter) ".";
+//     position: absolute;
+//     font-weight: 400;
+//     color: #718096;
+//   }
+
+//   .sm\:markdown ul > li {
+//     position: relative;
+//     padding-left: 1.75em;
+//   }
+
+//   .sm\:markdown ul > li::before {
+//     content: "";
+//     position: absolute;
+//     background-color: #cbd5e0;
+//     border-radius: 50%;
+//     width: 0.375em;
+//     height: 0.375em;
+//     top: calc(0.875em - 0.1875em);
+//     left: 0.25em;
+//   }
+
+//   .sm\:markdown hr {
+//     border-color: #e2e8f0;
+//     border-top-width: 1px;
+//     margin-top: 3em;
+//     margin-bottom: 3em;
+//   }
+
+//   .sm\:markdown blockquote {
+//     font-weight: 500;
+//     font-style: italic;
+//     color: #1a202c;
+//     border-left-width: 0.25rem;
+//     border-left-color: #e2e8f0;
+//     quotes: "\201C""\201D""\2018""\2019";
+//     margin-top: 1.6em;
+//     margin-bottom: 1.6em;
+//     padding-left: 1em;
+//   }
+
+//   .sm\:markdown blockquote p:first-of-type::before {
+//     content: open-quote;
+//   }
+
+//   .sm\:markdown blockquote p:last-of-type::after {
+//     content: close-quote;
+//   }
+
+//   .sm\:markdown h1 {
+//     color: #1a202c;
+//     font-weight: 800;
+//     font-size: 2.25em;
+//     margin-top: 0;
+//     margin-bottom: 0.8888889em;
+//     line-height: 1.1111111;
+//   }
+
+//   .sm\:markdown h2 {
+//     color: #1a202c;
+//     font-weight: 700;
+//     font-size: 1.5em;
+//     margin-top: 2em;
+//     margin-bottom: 1em;
+//     line-height: 1.3333333;
+//   }
+
+//   .sm\:markdown h3 {
+//     color: #1a202c;
+//     font-weight: 600;
+//     font-size: 1.25em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.6em;
+//     line-height: 1.6;
+//   }
+
+//   .sm\:markdown h4 {
+//     color: #1a202c;
+//     font-weight: 600;
+//     margin-top: 1.5em;
+//     margin-bottom: 0.5em;
+//     line-height: 1.5;
+//   }
+
+//   .sm\:markdown figure figcaption {
+//     color: #718096;
+//     font-size: 0.875em;
+//     line-height: 1.4285714;
+//     margin-top: 0.8571429em;
+//   }
+
+//   .sm\:markdown code {
+//     color: #1a202c;
+//     font-weight: 600;
+//     font-size: 0.875em;
+//   }
+
+//   .sm\:markdown code::before {
+//     content: "`";
+//   }
+
+//   .sm\:markdown code::after {
+//     content: "`";
+//   }
+
+//   .sm\:markdown pre {
+//     color: #e2e8f0;
+//     background-color: #2d3748;
+//     overflow-x: auto;
+//     font-size: 0.875em;
+//     line-height: 1.7142857;
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//     border-radius: 0.375rem;
+//     padding-top: 0.8571429em;
+//     padding-right: 1.1428571em;
+//     padding-bottom: 0.8571429em;
+//     padding-left: 1.1428571em;
+//   }
+
+//   .sm\:markdown pre code {
+//     background-color: transparent;
+//     border-width: 0;
+//     border-radius: 0;
+//     padding: 0;
+//     font-weight: 400;
+//     color: inherit;
+//     font-size: inherit;
+//     font-family: inherit;
+//     line-height: inherit;
+//   }
+
+//   .sm\:markdown pre code::before {
+//     content: "";
+//   }
+
+//   .sm\:markdown pre code::after {
+//     content: "";
+//   }
+
+//   .sm\:markdown table {
+//     width: 100%;
+//     table-layout: auto;
+//     text-align: left;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     font-size: 0.875em;
+//     line-height: 1.7142857;
+//   }
+
+//   .sm\:markdown thead {
+//     color: #1a202c;
+//     font-weight: 600;
+//     border-bottom-width: 1px;
+//     border-bottom-color: #cbd5e0;
+//   }
+
+//   .sm\:markdown thead th {
+//     vertical-align: bottom;
+//     padding-right: 0.5714286em;
+//     padding-bottom: 0.5714286em;
+//     padding-left: 0.5714286em;
+//   }
+
+//   .sm\:markdown tbody tr {
+//     border-bottom-width: 1px;
+//     border-bottom-color: #e2e8f0;
+//   }
+
+//   .sm\:markdown tbody tr:last-child {
+//     border-bottom-width: 0;
+//   }
+
+//   .sm\:markdown tbody td {
+//     vertical-align: top;
+//     padding-top: 0.5714286em;
+//     padding-right: 0.5714286em;
+//     padding-bottom: 0.5714286em;
+//     padding-left: 0.5714286em;
+//   }
+
+//   .sm\:markdown {
+//     font-size: 1rem;
+//     line-height: 1.75;
+//   }
+
+//   .sm\:markdown p {
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .sm\:markdown img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .sm\:markdown video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .sm\:markdown figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .sm\:markdown figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .sm\:markdown h2 code {
+//     font-size: 0.875em;
+//   }
+
+//   .sm\:markdown h3 code {
+//     font-size: 0.9em;
+//   }
+
+//   .sm\:markdown ul {
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .sm\:markdown li {
+//     margin-top: 0.5em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .sm\:markdown ol > li:before {
+//     left: 0;
+//   }
+
+//   .sm\:markdown > ul > li p {
+//     margin-top: 0.75em;
+//     margin-bottom: 0.75em;
+//   }
+
+//   .sm\:markdown > ul > li > *:first-child {
+//     margin-top: 1.25em;
+//   }
+
+//   .sm\:markdown > ul > li > *:last-child {
+//     margin-bottom: 1.25em;
+//   }
+
+//   .sm\:markdown > ol > li > *:first-child {
+//     margin-top: 1.25em;
+//   }
+
+//   .sm\:markdown > ol > li > *:last-child {
+//     margin-bottom: 1.25em;
+//   }
+
+//   .sm\:markdown ul ul, .sm\:markdown ul ol, .sm\:markdown ol ul, .sm\:markdown ol ol {
+//     margin-top: 0.75em;
+//     margin-bottom: 0.75em;
+//   }
+
+//   .sm\:markdown hr + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .sm\:markdown-sm {
+//     font-size: 0.875rem;
+//     line-height: 1.7142857;
+//   }
+
+//   .sm\:markdown-sm p {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .sm\:markdown-sm [class~="lead"] {
+//     font-size: 1.2857143em;
+//     line-height: 1.5555556;
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .sm\:markdown-sm blockquote {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//     padding-left: 1.1111111em;
+//   }
+
+//   .sm\:markdown-sm h1 {
+//     font-size: 2.1428571em;
+//     margin-top: 0;
+//     margin-bottom: 0.8em;
+//     line-height: 1.2;
+//   }
+
+//   .sm\:markdown-sm h2 {
+//     font-size: 1.4285714em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.8em;
+//     line-height: 1.4;
+//   }
+
+//   .sm\:markdown-sm h3 {
+//     font-size: 1.2857143em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.4444444em;
+//     line-height: 1.5555556;
+//   }
+
+//   .sm\:markdown-sm h4 {
+//     margin-top: 1.4285714em;
+//     margin-bottom: 0.5714286em;
+//     line-height: 1.4285714;
+//   }
+
+//   .sm\:markdown-sm img {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .sm\:markdown-sm video {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .sm\:markdown-sm figure {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .sm\:markdown-sm figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .sm\:markdown-sm figure figcaption {
+//     font-size: 0.8571429em;
+//     line-height: 1.3333333;
+//     margin-top: 0.6666667em;
+//   }
+
+//   .sm\:markdown-sm code {
+//     font-size: 0.8571429em;
+//   }
+
+//   .sm\:markdown-sm h2 code {
+//     font-size: 0.9em;
+//   }
+
+//   .sm\:markdown-sm h3 code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .sm\:markdown-sm pre {
+//     font-size: 0.8571429em;
+//     line-height: 1.6666667;
+//     margin-top: 1.6666667em;
+//     margin-bottom: 1.6666667em;
+//     border-radius: 0.25rem;
+//     padding-top: 0.6666667em;
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .sm\:markdown-sm ol {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .sm\:markdown-sm ul {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .sm\:markdown-sm li {
+//     margin-top: 0.2857143em;
+//     margin-bottom: 0.2857143em;
+//   }
+
+//   .sm\:markdown-sm ol > li {
+//     padding-left: 1.5714286em;
+//   }
+
+//   .sm\:markdown-sm ol > li:before {
+//     left: 0;
+//   }
+
+//   .sm\:markdown-sm ul > li {
+//     padding-left: 1.5714286em;
+//   }
+
+//   .sm\:markdown-sm ul > li::before {
+//     height: 0.3571429em;
+//     width: 0.3571429em;
+//     top: calc(0.8571429em - 0.1785714em);
+//     left: 0.2142857em;
+//   }
+
+//   .sm\:markdown-sm > ul > li p {
+//     margin-top: 0.5714286em;
+//     margin-bottom: 0.5714286em;
+//   }
+
+//   .sm\:markdown-sm > ul > li > *:first-child {
+//     margin-top: 1.1428571em;
+//   }
+
+//   .sm\:markdown-sm > ul > li > *:last-child {
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .sm\:markdown-sm > ol > li > *:first-child {
+//     margin-top: 1.1428571em;
+//   }
+
+//   .sm\:markdown-sm > ol > li > *:last-child {
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .sm\:markdown-sm ul ul, .sm\:markdown-sm ul ol, .sm\:markdown-sm ol ul, .sm\:markdown-sm ol ol {
+//     margin-top: 0.5714286em;
+//     margin-bottom: 0.5714286em;
+//   }
+
+//   .sm\:markdown-sm hr {
+//     margin-top: 2.8571429em;
+//     margin-bottom: 2.8571429em;
+//   }
+
+//   .sm\:markdown-sm hr + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-sm h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-sm h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-sm h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-sm table {
+//     font-size: 0.8571429em;
+//     line-height: 1.5;
+//   }
+
+//   .sm\:markdown-sm thead th {
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .sm\:markdown-sm thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown-sm thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown-sm tbody td {
+//     padding-top: 0.6666667em;
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .sm\:markdown-sm tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown-sm tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown-sm > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-sm > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .sm\:markdown-lg {
+//     font-size: 1.125rem;
+//     line-height: 1.7777778;
+//   }
+
+//   .sm\:markdown-lg p {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-lg [class~="lead"] {
+//     font-size: 1.2222222em;
+//     line-height: 1.4545455;
+//     margin-top: 1.0909091em;
+//     margin-bottom: 1.0909091em;
+//   }
+
+//   .sm\:markdown-lg blockquote {
+//     margin-top: 1.6666667em;
+//     margin-bottom: 1.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .sm\:markdown-lg h1 {
+//     font-size: 2.6666667em;
+//     margin-top: 0;
+//     margin-bottom: 0.8333333em;
+//     line-height: 1;
+//   }
+
+//   .sm\:markdown-lg h2 {
+//     font-size: 1.6666667em;
+//     margin-top: 1.8666667em;
+//     margin-bottom: 1.0666667em;
+//     line-height: 1.3333333;
+//   }
+
+//   .sm\:markdown-lg h3 {
+//     font-size: 1.3333333em;
+//     margin-top: 1.6666667em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.5;
+//   }
+
+//   .sm\:markdown-lg h4 {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 0.4444444em;
+//     line-height: 1.5555556;
+//   }
+
+//   .sm\:markdown-lg img {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//   }
+
+//   .sm\:markdown-lg video {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//   }
+
+//   .sm\:markdown-lg figure {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//   }
+
+//   .sm\:markdown-lg figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .sm\:markdown-lg figure figcaption {
+//     font-size: 0.8888889em;
+//     line-height: 1.5;
+//     margin-top: 1em;
+//   }
+
+//   .sm\:markdown-lg code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .sm\:markdown-lg h2 code {
+//     font-size: 0.8666667em;
+//   }
+
+//   .sm\:markdown-lg h3 code {
+//     font-size: 0.875em;
+//   }
+
+//   .sm\:markdown-lg pre {
+//     font-size: 0.8888889em;
+//     line-height: 1.75;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.375rem;
+//     padding-top: 1em;
+//     padding-right: 1.5em;
+//     padding-bottom: 1em;
+//     padding-left: 1.5em;
+//   }
+
+//   .sm\:markdown-lg ol {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-lg ul {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-lg li {
+//     margin-top: 0.6666667em;
+//     margin-bottom: 0.6666667em;
+//   }
+
+//   .sm\:markdown-lg ol > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .sm\:markdown-lg ol > li:before {
+//     left: 0;
+//   }
+
+//   .sm\:markdown-lg ul > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .sm\:markdown-lg ul > li::before {
+//     width: 0.3333333em;
+//     height: 0.3333333em;
+//     top: calc(0.8888889em - 0.1666667em);
+//     left: 0.2222222em;
+//   }
+
+//   .sm\:markdown-lg > ul > li p {
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .sm\:markdown-lg > ul > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .sm\:markdown-lg > ul > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-lg > ol > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .sm\:markdown-lg > ol > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-lg ul ul, .sm\:markdown-lg ul ol, .sm\:markdown-lg ol ul, .sm\:markdown-lg ol ol {
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .sm\:markdown-lg hr {
+//     margin-top: 3.1111111em;
+//     margin-bottom: 3.1111111em;
+//   }
+
+//   .sm\:markdown-lg hr + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-lg h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-lg h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-lg h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-lg table {
+//     font-size: 0.8888889em;
+//     line-height: 1.5;
+//   }
+
+//   .sm\:markdown-lg thead th {
+//     padding-right: 0.75em;
+//     padding-bottom: 0.75em;
+//     padding-left: 0.75em;
+//   }
+
+//   .sm\:markdown-lg thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown-lg thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown-lg tbody td {
+//     padding-top: 0.75em;
+//     padding-right: 0.75em;
+//     padding-bottom: 0.75em;
+//     padding-left: 0.75em;
+//   }
+
+//   .sm\:markdown-lg tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown-lg tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown-lg > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-lg > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .sm\:markdown-xl {
+//     font-size: 1.25rem;
+//     line-height: 1.8;
+//   }
+
+//   .sm\:markdown-xl p {
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .sm\:markdown-xl [class~="lead"] {
+//     font-size: 1.2em;
+//     line-height: 1.5;
+//     margin-top: 1em;
+//     margin-bottom: 1em;
+//   }
+
+//   .sm\:markdown-xl blockquote {
+//     margin-top: 1.6em;
+//     margin-bottom: 1.6em;
+//     padding-left: 1.0666667em;
+//   }
+
+//   .sm\:markdown-xl h1 {
+//     font-size: 2.8em;
+//     margin-top: 0;
+//     margin-bottom: 0.8571429em;
+//     line-height: 1;
+//   }
+
+//   .sm\:markdown-xl h2 {
+//     font-size: 1.8em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.8888889em;
+//     line-height: 1.1111111;
+//   }
+
+//   .sm\:markdown-xl h3 {
+//     font-size: 1.5em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.3333333;
+//   }
+
+//   .sm\:markdown-xl h4 {
+//     margin-top: 1.8em;
+//     margin-bottom: 0.6em;
+//     line-height: 1.6;
+//   }
+
+//   .sm\:markdown-xl img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .sm\:markdown-xl video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .sm\:markdown-xl figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .sm\:markdown-xl figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .sm\:markdown-xl figure figcaption {
+//     font-size: 0.9em;
+//     line-height: 1.5555556;
+//     margin-top: 1em;
+//   }
+
+//   .sm\:markdown-xl code {
+//     font-size: 0.9em;
+//   }
+
+//   .sm\:markdown-xl h2 code {
+//     font-size: 0.8611111em;
+//   }
+
+//   .sm\:markdown-xl h3 code {
+//     font-size: 0.9em;
+//   }
+
+//   .sm\:markdown-xl pre {
+//     font-size: 0.9em;
+//     line-height: 1.7777778;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.5rem;
+//     padding-top: 1.1111111em;
+//     padding-right: 1.3333333em;
+//     padding-bottom: 1.1111111em;
+//     padding-left: 1.3333333em;
+//   }
+
+//   .sm\:markdown-xl ol {
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .sm\:markdown-xl ul {
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .sm\:markdown-xl li {
+//     margin-top: 0.6em;
+//     margin-bottom: 0.6em;
+//   }
+
+//   .sm\:markdown-xl ol > li {
+//     padding-left: 1.8em;
+//   }
+
+//   .sm\:markdown-xl ol > li:before {
+//     left: 0;
+//   }
+
+//   .sm\:markdown-xl ul > li {
+//     padding-left: 1.8em;
+//   }
+
+//   .sm\:markdown-xl ul > li::before {
+//     width: 0.35em;
+//     height: 0.35em;
+//     top: calc(0.9em - 0.175em);
+//     left: 0.25em;
+//   }
+
+//   .sm\:markdown-xl > ul > li p {
+//     margin-top: 0.8em;
+//     margin-bottom: 0.8em;
+//   }
+
+//   .sm\:markdown-xl > ul > li > *:first-child {
+//     margin-top: 1.2em;
+//   }
+
+//   .sm\:markdown-xl > ul > li > *:last-child {
+//     margin-bottom: 1.2em;
+//   }
+
+//   .sm\:markdown-xl > ol > li > *:first-child {
+//     margin-top: 1.2em;
+//   }
+
+//   .sm\:markdown-xl > ol > li > *:last-child {
+//     margin-bottom: 1.2em;
+//   }
+
+//   .sm\:markdown-xl ul ul, .sm\:markdown-xl ul ol, .sm\:markdown-xl ol ul, .sm\:markdown-xl ol ol {
+//     margin-top: 0.8em;
+//     margin-bottom: 0.8em;
+//   }
+
+//   .sm\:markdown-xl hr {
+//     margin-top: 2.8em;
+//     margin-bottom: 2.8em;
+//   }
+
+//   .sm\:markdown-xl hr + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-xl h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-xl h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-xl h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-xl table {
+//     font-size: 0.9em;
+//     line-height: 1.5555556;
+//   }
+
+//   .sm\:markdown-xl thead th {
+//     padding-right: 0.6666667em;
+//     padding-bottom: 0.8888889em;
+//     padding-left: 0.6666667em;
+//   }
+
+//   .sm\:markdown-xl thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown-xl thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown-xl tbody td {
+//     padding-top: 0.8888889em;
+//     padding-right: 0.6666667em;
+//     padding-bottom: 0.8888889em;
+//     padding-left: 0.6666667em;
+//   }
+
+//   .sm\:markdown-xl tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown-xl tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown-xl > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-xl > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .sm\:markdown-2xl {
+//     font-size: 1.5rem;
+//     line-height: 1.6666667;
+//   }
+
+//   .sm\:markdown-2xl p {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-2xl [class~="lead"] {
+//     font-size: 1.25em;
+//     line-height: 1.4666667;
+//     margin-top: 1.0666667em;
+//     margin-bottom: 1.0666667em;
+//   }
+
+//   .sm\:markdown-2xl blockquote {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//     padding-left: 1.1111111em;
+//   }
+
+//   .sm\:markdown-2xl h1 {
+//     font-size: 2.6666667em;
+//     margin-top: 0;
+//     margin-bottom: 0.875em;
+//     line-height: 1;
+//   }
+
+//   .sm\:markdown-2xl h2 {
+//     font-size: 2em;
+//     margin-top: 1.5em;
+//     margin-bottom: 0.8333333em;
+//     line-height: 1.0833333;
+//   }
+
+//   .sm\:markdown-2xl h3 {
+//     font-size: 1.5em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.2222222;
+//   }
+
+//   .sm\:markdown-2xl h4 {
+//     margin-top: 1.6666667em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.5;
+//   }
+
+//   .sm\:markdown-2xl img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .sm\:markdown-2xl video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .sm\:markdown-2xl figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .sm\:markdown-2xl figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .sm\:markdown-2xl figure figcaption {
+//     font-size: 0.8333333em;
+//     line-height: 1.6;
+//     margin-top: 1em;
+//   }
+
+//   .sm\:markdown-2xl code {
+//     font-size: 0.8333333em;
+//   }
+
+//   .sm\:markdown-2xl h2 code {
+//     font-size: 0.875em;
+//   }
+
+//   .sm\:markdown-2xl h3 code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .sm\:markdown-2xl pre {
+//     font-size: 0.8333333em;
+//     line-height: 1.8;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.5rem;
+//     padding-top: 1.2em;
+//     padding-right: 1.6em;
+//     padding-bottom: 1.2em;
+//     padding-left: 1.6em;
+//   }
+
+//   .sm\:markdown-2xl ol {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-2xl ul {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-2xl li {
+//     margin-top: 0.5em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .sm\:markdown-2xl ol > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .sm\:markdown-2xl ol > li:before {
+//     left: 0;
+//   }
+
+//   .sm\:markdown-2xl ul > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .sm\:markdown-2xl ul > li::before {
+//     width: 0.3333333em;
+//     height: 0.3333333em;
+//     top: calc(0.8333333em - 0.1666667em);
+//     left: 0.25em;
+//   }
+
+//   .sm\:markdown-2xl > ul > li p {
+//     margin-top: 0.8333333em;
+//     margin-bottom: 0.8333333em;
+//   }
+
+//   .sm\:markdown-2xl > ul > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .sm\:markdown-2xl > ul > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-2xl > ol > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .sm\:markdown-2xl > ol > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .sm\:markdown-2xl ul ul, .sm\:markdown-2xl ul ol, .sm\:markdown-2xl ol ul, .sm\:markdown-2xl ol ol {
+//     margin-top: 0.6666667em;
+//     margin-bottom: 0.6666667em;
+//   }
+
+//   .sm\:markdown-2xl hr {
+//     margin-top: 3em;
+//     margin-bottom: 3em;
+//   }
+
+//   .sm\:markdown-2xl hr + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-2xl h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-2xl h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-2xl h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-2xl table {
+//     font-size: 0.8333333em;
+//     line-height: 1.4;
+//   }
+
+//   .sm\:markdown-2xl thead th {
+//     padding-right: 0.6em;
+//     padding-bottom: 0.8em;
+//     padding-left: 0.6em;
+//   }
+
+//   .sm\:markdown-2xl thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown-2xl thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown-2xl tbody td {
+//     padding-top: 0.8em;
+//     padding-right: 0.6em;
+//     padding-bottom: 0.8em;
+//     padding-left: 0.6em;
+//   }
+
+//   .sm\:markdown-2xl tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .sm\:markdown-2xl tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .sm\:markdown-2xl > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .sm\:markdown-2xl > :last-child {
+//     margin-bottom: 0;
+//   }
+}
+
+@media (min-width: 768px) {
+//   .md\:markdown {
+//     color: #4a5568;
+//     max-width: 65ch;
+//   }
+
+//   .md\:markdown [class~="lead"] {
+//     color: #4a5568;
+//     font-size: 1.25em;
+//     line-height: 1.6;
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .md\:markdown a {
+//     color: #1a202c;
+//     text-decoration: underline;
+//   }
+
+//   .md\:markdown strong {
+//     color: #1a202c;
+//     font-weight: 600;
+//   }
+
+//   .md\:markdown ol {
+//     counter-reset: list-counter;
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .md\:markdown ol > li {
+//     position: relative;
+//     counter-increment: list-counter;
+//     padding-left: 1.75em;
+//   }
+
+//   .md\:markdown ol > li::before {
+//     content: counter(list-counter) ".";
+//     position: absolute;
+//     font-weight: 400;
+//     color: #718096;
+//   }
+
+//   .md\:markdown ul > li {
+//     position: relative;
+//     padding-left: 1.75em;
+//   }
+
+//   .md\:markdown ul > li::before {
+//     content: "";
+//     position: absolute;
+//     background-color: #cbd5e0;
+//     border-radius: 50%;
+//     width: 0.375em;
+//     height: 0.375em;
+//     top: calc(0.875em - 0.1875em);
+//     left: 0.25em;
+//   }
+
+//   .md\:markdown hr {
+//     border-color: #e2e8f0;
+//     border-top-width: 1px;
+//     margin-top: 3em;
+//     margin-bottom: 3em;
+//   }
+
+//   .md\:markdown blockquote {
+//     font-weight: 500;
+//     font-style: italic;
+//     color: #1a202c;
+//     border-left-width: 0.25rem;
+//     border-left-color: #e2e8f0;
+//     quotes: "\201C""\201D""\2018""\2019";
+//     margin-top: 1.6em;
+//     margin-bottom: 1.6em;
+//     padding-left: 1em;
+//   }
+
+//   .md\:markdown blockquote p:first-of-type::before {
+//     content: open-quote;
+//   }
+
+//   .md\:markdown blockquote p:last-of-type::after {
+//     content: close-quote;
+//   }
+
+//   .md\:markdown h1 {
+//     color: #1a202c;
+//     font-weight: 800;
+//     font-size: 2.25em;
+//     margin-top: 0;
+//     margin-bottom: 0.8888889em;
+//     line-height: 1.1111111;
+//   }
+
+//   .md\:markdown h2 {
+//     color: #1a202c;
+//     font-weight: 700;
+//     font-size: 1.5em;
+//     margin-top: 2em;
+//     margin-bottom: 1em;
+//     line-height: 1.3333333;
+//   }
+
+//   .md\:markdown h3 {
+//     color: #1a202c;
+//     font-weight: 600;
+//     font-size: 1.25em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.6em;
+//     line-height: 1.6;
+//   }
+
+//   .md\:markdown h4 {
+//     color: #1a202c;
+//     font-weight: 600;
+//     margin-top: 1.5em;
+//     margin-bottom: 0.5em;
+//     line-height: 1.5;
+//   }
+
+//   .md\:markdown figure figcaption {
+//     color: #718096;
+//     font-size: 0.875em;
+//     line-height: 1.4285714;
+//     margin-top: 0.8571429em;
+//   }
+
+//   .md\:markdown code {
+//     color: #1a202c;
+//     font-weight: 600;
+//     font-size: 0.875em;
+//   }
+
+//   .md\:markdown code::before {
+//     content: "`";
+//   }
+
+//   .md\:markdown code::after {
+//     content: "`";
+//   }
+
+//   .md\:markdown pre {
+//     color: #e2e8f0;
+//     background-color: #2d3748;
+//     overflow-x: auto;
+//     font-size: 0.875em;
+//     line-height: 1.7142857;
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//     border-radius: 0.375rem;
+//     padding-top: 0.8571429em;
+//     padding-right: 1.1428571em;
+//     padding-bottom: 0.8571429em;
+//     padding-left: 1.1428571em;
+//   }
+
+//   .md\:markdown pre code {
+//     background-color: transparent;
+//     border-width: 0;
+//     border-radius: 0;
+//     padding: 0;
+//     font-weight: 400;
+//     color: inherit;
+//     font-size: inherit;
+//     font-family: inherit;
+//     line-height: inherit;
+//   }
+
+//   .md\:markdown pre code::before {
+//     content: "";
+//   }
+
+//   .md\:markdown pre code::after {
+//     content: "";
+//   }
+
+//   .md\:markdown table {
+//     width: 100%;
+//     table-layout: auto;
+//     text-align: left;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     font-size: 0.875em;
+//     line-height: 1.7142857;
+//   }
+
+//   .md\:markdown thead {
+//     color: #1a202c;
+//     font-weight: 600;
+//     border-bottom-width: 1px;
+//     border-bottom-color: #cbd5e0;
+//   }
+
+//   .md\:markdown thead th {
+//     vertical-align: bottom;
+//     padding-right: 0.5714286em;
+//     padding-bottom: 0.5714286em;
+//     padding-left: 0.5714286em;
+//   }
+
+//   .md\:markdown tbody tr {
+//     border-bottom-width: 1px;
+//     border-bottom-color: #e2e8f0;
+//   }
+
+//   .md\:markdown tbody tr:last-child {
+//     border-bottom-width: 0;
+//   }
+
+//   .md\:markdown tbody td {
+//     vertical-align: top;
+//     padding-top: 0.5714286em;
+//     padding-right: 0.5714286em;
+//     padding-bottom: 0.5714286em;
+//     padding-left: 0.5714286em;
+//   }
+
+//   .md\:markdown {
+//     font-size: 1rem;
+//     line-height: 1.75;
+//   }
+
+//   .md\:markdown p {
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .md\:markdown img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .md\:markdown video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .md\:markdown figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .md\:markdown figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .md\:markdown h2 code {
+//     font-size: 0.875em;
+//   }
+
+//   .md\:markdown h3 code {
+//     font-size: 0.9em;
+//   }
+
+//   .md\:markdown ul {
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .md\:markdown li {
+//     margin-top: 0.5em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .md\:markdown ol > li:before {
+//     left: 0;
+//   }
+
+//   .md\:markdown > ul > li p {
+//     margin-top: 0.75em;
+//     margin-bottom: 0.75em;
+//   }
+
+//   .md\:markdown > ul > li > *:first-child {
+//     margin-top: 1.25em;
+//   }
+
+//   .md\:markdown > ul > li > *:last-child {
+//     margin-bottom: 1.25em;
+//   }
+
+//   .md\:markdown > ol > li > *:first-child {
+//     margin-top: 1.25em;
+//   }
+
+//   .md\:markdown > ol > li > *:last-child {
+//     margin-bottom: 1.25em;
+//   }
+
+//   .md\:markdown ul ul, .md\:markdown ul ol, .md\:markdown ol ul, .md\:markdown ol ol {
+//     margin-top: 0.75em;
+//     margin-bottom: 0.75em;
+//   }
+
+//   .md\:markdown hr + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .md\:markdown thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .md\:markdown tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .md\:markdown tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .md\:markdown > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .md\:markdown-sm {
+//     font-size: 0.875rem;
+//     line-height: 1.7142857;
+//   }
+
+//   .md\:markdown-sm p {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .md\:markdown-sm [class~="lead"] {
+//     font-size: 1.2857143em;
+//     line-height: 1.5555556;
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .md\:markdown-sm blockquote {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//     padding-left: 1.1111111em;
+//   }
+
+//   .md\:markdown-sm h1 {
+//     font-size: 2.1428571em;
+//     margin-top: 0;
+//     margin-bottom: 0.8em;
+//     line-height: 1.2;
+//   }
+
+//   .md\:markdown-sm h2 {
+//     font-size: 1.4285714em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.8em;
+//     line-height: 1.4;
+//   }
+
+//   .md\:markdown-sm h3 {
+//     font-size: 1.2857143em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.4444444em;
+//     line-height: 1.5555556;
+//   }
+
+//   .md\:markdown-sm h4 {
+//     margin-top: 1.4285714em;
+//     margin-bottom: 0.5714286em;
+//     line-height: 1.4285714;
+//   }
+
+//   .md\:markdown-sm img {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .md\:markdown-sm video {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .md\:markdown-sm figure {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .md\:markdown-sm figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .md\:markdown-sm figure figcaption {
+//     font-size: 0.8571429em;
+//     line-height: 1.3333333;
+//     margin-top: 0.6666667em;
+//   }
+
+//   .md\:markdown-sm code {
+//     font-size: 0.8571429em;
+//   }
+
+//   .md\:markdown-sm h2 code {
+//     font-size: 0.9em;
+//   }
+
+//   .md\:markdown-sm h3 code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .md\:markdown-sm pre {
+//     font-size: 0.8571429em;
+//     line-height: 1.6666667;
+//     margin-top: 1.6666667em;
+//     margin-bottom: 1.6666667em;
+//     border-radius: 0.25rem;
+//     padding-top: 0.6666667em;
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .md\:markdown-sm ol {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .md\:markdown-sm ul {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .md\:markdown-sm li {
+//     margin-top: 0.2857143em;
+//     margin-bottom: 0.2857143em;
+//   }
+
+//   .md\:markdown-sm ol > li {
+//     padding-left: 1.5714286em;
+//   }
+
+//   .md\:markdown-sm ol > li:before {
+//     left: 0;
+//   }
+
+//   .md\:markdown-sm ul > li {
+//     padding-left: 1.5714286em;
+//   }
+
+//   .md\:markdown-sm ul > li::before {
+//     height: 0.3571429em;
+//     width: 0.3571429em;
+//     top: calc(0.8571429em - 0.1785714em);
+//     left: 0.2142857em;
+//   }
+
+//   .md\:markdown-sm > ul > li p {
+//     margin-top: 0.5714286em;
+//     margin-bottom: 0.5714286em;
+//   }
+
+//   .md\:markdown-sm > ul > li > *:first-child {
+//     margin-top: 1.1428571em;
+//   }
+
+//   .md\:markdown-sm > ul > li > *:last-child {
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .md\:markdown-sm > ol > li > *:first-child {
+//     margin-top: 1.1428571em;
+//   }
+
+//   .md\:markdown-sm > ol > li > *:last-child {
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .md\:markdown-sm ul ul, .md\:markdown-sm ul ol, .md\:markdown-sm ol ul, .md\:markdown-sm ol ol {
+//     margin-top: 0.5714286em;
+//     margin-bottom: 0.5714286em;
+//   }
+
+//   .md\:markdown-sm hr {
+//     margin-top: 2.8571429em;
+//     margin-bottom: 2.8571429em;
+//   }
+
+//   .md\:markdown-sm hr + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-sm h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-sm h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-sm h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-sm table {
+//     font-size: 0.8571429em;
+//     line-height: 1.5;
+//   }
+
+//   .md\:markdown-sm thead th {
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .md\:markdown-sm thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .md\:markdown-sm thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .md\:markdown-sm tbody td {
+//     padding-top: 0.6666667em;
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .md\:markdown-sm tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .md\:markdown-sm tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .md\:markdown-sm > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-sm > :last-child {
+//     margin-bottom: 0;
+//   }
+
+  .md\:markdown-lg {
+    font-size: 1.125rem;
+    line-height: 1.7777778;
+  }
+
+  .md\:markdown-lg p {
+    margin-top: 1.3333333em;
+    margin-bottom: 1.3333333em;
+  }
+
+  .md\:markdown-lg [class~="lead"] {
+    font-size: 1.2222222em;
+    line-height: 1.4545455;
+    margin-top: 1.0909091em;
+    margin-bottom: 1.0909091em;
+  }
+
+  .md\:markdown-lg blockquote {
+    margin-top: 1.6666667em;
+    margin-bottom: 1.6666667em;
+    padding-left: 1em;
+  }
+
+  .md\:markdown-lg h1 {
+    font-size: 2.6666667em;
+    margin-top: 0;
+    margin-bottom: 0.8333333em;
+    line-height: 1;
+  }
+
+  .md\:markdown-lg h2 {
+    font-size: 1.6666667em;
+    margin-top: 1.8666667em;
+    margin-bottom: 1.0666667em;
+    line-height: 1.3333333;
+  }
+
+  .md\:markdown-lg h3 {
+    font-size: 1.3333333em;
+    margin-top: 1.6666667em;
+    margin-bottom: 0.6666667em;
+    line-height: 1.5;
+  }
+
+  .md\:markdown-lg h4 {
+    margin-top: 1.7777778em;
+    margin-bottom: 0.4444444em;
+    line-height: 1.5555556;
+  }
+
+  .md\:markdown-lg img {
+    margin-top: 1.7777778em;
+    margin-bottom: 1.7777778em;
+  }
+
+  .md\:markdown-lg video {
+    margin-top: 1.7777778em;
+    margin-bottom: 1.7777778em;
+  }
+
+  .md\:markdown-lg figure {
+    margin-top: 1.7777778em;
+    margin-bottom: 1.7777778em;
+  }
+
+  .md\:markdown-lg figure > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .md\:markdown-lg figure figcaption {
+    font-size: 0.8888889em;
+    line-height: 1.5;
+    margin-top: 1em;
+  }
+
+  .md\:markdown-lg code {
+    font-size: 0.8888889em;
+  }
+
+  .md\:markdown-lg h2 code {
+    font-size: 0.8666667em;
+  }
+
+  .md\:markdown-lg h3 code {
+    font-size: 0.875em;
+  }
+
+  .md\:markdown-lg pre {
+    font-size: 0.8888889em;
+    line-height: 1.75;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 0.375rem;
+    padding-top: 1em;
+    padding-right: 1.5em;
+    padding-bottom: 1em;
+    padding-left: 1.5em;
+  }
+
+  .md\:markdown-lg ol {
+    margin-top: 1.3333333em;
+    margin-bottom: 1.3333333em;
+  }
+
+  .md\:markdown-lg ul {
+    margin-top: 1.3333333em;
+    margin-bottom: 1.3333333em;
+  }
+
+  .md\:markdown-lg li {
+    margin-top: 0.6666667em;
+    margin-bottom: 0.6666667em;
+  }
+
+  .md\:markdown-lg ol > li {
+    padding-left: 1.6666667em;
+  }
+
+  .md\:markdown-lg ol > li:before {
+    left: 0;
+  }
+
+  .md\:markdown-lg ul > li {
+    padding-left: 1.6666667em;
+  }
+
+  .md\:markdown-lg ul > li::before {
+    width: 0.3333333em;
+    height: 0.3333333em;
+    top: calc(0.8888889em - 0.1666667em);
+    left: 0.2222222em;
+  }
+
+  .md\:markdown-lg > ul > li p {
+    margin-top: 0.8888889em;
+    margin-bottom: 0.8888889em;
+  }
+
+  .md\:markdown-lg > ul > li > *:first-child {
+    margin-top: 1.3333333em;
+  }
+
+  .md\:markdown-lg > ul > li > *:last-child {
+    margin-bottom: 1.3333333em;
+  }
+
+  .md\:markdown-lg > ol > li > *:first-child {
+    margin-top: 1.3333333em;
+  }
+
+  .md\:markdown-lg > ol > li > *:last-child {
+    margin-bottom: 1.3333333em;
+  }
+
+  .md\:markdown-lg ul ul, .md\:markdown-lg ul ol, .md\:markdown-lg ol ul, .md\:markdown-lg ol ol {
+    margin-top: 0.8888889em;
+    margin-bottom: 0.8888889em;
+  }
+
+  .md\:markdown-lg hr {
+    margin-top: 3.1111111em;
+    margin-bottom: 3.1111111em;
+  }
+
+  .md\:markdown-lg hr + * {
+    margin-top: 0;
+  }
+
+  .md\:markdown-lg h2 + * {
+    margin-top: 0;
+  }
+
+  .md\:markdown-lg h3 + * {
+    margin-top: 0;
+  }
+
+  .md\:markdown-lg h4 + * {
+    margin-top: 0;
+  }
+
+  .md\:markdown-lg table {
+    font-size: 0.8888889em;
+    line-height: 1.5;
+  }
+
+  .md\:markdown-lg thead th {
+    padding-right: 0.75em;
+    padding-bottom: 0.75em;
+    padding-left: 0.75em;
+  }
+
+  .md\:markdown-lg thead th:first-child {
+    padding-left: 0;
+  }
+
+  .md\:markdown-lg thead th:last-child {
+    padding-right: 0;
+  }
+
+  .md\:markdown-lg tbody td {
+    padding-top: 0.75em;
+    padding-right: 0.75em;
+    padding-bottom: 0.75em;
+    padding-left: 0.75em;
+  }
+
+  .md\:markdown-lg tbody td:first-child {
+    padding-left: 0;
+  }
+
+  .md\:markdown-lg tbody td:last-child {
+    padding-right: 0;
+  }
+
+  .md\:markdown-lg > :first-child {
+    margin-top: 0;
+  }
+
+  .md\:markdown-lg > :last-child {
+    margin-bottom: 0;
+  }
+
+//   .md\:markdown-xl {
+//     font-size: 1.25rem;
+//     line-height: 1.8;
+//   }
+
+//   .md\:markdown-xl p {
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .md\:markdown-xl [class~="lead"] {
+//     font-size: 1.2em;
+//     line-height: 1.5;
+//     margin-top: 1em;
+//     margin-bottom: 1em;
+//   }
+
+//   .md\:markdown-xl blockquote {
+//     margin-top: 1.6em;
+//     margin-bottom: 1.6em;
+//     padding-left: 1.0666667em;
+//   }
+
+//   .md\:markdown-xl h1 {
+//     font-size: 2.8em;
+//     margin-top: 0;
+//     margin-bottom: 0.8571429em;
+//     line-height: 1;
+//   }
+
+//   .md\:markdown-xl h2 {
+//     font-size: 1.8em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.8888889em;
+//     line-height: 1.1111111;
+//   }
+
+//   .md\:markdown-xl h3 {
+//     font-size: 1.5em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.3333333;
+//   }
+
+//   .md\:markdown-xl h4 {
+//     margin-top: 1.8em;
+//     margin-bottom: 0.6em;
+//     line-height: 1.6;
+//   }
+
+//   .md\:markdown-xl img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .md\:markdown-xl video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .md\:markdown-xl figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .md\:markdown-xl figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .md\:markdown-xl figure figcaption {
+//     font-size: 0.9em;
+//     line-height: 1.5555556;
+//     margin-top: 1em;
+//   }
+
+//   .md\:markdown-xl code {
+//     font-size: 0.9em;
+//   }
+
+//   .md\:markdown-xl h2 code {
+//     font-size: 0.8611111em;
+//   }
+
+//   .md\:markdown-xl h3 code {
+//     font-size: 0.9em;
+//   }
+
+//   .md\:markdown-xl pre {
+//     font-size: 0.9em;
+//     line-height: 1.7777778;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.5rem;
+//     padding-top: 1.1111111em;
+//     padding-right: 1.3333333em;
+//     padding-bottom: 1.1111111em;
+//     padding-left: 1.3333333em;
+//   }
+
+//   .md\:markdown-xl ol {
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .md\:markdown-xl ul {
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .md\:markdown-xl li {
+//     margin-top: 0.6em;
+//     margin-bottom: 0.6em;
+//   }
+
+//   .md\:markdown-xl ol > li {
+//     padding-left: 1.8em;
+//   }
+
+//   .md\:markdown-xl ol > li:before {
+//     left: 0;
+//   }
+
+//   .md\:markdown-xl ul > li {
+//     padding-left: 1.8em;
+//   }
+
+//   .md\:markdown-xl ul > li::before {
+//     width: 0.35em;
+//     height: 0.35em;
+//     top: calc(0.9em - 0.175em);
+//     left: 0.25em;
+//   }
+
+//   .md\:markdown-xl > ul > li p {
+//     margin-top: 0.8em;
+//     margin-bottom: 0.8em;
+//   }
+
+//   .md\:markdown-xl > ul > li > *:first-child {
+//     margin-top: 1.2em;
+//   }
+
+//   .md\:markdown-xl > ul > li > *:last-child {
+//     margin-bottom: 1.2em;
+//   }
+
+//   .md\:markdown-xl > ol > li > *:first-child {
+//     margin-top: 1.2em;
+//   }
+
+//   .md\:markdown-xl > ol > li > *:last-child {
+//     margin-bottom: 1.2em;
+//   }
+
+//   .md\:markdown-xl ul ul, .md\:markdown-xl ul ol, .md\:markdown-xl ol ul, .md\:markdown-xl ol ol {
+//     margin-top: 0.8em;
+//     margin-bottom: 0.8em;
+//   }
+
+//   .md\:markdown-xl hr {
+//     margin-top: 2.8em;
+//     margin-bottom: 2.8em;
+//   }
+
+//   .md\:markdown-xl hr + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-xl h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-xl h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-xl h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-xl table {
+//     font-size: 0.9em;
+//     line-height: 1.5555556;
+//   }
+
+//   .md\:markdown-xl thead th {
+//     padding-right: 0.6666667em;
+//     padding-bottom: 0.8888889em;
+//     padding-left: 0.6666667em;
+//   }
+
+//   .md\:markdown-xl thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .md\:markdown-xl thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .md\:markdown-xl tbody td {
+//     padding-top: 0.8888889em;
+//     padding-right: 0.6666667em;
+//     padding-bottom: 0.8888889em;
+//     padding-left: 0.6666667em;
+//   }
+
+//   .md\:markdown-xl tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .md\:markdown-xl tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .md\:markdown-xl > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-xl > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .md\:markdown-2xl {
+//     font-size: 1.5rem;
+//     line-height: 1.6666667;
+//   }
+
+//   .md\:markdown-2xl p {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .md\:markdown-2xl [class~="lead"] {
+//     font-size: 1.25em;
+//     line-height: 1.4666667;
+//     margin-top: 1.0666667em;
+//     margin-bottom: 1.0666667em;
+//   }
+
+//   .md\:markdown-2xl blockquote {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//     padding-left: 1.1111111em;
+//   }
+
+//   .md\:markdown-2xl h1 {
+//     font-size: 2.6666667em;
+//     margin-top: 0;
+//     margin-bottom: 0.875em;
+//     line-height: 1;
+//   }
+
+//   .md\:markdown-2xl h2 {
+//     font-size: 2em;
+//     margin-top: 1.5em;
+//     margin-bottom: 0.8333333em;
+//     line-height: 1.0833333;
+//   }
+
+//   .md\:markdown-2xl h3 {
+//     font-size: 1.5em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.2222222;
+//   }
+
+//   .md\:markdown-2xl h4 {
+//     margin-top: 1.6666667em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.5;
+//   }
+
+//   .md\:markdown-2xl img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .md\:markdown-2xl video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .md\:markdown-2xl figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .md\:markdown-2xl figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .md\:markdown-2xl figure figcaption {
+//     font-size: 0.8333333em;
+//     line-height: 1.6;
+//     margin-top: 1em;
+//   }
+
+//   .md\:markdown-2xl code {
+//     font-size: 0.8333333em;
+//   }
+
+//   .md\:markdown-2xl h2 code {
+//     font-size: 0.875em;
+//   }
+
+//   .md\:markdown-2xl h3 code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .md\:markdown-2xl pre {
+//     font-size: 0.8333333em;
+//     line-height: 1.8;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.5rem;
+//     padding-top: 1.2em;
+//     padding-right: 1.6em;
+//     padding-bottom: 1.2em;
+//     padding-left: 1.6em;
+//   }
+
+//   .md\:markdown-2xl ol {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .md\:markdown-2xl ul {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .md\:markdown-2xl li {
+//     margin-top: 0.5em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .md\:markdown-2xl ol > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .md\:markdown-2xl ol > li:before {
+//     left: 0;
+//   }
+
+//   .md\:markdown-2xl ul > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .md\:markdown-2xl ul > li::before {
+//     width: 0.3333333em;
+//     height: 0.3333333em;
+//     top: calc(0.8333333em - 0.1666667em);
+//     left: 0.25em;
+//   }
+
+//   .md\:markdown-2xl > ul > li p {
+//     margin-top: 0.8333333em;
+//     margin-bottom: 0.8333333em;
+//   }
+
+//   .md\:markdown-2xl > ul > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .md\:markdown-2xl > ul > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .md\:markdown-2xl > ol > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .md\:markdown-2xl > ol > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .md\:markdown-2xl ul ul, .md\:markdown-2xl ul ol, .md\:markdown-2xl ol ul, .md\:markdown-2xl ol ol {
+//     margin-top: 0.6666667em;
+//     margin-bottom: 0.6666667em;
+//   }
+
+//   .md\:markdown-2xl hr {
+//     margin-top: 3em;
+//     margin-bottom: 3em;
+//   }
+
+//   .md\:markdown-2xl hr + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-2xl h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-2xl h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-2xl h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-2xl table {
+//     font-size: 0.8333333em;
+//     line-height: 1.4;
+//   }
+
+//   .md\:markdown-2xl thead th {
+//     padding-right: 0.6em;
+//     padding-bottom: 0.8em;
+//     padding-left: 0.6em;
+//   }
+
+//   .md\:markdown-2xl thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .md\:markdown-2xl thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .md\:markdown-2xl tbody td {
+//     padding-top: 0.8em;
+//     padding-right: 0.6em;
+//     padding-bottom: 0.8em;
+//     padding-left: 0.6em;
+//   }
+
+//   .md\:markdown-2xl tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .md\:markdown-2xl tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .md\:markdown-2xl > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .md\:markdown-2xl > :last-child {
+//     margin-bottom: 0;
+//   }
+}
+
+@media (min-width: 1024px) {
+//   .lg\:markdown {
+//     color: #4a5568;
+//     max-width: 65ch;
+//   }
+
+//   .lg\:markdown [class~="lead"] {
+//     color: #4a5568;
+//     font-size: 1.25em;
+//     line-height: 1.6;
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .lg\:markdown a {
+//     color: #1a202c;
+//     text-decoration: underline;
+//   }
+
+//   .lg\:markdown strong {
+//     color: #1a202c;
+//     font-weight: 600;
+//   }
+
+//   .lg\:markdown ol {
+//     counter-reset: list-counter;
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .lg\:markdown ol > li {
+//     position: relative;
+//     counter-increment: list-counter;
+//     padding-left: 1.75em;
+//   }
+
+//   .lg\:markdown ol > li::before {
+//     content: counter(list-counter) ".";
+//     position: absolute;
+//     font-weight: 400;
+//     color: #718096;
+//   }
+
+//   .lg\:markdown ul > li {
+//     position: relative;
+//     padding-left: 1.75em;
+//   }
+
+//   .lg\:markdown ul > li::before {
+//     content: "";
+//     position: absolute;
+//     background-color: #cbd5e0;
+//     border-radius: 50%;
+//     width: 0.375em;
+//     height: 0.375em;
+//     top: calc(0.875em - 0.1875em);
+//     left: 0.25em;
+//   }
+
+//   .lg\:markdown hr {
+//     border-color: #e2e8f0;
+//     border-top-width: 1px;
+//     margin-top: 3em;
+//     margin-bottom: 3em;
+//   }
+
+//   .lg\:markdown blockquote {
+//     font-weight: 500;
+//     font-style: italic;
+//     color: #1a202c;
+//     border-left-width: 0.25rem;
+//     border-left-color: #e2e8f0;
+//     quotes: "\201C""\201D""\2018""\2019";
+//     margin-top: 1.6em;
+//     margin-bottom: 1.6em;
+//     padding-left: 1em;
+//   }
+
+//   .lg\:markdown blockquote p:first-of-type::before {
+//     content: open-quote;
+//   }
+
+//   .lg\:markdown blockquote p:last-of-type::after {
+//     content: close-quote;
+//   }
+
+//   .lg\:markdown h1 {
+//     color: #1a202c;
+//     font-weight: 800;
+//     font-size: 2.25em;
+//     margin-top: 0;
+//     margin-bottom: 0.8888889em;
+//     line-height: 1.1111111;
+//   }
+
+//   .lg\:markdown h2 {
+//     color: #1a202c;
+//     font-weight: 700;
+//     font-size: 1.5em;
+//     margin-top: 2em;
+//     margin-bottom: 1em;
+//     line-height: 1.3333333;
+//   }
+
+//   .lg\:markdown h3 {
+//     color: #1a202c;
+//     font-weight: 600;
+//     font-size: 1.25em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.6em;
+//     line-height: 1.6;
+//   }
+
+//   .lg\:markdown h4 {
+//     color: #1a202c;
+//     font-weight: 600;
+//     margin-top: 1.5em;
+//     margin-bottom: 0.5em;
+//     line-height: 1.5;
+//   }
+
+//   .lg\:markdown figure figcaption {
+//     color: #718096;
+//     font-size: 0.875em;
+//     line-height: 1.4285714;
+//     margin-top: 0.8571429em;
+//   }
+
+//   .lg\:markdown code {
+//     color: #1a202c;
+//     font-weight: 600;
+//     font-size: 0.875em;
+//   }
+
+//   .lg\:markdown code::before {
+//     content: "`";
+//   }
+
+//   .lg\:markdown code::after {
+//     content: "`";
+//   }
+
+//   .lg\:markdown pre {
+//     color: #e2e8f0;
+//     background-color: #2d3748;
+//     overflow-x: auto;
+//     font-size: 0.875em;
+//     line-height: 1.7142857;
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//     border-radius: 0.375rem;
+//     padding-top: 0.8571429em;
+//     padding-right: 1.1428571em;
+//     padding-bottom: 0.8571429em;
+//     padding-left: 1.1428571em;
+//   }
+
+//   .lg\:markdown pre code {
+//     background-color: transparent;
+//     border-width: 0;
+//     border-radius: 0;
+//     padding: 0;
+//     font-weight: 400;
+//     color: inherit;
+//     font-size: inherit;
+//     font-family: inherit;
+//     line-height: inherit;
+//   }
+
+//   .lg\:markdown pre code::before {
+//     content: "";
+//   }
+
+//   .lg\:markdown pre code::after {
+//     content: "";
+//   }
+
+//   .lg\:markdown table {
+//     width: 100%;
+//     table-layout: auto;
+//     text-align: left;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     font-size: 0.875em;
+//     line-height: 1.7142857;
+//   }
+
+//   .lg\:markdown thead {
+//     color: #1a202c;
+//     font-weight: 600;
+//     border-bottom-width: 1px;
+//     border-bottom-color: #cbd5e0;
+//   }
+
+//   .lg\:markdown thead th {
+//     vertical-align: bottom;
+//     padding-right: 0.5714286em;
+//     padding-bottom: 0.5714286em;
+//     padding-left: 0.5714286em;
+//   }
+
+//   .lg\:markdown tbody tr {
+//     border-bottom-width: 1px;
+//     border-bottom-color: #e2e8f0;
+//   }
+
+//   .lg\:markdown tbody tr:last-child {
+//     border-bottom-width: 0;
+//   }
+
+//   .lg\:markdown tbody td {
+//     vertical-align: top;
+//     padding-top: 0.5714286em;
+//     padding-right: 0.5714286em;
+//     padding-bottom: 0.5714286em;
+//     padding-left: 0.5714286em;
+//   }
+
+//   .lg\:markdown {
+//     font-size: 1rem;
+//     line-height: 1.75;
+//   }
+
+//   .lg\:markdown p {
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .lg\:markdown img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .lg\:markdown video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .lg\:markdown figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .lg\:markdown figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .lg\:markdown h2 code {
+//     font-size: 0.875em;
+//   }
+
+//   .lg\:markdown h3 code {
+//     font-size: 0.9em;
+//   }
+
+//   .lg\:markdown ul {
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .lg\:markdown li {
+//     margin-top: 0.5em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .lg\:markdown ol > li:before {
+//     left: 0;
+//   }
+
+//   .lg\:markdown > ul > li p {
+//     margin-top: 0.75em;
+//     margin-bottom: 0.75em;
+//   }
+
+//   .lg\:markdown > ul > li > *:first-child {
+//     margin-top: 1.25em;
+//   }
+
+//   .lg\:markdown > ul > li > *:last-child {
+//     margin-bottom: 1.25em;
+//   }
+
+//   .lg\:markdown > ol > li > *:first-child {
+//     margin-top: 1.25em;
+//   }
+
+//   .lg\:markdown > ol > li > *:last-child {
+//     margin-bottom: 1.25em;
+//   }
+
+//   .lg\:markdown ul ul, .lg\:markdown ul ol, .lg\:markdown ol ul, .lg\:markdown ol ol {
+//     margin-top: 0.75em;
+//     margin-bottom: 0.75em;
+//   }
+
+//   .lg\:markdown hr + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .lg\:markdown thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .lg\:markdown tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .lg\:markdown tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .lg\:markdown > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .lg\:markdown-sm {
+//     font-size: 0.875rem;
+//     line-height: 1.7142857;
+//   }
+
+//   .lg\:markdown-sm p {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .lg\:markdown-sm [class~="lead"] {
+//     font-size: 1.2857143em;
+//     line-height: 1.5555556;
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .lg\:markdown-sm blockquote {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//     padding-left: 1.1111111em;
+//   }
+
+//   .lg\:markdown-sm h1 {
+//     font-size: 2.1428571em;
+//     margin-top: 0;
+//     margin-bottom: 0.8em;
+//     line-height: 1.2;
+//   }
+
+//   .lg\:markdown-sm h2 {
+//     font-size: 1.4285714em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.8em;
+//     line-height: 1.4;
+//   }
+
+//   .lg\:markdown-sm h3 {
+//     font-size: 1.2857143em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.4444444em;
+//     line-height: 1.5555556;
+//   }
+
+//   .lg\:markdown-sm h4 {
+//     margin-top: 1.4285714em;
+//     margin-bottom: 0.5714286em;
+//     line-height: 1.4285714;
+//   }
+
+//   .lg\:markdown-sm img {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .lg\:markdown-sm video {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .lg\:markdown-sm figure {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .lg\:markdown-sm figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .lg\:markdown-sm figure figcaption {
+//     font-size: 0.8571429em;
+//     line-height: 1.3333333;
+//     margin-top: 0.6666667em;
+//   }
+
+//   .lg\:markdown-sm code {
+//     font-size: 0.8571429em;
+//   }
+
+//   .lg\:markdown-sm h2 code {
+//     font-size: 0.9em;
+//   }
+
+//   .lg\:markdown-sm h3 code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .lg\:markdown-sm pre {
+//     font-size: 0.8571429em;
+//     line-height: 1.6666667;
+//     margin-top: 1.6666667em;
+//     margin-bottom: 1.6666667em;
+//     border-radius: 0.25rem;
+//     padding-top: 0.6666667em;
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .lg\:markdown-sm ol {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .lg\:markdown-sm ul {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .lg\:markdown-sm li {
+//     margin-top: 0.2857143em;
+//     margin-bottom: 0.2857143em;
+//   }
+
+//   .lg\:markdown-sm ol > li {
+//     padding-left: 1.5714286em;
+//   }
+
+//   .lg\:markdown-sm ol > li:before {
+//     left: 0;
+//   }
+
+//   .lg\:markdown-sm ul > li {
+//     padding-left: 1.5714286em;
+//   }
+
+//   .lg\:markdown-sm ul > li::before {
+//     height: 0.3571429em;
+//     width: 0.3571429em;
+//     top: calc(0.8571429em - 0.1785714em);
+//     left: 0.2142857em;
+//   }
+
+//   .lg\:markdown-sm > ul > li p {
+//     margin-top: 0.5714286em;
+//     margin-bottom: 0.5714286em;
+//   }
+
+//   .lg\:markdown-sm > ul > li > *:first-child {
+//     margin-top: 1.1428571em;
+//   }
+
+//   .lg\:markdown-sm > ul > li > *:last-child {
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .lg\:markdown-sm > ol > li > *:first-child {
+//     margin-top: 1.1428571em;
+//   }
+
+//   .lg\:markdown-sm > ol > li > *:last-child {
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .lg\:markdown-sm ul ul, .lg\:markdown-sm ul ol, .lg\:markdown-sm ol ul, .lg\:markdown-sm ol ol {
+//     margin-top: 0.5714286em;
+//     margin-bottom: 0.5714286em;
+//   }
+
+//   .lg\:markdown-sm hr {
+//     margin-top: 2.8571429em;
+//     margin-bottom: 2.8571429em;
+//   }
+
+//   .lg\:markdown-sm hr + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-sm h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-sm h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-sm h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-sm table {
+//     font-size: 0.8571429em;
+//     line-height: 1.5;
+//   }
+
+//   .lg\:markdown-sm thead th {
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .lg\:markdown-sm thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .lg\:markdown-sm thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .lg\:markdown-sm tbody td {
+//     padding-top: 0.6666667em;
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .lg\:markdown-sm tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .lg\:markdown-sm tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .lg\:markdown-sm > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-sm > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .lg\:markdown-lg {
+//     font-size: 1.125rem;
+//     line-height: 1.7777778;
+//   }
+
+//   .lg\:markdown-lg p {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-lg [class~="lead"] {
+//     font-size: 1.2222222em;
+//     line-height: 1.4545455;
+//     margin-top: 1.0909091em;
+//     margin-bottom: 1.0909091em;
+//   }
+
+//   .lg\:markdown-lg blockquote {
+//     margin-top: 1.6666667em;
+//     margin-bottom: 1.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .lg\:markdown-lg h1 {
+//     font-size: 2.6666667em;
+//     margin-top: 0;
+//     margin-bottom: 0.8333333em;
+//     line-height: 1;
+//   }
+
+//   .lg\:markdown-lg h2 {
+//     font-size: 1.6666667em;
+//     margin-top: 1.8666667em;
+//     margin-bottom: 1.0666667em;
+//     line-height: 1.3333333;
+//   }
+
+//   .lg\:markdown-lg h3 {
+//     font-size: 1.3333333em;
+//     margin-top: 1.6666667em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.5;
+//   }
+
+//   .lg\:markdown-lg h4 {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 0.4444444em;
+//     line-height: 1.5555556;
+//   }
+
+//   .lg\:markdown-lg img {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//   }
+
+//   .lg\:markdown-lg video {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//   }
+
+//   .lg\:markdown-lg figure {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//   }
+
+//   .lg\:markdown-lg figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .lg\:markdown-lg figure figcaption {
+//     font-size: 0.8888889em;
+//     line-height: 1.5;
+//     margin-top: 1em;
+//   }
+
+//   .lg\:markdown-lg code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .lg\:markdown-lg h2 code {
+//     font-size: 0.8666667em;
+//   }
+
+//   .lg\:markdown-lg h3 code {
+//     font-size: 0.875em;
+//   }
+
+//   .lg\:markdown-lg pre {
+//     font-size: 0.8888889em;
+//     line-height: 1.75;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.375rem;
+//     padding-top: 1em;
+//     padding-right: 1.5em;
+//     padding-bottom: 1em;
+//     padding-left: 1.5em;
+//   }
+
+//   .lg\:markdown-lg ol {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-lg ul {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-lg li {
+//     margin-top: 0.6666667em;
+//     margin-bottom: 0.6666667em;
+//   }
+
+//   .lg\:markdown-lg ol > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .lg\:markdown-lg ol > li:before {
+//     left: 0;
+//   }
+
+//   .lg\:markdown-lg ul > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .lg\:markdown-lg ul > li::before {
+//     width: 0.3333333em;
+//     height: 0.3333333em;
+//     top: calc(0.8888889em - 0.1666667em);
+//     left: 0.2222222em;
+//   }
+
+//   .lg\:markdown-lg > ul > li p {
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .lg\:markdown-lg > ul > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .lg\:markdown-lg > ul > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-lg > ol > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .lg\:markdown-lg > ol > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-lg ul ul, .lg\:markdown-lg ul ol, .lg\:markdown-lg ol ul, .lg\:markdown-lg ol ol {
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .lg\:markdown-lg hr {
+//     margin-top: 3.1111111em;
+//     margin-bottom: 3.1111111em;
+//   }
+
+//   .lg\:markdown-lg hr + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-lg h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-lg h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-lg h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-lg table {
+//     font-size: 0.8888889em;
+//     line-height: 1.5;
+//   }
+
+//   .lg\:markdown-lg thead th {
+//     padding-right: 0.75em;
+//     padding-bottom: 0.75em;
+//     padding-left: 0.75em;
+//   }
+
+//   .lg\:markdown-lg thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .lg\:markdown-lg thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .lg\:markdown-lg tbody td {
+//     padding-top: 0.75em;
+//     padding-right: 0.75em;
+//     padding-bottom: 0.75em;
+//     padding-left: 0.75em;
+//   }
+
+//   .lg\:markdown-lg tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .lg\:markdown-lg tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .lg\:markdown-lg > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-lg > :last-child {
+//     margin-bottom: 0;
+//   }
+
+  .lg\:markdown-xl {
+    font-size: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .lg\:markdown-xl p {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+  }
+
+  .lg\:markdown-xl [class~="lead"] {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  .lg\:markdown-xl blockquote {
+    margin-top: 1.6em;
+    margin-bottom: 1.6em;
+    padding-left: 1.0666667em;
+  }
+
+  .lg\:markdown-xl h1 {
+    font-size: 2.8em;
+    margin-top: 0;
+    margin-bottom: 0.8571429em;
+    line-height: 1;
+  }
+
+  .lg\:markdown-xl h2 {
+    font-size: 1.8em;
+    margin-top: 1.5555556em;
+    margin-bottom: 0.8888889em;
+    line-height: 1.1111111;
+  }
+
+  .lg\:markdown-xl h3 {
+    font-size: 1.5em;
+    margin-top: 1.6em;
+    margin-bottom: 0.6666667em;
+    line-height: 1.3333333;
+  }
+
+  .lg\:markdown-xl h4 {
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    line-height: 1.6;
+  }
+
+  .lg\:markdown-xl img {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .lg\:markdown-xl video {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .lg\:markdown-xl figure {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .lg\:markdown-xl figure > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .lg\:markdown-xl figure figcaption {
+    font-size: 0.9em;
+    line-height: 1.5555556;
+    margin-top: 1em;
+  }
+
+  .lg\:markdown-xl code {
+    font-size: 0.9em;
+  }
+
+  .lg\:markdown-xl h2 code {
+    font-size: 0.8611111em;
+  }
+
+  .lg\:markdown-xl h3 code {
+    font-size: 0.9em;
+  }
+
+  .lg\:markdown-xl pre {
+    font-size: 0.9em;
+    line-height: 1.7777778;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 0.5rem;
+    padding-top: 1.1111111em;
+    padding-right: 1.3333333em;
+    padding-bottom: 1.1111111em;
+    padding-left: 1.3333333em;
+  }
+
+  .lg\:markdown-xl ol {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+  }
+
+  .lg\:markdown-xl ul {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+  }
+
+  .lg\:markdown-xl li {
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+  }
+
+  .lg\:markdown-xl ol > li {
+    padding-left: 1.8em;
+  }
+
+  .lg\:markdown-xl ol > li:before {
+    left: 0;
+  }
+
+  .lg\:markdown-xl ul > li {
+    padding-left: 1.8em;
+  }
+
+  .lg\:markdown-xl ul > li::before {
+    width: 0.35em;
+    height: 0.35em;
+    top: calc(0.9em - 0.175em);
+    left: 0.25em;
+  }
+
+  .lg\:markdown-xl > ul > li p {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+  }
+
+  .lg\:markdown-xl > ul > li > *:first-child {
+    margin-top: 1.2em;
+  }
+
+  .lg\:markdown-xl > ul > li > *:last-child {
+    margin-bottom: 1.2em;
+  }
+
+  .lg\:markdown-xl > ol > li > *:first-child {
+    margin-top: 1.2em;
+  }
+
+  .lg\:markdown-xl > ol > li > *:last-child {
+    margin-bottom: 1.2em;
+  }
+
+  .lg\:markdown-xl ul ul, .lg\:markdown-xl ul ol, .lg\:markdown-xl ol ul, .lg\:markdown-xl ol ol {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+  }
+
+  .lg\:markdown-xl hr {
+    margin-top: 2.8em;
+    margin-bottom: 2.8em;
+  }
+
+  .lg\:markdown-xl hr + * {
+    margin-top: 0;
+  }
+
+  .lg\:markdown-xl h2 + * {
+    margin-top: 0;
+  }
+
+  .lg\:markdown-xl h3 + * {
+    margin-top: 0;
+  }
+
+  .lg\:markdown-xl h4 + * {
+    margin-top: 0;
+  }
+
+  .lg\:markdown-xl table {
+    font-size: 0.9em;
+    line-height: 1.5555556;
+  }
+
+  .lg\:markdown-xl thead th {
+    padding-right: 0.6666667em;
+    padding-bottom: 0.8888889em;
+    padding-left: 0.6666667em;
+  }
+
+  .lg\:markdown-xl thead th:first-child {
+    padding-left: 0;
+  }
+
+  .lg\:markdown-xl thead th:last-child {
+    padding-right: 0;
+  }
+
+  .lg\:markdown-xl tbody td {
+    padding-top: 0.8888889em;
+    padding-right: 0.6666667em;
+    padding-bottom: 0.8888889em;
+    padding-left: 0.6666667em;
+  }
+
+  .lg\:markdown-xl tbody td:first-child {
+    padding-left: 0;
+  }
+
+  .lg\:markdown-xl tbody td:last-child {
+    padding-right: 0;
+  }
+
+  .lg\:markdown-xl > :first-child {
+    margin-top: 0;
+  }
+
+  .lg\:markdown-xl > :last-child {
+    margin-bottom: 0;
+  }
+
+//   .lg\:markdown-2xl {
+//     font-size: 1.5rem;
+//     line-height: 1.6666667;
+//   }
+
+//   .lg\:markdown-2xl p {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-2xl [class~="lead"] {
+//     font-size: 1.25em;
+//     line-height: 1.4666667;
+//     margin-top: 1.0666667em;
+//     margin-bottom: 1.0666667em;
+//   }
+
+//   .lg\:markdown-2xl blockquote {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//     padding-left: 1.1111111em;
+//   }
+
+//   .lg\:markdown-2xl h1 {
+//     font-size: 2.6666667em;
+//     margin-top: 0;
+//     margin-bottom: 0.875em;
+//     line-height: 1;
+//   }
+
+//   .lg\:markdown-2xl h2 {
+//     font-size: 2em;
+//     margin-top: 1.5em;
+//     margin-bottom: 0.8333333em;
+//     line-height: 1.0833333;
+//   }
+
+//   .lg\:markdown-2xl h3 {
+//     font-size: 1.5em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.2222222;
+//   }
+
+//   .lg\:markdown-2xl h4 {
+//     margin-top: 1.6666667em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.5;
+//   }
+
+//   .lg\:markdown-2xl img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .lg\:markdown-2xl video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .lg\:markdown-2xl figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .lg\:markdown-2xl figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .lg\:markdown-2xl figure figcaption {
+//     font-size: 0.8333333em;
+//     line-height: 1.6;
+//     margin-top: 1em;
+//   }
+
+//   .lg\:markdown-2xl code {
+//     font-size: 0.8333333em;
+//   }
+
+//   .lg\:markdown-2xl h2 code {
+//     font-size: 0.875em;
+//   }
+
+//   .lg\:markdown-2xl h3 code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .lg\:markdown-2xl pre {
+//     font-size: 0.8333333em;
+//     line-height: 1.8;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.5rem;
+//     padding-top: 1.2em;
+//     padding-right: 1.6em;
+//     padding-bottom: 1.2em;
+//     padding-left: 1.6em;
+//   }
+
+//   .lg\:markdown-2xl ol {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-2xl ul {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-2xl li {
+//     margin-top: 0.5em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .lg\:markdown-2xl ol > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .lg\:markdown-2xl ol > li:before {
+//     left: 0;
+//   }
+
+//   .lg\:markdown-2xl ul > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .lg\:markdown-2xl ul > li::before {
+//     width: 0.3333333em;
+//     height: 0.3333333em;
+//     top: calc(0.8333333em - 0.1666667em);
+//     left: 0.25em;
+//   }
+
+//   .lg\:markdown-2xl > ul > li p {
+//     margin-top: 0.8333333em;
+//     margin-bottom: 0.8333333em;
+//   }
+
+//   .lg\:markdown-2xl > ul > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .lg\:markdown-2xl > ul > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-2xl > ol > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .lg\:markdown-2xl > ol > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .lg\:markdown-2xl ul ul, .lg\:markdown-2xl ul ol, .lg\:markdown-2xl ol ul, .lg\:markdown-2xl ol ol {
+//     margin-top: 0.6666667em;
+//     margin-bottom: 0.6666667em;
+//   }
+
+//   .lg\:markdown-2xl hr {
+//     margin-top: 3em;
+//     margin-bottom: 3em;
+//   }
+
+//   .lg\:markdown-2xl hr + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-2xl h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-2xl h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-2xl h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-2xl table {
+//     font-size: 0.8333333em;
+//     line-height: 1.4;
+//   }
+
+//   .lg\:markdown-2xl thead th {
+//     padding-right: 0.6em;
+//     padding-bottom: 0.8em;
+//     padding-left: 0.6em;
+//   }
+
+//   .lg\:markdown-2xl thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .lg\:markdown-2xl thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .lg\:markdown-2xl tbody td {
+//     padding-top: 0.8em;
+//     padding-right: 0.6em;
+//     padding-bottom: 0.8em;
+//     padding-left: 0.6em;
+//   }
+
+//   .lg\:markdown-2xl tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .lg\:markdown-2xl tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .lg\:markdown-2xl > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .lg\:markdown-2xl > :last-child {
+//     margin-bottom: 0;
+//   }
+}
+
+@media (min-width: 1280px) {
+//   .xl\:markdown {
+//     color: #4a5568;
+//     max-width: 65ch;
+//   }
+
+//   .xl\:markdown [class~="lead"] {
+//     color: #4a5568;
+//     font-size: 1.25em;
+//     line-height: 1.6;
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .xl\:markdown a {
+//     color: #1a202c;
+//     text-decoration: underline;
+//   }
+
+//   .xl\:markdown strong {
+//     color: #1a202c;
+//     font-weight: 600;
+//   }
+
+//   .xl\:markdown ol {
+//     counter-reset: list-counter;
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .xl\:markdown ol > li {
+//     position: relative;
+//     counter-increment: list-counter;
+//     padding-left: 1.75em;
+//   }
+
+//   .xl\:markdown ol > li::before {
+//     content: counter(list-counter) ".";
+//     position: absolute;
+//     font-weight: 400;
+//     color: #718096;
+//   }
+
+//   .xl\:markdown ul > li {
+//     position: relative;
+//     padding-left: 1.75em;
+//   }
+
+//   .xl\:markdown ul > li::before {
+//     content: "";
+//     position: absolute;
+//     background-color: #cbd5e0;
+//     border-radius: 50%;
+//     width: 0.375em;
+//     height: 0.375em;
+//     top: calc(0.875em - 0.1875em);
+//     left: 0.25em;
+//   }
+
+//   .xl\:markdown hr {
+//     border-color: #e2e8f0;
+//     border-top-width: 1px;
+//     margin-top: 3em;
+//     margin-bottom: 3em;
+//   }
+
+//   .xl\:markdown blockquote {
+//     font-weight: 500;
+//     font-style: italic;
+//     color: #1a202c;
+//     border-left-width: 0.25rem;
+//     border-left-color: #e2e8f0;
+//     quotes: "\201C""\201D""\2018""\2019";
+//     margin-top: 1.6em;
+//     margin-bottom: 1.6em;
+//     padding-left: 1em;
+//   }
+
+//   .xl\:markdown blockquote p:first-of-type::before {
+//     content: open-quote;
+//   }
+
+//   .xl\:markdown blockquote p:last-of-type::after {
+//     content: close-quote;
+//   }
+
+//   .xl\:markdown h1 {
+//     color: #1a202c;
+//     font-weight: 800;
+//     font-size: 2.25em;
+//     margin-top: 0;
+//     margin-bottom: 0.8888889em;
+//     line-height: 1.1111111;
+//   }
+
+//   .xl\:markdown h2 {
+//     color: #1a202c;
+//     font-weight: 700;
+//     font-size: 1.5em;
+//     margin-top: 2em;
+//     margin-bottom: 1em;
+//     line-height: 1.3333333;
+//   }
+
+//   .xl\:markdown h3 {
+//     color: #1a202c;
+//     font-weight: 600;
+//     font-size: 1.25em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.6em;
+//     line-height: 1.6;
+//   }
+
+//   .xl\:markdown h4 {
+//     color: #1a202c;
+//     font-weight: 600;
+//     margin-top: 1.5em;
+//     margin-bottom: 0.5em;
+//     line-height: 1.5;
+//   }
+
+//   .xl\:markdown figure figcaption {
+//     color: #718096;
+//     font-size: 0.875em;
+//     line-height: 1.4285714;
+//     margin-top: 0.8571429em;
+//   }
+
+//   .xl\:markdown code {
+//     color: #1a202c;
+//     font-weight: 600;
+//     font-size: 0.875em;
+//   }
+
+//   .xl\:markdown code::before {
+//     content: "`";
+//   }
+
+//   .xl\:markdown code::after {
+//     content: "`";
+//   }
+
+//   .xl\:markdown pre {
+//     color: #e2e8f0;
+//     background-color: #2d3748;
+//     overflow-x: auto;
+//     font-size: 0.875em;
+//     line-height: 1.7142857;
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//     border-radius: 0.375rem;
+//     padding-top: 0.8571429em;
+//     padding-right: 1.1428571em;
+//     padding-bottom: 0.8571429em;
+//     padding-left: 1.1428571em;
+//   }
+
+//   .xl\:markdown pre code {
+//     background-color: transparent;
+//     border-width: 0;
+//     border-radius: 0;
+//     padding: 0;
+//     font-weight: 400;
+//     color: inherit;
+//     font-size: inherit;
+//     font-family: inherit;
+//     line-height: inherit;
+//   }
+
+//   .xl\:markdown pre code::before {
+//     content: "";
+//   }
+
+//   .xl\:markdown pre code::after {
+//     content: "";
+//   }
+
+//   .xl\:markdown table {
+//     width: 100%;
+//     table-layout: auto;
+//     text-align: left;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     font-size: 0.875em;
+//     line-height: 1.7142857;
+//   }
+
+//   .xl\:markdown thead {
+//     color: #1a202c;
+//     font-weight: 600;
+//     border-bottom-width: 1px;
+//     border-bottom-color: #cbd5e0;
+//   }
+
+//   .xl\:markdown thead th {
+//     vertical-align: bottom;
+//     padding-right: 0.5714286em;
+//     padding-bottom: 0.5714286em;
+//     padding-left: 0.5714286em;
+//   }
+
+//   .xl\:markdown tbody tr {
+//     border-bottom-width: 1px;
+//     border-bottom-color: #e2e8f0;
+//   }
+
+//   .xl\:markdown tbody tr:last-child {
+//     border-bottom-width: 0;
+//   }
+
+//   .xl\:markdown tbody td {
+//     vertical-align: top;
+//     padding-top: 0.5714286em;
+//     padding-right: 0.5714286em;
+//     padding-bottom: 0.5714286em;
+//     padding-left: 0.5714286em;
+//   }
+
+//   .xl\:markdown {
+//     font-size: 1rem;
+//     line-height: 1.75;
+//   }
+
+//   .xl\:markdown p {
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .xl\:markdown img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .xl\:markdown video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .xl\:markdown figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .xl\:markdown figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .xl\:markdown h2 code {
+//     font-size: 0.875em;
+//   }
+
+//   .xl\:markdown h3 code {
+//     font-size: 0.9em;
+//   }
+
+//   .xl\:markdown ul {
+//     margin-top: 1.25em;
+//     margin-bottom: 1.25em;
+//   }
+
+//   .xl\:markdown li {
+//     margin-top: 0.5em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .xl\:markdown ol > li:before {
+//     left: 0;
+//   }
+
+//   .xl\:markdown > ul > li p {
+//     margin-top: 0.75em;
+//     margin-bottom: 0.75em;
+//   }
+
+//   .xl\:markdown > ul > li > *:first-child {
+//     margin-top: 1.25em;
+//   }
+
+//   .xl\:markdown > ul > li > *:last-child {
+//     margin-bottom: 1.25em;
+//   }
+
+//   .xl\:markdown > ol > li > *:first-child {
+//     margin-top: 1.25em;
+//   }
+
+//   .xl\:markdown > ol > li > *:last-child {
+//     margin-bottom: 1.25em;
+//   }
+
+//   .xl\:markdown ul ul, .xl\:markdown ul ol, .xl\:markdown ol ul, .xl\:markdown ol ol {
+//     margin-top: 0.75em;
+//     margin-bottom: 0.75em;
+//   }
+
+//   .xl\:markdown hr + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .xl\:markdown-sm {
+//     font-size: 0.875rem;
+//     line-height: 1.7142857;
+//   }
+
+//   .xl\:markdown-sm p {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .xl\:markdown-sm [class~="lead"] {
+//     font-size: 1.2857143em;
+//     line-height: 1.5555556;
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .xl\:markdown-sm blockquote {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//     padding-left: 1.1111111em;
+//   }
+
+//   .xl\:markdown-sm h1 {
+//     font-size: 2.1428571em;
+//     margin-top: 0;
+//     margin-bottom: 0.8em;
+//     line-height: 1.2;
+//   }
+
+//   .xl\:markdown-sm h2 {
+//     font-size: 1.4285714em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.8em;
+//     line-height: 1.4;
+//   }
+
+//   .xl\:markdown-sm h3 {
+//     font-size: 1.2857143em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.4444444em;
+//     line-height: 1.5555556;
+//   }
+
+//   .xl\:markdown-sm h4 {
+//     margin-top: 1.4285714em;
+//     margin-bottom: 0.5714286em;
+//     line-height: 1.4285714;
+//   }
+
+//   .xl\:markdown-sm img {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .xl\:markdown-sm video {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .xl\:markdown-sm figure {
+//     margin-top: 1.7142857em;
+//     margin-bottom: 1.7142857em;
+//   }
+
+//   .xl\:markdown-sm figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .xl\:markdown-sm figure figcaption {
+//     font-size: 0.8571429em;
+//     line-height: 1.3333333;
+//     margin-top: 0.6666667em;
+//   }
+
+//   .xl\:markdown-sm code {
+//     font-size: 0.8571429em;
+//   }
+
+//   .xl\:markdown-sm h2 code {
+//     font-size: 0.9em;
+//   }
+
+//   .xl\:markdown-sm h3 code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .xl\:markdown-sm pre {
+//     font-size: 0.8571429em;
+//     line-height: 1.6666667;
+//     margin-top: 1.6666667em;
+//     margin-bottom: 1.6666667em;
+//     border-radius: 0.25rem;
+//     padding-top: 0.6666667em;
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .xl\:markdown-sm ol {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .xl\:markdown-sm ul {
+//     margin-top: 1.1428571em;
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .xl\:markdown-sm li {
+//     margin-top: 0.2857143em;
+//     margin-bottom: 0.2857143em;
+//   }
+
+//   .xl\:markdown-sm ol > li {
+//     padding-left: 1.5714286em;
+//   }
+
+//   .xl\:markdown-sm ol > li:before {
+//     left: 0;
+//   }
+
+//   .xl\:markdown-sm ul > li {
+//     padding-left: 1.5714286em;
+//   }
+
+//   .xl\:markdown-sm ul > li::before {
+//     height: 0.3571429em;
+//     width: 0.3571429em;
+//     top: calc(0.8571429em - 0.1785714em);
+//     left: 0.2142857em;
+//   }
+
+//   .xl\:markdown-sm > ul > li p {
+//     margin-top: 0.5714286em;
+//     margin-bottom: 0.5714286em;
+//   }
+
+//   .xl\:markdown-sm > ul > li > *:first-child {
+//     margin-top: 1.1428571em;
+//   }
+
+//   .xl\:markdown-sm > ul > li > *:last-child {
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .xl\:markdown-sm > ol > li > *:first-child {
+//     margin-top: 1.1428571em;
+//   }
+
+//   .xl\:markdown-sm > ol > li > *:last-child {
+//     margin-bottom: 1.1428571em;
+//   }
+
+//   .xl\:markdown-sm ul ul, .xl\:markdown-sm ul ol, .xl\:markdown-sm ol ul, .xl\:markdown-sm ol ol {
+//     margin-top: 0.5714286em;
+//     margin-bottom: 0.5714286em;
+//   }
+
+//   .xl\:markdown-sm hr {
+//     margin-top: 2.8571429em;
+//     margin-bottom: 2.8571429em;
+//   }
+
+//   .xl\:markdown-sm hr + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-sm h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-sm h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-sm h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-sm table {
+//     font-size: 0.8571429em;
+//     line-height: 1.5;
+//   }
+
+//   .xl\:markdown-sm thead th {
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .xl\:markdown-sm thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown-sm thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown-sm tbody td {
+//     padding-top: 0.6666667em;
+//     padding-right: 1em;
+//     padding-bottom: 0.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .xl\:markdown-sm tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown-sm tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown-sm > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-sm > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .xl\:markdown-lg {
+//     font-size: 1.125rem;
+//     line-height: 1.7777778;
+//   }
+
+//   .xl\:markdown-lg p {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-lg [class~="lead"] {
+//     font-size: 1.2222222em;
+//     line-height: 1.4545455;
+//     margin-top: 1.0909091em;
+//     margin-bottom: 1.0909091em;
+//   }
+
+//   .xl\:markdown-lg blockquote {
+//     margin-top: 1.6666667em;
+//     margin-bottom: 1.6666667em;
+//     padding-left: 1em;
+//   }
+
+//   .xl\:markdown-lg h1 {
+//     font-size: 2.6666667em;
+//     margin-top: 0;
+//     margin-bottom: 0.8333333em;
+//     line-height: 1;
+//   }
+
+//   .xl\:markdown-lg h2 {
+//     font-size: 1.6666667em;
+//     margin-top: 1.8666667em;
+//     margin-bottom: 1.0666667em;
+//     line-height: 1.3333333;
+//   }
+
+//   .xl\:markdown-lg h3 {
+//     font-size: 1.3333333em;
+//     margin-top: 1.6666667em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.5;
+//   }
+
+//   .xl\:markdown-lg h4 {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 0.4444444em;
+//     line-height: 1.5555556;
+//   }
+
+//   .xl\:markdown-lg img {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//   }
+
+//   .xl\:markdown-lg video {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//   }
+
+//   .xl\:markdown-lg figure {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//   }
+
+//   .xl\:markdown-lg figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .xl\:markdown-lg figure figcaption {
+//     font-size: 0.8888889em;
+//     line-height: 1.5;
+//     margin-top: 1em;
+//   }
+
+//   .xl\:markdown-lg code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .xl\:markdown-lg h2 code {
+//     font-size: 0.8666667em;
+//   }
+
+//   .xl\:markdown-lg h3 code {
+//     font-size: 0.875em;
+//   }
+
+//   .xl\:markdown-lg pre {
+//     font-size: 0.8888889em;
+//     line-height: 1.75;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.375rem;
+//     padding-top: 1em;
+//     padding-right: 1.5em;
+//     padding-bottom: 1em;
+//     padding-left: 1.5em;
+//   }
+
+//   .xl\:markdown-lg ol {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-lg ul {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-lg li {
+//     margin-top: 0.6666667em;
+//     margin-bottom: 0.6666667em;
+//   }
+
+//   .xl\:markdown-lg ol > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .xl\:markdown-lg ol > li:before {
+//     left: 0;
+//   }
+
+//   .xl\:markdown-lg ul > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .xl\:markdown-lg ul > li::before {
+//     width: 0.3333333em;
+//     height: 0.3333333em;
+//     top: calc(0.8888889em - 0.1666667em);
+//     left: 0.2222222em;
+//   }
+
+//   .xl\:markdown-lg > ul > li p {
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .xl\:markdown-lg > ul > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .xl\:markdown-lg > ul > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-lg > ol > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .xl\:markdown-lg > ol > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-lg ul ul, .xl\:markdown-lg ul ol, .xl\:markdown-lg ol ul, .xl\:markdown-lg ol ol {
+//     margin-top: 0.8888889em;
+//     margin-bottom: 0.8888889em;
+//   }
+
+//   .xl\:markdown-lg hr {
+//     margin-top: 3.1111111em;
+//     margin-bottom: 3.1111111em;
+//   }
+
+//   .xl\:markdown-lg hr + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-lg h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-lg h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-lg h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-lg table {
+//     font-size: 0.8888889em;
+//     line-height: 1.5;
+//   }
+
+//   .xl\:markdown-lg thead th {
+//     padding-right: 0.75em;
+//     padding-bottom: 0.75em;
+//     padding-left: 0.75em;
+//   }
+
+//   .xl\:markdown-lg thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown-lg thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown-lg tbody td {
+//     padding-top: 0.75em;
+//     padding-right: 0.75em;
+//     padding-bottom: 0.75em;
+//     padding-left: 0.75em;
+//   }
+
+//   .xl\:markdown-lg tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown-lg tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown-lg > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-lg > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .xl\:markdown-xl {
+//     font-size: 1.25rem;
+//     line-height: 1.8;
+//   }
+
+//   .xl\:markdown-xl p {
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .xl\:markdown-xl [class~="lead"] {
+//     font-size: 1.2em;
+//     line-height: 1.5;
+//     margin-top: 1em;
+//     margin-bottom: 1em;
+//   }
+
+//   .xl\:markdown-xl blockquote {
+//     margin-top: 1.6em;
+//     margin-bottom: 1.6em;
+//     padding-left: 1.0666667em;
+//   }
+
+//   .xl\:markdown-xl h1 {
+//     font-size: 2.8em;
+//     margin-top: 0;
+//     margin-bottom: 0.8571429em;
+//     line-height: 1;
+//   }
+
+//   .xl\:markdown-xl h2 {
+//     font-size: 1.8em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.8888889em;
+//     line-height: 1.1111111;
+//   }
+
+//   .xl\:markdown-xl h3 {
+//     font-size: 1.5em;
+//     margin-top: 1.6em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.3333333;
+//   }
+
+//   .xl\:markdown-xl h4 {
+//     margin-top: 1.8em;
+//     margin-bottom: 0.6em;
+//     line-height: 1.6;
+//   }
+
+//   .xl\:markdown-xl img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .xl\:markdown-xl video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .xl\:markdown-xl figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .xl\:markdown-xl figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .xl\:markdown-xl figure figcaption {
+//     font-size: 0.9em;
+//     line-height: 1.5555556;
+//     margin-top: 1em;
+//   }
+
+//   .xl\:markdown-xl code {
+//     font-size: 0.9em;
+//   }
+
+//   .xl\:markdown-xl h2 code {
+//     font-size: 0.8611111em;
+//   }
+
+//   .xl\:markdown-xl h3 code {
+//     font-size: 0.9em;
+//   }
+
+//   .xl\:markdown-xl pre {
+//     font-size: 0.9em;
+//     line-height: 1.7777778;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.5rem;
+//     padding-top: 1.1111111em;
+//     padding-right: 1.3333333em;
+//     padding-bottom: 1.1111111em;
+//     padding-left: 1.3333333em;
+//   }
+
+//   .xl\:markdown-xl ol {
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .xl\:markdown-xl ul {
+//     margin-top: 1.2em;
+//     margin-bottom: 1.2em;
+//   }
+
+//   .xl\:markdown-xl li {
+//     margin-top: 0.6em;
+//     margin-bottom: 0.6em;
+//   }
+
+//   .xl\:markdown-xl ol > li {
+//     padding-left: 1.8em;
+//   }
+
+//   .xl\:markdown-xl ol > li:before {
+//     left: 0;
+//   }
+
+//   .xl\:markdown-xl ul > li {
+//     padding-left: 1.8em;
+//   }
+
+//   .xl\:markdown-xl ul > li::before {
+//     width: 0.35em;
+//     height: 0.35em;
+//     top: calc(0.9em - 0.175em);
+//     left: 0.25em;
+//   }
+
+//   .xl\:markdown-xl > ul > li p {
+//     margin-top: 0.8em;
+//     margin-bottom: 0.8em;
+//   }
+
+//   .xl\:markdown-xl > ul > li > *:first-child {
+//     margin-top: 1.2em;
+//   }
+
+//   .xl\:markdown-xl > ul > li > *:last-child {
+//     margin-bottom: 1.2em;
+//   }
+
+//   .xl\:markdown-xl > ol > li > *:first-child {
+//     margin-top: 1.2em;
+//   }
+
+//   .xl\:markdown-xl > ol > li > *:last-child {
+//     margin-bottom: 1.2em;
+//   }
+
+//   .xl\:markdown-xl ul ul, .xl\:markdown-xl ul ol, .xl\:markdown-xl ol ul, .xl\:markdown-xl ol ol {
+//     margin-top: 0.8em;
+//     margin-bottom: 0.8em;
+//   }
+
+//   .xl\:markdown-xl hr {
+//     margin-top: 2.8em;
+//     margin-bottom: 2.8em;
+//   }
+
+//   .xl\:markdown-xl hr + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-xl h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-xl h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-xl h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-xl table {
+//     font-size: 0.9em;
+//     line-height: 1.5555556;
+//   }
+
+//   .xl\:markdown-xl thead th {
+//     padding-right: 0.6666667em;
+//     padding-bottom: 0.8888889em;
+//     padding-left: 0.6666667em;
+//   }
+
+//   .xl\:markdown-xl thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown-xl thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown-xl tbody td {
+//     padding-top: 0.8888889em;
+//     padding-right: 0.6666667em;
+//     padding-bottom: 0.8888889em;
+//     padding-left: 0.6666667em;
+//   }
+
+//   .xl\:markdown-xl tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown-xl tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown-xl > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-xl > :last-child {
+//     margin-bottom: 0;
+//   }
+
+//   .xl\:markdown-2xl {
+//     font-size: 1.5rem;
+//     line-height: 1.6666667;
+//   }
+
+//   .xl\:markdown-2xl p {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-2xl [class~="lead"] {
+//     font-size: 1.25em;
+//     line-height: 1.4666667;
+//     margin-top: 1.0666667em;
+//     margin-bottom: 1.0666667em;
+//   }
+
+//   .xl\:markdown-2xl blockquote {
+//     margin-top: 1.7777778em;
+//     margin-bottom: 1.7777778em;
+//     padding-left: 1.1111111em;
+//   }
+
+//   .xl\:markdown-2xl h1 {
+//     font-size: 2.6666667em;
+//     margin-top: 0;
+//     margin-bottom: 0.875em;
+//     line-height: 1;
+//   }
+
+//   .xl\:markdown-2xl h2 {
+//     font-size: 2em;
+//     margin-top: 1.5em;
+//     margin-bottom: 0.8333333em;
+//     line-height: 1.0833333;
+//   }
+
+//   .xl\:markdown-2xl h3 {
+//     font-size: 1.5em;
+//     margin-top: 1.5555556em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.2222222;
+//   }
+
+//   .xl\:markdown-2xl h4 {
+//     margin-top: 1.6666667em;
+//     margin-bottom: 0.6666667em;
+//     line-height: 1.5;
+//   }
+
+//   .xl\:markdown-2xl img {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .xl\:markdown-2xl video {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .xl\:markdown-2xl figure {
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//   }
+
+//   .xl\:markdown-2xl figure > * {
+//     margin-top: 0;
+//     margin-bottom: 0;
+//   }
+
+//   .xl\:markdown-2xl figure figcaption {
+//     font-size: 0.8333333em;
+//     line-height: 1.6;
+//     margin-top: 1em;
+//   }
+
+//   .xl\:markdown-2xl code {
+//     font-size: 0.8333333em;
+//   }
+
+//   .xl\:markdown-2xl h2 code {
+//     font-size: 0.875em;
+//   }
+
+//   .xl\:markdown-2xl h3 code {
+//     font-size: 0.8888889em;
+//   }
+
+//   .xl\:markdown-2xl pre {
+//     font-size: 0.8333333em;
+//     line-height: 1.8;
+//     margin-top: 2em;
+//     margin-bottom: 2em;
+//     border-radius: 0.5rem;
+//     padding-top: 1.2em;
+//     padding-right: 1.6em;
+//     padding-bottom: 1.2em;
+//     padding-left: 1.6em;
+//   }
+
+//   .xl\:markdown-2xl ol {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-2xl ul {
+//     margin-top: 1.3333333em;
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-2xl li {
+//     margin-top: 0.5em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .xl\:markdown-2xl ol > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .xl\:markdown-2xl ol > li:before {
+//     left: 0;
+//   }
+
+//   .xl\:markdown-2xl ul > li {
+//     padding-left: 1.6666667em;
+//   }
+
+//   .xl\:markdown-2xl ul > li::before {
+//     width: 0.3333333em;
+//     height: 0.3333333em;
+//     top: calc(0.8333333em - 0.1666667em);
+//     left: 0.25em;
+//   }
+
+//   .xl\:markdown-2xl > ul > li p {
+//     margin-top: 0.8333333em;
+//     margin-bottom: 0.8333333em;
+//   }
+
+//   .xl\:markdown-2xl > ul > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .xl\:markdown-2xl > ul > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-2xl > ol > li > *:first-child {
+//     margin-top: 1.3333333em;
+//   }
+
+//   .xl\:markdown-2xl > ol > li > *:last-child {
+//     margin-bottom: 1.3333333em;
+//   }
+
+//   .xl\:markdown-2xl ul ul, .xl\:markdown-2xl ul ol, .xl\:markdown-2xl ol ul, .xl\:markdown-2xl ol ol {
+//     margin-top: 0.6666667em;
+//     margin-bottom: 0.6666667em;
+//   }
+
+//   .xl\:markdown-2xl hr {
+//     margin-top: 3em;
+//     margin-bottom: 3em;
+//   }
+
+//   .xl\:markdown-2xl hr + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-2xl h2 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-2xl h3 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-2xl h4 + * {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-2xl table {
+//     font-size: 0.8333333em;
+//     line-height: 1.4;
+//   }
+
+//   .xl\:markdown-2xl thead th {
+//     padding-right: 0.6em;
+//     padding-bottom: 0.8em;
+//     padding-left: 0.6em;
+//   }
+
+//   .xl\:markdown-2xl thead th:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown-2xl thead th:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown-2xl tbody td {
+//     padding-top: 0.8em;
+//     padding-right: 0.6em;
+//     padding-bottom: 0.8em;
+//     padding-left: 0.6em;
+//   }
+
+//   .xl\:markdown-2xl tbody td:first-child {
+//     padding-left: 0;
+//   }
+
+//   .xl\:markdown-2xl tbody td:last-child {
+//     padding-right: 0;
+//   }
+
+//   .xl\:markdown-2xl > :first-child {
+//     margin-top: 0;
+//   }
+
+//   .xl\:markdown-2xl > :last-child {
+//     margin-bottom: 0;
+//   }
+}
