@@ -13,7 +13,9 @@ const Banner = ({ name }) => {
   const bannerUrl = new URL(banner.link);
 
   bannerUrl.searchParams.set('utm_source', 'hexlet-guides');
-  bannerUrl.searchParams.set('utm_medium', 'referral');
+  bannerUrl.searchParams.set('utm_medium', 'banner');
+  bannerUrl.searchParams.set('utm_campaign', name);
+
 
   return (
     <div className="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">

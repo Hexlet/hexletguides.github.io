@@ -3493,7 +3493,7 @@ epoch.</li>
 <p>Как это происходит. Разработчики добавляют код в репозиторий. В какой-то момент они решают, что пора доставить его до продакшена. Это может происходить как по регулярному расписанию, например раз в две недели, так и просто по необходимости, вплоть до выкатки после каждого изменения. Во многом количество деплоев зависит от уровня его автоматизации — того, насколько процесс легкий в проведении и откате в случае проблем. На Хекслете деплои выполняются практически после каждого изменения, около 3 деплоев в день.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -3750,7 +3750,7 @@ epoch.</li>
 <p><em>Существуют подходы, которые позволяют избежать прямого взаимодействия с инфраструктурой. В рамках статьи они не рассматриваются, но знать про них полезно. К ним относятся: классические хостинги с предустановленным софтом, serverless, хостинги статических сайтов, PaaS решения и kubernetes (и его аналоги)</em></p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -3897,7 +3897,7 @@ PLAY RECAP <span class="k">*****************************************************
 <p><img src="/assets/images/configuration-management/ansible.png" alt="Ansible" /></p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/ansible?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс по Ansible с практикой прямо в браузере</a>
+    <a href="https://ru.hexlet.io/courses/ansible?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-ansible" target="_blank">Курс по Ansible с практикой прямо в браузере</a>
 </div>
 
 <p>Что из себя представляет плейбук? Главное внутри него – набор задач (tasks), которые мы хотим выполнить. В отличии от bash-скрипта, задачи это не просто bash-команды. На каждую задачу в Ansible встроен модуль для работы с определенной частью системы. Например внутри Ansible есть модули для работы с git, пакетными менеджерами, файлами и тому подобным. Всего их сотни на все случаи жизни. Именно благодаря готовым интеграциям Ansible знает, как работают те или иные части системы, что позволяет добавить нужные проверки для обеспечения идемпотентности. Пара примеров:</p>
@@ -3975,7 +3975,7 @@ PLAY RECAP <span class="k">*****************************************************
 </ul>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -4124,7 +4124,7 @@ sets by chunk 9.14 KiB <span class="o">(</span>auxiliary <span class="nb">id </s
 <p>Когда интернет только зарождался, у сайтов не было доменных имён. Для обращения к сайту использовались прямые IP-адреса машин (серверов), например, 10.132.234.4 (вместо понятного hexlet.io). Довольно быстро стало понятно, что это слишком сложно для запоминания. К тому же адреса могли меняться. Нужно было что-то вроде записной книжки для адресов.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -4231,7 +4231,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
 <p>Как, часто, происходит в разработке. Программисты написали какой-то код, выпустили новую версию сайта/приложения и пошли дальше заниматься своими делами. В это время у некоторых пользователей обнаруживаются проблемы: что-то зависает, формы не отправляются, данные отображаются неправильно и так далее. Такое может продолжаться довольно долго, пока кто-то разгневанный не напишет письмо в службу поддержки. Затем по цепочке это долетает до программистов, которые пытаются понять у кого произошла ошибка, где она случилась, и при каких обстоятельствах. Начинаются выяснения всех подробностей с вероятным привлечением клиента, если тот согласится помочь. При таком подходе, большое количество ошибок остается незамеченным очень долго и, самое неприятное, пользователи уходят. Можно ли этого избежать? Оказывается можно.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -4300,7 +4300,7 @@ hexlet.io mail is handled by 5 alt2.aspmx.l.google.com.
 <p>Почему именно 0 и 1? В процессор поступают электрические сигналы. Сильный сигнал обозначается цифрой 1, а слабый — 0. Набор таких цифр обозначает какую-то команду. Процессор ее распознает и выполняет.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/java?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Профессия «Java-разработчик» с нуля и до трудоустройства
+    <a href="https://ru.hexlet.io/programs/java?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=profession-java" target="_blank">Профессия «Java-разработчик» с нуля и до трудоустройства
 </a>
 </div>
 
@@ -4471,7 +4471,7 @@ docker run <span class="se">\</span>
 <p>Эти команды являются лишь частью того, что необходимо выполнить при разворачивании проекта. В приведённом примере видно, что команды сами по себе длинные, содержат много флагов, а значит, их трудно не только запомнить, но и вводить вручную. Постоянно вести документацию становится сложнее с ростом проекта, она неизбежно устаревает, а порог входа для новичков становится выше, ведь уже никто не в состоянии вспомнить всех деталей проекта. Некоторые такие команды необходимо использовать каждый день, и даже не один раз в день.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -4745,7 +4745,7 @@ Hello, Kitty!
 <p>Стандартный способ установки работает хорошо только в самом начале, когда происходит первичная настройка. Затем, с течением времени, начинают всплывать разные проблемы. Например, в какой-то момент выходит новая версия языка, которую нужно подключить к проекту. Обычно, должно пройти какое-то время, перед тем, как язык станет доступным для установки через пакетные менеджеры. И здесь либо придется ждать, что не всегда желательно, либо искать другой способ установки. Последнее нередко превращается в серьёзное испытание, с часами гугления и установкой дополнительных библиотек. Все это в конце концов засоряет систему и иногда ломает её.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -4906,7 +4906,7 @@ yarn           1.22.4   <span class="o">(</span><span class="nb">set </span>by /
 <p>В теории, код можно писать и без использования системы модулей, но этот способ невероятно трудозатратный и основывается на том, что все определения в коде глобальны (а значит, можно легко что-нибудь сломать, перетерев существующие определения). Придётся руками указывать все существующие файлы и загружать их в HTML, в строго определённом порядке. Подобное сейчас встречается только на сайтах, где фронтенд — это jquery с небольшим числом интерактивных элементов.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -5066,7 +5066,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
 <p>Исторически компьютер создавался как машина для ускорения и автоматизации вычислений. Само слово computer с английского можно перевести как вычислитель, а в 20 веке в СССР, до распространения термина компьютер, использовалась аббревиатура ЭВМ — электронно вычислительная машина.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/operating_systems?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс: «Введение в операционные системы». Бесплатно
+    <a href="https://ru.hexlet.io/courses/operating_systems?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-os" target="_blank">Курс: «Введение в операционные системы». Бесплатно
 </a>
 </div>
 
@@ -5202,7 +5202,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
 <p>Любое действие в интернете — это обмен данными. Каждый раз, когда вы запускаете видеоролик, посылаете сообщение в социальной сети или открываете любимый сайт, ваш компьютер отправляет запрос к нужному серверу и получает от него ответ. Как правило, обмен данными происходит по протоколу HTTP. Этот протокол не только устанавливает правила обмена информацией, но и служит транспортом для передачи данных — с его помощью браузер загружает содержимое сайта на ваш компьютер или смартфон.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/http_protocol?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс по HTTP с практикой в браузере
+    <a href="https://ru.hexlet.io/courses/http_protocol?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-http" target="_blank">Курс по HTTP с практикой в браузере
 </a>
 </div>
 
@@ -5285,7 +5285,7 @@ npm i <span class="nt">-D</span> webpack webpack-cli
 <p>Независимо от выбранного языка или направления разработки, код, который пишет программист, остаётся обычным текстом, записанным в множестве файлов на диске. Эти файлы регулярно добавляются, удаляются и изменяются. Некоторые из них могут содержать сотни строчек кода, а другие тысячи. Файлы в тысячу строк кода — вполне нормальное явление в программировании.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/intro_to_git?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Бесплатный курс «Основы Git» с практикой в браузере
+    <a href="https://ru.hexlet.io/courses/intro_to_git?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-git" target="_blank">Бесплатный курс «Основы Git» с практикой в браузере
 </a>
 </div>
 
@@ -5490,7 +5490,7 @@ patch index.js <span class="nt">-i</span> index.patch <span class="nt">-o</span>
                 <p>Вы когда-нибудь задавались вопросом, как браузер понимает, какую именно страницу открыть, когда вы вводите в строку адрес сайта? На самом деле, это глубокий вопрос, решать который стоит не непосредственно с перехода на сайты, а со связи компьютеров между собой.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -5769,7 +5769,7 @@ ya.ru.	599	IN	AAAA	 2A02:6B8:0:0:0:0:2:242
                 <p>Для успешного прохождения интервью, недостаточно что-то знать. Важно уметь показать свои знания, способности и, в конце концов, произвести приятное впечатление на тех кто вас собеседует. В этом гайде мы подробно разберем процесс интервью, поговорим о том как себя вести, что говорить и какие задавать вопросы если спрашивают.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/employment?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс, помогающий новичкам эффективно составить резюме, попасть на собеседование и пройти его
+    <a href="https://ru.hexlet.io/courses/employment?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-employment" target="_blank">Курс, помогающий новичкам эффективно составить резюме, попасть на собеседование и пройти его
 </a>
 </div>
 
@@ -5878,7 +5878,7 @@ c: Тогда я бы воспользовался встроенной функ
 <p><em>Учтите, что само интервью может длиться не один час. В некоторые компании нужно пройти 2 и более раундов. Иногда они идут подряд, превращаясь в многочасовой марафон, иногда разбиты на несколько дней.</em></p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/employment?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс, помогающий новичкам эффективно составить резюме, попасть на собеседование и пройти его
+    <a href="https://ru.hexlet.io/courses/employment?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-employment" target="_blank">Курс, помогающий новичкам эффективно составить резюме, попасть на собеседование и пройти его
 </a>
 </div>
 
@@ -6150,7 +6150,7 @@ c: Тогда я бы воспользовался встроенной функ
                 <p>Хекслет — не просто школа программирования. Это большое и <a href="https://slack-ru.hexlet.io">дружелюбное комьюнити</a> в котором более 30 тысяч участников. Многих мы знаем лично, встречаемся, ходим на скалодром и вместе разрабатываем открытые проекты.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/intro_to_git?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Бесплатный курс «Основы Git» с практикой в браузере
+    <a href="https://ru.hexlet.io/courses/intro_to_git?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-git" target="_blank">Бесплатный курс «Основы Git» с практикой в браузере
 </a>
 </div>
 
@@ -6629,7 +6629,7 @@ c: Тогда я бы воспользовался встроенной функ
 <p>Перед тем как мы начнем, запомните: поиск работы не ограничивается созданием резюме. Пассивный поиск работает для опытных разработчиков. Всем остальным нужно проявлять максимальную активность, находить вакансии, созваниваться, отправлять резюме и просить тестовые задания.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/employment?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Курс, помогающий новичкам эффективно составить резюме, попасть на собеседование и пройти его
+    <a href="https://ru.hexlet.io/courses/employment?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-employment" target="_blank">Курс, помогающий новичкам эффективно составить резюме, попасть на собеседование и пройти его
 </a>
 </div>
 
@@ -6847,7 +6847,7 @@ c: Тогда я бы воспользовался встроенной функ
 <p>В этих условиях разные команды проявляют себя по-разному. Некоторые продолжают поддерживать высокий темп разработки и регулярно выпускают новые версии. В других командах происходит сильное замедление процессов: переговоры отнимают больше времени, чем разработка, качество падает, выпуск новой версии становится стрессом и приключением. Общая скорость внедрения новых фич в таких командах может различаться во много раз и даже на порядок.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -7061,7 +7061,7 @@ c: Тогда я бы воспользовался встроенной функ
 <p>СИКП — книга об информатике (computer science). Восприятии компьютеров как абстрактных машин, используемых для манипулирования данными. Несмотря на то, что книга впервые опубликована в 1979, она до сих пор не потеряла свою актуальность и не потеряет в будущем. СИКП неизменно находится в топе лучших книг по обучению программированию на протяжении десятков лет.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.code-basics.com/languages/racket?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Бесплатный курс «Racket как второй язык»
+    <a href="https://ru.code-basics.com/languages/racket?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-racket" target="_blank">Бесплатный курс «Racket как второй язык»
 </a>
 </div>
 
@@ -7237,7 +7237,7 @@ c: Тогда я бы воспользовался встроенной функ
 <p>Чтобы начать пользоваться Докером, необходимо установить движок — Docker Engine. На странице https://docs.docker.com/engine/install/ доступны ссылки для скачивания под все популярные платформы. Выберите вашу и установите Докер.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -7754,7 +7754,7 @@ CMD ["eslint", "/app"]
                 <p>У пользователей Linux или Mac иногда возникает потребность в запуске программ, работающих только в Windows, а у Windows-пользователей, особенно программистов, потребность в запуске Linux или другой версии Windows. Классический пример — игры или Photoshop.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -7836,7 +7836,7 @@ CMD ["eslint", "/app"]
                 <p>Если вы только начали свой путь разработчика и до сих используете операционную систему семейства Microsoft Windows, то уже наверняка столкнулись с ситуацией, когда ваш инструментарий отличается от того, что установлено у большинства людей из этой профессии. Чаще всего проблемы начинаются при работе в командной строке. Дело в том, что Windows не является <a href="https://ru.wikipedia.org/wiki/POSIX">POSIX</a>-совместимой операционной системой, поэтому в ней отсутствует базовый набор прикладных программ, который необходим для разработки.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -7941,7 +7941,7 @@ Enter new UNIX username:
 </ul>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/courses/cli-basics?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Основы командной строки с практикой в браузере. Бесплатно
+    <a href="https://ru.hexlet.io/courses/cli-basics?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=course-cli" target="_blank">Основы командной строки с практикой в браузере. Бесплатно
 </a>
 </div>
 
@@ -8140,7 +8140,7 @@ Enter new UNIX username:
 </ol>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -8435,7 +8435,7 @@ Enter new UNIX username:
 <p>Как показывает практика, в самом начале своего пути немалая часть программистов пытается найти ответы, задавая вопросы поисковой системе на русском языке. Иногда так можно найти ответ, но в большинстве случаев — нет. <strong>Главный язык программистов — английский</strong>, весь мир говорит именно на нем. Количество информации в англоязычном сегменте на порядки больше, чем в русскоязычном. К тому же она свежее. Учитесь формулировать свои мысли, а в случае поиска — набор слов, на английском. Заодно быстрее изучите терминологию.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.code-basics.com/?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Code Basics: бесплатные курсы программирования
+    <a href="https://ru.code-basics.com/?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=site-code-basics" target="_blank">Code Basics: бесплатные курсы программирования
 </a>
 </div>
 
@@ -8640,7 +8640,7 @@ make: <span class="k">***</span> <span class="o">[</span><span class="nb">test</
 <p>Вся информация передается в зашифрованном виде. Подобно тому, как некоторые сайты работают по HTTPS, шифруя информацию. Например, ваш онлайн-банкинг обязательно должен работать по защищенному соединению. В таком случае даже если всю информацию перехватывает злоумышленник, он не сможет расшифровать её.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
+    <a href="https://ru.hexlet.io/programs/devops-for-programmers?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-devops" target="_blank">Интенсив: Девопс для программистов. Вся база за 3 месяца
 </a>
 </div>
 
@@ -8858,7 +8858,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsLC9WpSZ/9YpQ2z1FTSsORcP+ohzCdVjYaoc3C0fRnUb
 <p>Markdown — это набор подобных правил.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/layout-designer-basics?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Интенсив: «Верстка веб-приложений». Вся база за 2 месяца
+    <a href="https://ru.hexlet.io/programs/layout-designer-basics?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=intensive-markup" target="_blank">Интенсив: «Верстка веб-приложений». Вся база за 2 месяца
 </a>
 </div>
 
@@ -9001,7 +9001,7 @@ const func = (num) =&gt; {
                 <p>Разработка веб-страницы с точки зрения верстальщика — непрерывный процесс доработки и создания новых блоков. Чем больше проект, тем чаще происходит итерация «идея — функционал — вёрстка». Решая задачи бизнеса, стадии должны решаться быстро и качественно. И если качество вёрстки напрямую зависит от верстальщика, то скорость — фактор, который зависит от команды.</p>
 
 <div class="fs-3 border-start p-4 mb-3 bg-light border-info border-3 banner">
-    <a href="https://ru.hexlet.io/programs/layout-designer?utm_source=hexlet-guides&amp;utm_medium=referral" target="_blank">Профессия «Верстальщик» на Хекслете
+    <a href="https://ru.hexlet.io/programs/layout-designer?utm_source=hexlet-guides&amp;utm_medium=banner&amp;utm_campaign=profession-markup" target="_blank">Профессия «Верстальщик» на Хекслете
 </a>
 </div>
 
