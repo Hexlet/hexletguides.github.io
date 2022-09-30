@@ -21,7 +21,7 @@ footermenu:
   external: false
 
 - title: Free courses and webinars
-  url: https://en.hexlet.io/webinars?utm_source=hexlet-guides&utm_medium=referral
+  url: https://hexlet.io/webinars?utm_campaign=hexlet&utm_content=link&utm_term=page_webinars
   external: true
 
 - title: Code Battle
