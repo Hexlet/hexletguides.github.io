@@ -4,9 +4,9 @@ menu:
   source_code: Source Code
 
 hero:
-  header: Guides on technologies, tools, and practices
+  header: Guides for technologies, tools, and practices.
   description: |
-    When to use Docker? What are encodings, DNS, and Webpack? How to learn touch typing? And much more
+    When should I use Docker? What do encoding, DNS, and Webpack mean?
 
 links:
   programs_list:
