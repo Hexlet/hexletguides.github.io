@@ -23,8 +23,8 @@ make serve
 
 ## New post
 
-- Add post in locale by path **next-app/data/posts**
-- 
+* Add post in locale along path **next-app/data/posts**
+* Build `make build`
 
 ---
 
