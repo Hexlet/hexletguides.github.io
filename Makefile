@@ -7,6 +7,8 @@ install:
 serve:
 	npm run start
 
+start: serve
+
 build:
 	npm run build
 
