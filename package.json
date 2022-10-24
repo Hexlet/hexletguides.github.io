@@ -8,10 +8,11 @@
   "description": "Guides",
   "main": "index.js",
   "scripts": {
-    "build": "cd next-app && npm run build",
-    "start": "cd next-app && npm run start",
-    "heroku-prebuild": "cd next-app && npm ci",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm --prefix next-app run build",
+    "start": "npm --prefix next-app run start",
+    "heroku-prebuild": "npm --prefix next-app ci",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npm --prefix next-app run lint"
   },
   "repository": {
     "type": "git",
