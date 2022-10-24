@@ -10,8 +10,6 @@ Tasks:
 * Update outdated information
 * Updating the guidebook engine
 
-Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
-
 ## Run
 
 ```shell
@@ -23,7 +21,7 @@ make serve
 
 ## New post
 
-* Add post in locale along path **next-app/data/posts**
+* Add post in locale along path **data/posts**
 * Build `make build`
 
 ---

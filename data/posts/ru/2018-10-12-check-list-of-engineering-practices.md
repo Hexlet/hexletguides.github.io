@@ -2,7 +2,7 @@
 title: Чек-лист хороших инженерных практик в компаниях
 subtitle:
 description: Рассказываем о правильных подходах к тестированию, развертыванию, разработке и процессам
-image: "assets/images/engineering-practice/check-list.png"
+image: "/assets/images/engineering-practice/check-list.png"
 author: Кирилл Мокевнин
 ---
 

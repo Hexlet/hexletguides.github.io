@@ -2,7 +2,7 @@
 title: Как настроить Atom для разработки на JavaScript
 subtitle: Создание удобного рабочего окружения.
 description: Atom – популярный бесплатный редактор кода. Его легко настраивать и расширять под разные задачи и условия.
-image: "assets/images/atom-js-setup/atom.jpg"
+image: "/assets/images/atom-js-setup/atom.jpg"
 hidden: true
 author: Рахим Давлеткалиев
 ---

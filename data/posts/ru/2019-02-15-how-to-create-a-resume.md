@@ -2,7 +2,7 @@
 title: Как составить резюме начинающему программисту без опыта работы
 subtitle: Как правильно составить резюме junior программиста
 description: Когда можно начинать составлять резюме, как его оформлять, что писать об образовании и опыте работы
-image: "assets/images/resume/resume.jpg"
+image: "/assets/images/resume/resume.jpg"
 author: Кирилл Мокевнин
 ---
 

@@ -2,7 +2,7 @@
 title: Что такое «управление конфигурацией»
 # subtitle: Front-End фреймворк для быстрой и простой веб-разработки.
 description: Говорим о настройке серверов в автоматическом режиме, о важности идемпотентности, а также о том, почему bash-скрипты — это зло
-# image: "assets/images/bootstrap/bootstrap.jpeg"
+# image: "/assets/images/bootstrap/bootstrap.jpeg"
 author: Кирилл Мокевнин
 ---
 

@@ -2,7 +2,7 @@
 title: Что такое «Менеджер версий»
 subtitle: Как управлять версиями языков
 description: Рассказываем о программе, предназначенной для управления версиями языка. С ее помощью устанавливают нужные версии и производят переключение между ними
-image: "assets/images/version-manager/title.png"
+image: "/assets/images/version-manager/title.png"
 author: Кирилл Мокевнин
 ---
 

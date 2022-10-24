@@ -3,7 +3,7 @@ title: Что такое трекинг ошибок
 subtitle: Быстрый способ находить ошибки в рабочем приложении
 description: |
   Программ без ошибок не бывает. Лучшее, что мы можем сделать — научиться эти ошибки отслеживать и исправлять
-image: "assets/images/error-tracking/error-tracking.png"
+image: "/assets/images/error-tracking/error-tracking.png"
 author: Кирилл Мокевнин
 ---
 

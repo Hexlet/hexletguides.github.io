@@ -2,7 +2,7 @@
 title: What Is Virtualization, and Why Do We Need It?
 subtitle: What is the point of this technology, and what are the types of virtualization.
 description: Find out what virtualization is and how it works. It allows you to run an operating system like a regular program on your computer.
-image: "assets/images/virtualization/virtualization.png"
+image: "/assets/images/virtualization/virtualization.png"
 author: Kirill Mokevnin
 ---
 
