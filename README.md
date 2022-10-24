@@ -16,16 +16,15 @@ Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
 
 ```sh
 make setup
+make build
 make serve
-# open localhost:4000
+# open localhost:3000
 ```
 
-## Development
+## New post
 
-```sh
-# generate css for highlighting
-bundle exec rougify style github > assets/css/highlight.css
-```
+* Add post in locale along path **next-app/data/posts**
+* Build `make build`
 
 ---
 

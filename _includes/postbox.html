@@ -17,13 +17,18 @@
     </a> -->
     <div class="card-block">
         <div class="card-title h4 serif-font">
-            <a href="{{ post_url }}">
+            <a href="{{ post_url }}" target="_blank">
                 {% if post.header %}
                     {{ post.header }}
                 {% else %}
                     {{ post.title }}
                 {% endif %}
             </a>
+            {% if post.image %}
+                <img class="featured-image text-center mx-auto rounded" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}">
+            {% else %}
+                <img class="featured-image text-center mx-auto rounded" src="{{ site.baseurl }}/assets/images/dummy.jpg" alt="{{ post.title }}">
+            {% endif %}
         </div>
         <p class="card-text text-muted">
             {% if post.summary %}
