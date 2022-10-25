@@ -14,7 +14,7 @@ Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
 
 ## Run
 
-```sh
+```shell
 make setup
 make build
 make start

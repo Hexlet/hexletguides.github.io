@@ -44,7 +44,7 @@ The same search strategy can be used for well-known libraries: `github express`.
 
 Before you search by error message, it’s necessary to understand where *the error message* is here exactly. Although the output contains a lot of relevant information, it’s not a description of this error. For example:
 
-```sh
+```shell
 There was 1 failure:
 1) App\SolutionTest::testResult with data set #2 (0, 2, 2, 1, 2)
 Failed asserting that '1' matches expected 0.
