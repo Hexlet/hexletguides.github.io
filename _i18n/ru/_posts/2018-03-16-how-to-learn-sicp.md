@@ -12,7 +12,7 @@ author: Кирилл Мокевнин
 
 СИКП — книга об информатике (computer science). Восприятии компьютеров как абстрактных машин, используемых для манипулирования данными. Несмотря на то, что книга впервые опубликована в 1979, она до сих пор не потеряла свою актуальность и не потеряет в будущем. СИКП неизменно находится в топе лучших книг по обучению программированию на протяжении десятков лет.
 
-{% include banner.html name="course-racket" %}
+<Banner name="course-racket" />
 
 > This is one of the great classics of computer science. I bought my first copy 15 years ago, and I still don't feel I have learned everything the book has to teach. *— Paul Graham*.
 
