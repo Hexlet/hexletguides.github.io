@@ -17,13 +17,13 @@ Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
 ```sh
 make setup
 make build
-make serve
+make start
 # open localhost:3000
 ```
 
 ## New post
 
-* Add post in locale along path **next-app/data/posts**
+* Add post in locale along path **_i18n**
 * Build `make build`
 
 ---
