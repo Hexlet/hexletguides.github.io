@@ -20,13 +20,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Installing dependencies
-        working-directory: ./next-app
         run: make install
 
       - name: Linting code
-        working-directory: ./next-app
         run: make lint
 
       - name: Building project
-        working-directory: ./next-app
         run: make build
