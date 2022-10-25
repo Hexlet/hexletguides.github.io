@@ -1,16 +1,22 @@
-Gemfile.lock
-*.gem
-_site/
-_deleted_posts/
-.DS_Store
-.sass-cache
-hexlet_guides.sublime-project
-hexlet_guides.sublime-workspace
-vendor
-.jekyll-cache/
-.idea
-_sass
-node_modules
-.env
-.jekyll-metadata
-.vscode
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env*.local
+
