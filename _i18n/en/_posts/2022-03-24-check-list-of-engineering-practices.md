@@ -2,7 +2,7 @@
 title: Good Software Engineering Practice Checklist in Companies 
 subtitle:
 description: Approaches to testing, deployment, development, and processes.
-image: "assets/images/engineering-practice/check-list-en.png"
+image: "/assets/images/engineering-practice/check-list-en.png"
 author: Kirill Mokevnin
 ---
 

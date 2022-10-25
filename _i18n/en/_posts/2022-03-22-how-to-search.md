@@ -2,7 +2,7 @@
 title: How to Search for Technical Information
 subtitle: Asking the right questions is half the battle.
 description: Most of the problems that beginners face have already been solved and described. You just need to learn how to find the solutions and answers you need.
-image: "assets/images/how-to-search/how-to-search-title.png"
+image: "/assets/images/how-to-search/how-to-search-title.png"
 author: Kirill Mokevnin
 ---
 

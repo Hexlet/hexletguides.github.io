@@ -2,7 +2,7 @@
 title: Как работать с Linux используя Windows
 subtitle: Инструкция по установке Ubuntu Linux внутри Windows с использованием WSL.
 description: Инструкция по установке Ubuntu Linux внутри Windows с использованием WSL.
-image: "assets/images/ubuntu-linux-in-windows/virtualization_cover.png"
+image: "/assets/images/ubuntu-linux-in-windows/virtualization_cover.png"
 author: Кирилл Мокевнин
 ---
 

@@ -2,7 +2,7 @@
 title: Как проходит собеседование у программистов, что спрашивают
 subtitle:
 description: Какую информацию о себе подготовить, ответы на какие вопросы продумать, чтобы успешно пройти интервью?
-image: "assets/images/interview/interview.png"
+image: "/assets/images/interview/interview.png"
 author: Кирилл Мокевнин
 ---
 

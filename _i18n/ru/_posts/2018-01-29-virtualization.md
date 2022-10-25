@@ -2,7 +2,7 @@
 title: Что такое виртуализация и для чего она нужна
 subtitle: В чем суть этой технологии и какие бывают виды виртуализации.
 description: Рассказываем о том, как создать изолированное окружение в рамках одного компьютера
-image: "assets/images/virtualization/virtualization.png"
+image: "/assets/images/virtualization/virtualization.png"
 author: Кирилл Мокевнин
 ---
 

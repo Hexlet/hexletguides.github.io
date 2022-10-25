@@ -2,7 +2,7 @@
 title: Что такое Makefile и как начать его использовать
 subtitle: Гайд по основам make и Makefile для использования в собственных проектах.
 description: Этот гайд расскажет, как использование инструмента Makefile позволит свести процесс разворачивания проекта к нескольким коротким и понятным командам
-image: "assets/images/makefile/cover.jpg"
+image: "/assets/images/makefile/cover.jpg"
 author: Кирилл Мокевнин
 ---
 

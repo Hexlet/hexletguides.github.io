@@ -2,7 +2,7 @@
 title: Как настроить VS Code для разработки на PHP
 subtitle: Создание удобного рабочего окружения.
 description: VS Code – популярный бесплатный редактор кода. Может с легкостью конкурировать с PHP Storm, ведь он бесплатный и с открытым исходным кодом.
-image: "assets/images/vscode-for-php-setup/vscode-php-cover.png"
+image: "/assets/images/vscode-for-php-setup/vscode-php-cover.png"
 hidden: true
 author: Кирилл Мокевнин
 ---

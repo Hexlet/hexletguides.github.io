@@ -2,7 +2,7 @@
 title: Как участвовать в жизни Хекслета
 subtitle:
 description: Как присоединиться к работе над Open Source проектами, помочь в развитии сайтов Хекслета и получить полезный опыт
-image: "assets/images/be-helpful/volunteer.png"
+image: "/assets/images/be-helpful/volunteer.png"
 author: Кирилл Мокевнин
 ---
 
