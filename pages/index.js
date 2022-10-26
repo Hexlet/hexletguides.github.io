@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Script from 'next/script'
+import Script from 'next/script';
 
 import { getPostsList } from '../api/index.js';
 import DefaultLayout from '../components/DefaultLayout.jsx';
