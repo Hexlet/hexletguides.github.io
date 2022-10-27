@@ -2,7 +2,7 @@
 title: Как настроить VS Code для разработки на PHP
 subtitle: Создание удобного рабочего окружения.
 description: VS Code – популярный бесплатный редактор кода. Может с легкостью конкурировать с PHP Storm, ведь он бесплатный и с открытым исходным кодом.
-image: "assets/images/vscode-for-php-setup/vscode-php-cover.png"
+image: "/assets/images/vscode-for-php-setup/vscode-php-cover.png"
 hidden: true
 author: Кирилл Мокевнин
 ---
@@ -32,7 +32,7 @@ VS Code имеет большое количество расширений дл
 [EditorConfig](https://editorconfig.org/) — это конфигурационный файл и набор расширений к большому количеству редакторов кода. Он подхватывает настройки из файла `.editorconfig`, который, как правило, размещается в корне проекта.
 Расширение автоматически настроит отступы и [перевод строк](https://ru.wikipedia.org/wiki/Перевод_строки) единообразно для всех разработчиков, использующих его. PHP код чаще всего выполняется на *nix системах, поэтому необходимо использовать стандарт.
 
-{% include banner.html name="profession-php" %}
+<Banner name="profession-php" />
 
 Ниже приводится пример файла `.editorconfig`, который используется в Laravel:
 

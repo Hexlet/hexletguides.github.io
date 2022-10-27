@@ -14,18 +14,17 @@ Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
 
 ## Run
 
-```sh
+```shell
 make setup
-make serve
-# open localhost:4000
+make build
+make start
+# open localhost:3000
 ```
 
-## Development
+## New post
 
-```sh
-# generate css for highlighting
-bundle exec rougify style github > assets/css/highlight.css
-```
+* Add post in locale along path **_i18n**
+* Build `make build`
 
 ---
 

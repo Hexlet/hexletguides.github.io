@@ -2,7 +2,7 @@
 title: Как настроить VS Code для разработки на JavaScript
 subtitle: Создание удобного рабочего окружения.
 description: VS Code – бесплатный редактор кода от Microsoft. Он быстрее Атома, активно развивается и легко расширяется плагинами.
-image: "assets/images/vscode-js-setup/vscode_eslint.png"
+image: "/assets/images/vscode-js-setup/vscode_eslint.png"
 hidden: true
 author: Рахим Давлеткалиев
 ---
@@ -18,7 +18,7 @@ author: Рахим Давлеткалиев
 - умное автодополнение
 - встроенный пакетный менеджер
 
-{% include banner.html name="profession-frontend" %}
+<Banner name="profession-frontend" />
 
 Пакетный менеджер нужен для установки и удаления пакетов расширений (плагинов). Для удобной разработки на JavaScript для бэкенда и фронтенда нужно установить несколько пакетов.
 

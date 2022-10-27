@@ -2,7 +2,7 @@
 title: What Is Virtualization, and Why Do We Need It?
 subtitle: What is the point of this technology, and what are the types of virtualization.
 description: Find out what virtualization is and how it works. It allows you to run an operating system like a regular program on your computer.
-image: "assets/images/virtualization/virtualization.png"
+image: "/assets/images/virtualization/virtualization.png"
 author: Kirill Mokevnin
 ---
 
@@ -48,9 +48,9 @@ Virtual machines allow you to utilize hardware resources more efficiently. Not a
 
 It is extremely unlikely, but even in this case it is possible to start a virtual machine. However the performance will be very low, since program virtualization will be implemented instead of software virtualization. In other words, it's better to upgrade your hardware.
 
-<!---
+{/*-
 ## Related guides
 
 1. [What is Vagrant](/vagrant/). Vagrant allows creating and configuring lightweight, repeatable, and portable development environments for virtual machines.
 2. [How to work with Linux using Windows](/ubuntu-linux-in-windows/). Instructions for installing Ubuntu Linux on Windows using various virtualization technologies.
---->
+-*/}
