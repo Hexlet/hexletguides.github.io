@@ -111,8 +111,8 @@ const makePostRSSItem = async (post, locale) => {
 };
 
 export const getPublishedPosts = async (locale) => {
-  const dir = './';
-  const postsPath = path.join('data', 'posts', locale);
+  const dir = process.env.POSTS_PATH || './';
+  const postsPath = path.join('_i18n', locale, '_posts');
   const entries = await fsp.readdir(path.resolve(dir, postsPath), { withFileTypes: true });
   const fileNames = entries
     .filter((entry) => entry.isFile())

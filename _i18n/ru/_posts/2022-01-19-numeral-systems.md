@@ -3,7 +3,7 @@ title: Системы счисления
 description: В этом гайде разберемся, что такое системы счисления, для чего программисты используют непривычные способы для записи чисел и как их понимать
 author: Марк Шевченко
 # redirect_from: /numeral-systems/
-image: "assets/images/numeral-systems/numeral-systems.png"
+image: "/assets/images/numeral-systems/numeral-systems.png"
 ---
 
 В этом гайде разберемся, что такое системы счисления, для чего программисты используют непривычные способы для записи чисел и как их понимать.
