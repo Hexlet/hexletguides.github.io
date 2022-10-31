@@ -15,7 +15,7 @@ Theme https://github.com/wowthemesnet/affiliates-jekyll-theme
 ## Run
 
 ```shell
-make setup
+make install
 make build
 make start
 # open localhost:3000
@@ -23,7 +23,7 @@ make start
 
 ## New post
 
-* Add post in locale along path **_i18n**
+* Add post to *data/posts/:locale/yyyy-mm-dd-slug.md*
 * Build `make build`
 
 ---

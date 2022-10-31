@@ -1,5 +1,5 @@
 ---
-title: What Is a Makefile and How to Use It
+title: What Is a Makefile, and How Do I Use It?
 subtitle: A guide to the basics of make and Makefile for use in your own projects
 description: This guide will explain how using Makefile will reduce the process of deploying a project to a few short and clear commands
 image: "/assets/images/makefile/cover.jpg"
@@ -56,7 +56,7 @@ The `make` has become a standard for many developers, especially for those worki
 ```makefile
 # Makefile
 target1: # target name, you can also use kebab-case or snake_case
-	command1 # it's very important to use tabs to indent
+	command1 # it's very important to use tabs to indent 
 	command2 # the commands will be executed sequentially and only if the previous one was successful
 ```
 
