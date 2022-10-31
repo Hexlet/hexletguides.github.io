@@ -1,5 +1,7 @@
 # Hexlet Guides
 
+[![main](https://github.com/Hexlet/hexletguides.github.io/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Hexlet/hexletguides.github.io/actions/workflows/main.yml)
+
 ## About
 A site with guides for beginners. Articles about technologies, tools and practices
 Useful materials for those who are just starting their way into development. We introduce basic terms and explain complicated processes in simple words.

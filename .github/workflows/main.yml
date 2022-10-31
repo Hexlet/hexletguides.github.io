@@ -1,4 +1,4 @@
-name: check-next-app
+name: main
 
 on:
   push:
