@@ -5,18 +5,28 @@ const sentryWebpackPluginOptions = {
   silent: true,
 };
 
-module.exports = withSentryConfig(
-  {
-    i18n,
-    trailingSlash: true,
-    experimental: {
-      amp: {
-        skipValidation: true,
-      },
-    },
-    sentry: {
-      hideSourceMaps: true,
+// module.exports = withSentryConfig(
+//   {
+//     i18n,
+//     trailingSlash: true,
+//     experimental: {
+//       amp: {
+//         skipValidation: true,
+//       },
+//     },
+//     sentry: {
+//       hideSourceMaps: true,
+//     },
+//   },
+//   sentryWebpackPluginOptions,
+// );
+
+module.exports = {
+  i18n,
+  trailingSlash: true,
+  experimental: {
+    amp: {
+      skipValidation: true,
     },
   },
-  sentryWebpackPluginOptions,
-);
+};
