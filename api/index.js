@@ -131,12 +131,6 @@ export const getPostsList = async (locale) => {
 
   return posts
     .filter(({ hidden = false }) => !hidden)
-    .map(({ header, summary, name, href }) => ({
-      header,
-      summary,
-      name,
-      href,
-    }))
     .reverse();
 };
 
