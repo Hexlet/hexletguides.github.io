@@ -10,13 +10,6 @@ const Post = ({ post }) => (
         <Link key={post.name} href={post.href}>
           {post.header}
         </Link>
-        <picture>
-          {
-            post.image ?
-              <img className="featured-image text-center mx-auto rounded" src={post.image} alt={post.title} /> :
-              <img className="featured-image text-center mx-auto rounded" src="/assets/images/dummy.jpg" alt={post.title} />
-          }
-        </picture>
       </div>
       <p className="card-text text-muted">{post.summary}</p>
     </div>
