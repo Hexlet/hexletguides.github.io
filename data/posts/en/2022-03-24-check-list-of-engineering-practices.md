@@ -1,5 +1,5 @@
 ---
-title: Good Software Engineering Practice Checklist in Companies
+title: Essential Software Engineering Practices Checklist for Your Company
 subtitle:
 description: Approaches to testing, deployment, development, and processes.
 image: '/assets/images/engineering-practice/check-list-en.png'
@@ -8,7 +8,7 @@ author: Kirill Mokevnin
 
 Software development is a challenging process that tends to become much more complex as the number of participants increases. More people in the team create more communication and require more synchronization (sharing knowledge of system parts and processes, keeping track of the business and its requirements). The cost of error increases, and the system can no longer fit in just one head, while a change on one side triggers other changes.
 
-Different teams cope with these conditions in different ways. Some of them keep a high development pace and make regular releases, while others are slowing down significantly: negotiations take more time than development, quality drops, and version updates become stressful and adventurous. The overall realese speed of new features by such teams can vary times or ven an order of magnitude.
+Different teams cope with these conditions in different ways. Some of them keep a high development pace and make regular releases, while others are slowing down significantly: negotiations take more time than development, quality drops, and version updates become stressful and adventurous. The overall release speed of new features by such teams can vary times or ven an order of magnitude.
 
 There are many reasons for this crucial difference. Here are some of them:
 
@@ -38,7 +38,7 @@ _Compliance with these standards does not guarantee the company won't have probl
 
 - [VCS](https://en.wikipedia.org/wiki/Version_control). The code is put under version control (usually Git)
 - [Collective code ownership](https://en.wikipedia.org/wiki/Extreme_programming_practices#Collective_code_ownership). Any member of the team can change any piece of code in the system at any time
-- [Coding standart](https://en.wikipedia.org/wiki/Extreme_programming_practices#Coding_standard). All team members adhere to the coding standards adopted for the stack (language, platform)
+- [Coding standard](https://en.wikipedia.org/wiki/Extreme_programming_practices#Coding_standard). All team members adhere to the coding standards adopted for the stack (language, platform)
 
 **Bad**
 
@@ -96,7 +96,7 @@ _Compliance with these standards does not guarantee the company won't have probl
 
 - Developers are guided by [12factors](https://12factor.net) principles. Applications are easier to deploy, scale and monitor
 - A single test runs in a fraction of a second. Test-driven development implies frequent testing during debugging. The speed of launching a particular test is extremely important here – it should be fast enough to keep the developer on track
-- Effortless and enjoyable test writing. It is a kind of litnus paper to determine how good is project's test coverage. If you have to force yourself, likely, the tests are poorly written (e.g. a lot of mocks), and there won't be enough of them
+- Effortless and enjoyable test writing. It is a kind of litmus paper to determine how good the project's test coverage is. If you have to force yourself, likely, the tests are poorly written (e.g. a lot of mocks), and there won't be enough of them
 - [Test-driven development (TDD)](https://en.wikipedia.org/wiki/Test-driven_development). If possible, write tests before the code. There are several reasons why this is important:
 
   Tests require you to think not about the implementation, but about the way the code being tested will be used. Because of this approach, programmers detect flaws in their interfaces at a very early stage.
