@@ -8,7 +8,7 @@ author: Kirill Mokevnin
 
 Software development is a challenging process that tends to become much more complex as the number of participants increases. More people in the team create more communication and require more synchronization (sharing knowledge of system parts and processes, keeping track of the business and its requirements). The cost of error increases, and the system can no longer fit in just one head, while a change on one side triggers other changes.
 
-Different teams cope with these conditions in different ways. Some of them keep a high development pace and make regular releases, while others are slowing down significantly: negotiations take more time than development, quality drops, and version updates become stressful and adventurous. The overall release speed of new features by such teams can vary times or ven an order of magnitude.
+Different teams cope with these conditions in different ways. Some of them keep a high development pace and make regular releases, while others are slowing down significantly: negotiations take more time than development, quality drops, and version updates become stressful and adventurous. The overall release speed of new features by such teams can vary times or even an order of magnitude.
 
 There are many reasons for this crucial difference. Here are some of them:
 
@@ -109,7 +109,7 @@ _Compliance with these standards does not guarantee the company won't have probl
 
 - You have tests, but you have to force yourself to write them because they are difficult to write, take a long time to run, often crash or you have to rewrite them all the time
 - Running one test takes seconds. Such a test is hard to run in TDD and the total test execution time becomes too long
-- The code is fixed directly in production (the place where it works). No comment
+- The code is fixed directly in production (the place where it works). No comments
 
 **Links**
 
