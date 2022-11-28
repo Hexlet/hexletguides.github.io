@@ -4,6 +4,7 @@ import { i18n } from '../../next-i18next.config.js';
 import { findPost, getPublishedPosts } from '../../api/index.js';
 import AmpLayout from '../../components/AmpLayout.jsx';
 import AmpPostPageInfo from '../../components/AmpPostPageInfo.jsx';
+import MicrometricArticles from '../../components/MicrometricArticles.jsx';
 
 const AmpPost = ({ post }) => {
   if (!post) {
@@ -12,6 +13,7 @@ const AmpPost = ({ post }) => {
 
   return (
     <AmpLayout title={post.header}>
+      <MicrometricArticles post={post} />
       <AmpPostPageInfo post={post} />
     </AmpLayout>
   );

@@ -6,6 +6,7 @@ import { i18n } from '../next-i18next.config.js';
 import { findPost, getPublishedPosts } from '../api/index.js';
 import DefaultLayout from '../components/DefaultLayout.jsx';
 import PostPageInfo from '../components/PostPageInfo.jsx';
+import MicrometricArticles from '../components/MicrometricArticles.jsx';
 
 const Post = ({ post }) => {
   const { locale } = useRouter();
@@ -31,6 +32,7 @@ const Post = ({ post }) => {
       image={post.image}
       type="article"
     >
+      <MicrometricArticles post={post} />
       <PostPageInfo post={post} disqus={disqus} />
     </DefaultLayout>
   );
