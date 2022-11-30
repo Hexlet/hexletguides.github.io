@@ -192,7 +192,9 @@ export const generateSitemap = async (locale) => {
 
 const getMatches = (content) => {
   const h2Regex = /^## (.*$)/gim;
-  const matches = content.match(h2Regex);
+  const ignoreRegex = /`{3}([\w]*)\n([\S\s]+?)\n`{3}/gim
+  const contentWithoutMarkdown = content.replace(ignoreRegex, '');
+  const matches = contentWithoutMarkdown.match(h2Regex);
   if (matches) {
     return matches;
   }
@@ -202,9 +204,8 @@ const getMatches = (content) => {
 const addLinksToContent = (matches, content) => {
   if (matches) {
     const firstHeading = matches[0];
-    const filtered = matches.filter((elem) => elem !== '## <h2>');
 
-    const text = filtered.map((elem) => {
+    const text = matches.map((elem) => {
       const length = elem.length;
       return elem.slice(3, length);
     });
