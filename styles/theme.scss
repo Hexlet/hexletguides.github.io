@@ -46,8 +46,38 @@ $link-decoration: none;
 @import "bootstrap/scss/_helpers";
 @import "bootstrap/scss/utilities/_api";
 
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'Onest';
+    src: url("./fonts/OnestExtraBold1602-hint.woff") format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Onest';
+    src: url("./fonts/OnestBold1602-hint.woff") format("woff");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Onest';
+    src: url("./fonts/OnestMedium1602-hint.woff") format("woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Onest';
+    src: url("./fonts/OnestRegular1602-hint.woff") format("woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Onest';
+    src: url("./fonts/OnestLight1602-hint.woff") format("woff");
+    font-weight: 300;
+}
 
 /* add additional CSS rules below */
 html {
@@ -56,6 +86,10 @@ html {
 
 .banner a {
     box-shadow: none;
+}
+
+body {
+    font-family: 'Onest', sans-serif;
 }
 
 // body {
