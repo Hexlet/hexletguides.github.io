@@ -212,7 +212,7 @@ const addLinksToContent = (matches, content) => {
     });
 
     const links = text.map((elem) => {
-      const normilizedLink = elem.replace(/[({})]/g, '')
+      const normilizedLink = elem.replace(/[({,})]/g, '')
       .split(' ')
       .join('-')
       .toLowerCase();
