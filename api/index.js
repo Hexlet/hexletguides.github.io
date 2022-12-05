@@ -7,6 +7,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import matter from 'gray-matter';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from '@mapbox/rehype-prism';
+import rehypeSlug from 'rehype-slug';
 import { serialize } from 'next-mdx-remote/serialize';
 import Feed from 'turbo-rss';
 import findLastIndex from 'lodash.findlastindex';
@@ -32,19 +33,19 @@ const makeHref = (pathname, locale) => {
 };
 
 const formatNameToHeader = (name) => {
-  return name
-    .split('-')
-    .map(capitalize)
-    .join(' ');
+  return name.split('-').map(capitalize).join(' ');
 };
 
 const readPost = async (filePath, basePath, locale) => {
   const fileContent = await fsp.readFile(path.join(basePath, filePath), 'utf-8');
-  const { data, content } = matter(fileContent);
+  const matches = getMatches(fileContent);
+  const contentWithLinks = addLinksToContent(matches, fileContent);
+  const { data, content } = matter(contentWithLinks);
   const { name } = path.parse(filePath);
   const { title = null, header = title, description = null, summary = description, ...props } = data;
   const sourceUrl = `${cfg.repositoryUrl}/tree/main/${filePath}`;
   const shortName = name.slice(11); // remove DD_MM_YYYY prefix from post file name
+
   const date = endOfDay(parseISO(name.slice(0, 10)));
 
   // make date UTC
@@ -65,18 +66,17 @@ const readPost = async (filePath, basePath, locale) => {
 const compilePostContent = async (content) => {
   const { compiledSource } = await serialize(content, {
     mdxOptions: {
-      rehypePlugins: [rehypePrism],
+      rehypePlugins: [rehypePrism, rehypeSlug],
       remarkPlugins: [remarkGfm],
       format: 'mdx',
     },
     parseFrontmatter: false,
   });
-
   return compiledSource;
 };
 
 const makePostRSSItem = async (post, locale) => {
-  const postUrl = new URL(post.href, cfg.siteURL)
+  const postUrl = new URL(post.href, cfg.siteURL);
   const content = await compilePostContent(post.content);
   const breadcrumbs = [
     {
@@ -129,9 +129,7 @@ export const getPublishedPosts = async (locale) => {
 export const getPostsList = async (locale) => {
   const posts = await getPublishedPosts(locale);
 
-  return posts
-    .filter(({ hidden = false }) => !hidden)
-    .reverse();
+  return posts.filter(({ hidden = false }) => !hidden).reverse();
 };
 
 export const findPost = async (name, locale) => {
@@ -158,9 +156,7 @@ export const findPost = async (name, locale) => {
 
 export const generateRssFeed = async (locale) => {
   const posts = await getPublishedPosts(locale);
-  const promises = posts
-    .filter(({ hidden = false }) => !hidden)
-    .map((post) => makePostRSSItem(post, locale));
+  const promises = posts.filter(({ hidden = false }) => !hidden).map((post) => makePostRSSItem(post, locale));
 
   const feedItems = await Promise.all(promises);
   const feed = new Feed({
@@ -185,12 +181,48 @@ export const generateSitemap = async (locale) => {
   }));
 
   fields.push({
-    loc: new URL(makeHref(null, locale), cfg.siteURL)
+    loc: new URL(makeHref(null, locale), cfg.siteURL),
   });
 
   fields.push({
-    loc: new URL(makeHref('about', locale), cfg.siteURL)
+    loc: new URL(makeHref('about', locale), cfg.siteURL),
   });
 
   return fields;
 };
+
+const getMatches = (content) => {
+  const h2Regex = /^## (.*$)/gim;
+  const ignoreRegex = /`{3}([\w]*)\n([\S\s]+?)\n`{3}/gim
+  const contentWithoutMarkdown = content.replace(ignoreRegex, '');
+  const matches = contentWithoutMarkdown.match(h2Regex);
+  if (matches) {
+    return matches;
+  }
+  return null;
+};
+
+const addLinksToContent = (matches, content) => {
+  if (matches) {
+    const firstHeading = matches[0];
+
+    const text = matches.map((elem) => {
+      const length = elem.length;
+      return elem.slice(3, length);
+    });
+
+    const links = text.map((elem) => {
+      const normilizedLink = elem.replace(/[({,})]/g, '')
+      .split(' ')
+      .join('-')
+      .toLowerCase();
+      return `- [${elem}](#${normilizedLink})`;
+    });
+
+    const string = [...links, firstHeading].join('\n');
+    const newContent = content.replace(firstHeading, string);
+    return newContent;
+  }
+  return content;
+};
+
