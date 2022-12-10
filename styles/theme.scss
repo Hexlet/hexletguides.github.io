@@ -93,6 +93,26 @@ small, .small {
 }
 /* #Navigation
 ================================================== */
+.nav-link {
+    position: relative;
+
+    &::before{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 3px;
+        background-color: $blue;
+        transition: width 0.5s cubic-bezier(0.25, 1, 0.4, 1);
+      }
+
+    &:hover::before {
+        left: 0;
+        right: auto;
+        width: 100%;
+    }
+}
 
 /* Sidebar
 ================================================== */
