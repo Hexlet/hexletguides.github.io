@@ -51,14 +51,20 @@ $link-decoration: none;
 
 @font-face {
     font-family: 'Onest';
+    src: url("./fonts/OnestBlack.woff2") format("woff2");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Onest';
     src: url("./fonts/OnestExtraBold.woff2") format("woff2");
-    font-weight: 700;
+    font-weight: 800;
 }
 
 @font-face {
     font-family: 'Onest';
     src: url("./fonts/OnestBold.woff2") format("woff2");
-    font-weight: 600;
+    font-weight: 700;
 }
 
 @font-face {
@@ -77,6 +83,12 @@ $link-decoration: none;
     font-family: 'Onest';
     src: url("./fonts/OnestLight.woff2") format("woff2");
     font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Onest';
+    src: url("./fonts/OnestThin.woff2") format("woff2");
+    font-weight: 100;
 }
 
 /* add additional CSS rules below */
