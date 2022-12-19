@@ -9,6 +9,8 @@ $link-hover-color: $blue-800;
 
 $link-decoration: none;
 
+$font-family-sans-serif: "Onest", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Noto Color Emoji";
+
 @import "bootstrap/scss/_variables";
 @import "bootstrap/scss/_mixins";
 @import "bootstrap/scss/_utilities";
@@ -50,43 +52,43 @@ $link-decoration: none;
 // @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
 
 @font-face {
-    font-family: 'Onest';
+    font-family: "Onest";
     src: url("./fonts/OnestBlack.woff2") format("woff2");
     font-weight: 900;
 }
 
 @font-face {
-    font-family: 'Onest';
+    font-family: "Onest";
     src: url("./fonts/OnestExtraBold.woff2") format("woff2");
     font-weight: 800;
 }
 
 @font-face {
-    font-family: 'Onest';
+    font-family: "Onest";
     src: url("./fonts/OnestBold.woff2") format("woff2");
     font-weight: 700;
 }
 
 @font-face {
-    font-family: 'Onest';
+    font-family: "Onest";
     src: url("./fonts/OnestMedium.woff2") format("woff2");
     font-weight: 500;
 }
 
 @font-face {
-    font-family: 'Onest';
+    font-family: "Onest";
     src: url("./fonts/OnestRegular.woff2") format("woff2");
     font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Onest';
+    font-family: "Onest";
     src: url("./fonts/OnestLight.woff2") format("woff2");
     font-weight: 300;
 }
 
 @font-face {
-    font-family: 'Onest';
+    font-family: "Onest";
     src: url("./fonts/OnestThin.woff2") format("woff2");
     font-weight: 100;
 }
@@ -98,10 +100,6 @@ html {
 
 .banner a {
     box-shadow: none;
-}
-
-body {
-    font-family: 'Onest', sans-serif;
 }
 
 // body {
