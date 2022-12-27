@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: *?
+Disallow: *.html
+
+User-agent: Yandex
+Disallow: *?
+Disallow: *.html
+Disallow: /amp/
+
+Sitemap: https://guides.hexlet.io/sitemap.xml
