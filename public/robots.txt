@@ -1,10 +1,10 @@
 User-agent: *
-Disallow: *?
+Disallow: /*?
 Disallow: *.html
 
 User-agent: Yandex
-Disallow: *?
-Disallow: *.html
 Disallow: /amp/
+Clean-param: utm
+Clean-param: _gl
 
 Sitemap: https://guides.hexlet.io/sitemap.xml
