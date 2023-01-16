@@ -4,6 +4,7 @@ Disallow: *.html
 
 User-agent: Yandex
 Disallow: /amp/
+Disallow: /next-app/data/posts/
 Clean-param: utm
 Clean-param: _gl
 
