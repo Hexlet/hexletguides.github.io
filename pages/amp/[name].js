@@ -1,18 +1,20 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { i18n } from '../../next-i18next.config.js';
-import { findPost, getPublishedPosts } from '../../api/index.js';
+import { findPost, getPublishedPosts, getPostAwailableLocales } from '../../api/index.js';
 import AmpLayout from '../../components/AmpLayout.jsx';
 import AmpPostPageInfo from '../../components/AmpPostPageInfo.jsx';
 import MicrometricArticles from '../../components/MicrometricArticles.jsx';
+import LanguageMarkup from '../../components/LanguageMarkup.jsx';
 
-const AmpPost = ({ post }) => {
+const AmpPost = ({ post, languageMarkup }) => {
   if (!post) {
     return null;
   }
 
   return (
     <AmpLayout title={post.header}>
+      <LanguageMarkup languageMarkup={languageMarkup} />
       <MicrometricArticles post={post} />
       <AmpPostPageInfo post={post} />
     </AmpLayout>
@@ -23,7 +25,7 @@ export const config = {
   amp: true,
 };
 
-export const getStaticProps = async ({ locale, params }) => {
+export const getStaticProps = async ({ locale, params, locales, defaultLocale }) => {
   const post = await findPost(params.name, locale);
 
   if (!post) {
@@ -41,8 +43,11 @@ export const getStaticProps = async ({ locale, params }) => {
     };
   }
 
+  const awailableLocales = await getPostAwailableLocales(params.name, locale, locales);
+
   return {
     props: {
+      languageMarkup: { awailableLocales, defaultLocale },
       post,
       ...(await serverSideTranslations(locale, ['common', 'post'])),
     },

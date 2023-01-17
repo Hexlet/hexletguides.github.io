@@ -5,6 +5,7 @@ import Script from 'next/script';
 import { getPostsList } from '../api/index.js';
 import DefaultLayout from '../components/DefaultLayout.jsx';
 import HomePageInfo from '../components/HomePageInfo.jsx';
+import LanguageMarkup from '../components/LanguageMarkup.jsx';
 
 const GTM = () => {
   return (
@@ -16,19 +17,24 @@ height="0" width="0" style={{display: 'none', visibility: 'hidden' }}></iframe><
   )
 };
 
-const Home = ({ posts }) => {
+const Home = ({ posts, languageMarkup }) => {
   const { t } = useTranslation('common');
 
   return (
     <DefaultLayout title={t('title')}>
       {process.env.NODE_ENV === 'production' ? <GTM /> : null}
+      <LanguageMarkup languageMarkup={languageMarkup} />
       <HomePageInfo posts={posts} />
     </DefaultLayout>
   );
 };
 
-export const getStaticProps = async ({ locale }) => ({
+export const getStaticProps = async ({ locale, locales, defaultLocale }) => ({
   props: {
+    languageMarkup: {
+      awailableLocales: locales,
+      defaultLocale,
+    },
     posts: await getPostsList(locale),
     ...(await serverSideTranslations(locale, ['common'])),
   },
