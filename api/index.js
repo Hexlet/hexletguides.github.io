@@ -226,3 +226,20 @@ const addLinksToContent = (matches, content) => {
   return content;
 };
 
+export const getPostAwailableLocales = async (name, locale, locales) => {
+  /// Getting posts from another locales
+   const promises = locales
+    .filter((l) => l !== locale)
+    .map(async (loc) => ({ loc, posts : await getPublishedPosts(loc) }));
+  const anotherPosts = await Promise.all(promises);
+  /// Searching for translated posts to original post
+  const awailableLocales = anotherPosts
+    .filter(({ posts }) => findLastIndex(posts, (post) => post.name === name) !== -1)
+    .map(({ loc }) => loc);
+
+  if (awailableLocales.length === 0) {
+    return null;
+  };
+
+  return [locale, ...awailableLocales];
+};

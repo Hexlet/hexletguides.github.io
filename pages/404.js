@@ -2,12 +2,14 @@ import Link from 'next/link'
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import LanguageMarkup from '../components/LanguageMarkup';
 
-const FourOhFour = () => {
+const FourOhFour = ({ languageMarkup }) => {
   const { t } = useTranslation('404');
 
   return (
     <>
+      <LanguageMarkup languageMarkup={languageMarkup} />
       <div className="container vh-100">
         <div className="d-flex justify-content-center align-items-center h-100">
           <div className="d-flex">
@@ -34,8 +36,12 @@ const FourOhFour = () => {
   );
 };
 
-export const getStaticProps = async ({ locale }) => ({
+export const getStaticProps = async ({ locale, locales, defaultLocale }) => ({
   props: {
+    languageMarkup: {
+      awailableLocales: locales,
+      defaultLocale,
+    },
     ...await serverSideTranslations(locale, ['404']),
   },
 });
