@@ -2,7 +2,7 @@
 title: Что такое транспиляция
 subtitle:
 description: Базовые понятия о транспиляции, разбор проблем, которые она решает и краткий обзор ее реализаций
-# image: "/assets/images/transpilers/cover.png"
+image: "/assets/images/transpilers/transpilers.png"
 author: Казанцев Игорь
 ---
 
