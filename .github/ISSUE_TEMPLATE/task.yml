@@ -1,0 +1,23 @@
+name: "Task"
+description: Create a new ticket for a task.
+labels:
+  - task
+
+body:
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: "Problem description"
+      description: Please enter an explicit description of the problem
+      placeholder: Short and explicit description of the problem...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: "Proposed solution"
+      description: Please enter an explicit description of the proposed solution
+      placeholder: Short and explicit description of the proposed solution...
+    validations:
+      required: true
