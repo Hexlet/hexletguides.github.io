@@ -1,0 +1,25 @@
+name: "Feature request"
+description: Create a new ticket for a feature request.
+title: "Feature request: "
+labels:
+  - feature request
+assignees: "acidmaksim"
+
+body:
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: "Problem description"
+      description: Please enter an explicit description of the proposed feature
+      placeholder: Short and explicit description of the proposed feature...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: "Proposed solution"
+      description: Please enter an explicit description of your proposed solution
+      placeholder: Short and explicit description of your proposed solution...
+    validations:
+      required: true
