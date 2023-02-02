@@ -175,7 +175,7 @@ export const generateSitemap = async (locale) => {
   const posts = await getPublishedPosts(locale);
   const visiblePosts = posts.filter(({ hidden = false }) => !hidden);
   const fields = visiblePosts.map((post) => ({
-    loc: new URL(post.href, cfg.siteURL),
+    loc: new URL(path.join(post.href, '/'), cfg.siteURL),
     lastmod: post.date,
     "image:image": `<image:loc>${new URL(post.image, cfg.siteURL)}</image:loc>`,
   }));
