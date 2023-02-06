@@ -13,7 +13,7 @@ const AmpPost = ({ post, languageMarkup }) => {
   }
 
   return (
-    <AmpLayout title={post.header}>
+    <AmpLayout title={post.title}>
       <LanguageMarkup languageMarkup={languageMarkup} />
       <MicrometricArticles post={post} />
       <AmpPostPageInfo post={post} />

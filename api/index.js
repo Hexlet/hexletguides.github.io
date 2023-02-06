@@ -52,6 +52,7 @@ const readPost = async (filePath, basePath, locale) => {
   date.setUTCHours(0, 0, 0, 0);
 
   return {
+    title,
     summary,
     content,
     sourceUrl,
@@ -99,7 +100,8 @@ const makePostRSSItem = async (post, locale) => {
   });
 
   return {
-    title: post.header,
+    title: post.title,
+    header: post.header,
     author: post.author,
     content: renderToString(contentElement),
     link: postUrl.toString(),

@@ -20,13 +20,13 @@ const Post = ({ post, languageMarkup }) => {
     short_name: cfg.disqus[locale],
     config: {
       language: locale,
-      title: post.header,
+      title: post.title,
       identifier: post.name,
     },
   };
   return (
     <DefaultLayout
-      title={post.header}
+      title={post.title}
       description={post.summary}
       author={post.author}
       image={post.image}
