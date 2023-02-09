@@ -78,7 +78,7 @@ Now using node v17
 # и какие могут понадобится зависимости в разных системах
 
 # Установка
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.1
 # После этого нужно перезапустить терминал
 echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
 
