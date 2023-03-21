@@ -8,9 +8,11 @@ import Author from './Author.jsx';
 import Disqus from './Disqus.jsx';
 import Banner from './Banner.jsx';
 import PostPageNav from './PostPageNav.jsx';
+import ExternalLink from './ExternalLink.jsx';
 
 const components = {
   Banner,
+  a: ExternalLink,
 };
 
 const PostPageInfo = ({ post, disqus }) => {
