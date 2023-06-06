@@ -104,3 +104,5 @@ author: Кирилл Мокевнин
 * [Сервис для отслеживания прогресса изучения книги](https://sicp.hexlet.io/)
 
 * [Лекции от авторов курса переведенные на русский язык](https://www.youtube.com/playlist?list=PLc6AqfeLgwzPPK1H3XV1Wfb_CGvT6sXkC)
+
+* [СИКП в Озон](https://www.ozon.ru/product/struktura-i-interpretatsiya-kompyuternyh-programm-5322055/?partner=hexlet&sh=CjnOUmRR)
