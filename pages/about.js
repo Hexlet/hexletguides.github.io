@@ -8,7 +8,7 @@ const About = ({ languageMarkup }) => {
   const { t } = useTranslation('about');
 
   return (
-    <DefaultLayout title={t('page.title')} >
+    <DefaultLayout title={t('page.title')} description={t('page.description')} >
       <LanguageMarkup languageMarkup={languageMarkup} />
       <div className="col-lg-8 mx-auto">
         <div className="mainheading">
