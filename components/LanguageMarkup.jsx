@@ -10,7 +10,7 @@ const LanguageMarkup = ({ languageMarkup }) => {
   const [path] = asPath.split('?');
   if (!awailableLocales) {
     return null;
-  };
+  }
   return (
     <Head>
       {awailableLocales.map((loc) => {
