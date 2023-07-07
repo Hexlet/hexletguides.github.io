@@ -42,6 +42,11 @@ const DefaultLayout = ({ title, description, author, image, type = 'website', ch
       <Navbar />
       <main className="container">{children}</main>
       <Footer />
+      <script src="https://cdn.jsdelivr.net/gh/hexlet/hexlet-correction@main/src/widget/index.js"></script>
+      <script>
+        handleTypoReporter({authorizationToken: 'MjI3OjQ4ODA3MzUwLTExYmYtNGI0ZC1hNTEyLTZkMTc5MWQzNmEzOQ==',
+        workSpaceUrl: 'https://hexlet-correction.herokuapp.com', workSpaceId: '227'})
+      </script>
     </>
   );
 };
