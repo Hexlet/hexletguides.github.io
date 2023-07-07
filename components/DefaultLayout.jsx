@@ -23,7 +23,7 @@ const DefaultLayout = ({ title, description, author, image, type = 'website', ch
 
   return (
     <>
-    {process.env.NODE_ENV === 'production' ?  : null}
+    {process.env.NODE_ENV === 'production' ? <GTM /> : null}
       <Head>
         <title>{fullTitle}</title>
         <link rel="icon" href={cfg.favicon} />
