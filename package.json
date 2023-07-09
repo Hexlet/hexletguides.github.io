@@ -19,7 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@mapbox/rehype-prism": "^0.8.0",
+    "@mapbox/rehype-prism": "^0.7.0",
     "@sentry/nextjs": "^7.17.3",
     "bootstrap": "^5.1.3",
     "date-fns": "^2.29.3",
