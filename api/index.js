@@ -196,7 +196,8 @@ export const generateSitemap = async (locale) => {
 const getMatches = (content) => {
   const h2Regex = /^## (.*$)/gim;
   const ignoreRegex = /`{3}([\w]*)\n([\S\s]+?)\n`{3}/gim
-  const contentWithoutMarkdown = content.replace(ignoreRegex, '');
+  const contentWithoutMLComments = content.replace(/{\/\*[\s\S]*?\*\/}/gm, '');
+  const contentWithoutMarkdown = contentWithoutMLComments.replace(ignoreRegex, '');
   const matches = contentWithoutMarkdown.match(h2Regex);
   if (matches) {
     return matches;
@@ -214,10 +215,11 @@ const addLinksToContent = (matches, content) => {
     });
 
     const links = text.map((elem) => {
-      const normilizedLink = elem.replace(/[({,})]/g, '')
-      .split(' ')
-      .join('-')
-      .toLowerCase();
+      const normilizedLink = elem
+        .replace(/[^0-9a-zа-я -]/gim, '')
+        .split(' ')
+        .join('-')
+        .toLowerCase();
       return `- [${elem}](#${normilizedLink})`;
     });
 
