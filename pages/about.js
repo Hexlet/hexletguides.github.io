@@ -8,14 +8,15 @@ const About = ({ languageMarkup }) => {
   const { t } = useTranslation('about');
 
   return (
-    <DefaultLayout title={t('page.title')} >
+    <DefaultLayout title={t('page.title')} description={t('page.description')} >
       <LanguageMarkup languageMarkup={languageMarkup} />
       <div className="col-lg-8 mx-auto">
         <div className="mainheading">
           <h1 className="posttitle">{t('page.title')}</h1>
         </div>
         <div className="article-post">
-          <p>{t('page.text')}</p>
+          <p>{t('page.p1')}</p>
+          <p dangerouslySetInnerHTML={{ __html: t('page.p2')}} />
         </div>
       </div>
     </DefaultLayout>

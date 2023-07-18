@@ -5,8 +5,10 @@ import { useRouter } from 'next/router';
 
 import cfg from '../data/config.js';
 
-import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';
+import Navbar from './Navbar.jsx';
+import Footer from './Footer.jsx';
+import Correction from './Correction.jsx';
+import GTM from './GTM.jsx';
 
 const DefaultLayout = ({ title, description, author, image, type = 'website', children }) => {
   const { t } = useTranslation('common');
@@ -21,6 +23,7 @@ const DefaultLayout = ({ title, description, author, image, type = 'website', ch
 
   return (
     <>
+    {process.env.NODE_ENV === 'production' ? <GTM /> : null}
       <Head>
         <title>{fullTitle}</title>
         <link rel="icon" href={cfg.favicon} />
@@ -42,6 +45,7 @@ const DefaultLayout = ({ title, description, author, image, type = 'website', ch
       <Navbar />
       <main className="container">{children}</main>
       <Footer />
+      <Correction />
     </>
   );
 };

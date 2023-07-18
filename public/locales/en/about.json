@@ -1,6 +1,8 @@
 {
   "page": {
     "title": "About",
-    "text": "Hexlet Guides is an open source project created and supported by Hexlet's community. Join to our community, publish new guides, help with editing."
+    "description": "About Hexlet Guides",
+    "p1": "Hexlet Guides is an open source project created and supported by Hexlet's community. Join to our community, publish new guides, help with editing.",
+    "p2": "The site has a mechanism for sending messages on a selected piece of text. The <kbd>ctrl + enter</kbd> combination shows a box through which you can report a problem, or suggest another text option. Or send <a href=\"https://github.com/Hexlet/hexletguides.github.io\" target=\"_blank\">Pull request</a> with a correction."
   }
 }
