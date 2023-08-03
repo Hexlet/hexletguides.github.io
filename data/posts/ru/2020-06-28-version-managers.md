@@ -82,6 +82,9 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.1
 # После этого нужно перезапустить терминал
 echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
 
+# Активируем внесённые изменения
+source ~/.bashrc
+
 # Для работы с конкретным языком, сначала нужно подключить соответствующий плагин
 # Список доступных плагинов есть на сайте проекта
 asdf plugin add nodejs
