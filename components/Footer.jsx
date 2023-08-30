@@ -4,10 +4,23 @@ import { useTranslation } from 'next-i18next';
 
 const Footer = () => {
   const { t, i18n } = useTranslation('common');
+  const getYear = () => {
+    const year = new Date().getFullYear();
+    return year;
+  }
 
   return (
     <footer className="footer container text-center">
       <ul className="p-0 mb-1 small">
+        <li>
+          <span className="me-1">&copy;</span>
+          <Link href={t('footer.hexlet.url')}>
+            <a alt={t('footer.hexlet.title')} target="_blank">
+              {t('footer.hexlet.title')}
+            </a>
+          </Link>,
+          <span className="ms-1">{getYear()}</span>
+        </li>
         <li>
           <Link href="/about">
             <a alt={t('footer.about.title')}>{t('footer.about.title')}</a>

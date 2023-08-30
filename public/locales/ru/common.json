@@ -17,6 +17,10 @@
     }
   },
   "footer": {
+    "hexlet": {
+      "title": "Хекслет",
+      "url": "https://ru.hexlet.io"
+    },
     "about": {
       "title": "О проекте"
     },

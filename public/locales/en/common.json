@@ -17,6 +17,10 @@
     }
   },
   "footer": {
+    "hexlet": {
+      "title": "Hexlet",
+      "url": "https://hexlet.io"
+    },
     "about": {
       "title": "About"
     },
