@@ -96,7 +96,7 @@ author: Валерий Жила
 D[i, j] = minimum(
 	D[i-1, j] + 1,                              // delete
 	D[i, j-1] + 1,                              // insert
-	D[i-1, j-1] + (A[i-1] == B[j-1] ? 1 : 0)    // replace
+	D[i-1, j-1] + (A[i-1] == B[j-1] ? 0 : 1)    // replace
 )
 ```
 
