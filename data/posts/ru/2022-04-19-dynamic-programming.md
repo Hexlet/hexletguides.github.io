@@ -2,6 +2,7 @@
 title: Что такое динамическое программирование
 subtitle:
 description: Рассказываем, как решать задачи без эффективного алгоритма максимально быстро
+image: "/assets/images/dynamic-programming/dynamic-programming.png"
 author: Валерий Жила
 ---
 
