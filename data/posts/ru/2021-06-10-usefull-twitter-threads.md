@@ -3,6 +3,7 @@ title: Полезные треды в твиттере
 # subtitle: Front-End фреймворк для быстрой и простой веб-разработки.
 description: Гайд, в котором мы собрали ссылки на любопытные твиты про TDD, ООП, функции, идемпотентность и многое другое
 # image: "/assets/images/bootstrap/bootstrap.jpeg"
+image: "/assets/images/usefull-twitter-threads/usefull-twitter-threads.png"
 author: Кирилл Мокевнин
 ---
 
