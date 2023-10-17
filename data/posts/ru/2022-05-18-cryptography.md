@@ -2,6 +2,7 @@
 title: Что такое криптография?
 subtitle: Что такое криптография и как она используется для защиты личной информации
 description: Криптография в информационной безопасности
+image: "/assets/images/cryptography/cryptography.png"
 author: Василий Васильев
 ---
 
