@@ -124,7 +124,7 @@ export const getPublishedPosts = async (locale) => {
   const promises = fileNames
     .sort((a, b) => a.localeCompare(b))
     .map(async (name) => readPost(path.join(postsPath, name), dir, locale));
-
+  
   return await Promise.all(promises);
 };
 
@@ -135,21 +135,7 @@ export const getPostsList = async (locale) => {
 };
 
 export const findPost = async (name, locale) => {
-  const getNextPost = (postIndex, postsCount) => {
-    if (postIndex === postsCount) {
-      return posts[0];
-    }
-    return !posts[postIndex + 1].hidden ? posts[postIndex + 1] : getNextPost(postIndex + 1, postsCount);
-  };
-
-  const getPrevPost = (postIndex, postsCount) => {
-    if (postIndex === 0) {
-      return posts[postsCount];
-    }
-    return !posts[postIndex - 1].hidden ? posts[postIndex - 1] : getNextPost(postIndex - 1, postsCount);
-  };
-  
-  const posts = await getPublishedPosts(locale);
+  const posts = await getPostsList(locale);
   const postIndex = findLastIndex(posts, (post) => post.name === name);
 
   if (postIndex === -1) {
@@ -157,8 +143,8 @@ export const findPost = async (name, locale) => {
   }
 
   const postsCount = posts.length - 1;
-  const nextPost = getNextPost(postIndex, postsCount);
-  const prevPost = getPrevPost(postIndex, postsCount);
+  const nextPost = postIndex === postsCount ? posts[0] : posts[postIndex + 1];
+  const prevPost = postIndex === 0 ? posts[postsCount] : posts[postIndex - 1];
 
   const { content, ...props } = posts[postIndex];
 
