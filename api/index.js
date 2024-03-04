@@ -112,7 +112,7 @@ const makePostRSSItem = async (post, locale) => {
   };
 };
 
-export const getPublishedPosts = async (locale) => {
+export const getPosts = async (locale) => {
   const dir = process.cwd();
   const postsPath = path.join('data', 'posts', locale);
   const entries = await fsp.readdir(path.join(dir, postsPath), { withFileTypes: true });
@@ -129,7 +129,7 @@ export const getPublishedPosts = async (locale) => {
 };
 
 export const getPostsList = async (locale) => {
-  const posts = await getPublishedPosts(locale);
+  const posts = await getPosts(locale);
 
   return posts.filter(({ hidden = false }) => !hidden).reverse();
 };
@@ -157,7 +157,7 @@ export const findPost = async (name, locale) => {
 };
 
 export const generateRssFeed = async (locale) => {
-  const posts = await getPublishedPosts(locale);
+  const posts = await getPosts(locale);
   const promises = posts.filter(({ hidden = false }) => !hidden).map((post) => makePostRSSItem(post, locale));
 
   const feedItems = await Promise.all(promises);
@@ -174,7 +174,7 @@ export const generateRssFeed = async (locale) => {
 };
 
 export const generateSitemap = async (locale) => {
-  const posts = await getPublishedPosts(locale);
+  const posts = await getPosts(locale);
   const visiblePosts = posts.filter(({ hidden = false }) => !hidden);
   const fields = visiblePosts.map((post) => ({
     loc: new URL(path.join(post.href, '/'), cfg.siteURL),
@@ -234,7 +234,7 @@ export const getPostAwailableLocales = async (name, locale, locales) => {
   /// Getting posts from another locales
    const promises = locales
     .filter((l) => l !== locale)
-    .map(async (loc) => ({ loc, posts : await getPublishedPosts(loc) }));
+    .map(async (loc) => ({ loc, posts : await getPosts(loc) }));
   const anotherPosts = await Promise.all(promises);
   /// Searching for translated posts to original post
   const awailableLocales = anotherPosts
