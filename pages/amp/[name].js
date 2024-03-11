@@ -1,7 +1,7 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { i18n } from '../../next-i18next.config.js';
-import { findPost, getPublishedPosts, getPostAwailableLocales } from '../../api/index.js';
+import { findPost, getPostAwailableLocales, getPostsList } from '../../api/index.js';
 import AmpLayout from '../../components/AmpLayout.jsx';
 import AmpPostPageInfo from '../../components/AmpPostPageInfo.jsx';
 import MicrometricArticles from '../../components/MicrometricArticles.jsx';
@@ -56,7 +56,7 @@ export const getStaticProps = async ({ locale, params, locales, defaultLocale })
 
 export const getStaticPaths = async () => {
   const promises = i18n.locales.map(async (locale) => {
-    const posts = await getPublishedPosts(locale);
+    const posts = await getPostsList(locale);
 
     return posts
       .filter(({ redirect_to }) => !redirect_to)
