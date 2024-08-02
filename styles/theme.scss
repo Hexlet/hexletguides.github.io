@@ -12,6 +12,8 @@ $link-decoration: none;
 $font-family-sans-serif: "Onest", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Noto Color Emoji";
 
 @import "bootstrap/scss/_variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
 @import "bootstrap/scss/_mixins";
 @import "bootstrap/scss/_utilities";
 
