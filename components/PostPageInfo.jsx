@@ -5,7 +5,6 @@ import { MDXRemote } from 'next-mdx-remote';
 import { useTranslation } from 'next-i18next';
 
 import Author from './Author.jsx';
-import Disqus from './Disqus.jsx';
 import Banner from './Banner.jsx';
 import PostPageNav from './PostPageNav.jsx';
 import ExternalLink from './ExternalLink.jsx';
@@ -15,7 +14,7 @@ const components = {
   a: ExternalLink,
 };
 
-const PostPageInfo = ({ post, disqus }) => {
+const PostPageInfo = ({ post }) => {
   const { t } = useTranslation('post');
 
   const postImage = post.image ? (
@@ -44,11 +43,6 @@ const PostPageInfo = ({ post, disqus }) => {
           </span>
           <Author name={post.author} url={post.author_url} />
         </div>
-        <section>
-          <div id="comments">
-            <Disqus shortName={disqus.short_name} config={disqus.config} />
-          </div>
-        </section>
       </div>
     </div>
   );

@@ -16,14 +16,6 @@ const Post = ({ post, languageMarkup }) => {
     return null;
   }
 
-  const disqus = {
-    short_name: cfg.disqus[locale],
-    config: {
-      language: locale,
-      title: post.title,
-      identifier: post.name,
-    },
-  };
   return (
     <DefaultLayout
       title={post.title}
@@ -34,7 +26,7 @@ const Post = ({ post, languageMarkup }) => {
     >
       <LanguageMarkup languageMarkup={languageMarkup} />
       <MicrometricArticles post={post} />
-      <PostPageInfo post={post} disqus={disqus} />
+      <PostPageInfo post={post} />
     </DefaultLayout>
   );
 };
