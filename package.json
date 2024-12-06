@@ -23,7 +23,6 @@
     "@sentry/nextjs": "^7.17.3",
     "bootstrap": "^5.1.3",
     "date-fns": "^2.29.3",
-    "disqus-react": "^1.1.3",
     "file-loader": "^6.2.0",
     "gray-matter": "^4.0.3",
     "lodash.capitalize": "^4.2.1",

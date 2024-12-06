@@ -13,10 +13,6 @@ const config = {
   logo: '/images/hexlet_logo.png',
   favicon: '/assets/images/favicons/favicon-128.png',
   author: 'Kirill Mokevnin',
-  disqus: {
-    ru: 'hexlet-guides',
-    en: 'hexlet-guides-en',
-  },
   amp: {
     analytics: {
       metrikaCounterId: '65474386',
